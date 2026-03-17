@@ -1,0 +1,4 @@
+client_secret*
+*.pickle
+token.json
+google-ads.yaml

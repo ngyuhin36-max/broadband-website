@@ -445,6 +445,17 @@ body {
     text-decoration: none;
 }
 
+/* === Comparison === */
+.comparison {
+    padding: 100px 0;
+    background: var(--light);
+}
+
+/* === FAQ === */
+.faq {
+    padding: 100px 0;
+}
+
 /* === Footer === */
 .footer {
     padding: 28px 0;

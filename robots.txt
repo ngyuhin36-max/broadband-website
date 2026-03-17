@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://broadbandhk.com/sitemap.xml
