@@ -355,41 +355,36 @@
 <!-- Speed Test Widget -->
 <div class="container">
     <div class="st-widget">
-        <div class="st-gauge" id="gauge">
-            <div class="st-gauge-inner">
-                <div class="st-speed-num" id="speedNum">0</div>
-                <div class="st-speed-unit">Mbps</div>
-                <div class="st-speed-label" id="speedLabel">下載速度</div>
-            </div>
+        <div style="margin-bottom: 24px;">
+            <svg viewBox="0 0 120 120" width="100" height="100" style="margin: 0 auto; display: block;">
+                <circle cx="60" cy="60" r="54" fill="none" stroke="#e2e8f0" stroke-width="8"/>
+                <path d="M60 6 A54 54 0 1 1 12 80" fill="none" stroke="url(#stGrad)" stroke-width="8" stroke-linecap="round"/>
+                <defs><linearGradient id="stGrad"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#22c55e"/></linearGradient></defs>
+                <text x="60" y="55" text-anchor="middle" fill="var(--dark)" font-size="16" font-weight="900">Speed</text>
+                <text x="60" y="72" text-anchor="middle" fill="var(--gray)" font-size="10" font-weight="600">Test</text>
+            </svg>
         </div>
-        <button class="st-btn" id="startBtn" onclick="startTest()">開始測試</button>
-        <div class="st-status" id="status"></div>
-        <div class="st-results">
-            <div class="st-result-card">
-                <h4>⬇ 下載速度</h4>
-                <span class="st-result-val" id="dlResult">—</span>
-                <span class="st-result-unit">Mbps</span>
-            </div>
-            <div class="st-result-card">
-                <h4>⬆ 上傳速度</h4>
-                <span class="st-result-val" id="ulResult">—</span>
-                <span class="st-result-unit">Mbps</span>
-            </div>
-            <div class="st-result-card">
-                <h4>📶 Ping</h4>
-                <span class="st-result-val" id="pingResult">—</span>
-                <span class="st-result-unit">ms</span>
-            </div>
-        </div>
+        <h2 style="font-size: 1.5rem; margin-bottom: 8px;">測試你的寬頻速度</h2>
+        <p style="color: var(--gray); margin-bottom: 24px; font-size: 0.95rem;">使用 Speedtest by Ookla 進行專業測速，結果最準確</p>
+        <a href="https://www.speedtest.net/zh-Hant" target="_blank" rel="noopener" class="st-btn" style="text-decoration: none;">開始測試 →</a>
+        <p style="color: var(--gray); font-size: 0.8rem; margin-top: 16px;">會跳轉至 Speedtest.net 進行測試</p>
 
-        <div class="st-rating" id="ratingSection">
-            <div class="st-rating-bar">
-                <div class="st-rating-fill" id="ratingFill"></div>
+        <div style="margin-top: 32px; padding-top: 32px; border-top: 1px solid #e2e8f0;">
+            <h3 style="font-size: 1.1rem; margin-bottom: 16px;">測速後點解讀結果？</h3>
+            <div class="st-results">
+                <div class="st-result-card">
+                    <h4>⬇ 下載速度</h4>
+                    <p style="color: var(--gray); font-size: 0.85rem; line-height: 1.6; margin: 0;">影響睇片、下載檔案嘅速度。100Mbps 以上為佳。</p>
+                </div>
+                <div class="st-result-card">
+                    <h4>⬆ 上傳速度</h4>
+                    <p style="color: var(--gray); font-size: 0.85rem; line-height: 1.6; margin: 0;">影響視像會議、上傳檔案。10Mbps 以上為佳。</p>
+                </div>
+                <div class="st-result-card">
+                    <h4>📶 Ping（延遲）</h4>
+                    <p style="color: var(--gray); font-size: 0.85rem; line-height: 1.6; margin: 0;">影響打機、即時通訊。20ms 以下為佳。</p>
+                </div>
             </div>
-            <div class="st-rating-labels">
-                <span>慢</span><span>一般</span><span>快</span><span>極速</span>
-            </div>
-            <div class="st-verdict" id="verdict"></div>
         </div>
     </div>
 </div>
@@ -514,111 +509,7 @@
 </footer>
 
 <script>
-// Simulated speed test
-let testing = false;
-
-function startTest() {
-    if (testing) return;
-    testing = true;
-    const btn = document.getElementById('startBtn');
-    btn.disabled = true;
-    btn.textContent = '測試中...';
-    document.getElementById('ratingSection').classList.remove('show');
-
-    // Reset
-    document.getElementById('dlResult').textContent = '—';
-    document.getElementById('ulResult').textContent = '—';
-    document.getElementById('pingResult').textContent = '—';
-
-    // Simulate Ping test
-    document.getElementById('status').textContent = '正在測試 Ping...';
-    document.getElementById('speedLabel').textContent = 'Ping';
-    let pingVal = Math.floor(Math.random() * 8) + 2;
-
-    setTimeout(() => {
-        document.getElementById('speedNum').textContent = pingVal;
-        document.getElementById('pingResult').textContent = pingVal;
-
-        // Simulate download test
-        document.getElementById('status').textContent = '正在測試下載速度...';
-        document.getElementById('speedLabel').textContent = '下載速度';
-        let dlTarget = Math.floor(Math.random() * 400) + 80;
-        animateSpeed(dlTarget, 2000, (val) => {
-            document.getElementById('speedNum').textContent = val;
-            updateGauge(val, 1000);
-        }, () => {
-            document.getElementById('dlResult').textContent = dlTarget;
-
-            // Simulate upload test
-            document.getElementById('status').textContent = '正在測試上傳速度...';
-            document.getElementById('speedLabel').textContent = '上傳速度';
-            let ulTarget = Math.floor(dlTarget * (0.85 + Math.random() * 0.15));
-            animateSpeed(ulTarget, 2000, (val) => {
-                document.getElementById('speedNum').textContent = val;
-                updateGauge(val, 1000);
-            }, () => {
-                document.getElementById('ulResult').textContent = ulTarget;
-                document.getElementById('status').textContent = '測試完成！';
-                document.getElementById('speedNum').textContent = dlTarget;
-                document.getElementById('speedLabel').textContent = '下載速度';
-                updateGauge(dlTarget, 1000);
-                showRating(dlTarget, ulTarget, pingVal);
-                btn.disabled = false;
-                btn.textContent = '重新測試';
-                testing = false;
-            });
-        });
-    }, 800);
-}
-
-function animateSpeed(target, duration, onUpdate, onComplete) {
-    let start = Date.now();
-    function tick() {
-        let elapsed = Date.now() - start;
-        let progress = Math.min(elapsed / duration, 1);
-        let eased = 1 - Math.pow(1 - progress, 3);
-        let current = Math.floor(target * eased + (Math.random() * 20 - 10));
-        current = Math.max(0, Math.min(current, target + 30));
-        onUpdate(current);
-        if (progress < 1) {
-            requestAnimationFrame(tick);
-        } else {
-            onUpdate(target);
-            onComplete();
-        }
-    }
-    tick();
-}
-
-function updateGauge(value, max) {
-    let deg = Math.min((value / max) * 360, 360);
-    let color = value < 50 ? '#ef4444' : value < 200 ? '#f59e0b' : '#22c55e';
-    document.getElementById('gauge').style.background = `conic-gradient(${color} ${deg}deg, #e2e8f0 ${deg}deg)`;
-}
-
-function showRating(dl, ul, ping) {
-    let section = document.getElementById('ratingSection');
-    section.classList.add('show');
-    let score = Math.min(dl / 1000 * 100, 100);
-    let fill = document.getElementById('ratingFill');
-    fill.style.width = score + '%';
-    fill.style.background = score < 25 ? '#ef4444' : score < 50 ? '#f59e0b' : score < 75 ? '#22c55e' : '#2563eb';
-
-    let verdict = document.getElementById('verdict');
-    if (dl >= 500) {
-        verdict.textContent = '🚀 極速！你嘅寬頻速度非常快，適合任何用途。';
-        verdict.style.color = '#2563eb';
-    } else if (dl >= 200) {
-        verdict.textContent = '✅ 好快！足夠多人同時上網、4K 串流、打機。';
-        verdict.style.color = '#22c55e';
-    } else if (dl >= 50) {
-        verdict.textContent = '👍 正常速度，適合日常使用。如需多人同時上網，可考慮升級。';
-        verdict.style.color = '#f59e0b';
-    } else {
-        verdict.innerHTML = '⚠️ 速度偏慢，建議考慮升級寬頻計劃。<a href="https://wa.me/85252287541?text=你好，我做咗速度測試只有' + dl + 'Mbps，想查詢升級" style="color:var(--primary);font-weight:700;">WhatsApp 查詢升級</a>';
-        verdict.style.color = '#ef4444';
-    }
-}
+// Page is informational - speed test handled by Speedtest.net
 </script>
 
 </body>
