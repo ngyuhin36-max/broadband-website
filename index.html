@@ -159,6 +159,57 @@
     }
     </script>
 
+    <!-- 結構化數據 - 客戶評價 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "BroadbandHK 寬頻格價比較",
+        "url": "https://broadbandhk.com",
+        "review": [
+            {
+                "@type": "Review",
+                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+                "author": {"@type": "Person", "name": "陳先生"},
+                "reviewBody": "之前用開大公司嘅寬頻，成日斷線。轉咗 BroadbandHK 之後穩定好多，而且月費平咗成 $100！",
+                "datePublished": "2026-02-15"
+            },
+            {
+                "@type": "Review",
+                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+                "author": {"@type": "Person", "name": "王小姐"},
+                "reviewBody": "安裝師傅好準時，WhatsApp 客服回覆又快。終於搵到一間值得信賴嘅寬頻公司。",
+                "datePublished": "2026-02-28"
+            },
+            {
+                "@type": "Review",
+                "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+                "author": {"@type": "Person", "name": "李先生"},
+                "reviewBody": "我係做網店生意，需要穩定嘅上網速度。BroadbandHK 嘅 1000M 計劃真係又快又穩，推薦！",
+                "datePublished": "2026-03-05"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "3",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    }
+    </script>
+
+    <!-- 結構化數據 - Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://broadbandhk.com/"}
+        ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -933,6 +984,7 @@
             <li><a href="#features">服務特色</a></li>
             <li><a href="#reviews">客戶評價</a></li>
             <li><a href="blog.html">知識庫</a></li>
+            <li><a href="speed-test.html">速度測試</a></li>
             <li><a href="#contact">聯絡我們</a></li>
         </ul>
         <a href="https://wa.me/85252287541" class="btn btn-small">WhatsApp 查詢</a>
@@ -1209,6 +1261,7 @@
             <a href="#plans" class="tab-item active">家居寬頻</a>
             <a href="pages/business.html" class="tab-item">商業寬頻</a>
             <a href="blog.html" class="tab-item">知識庫</a>
+            <a href="speed-test.html" class="tab-item">速度測試</a>
             <a href="#contact" class="tab-item">聯絡我們</a>
         </div>
     </div>
@@ -1534,6 +1587,8 @@
             <a href="pages/district-kwai-tsing.html" class="district-chip">葵青區</a>
             <a href="pages/district-islands.html" class="district-chip">離島區</a>
         </div>
+
+        <p style="text-align:center; color:rgba(255,255,255,0.5); font-size:0.9rem; margin-top:24px; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.8;">BroadbandHK 寬頻覆蓋全港 18 區，包括觀塘、沙田、將軍澳、荃灣、屯門、元朗、大埔、深水埗、九龍城、油尖旺、灣仔、中西區、東區等地區。無論你住公屋、私樓、居屋定村屋，都可以享受月費低至 $98 嘅光纖寬頻服務。</p>
 
         <h2 class="section-title" style="margin-top:60px;">商業寬頻</h2>
         <p class="section-subtitle">覆蓋全港 1,648 個商業物業</p>

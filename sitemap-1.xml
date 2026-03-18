@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://broadbandhk.com/</loc></url>
-  <url><loc>https://broadbandhk.com/blog.html</loc></url>
-  <url><loc>https://broadbandhk.com/kb/fibre-vs-copper.html</loc></url>
-  <url><loc>https://broadbandhk.com/kb/contract-expiry.html</loc></url>
-  <url><loc>https://broadbandhk.com/kb/village-house-broadband.html</loc></url>
-  <url><loc>https://broadbandhk.com/kb/router-guide.html</loc></url>
-  <url><loc>https://broadbandhk.com/kb/district-broadband-guide.html</loc></url>
+  <url><loc>https://broadbandhk.com/</loc><lastmod>2026-03-19</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://broadbandhk.com/blog.html</loc><lastmod>2026-03-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://broadbandhk.com/kb/fibre-vs-copper.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/contract-expiry.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/village-house-broadband.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/router-guide.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/district-broadband-guide.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/speed-test-guide.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/public-housing-broadband.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/wfh-broadband.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/mesh-wifi-guide.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/broadband-cost-saving.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/streaming-broadband.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/ftth-vs-fttb.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/kb/5g-vs-fibre.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://broadbandhk.com/speed-test.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://broadbandhk.com/pages/%23lyos.html</loc></url>
   <url><loc>https://broadbandhk.com/pages/1-cheong-san.html</loc></url>
   <url><loc>https://broadbandhk.com/pages/1-lyndhurst-tower.html</loc></url>

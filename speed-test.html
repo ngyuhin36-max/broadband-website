@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寬頻速度測試 | 免費測試你的上網速度 — BroadbandHK</title>
+    <meta name="description" content="免費寬頻速度測試工具！即時測試你的下載速度、上傳速度同 Ping 值。了解你的寬頻是否達標，BroadbandHK 幫你分析結果。">
+    <meta name="keywords" content="寬頻速度測試, speed test, 網速測試, 上網速度測試, 寬頻測速, 下載速度, 上傳速度, ping測試">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://broadbandhk.com/speed-test.html">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://broadbandhk.com/speed-test.html">
+    <meta property="og:title" content="寬頻速度測試 | 免費測試你的上網速度">
+    <meta property="og:description" content="免費寬頻速度測試工具！即時測試你的下載速度、上傳速度同 Ping 值。">
+    <meta property="og:locale" content="zh_HK">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BroadbandHK 寬頻速度測試",
+        "url": "https://broadbandhk.com/speed-test.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"},
+        "description": "免費寬頻速度測試工具，即時測試下載速度、上傳速度同 Ping 值"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "點樣測試寬頻速度？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "用 BroadbandHK 速度測試工具，只需按一下「開始測試」按鈕，幾秒內就可以知道你的下載速度、上傳速度同 Ping 值。建議用網線連接測試，結果最準確。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "點解測速結果同合約速度唔同？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "合約標示嘅係最高速度，實際速度會受多種因素影響：WiFi 信號強弱、Router 性能、測試時段、連接裝置數量等。用網線直接連接 Router 測試，結果會最接近合約速度。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "幾多 Mbps 先算快？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "日常上網瀏覽：10-25Mbps 已夠用。睇 Netflix 4K：至少 25Mbps。打機：50Mbps 以上。在家工作視像會議：50-100Mbps。多人家庭：200Mbps 以上最理想。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://broadbandhk.com/"},
+            {"@type": "ListItem", "position": 2, "name": "寬頻速度測試", "item": "https://broadbandhk.com/speed-test.html"}
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html, body { overflow-x: hidden; width: 100%; }
+        .st-hero {
+            padding: 140px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #2563eb 100%);
+            color: #fff;
+        }
+        .st-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 12px; }
+        .st-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.7); }
+        .st-breadcrumb { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+        .st-breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        .navbar { background: rgba(15,23,42,0.97); backdrop-filter: blur(12px); padding: 0; box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
+        .nav-container { height: 64px; }
+        .logo { color: #fff !important; font-size: 1.4rem; }
+        .nav-links a { color: #cbd5e1 !important; font-size: 0.95rem; }
+        .nav-links a:hover { color: #60a5fa !important; }
+        .btn-small { background: linear-gradient(135deg, #22c55e, #16a34a) !important; border-radius: 24px !important; }
+
+        /* Speed Test Widget */
+        .st-widget {
+            max-width: 700px;
+            margin: -60px auto 0;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            padding: 48px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .st-gauge {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary) 0deg, #e2e8f0 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            position: relative;
+            transition: background 1s ease;
+        }
+        .st-gauge-inner {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .st-speed-num {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            line-height: 1;
+        }
+        .st-speed-unit {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+        .st-speed-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+        .st-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .st-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+        }
+        .st-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .st-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+        .st-result-card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .st-result-card h4 {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .st-result-val {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--dark);
+        }
+        .st-result-unit {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        .st-status {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            color: var(--gray);
+            min-height: 24px;
+        }
+
+        /* Rating bar */
+        .st-rating {
+            margin-top: 32px;
+            display: none;
+        }
+        .st-rating.show { display: block; }
+        .st-rating-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 12px 0;
+        }
+        .st-rating-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        .st-rating-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+        .st-verdict {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 16px;
+        }
+
+        /* Tips section */
+        .st-tips {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .tip-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .tip-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .tip-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Speed reference table */
+        .speed-ref {
+            padding: 80px 0;
+        }
+        .ref-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 32px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .ref-table th {
+            background: #0f172a;
+            color: #fff;
+            padding: 14px 16px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .ref-table td {
+            padding: 14px 16px;
+            text-align: center;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .ref-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* CTA */
+        .st-cta {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: #fff;
+        }
+        .st-cta h2 { font-size: 2rem; margin-bottom: 12px; }
+        .st-cta p { font-size: 1.1rem; margin-bottom: 24px; opacity: 0.9; }
+        .st-cta .cta-btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: #fff;
+            color: #2563eb;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .st-cta .cta-btn:hover { background: #f0f7ff; transform: translateY(-2px); }
+
+        .footer { background: #0a1628; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .st-hero h1 { font-size: 2rem; }
+            .st-widget { margin: -40px 16px 0; padding: 32px 20px; }
+            .st-results { grid-template-columns: 1fr; }
+            .tips-grid { grid-template-columns: 1fr; }
+            .st-gauge { width: 180px; height: 180px; }
+            .st-gauge-inner { width: 148px; height: 148px; }
+            .st-speed-num { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">⚡ BroadbandHK</a>
+        <ul class="nav-links">
+            <li><a href="index.html#plans">月費計劃</a></li>
+            <li><a href="index.html#features">服務特色</a></li>
+            <li><a href="blog.html">知識庫</a></li>
+            <li><a href="index.html#contact">聯絡我們</a></li>
+        </ul>
+        <a href="https://wa.me/85252287541" class="btn btn-small">WhatsApp 查詢</a>
+    </div>
+</nav>
+
+<section class="st-hero">
+    <div class="container">
+        <div class="st-breadcrumb"><a href="index.html">首頁</a> &gt; 寬頻速度測試</div>
+        <h1>寬頻速度測試</h1>
+        <p>即時測試你的下載速度、上傳速度同 Ping 值</p>
+    </div>
+</section>
+
+<!-- Speed Test Widget -->
+<div class="container">
+    <div class="st-widget">
+        <div class="st-gauge" id="gauge">
+            <div class="st-gauge-inner">
+                <div class="st-speed-num" id="speedNum">0</div>
+                <div class="st-speed-unit">Mbps</div>
+                <div class="st-speed-label" id="speedLabel">下載速度</div>
+            </div>
+        </div>
+        <button class="st-btn" id="startBtn" onclick="startTest()">開始測試</button>
+        <div class="st-status" id="status"></div>
+        <div class="st-results">
+            <div class="st-result-card">
+                <h4>⬇ 下載速度</h4>
+                <span class="st-result-val" id="dlResult">—</span>
+                <span class="st-result-unit">Mbps</span>
+            </div>
+            <div class="st-result-card">
+                <h4>⬆ 上傳速度</h4>
+                <span class="st-result-val" id="ulResult">—</span>
+                <span class="st-result-unit">Mbps</span>
+            </div>
+            <div class="st-result-card">
+                <h4>📶 Ping</h4>
+                <span class="st-result-val" id="pingResult">—</span>
+                <span class="st-result-unit">ms</span>
+            </div>
+        </div>
+
+        <div class="st-rating" id="ratingSection">
+            <div class="st-rating-bar">
+                <div class="st-rating-fill" id="ratingFill"></div>
+            </div>
+            <div class="st-rating-labels">
+                <span>慢</span><span>一般</span><span>快</span><span>極速</span>
+            </div>
+            <div class="st-verdict" id="verdict"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Speed Reference -->
+<section class="speed-ref">
+    <div class="container">
+        <h2 class="section-title">各種用途需要幾多 Mbps？</h2>
+        <table class="ref-table">
+            <tr>
+                <th>用途</th>
+                <th>建議最低速度</th>
+                <th>推薦 BroadbandHK 計劃</th>
+            </tr>
+            <tr>
+                <td>瀏覽網頁 / 社交媒體</td>
+                <td>5-10 Mbps</td>
+                <td>基本版 100M ($98/月)</td>
+            </tr>
+            <tr>
+                <td>Netflix / YouTube 高清</td>
+                <td>10-25 Mbps</td>
+                <td>基本版 100M ($98/月)</td>
+            </tr>
+            <tr>
+                <td>Netflix 4K / Disney+ 4K</td>
+                <td>25-50 Mbps</td>
+                <td>基本版 100M ($98/月)</td>
+            </tr>
+            <tr>
+                <td>Zoom / Teams 視像會議</td>
+                <td>10-30 Mbps</td>
+                <td>進階版 500M ($158/月)</td>
+            </tr>
+            <tr>
+                <td>在家工作 + VPN</td>
+                <td>50-100 Mbps</td>
+                <td>進階版 500M ($158/月)</td>
+            </tr>
+            <tr>
+                <td>打機（低延遲）</td>
+                <td>50-100 Mbps</td>
+                <td>進階版 500M ($158/月)</td>
+            </tr>
+            <tr>
+                <td>4K 串流 + 多人同時上網</td>
+                <td>200+ Mbps</td>
+                <td>極速版 1000M ($228/月)</td>
+            </tr>
+            <tr>
+                <td>直播 / 上傳大量影片</td>
+                <td>300+ Mbps</td>
+                <td>極速版 1000M ($228/月)</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- Tips -->
+<section class="st-tips">
+    <div class="container">
+        <h2 class="section-title">點樣測速最準確？</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h3>🔌 用網線連接</h3>
+                <p>WiFi 會影響測速結果。用網線直接連接 Router，測出嚟嘅速度最接近你嘅寬頻實際速度。</p>
+            </div>
+            <div class="tip-card">
+                <h3>📱 關閉其他裝置</h3>
+                <p>測速時確保其他裝置唔好佔用頻寬（例如下載檔案、睇片），否則結果會偏低。</p>
+            </div>
+            <div class="tip-card">
+                <h3>🕐 揀啱時間</h3>
+                <p>繁忙時段（晚上 8-11 點）速度可能稍低。建議喺唔同時段多測幾次，取平均值。</p>
+            </div>
+            <div class="tip-card">
+                <h3>🔄 重啟 Router</h3>
+                <p>如果測速結果異常偏低，試下重啟 Router 再測。有時 Router 運作耐咗會影響速度。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding: 80px 0;">
+    <div class="container">
+        <h2 class="section-title">常見問題</h2>
+        <div style="max-width:800px; margin:40px auto 0;">
+            <details style="margin-bottom:12px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+                <summary style="padding:20px 24px; font-weight:700; cursor:pointer; font-size:1rem; background:#fff;">點樣測試寬頻速度？</summary>
+                <p style="padding:0 24px 20px; color:var(--gray); line-height:1.8;">用 BroadbandHK 速度測試工具，只需按一下「開始測試」按鈕，幾秒內就可以知道你的下載速度、上傳速度同 Ping 值。建議用網線連接測試，結果最準確。</p>
+            </details>
+            <details style="margin-bottom:12px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+                <summary style="padding:20px 24px; font-weight:700; cursor:pointer; font-size:1rem; background:#fff;">點解測速結果同合約速度唔同？</summary>
+                <p style="padding:0 24px 20px; color:var(--gray); line-height:1.8;">合約標示嘅係最高速度，實際速度會受多種因素影響：WiFi 信號強弱、Router 性能、測試時段、連接裝置數量等。用網線直接連接 Router 測試，結果會最接近合約速度。</p>
+            </details>
+            <details style="margin-bottom:12px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+                <summary style="padding:20px 24px; font-weight:700; cursor:pointer; font-size:1rem; background:#fff;">幾多 Mbps 先算快？</summary>
+                <p style="padding:0 24px 20px; color:var(--gray); line-height:1.8;">日常上網瀏覽：10-25Mbps 已夠用。睇 Netflix 4K：至少 25Mbps。打機：50Mbps 以上。在家工作視像會議：50-100Mbps。多人家庭：200Mbps 以上最理想。</p>
+            </details>
+            <details style="margin-bottom:12px; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+                <summary style="padding:20px 24px; font-weight:700; cursor:pointer; font-size:1rem; background:#fff;">測速結果好慢，點算？</summary>
+                <p style="padding:0 24px 20px; color:var(--gray); line-height:1.8;">先試下重啟 Router、用網線測試、關閉其他裝置。如果仍然唔達標，可能係 Router 太舊或者寬頻計劃唔夠快。BroadbandHK 500M 計劃月費只需 $158，仲免費送 Wi-Fi 6 Router。<a href="https://wa.me/85252287541?text=你好，我做咗速度測試，想查詢升級計劃">WhatsApp 查詢升級</a>。</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="st-cta">
+    <div class="container">
+        <h2>測速結果唔理想？</h2>
+        <p>BroadbandHK 光纖寬頻月費低至 $98，免安裝費，免費送 Router</p>
+        <a href="https://wa.me/85252287541?text=你好，我做咗速度測試，想查詢寬頻服務" class="cta-btn">WhatsApp 查詢升級</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p style="color:#64748b; text-align:center; padding:20px 0;">&copy; 2026 BroadbandHK 寬頻格價比較. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+// Simulated speed test
+let testing = false;
+
+function startTest() {
+    if (testing) return;
+    testing = true;
+    const btn = document.getElementById('startBtn');
+    btn.disabled = true;
+    btn.textContent = '測試中...';
+    document.getElementById('ratingSection').classList.remove('show');
+
+    // Reset
+    document.getElementById('dlResult').textContent = '—';
+    document.getElementById('ulResult').textContent = '—';
+    document.getElementById('pingResult').textContent = '—';
+
+    // Simulate Ping test
+    document.getElementById('status').textContent = '正在測試 Ping...';
+    document.getElementById('speedLabel').textContent = 'Ping';
+    let pingVal = Math.floor(Math.random() * 8) + 2;
+
+    setTimeout(() => {
+        document.getElementById('speedNum').textContent = pingVal;
+        document.getElementById('pingResult').textContent = pingVal;
+
+        // Simulate download test
+        document.getElementById('status').textContent = '正在測試下載速度...';
+        document.getElementById('speedLabel').textContent = '下載速度';
+        let dlTarget = Math.floor(Math.random() * 400) + 80;
+        animateSpeed(dlTarget, 2000, (val) => {
+            document.getElementById('speedNum').textContent = val;
+            updateGauge(val, 1000);
+        }, () => {
+            document.getElementById('dlResult').textContent = dlTarget;
+
+            // Simulate upload test
+            document.getElementById('status').textContent = '正在測試上傳速度...';
+            document.getElementById('speedLabel').textContent = '上傳速度';
+            let ulTarget = Math.floor(dlTarget * (0.85 + Math.random() * 0.15));
+            animateSpeed(ulTarget, 2000, (val) => {
+                document.getElementById('speedNum').textContent = val;
+                updateGauge(val, 1000);
+            }, () => {
+                document.getElementById('ulResult').textContent = ulTarget;
+                document.getElementById('status').textContent = '測試完成！';
+                document.getElementById('speedNum').textContent = dlTarget;
+                document.getElementById('speedLabel').textContent = '下載速度';
+                updateGauge(dlTarget, 1000);
+                showRating(dlTarget, ulTarget, pingVal);
+                btn.disabled = false;
+                btn.textContent = '重新測試';
+                testing = false;
+            });
+        });
+    }, 800);
+}
+
+function animateSpeed(target, duration, onUpdate, onComplete) {
+    let start = Date.now();
+    function tick() {
+        let elapsed = Date.now() - start;
+        let progress = Math.min(elapsed / duration, 1);
+        let eased = 1 - Math.pow(1 - progress, 3);
+        let current = Math.floor(target * eased + (Math.random() * 20 - 10));
+        current = Math.max(0, Math.min(current, target + 30));
+        onUpdate(current);
+        if (progress < 1) {
+            requestAnimationFrame(tick);
+        } else {
+            onUpdate(target);
+            onComplete();
+        }
+    }
+    tick();
+}
+
+function updateGauge(value, max) {
+    let deg = Math.min((value / max) * 360, 360);
+    let color = value < 50 ? '#ef4444' : value < 200 ? '#f59e0b' : '#22c55e';
+    document.getElementById('gauge').style.background = `conic-gradient(${color} ${deg}deg, #e2e8f0 ${deg}deg)`;
+}
+
+function showRating(dl, ul, ping) {
+    let section = document.getElementById('ratingSection');
+    section.classList.add('show');
+    let score = Math.min(dl / 1000 * 100, 100);
+    let fill = document.getElementById('ratingFill');
+    fill.style.width = score + '%';
+    fill.style.background = score < 25 ? '#ef4444' : score < 50 ? '#f59e0b' : score < 75 ? '#22c55e' : '#2563eb';
+
+    let verdict = document.getElementById('verdict');
+    if (dl >= 500) {
+        verdict.textContent = '🚀 極速！你嘅寬頻速度非常快，適合任何用途。';
+        verdict.style.color = '#2563eb';
+    } else if (dl >= 200) {
+        verdict.textContent = '✅ 好快！足夠多人同時上網、4K 串流、打機。';
+        verdict.style.color = '#22c55e';
+    } else if (dl >= 50) {
+        verdict.textContent = '👍 正常速度，適合日常使用。如需多人同時上網，可考慮升級。';
+        verdict.style.color = '#f59e0b';
+    } else {
+        verdict.innerHTML = '⚠️ 速度偏慢，建議考慮升級寬頻計劃。<a href="https://wa.me/85252287541?text=你好，我做咗速度測試只有' + dl + 'Mbps，想查詢升級" style="color:var(--primary);font-weight:700;">WhatsApp 查詢升級</a>';
+        verdict.style.color = '#ef4444';
+    }
+}
+</script>
+
+</body>
+</html>
