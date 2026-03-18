@@ -10,7 +10,6 @@
     <meta name="author" content="BroadbandHK 寬頻格價比較">
     <link rel="canonical" href="https://broadbandhk.com/">
 
-    <!-- Google Search Console Verification (replace content value with your verification code) -->
     <meta name="google-site-verification" content="YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE">
 
     <!-- Google Analytics 4 -->
@@ -163,8 +162,654 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+    /* ===== HKBN-Style Redesign ===== */
+
+    /* --- Top Bar --- */
+    .top-bar {
+        background: #0a1628;
+        color: #94a3b8;
+        font-size: 0.8rem;
+        padding: 8px 0;
+    }
+    .top-bar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .top-bar a {
+        color: #94a3b8;
+        text-decoration: none;
+        margin-left: 16px;
+        transition: color 0.3s;
+    }
+    .top-bar a:hover { color: #fff; }
+
+    /* --- Navbar Override --- */
+    .navbar {
+        background: rgba(15, 23, 42, 0.97);
+        backdrop-filter: blur(12px);
+        padding: 0;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+    .nav-container { height: 64px; }
+    .logo { color: #fff !important; font-size: 1.4rem; }
+    .nav-links a { color: #cbd5e1 !important; font-size: 0.95rem; }
+    .nav-links a:hover { color: #60a5fa !important; }
+    .btn-small {
+        background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+        border-radius: 24px !important;
+    }
+
+    /* --- Hero Carousel --- */
+    .hero-carousel {
+        position: relative;
+        overflow: hidden;
+        margin-top: 64px;
+    }
+    .hero-slides {
+        display: flex;
+        transition: transform 0.6s ease;
+    }
+    .hero-slide {
+        min-width: 100%;
+        padding: 100px 0 80px;
+        position: relative;
+    }
+    .hero-slide-1 {
+        background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 40%, #2563eb 100%);
+    }
+    .hero-slide-2 {
+        background: linear-gradient(135deg, #0f172a 0%, #4c1d95 50%, #7c3aed 100%);
+    }
+    .hero-slide-3 {
+        background: linear-gradient(135deg, #0f172a 0%, #065f46 50%, #10b981 100%);
+    }
+    .hero-slide .container {
+        position: relative;
+        z-index: 2;
+    }
+    .slide-label {
+        display: inline-block;
+        background: rgba(255,255,255,0.15);
+        color: #fff;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        backdrop-filter: blur(4px);
+    }
+    .hero-slide h1 {
+        font-size: 3.2rem;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+    .hero-slide .price-highlight {
+        font-size: 5rem;
+        font-weight: 900;
+        color: #fbbf24;
+        line-height: 1;
+        margin: 16px 0;
+    }
+    .hero-slide .price-highlight .currency {
+        font-size: 2.5rem;
+        vertical-align: top;
+        margin-right: 4px;
+    }
+    .hero-slide .price-highlight .period {
+        font-size: 1.5rem;
+        color: rgba(255,255,255,0.7);
+        font-weight: 500;
+    }
+    .hero-slide p {
+        color: rgba(255,255,255,0.8);
+        font-size: 1.15rem;
+        margin-bottom: 32px;
+        max-width: 500px;
+    }
+    .hero-slide .hero-buttons {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 0;
+    }
+    .hero-slide .btn-hero-primary {
+        background: linear-gradient(135deg, #f59e0b, #f97316);
+        color: #fff;
+        padding: 14px 36px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+        border: none;
+    }
+    .hero-slide .btn-hero-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+    }
+    .hero-slide .btn-hero-outline {
+        background: transparent;
+        color: #fff;
+        padding: 14px 36px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        text-decoration: none;
+        display: inline-block;
+        border: 2px solid rgba(255,255,255,0.4);
+        transition: all 0.3s;
+    }
+    .hero-slide .btn-hero-outline:hover {
+        border-color: #fff;
+        background: rgba(255,255,255,0.1);
+    }
+    .hero-badges {
+        display: flex;
+        gap: 24px;
+        margin-top: 40px;
+    }
+    .hero-badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.9rem;
+    }
+    .hero-badge-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+    }
+
+    /* Carousel Controls */
+    .carousel-dots {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+    .carousel-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.3);
+        cursor: pointer;
+        transition: all 0.3s;
+        border: none;
+    }
+    .carousel-dot.active {
+        background: #fff;
+        transform: scale(1.2);
+    }
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(4px);
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .carousel-arrow:hover { background: rgba(255,255,255,0.3); }
+    .carousel-arrow-left { left: 24px; }
+    .carousel-arrow-right { right: 24px; }
+
+    /* --- Promo Banner Strip --- */
+    .promo-strip {
+        background: linear-gradient(90deg, #f59e0b, #f97316);
+        padding: 14px 0;
+        text-align: center;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+    .promo-strip a {
+        color: #fff;
+        text-decoration: underline;
+        margin-left: 12px;
+    }
+
+    /* --- Service Tabs --- */
+    .service-tabs {
+        padding: 48px 0 0;
+        background: #fff;
+    }
+    .tabs-row {
+        display: flex;
+        gap: 0;
+        border-bottom: 3px solid #e2e8f0;
+    }
+    .tab-item {
+        padding: 16px 32px;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--gray);
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -3px;
+        transition: all 0.3s;
+    }
+    .tab-item:hover { color: var(--primary); }
+    .tab-item.active {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+    }
+
+    /* --- Plan Cards (HKBN style) --- */
+    .plans { background: #f1f5f9; }
+    .plans-grid { gap: 24px; }
+    .plan-card {
+        border-radius: 16px;
+        overflow: hidden;
+        padding: 0;
+        border: none;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .plan-card-header {
+        padding: 28px 28px 20px;
+        color: #fff;
+        text-align: center;
+    }
+    .plan-card-header-basic { background: linear-gradient(135deg, #64748b, #475569); }
+    .plan-card-header-popular { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+    .plan-card-header-premium { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+    .plan-card-header .plan-name {
+        color: rgba(255,255,255,0.85);
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+    }
+    .plan-card-header .plan-speed {
+        color: #fff;
+        font-size: 2rem;
+        margin-bottom: 0;
+    }
+    .plan-card-body {
+        padding: 28px;
+        text-align: center;
+    }
+    .plan-card .plan-price { margin-bottom: 24px; }
+    .plan-card .plan-price .amount { font-size: 3.8rem; }
+    .plan-card .plan-features { text-align: left; margin-bottom: 28px; }
+    .plan-card .plan-features li { padding: 10px 0; font-size: 0.95rem; }
+    .plan-card.popular {
+        border: none;
+        transform: scale(1.05);
+        box-shadow: 0 12px 48px rgba(37, 99, 235, 0.2);
+    }
+    .popular-badge {
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -1px;
+        border-radius: 0 0 12px 12px;
+        padding: 6px 24px;
+        font-size: 0.8rem;
+        z-index: 5;
+    }
+
+    /* --- Features Section (Icon Cards) --- */
+    .features { background: #fff; }
+    .feature-card {
+        background: #f8fafc;
+        border-radius: 16px;
+        padding: 32px 24px;
+        text-align: center;
+        border: 1px solid #e2e8f0;
+    }
+    .feature-card:hover {
+        border-color: var(--primary);
+        box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1);
+    }
+    .feature-icon {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--primary-light), #bfdbfe);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin: 0 auto 16px;
+    }
+
+    /* --- Reviews (Card Slider Look) --- */
+    .reviews { background: #0f172a; }
+    .reviews .section-title { color: #fff; }
+    .review-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+    }
+    .review-text { color: rgba(255,255,255,0.8); }
+    .review-author { color: rgba(255,255,255,0.5); }
+    .review-stars { color: #fbbf24; }
+
+    /* --- Comparison Section --- */
+    .comparison { background: #fff; }
+    .comp-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-top: 32px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .comp-table th {
+        background: #0f172a;
+        color: #fff;
+        padding: 16px;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    .comp-table td {
+        padding: 16px;
+        text-align: center;
+        font-size: 0.95rem;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    .comp-table .our-row {
+        background: linear-gradient(90deg, #dbeafe, #eff6ff);
+        font-weight: 700;
+    }
+    .comp-table .our-row td { color: var(--primary); }
+    .comp-table .our-row td:first-child { color: var(--dark); }
+
+    /* --- Knowledge Base Preview --- */
+    .kb-preview {
+        padding: 80px 0;
+        background: #f8fafc;
+    }
+    .kb-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 40px;
+    }
+    .kb-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s;
+        display: block;
+    }
+    .kb-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    }
+    .kb-card-color {
+        height: 6px;
+    }
+    .kb-card-body {
+        padding: 24px;
+    }
+    .kb-card-tag {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .kb-card h3 {
+        font-size: 1.05rem;
+        font-weight: 800;
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+    .kb-card p {
+        color: var(--gray);
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* --- FAQ (Accordion) --- */
+    .faq { background: #fff; }
+    .faq-item {
+        margin-bottom: 12px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        overflow: hidden;
+    }
+    .faq-item summary {
+        padding: 20px 24px;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 1rem;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        transition: background 0.3s;
+    }
+    .faq-item summary:hover { background: #f8fafc; }
+    .faq-item summary::after {
+        content: '+';
+        font-size: 1.5rem;
+        color: var(--primary);
+        font-weight: 400;
+        transition: transform 0.3s;
+    }
+    .faq-item[open] summary::after {
+        content: '-';
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-answer {
+        padding: 0 24px 20px;
+        color: var(--gray);
+        line-height: 1.8;
+    }
+
+    /* --- Districts (Grid Cards) --- */
+    .districts-section {
+        padding: 80px 0;
+        background: #0f172a;
+    }
+    .districts-section .section-title { color: #fff; }
+    .districts-section .section-subtitle { color: rgba(255,255,255,0.6); }
+    .district-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 12px;
+        margin-top: 32px;
+    }
+    .district-chip {
+        background: rgba(255,255,255,0.08);
+        padding: 14px 8px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: rgba(255,255,255,0.8);
+        font-weight: 500;
+        font-size: 0.9rem;
+        text-align: center;
+        transition: all 0.3s;
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+    .district-chip:hover {
+        background: rgba(37, 99, 235, 0.3);
+        border-color: rgba(37, 99, 235, 0.5);
+        color: #fff;
+    }
+    .biz-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 24px;
+    }
+    .biz-chip {
+        background: rgba(255,255,255,0.08);
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: rgba(255,255,255,0.8);
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+    .biz-chip:hover {
+        background: rgba(124, 58, 237, 0.3);
+        border-color: rgba(124, 58, 237, 0.5);
+        color: #fff;
+    }
+    .biz-chip-primary {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        border-color: transparent;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    /* --- CTA Override --- */
+    .cta {
+        background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    }
+    .cta .btn-primary {
+        background: #fff;
+        color: #2563eb;
+        border-color: #fff;
+        padding: 16px 40px;
+        font-size: 1.1rem;
+    }
+    .cta .btn-primary:hover {
+        background: #f0f7ff;
+    }
+
+    /* --- Contact Override --- */
+    .contact { background: #f8fafc; }
+    .contact-item {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        transition: all 0.3s;
+    }
+    .contact-item:hover {
+        border-color: var(--primary);
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+    }
+
+    /* --- Footer Override --- */
+    .footer {
+        background: #0a1628;
+        padding: 40px 0 28px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 32px;
+    }
+    .footer-col h4 {
+        color: #fff;
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+    }
+    .footer-col a {
+        display: block;
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 4px 0;
+        transition: color 0.3s;
+    }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-col p {
+        color: #94a3b8;
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding-top: 20px;
+        text-align: center;
+        color: #64748b;
+        font-size: 0.85rem;
+    }
+
+    /* --- WhatsApp Float --- */
+    .wa-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        width: 60px;
+        height: 60px;
+        background: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+        z-index: 999;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    .wa-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+    }
+    .wa-float svg { width: 32px; height: 32px; fill: #fff; }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+        .top-bar { display: none; }
+        .hero-slide { padding: 80px 0 60px; }
+        .hero-slide h1 { font-size: 2rem; }
+        .hero-slide .price-highlight { font-size: 3.5rem; }
+        .hero-slide .price-highlight .currency { font-size: 1.8rem; }
+        .hero-slide .price-highlight .period { font-size: 1.2rem; }
+        .hero-badges { flex-direction: column; gap: 12px; }
+        .hero-slide .hero-buttons { flex-direction: column; }
+        .carousel-arrow { display: none; }
+        .tabs-row { overflow-x: auto; }
+        .tab-item { padding: 12px 20px; font-size: 0.9rem; white-space: nowrap; }
+        .kb-grid { grid-template-columns: 1fr; }
+        .district-grid { grid-template-columns: repeat(3, 1fr); }
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+        .plan-card.popular { transform: scale(1); }
+    }
+    </style>
 </head>
 <body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="container top-bar-inner">
+        <span>BroadbandHK 寬頻格價比較 — 全港覆蓋</span>
+        <div>
+            <a href="tel:23308372">2330 8372</a>
+            <a href="https://wa.me/85252287541">WhatsApp</a>
+            <a href="https://www.facebook.com/profile.php?id=61578537419518" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/broadbandhk_speednet" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </div>
+</div>
 
 <!-- Navigation -->
 <nav class="navbar">
@@ -181,31 +826,124 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <h1>極速光纖寬頻<br><span class="highlight">月費低至 $98</span></h1>
-        <p class="hero-subtitle">穩定 · 快速 · 無隱藏收費<br>即日申請，最快翌日安裝</p>
-        <div class="hero-buttons">
-            <a href="#plans" class="btn btn-primary btn-large">查看月費計劃</a>
-            <a href="https://wa.me/85252287541" class="btn btn-outline btn-large">免費諮詢</a>
+<!-- Hero Carousel -->
+<section class="hero-carousel">
+    <div class="hero-slides" id="heroSlides">
+        <!-- Slide 1: Main Offer -->
+        <div class="hero-slide hero-slide-1">
+            <div class="container">
+                <span class="slide-label">限時優惠</span>
+                <h1>極速光纖寬頻<br>月費低至</h1>
+                <div class="price-highlight">
+                    <span class="currency">$</span>98<span class="period">/月</span>
+                </div>
+                <p>免安裝費 · 免費送 Wi-Fi Router · 最快翌日安裝</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/85252287541?text=你好，我想查詢寬頻服務" class="btn-hero-primary">立即申請</a>
+                    <a href="#plans" class="btn-hero-outline">查看計劃</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">⚡</div>
+                        <span>99.5% 網絡穩定</span>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">🎁</div>
+                        <span>免費 Router</span>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">🔒</div>
+                        <span>無隱藏收費</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-number">99.5%</span>
-                <span class="stat-label">網絡穩定率</span>
+
+        <!-- Slide 2: 1000M -->
+        <div class="hero-slide hero-slide-2">
+            <div class="container">
+                <span class="slide-label">極速體驗</span>
+                <h1>1000M 光纖寬頻<br>極速串流 · 暢快打機</h1>
+                <div class="price-highlight">
+                    <span class="currency">$</span>228<span class="period">/月</span>
+                </div>
+                <p>送 Wi-Fi 6E Router · 免費搬遷一次 · 24/7 優先客服</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/85252287541?text=你好，我想查詢1000M極速版計劃" class="btn-hero-primary">立即申請</a>
+                    <a href="#compare" class="btn-hero-outline">比較月費</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">🚀</div>
+                        <span>1000Mbps 對稱</span>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">📡</div>
+                        <span>Wi-Fi 6E Router</span>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">🏠</div>
+                        <span>免費搬遷</span>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-                <span class="stat-number">10,000+</span>
-                <span class="stat-label">滿意客戶</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">24/7</span>
-                <span class="stat-label">客服支援</span>
+        </div>
+
+        <!-- Slide 3: Referral -->
+        <div class="hero-slide hero-slide-3">
+            <div class="container">
+                <span class="slide-label">推薦獎賞</span>
+                <h1>推薦朋友<br>各減 $50 月費</h1>
+                <div class="price-highlight" style="font-size: 3.5rem;">
+                    推薦越多 慳越多
+                </div>
+                <p>介紹朋友成功申請，你同朋友各減 $50 月費。無上限！</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/85252287541?text=你好，我想了解推薦獎賞計劃" class="btn-hero-primary">了解詳情</a>
+                </div>
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">👥</div>
+                        <span>推薦無上限</span>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">💰</div>
+                        <span>每位減 $50</span>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">✅</div>
+                        <span>即時生效</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <button class="carousel-arrow carousel-arrow-left" onclick="moveSlide(-1)">&#8249;</button>
+    <button class="carousel-arrow carousel-arrow-right" onclick="moveSlide(1)">&#8250;</button>
+    <div class="carousel-dots">
+        <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+        <button class="carousel-dot" onclick="goToSlide(1)"></button>
+        <button class="carousel-dot" onclick="goToSlide(2)"></button>
+    </div>
 </section>
+
+<!-- Promo Strip -->
+<div class="promo-strip">
+    🔥 限時優惠：全線計劃免安裝費 + 免費送 Wi-Fi Router！
+    <a href="https://wa.me/85252287541?text=你好，我想查詢最新優惠">立即查詢 →</a>
+</div>
+
+<!-- Service Tabs -->
+<div class="service-tabs">
+    <div class="container">
+        <div class="tabs-row">
+            <a href="#plans" class="tab-item active">家居寬頻</a>
+            <a href="pages/business.html" class="tab-item">商業寬頻</a>
+            <a href="blog.html" class="tab-item">知識庫</a>
+            <a href="#contact" class="tab-item">聯絡我們</a>
+        </div>
+    </div>
+</div>
 
 <!-- Plans Section -->
 <section id="plans" class="plans">
@@ -216,60 +954,72 @@
         <div class="plans-grid">
             <!-- Basic Plan -->
             <div class="plan-card">
-                <div class="plan-name">基本版</div>
-                <div class="plan-speed">100Mbps</div>
-                <div class="plan-price">
-                    <span class="currency">$</span>
-                    <span class="amount">98</span>
-                    <span class="period">/月</span>
+                <div class="plan-card-header plan-card-header-basic">
+                    <div class="plan-name">基本版</div>
+                    <div class="plan-speed">100Mbps</div>
                 </div>
-                <ul class="plan-features">
-                    <li>100Mbps 對稱頻寬</li>
-                    <li>免費 Wi-Fi 5 Router</li>
-                    <li>免安裝費</li>
-                    <li>WhatsApp 客服</li>
-                    <li>適合 1-2 人家庭</li>
-                </ul>
-                <a href="https://wa.me/85252287541?text=我想查詢基本版100Mbps計劃" class="btn btn-outline">立即申請</a>
+                <div class="plan-card-body">
+                    <div class="plan-price">
+                        <span class="currency">$</span>
+                        <span class="amount">98</span>
+                        <span class="period">/月</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>100Mbps 對稱頻寬</li>
+                        <li>免費 Wi-Fi 5 Router</li>
+                        <li>免安裝費</li>
+                        <li>WhatsApp 客服</li>
+                        <li>適合 1-2 人家庭</li>
+                    </ul>
+                    <a href="https://wa.me/85252287541?text=我想查詢基本版100Mbps計劃" class="btn btn-outline" style="width:100%;">立即申請</a>
+                </div>
             </div>
 
             <!-- Popular Plan -->
             <div class="plan-card popular">
                 <div class="popular-badge">最受歡迎</div>
-                <div class="plan-name">進階版</div>
-                <div class="plan-speed">500Mbps</div>
-                <div class="plan-price">
-                    <span class="currency">$</span>
-                    <span class="amount">158</span>
-                    <span class="period">/月</span>
+                <div class="plan-card-header plan-card-header-popular">
+                    <div class="plan-name">進階版</div>
+                    <div class="plan-speed">500Mbps</div>
                 </div>
-                <ul class="plan-features">
-                    <li>500Mbps 對稱頻寬</li>
-                    <li>免費 Wi-Fi 6 Router</li>
-                    <li>免安裝費</li>
-                    <li>24/7 電話 + WhatsApp 客服</li>
-                    <li>適合 3-4 人家庭</li>
-                </ul>
-                <a href="https://wa.me/85252287541?text=我想查詢進階版500Mbps計劃" class="btn btn-primary">立即申請</a>
+                <div class="plan-card-body">
+                    <div class="plan-price">
+                        <span class="currency">$</span>
+                        <span class="amount">158</span>
+                        <span class="period">/月</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>500Mbps 對稱頻寬</li>
+                        <li>免費 Wi-Fi 6 Router</li>
+                        <li>免安裝費</li>
+                        <li>24/7 電話 + WhatsApp 客服</li>
+                        <li>適合 3-4 人家庭</li>
+                    </ul>
+                    <a href="https://wa.me/85252287541?text=我想查詢進階版500Mbps計劃" class="btn btn-primary" style="width:100%;">立即申請</a>
+                </div>
             </div>
 
             <!-- Premium Plan -->
             <div class="plan-card">
-                <div class="plan-name">極速版</div>
-                <div class="plan-speed">1000Mbps</div>
-                <div class="plan-price">
-                    <span class="currency">$</span>
-                    <span class="amount">228</span>
-                    <span class="period">/月</span>
+                <div class="plan-card-header plan-card-header-premium">
+                    <div class="plan-name">極速版</div>
+                    <div class="plan-speed">1000Mbps</div>
                 </div>
-                <ul class="plan-features">
-                    <li>1000Mbps 對稱頻寬</li>
-                    <li>免費 Wi-Fi 6E Router</li>
-                    <li>免安裝費 + 免費搬遷一次</li>
-                    <li>24/7 優先客服</li>
-                    <li>適合大家庭 / 在家工作</li>
-                </ul>
-                <a href="https://wa.me/85252287541?text=我想查詢極速版1000Mbps計劃" class="btn btn-outline">立即申請</a>
+                <div class="plan-card-body">
+                    <div class="plan-price">
+                        <span class="currency">$</span>
+                        <span class="amount">228</span>
+                        <span class="period">/月</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>1000Mbps 對稱頻寬</li>
+                        <li>免費 Wi-Fi 6E Router</li>
+                        <li>免安裝費 + 免費搬遷一次</li>
+                        <li>24/7 優先客服</li>
+                        <li>適合大家庭 / 在家工作</li>
+                    </ul>
+                    <a href="https://wa.me/85252287541?text=我想查詢極速版1000Mbps計劃" class="btn btn-outline" style="width:100%;">立即申請</a>
+                </div>
             </div>
         </div>
 
@@ -345,43 +1095,80 @@
     <div class="container">
         <h2 class="section-title">寬頻月費比較</h2>
         <p class="section-subtitle">BroadbandHK vs 其他供應商，邊間最抵一目了然</p>
-        <table style="width:100%; border-collapse:collapse; margin-top:32px; font-size:0.95rem;">
-            <tr style="background:var(--primary); color:white;">
-                <th style="padding:14px 12px; text-align:center;">供應商</th>
-                <th style="padding:14px 12px; text-align:center;">100M 月費</th>
-                <th style="padding:14px 12px; text-align:center;">500M 月費</th>
-                <th style="padding:14px 12px; text-align:center;">1000M 月費</th>
-                <th style="padding:14px 12px; text-align:center;">安裝費</th>
-                <th style="padding:14px 12px; text-align:center;">送 Router</th>
+        <table class="comp-table">
+            <tr>
+                <th>供應商</th>
+                <th>100M 月費</th>
+                <th>500M 月費</th>
+                <th>1000M 月費</th>
+                <th>安裝費</th>
+                <th>送 Router</th>
             </tr>
-            <tr style="background:#dbeafe; font-weight:700;">
-                <td style="padding:14px 12px; text-align:center;">BroadbandHK 寬頻格價比較</td>
-                <td style="padding:14px 12px; text-align:center; color:var(--primary);">$98</td>
-                <td style="padding:14px 12px; text-align:center; color:var(--primary);">$158</td>
-                <td style="padding:14px 12px; text-align:center; color:var(--primary);">$228</td>
-                <td style="padding:14px 12px; text-align:center;">免費</td>
-                <td style="padding:14px 12px; text-align:center;">✓</td>
+            <tr class="our-row">
+                <td>BroadbandHK</td>
+                <td>$98</td>
+                <td>$158</td>
+                <td>$228</td>
+                <td>免費</td>
+                <td>✓</td>
             </tr>
-            <tr style="border-bottom:1px solid #e2e8f0;">
-                <td style="padding:14px 12px; text-align:center;">供應商 A</td>
-                <td style="padding:14px 12px; text-align:center;">$158</td>
-                <td style="padding:14px 12px; text-align:center;">$238</td>
-                <td style="padding:14px 12px; text-align:center;">$298</td>
-                <td style="padding:14px 12px; text-align:center;">$680</td>
-                <td style="padding:14px 12px; text-align:center;">—</td>
+            <tr>
+                <td>供應商 A</td>
+                <td>$158</td>
+                <td>$238</td>
+                <td>$298</td>
+                <td>$680</td>
+                <td>—</td>
             </tr>
-            <tr style="border-bottom:1px solid #e2e8f0; background:var(--light);">
-                <td style="padding:14px 12px; text-align:center;">供應商 B</td>
-                <td style="padding:14px 12px; text-align:center;">$138</td>
-                <td style="padding:14px 12px; text-align:center;">$208</td>
-                <td style="padding:14px 12px; text-align:center;">$268</td>
-                <td style="padding:14px 12px; text-align:center;">$480</td>
-                <td style="padding:14px 12px; text-align:center;">—</td>
+            <tr>
+                <td>供應商 B</td>
+                <td>$138</td>
+                <td>$208</td>
+                <td>$268</td>
+                <td>$480</td>
+                <td>—</td>
             </tr>
         </table>
         <p style="text-align:center; margin-top:24px; color:var(--gray); font-size:0.85rem;">*價格為 2026 年 3 月公開資料，僅供參考</p>
-        <div style="text-align:center; margin-top:24px;">
+        <div style="text-align:center; margin-top:16px;">
             <a href="blog.html#broadband-comparison" style="color:var(--primary); font-weight:700; text-decoration:none;">查看完整寬頻比較攻略 →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Knowledge Base Preview -->
+<section class="kb-preview">
+    <div class="container">
+        <h2 class="section-title">寬頻知識庫</h2>
+        <p class="section-subtitle">最新寬頻資訊，幫你做最精明的消費者</p>
+        <div class="kb-grid">
+            <a href="kb/fibre-vs-copper.html" class="kb-card">
+                <div class="kb-card-color" style="background: linear-gradient(90deg, #10b981, #059669);"></div>
+                <div class="kb-card-body">
+                    <span class="kb-card-tag" style="background:#d1fae5; color:#065f46;">技術知識</span>
+                    <h3>光纖 vs 銅線寬頻分別</h3>
+                    <p>全面比較兩種寬頻技術的優缺點，幫你揀最適合的寬頻類型。</p>
+                </div>
+            </a>
+            <a href="kb/contract-expiry.html" class="kb-card">
+                <div class="kb-card-color" style="background: linear-gradient(90deg, #f59e0b, #d97706);"></div>
+                <div class="kb-card-body">
+                    <span class="kb-card-tag" style="background:#fef3c7; color:#92400e;">慳錢攻略</span>
+                    <h3>寬頻合約期滿點做？</h3>
+                    <p>續約、轉台、取消全攻略，教你喺合約到期時做最精明嘅選擇。</p>
+                </div>
+            </a>
+            <a href="kb/router-guide.html" class="kb-card">
+                <div class="kb-card-color" style="background: linear-gradient(90deg, #2563eb, #1d4ed8);"></div>
+                <div class="kb-card-body">
+                    <span class="kb-card-tag" style="background:#dbeafe; color:#1d4ed8;">技術知識</span>
+                    <h3>Router 選購指南</h3>
+                    <p>Wi-Fi 6、Mesh、雙頻⋯⋯一次搞懂，揀到最適合你屋企的 Router。</p>
+                </div>
+            </a>
+        </div>
+        <div style="text-align:center; margin-top:32px;">
+            <a href="blog.html" class="btn btn-outline">瀏覽全部文章 →</a>
         </div>
     </div>
 </section>
@@ -391,29 +1178,29 @@
     <div class="container">
         <h2 class="section-title">常見問題</h2>
         <div style="max-width:800px; margin:48px auto 0;">
-            <details style="margin-bottom:16px; background:var(--light); border-radius:8px; padding:20px 24px;">
-                <summary style="font-weight:700; cursor:pointer; font-size:1.05rem;">BroadbandHK 寬頻月費幾錢？</summary>
-                <p style="margin-top:12px; color:var(--gray); line-height:1.8;">BroadbandHK 提供三個計劃：基本版 100Mbps 月費 $98、進階版 500Mbps 月費 $158、極速版 1000Mbps 月費 $228。所有計劃免安裝費及送 Wi-Fi Router。</p>
+            <details class="faq-item">
+                <summary>BroadbandHK 寬頻月費幾錢？</summary>
+                <p class="faq-answer">BroadbandHK 提供三個計劃：基本版 100Mbps 月費 $98、進階版 500Mbps 月費 $158、極速版 1000Mbps 月費 $228。所有計劃免安裝費及送 Wi-Fi Router。</p>
             </details>
-            <details style="margin-bottom:16px; background:var(--light); border-radius:8px; padding:20px 24px;">
-                <summary style="font-weight:700; cursor:pointer; font-size:1.05rem;">安裝需要幾耐？</summary>
-                <p style="margin-top:12px; color:var(--gray); line-height:1.8;">即日申請，最快翌日安裝。專業技術員免費上門安裝，即裝即用。</p>
+            <details class="faq-item">
+                <summary>安裝需要幾耐？</summary>
+                <p class="faq-answer">即日申請，最快翌日安裝。專業技術員免費上門安裝，即裝即用。</p>
             </details>
-            <details style="margin-bottom:16px; background:var(--light); border-radius:8px; padding:20px 24px;">
-                <summary style="font-weight:700; cursor:pointer; font-size:1.05rem;">有無隱藏收費？</summary>
-                <p style="margin-top:12px; color:var(--gray); line-height:1.8;">無隱藏收費。月費就是月費，無行政費、無啟動費、無合約完結前的隱藏罰款。</p>
+            <details class="faq-item">
+                <summary>有無隱藏收費？</summary>
+                <p class="faq-answer">無隱藏收費。月費就是月費，無行政費、無啟動費、無合約完結前的隱藏罰款。</p>
             </details>
-            <details style="margin-bottom:16px; background:var(--light); border-radius:8px; padding:20px 24px;">
-                <summary style="font-weight:700; cursor:pointer; font-size:1.05rem;">可唔可以中途升級或降級計劃？</summary>
-                <p style="margin-top:12px; color:var(--gray); line-height:1.8;">可以！隨時 WhatsApp 我們申請升級或降級，下一個月費週期生效，無額外收費。</p>
+            <details class="faq-item">
+                <summary>可唔可以中途升級或降級計劃？</summary>
+                <p class="faq-answer">可以！隨時 WhatsApp 我們申請升級或降級，下一個月費週期生效，無額外收費。</p>
             </details>
-            <details style="margin-bottom:16px; background:var(--light); border-radius:8px; padding:20px 24px;">
-                <summary style="font-weight:700; cursor:pointer; font-size:1.05rem;">邊啲地區有覆蓋？</summary>
-                <p style="margin-top:12px; color:var(--gray); line-height:1.8;">BroadbandHK 覆蓋全港大部分住宅及商業大廈。WhatsApp 我們你的地址，我們會即時幫你查詢覆蓋情況。</p>
+            <details class="faq-item">
+                <summary>邊啲地區有覆蓋？</summary>
+                <p class="faq-answer">BroadbandHK 覆蓋全港大部分住宅及商業大廈。WhatsApp 我們你的地址，我們會即時幫你查詢覆蓋情況。</p>
             </details>
-            <details style="margin-bottom:16px; background:var(--light); border-radius:8px; padding:20px 24px;">
-                <summary style="font-weight:700; cursor:pointer; font-size:1.05rem;">搬屋可以帶過去嗎？</summary>
-                <p style="margin-top:12px; color:var(--gray); line-height:1.8;">可以！極速版（1000M）客戶更可享免費搬遷服務一次。其他計劃客戶搬屋時亦可聯絡我們安排搬遷。</p>
+            <details class="faq-item">
+                <summary>搬屋可以帶過去嗎？</summary>
+                <p class="faq-answer">可以！極速版（1000M）客戶更可享免費搬遷服務一次。其他計劃客戶搬屋時亦可聯絡我們安排搬遷。</p>
             </details>
         </div>
     </div>
@@ -449,52 +1236,46 @@
                 <h3>🕐 營業時間</h3>
                 <p>24 小時全天候服務</p>
             </div>
-            <div class="contact-item">
-                <h3>📱 社交媒體</h3>
-                <p>
-                    <a href="https://www.facebook.com/profile.php?id=61578537419518" target="_blank" rel="noopener">Facebook</a> |
-                    <a href="https://www.instagram.com/broadbandhk_speednet" target="_blank" rel="noopener">Instagram</a>
-                </p>
-            </div>
         </div>
     </div>
 </section>
 
-<!-- District Pages Section -->
-<section id="districts" class="districts" style="padding:60px 0; background:var(--light);">
+<!-- Districts Section -->
+<section class="districts-section">
     <div class="container">
         <h2 class="section-title">各區寬頻覆蓋</h2>
         <p class="section-subtitle">了解你所在地區的寬頻服務詳情</p>
-        <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:32px;">
-            <a href="pages/district-kwun-tong.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">觀塘區寬頻</a>
-            <a href="pages/district-sha-tin.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">沙田區寬頻</a>
-            <a href="pages/district-sai-kung.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">西貢區寬頻</a>
-            <a href="pages/district-yuen-long.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">元朗區寬頻</a>
-            <a href="pages/district-tsuen-wan.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">荃灣區寬頻</a>
-            <a href="pages/district-tuen-mun.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">屯門區寬頻</a>
-            <a href="pages/district-tai-po.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">大埔區寬頻</a>
-            <a href="pages/district-wong-tai-sin.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">黃大仙區寬頻</a>
-            <a href="pages/district-sham-shui-po.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">深水埗區寬頻</a>
-            <a href="pages/district-north.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">北區寬頻</a>
-            <a href="pages/district-wan-chai.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">灣仔區寬頻</a>
-            <a href="pages/district-central-and-western.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">中西區寬頻</a>
-            <a href="pages/district-eastern.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">東區寬頻</a>
-            <a href="pages/district-southern.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">南區寬頻</a>
-            <a href="pages/district-kowloon-city.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">九龍城區寬頻</a>
-            <a href="pages/district-yau-tsim-mong.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">油尖旺區寬頻</a>
-            <a href="pages/district-kwai-tsing.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">葵青區寬頻</a>
-            <a href="pages/district-islands.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">離島區寬頻</a>
+        <div class="district-grid">
+            <a href="pages/district-kwun-tong.html" class="district-chip">觀塘區</a>
+            <a href="pages/district-sha-tin.html" class="district-chip">沙田區</a>
+            <a href="pages/district-sai-kung.html" class="district-chip">西貢區</a>
+            <a href="pages/district-yuen-long.html" class="district-chip">元朗區</a>
+            <a href="pages/district-tsuen-wan.html" class="district-chip">荃灣區</a>
+            <a href="pages/district-tuen-mun.html" class="district-chip">屯門區</a>
+            <a href="pages/district-tai-po.html" class="district-chip">大埔區</a>
+            <a href="pages/district-wong-tai-sin.html" class="district-chip">黃大仙區</a>
+            <a href="pages/district-sham-shui-po.html" class="district-chip">深水埗區</a>
+            <a href="pages/district-north.html" class="district-chip">北區</a>
+            <a href="pages/district-wan-chai.html" class="district-chip">灣仔區</a>
+            <a href="pages/district-central-and-western.html" class="district-chip">中西區</a>
+            <a href="pages/district-eastern.html" class="district-chip">東區</a>
+            <a href="pages/district-southern.html" class="district-chip">南區</a>
+            <a href="pages/district-kowloon-city.html" class="district-chip">九龍城區</a>
+            <a href="pages/district-yau-tsim-mong.html" class="district-chip">油尖旺區</a>
+            <a href="pages/district-kwai-tsing.html" class="district-chip">葵青區</a>
+            <a href="pages/district-islands.html" class="district-chip">離島區</a>
         </div>
-        <h2 class="section-title" style="margin-top:50px;">商業寬頻</h2>
+
+        <h2 class="section-title" style="margin-top:60px;">商業寬頻</h2>
         <p class="section-subtitle">覆蓋全港 1,648 個商業物業</p>
-        <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:32px;">
-            <a href="pages/business.html" style="background:var(--primary); padding:14px 28px; border-radius:8px; text-decoration:none; color:white; font-weight:600; box-shadow:var(--shadow);">商業寬頻總覽</a>
-            <a href="pages/category-commercial.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">商業大廈 (413)</a>
-            <a href="pages/category-industrial.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">工業大廈 (569)</a>
-            <a href="pages/category-office.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">寫字樓 (69)</a>
-            <a href="pages/category-plaza.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">商場/廣場 (268)</a>
-            <a href="pages/category-factory.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">工廠大廈 (139)</a>
-            <a href="pages/category-warehouse.html" style="background:white; padding:12px 24px; border-radius:8px; text-decoration:none; color:var(--dark); font-weight:500; box-shadow:var(--shadow);">倉庫 (29)</a>
+        <div class="biz-grid">
+            <a href="pages/business.html" class="biz-chip biz-chip-primary">商業寬頻總覽</a>
+            <a href="pages/category-commercial.html" class="biz-chip">商業大廈 (413)</a>
+            <a href="pages/category-industrial.html" class="biz-chip">工業大廈 (569)</a>
+            <a href="pages/category-office.html" class="biz-chip">寫字樓 (69)</a>
+            <a href="pages/category-plaza.html" class="biz-chip">商場/廣場 (268)</a>
+            <a href="pages/category-factory.html" class="biz-chip">工廠大廈 (139)</a>
+            <a href="pages/category-warehouse.html" class="biz-chip">倉庫 (29)</a>
         </div>
     </div>
 </section>
@@ -502,9 +1283,87 @@
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
-        <p>&copy; 2026 BroadbandHK 寬頻格價比較. All rights reserved.</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>⚡ BroadbandHK</h4>
+                <p>香港光纖寬頻服務供應商，提供穩定可靠的家居及商業寬頻服務。月費低至 $98，免安裝費，送 Wi-Fi Router。</p>
+            </div>
+            <div class="footer-col">
+                <h4>服務計劃</h4>
+                <a href="#plans">基本版 100M — $98/月</a>
+                <a href="#plans">進階版 500M — $158/月</a>
+                <a href="#plans">極速版 1000M — $228/月</a>
+                <a href="pages/business.html">商業寬頻</a>
+            </div>
+            <div class="footer-col">
+                <h4>知識庫</h4>
+                <a href="blog.html">寬頻比較攻略</a>
+                <a href="kb/fibre-vs-copper.html">光纖 vs 銅線</a>
+                <a href="kb/router-guide.html">Router 選購指南</a>
+                <a href="kb/contract-expiry.html">合約期滿攻略</a>
+            </div>
+            <div class="footer-col">
+                <h4>聯絡我們</h4>
+                <a href="tel:23308372">📞 2330 8372</a>
+                <a href="https://wa.me/85252287541">💬 WhatsApp</a>
+                <a href="https://www.facebook.com/profile.php?id=61578537419518" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://www.instagram.com/broadbandhk_speednet" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 BroadbandHK 寬頻格價比較. All rights reserved.
+        </div>
     </div>
 </footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/85252287541?text=你好，我想查詢寬頻服務" class="wa-float" aria-label="WhatsApp 聯絡我們">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.064l-.438-.334-2.654.89.89-2.654-.334-.438A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+// Hero Carousel
+let currentSlide = 0;
+const totalSlides = 3;
+let autoSlideInterval;
+
+function updateSlide() {
+    document.getElementById('heroSlides').style.transform = `translateX(-${currentSlide * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+    });
+}
+
+function moveSlide(dir) {
+    currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+    updateSlide();
+    resetAutoSlide();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateSlide();
+    resetAutoSlide();
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => moveSlide(1), 5000);
+}
+
+// Auto slide every 5 seconds
+autoSlideInterval = setInterval(() => moveSlide(1), 5000);
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+        navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.2)';
+    } else {
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+    }
+});
+</script>
 
 </body>
 </html>
