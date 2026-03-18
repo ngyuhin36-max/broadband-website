@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寬頻速度測試：點樣測你嘅真實網速？ — BroadbandHK 知識庫</title>
+    <meta name="description" content="詳細教你點樣正確測試寬頻速度，常用測速工具介紹，點解測出嚟同合約唔同，影響網速嘅因素同解決方法。">
+    <meta name="keywords" content="寬頻速度測試, speed test, 網速測試, 上網速度, 測速工具, 寬頻速度">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://broadbandhk.com/kb/speed-test-guide.html">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://broadbandhk.com/kb/speed-test-guide.html">
+    <meta property="og:title" content="寬頻速度測試：點樣測你嘅真實網速？">
+    <meta property="og:description" content="詳細教你點樣正確測試寬頻速度，常用測速工具介紹，點解測出嚟同合約唔同。">
+    <meta property="og:locale" content="zh_HK">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "寬頻速度測試：點樣測你嘅真實網速？",
+        "datePublished": "2026-03-19",
+        "dateModified": "2026-03-19",
+        "author": {"@type": "Organization", "name": "BroadbandHK 寬頻格價比較"},
+        "publisher": {"@type": "Organization", "name": "BroadbandHK 寬頻格價比較"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://broadbandhk.com/kb/speed-test-guide.html"}
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "點解測速結果同合約唔同？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "合約寫嘅速度係「最高速度」而唔係「保證速度」。實際速度會受 Router 效能、WiFi 干擾、裝置性能、網絡繁忙時段等因素影響。一般嚟講，有線連接能達到合約速度嘅 80-95%，WiFi 則大約 50-70%。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "幾時測速最準？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "建議喺非繁忙時段測速，例如朝早 10 點前或深夜 12 點後。繁忙時段（晚上 7-11 點）因為多人同時上網，速度會比較慢。最好測 3 次取平均值先至最準確。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "WiFi 同有線測速有咩分別？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "有線（LAN 線）測速通常比 WiFi 快好多，因為 WiFi 會受到牆壁阻隔、其他電子設備干擾、同時連線裝置數量等影響。要測試寬頻真正速度，一定要用有線連接。WiFi 速度只反映無線網絡嘅表現，唔代表你嘅寬頻實際速度。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .kb-hero { padding: 140px 0 60px; text-align: center; background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 60%); }
+        .kb-hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 12px; }
+        .kb-hero p { font-size: 1.1rem; color: var(--gray); }
+        .kb-breadcrumb { padding: 20px 0 0; font-size: 0.9rem; color: var(--gray); }
+        .kb-breadcrumb a { color: var(--primary); text-decoration: none; }
+        .kb-content { padding: 60px 0; }
+        .kb-article { background: var(--white); border-radius: var(--radius); padding: 48px; margin-bottom: 40px; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; }
+        .kb-article h2 { font-size: 1.6rem; font-weight: 900; margin: 32px 0 16px; color: var(--dark); }
+        .kb-article h3 { font-size: 1.3rem; font-weight: 700; margin: 28px 0 12px; color: var(--dark); }
+        .kb-article p { color: var(--gray); font-size: 1rem; line-height: 1.9; margin-bottom: 16px; }
+        .kb-article ul { margin: 16px 0; padding-left: 24px; }
+        .kb-article li { color: var(--gray); margin-bottom: 8px; line-height: 1.8; }
+        .kb-date { color: var(--gray); font-size: 0.85rem; margin-bottom: 20px; }
+        .tip-box { background: #fef3c7; border-left: 4px solid var(--accent); padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+        .tip-box strong { color: var(--dark); }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .comparison-table th, .comparison-table td { padding: 14px 16px; text-align: center; border-bottom: 1px solid #e2e8f0; font-size: 0.95rem; }
+        .comparison-table th { background: var(--primary); color: var(--white); font-weight: 700; }
+        .comparison-table tr:nth-child(even) { background: var(--light); }
+        .related-articles { margin-top: 48px; padding: 32px; background: var(--light); border-radius: var(--radius); }
+        .related-articles h3 { font-size: 1.2rem; margin-bottom: 16px; }
+        .related-articles a { display: block; color: var(--primary); text-decoration: none; padding: 8px 0; font-weight: 500; }
+        .related-articles a:hover { text-decoration: underline; }
+        .back-link { display: inline-block; margin-top: 32px; color: var(--primary); text-decoration: none; font-weight: 700; }
+        @media (max-width: 768px) { .kb-article { padding: 28px 20px; } .kb-hero h1 { font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="../index.html" class="logo">⚡ BroadbandHK</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#plans">月費計劃</a></li>
+            <li><a href="../index.html#features">服務特色</a></li>
+            <li><a href="../blog.html">知識庫</a></li>
+            <li><a href="../index.html#contact">聯絡我們</a></li>
+        </ul>
+        <a href="https://wa.me/85252287541" class="btn btn-small">WhatsApp 查詢</a>
+    </div>
+</nav>
+
+<section class="kb-hero">
+    <div class="container">
+        <div class="kb-breadcrumb"><a href="../index.html">首頁</a> &gt; <a href="../blog.html">知識庫</a> &gt; 技術知識</div>
+        <h1>寬頻速度測試：點樣測你嘅真實網速？</h1>
+        <p>掌握正確測速方法，搞清楚你嘅網速到底快唔快</p>
+    </div>
+</section>
+
+<section class="kb-content">
+    <div class="container">
+        <div class="kb-article">
+            <p class="kb-date">2026 年 3 月 19 日 · 技術知識</p>
+
+            <p>好多人裝完寬頻之後，第一時間就想測下速度夠唔夠快。但你有冇試過，測出嚟嘅速度同合約寫嘅差好遠？其實好多時候唔係寬頻供應商呃你，而係你嘅測速方法有問題。今日就教你點樣正確測速，搞清楚你嘅寬頻到底有幾快。</p>
+
+            <h2>點樣測寬頻速度？</h2>
+            <p>測速其實好簡單，你只需要打開一個測速網站或 App，撳一下就搞掂。但要注意嘅細節就多喇。以下係基本步驟：</p>
+            <ul>
+                <li><strong>Step 1：</strong>用 LAN 線將電腦直接連接 Router（唔好用 WiFi）</li>
+                <li><strong>Step 2：</strong>關閉所有佔用網絡嘅程式（例如 YouTube、Netflix、BT 下載）</li>
+                <li><strong>Step 3：</strong>確保屋企冇其他人同時上網</li>
+                <li><strong>Step 4：</strong>打開測速網站，撳「開始測試」</li>
+                <li><strong>Step 5：</strong>測 3 次，取平均值</li>
+            </ul>
+
+            <h2>常用測速工具比較</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>測速工具</th>
+                    <th>特點</th>
+                    <th>準確度</th>
+                    <th>適合對象</th>
+                </tr>
+                <tr>
+                    <td>Speedtest.net</td>
+                    <td>全球最多人用，有 App</td>
+                    <td>高</td>
+                    <td>一般用家</td>
+                </tr>
+                <tr>
+                    <td>Fast.com</td>
+                    <td>Netflix 出品，介面極簡</td>
+                    <td>高</td>
+                    <td>想快速測速</td>
+                </tr>
+                <tr>
+                    <td>OFCA 測速</td>
+                    <td>香港通訊辦官方工具</td>
+                    <td>極高</td>
+                    <td>投訴/存證</td>
+                </tr>
+                <tr>
+                    <td>Google 測速</td>
+                    <td>Google 搜尋「speed test」</td>
+                    <td>中</td>
+                    <td>最方便快捷</td>
+                </tr>
+                <tr>
+                    <td>nPerf</td>
+                    <td>詳細分析，包含串流測試</td>
+                    <td>高</td>
+                    <td>進階用家</td>
+                </tr>
+            </table>
+
+            <div class="tip-box">
+                <strong>小貼士：</strong>如果你想投訴寬頻速度太慢，建議用 OFCA（通訊事務管理局）嘅官方測速工具，佢嘅結果最有公信力。
+            </div>
+
+            <h2>測速結果點樣睇？</h2>
+            <p>測速完之後，你會見到幾個數字，每個都有唔同意思：</p>
+            <ul>
+                <li><strong>下載速度（Download）：</strong>你從網上攞資料嘅速度，睇片、瀏覽網頁主要靠呢個</li>
+                <li><strong>上傳速度（Upload）：</strong>你將資料傳上網嘅速度，視像會議、上傳相片靠呢個</li>
+                <li><strong>延遲（Ping / Latency）：</strong>數據來回所需時間，打機最重要睇呢個，越低越好</li>
+                <li><strong>抖動（Jitter）：</strong>延遲嘅波動幅度，越低代表越穩定</li>
+            </ul>
+
+            <h2>點解測出嚟同合約唔同？</h2>
+            <p>呢個係最多人問嘅問題。合約寫 1000M，但測出嚟得 500M？原因可能係以下幾個：</p>
+
+            <h3>1. 你用緊 WiFi 測速</h3>
+            <p>WiFi 速度受好多因素影響，包括牆壁阻隔、距離、干擾等等。如果你嘅 Router 係 WiFi 5（802.11ac），就算寬頻係 1000M，WiFi 實際速度可能只有 300-500M。用 WiFi 6 Router 會好啲，但始終唔及有線。</p>
+
+            <h3>2. Router 效能唔夠</h3>
+            <p>平價 Router 嘅處理器未必跟得上高速寬頻。如果你用緊供應商送嘅基本款 Router，可能會成為樽頸位。BroadbandHK 送嘅 Router 經過測試，確保能夠發揮你嘅寬頻最大速度。</p>
+
+            <h3>3. LAN 線規格太舊</h3>
+            <p>如果你用緊 Cat 5 嘅 LAN 線，最高只支援 100Mbps。要行 1000M 寬頻，最少要用 <strong>Cat 5e</strong> 或以上嘅 LAN 線。建議用 Cat 6 就最穩陣。</p>
+
+            <h3>4. 網絡繁忙時段</h3>
+            <p>晚上 7 點到 11 點係上網高峰期，特別係共享頻寬嘅大廈，速度會比其他時段慢。光纖寬頻受影響相對較少。</p>
+
+            <h3>5. 電腦或裝置太舊</h3>
+            <p>舊電腦嘅網卡可能只支援 100Mbps，即使寬頻有 1000M 都用唔盡。檢查下你嘅裝置網卡規格，確保支援 Gigabit Ethernet。</p>
+
+            <h2>正確測速方法（一步步嚟）</h2>
+            <p>想要最準確嘅測速結果，跟住以下步驟做：</p>
+            <ul>
+                <li><strong>用有線連接：</strong>用 Cat 5e 或以上嘅 LAN 線直接連接電腦同 Router</li>
+                <li><strong>關閉其他裝置：</strong>確保冇其他手機、平板連住 WiFi</li>
+                <li><strong>關閉背景程式：</strong>包括雲端同步（Google Drive、iCloud）、自動更新等</li>
+                <li><strong>揀最近嘅伺服器：</strong>Speedtest.net 可以手動揀香港伺服器</li>
+                <li><strong>測多次取平均：</strong>至少測 3 次，唔同時段各測一次</li>
+                <li><strong>記錄結果：</strong>截圖保存，方便日後對比或投訴</li>
+            </ul>
+
+            <h2>唔同速度嘅合理測速範圍</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>合約速度</th>
+                    <th>有線合理範圍</th>
+                    <th>WiFi 合理範圍</th>
+                </tr>
+                <tr>
+                    <td>100M</td>
+                    <td>80-95 Mbps</td>
+                    <td>50-80 Mbps</td>
+                </tr>
+                <tr>
+                    <td>500M</td>
+                    <td>400-480 Mbps</td>
+                    <td>200-350 Mbps</td>
+                </tr>
+                <tr>
+                    <td>1000M</td>
+                    <td>800-950 Mbps</td>
+                    <td>300-600 Mbps</td>
+                </tr>
+                <tr>
+                    <td>2000M</td>
+                    <td>1500-1900 Mbps</td>
+                    <td>500-900 Mbps</td>
+                </tr>
+            </table>
+
+            <div class="tip-box">
+                <strong>覺得速度唔夠快？</strong>BroadbandHK 提供免費網絡診斷服務，<a href="https://wa.me/85252287541?text=你好，我想查詢寬頻速度問題">WhatsApp 我哋</a>，幫你搵出慢速原因。100M 光纖寬頻月費低至 $98，仲免費送 Router！
+            </div>
+
+            <h2>影響速度嘅其他因素</h2>
+            <ul>
+                <li><strong>VPN：</strong>用緊 VPN 會令速度慢 10-30%，測速時記得關閉</li>
+                <li><strong>DNS 設定：</strong>用公共 DNS（如 1.1.1.1 或 8.8.8.8）可能改善瀏覽速度</li>
+                <li><strong>Router 位置：</strong>放喺屋企中間位置，唔好放入櫃或者近微波爐</li>
+                <li><strong>同時連線裝置：</strong>太多裝置同時用會分薄頻寬</li>
+                <li><strong>惡意程式：</strong>中毒嘅電腦會偷偷用你嘅頻寬</li>
+            </ul>
+
+            <h2>常見問題</h2>
+
+            <h3>點解測速結果同合約唔同？</h3>
+            <p>合約寫嘅速度係「最高速度」而唔係「保證速度」。實際速度會受 Router 效能、WiFi 干擾、裝置性能、網絡繁忙時段等因素影響。一般嚟講，有線連接能達到合約速度嘅 80-95%，WiFi 則大約 50-70%。如果有線測速都差好遠，可以聯絡供應商跟進。</p>
+
+            <h3>幾時測速最準？</h3>
+            <p>建議喺非繁忙時段測速，例如朝早 10 點前或深夜 12 點後。繁忙時段（晚上 7-11 點）因為多人同時上網，速度會比較慢。最好喺唔同時段各測一次，取平均值先至最準確。</p>
+
+            <h3>WiFi 同有線測速有咩分別？</h3>
+            <p>有線（LAN 線）測速通常比 WiFi 快好多，因為 WiFi 會受到牆壁阻隔、其他電子設備干擾、同時連線裝置數量等影響。要測試寬頻真正速度，一定要用有線連接。WiFi 速度只反映無線網絡嘅表現，唔代表你嘅寬頻實際速度。如果 WiFi 慢但有線快，問題出喺 Router 或者無線環境，可以考慮升級 Router 或者用 Mesh WiFi。</p>
+
+            <div class="related-articles">
+                <h3>相關文章</h3>
+                <a href="fibre-vs-copper.html">光纖 vs 銅線寬頻分別：邊種適合你？</a>
+                <a href="router-guide.html">Router 選購指南：點揀最適合你屋企的 Router？</a>
+                <a href="mesh-wifi-guide.html">Mesh WiFi 全屋覆蓋教學：大單位救星</a>
+                <a href="../blog.html#speed-guide">100M vs 500M vs 1000M：邊個速度最適合你？</a>
+            </div>
+
+            <a href="../blog.html" class="back-link">&larr; 返回知識庫</a>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>想換更快嘅寬頻？</h2>
+        <p>立即 WhatsApp 我們，免費幫你測速診斷！</p>
+        <a href="https://wa.me/85252287541?text=你好，我想查詢寬頻服務" class="btn btn-primary btn-large">WhatsApp 立即查詢</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 BroadbandHK 寬頻格價比較. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
