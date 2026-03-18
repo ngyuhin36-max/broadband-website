@@ -215,6 +215,7 @@
         min-width: 100%;
         padding: 100px 0 80px;
         position: relative;
+        overflow: hidden;
     }
     .hero-slide-1 {
         background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 40%, #2563eb 100%);
@@ -228,6 +229,109 @@
     .hero-slide .container {
         position: relative;
         z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .hero-text { max-width: 55%; }
+    .hero-visual {
+        position: relative;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero-visual svg {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+    }
+
+    /* Floating decorative elements */
+    .hero-deco {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+        pointer-events: none;
+    }
+    .hero-deco-1 {
+        width: 300px; height: 300px;
+        background: #fff;
+        top: -80px; right: -60px;
+        animation: float1 8s ease-in-out infinite;
+    }
+    .hero-deco-2 {
+        width: 200px; height: 200px;
+        background: #fbbf24;
+        bottom: -40px; right: 20%;
+        animation: float2 6s ease-in-out infinite;
+    }
+    .hero-deco-3 {
+        width: 150px; height: 150px;
+        background: #60a5fa;
+        top: 30%; left: -40px;
+        animation: float1 10s ease-in-out infinite reverse;
+    }
+    /* Grid pattern overlay */
+    .hero-grid-overlay {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    /* Glow ring behind visual */
+    .hero-glow {
+        position: absolute;
+        width: 320px; height: 320px;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,0.08);
+        top: 50%; left: 50%;
+        transform: translate(-50%,-50%);
+        animation: pulse-ring 4s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+        width: 400px; height: 400px;
+        animation-delay: 1s;
+    }
+    @keyframes float1 {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-30px); }
+    }
+    @keyframes float2 {
+        0%, 100% { transform: translateY(0) translateX(0); }
+        50% { transform: translateY(-20px) translateX(10px); }
+    }
+    @keyframes pulse-ring {
+        0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.3; }
+        50% { transform: translate(-50%,-50%) scale(1.1); opacity: 0.1; }
+    }
+    /* Speed lines animation */
+    .speed-lines {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .speed-line {
+        position: absolute;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+        animation: speed-dash 3s linear infinite;
+    }
+    .speed-line:nth-child(1) { top: 20%; width: 200px; left: -200px; animation-delay: 0s; }
+    .speed-line:nth-child(2) { top: 40%; width: 300px; left: -300px; animation-delay: 0.8s; }
+    .speed-line:nth-child(3) { top: 60%; width: 250px; left: -250px; animation-delay: 1.5s; }
+    .speed-line:nth-child(4) { top: 80%; width: 180px; left: -180px; animation-delay: 2.2s; }
+    .speed-line:nth-child(5) { top: 35%; width: 220px; left: -220px; animation-delay: 0.4s; }
+    @keyframes speed-dash {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(100vw + 400px)); }
     }
     .slide-label {
         display: inline-block;
@@ -780,6 +884,9 @@
     @media (max-width: 768px) {
         .top-bar { display: none; }
         .hero-slide { padding: 80px 0 60px; }
+        .hero-slide .container { flex-direction: column; }
+        .hero-text { max-width: 100%; }
+        .hero-visual { display: none; }
         .hero-slide h1 { font-size: 2rem; }
         .hero-slide .price-highlight { font-size: 3.5rem; }
         .hero-slide .price-highlight .currency { font-size: 1.8rem; }
@@ -831,90 +938,245 @@
     <div class="hero-slides" id="heroSlides">
         <!-- Slide 1: Main Offer -->
         <div class="hero-slide hero-slide-1">
+            <div class="hero-grid-overlay"></div>
+            <div class="speed-lines">
+                <div class="speed-line"></div><div class="speed-line"></div><div class="speed-line"></div><div class="speed-line"></div><div class="speed-line"></div>
+            </div>
+            <div class="hero-deco hero-deco-1"></div>
+            <div class="hero-deco hero-deco-2"></div>
             <div class="container">
-                <span class="slide-label">限時優惠</span>
-                <h1>極速光纖寬頻<br>月費低至</h1>
-                <div class="price-highlight">
-                    <span class="currency">$</span>98<span class="period">/月</span>
+                <div class="hero-text">
+                    <span class="slide-label">限時優惠</span>
+                    <h1>極速光纖寬頻<br>月費低至</h1>
+                    <div class="price-highlight">
+                        <span class="currency">$</span>98<span class="period">/月</span>
+                    </div>
+                    <p>免安裝費 · 免費送 Wi-Fi Router · 最快翌日安裝</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/85252287541?text=你好，我想查詢寬頻服務" class="btn-hero-primary">立即申請</a>
+                        <a href="#plans" class="btn-hero-outline">查看計劃</a>
+                    </div>
+                    <div class="hero-badges">
+                        <div class="hero-badge"><div class="hero-badge-icon">⚡</div><span>99.5% 網絡穩定</span></div>
+                        <div class="hero-badge"><div class="hero-badge-icon">🎁</div><span>免費 Router</span></div>
+                        <div class="hero-badge"><div class="hero-badge-icon">🔒</div><span>無隱藏收費</span></div>
+                    </div>
                 </div>
-                <p>免安裝費 · 免費送 Wi-Fi Router · 最快翌日安裝</p>
-                <div class="hero-buttons">
-                    <a href="https://wa.me/85252287541?text=你好，我想查詢寬頻服務" class="btn-hero-primary">立即申請</a>
-                    <a href="#plans" class="btn-hero-outline">查看計劃</a>
-                </div>
-                <div class="hero-badges">
-                    <div class="hero-badge">
-                        <div class="hero-badge-icon">⚡</div>
-                        <span>99.5% 網絡穩定</span>
-                    </div>
-                    <div class="hero-badge">
-                        <div class="hero-badge-icon">🎁</div>
-                        <span>免費 Router</span>
-                    </div>
-                    <div class="hero-badge">
-                        <div class="hero-badge-icon">🔒</div>
-                        <span>無隱藏收費</span>
-                    </div>
+                <div class="hero-visual">
+                    <div class="hero-glow"></div>
+                    <div class="hero-glow hero-glow-2"></div>
+                    <!-- Router / WiFi illustration -->
+                    <svg viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Router body -->
+                        <rect x="80" y="200" width="240" height="60" rx="12" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        <rect x="100" y="220" width="20" height="20" rx="4" fill="#22c55e" opacity="0.8"/>
+                        <rect x="130" y="220" width="20" height="20" rx="4" fill="#3b82f6" opacity="0.8"/>
+                        <rect x="160" y="220" width="20" height="20" rx="4" fill="#3b82f6" opacity="0.6"/>
+                        <rect x="190" y="220" width="20" height="20" rx="4" fill="#3b82f6" opacity="0.4"/>
+                        <!-- Antennas -->
+                        <rect x="260" y="160" width="4" height="50" rx="2" fill="rgba(255,255,255,0.5)"/>
+                        <rect x="290" y="140" width="4" height="70" rx="2" fill="rgba(255,255,255,0.5)" transform="rotate(15, 292, 175)"/>
+                        <!-- WiFi signals -->
+                        <path d="M200 140 Q200 100 160 80" stroke="#60a5fa" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round">
+                            <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M200 140 Q200 80 140 50" stroke="#60a5fa" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round">
+                            <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+                        </path>
+                        <path d="M200 140 Q200 60 120 20" stroke="#60a5fa" stroke-width="3" fill="none" opacity="0.2" stroke-linecap="round">
+                            <animate attributeName="opacity" values="0;0.4;0" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+                        </path>
+                        <!-- Connected devices -->
+                        <rect x="40" y="290" width="50" height="35" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                        <rect x="48" y="296" width="34" height="22" rx="2" fill="rgba(96,165,250,0.3)"/>
+                        <line x1="65" y1="290" x2="150" y2="230" stroke="rgba(96,165,250,0.3)" stroke-width="1" stroke-dasharray="4,4">
+                            <animate attributeName="stroke-opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
+                        </line>
+                        <rect x="160" y="290" width="30" height="45" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                        <rect x="165" y="295" width="20" height="30" rx="2" fill="rgba(168,85,247,0.3)"/>
+                        <line x1="175" y1="290" x2="200" y2="260" stroke="rgba(168,85,247,0.3)" stroke-width="1" stroke-dasharray="4,4">
+                            <animate attributeName="stroke-opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+                        </line>
+                        <rect x="310" y="290" width="50" height="35" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                        <rect x="318" y="296" width="34" height="22" rx="2" fill="rgba(34,197,94,0.3)"/>
+                        <line x1="335" y1="290" x2="260" y2="240" stroke="rgba(34,197,94,0.3)" stroke-width="1" stroke-dasharray="4,4">
+                            <animate attributeName="stroke-opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite" begin="1s"/>
+                        </line>
+                        <!-- Speed indicator -->
+                        <text x="200" y="180" text-anchor="middle" fill="rgba(251,191,36,0.8)" font-size="14" font-weight="700">1000 Mbps</text>
+                    </svg>
                 </div>
             </div>
         </div>
 
         <!-- Slide 2: 1000M -->
         <div class="hero-slide hero-slide-2">
+            <div class="hero-grid-overlay"></div>
+            <div class="speed-lines">
+                <div class="speed-line"></div><div class="speed-line"></div><div class="speed-line"></div><div class="speed-line"></div><div class="speed-line"></div>
+            </div>
+            <div class="hero-deco hero-deco-1"></div>
+            <div class="hero-deco hero-deco-3"></div>
             <div class="container">
-                <span class="slide-label">極速體驗</span>
-                <h1>1000M 光纖寬頻<br>極速串流 · 暢快打機</h1>
-                <div class="price-highlight">
-                    <span class="currency">$</span>228<span class="period">/月</span>
+                <div class="hero-text">
+                    <span class="slide-label">極速體驗</span>
+                    <h1>1000M 光纖寬頻<br>極速串流 · 暢快打機</h1>
+                    <div class="price-highlight">
+                        <span class="currency">$</span>228<span class="period">/月</span>
+                    </div>
+                    <p>送 Wi-Fi 6E Router · 免費搬遷一次 · 24/7 優先客服</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/85252287541?text=你好，我想查詢1000M極速版計劃" class="btn-hero-primary">立即申請</a>
+                        <a href="#compare" class="btn-hero-outline">比較月費</a>
+                    </div>
+                    <div class="hero-badges">
+                        <div class="hero-badge"><div class="hero-badge-icon">🚀</div><span>1000Mbps 對稱</span></div>
+                        <div class="hero-badge"><div class="hero-badge-icon">📡</div><span>Wi-Fi 6E Router</span></div>
+                        <div class="hero-badge"><div class="hero-badge-icon">🏠</div><span>免費搬遷</span></div>
+                    </div>
                 </div>
-                <p>送 Wi-Fi 6E Router · 免費搬遷一次 · 24/7 優先客服</p>
-                <div class="hero-buttons">
-                    <a href="https://wa.me/85252287541?text=你好，我想查詢1000M極速版計劃" class="btn-hero-primary">立即申請</a>
-                    <a href="#compare" class="btn-hero-outline">比較月費</a>
-                </div>
-                <div class="hero-badges">
-                    <div class="hero-badge">
-                        <div class="hero-badge-icon">🚀</div>
-                        <span>1000Mbps 對稱</span>
-                    </div>
-                    <div class="hero-badge">
-                        <div class="hero-badge-icon">📡</div>
-                        <span>Wi-Fi 6E Router</span>
-                    </div>
-                    <div class="hero-badge">
-                        <div class="hero-badge-icon">🏠</div>
-                        <span>免費搬遷</span>
-                    </div>
+                <div class="hero-visual">
+                    <div class="hero-glow"></div>
+                    <div class="hero-glow hero-glow-2"></div>
+                    <!-- Fiber optic / Speed illustration -->
+                    <svg viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Central speed meter -->
+                        <circle cx="200" cy="170" r="100" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                        <circle cx="200" cy="170" r="80" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+                        <!-- Speed arc -->
+                        <path d="M120 210 A90 90 0 1 1 280 210" fill="none" stroke="rgba(124,58,237,0.3)" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M120 210 A90 90 0 1 1 270 195" fill="none" stroke="url(#speedGrad)" stroke-width="8" stroke-linecap="round">
+                            <animate attributeName="d" values="M120 210 A90 90 0 0 1 160 105;M120 210 A90 90 0 1 1 270 195;M120 210 A90 90 0 0 1 160 105" dur="4s" repeatCount="indefinite"/>
+                        </path>
+                        <defs>
+                            <linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#a78bfa"/>
+                                <stop offset="100%" stop-color="#fbbf24"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Speed number -->
+                        <text x="200" y="160" text-anchor="middle" fill="#fff" font-size="36" font-weight="900">1000</text>
+                        <text x="200" y="185" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="14" font-weight="600">Mbps</text>
+                        <!-- Fiber lines -->
+                        <line x1="30" y1="80" x2="120" y2="150" stroke="url(#fiberGrad1)" stroke-width="2" opacity="0.6">
+                            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.5s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="10" y1="200" x2="110" y2="180" stroke="url(#fiberGrad1)" stroke-width="2" opacity="0.4">
+                            <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+                        </line>
+                        <line x1="370" y1="60" x2="280" y2="140" stroke="url(#fiberGrad2)" stroke-width="2" opacity="0.6">
+                            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" begin="0.8s"/>
+                        </line>
+                        <line x1="390" y1="220" x2="290" y2="190" stroke="url(#fiberGrad2)" stroke-width="2" opacity="0.4">
+                            <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.5s" repeatCount="indefinite" begin="1.2s"/>
+                        </line>
+                        <defs>
+                            <linearGradient id="fiberGrad1"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="transparent"/></linearGradient>
+                            <linearGradient id="fiberGrad2"><stop stop-color="#fbbf24"/><stop offset="1" stop-color="transparent"/></linearGradient>
+                        </defs>
+                        <!-- Data particles -->
+                        <circle cx="60" cy="120" r="3" fill="#a78bfa">
+                            <animate attributeName="cx" values="60;140;60" dur="3s" repeatCount="indefinite"/>
+                            <animate attributeName="cy" values="120;155;120" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="350" cy="100" r="3" fill="#fbbf24">
+                            <animate attributeName="cx" values="350;265;350" dur="2.5s" repeatCount="indefinite"/>
+                            <animate attributeName="cy" values="100;150;100" dur="2.5s" repeatCount="indefinite"/>
+                        </circle>
+                        <!-- Labels -->
+                        <text x="200" y="290" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="12">上下載速度對稱</text>
+                        <text x="80" y="310" text-anchor="middle" fill="rgba(167,139,250,0.6)" font-size="11">↑ Upload</text>
+                        <text x="320" y="310" text-anchor="middle" fill="rgba(251,191,36,0.6)" font-size="11">↓ Download</text>
+                    </svg>
                 </div>
             </div>
         </div>
 
         <!-- Slide 3: Tech / Smart Home -->
         <div class="hero-slide hero-slide-3">
+            <div class="hero-grid-overlay"></div>
+            <div class="speed-lines">
+                <div class="speed-line"></div><div class="speed-line"></div><div class="speed-line"></div><div class="speed-line"></div><div class="speed-line"></div>
+            </div>
+            <div class="hero-deco hero-deco-2"></div>
+            <div class="hero-deco hero-deco-3"></div>
             <div class="container">
-                <span class="slide-label">智能科技生活</span>
-                <h1>Wi-Fi 6E 全屋覆蓋<br>極速連接每一部裝置</h1>
-                <div class="price-highlight" style="font-size: 3.2rem;">
-                    Smart Home Ready
+                <div class="hero-text">
+                    <span class="slide-label">智能科技生活</span>
+                    <h1>Wi-Fi 6E 全屋覆蓋<br>極速連接每一部裝置</h1>
+                    <div class="price-highlight" style="font-size: 3.2rem;">
+                        Smart Home Ready
+                    </div>
+                    <p>支援 100+ 裝置同時連接 · 4K/8K 串流無延遲 · 打機 Ping 值低至 1ms</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/85252287541?text=你好，我想查詢Wi-Fi 6E寬頻計劃" class="btn-hero-primary">免費升級體驗</a>
+                        <a href="kb/router-guide.html" class="btn-hero-outline">了解 Wi-Fi 6E</a>
+                    </div>
+                    <div class="hero-badges">
+                        <div class="hero-badge"><div class="hero-badge-icon">📡</div><span>Wi-Fi 6E 制式</span></div>
+                        <div class="hero-badge"><div class="hero-badge-icon">🏠</div><span>全屋零死角</span></div>
+                        <div class="hero-badge"><div class="hero-badge-icon">🎮</div><span>電競級低延遲</span></div>
+                    </div>
                 </div>
-                <p>支援 100+ 裝置同時連接 · 4K/8K 串流無延遲 · 打機 Ping 值低至 1ms</p>
-                <div class="hero-buttons">
-                    <a href="https://wa.me/85252287541?text=你好，我想查詢Wi-Fi 6E寬頻計劃" class="btn-hero-primary">免費升級體驗</a>
-                    <a href="kb/router-guide.html" class="btn-hero-outline">了解 Wi-Fi 6E</a>
-                </div>
-                <div class="hero-badges">
-                    <div class="hero-badge">
-                        <div class="hero-badge-icon">📡</div>
-                        <span>Wi-Fi 6E 制式</span>
-                    </div>
-                    <div class="hero-badge">
-                        <div class="hero-badge-icon">🏠</div>
-                        <span>全屋零死角</span>
-                    </div>
-                    <div class="hero-badge">
-                        <div class="hero-badge-icon">🎮</div>
-                        <span>電競級低延遲</span>
-                    </div>
+                <div class="hero-visual">
+                    <div class="hero-glow"></div>
+                    <div class="hero-glow hero-glow-2"></div>
+                    <!-- Smart Home illustration -->
+                    <svg viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- House outline -->
+                        <path d="M200 40 L340 130 L340 300 L60 300 L60 130 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                        <line x1="60" y1="130" x2="340" y2="130" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                        <!-- Central hub (router) -->
+                        <circle cx="200" cy="190" r="28" fill="rgba(16,185,129,0.2)" stroke="rgba(16,185,129,0.5)" stroke-width="2"/>
+                        <circle cx="200" cy="190" r="10" fill="#10b981" opacity="0.8">
+                            <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <!-- Signal rings -->
+                        <circle cx="200" cy="190" r="50" fill="none" stroke="rgba(16,185,129,0.2)" stroke-width="1.5">
+                            <animate attributeName="r" values="40;60;40" dur="3s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="200" cy="190" r="80" fill="none" stroke="rgba(16,185,129,0.1)" stroke-width="1">
+                            <animate attributeName="r" values="70;90;70" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+                            <animate attributeName="opacity" values="0.3;0.05;0.3" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+                        </circle>
+                        <!-- TV -->
+                        <rect x="90" y="145" width="40" height="28" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(96,165,250,0.5)" stroke-width="1.5"/>
+                        <text x="110" y="163" text-anchor="middle" fill="rgba(96,165,250,0.7)" font-size="8" font-weight="600">4K</text>
+                        <line x1="130" y1="160" x2="172" y2="185" stroke="rgba(96,165,250,0.3)" stroke-width="1" stroke-dasharray="3,3">
+                            <animate attributeName="stroke-opacity" values="0.2;0.7;0.2" dur="2s" repeatCount="indefinite"/>
+                        </line>
+                        <!-- Laptop -->
+                        <rect x="270" y="150" width="40" height="25" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(168,85,247,0.5)" stroke-width="1.5"/>
+                        <rect x="265" y="175" width="50" height="4" rx="2" fill="rgba(168,85,247,0.3)"/>
+                        <text x="290" y="167" text-anchor="middle" fill="rgba(168,85,247,0.7)" font-size="7" font-weight="600">WFH</text>
+                        <line x1="270" y1="165" x2="228" y2="185" stroke="rgba(168,85,247,0.3)" stroke-width="1" stroke-dasharray="3,3">
+                            <animate attributeName="stroke-opacity" values="0.2;0.7;0.2" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+                        </line>
+                        <!-- Phone -->
+                        <rect x="130" y="230" width="22" height="36" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(251,191,36,0.5)" stroke-width="1.5"/>
+                        <rect x="134" y="234" width="14" height="22" rx="1" fill="rgba(251,191,36,0.2)"/>
+                        <line x1="150" y1="245" x2="180" y2="210" stroke="rgba(251,191,36,0.3)" stroke-width="1" stroke-dasharray="3,3">
+                            <animate attributeName="stroke-opacity" values="0.2;0.7;0.2" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+                        </line>
+                        <!-- Game controller -->
+                        <rect x="250" y="235" width="35" height="24" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(239,68,68,0.5)" stroke-width="1.5"/>
+                        <circle cx="260" cy="245" r="3" fill="rgba(239,68,68,0.5)"/>
+                        <circle cx="275" cy="245" r="3" fill="rgba(239,68,68,0.5)"/>
+                        <line x1="255" y1="247" x2="222" y2="205" stroke="rgba(239,68,68,0.3)" stroke-width="1" stroke-dasharray="3,3">
+                            <animate attributeName="stroke-opacity" values="0.2;0.7;0.2" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+                        </line>
+                        <!-- Smart speaker -->
+                        <ellipse cx="200" cy="280" rx="18" ry="12" fill="rgba(255,255,255,0.08)" stroke="rgba(16,185,129,0.4)" stroke-width="1.5"/>
+                        <rect x="190" y="260" width="20" height="22" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+                        <line x1="200" y1="262" x2="200" y2="210" stroke="rgba(16,185,129,0.3)" stroke-width="1" stroke-dasharray="3,3">
+                            <animate attributeName="stroke-opacity" values="0.2;0.7;0.2" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+                        </line>
+                        <!-- Labels -->
+                        <text x="200" y="100" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-weight="600">Wi-Fi 6E 全屋覆蓋</text>
+                        <text x="200" y="320" text-anchor="middle" fill="rgba(16,185,129,0.5)" font-size="10">100+ 裝置同時連接</text>
+                    </svg>
                 </div>
             </div>
         </div>
