@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合作夥伴招募 | BroadbandHK — 一起拓展香港市場</title>
+    <meta name="description" content="BroadbandHK 誠邀各行業供應商及銷售夥伴合作，我們幫你推廣產品、開拓客源。免費加盟，佣金分成，立即聯絡我們！">
+    <meta name="keywords" content="合作夥伴, 代理, 銷售合作, 推廣, BroadbandHK, 香港, 加盟, 佣金">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://broadbandhk.com/partner.html">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://broadbandhk.com/partner.html">
+    <meta property="og:title" content="合作夥伴招募 | BroadbandHK">
+    <meta property="og:description" content="誠邀各行業供應商及銷售夥伴合作，我們幫你推廣產品、開拓客源。">
+    <meta property="og:locale" content="zh_HK">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+    /* --- Top Bar --- */
+    .top-bar {
+        background: #0a1628;
+        color: #94a3b8;
+        font-size: 0.85rem;
+        padding: 8px 0;
+    }
+    .top-bar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .top-bar a {
+        color: #94a3b8;
+        text-decoration: none;
+        margin-left: 20px;
+        transition: color 0.3s;
+    }
+    .top-bar a:hover { color: #fff; }
+
+    /* --- Partner Hero --- */
+    .partner-hero {
+        padding: 140px 0 80px;
+        text-align: center;
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+    .partner-hero::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .partner-hero .container { position: relative; z-index: 1; }
+    .partner-hero h1 {
+        font-size: 2.8rem;
+        font-weight: 900;
+        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+    .partner-hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto 36px;
+        line-height: 1.8;
+    }
+    .partner-hero .btn {
+        background: #fff;
+        color: #2563eb;
+        font-size: 1.1rem;
+        padding: 14px 36px;
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+    .partner-hero .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    /* --- Why Section --- */
+    .why-section {
+        padding: 80px 0;
+        background: #f8fafc;
+    }
+    .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        margin-top: 48px;
+    }
+    .why-card {
+        background: #fff;
+        padding: 36px 28px;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        text-align: center;
+        transition: transform 0.3s;
+    }
+    .why-card:hover {
+        transform: translateY(-4px);
+    }
+    .why-icon {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+    }
+    .why-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+        color: #0f172a;
+    }
+    .why-card p {
+        color: #64748b;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    /* --- How It Works --- */
+    .how-section {
+        padding: 80px 0;
+    }
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        margin-top: 48px;
+    }
+    .step {
+        text-align: center;
+        padding: 28px 20px;
+        position: relative;
+    }
+    .step-number {
+        width: 56px;
+        height: 56px;
+        background: #2563eb;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin: 0 auto 20px;
+    }
+    .step h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: #0f172a;
+    }
+    .step p {
+        color: #64748b;
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    .step-arrow {
+        position: absolute;
+        right: -16px;
+        top: 44px;
+        font-size: 1.5rem;
+        color: #cbd5e1;
+    }
+    .step:last-child .step-arrow { display: none; }
+
+    /* --- Partner Types --- */
+    .types-section {
+        padding: 80px 0;
+        background: #f8fafc;
+    }
+    .types-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+        margin-top: 48px;
+    }
+    .type-card {
+        background: #fff;
+        padding: 36px;
+        border-radius: 12px;
+        border: 2px solid #e2e8f0;
+        transition: all 0.3s;
+    }
+    .type-card:hover {
+        border-color: #2563eb;
+        box-shadow: 0 8px 32px rgba(37,99,235,0.1);
+    }
+    .type-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        color: #0f172a;
+    }
+    .type-card p {
+        color: #64748b;
+        margin-bottom: 16px;
+        line-height: 1.7;
+    }
+    .type-card ul {
+        list-style: none;
+        padding: 0;
+    }
+    .type-card ul li {
+        padding: 6px 0;
+        color: #334155;
+        font-size: 0.95rem;
+    }
+    .type-card ul li::before {
+        content: "✓ ";
+        color: #2563eb;
+        font-weight: 700;
+    }
+
+    /* --- Contact Form --- */
+    .partner-form-section {
+        padding: 80px 0;
+    }
+    .partner-form {
+        max-width: 640px;
+        margin: 48px auto 0;
+        background: #fff;
+        padding: 48px;
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+    }
+    .form-group {
+        margin-bottom: 24px;
+    }
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #0f172a;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #2563eb;
+    }
+    .form-group textarea {
+        height: 120px;
+        resize: vertical;
+    }
+    .form-submit {
+        width: 100%;
+        padding: 14px;
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .form-submit:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(37,99,235,0.4);
+    }
+    .form-or {
+        text-align: center;
+        margin: 24px 0;
+        color: #64748b;
+    }
+    .wa-contact-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 14px;
+        background: #25d366;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    .wa-contact-btn:hover {
+        background: #1da851;
+        transform: translateY(-2px);
+    }
+
+    /* --- CTA Banner --- */
+    .partner-cta {
+        padding: 60px 0;
+        text-align: center;
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: #fff;
+    }
+    .partner-cta h2 {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+    .partner-cta p {
+        font-size: 1.1rem;
+        margin-bottom: 28px;
+        opacity: 0.95;
+    }
+    .partner-cta .btn {
+        background: #fff;
+        color: #d97706;
+        padding: 14px 36px;
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+    }
+    .partner-cta .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* --- Footer --- */
+    .footer {
+        background: #0a1628;
+        padding: 40px 0 28px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 32px;
+    }
+    .footer-col h4 {
+        color: #fff;
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+    }
+    .footer-col p,
+    .footer-col a {
+        color: #64748b;
+        font-size: 0.85rem;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 8px;
+        line-height: 1.7;
+        transition: color 0.3s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding-top: 20px;
+        text-align: center;
+        color: #64748b;
+        font-size: 0.85rem;
+    }
+
+    /* --- WhatsApp Float --- */
+    .wa-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        width: 60px;
+        height: 60px;
+        background: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+        z-index: 999;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    .wa-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+    }
+    .wa-float svg { width: 32px; height: 32px; fill: #fff; }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+        .top-bar { display: none; }
+        .partner-hero { padding: 100px 0 60px; }
+        .partner-hero h1 { font-size: 2rem; }
+        .why-grid { grid-template-columns: 1fr; }
+        .steps { grid-template-columns: 1fr; }
+        .step-arrow { display: none; }
+        .types-grid { grid-template-columns: 1fr; }
+        .partner-form { padding: 28px; margin: 32px 16px 0; }
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+    }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="container top-bar-inner">
+        <span>BroadbandHK 寬頻格價比較 — 全港覆蓋</span>
+        <div>
+            <a href="tel:23308372">2330 8372</a>
+            <a href="https://wa.me/85252287541">WhatsApp</a>
+            <a href="https://www.facebook.com/profile.php?id=61578537419518" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/broadbandhk_speednet" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">⚡ BroadbandHK</a>
+        <ul class="nav-links">
+            <li><a href="index.html#plans">月費計劃</a></li>
+            <li><a href="calculator.html" style="color:#ff6b35 !important;font-weight:700;">格價計算器</a></li>
+            <li><a href="index.html#features">服務特色</a></li>
+            <li><a href="blog.html">知識庫</a></li>
+            <li><a href="speed-test.html">速度測試</a></li>
+            <li><a href="partner.html" style="color:#f59e0b !important;font-weight:700;">合作夥伴</a></li>
+            <li><a href="index.html#contact">聯絡我們</a></li>
+        </ul>
+        <a href="https://wa.me/85252287541" class="btn btn-small">WhatsApp 查詢</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="partner-hero">
+    <div class="container">
+        <h1>誠邀合作夥伴<br>一起拓展香港市場</h1>
+        <p>你有產品或服務想推廣？我們有客戶群、網上推廣能力同銷售渠道。一齊合作，互惠互利！</p>
+        <a href="#partner-form" class="btn">立即申請合作</a>
+    </div>
+</section>
+
+<!-- Why Partner With Us -->
+<section class="why-section">
+    <div class="container">
+        <h2 class="section-title">點解選擇同我哋合作？</h2>
+        <p class="section-subtitle">BroadbandHK 擁有穩定客戶群同多渠道推廣能力</p>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">🌐</div>
+                <h3>網站流量</h3>
+                <p>我們的網站覆蓋全港 18 區，每日都有大量用戶瀏覽，你的產品可以即時曝光。</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📱</div>
+                <h3>社交媒體推廣</h3>
+                <p>Facebook、Instagram、WhatsApp 多平台同步推廣，幫你的產品觸及更多潛在客戶。</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🤝</div>
+                <h3>靈活合作模式</h3>
+                <p>佣金分成、代理銷售、聯合推廣，多種合作模式任你選擇，零風險零成本。</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">👥</div>
+                <h3>現有客戶基礎</h3>
+                <p>我們擁有大量家居及商業寬頻客戶，可以交叉銷售相關產品及服務。</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📊</div>
+                <h3>透明報告</h3>
+                <p>定期提供銷售數據同客戶反饋報告，讓你清楚了解推廣成效。</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">⚡</div>
+                <h3>快速上架</h3>
+                <p>合作確認後最快即日幫你上架推廣，唔需要等。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-section">
+    <div class="container">
+        <h2 class="section-title">合作流程</h2>
+        <p class="section-subtitle">簡單 4 步開始合作</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>聯絡我們</h3>
+                <p>填寫下面表格或直接 WhatsApp 我們，介紹你的產品或服務。</p>
+                <span class="step-arrow">→</span>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>審核產品</h3>
+                <p>我們會評估你的產品是否適合我們的客戶群，確保質素。</p>
+                <span class="step-arrow">→</span>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>確定合作</h3>
+                <p>商討合作模式、佣金比例、售後安排等細節。</p>
+                <span class="step-arrow">→</span>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>開始推廣</h3>
+                <p>產品上架網站，配合社交媒體推廣，開始搵客！</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partner Types -->
+<section class="types-section">
+    <div class="container">
+        <h2 class="section-title">我們歡迎以下合作夥伴</h2>
+        <p class="section-subtitle">無論你係供應商定係銷售人員，都有合作機會</p>
+        <div class="types-grid">
+            <div class="type-card">
+                <h3>🏢 產品供應商</h3>
+                <p>你有產品想喺香港市場銷售？我們幫你推廣同搵客。</p>
+                <ul>
+                    <li>網絡設備（Router、Mesh WiFi）</li>
+                    <li>智能家居產品</li>
+                    <li>CCTV / 安防系統</li>
+                    <li>電腦及周邊配件</li>
+                    <li>其他 IT 產品及服務</li>
+                </ul>
+            </div>
+            <div class="type-card">
+                <h3>🏠 物業管理公司</h3>
+                <p>與我們合作為你的住戶提供優惠寬頻服務。</p>
+                <ul>
+                    <li>住戶專屬優惠價</li>
+                    <li>批量安裝服務</li>
+                    <li>專人跟進售後</li>
+                    <li>每成功轉介可獲佣金</li>
+                </ul>
+            </div>
+            <div class="type-card">
+                <h3>👤 個人銷售代理</h3>
+                <p>做我們的銷售夥伴，轉介客人即可賺取佣金。</p>
+                <ul>
+                    <li>免費加入，零成本</li>
+                    <li>每單成功轉介即獲佣金</li>
+                    <li>提供銷售培訓及素材</li>
+                    <li>適合兼職、自由工作者</li>
+                </ul>
+            </div>
+            <div class="type-card">
+                <h3>🏪 商戶合作</h3>
+                <p>電訊店、電腦店、裝修公司等，一齊合作拓展業務。</p>
+                <ul>
+                    <li>互相轉介客戶</li>
+                    <li>聯合推廣活動</li>
+                    <li>共享客戶資源</li>
+                    <li>長期穩定合作關係</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partner Form -->
+<section class="partner-form-section" id="partner-form">
+    <div class="container">
+        <h2 class="section-title">立即申請合作</h2>
+        <p class="section-subtitle">填寫以下資料，我們會盡快聯絡你</p>
+        <div class="partner-form">
+            <form action="https://wa.me/85252287541" method="get" id="partnerFormEl">
+                <div class="form-group">
+                    <label for="name">你的名稱 / 公司名稱 *</label>
+                    <input type="text" id="name" required placeholder="例如：陳先生 / ABC Company">
+                </div>
+                <div class="form-group">
+                    <label for="phone">聯絡電話 *</label>
+                    <input type="tel" id="phone" required placeholder="例如：9123 4567">
+                </div>
+                <div class="form-group">
+                    <label for="type">合作類型</label>
+                    <select id="type">
+                        <option value="">請選擇</option>
+                        <option value="supplier">產品供應商</option>
+                        <option value="property">物業管理公司</option>
+                        <option value="agent">個人銷售代理</option>
+                        <option value="merchant">商戶合作</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product">你的產品 / 服務簡介</label>
+                    <textarea id="product" placeholder="請簡單描述你想合作推廣的產品或服務..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">提交申請</button>
+            </form>
+            <div class="form-or">—— 或者直接 ——</div>
+            <a href="https://wa.me/85252287541?text=你好，我想查詢合作夥伴計劃" class="wa-contact-btn">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp 聯絡我們
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="partner-cta">
+    <div class="container">
+        <h2>把握機會，一起拓展市場！</h2>
+        <p>加入 BroadbandHK 合作夥伴計劃，免費加盟，互惠共贏</p>
+        <a href="https://wa.me/85252287541?text=你好，我想查詢合作夥伴計劃" class="btn">WhatsApp 即時傾</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>⚡ BroadbandHK</h4>
+                <p>香港光纖寬頻服務供應商，提供穩定可靠的家居及商業寬頻服務。月費低至 $98，免安裝費，送 Wi-Fi Router。</p>
+            </div>
+            <div class="footer-col">
+                <h4>服務計劃</h4>
+                <a href="index.html#plans">基本版 100M — $98/月</a>
+                <a href="index.html#plans">進階版 500M — $158/月</a>
+                <a href="index.html#plans">極速版 1000M — $228/月</a>
+                <a href="pages/business.html">商業寬頻</a>
+            </div>
+            <div class="footer-col">
+                <h4>更多</h4>
+                <a href="blog.html">知識庫</a>
+                <a href="calculator.html">格價計算器</a>
+                <a href="speed-test.html">速度測試</a>
+                <a href="partner.html">合作夥伴招募</a>
+            </div>
+            <div class="footer-col">
+                <h4>聯絡我們</h4>
+                <a href="tel:23308372">📞 2330 8372</a>
+                <a href="https://wa.me/85252287541">💬 WhatsApp</a>
+                <a href="https://www.facebook.com/profile.php?id=61578537419518" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://www.instagram.com/broadbandhk_speednet" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 BroadbandHK 寬頻格價比較. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/85252287541?text=你好，我想查詢合作夥伴計劃" class="wa-float" aria-label="WhatsApp 聯絡我們">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Form to WhatsApp Script -->
+<script>
+document.getElementById('partnerFormEl').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const type = document.getElementById('type').value;
+    const product = document.getElementById('product').value;
+
+    const typeMap = {
+        'supplier': '產品供應商',
+        'property': '物業管理公司',
+        'agent': '個人銷售代理',
+        'merchant': '商戶合作',
+        'other': '其他'
+    };
+
+    let msg = `你好，我想申請成為合作夥伴！\n\n`;
+    msg += `名稱：${name}\n`;
+    msg += `電話：${phone}\n`;
+    if (type) msg += `合作類型：${typeMap[type] || type}\n`;
+    if (product) msg += `產品/服務：${product}\n`;
+
+    window.open(`https://wa.me/85252287541?text=${encodeURIComponent(msg)}`, '_blank');
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    nav.style.boxShadow = window.scrollY > 50 ? '0 2px 16px rgba(0,0,0,0.1)' : '0 1px 8px rgba(0,0,0,0.06)';
+});
+</script>
+
+</body>
+</html>
