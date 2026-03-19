@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寬頻格價計算器 | 免費幫你揀最適合嘅寬頻Plan — BroadbandHK</title>
+    <meta name="description" content="免費寬頻格價計算器！答幾條問題，即刻幫你揀最適合嘅寬頻Plan，比較唔同供應商價錢，搵到最抵嘅寬頻月費。">
+    <meta name="keywords" content="寬頻格價, 寬頻計算器, 寬頻比較, 寬頻邊間好, 寬頻月費比較, 光纖寬頻格價, 香港寬頻比較">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://broadbandhk.com/calculator.html">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://broadbandhk.com/calculator.html">
+    <meta property="og:title" content="寬頻格價計算器 | 免費幫你揀最適合嘅寬頻Plan">
+    <meta property="og:description" content="免費寬頻格價計算器！答幾條問題，即刻幫你揀最適合嘅寬頻Plan，比較唔同供應商價錢。">
+    <meta property="og:locale" content="zh_HK">
+    <meta property="og:site_name" content="BroadbandHK 寬頻格價比較">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="寬頻格價計算器 | 免費幫你揀最適合嘅寬頻Plan">
+    <meta name="twitter:description" content="免費寬頻格價計算器！答幾條問題，即刻幫你揀最適合嘅寬頻Plan。">
+
+    <!-- Schema.org WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BroadbandHK 寬頻格價計算器",
+        "url": "https://broadbandhk.com/calculator.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"},
+        "description": "免費寬頻格價計算器，幫你揀最適合嘅寬頻Plan，比較唔同供應商價錢",
+        "inLanguage": "zh-Hant"
+    }
+    </script>
+
+    <!-- Schema.org FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "寬頻邊間好？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "寬頻邊間好要視乎你嘅住宅類型、使用人數同用途。BroadbandHK 幫你格價比較，揀最適合你嘅Plan，月費低至 $98。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "點樣揀寬頻速度？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "1-2人用可以揀100M，3-4人建議500M，5人以上或有打機需求建議1000M。BroadbandHK 格價計算器可以幫你分析最適合嘅速度。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --dark-blue: #0a1628;
+            --darker-blue: #060f1d;
+            --navy: #101d35;
+            --orange: #ff6b35;
+            --orange-hover: #ff8555;
+            --orange-glow: rgba(255, 107, 53, 0.3);
+            --light-blue: #1a2d4d;
+            --text-primary: #ffffff;
+            --text-secondary: #a0b4cc;
+            --text-muted: #6b82a0;
+            --card-bg: rgba(16, 29, 53, 0.8);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --success: #00d48a;
+            --green-bg: rgba(0, 212, 138, 0.1);
+            --red: #ff4757;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-blue);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            background: var(--darker-blue);
+            border-bottom: 1px solid var(--card-border);
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--orange);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--orange); }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 50px 20px 30px;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            position: relative;
+        }
+        .hero h1 span { color: var(--orange); }
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-container {
+            max-width: 560px;
+            margin: 30px auto 10px;
+            padding: 0 20px;
+        }
+        .progress-bar-bg {
+            height: 6px;
+            background: var(--navy);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--orange), #ffaa35);
+            border-radius: 3px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+        }
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ===== CALCULATOR ===== */
+        .calc-wrapper {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .step {
+            display: none;
+            animation: slideIn 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .step.active { display: block; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-question {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .step-hint {
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        /* ===== OPTION CARDS ===== */
+        .options { display: grid; gap: 12px; }
+        .options.two-col { grid-template-columns: 1fr 1fr; }
+
+        .option-card {
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: 14px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-align: center;
+            user-select: none;
+            position: relative;
+        }
+        .option-card:hover {
+            border-color: rgba(255, 107, 53, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .option-card.selected {
+            border-color: var(--orange);
+            background: rgba(255, 107, 53, 0.08);
+            box-shadow: 0 0 20px var(--orange-glow);
+        }
+        .option-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 10px; right: 14px;
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .option-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .option-label {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .option-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Multi select note */
+        .multi-note {
+            text-align: center;
+            color: var(--orange);
+            font-size: 0.82rem;
+            margin-bottom: 16px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .step-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 28px;
+            gap: 12px;
+        }
+        .btn {
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: var(--orange);
+            color: #fff;
+            flex: 1;
+        }
+        .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
+        .btn-primary:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .btn-back {
+            background: var(--navy);
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+        }
+        .btn-back:hover { background: var(--light-blue); }
+
+        /* ===== RESULT PAGE ===== */
+        .result { display: none; animation: slideIn 0.5s ease; }
+        .result.active { display: block; }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .result-badge {
+            display: inline-block;
+            background: var(--green-bg);
+            color: var(--success);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+        .result-header h2 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+        .result-header h2 span { color: var(--orange); }
+
+        .result-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 16px;
+        }
+        .result-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Speed badge */
+        .speed-display {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .speed-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--orange);
+            line-height: 1;
+        }
+        .speed-unit {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .speed-reason {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        /* Price */
+        .price-display {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .price-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+        .price-amount {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--success);
+        }
+        .price-amount small {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Included list */
+        .included-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+        .included-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        .included-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Comparison table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        .compare-table th,
+        .compare-table td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .compare-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+        .compare-table .highlight {
+            background: rgba(255, 107, 53, 0.06);
+        }
+        .compare-table .highlight td {
+            color: var(--orange);
+            font-weight: 700;
+        }
+        .compare-table .tag-cheapest {
+            background: var(--orange);
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 4px;
+            font-weight: 700;
+        }
+        .compare-table .competitor-price {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            text-decoration-color: var(--red);
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            margin-top: 28px;
+        }
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25d366;
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .btn-whatsapp:hover {
+            background: #20bd5a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+        }
+        .btn-share {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--navy);
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-top: 12px;
+            font-family: inherit;
+        }
+        .btn-share:hover { background: var(--light-blue); color: var(--text-primary); }
+        .btn-share.copied { color: var(--success); border-color: var(--success); }
+
+        .btn-restart {
+            display: inline-block;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 18px;
+            cursor: pointer;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            font-family: inherit;
+        }
+        .btn-restart:hover { color: var(--text-secondary); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer a {
+            color: var(--orange);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 12px;
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(6, 15, 29, 0.92);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .loading-overlay.active { display: flex; }
+        .loading-spinner {
+            width: 50px; height: 50px;
+            border: 4px solid var(--navy);
+            border-top-color: var(--orange);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 0.95rem; }
+            .step-question { font-size: 1.15rem; }
+            .options.two-col { grid-template-columns: 1fr 1fr; }
+            .option-card { padding: 14px 10px; }
+            .option-icon { font-size: 1.5rem; }
+            .speed-number { font-size: 2.8rem; }
+            .price-amount { font-size: 2.2rem; }
+            .result-card { padding: 20px; }
+            .compare-table { font-size: 0.8rem; }
+            .compare-table th, .compare-table td { padding: 10px 6px; }
+            .btn-whatsapp { padding: 14px 28px; font-size: 1.05rem; }
+            .nav-links { gap: 14px; }
+            .nav-links a { font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">⚡ BroadbandHK</a>
+        <div class="nav-links">
+            <a href="blog.html">知識庫</a>
+            <a href="speed-test.html">速度測試</a>
+            <a href="calculator.html" class="active">格價計算器</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>寬頻格價<span>計算器</span></h1>
+    <p>答幾條問題，即刻幫你搵到最適合、最抵嘅寬頻Plan</p>
+</section>
+
+<!-- PROGRESS BAR -->
+<div class="progress-container" id="progressContainer">
+    <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <div class="progress-text">
+        <span id="progressLabel">第 1 步 / 共 4 步</span>
+        <span id="progressPercent">0%</span>
+    </div>
+</div>
+
+<!-- CALCULATOR STEPS -->
+<div class="calc-wrapper">
+
+    <!-- Step 1: Housing Type -->
+    <div class="step active" id="step1">
+        <div class="step-question">你住邊類型嘅屋？</div>
+        <div class="step-hint">唔同屋型，覆蓋嘅供應商同價錢都唔同</div>
+        <div class="options two-col">
+            <div class="option-card" data-step="1" data-value="public">
+                <span class="option-icon">🏢</span>
+                <div class="option-label">公屋 / 居屋</div>
+                <div class="option-sub">覆蓋率最高</div>
+            </div>
+            <div class="option-card" data-step="1" data-value="private">
+                <span class="option-icon">🏙️</span>
+                <div class="option-label">私人屋苑</div>
+                <div class="option-sub">多間供應商選擇</div>
+            </div>
+            <div class="option-card" data-step="1" data-value="village">
+                <span class="option-icon">🏡</span>
+                <div class="option-label">村屋</div>
+                <div class="option-sub">需要確認覆蓋</div>
+            </div>
+            <div class="option-card" data-step="1" data-value="commercial">
+                <span class="option-icon">🏗️</span>
+                <div class="option-label">工商大廈</div>
+                <div class="option-sub">商業寬頻方案</div>
+            </div>
+        </div>
+        <div class="step-actions">
+            <button class="btn btn-primary" id="btn1" disabled onclick="nextStep(2)">下一步 →</button>
+        </div>
+    </div>
+
+    <!-- Step 2: Number of Users -->
+    <div class="step" id="step2">
+        <div class="step-question">屋企有幾多人用 WiFi？</div>
+        <div class="step-hint">人數越多，建議速度越快</div>
+        <div class="options">
+            <div class="option-card" data-step="2" data-value="1-2">
+                <span class="option-icon">👤</span>
+                <div class="option-label">1-2 人</div>
+                <div class="option-sub">基本上網需求</div>
+            </div>
+            <div class="option-card" data-step="2" data-value="3-4">
+                <span class="option-icon">👥</span>
+                <div class="option-label">3-4 人</div>
+                <div class="option-sub">一般家庭</div>
+            </div>
+            <div class="option-card" data-step="2" data-value="5+">
+                <span class="option-icon">👨‍👩‍👧‍👦</span>
+                <div class="option-label">5 人以上</div>
+                <div class="option-sub">大家庭 / 多裝置</div>
+            </div>
+        </div>
+        <div class="step-actions">
+            <button class="btn btn-back" onclick="prevStep(1)">← 返回</button>
+            <button class="btn btn-primary" id="btn2" disabled onclick="nextStep(3)">下一步 →</button>
+        </div>
+    </div>
+
+    <!-- Step 3: Usage (multiple select) -->
+    <div class="step" id="step3">
+        <div class="step-question">你主要用嚟做咩？</div>
+        <div class="multi-note">可以揀多過一個</div>
+        <div class="options two-col">
+            <div class="option-card" data-step="3" data-value="streaming">
+                <span class="option-icon">📺</span>
+                <div class="option-label">睇片 / 串流</div>
+                <div class="option-sub">Netflix, YouTube</div>
+            </div>
+            <div class="option-card" data-step="3" data-value="gaming">
+                <span class="option-icon">🎮</span>
+                <div class="option-label">打機</div>
+                <div class="option-sub">低延遲好重要</div>
+            </div>
+            <div class="option-card" data-step="3" data-value="wfh">
+                <span class="option-icon">💻</span>
+                <div class="option-label">在家工作 / 視像會議</div>
+                <div class="option-sub">穩定連接</div>
+            </div>
+            <div class="option-card" data-step="3" data-value="basic">
+                <span class="option-icon">📱</span>
+                <div class="option-label">一般瀏覽 / 社交媒體</div>
+                <div class="option-sub">WhatsApp, IG</div>
+            </div>
+            <div class="option-card" data-step="3" data-value="smarthome">
+                <span class="option-icon">🏠</span>
+                <div class="option-label">Smart Home</div>
+                <div class="option-sub">智能家居裝置</div>
+            </div>
+        </div>
+        <div class="step-actions">
+            <button class="btn btn-back" onclick="prevStep(2)">← 返回</button>
+            <button class="btn btn-primary" id="btn3" disabled onclick="nextStep(4)">下一步 →</button>
+        </div>
+    </div>
+
+    <!-- Step 4: Budget -->
+    <div class="step" id="step4">
+        <div class="step-question">你每月預算幾多？</div>
+        <div class="step-hint">我哋幫你搵到最抵嘅方案</div>
+        <div class="options two-col">
+            <div class="option-card" data-step="4" data-value="under100">
+                <span class="option-icon">💰</span>
+                <div class="option-label">$100 以下</div>
+                <div class="option-sub">慳到盡</div>
+            </div>
+            <div class="option-card" data-step="4" data-value="100-200">
+                <span class="option-icon">💵</span>
+                <div class="option-label">$100 - $200</div>
+                <div class="option-sub">最多人揀</div>
+            </div>
+            <div class="option-card" data-step="4" data-value="over200">
+                <span class="option-icon">💎</span>
+                <div class="option-label">$200 以上</div>
+                <div class="option-sub">追求極速</div>
+            </div>
+            <div class="option-card" data-step="4" data-value="any">
+                <span class="option-icon">🤷</span>
+                <div class="option-label">唔介意</div>
+                <div class="option-sub">最啱最重要</div>
+            </div>
+        </div>
+        <div class="step-actions">
+            <button class="btn btn-back" onclick="prevStep(3)">← 返回</button>
+            <button class="btn btn-primary" id="btn4" disabled onclick="showResult()">睇結果 🎯</button>
+        </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result" id="resultSection">
+        <div class="result-header">
+            <div class="result-badge">✨ 分析完成</div>
+            <h2>推薦你用 <span id="resultSpeed">1000M</span> 光纖寬頻</h2>
+        </div>
+
+        <!-- Speed Card -->
+        <div class="result-card">
+            <h3>⚡ 推薦速度</h3>
+            <div class="speed-display">
+                <div class="speed-number" id="speedNumber">1000</div>
+                <div class="speed-unit">Mbps</div>
+            </div>
+            <div class="speed-reason" id="speedReason"></div>
+        </div>
+
+        <!-- Price Card -->
+        <div class="result-card">
+            <h3>💰 BroadbandHK 月費</h3>
+            <div class="price-display">
+                <div class="price-label">每月只需</div>
+                <div class="price-amount">$<span id="priceAmount">158</span> <small>/月</small></div>
+            </div>
+        </div>
+
+        <!-- Included Card -->
+        <div class="result-card">
+            <h3>🎁 已包嘅服務</h3>
+            <ul class="included-list" id="includedList">
+                <li>免安裝費</li>
+                <li>免費 Wi-Fi Router</li>
+                <li>24 小時客服支援</li>
+                <li>無隱藏收費</li>
+                <li>最快翌日安裝</li>
+            </ul>
+        </div>
+
+        <!-- Comparison Card -->
+        <div class="result-card">
+            <h3>📊 價錢比較</h3>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>供應商</th>
+                        <th>速度</th>
+                        <th>月費</th>
+                    </tr>
+                </thead>
+                <tbody id="compareBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <a href="https://wa.me/85252287541" target="_blank" rel="noopener" class="btn-whatsapp" id="whatsappBtn">
+                💬 WhatsApp 即時查詢
+            </a>
+            <br>
+            <button class="btn-share" id="shareBtn" onclick="shareResult()">
+                📋 分享結果
+            </button>
+            <br>
+            <button class="btn-restart" onclick="restart()">重新計算</button>
+        </div>
+    </div>
+</div>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">分析緊你嘅需求...</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-links">
+        <a href="https://wa.me/85252287541" target="_blank" rel="noopener">💬 WhatsApp 查詢</a>
+        <a href="https://broadbandhk.com">broadbandhk.com</a>
+    </div>
+    <div>&copy; 2026 BroadbandHK. All rights reserved.</div>
+</footer>
+
+<script>
+    // State
+    const answers = { housing: null, users: null, usage: [], budget: null };
+    let currentStep = 1;
+
+    // Option cards - single select for steps 1, 2, 4; multi for step 3
+    document.querySelectorAll('.option-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const step = parseInt(card.dataset.step);
+            const value = card.dataset.value;
+
+            if (step === 3) {
+                // Multi select
+                card.classList.toggle('selected');
+                if (card.classList.contains('selected')) {
+                    if (!answers.usage.includes(value)) answers.usage.push(value);
+                } else {
+                    answers.usage = answers.usage.filter(v => v !== value);
+                }
+                document.getElementById('btn3').disabled = answers.usage.length === 0;
+            } else {
+                // Single select
+                document.querySelectorAll(`.option-card[data-step="${step}"]`).forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                if (step === 1) answers.housing = value;
+                if (step === 2) answers.users = value;
+                if (step === 4) answers.budget = value;
+                document.getElementById('btn' + step).disabled = false;
+            }
+
+            // Track selection in GA
+            gtag('event', 'calculator_select', {
+                step: step,
+                value: value
+            });
+        });
+    });
+
+    function updateProgress(step) {
+        const pct = ((step - 1) / 4) * 100;
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('progressLabel').textContent = `第 ${step} 步 / 共 4 步`;
+        document.getElementById('progressPercent').textContent = Math.round(pct) + '%';
+    }
+
+    function goToStep(n) {
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+        document.getElementById('step' + n).classList.add('active');
+        currentStep = n;
+        updateProgress(n);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextStep(n) {
+        goToStep(n);
+    }
+
+    function prevStep(n) {
+        goToStep(n);
+    }
+
+    function calculateRecommendation() {
+        let score = 0;
+
+        // Users factor
+        if (answers.users === '1-2') score += 1;
+        else if (answers.users === '3-4') score += 2;
+        else score += 3;
+
+        // Usage factor
+        if (answers.usage.includes('gaming')) score += 2;
+        if (answers.usage.includes('wfh')) score += 1.5;
+        if (answers.usage.includes('streaming')) score += 1;
+        if (answers.usage.includes('smarthome')) score += 1;
+        if (answers.usage.includes('basic')) score += 0;
+
+        // Housing factor
+        if (answers.housing === 'commercial') score += 1;
+        if (answers.housing === 'village') score += 0.5;
+
+        // Determine speed
+        let speed, price, competitors;
+
+        if (score <= 2.5 && (answers.budget === 'under100' || answers.budget === '100-200')) {
+            speed = 100;
+            price = 98;
+            competitors = [
+                { name: 'HKBN 香港寬頻', speed: '100M', price: '$119' },
+                { name: 'SmarTone', speed: '100M', price: '$128' },
+                { name: 'CMHK 中國移動', speed: '100M', price: '$108' },
+            ];
+        } else if (score <= 5 || answers.budget === 'under100') {
+            speed = 500;
+            price = 128;
+            competitors = [
+                { name: 'HKBN 香港寬頻', speed: '500M', price: '$168' },
+                { name: 'SmarTone', speed: '500M', price: '$178' },
+                { name: 'CMHK 中國移動', speed: '500M', price: '$148' },
+            ];
+        } else {
+            speed = 1000;
+            price = 158;
+            competitors = [
+                { name: 'HKBN 香港寬頻', speed: '1000M', price: '$198' },
+                { name: 'HGC 環電', speed: '1000M', price: '$208' },
+                { name: 'SmarTone', speed: '1000M', price: '$218' },
+            ];
+        }
+
+        // Budget override - push up if budget allows
+        if (answers.budget === 'over200' || answers.budget === 'any') {
+            if (speed < 1000) {
+                speed = 1000;
+                price = 158;
+                competitors = [
+                    { name: 'HKBN 香港寬頻', speed: '1000M', price: '$198' },
+                    { name: 'HGC 環電', speed: '1000M', price: '$208' },
+                    { name: 'SmarTone', speed: '1000M', price: '$218' },
+                ];
+            }
+        }
+
+        // Village surcharge note
+        let villageNote = '';
+        if (answers.housing === 'village') {
+            villageNote = '（村屋實際月費可能因覆蓋情況略有不同，WhatsApp 我哋確認）';
+        }
+
+        // Build reason text
+        let reasons = [];
+        if (answers.users === '5+') reasons.push('屋企人多');
+        else if (answers.users === '3-4') reasons.push('一家幾口同時用');
+        if (answers.usage.includes('gaming')) reasons.push('打機需要低延遲同高速');
+        if (answers.usage.includes('wfh')) reasons.push('在家工作要穩定連線');
+        if (answers.usage.includes('streaming')) reasons.push('睇片要流暢唔窒');
+        if (answers.usage.includes('smarthome')) reasons.push('智能家居需要穩定網絡');
+
+        let reasonText = '';
+        if (speed === 100) {
+            reasonText = '根據你嘅使用習慣，100M 已經足夠應付日常需要，幫你慳返啲！';
+        } else if (speed === 500) {
+            reasonText = '因為' + (reasons.length > 0 ? reasons.join('、') : '你嘅需求') + '，500M 係最平衡嘅選擇，夠快又唔貴。';
+        } else {
+            reasonText = '因為' + (reasons.length > 0 ? reasons.join('、') : '你嘅需求') + '，1000M 先至夠用，確保全屋暢通無阻！';
+        }
+        if (villageNote) reasonText += '<br>' + villageNote;
+
+        return { speed, price, competitors, reasonText };
+    }
+
+    function showResult() {
+        const loading = document.getElementById('loadingOverlay');
+        loading.classList.add('active');
+
+        // Track completion
+        gtag('event', 'calculator_complete', {
+            housing: answers.housing,
+            users: answers.users,
+            usage: answers.usage.join(','),
+            budget: answers.budget
+        });
+
+        setTimeout(() => {
+            loading.classList.remove('active');
+
+            const rec = calculateRecommendation();
+
+            // Hide steps, show result
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('resultSection').classList.add('active');
+            document.getElementById('progressContainer').style.display = 'none';
+
+            // Fill in values
+            document.getElementById('resultSpeed').textContent = rec.speed + 'M';
+            document.getElementById('speedNumber').textContent = rec.speed;
+            document.getElementById('priceAmount').textContent = rec.price;
+            document.getElementById('speedReason').innerHTML = rec.reasonText;
+
+            // Comparison table
+            const tbody = document.getElementById('compareBody');
+            tbody.innerHTML = '';
+
+            // BroadbandHK row
+            const bbRow = document.createElement('tr');
+            bbRow.className = 'highlight';
+            bbRow.innerHTML = `<td>⚡ BroadbandHK <span class="tag-cheapest">最抵</span></td><td>${rec.speed}M</td><td>$${rec.price}/月</td>`;
+            tbody.appendChild(bbRow);
+
+            // Competitors
+            rec.competitors.forEach(c => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${c.name}</td><td>${c.speed}</td><td class="competitor-price">${c.price}/月</td>`;
+                tbody.appendChild(row);
+            });
+
+            // Update WhatsApp link with pre-filled message
+            const waMsg = encodeURIComponent(`你好！我用咗格價計算器，想查詢 ${rec.speed}M 寬頻Plan（$${rec.price}/月）。\n住宅類型：${getHousingLabel(answers.housing)}\n使用人數：${answers.users}人`);
+            document.getElementById('whatsappBtn').href = `https://wa.me/85252287541?text=${waMsg}`;
+
+            updateProgress(5);
+            document.getElementById('progressFill').style.width = '100%';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 1500);
+    }
+
+    function getHousingLabel(v) {
+        const map = { public: '公屋/居屋', private: '私人屋苑', village: '村屋', commercial: '工商大廈' };
+        return map[v] || v;
+    }
+
+    function getBudgetLabel(v) {
+        const map = { under100: '$100以下', '100-200': '$100-200', over200: '$200以上', any: '唔介意' };
+        return map[v] || v;
+    }
+
+    function getUsageLabels(arr) {
+        const map = { streaming: '睇片/串流', gaming: '打機', wfh: '在家工作', basic: '一般瀏覽', smarthome: 'Smart Home' };
+        return arr.map(v => map[v] || v).join('、');
+    }
+
+    function shareResult() {
+        const rec = calculateRecommendation();
+        const text = `我用 BroadbandHK 格價計算器搵到最啱嘅寬頻Plan！\n\n📶 推薦速度：${rec.speed}M\n💰 BroadbandHK 月費：$${rec.price}/月\n✅ 免安裝費 + 送Router\n\n即刻試吓：https://broadbandhk.com/calculator.html`;
+
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('shareBtn');
+            btn.textContent = '✅ 已複製到剪貼板！';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.innerHTML = '📋 分享結果';
+                btn.classList.remove('copied');
+            }, 2500);
+        }).catch(() => {
+            // Fallback for older browsers
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            const btn = document.getElementById('shareBtn');
+            btn.textContent = '✅ 已複製到剪貼板！';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.innerHTML = '📋 分享結果';
+                btn.classList.remove('copied');
+            }, 2500);
+        });
+
+        gtag('event', 'calculator_share');
+    }
+
+    function restart() {
+        answers.housing = null;
+        answers.users = null;
+        answers.usage = [];
+        answers.budget = null;
+        document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+        document.querySelectorAll('.btn-primary').forEach(b => b.disabled = true);
+        document.getElementById('resultSection').classList.remove('active');
+        document.getElementById('progressContainer').style.display = '';
+        goToStep(1);
+
+        gtag('event', 'calculator_restart');
+    }
+
+    // Init
+    updateProgress(1);
+</script>
+
+</body>
+</html>

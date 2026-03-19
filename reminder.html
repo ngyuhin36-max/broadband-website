@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寬頻合約到期提醒 | 免費幫你慳錢轉台 — BroadbandHK</title>
+    <meta name="description" content="免費寬頻合約到期提醒工具，幫你計算合約剩餘日數、轉台慳幾多錢。支援 HKBN、HKT、CMHK、HGC 等供應商，一鍵加到日曆提醒。">
+    <meta name="keywords" content="寬頻合約到期, 寬頻續約, 轉台, 寬頻到期, 寬頻合約提醒, 寬頻格價, 寬頻慳錢">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="BroadbandHK 寬頻格價比較">
+    <link rel="canonical" href="https://broadbandhk.com/reminder.html">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://broadbandhk.com/reminder.html">
+    <meta property="og:title" content="寬頻合約到期提醒 | 免費幫你慳錢轉台 — BroadbandHK">
+    <meta property="og:description" content="免費寬頻合約到期提醒工具，幫你計算合約剩餘日數、轉台慳幾多錢。">
+    <meta property="og:locale" content="zh_HK">
+    <meta property="og:site_name" content="BroadbandHK 寬頻格價比較">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="寬頻合約到期提醒 | 免費幫你慳錢轉台 — BroadbandHK">
+    <meta name="twitter:description" content="免費寬頻合約到期提醒工具，幫你計算合約剩餘日數、轉台慳幾多錢。">
+
+    <!-- 結構化數據 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "寬頻合約到期提醒工具",
+        "description": "免費寬頻合約到期提醒工具，幫你計算合約剩餘日數、轉台慳幾多錢",
+        "url": "https://broadbandhk.com/reminder.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "HKD"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "BroadbandHK 寬頻格價比較",
+            "url": "https://broadbandhk.com"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "PingFang HK", sans-serif;
+            background: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            background: #0a1628;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,.3);
+        }
+
+        .nav-logo {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-logo:hover { color: #ff6b35; }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: .95rem;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #ff6b35;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 640px) {
+            .nav-toggle { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #0a1628;
+                flex-direction: column;
+                padding: 16px 24px;
+                gap: 12px;
+                border-top: 1px solid #1a2a44;
+            }
+            .nav-links.open { display: flex; }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #0a1628 0%, #132244 100%);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px 48px;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span { color: #ff6b35; }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #b0bfcf;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== FORM ===== */
+        .container {
+            max-width: 680px;
+            margin: -32px auto 40px;
+            padding: 0 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(10,22,40,.12);
+            padding: 32px;
+            animation: slideUp .5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+            color: #0a1628;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #0a1628;
+            font-size: .95rem;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #dde3ec;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color .2s, box-shadow .2s;
+            background: #f8fafc;
+            font-family: inherit;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255,107,53,.15);
+            background: #fff;
+        }
+
+        .fee-input-wrap {
+            position: relative;
+        }
+
+        .fee-input-wrap::before {
+            content: "HK$";
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-weight: 600;
+        }
+
+        .fee-input-wrap input {
+            padding-left: 56px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #ff6b35 0%, #e8551f 100%);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform .15s, box-shadow .15s;
+            margin-top: 8px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,107,53,.35);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        /* ===== RESULTS ===== */
+        .results {
+            display: none;
+            animation: slideUp .5s ease-out;
+        }
+
+        .results.show { display: block; }
+
+        .result-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(10,22,40,.12);
+            padding: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* Countdown */
+        .countdown-section {
+            text-align: center;
+            padding-bottom: 24px;
+        }
+
+        .countdown-status {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .status-expired {
+            background: #fff0f0;
+            color: #d32f2f;
+            border: 1px solid #ffcdd2;
+        }
+
+        .status-soon {
+            background: #fff8e1;
+            color: #e65100;
+            border: 1px solid #ffe0b2;
+        }
+
+        .status-safe {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+
+        .countdown-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #0a1628;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: .95rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Progress bar */
+        .progress-wrap {
+            margin: 20px 0 8px;
+        }
+
+        .progress-bar-bg {
+            height: 12px;
+            background: #e8ecf2;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 1s ease-out;
+            background: linear-gradient(90deg, #4caf50, #ff9800, #f44336);
+        }
+
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: .8rem;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        /* Savings */
+        .savings-highlight {
+            text-align: center;
+            padding: 24px;
+            background: linear-gradient(135deg, #0a1628 0%, #132244 100%);
+            border-radius: 12px;
+            color: #fff;
+            margin: 20px 0;
+        }
+
+        .savings-highlight .amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b35;
+            display: block;
+            margin: 8px 0;
+        }
+
+        .savings-highlight .per-year {
+            font-size: .9rem;
+            color: #b0bfcf;
+        }
+
+        /* Comparison table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: .95rem;
+        }
+
+        .compare-table th {
+            background: #0a1628;
+            color: #fff;
+            padding: 12px 16px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .compare-table th:first-child {
+            border-radius: 10px 0 0 0;
+            text-align: left;
+        }
+
+        .compare-table th:last-child {
+            border-radius: 0 10px 0 0;
+            background: #ff6b35;
+        }
+
+        .compare-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .compare-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-table .highlight-cell {
+            color: #ff6b35;
+            font-weight: 700;
+        }
+
+        .compare-table .old-price {
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        /* Buttons */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+            background: #25d366;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform .15s, box-shadow .15s;
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37,211,102,.35);
+        }
+
+        .btn-secondary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px;
+            background: #fff;
+            color: #0a1628;
+            border: 2px solid #dde3ec;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color .2s, background .2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ff6b35;
+            background: #fff8f4;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-row .btn-secondary { flex: 1; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0a1628;
+            color: #8899aa;
+            text-align: center;
+            padding: 32px 20px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        .footer-links {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            .hero { padding: 44px 16px 36px; }
+            .hero h1 { font-size: 1.5rem; }
+            .card, .result-card { padding: 24px 18px; }
+            .countdown-number { font-size: 2.5rem; }
+            .savings-highlight .amount { font-size: 2rem; }
+            .btn-row { flex-direction: column; }
+            .compare-table { font-size: .85rem; }
+            .compare-table th, .compare-table td { padding: 10px 10px; }
+        }
+
+        /* Floating WhatsApp */
+        .float-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37,211,102,.4);
+            z-index: 999;
+            transition: transform .2s;
+            text-decoration: none;
+        }
+
+        .float-wa:hover { transform: scale(1.1); }
+
+        .float-wa svg { width: 32px; height: 32px; fill: #fff; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="nav-logo">⚡ BroadbandHK</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+        <li><a href="index.html">主頁</a></li>
+        <li><a href="blog.html">知識庫</a></li>
+        <li><a href="calculator.html">格價計算器</a></li>
+        <li><a href="reminder.html" class="active">到期提醒</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>寬頻合約<span>到期提醒</span></h1>
+    <p>輸入你嘅合約到期日，即刻幫你計算可以慳幾多錢，仲可以加到日曆提醒！</p>
+</section>
+
+<!-- FORM -->
+<div class="container">
+    <div class="card">
+        <h2>📋 輸入你嘅寬頻資料</h2>
+        <form id="reminderForm" onsubmit="return calculate(event)">
+            <div class="form-group">
+                <label for="provider">現有供應商</label>
+                <select id="provider" required>
+                    <option value="" disabled selected>— 選擇供應商 —</option>
+                    <option value="HKBN">HKBN 香港寬頻</option>
+                    <option value="HKT">HKT 網上行</option>
+                    <option value="CMHK">CMHK 中國移動</option>
+                    <option value="HGC">HGC 環電</option>
+                    <option value="有線">有線寬頻</option>
+                    <option value="SmarTone">SmarTone</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fee">每月月費 (HK$)</label>
+                <div class="fee-input-wrap">
+                    <input type="number" id="fee" placeholder="例如：198" min="1" max="9999" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">合約到期日</label>
+                <input type="date" id="expiryDate" required>
+            </div>
+            <button type="submit" class="btn-submit">🔍 即刻計算</button>
+        </form>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results" id="results">
+
+        <!-- Countdown -->
+        <div class="result-card">
+            <div class="countdown-section">
+                <div id="statusMsg" class="countdown-status"></div>
+                <div class="countdown-number" id="countdownNum"></div>
+                <div class="countdown-label" id="countdownLabel"></div>
+                <div class="progress-wrap">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progressBar" style="width:0%"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span>簽約日 (24個月前)</span>
+                        <span>今日</span>
+                        <span>到期日</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Savings -->
+        <div class="result-card">
+            <h2>💰 轉台慳幾多？</h2>
+            <div class="savings-highlight">
+                <div>轉用 BroadbandHK 每年可以慳到</div>
+                <span class="amount" id="savingsAmount"></span>
+                <div class="per-year" id="savingsDetail"></div>
+            </div>
+
+            <!-- Comparison table -->
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>比較項目</th>
+                        <th id="thProvider">你而家</th>
+                        <th>BroadbandHK</th>
+                    </tr>
+                </thead>
+                <tbody id="compareBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Actions -->
+        <div class="result-card">
+            <h2>⚡ 下一步</h2>
+            <div class="action-buttons">
+                <a class="btn-wa" id="btnWa" href="https://wa.me/85252287541" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp 免費格價
+                </a>
+                <div class="btn-row">
+                    <button class="btn-secondary" onclick="downloadICS()">
+                        📅 加到日曆提醒
+                    </button>
+                    <button class="btn-secondary" onclick="shareResult()">
+                        📤 分享畀朋友
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Floating WhatsApp -->
+<a class="float-wa" href="https://wa.me/85252287541" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-links">
+        <a href="https://wa.me/85252287541" target="_blank" rel="noopener">📱 WhatsApp: 5228 7541</a>
+        <a href="https://broadbandhk.com">🌐 broadbandhk.com</a>
+    </div>
+    <p>&copy; 2026 BroadbandHK 寬頻格價比較. All rights reserved.</p>
+</footer>
+
+<script>
+// BroadbandHK plans
+const plans = [
+    { speed: '100M', price: 98 },
+    { speed: '500M', price: 158 },
+    { speed: '1000M', price: 228 }
+];
+
+function calculate(e) {
+    e.preventDefault();
+
+    const provider = document.getElementById('provider').value;
+    const fee = parseInt(document.getElementById('fee').value);
+    const expiryStr = document.getElementById('expiryDate').value;
+    const expiryDate = new Date(expiryStr + 'T00:00:00');
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    const diffMs = expiryDate - today;
+    const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+    // --- Status message ---
+    const statusEl = document.getElementById('statusMsg');
+    const countdownNum = document.getElementById('countdownNum');
+    const countdownLabel = document.getElementById('countdownLabel');
+
+    if (diffDays < 0) {
+        const overDays = Math.abs(diffDays);
+        statusEl.className = 'countdown-status status-expired';
+        statusEl.textContent = '你嘅合約已經到期！你可能正在用緊原價續約，每月多畀緊 $' + (fee > 98 ? (fee - 98) : 0) + '！';
+        countdownNum.textContent = '已到期';
+        countdownNum.style.color = '#d32f2f';
+        countdownLabel.textContent = '到期咗 ' + overDays + ' 日';
+    } else if (diffDays === 0) {
+        statusEl.className = 'countdown-status status-expired';
+        statusEl.textContent = '你嘅合約今日到期！立即聯絡我哋格價轉台！';
+        countdownNum.textContent = '今日';
+        countdownNum.style.color = '#e65100';
+        countdownLabel.textContent = '合約到期日';
+    } else if (diffDays <= 90) {
+        statusEl.className = 'countdown-status status-soon';
+        statusEl.textContent = '距離到期仲有 ' + diffDays + ' 日，建議而家開始格價！';
+        countdownNum.textContent = diffDays;
+        countdownNum.style.color = '#e65100';
+        countdownLabel.textContent = '日後到期';
+    } else {
+        statusEl.className = 'countdown-status status-safe';
+        statusEl.textContent = '距離到期仲有 ' + diffDays + ' 日，記得到期前 2-3 個月開始格價！';
+        countdownNum.textContent = diffDays;
+        countdownNum.style.color = '#0a1628';
+        countdownLabel.textContent = '日後到期';
+    }
+
+    // --- Progress bar (assume 24-month contract) ---
+    const contractDays = 730; // ~24 months
+    const elapsed = contractDays - diffDays;
+    let pct = Math.max(0, Math.min(100, (elapsed / contractDays) * 100));
+    if (diffDays < 0) pct = 100;
+    setTimeout(function() {
+        document.getElementById('progressBar').style.width = pct + '%';
+    }, 100);
+
+    // --- Savings ---
+    // Find best BroadbandHK plan (cheapest that makes sense)
+    let bestPlan = plans[0]; // default 100M $98
+    if (fee >= 200) bestPlan = plans[2]; // 1000M $228
+    else if (fee >= 140) bestPlan = plans[1]; // 500M $158
+
+    const monthlySaving = fee - bestPlan.price;
+    const yearlySaving = monthlySaving * 12;
+
+    const savingsEl = document.getElementById('savingsAmount');
+    const detailEl = document.getElementById('savingsDetail');
+
+    if (monthlySaving > 0) {
+        savingsEl.textContent = 'HK$ ' + yearlySaving.toLocaleString();
+        detailEl.textContent = '每月慳 $' + monthlySaving + ' × 12 個月 = 年慳 $' + yearlySaving.toLocaleString();
+    } else {
+        savingsEl.textContent = '已經好抵！';
+        detailEl.textContent = '你嘅月費已經好平，但我哋可能有更快嘅計劃俾你！';
+    }
+
+    // --- Comparison table ---
+    document.getElementById('thProvider').textContent = provider;
+    const tbody = document.getElementById('compareBody');
+    tbody.innerHTML =
+        '<tr><td>月費</td><td class="old-price">$' + fee + '</td><td class="highlight-cell">$' + bestPlan.price + '</td></tr>' +
+        '<tr><td>速度</td><td>—</td><td class="highlight-cell">' + bestPlan.speed + '</td></tr>' +
+        '<tr><td>安裝費</td><td>—</td><td class="highlight-cell">免安裝費</td></tr>' +
+        '<tr><td>Router</td><td>—</td><td class="highlight-cell">免費送</td></tr>' +
+        '<tr><td>合約期</td><td>—</td><td>24 個月</td></tr>' +
+        '<tr><td>每年慳到</td><td>—</td><td class="highlight-cell">' + (yearlySaving > 0 ? '$' + yearlySaving.toLocaleString() : '—') + '</td></tr>';
+
+    // --- WhatsApp link with message ---
+    const waMsg = encodeURIComponent(
+        '你好！我想查詢寬頻轉台優惠 🙏\n\n' +
+        '現有供應商：' + provider + '\n' +
+        '現有月費：$' + fee + '\n' +
+        '合約到期日：' + expiryStr + '\n\n' +
+        '想了解 BroadbandHK 有咩優惠？'
+    );
+    document.getElementById('btnWa').href = 'https://wa.me/85252287541?text=' + waMsg;
+
+    // Show results
+    const resultsEl = document.getElementById('results');
+    resultsEl.classList.add('show');
+
+    // Scroll to results
+    setTimeout(function() {
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
+
+    // GA event
+    if (typeof gtag === 'function') {
+        gtag('event', 'reminder_calculate', {
+            provider: provider,
+            monthly_fee: fee,
+            expiry_date: expiryStr,
+            days_until_expiry: diffDays
+        });
+    }
+
+    return false;
+}
+
+// --- Download ICS ---
+function downloadICS() {
+    var expiryStr = document.getElementById('expiryDate').value;
+    if (!expiryStr) return;
+
+    var provider = document.getElementById('provider').value;
+    var d = new Date(expiryStr + 'T00:00:00');
+
+    // Reminder 60 days before expiry
+    var reminderDate = new Date(d);
+    reminderDate.setDate(reminderDate.getDate() - 60);
+
+    function fmt(dt) {
+        return dt.getFullYear() +
+            ('0' + (dt.getMonth()+1)).slice(-2) +
+            ('0' + dt.getDate()).slice(-2);
+    }
+
+    var ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//BroadbandHK//Reminder//ZH',
+        'BEGIN:VEVENT',
+        'DTSTART;VALUE=DATE:' + fmt(reminderDate),
+        'DTEND;VALUE=DATE:' + fmt(reminderDate),
+        'SUMMARY:寬頻合約到期提醒 — ' + provider,
+        'DESCRIPTION:你嘅 ' + provider + ' 寬頻合約將於 ' + expiryStr + ' 到期。\\n建議而家開始格價轉台！\\n\\nBroadbandHK 免費格價：https://wa.me/85252287541',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT0M',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:寬頻合約快到期，記得格價！',
+        'END:VALARM',
+        'END:VEVENT',
+        'END:VCALENDAR'
+    ].join('\r\n');
+
+    var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = '寬頻合約到期提醒.ics';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    if (typeof gtag === 'function') {
+        gtag('event', 'reminder_add_calendar', { provider: provider });
+    }
+}
+
+// --- Share ---
+function shareResult() {
+    var provider = document.getElementById('provider').value;
+    var fee = document.getElementById('fee').value;
+    var text = '我用緊 ' + provider + ' 寬頻月費 $' + fee + '，BroadbandHK 幫我計到可以慳好多錢！即刻入嚟 check 下你可以慳幾多 👇\nhttps://broadbandhk.com/reminder.html';
+
+    if (navigator.share) {
+        navigator.share({
+            title: '寬頻合約到期提醒 — BroadbandHK',
+            text: text,
+            url: 'https://broadbandhk.com/reminder.html'
+        }).catch(function(){});
+    } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText(text).then(function() {
+            alert('已複製到剪貼板！可以貼到 WhatsApp / Facebook 分享畀朋友 😊');
+        }).catch(function() {
+            prompt('複製以下文字分享畀朋友：', text);
+        });
+    }
+
+    if (typeof gtag === 'function') {
+        gtag('event', 'reminder_share', { provider: provider });
+    }
+}
+
+// Set min date to today for date input (actually allow past dates for expired contracts)
+// Set default date to roughly 6 months from now as placeholder hint
+</script>
+
+</body>
+</html>
