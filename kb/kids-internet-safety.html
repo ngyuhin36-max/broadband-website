@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小朋友上網安全：家長必知嘅Router設定同parental control教學 — BroadbandHK 知識庫</title>
+    <meta name="description" content="保護小朋友上網安全！Router 家長監控設定教學、限制上網時間、封鎖不良網站、YouTube Kids 設定全攻略。">
+    <meta name="keywords" content="小朋友上網安全, 家長監控, parental control, Router設定, 限制上網時間, 兒童上網, 網絡安全, YouTube Kids">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://broadbandhk.com/kb/kids-internet-safety.html">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://broadbandhk.com/kb/kids-internet-safety.html">
+    <meta property="og:title" content="小朋友上網安全：家長必知嘅Router設定同parental control教學">
+    <meta property="og:description" content="保護小朋友上網安全！Router 家長監控設定教學、限制上網時間、封鎖不良網站全攻略。">
+    <meta property="og:locale" content="zh_HK">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "小朋友上網安全：家長必知嘅Router設定同parental control教學",
+        "datePublished": "2026-03-19",
+        "dateModified": "2026-03-19",
+        "author": {"@type": "Organization", "name": "BroadbandHK 寬頻格價比較"},
+        "publisher": {"@type": "Organization", "name": "BroadbandHK 寬頻格價比較"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://broadbandhk.com/kb/kids-internet-safety.html"}
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "點樣限制小朋友上網時間？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "大部分現代 Router 都有 Parental Control 功能，可以設定指定裝置嘅上網時間。例如設定小朋友嘅 iPad 只能喺放學後 4 點到晚上 9 點上網。另外，iOS 嘅「螢幕使用時間」同 Android 嘅「Family Link」都可以限制個別 App 嘅使用時間。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "點樣封鎖不良網站？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "最有效嘅方法係喺 Router 層面設定 DNS 過濾。將 DNS 改為 CleanBrowsing（185.228.168.168）或 OpenDNS Family Shield（208.67.222.123），就可以自動封鎖大部分不良網站。呢個方法唔需要喺每個裝置逐一設定，一次過保護全屋所有裝置。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .kb-hero { padding: 140px 0 60px; text-align: center; background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 60%); }
+        .kb-hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 12px; }
+        .kb-hero p { font-size: 1.1rem; color: var(--gray); }
+        .kb-breadcrumb { padding: 20px 0 0; font-size: 0.9rem; color: var(--gray); }
+        .kb-breadcrumb a { color: var(--primary); text-decoration: none; }
+        .kb-content { padding: 60px 0; }
+        .kb-article { background: var(--white); border-radius: var(--radius); padding: 48px; margin-bottom: 40px; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; }
+        .kb-article h2 { font-size: 1.6rem; font-weight: 900; margin: 32px 0 16px; color: var(--dark); }
+        .kb-article h3 { font-size: 1.3rem; font-weight: 700; margin: 28px 0 12px; color: var(--dark); }
+        .kb-article p { color: var(--gray); font-size: 1rem; line-height: 1.9; margin-bottom: 16px; }
+        .kb-article ul, .kb-article ol { margin: 16px 0; padding-left: 24px; }
+        .kb-article li { color: var(--gray); margin-bottom: 8px; line-height: 1.8; }
+        .kb-date { color: var(--gray); font-size: 0.85rem; margin-bottom: 20px; }
+        .tip-box { background: #fef3c7; border-left: 4px solid var(--accent); padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+        .tip-box strong { color: var(--dark); }
+        .related-articles { margin-top: 48px; padding: 32px; background: var(--light); border-radius: var(--radius); }
+        .related-articles h3 { font-size: 1.2rem; margin-bottom: 16px; }
+        .related-articles a { display: block; color: var(--primary); text-decoration: none; padding: 8px 0; font-weight: 500; }
+        .related-articles a:hover { text-decoration: underline; }
+        .back-link { display: inline-block; margin-top: 32px; color: var(--primary); text-decoration: none; font-weight: 700; }
+        @media (max-width: 768px) { .kb-article { padding: 28px 20px; } .kb-hero h1 { font-size: 1.8rem; } }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="../index.html" class="logo">⚡ BroadbandHK</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#plans">月費計劃</a></li>
+            <li><a href="../index.html#features">服務特色</a></li>
+            <li><a href="../blog.html">知識庫</a></li>
+            <li><a href="../index.html#contact">聯絡我們</a></li>
+        </ul>
+        <a href="https://wa.me/85252287541" class="btn btn-small">WhatsApp 查詢</a>
+    </div>
+</nav>
+
+<section class="kb-hero">
+    <div class="container">
+        <div class="kb-breadcrumb"><a href="../index.html">首頁</a> &gt; <a href="../blog.html">知識庫</a> &gt; 熱門話題</div>
+        <h1>小朋友上網安全：家長必知攻略</h1>
+        <p>Router 設定、Parental Control、限制上網時間全教學</p>
+    </div>
+</section>
+
+<section class="kb-content">
+    <div class="container">
+        <div class="kb-article">
+            <p class="kb-date">2026 年 3 月 19 日 · 熱門話題</p>
+
+            <p>而家嘅小朋友從細就接觸互聯網，用 iPad 睇 YouTube、用手機玩遊戲已經係日常。作為家長，你點樣確保佢哋上網安全，又唔會沉迷？以下教你用 Router 設定同各種工具保護你嘅小朋友。</p>
+
+            <h2>第一步：Router 層面設定 DNS 過濾</h2>
+            <p>最有效嘅方法係喺 Router 層面設定安全 DNS，一次過保護全屋所有裝置：</p>
+            <ol>
+                <li>打開瀏覽器，輸入 <strong>192.168.1.1</strong>（或者你 Router 嘅管理地址）</li>
+                <li>登入 Router 管理介面</li>
+                <li>搵到 <strong>DNS 設定</strong>（通常喺「網絡設定」或「WAN 設定」入面）</li>
+                <li>將 DNS 改為以下其中一個安全 DNS：</li>
+            </ol>
+            <ul>
+                <li><strong>CleanBrowsing Family：</strong>185.228.168.168 / 185.228.169.168</li>
+                <li><strong>OpenDNS Family Shield：</strong>208.67.222.123 / 208.67.220.123</li>
+                <li><strong>Cloudflare for Families：</strong>1.1.1.3 / 1.0.0.3</li>
+            </ul>
+            <p>呢啲安全 DNS 會自動封鎖色情、賭博、惡意網站等不良內容，唔需要喺每個裝置逐一設定。</p>
+
+            <h2>第二步：設定上網時間限制</h2>
+            <p>大部分現代 Router 都有 <strong>Parental Control</strong> 功能：</p>
+            <ul>
+                <li><strong>ASUS Router：</strong>AiProtection &gt; Parental Controls，可以設定每個裝置嘅上網時間表</li>
+                <li><strong>TP-Link Router：</strong>HomeCare &gt; Parental Controls，可以建立小朋友嘅 Profile</li>
+                <li><strong>Netgear Router：</strong>用 Netgear Armor App 設定</li>
+            </ul>
+            <p>建議設定小朋友嘅裝置只能喺指定時間上網，例如放學後 4:00-8:00，週末 10:00-8:00。</p>
+
+            <h2>第三步：個別裝置設定</h2>
+
+            <h3>iPad / iPhone（iOS 螢幕使用時間）</h3>
+            <ol>
+                <li>設定 &gt; 螢幕使用時間 &gt; 開啟「螢幕使用時間」</li>
+                <li>設定「停用時間」：指定唔可以用裝置嘅時間</li>
+                <li>設定「App 限制」：限制每日使用 YouTube、遊戲嘅時間</li>
+                <li>「內容與隱私權限制」&gt; 限制成人內容</li>
+                <li>設定一個小朋友唔知道嘅密碼</li>
+            </ol>
+
+            <h3>Android（Google Family Link）</h3>
+            <ol>
+                <li>下載 Google Family Link App</li>
+                <li>建立小朋友嘅 Google 帳號</li>
+                <li>設定每日螢幕時間限制</li>
+                <li>設定就寢時間（裝置自動鎖定）</li>
+                <li>審核同限制可以下載嘅 App</li>
+            </ol>
+
+            <h3>YouTube Kids 設定</h3>
+            <ol>
+                <li>下載 YouTube Kids（唔好用普通 YouTube）</li>
+                <li>設定小朋友嘅年齡（會過濾唔適合嘅內容）</li>
+                <li>設定使用時間提醒</li>
+                <li>關閉搜尋功能（只顯示 YouTube 推薦嘅安全內容）</li>
+            </ol>
+
+            <div class="tip-box">
+                <strong>家長貼士：</strong>技術手段係輔助，溝通先至係最重要。定期同小朋友傾下佢哋上網睇啲咩、遇到啲咩，建立互信關係比任何 filter 都更有效。
+            </div>
+
+            <h2>網絡安全教育：教小朋友保護自己</h2>
+            <p>除咗技術手段，教育小朋友正確嘅上網態度同樣重要：</p>
+            <ul>
+                <li><strong>唔好透露個人資料：</strong>姓名、學校、地址、電話一律唔好喺網上公開</li>
+                <li><strong>遇到陌生人搵你要講出嚟：</strong>如果有陌生人喺網上搵你傾計，一定要同爸爸媽媽講</li>
+                <li><strong>唔好亂 click 連結：</strong>教小朋友唔好 click 唔認識嘅連結，可能係病毒或者詐騙</li>
+                <li><strong>網上講嘢要有禮貌：</strong>同面對面一樣，網上都要尊重其他人</li>
+                <li><strong>唔好沉迷：</strong>定時休息，做運動同其他活動</li>
+            </ul>
+
+            <h2>家長必裝嘅免費安全工具</h2>
+            <ul>
+                <li><strong>Google Family Link（Android）：</strong>免費，管理小朋友嘅裝置使用時間同 App</li>
+                <li><strong>iOS 螢幕使用時間：</strong>內建功能，無需額外安裝</li>
+                <li><strong>YouTube Kids：</strong>免費，過濾咗大部分唔適合小朋友嘅內容</li>
+                <li><strong>OpenDNS Family Shield：</strong>免費 DNS 服務，Router 層面封鎖不良網站</li>
+                <li><strong>Microsoft Family Safety：</strong>免費，支援 Windows、Xbox、Android</li>
+            </ul>
+
+            <h2>常見問題</h2>
+
+            <h3>點樣限制小朋友上網時間？</h3>
+            <p>最簡單嘅方法係喺 Router 嘅 Parental Control 設定指定裝置嘅上網時間。另外可以喺 iPad 用「螢幕使用時間」、Android 用「Family Link」進一步控制。兩個方法同時用效果最好。</p>
+
+            <h3>點樣封鎖不良網站？</h3>
+            <p>將 Router 嘅 DNS 改為 CleanBrowsing（185.228.168.168）或 OpenDNS Family Shield（208.67.222.123），就可以自動封鎖大部分不良網站。呢個方法一次設定就保護全屋所有裝置。</p>
+
+            <div class="related-articles">
+                <h3>相關文章</h3>
+                <a href="router-guide.html">Router 選購指南：點揀最適合你屋企的 Router？</a>
+                <a href="wifi-speed-tips.html">WiFi 慢到想掟 Router？10 招提升上網速度</a>
+                <a href="smart-home-broadband.html">Smart Home 智能家居寬頻需求</a>
+                <a href="streaming-broadband.html">Netflix/Disney+ 需要幾多 M 寬頻？</a>
+            </div>
+
+            <a href="../blog.html" class="back-link">&larr; 返回知識庫</a>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>穩定寬頻，安全上網！</h2>
+        <p>BroadbandHK 光纖寬頻月費 $98 起，送 WiFi Router！</p>
+        <a href="https://wa.me/85252287541?text=你好，我想查詢家庭寬頻計劃" class="btn btn-primary btn-large">WhatsApp 立即查詢</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 BroadbandHK 寬頻格價比較. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
