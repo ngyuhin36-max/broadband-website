@@ -295,16 +295,15 @@
             overflow-x: auto;
         }
         .game-choices .choices {
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            padding-bottom: 4px;
+            flex-wrap: wrap;
+            overflow-x: visible;
         }
         .game-choices .choice-btn {
-            min-width: 110px;
-            max-width: 160px;
+            min-width: 90px;
+            max-width: none;
+            flex: 1 1 28%;
             font-size: 0.75rem;
-            padding: 8px 10px;
-            flex-shrink: 0;
+            padding: 8px 8px;
         }
         .game-choices .choice-btn .cost { font-size: 0.65rem; }
         .game-choices .choices-title { font-size: 0.65rem; margin-bottom: 3px; }
