@@ -980,10 +980,11 @@ const WORK_CHOICES = [
     },
     {
         text: '😴 休息一日',
-        desc: '精力 +35 | 心情 +10',
+        desc: '精力 +50 | 心情 +10',
         scene: 'rest',
+        isRest: true,
         action: (g) => {
-            g.energy = Math.min(100, g.energy + 35);
+            g.energy = Math.min(100, g.energy + 50);
             g.mood = Math.min(100, g.mood + 10);
             return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精神好返好多！', good: true };
         }
@@ -1663,8 +1664,9 @@ function renderPlay() {
     const rankNames = ['初級銷售','高級銷售顧問','銷售主管'];
     let choicesHTML = `<div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">職級：<strong style="color:${G.rank>=2?'#fbbf24':G.rank>=1?'#22c55e':'#94a3b8'}">${rankNames[G.rank]}</strong></div>`;
     choicesHTML += '<div class="choices">';
+    const restIndex = WORK_CHOICES.findIndex(c => c.isRest);
     if (G.energy <= 10) {
-        choicesHTML += `<button class="choice-btn" onclick="doWork(5)">😴 你太累了，只能休息<span class="cost">精力不足，無法工作</span></button>`;
+        choicesHTML += `<button class="choice-btn" onclick="doWork(${restIndex})">😴 你太累了，只能休息<span class="cost">精力不足，無法工作</span></button>`;
     } else {
         WORK_CHOICES.forEach((c, i) => {
             if (c.locked && c.locked(G)) {
@@ -1848,7 +1850,7 @@ async function doWork(index) {
     G.day += 1;
 
     // Daily passive mood drain (work stress)
-    if (index !== 5) { // not resting
+    if (!WORK_CHOICES[index].isRest) { // not resting
         G.mood -= 2; // daily work stress
         if (G.energy < 30) G.mood -= 2; // extra drain when exhausted
         if (G.salesThisMonth < G.target && G.day > 20) G.mood -= 2; // deadline anxiety
