@@ -1708,8 +1708,11 @@ function renderResult() {
                 <span class="event-tag ${r.good === true ? 'tag-good' : r.good === false ? 'tag-crisis' : 'tag-work'}">${r.good === true ? '✅ 成功' : r.good === false ? '❌ 失敗' : '📝 結果'}</span>
                 <div class="text" id="resultText"></div>
             </div>
+        </div>
+        <div class="choices" style="margin-top:16px;">
+            <button class="choice-btn" onclick="afterResult()">繼續 →</button>
         </div>`,
-        choices: `<div class="choices"><button class="choice-btn" onclick="afterResult()">繼續 →</button></div>`
+        choices: ''
     };
 }
 
@@ -1752,8 +1755,11 @@ function renderMonthEnd() {
                 <span class="event-tag ${hit ? 'tag-good' : 'tag-crisis'}">${hit ? '🎉 達標！' : '😰 未達標'}</span>
                 <div class="text" id="monthText"></div>
             </div>
+        </div>
+        <div class="choices" style="margin-top:16px;">
+            <button class="choice-btn" onclick="nextMonth()">📅 進入下個月 →</button>
         </div>`,
-        choices: `<div class="choices"><button class="choice-btn" onclick="nextMonth()">📅 進入下個月 →</button></div>`
+        choices: ''
     };
 }
 
