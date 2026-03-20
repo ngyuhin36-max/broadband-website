@@ -824,7 +824,7 @@ const G = {
     salesThisMonth: 0, totalSales: 0,
     salary: 5000, commission: 150,
     rent: 5500, living: 3000, transport: 800,
-    target: 8, reputation: 50, skill: 30, energy: 100,
+    target: 8, reputation: 50, skill: 30, energy: 100, stress: 20,
     streak: 0, maxStreak: 0, failMonths: 0,
     rank: 0, // 0=初級銷售, 1=高級銷售顧問, 2=銷售主管
     log: [], phase: 'start',
@@ -986,7 +986,8 @@ const WORK_CHOICES = [
         action: (g) => {
             g.energy = Math.min(100, g.energy + 50);
             g.mood = Math.min(100, g.mood + 10);
-            return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精神好返好多！', good: true };
+            g.stress = Math.max(0, g.stress - 15);
+            return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精神好返好多，壓力都減輕咗！', good: true };
         }
     },
     // --- 需要技能解鎖 ---
@@ -1112,7 +1113,7 @@ const RANDOM_EVENTS = [
     { tag:'life', tagLabel:'生活', scene:'night',
       text:'你最近成日覺得攰，瞓極都唔夠，返工無精神。\n\n朋友話你面色差咗好多。',
       choices:[
-        { text:'報健身房做運動（+$300/月）', action:g=>{g.living+=300; g.energy+=20; g.mood+=10; return '開始做運動之後，精力同心情都好咗！錢花得值。';}},
+        { text:'報健身房做運動（+$300/月）', action:g=>{g.living+=300; g.energy+=20; g.mood+=10; g.stress=Math.max(0,g.stress-20); return '開始做運動之後，精力心情都好咗，壓力大減！錢花得值。';}},
         { text:'早啲瞓算數', action:g=>{g.energy+=5; return '都係咁捱落去吧...';}}
       ]},
     { tag:'good', tagLabel:'好消息', scene:'good',
@@ -1148,7 +1149,7 @@ const RANDOM_EVENTS = [
     { tag:'life', tagLabel:'生活', scene:'night',
       text:'朋友群組約你週末去唱 K + 食放題，每人 $450。\n\n你已經兩個月無娛樂了，但錢真係唔多...',
       choices:[
-        { text:'去！人始終需要 social（-$450）', action:g=>{g.money-=450; g.mood+=18; g.reputation+=2; return '唱到收咪，食到肚脹。好耐無試過咁開心，同朋友嘅關係都好返。'; }},
+        { text:'去！人始終需要 social（-$450）', action:g=>{g.money-=450; g.mood+=18; g.stress=Math.max(0,g.stress-20); g.reputation+=2; return '唱到收咪，食到肚脹。好耐無試過咁開心，壓力一掃而空！'; }},
         { text:'話自己唔舒服，唔去', action:g=>{g.mood-=10; return '朋友開始覺得你成日推，群組都少咗 tag 你。有少少被孤立嘅感覺。'; }}
       ]},
     { tag:'life', tagLabel:'生活', scene:'event',
@@ -1174,22 +1175,22 @@ const RANDOM_EVENTS = [
     { tag:'crisis', tagLabel:'心理壓力', scene:'night',
       text:'你已經連續三個禮拜無放過假。\n\n今晚瞓喺床上，突然覺得心跳好快，呼吸困難，好似有塊大石壓住個胸。\n\n你知道自己壓力太大了。',
       choices:[
-        { text:'睇醫生（-$500）', action:g=>{g.money-=500; g.mood+=10; g.energy+=15; return '醫生話你係焦慮症狀，開咗啲藥同教你放鬆技巧。感覺好咗少少。'; }},
-        { text:'飲杯酒算數', action:g=>{g.money-=80; g.mood-=5; g.energy-=10; return '飲完暫時好咗，但第二日更加攰，成個人好 down。'; }},
-        { text:'同朋友傾下', action:g=>{g.mood+=8; return '打咗個電話畀老友，傾咗個幾鐘。雖然解決唔到問題，但起碼有人聽你講。'; }}
+        { text:'睇醫生（-$500）', action:g=>{g.money-=500; g.mood+=10; g.stress=Math.max(0,g.stress-25); g.energy+=15; return '醫生話你係焦慮症狀，開咗啲藥同教你放鬆技巧。壓力明顯減輕。'; }},
+        { text:'飲杯酒算數', action:g=>{g.money-=80; g.mood-=5; g.stress-=5; g.energy-=10; return '飲完暫時好咗，但第二日更加攰，成個人好 down。'; }},
+        { text:'同朋友傾下', action:g=>{g.mood+=8; g.stress=Math.max(0,g.stress-15); return '打咗個電話畀老友，傾咗個幾鐘。壓力減咗唔少，起碼有人聽你講。'; }}
       ]},
     { tag:'crisis', tagLabel:'心理壓力', scene:'night',
       text:'凌晨三點，你仲瞓唔到。\n\n腦海不斷 loop：「如果月尾又唔達標點算？如果被炒點算？租金點交？」\n\n失眠已經持續咗一個禮拜。',
       choices:[
         { text:'食安眠藥（-$200）', action:g=>{g.money-=200; g.energy+=10; g.mood-=3; return '終於瞓到覺，但成日頭暈暈。你知道呢個唔係長遠辦法。'; }},
-        { text:'起身做運動消耗體力', action:g=>{g.energy-=10; g.mood+=5; g.skill+=1; return '凌晨跑咗半個鐘，出咗一身汗。反而瞓得好咗少少。'; }},
-        { text:'繼續碌手機等天光', action:g=>{g.energy-=20; g.mood-=8; return '碌到天光，眼都矇埋。返到公司完全無精神，乜都做唔到。'; }}
+        { text:'起身做運動消耗體力', action:g=>{g.energy-=10; g.mood+=5; g.stress=Math.max(0,g.stress-12); g.skill+=1; return '凌晨跑咗半個鐘，出咗一身汗。壓力釋放咗，反而瞓得好。'; }},
+        { text:'繼續碌手機等天光', action:g=>{g.energy-=20; g.mood-=8; g.stress+=10; return '碌到天光，越睇越焦慮。返到公司完全無精神，壓力更大。'; }}
       ]},
     { tag:'crisis', tagLabel:'心理壓力', scene:'crisis',
       text:'經理今日開會公開話：「邊個月尾再唔達標，就唔好返嚟了。」\n\n你感覺所有人都望住你。\n\n返到位之後，你對住電腦發咗半個鐘呆。',
       choices:[
         { text:'化壓力為動力！即刻打電話', action:g=>{g.energy-=15; g.mood-=5; g.skill+=2; const luck=Math.random(); if(luck>0.5){g.salesThisMonth++;g.totalSales++;return '你狂打咗成日電話，憑住一股衝勁竟然簽到一單！壓力大但有成果。';}else{return '打咗成日電話都無結果。但你唔想放棄。';}}},
-        { text:'去廁所冷靜一下', action:g=>{g.mood-=10; return '你鎖住廁所門，深呼吸咗幾分鐘。望住鏡中嘅自己，有少少想喊。'; }}
+        { text:'去廁所冷靜一下', action:g=>{g.mood-=10; g.stress+=15; return '你鎖住廁所門，深呼吸咗幾分鐘。望住鏡中嘅自己，有少少想喊。壓力爆錶。'; }}
       ]},
     { tag:'life', tagLabel:'生活', scene:'night',
       text:'你發現自己成日不自覺咁叫外賣食好嘢「獎勵自己」。\n\n睇返銀行紀錄，呢個月外賣已經花咗 $3,200，比預算多咗 $1,500。',
@@ -1200,9 +1201,9 @@ const RANDOM_EVENTS = [
     { tag:'crisis', tagLabel:'心理壓力', scene:'night',
       text:'你攤喺床上碌 IG，見到舊同學去旅行、結婚、買車...\n\n再望望自己：獨居劏房，月薪幾千蚊，前路茫茫。\n\n「點解我咁廢...」你不禁咁諗。',
       choices:[
-        { text:'唔碌了，早啲瞓', action:g=>{g.mood-=8; return '你關咗手機，但嗰種空虛感揮之不去。'; }},
-        { text:'寫日記記錄心情', action:g=>{g.mood+=3; g.skill+=1; return '你拎出本簿寫咗幾頁。寫到後來，你發現自己其實做到咗好多嘢。心情反而好返少少。'; }},
-        { text:'打畀阿媽傾下偈', action:g=>{g.mood+=10; return '阿媽話「做人最緊要健康開心，錢嘅嘢慢慢嚟」。聽完眼濕濕，但覺得有人撐住自己。'; }}
+        { text:'唔碌了，早啲瞓', action:g=>{g.mood-=8; g.stress+=8; return '你關咗手機，但嗰種空虛感揮之不去，壓力又重咗。'; }},
+        { text:'寫日記記錄心情', action:g=>{g.mood+=3; g.stress=Math.max(0,g.stress-10); g.skill+=1; return '你拎出本簿寫咗幾頁。寫到後來，你發現自己其實做到咗好多嘢。壓力減輕，心情好返。'; }},
+        { text:'打畀阿媽傾下偈', action:g=>{g.mood+=10; g.stress=Math.max(0,g.stress-18); return '阿媽話「做人最緊要健康開心，錢嘅嘢慢慢嚟」。聽完眼濕濕，但壓力同孤獨感都減咗好多。'; }}
       ]},
     { tag:'life', tagLabel:'生活', scene:'event',
       text:'公司附近開咗間新 Cafe，同事日日都去飲 $48 嘅手沖咖啡。\n\n你一直飲緊公司嘅免費即溶。',
@@ -1213,8 +1214,8 @@ const RANDOM_EVENTS = [
     { tag:'crisis', tagLabel:'心理壓力', scene:'crisis',
       text:'你發現自己最近成日發脾氣。\n\n今日因為客人取消約見，你直接將手機掟咗落枱。\n\n同事嚇親，全場靜晒。',
       choices:[
-        { text:'道歉，話自己壓力大', action:g=>{g.mood-=5; g.reputation-=3; return '你同大家道歉。經理話「理解，但要控制情緒」。你意識到自己需要管理壓力。'; }},
-        { text:'扮若無其事繼續做嘢', action:g=>{g.mood-=12; g.reputation-=5; return '大家由嗰日開始同你保持距離。你覺得更加孤立。'; }}
+        { text:'道歉，話自己壓力大', action:g=>{g.mood-=5; g.stress-=5; g.reputation-=3; return '你同大家道歉。經理話「理解，但要控制情緒」。承認壓力反而令你放鬆少少。'; }},
+        { text:'扮若無其事繼續做嘢', action:g=>{g.mood-=12; g.stress+=15; g.reputation-=5; return '大家由嗰日開始同你保持距離。你覺得更加孤立，壓力更大。'; }}
       ]},
     { tag:'life', tagLabel:'生活', scene:'event',
       text:'你嘅信用卡月結單到了。\n\n之前碌咗 $4,500 買嘢，minimum payment 只需 $225，但利息好高...',
@@ -1473,6 +1474,8 @@ function renderSidebar() {
     else if (G.money < 0) warnings.push('⚠️ 已經負債！小心開支');
     if (G.mood <= 15) warnings.push('💀 心情瀕臨崩潰！跌到 0 會 Game Over');
     else if (G.mood <= 30) warnings.push('⚠️ 心情好差，記得休息或社交');
+    if (G.stress >= 85) warnings.push('💀 壓力即將爆煲！到 100 會 Game Over');
+    else if (G.stress >= 60) warnings.push('⚠️ 壓力偏高，搵機會減壓（休息/運動/傾偈）');
     if (G.failMonths >= 2) warnings.push('💀 已連續 2 個月未達標！再多 1 個月會被炒');
     else if (G.failMonths >= 1) warnings.push('⚠️ 上個月未達標，要努力追返');
 
@@ -1531,6 +1534,14 @@ function renderSidebar() {
             <div class="sp-bar"><div class="sp-fill" style="width:${G.mood}%;background:${G.mood<=15?'#ef4444':G.mood<=30?'#f97316':G.mood>50?'#fbbf24':'#f97316'};"></div></div>
         </div>
         <div style="font-size:0.68rem;color:#64748b;margin-top:2px;">Game Over: 0</div>
+    </div>
+    <div class="side-stat" ${G.stress >= 80 ? 'style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);"' : ''}>
+        <div class="side-label">😰 壓力 ${G.stress >= 85 ? '<span style="color:#f87171;">· 瀕危</span>' : G.stress >= 60 ? '<span style="color:#f97316;">· 偏高</span>' : ''}</div>
+        <div style="font-size:1.15rem;font-weight:900;color:${G.stress>=85?'#ef4444':G.stress>=60?'#f97316':G.stress>=40?'#fbbf24':'#22c55e'};">${G.stress}</div>
+        <div class="side-progress">
+            <div class="sp-bar"><div class="sp-fill" style="width:${G.stress}%;background:${G.stress>=85?'#ef4444':G.stress>=60?'#f97316':G.stress>=40?'#fbbf24':'#22c55e'};"></div></div>
+        </div>
+        <div style="font-size:0.68rem;color:#64748b;margin-top:2px;">Game Over: 100 · 靠休息/運動/社交減壓</div>
     </div>
     <div class="side-stat">
         <div class="side-label">🎯 技能 / ⭐ 口碑</div>
@@ -1643,7 +1654,12 @@ function renderGuide() {
                 <div class="guide-bar">
                     <span class="guide-bar-label">😊 心情</span>
                     <div class="progress-bar" style="flex:1"><div class="progress-fill fill-orange" style="width:60%"></div></div>
-                    <span style="font-size:0.78rem;color:#64748b;">歸零 = 遊戲結束</span>
+                    <span style="font-size:0.78rem;color:#64748b;">跌到 0 = 遊戲結束</span>
+                </div>
+                <div class="guide-bar">
+                    <span class="guide-bar-label">😰 壓力</span>
+                    <div class="progress-bar" style="flex:1"><div class="progress-fill fill-red" style="width:30%"></div></div>
+                    <span style="font-size:0.78rem;color:#64748b;">升到 100 = 遊戲結束</span>
                 </div>
                 <div class="guide-bar">
                     <span class="guide-bar-label">🎯 技能</span>
@@ -1662,7 +1678,8 @@ function renderGuide() {
             <h3>💀 Game Over 條件</h3>
             <p style="color:#f87171;line-height:1.8;">
                 ❌ 儲蓄低於 <strong>-$10,000</strong>（負債太多）<br>
-                ❌ 心情跌到 <strong>0</strong>（精神崩潰）<br>
+                ❌ 心情跌到 <strong>0</strong>（完全失去動力）<br>
+                ❌ 壓力升到 <strong>100</strong>（壓力爆煲，身體撐唔住）<br>
                 ❌ 連續 <strong>3 個月</strong>未達標（被公司辭退）
             </p>
         </div>
@@ -1811,6 +1828,7 @@ function renderEnd() {
             💰 最終儲蓄：<strong style="color:${G.money>=0?'#22c55e':'#ef4444'}">$${G.money.toLocaleString()}</strong><br>
             🎯 最終技能：${G.skill}<br>
             ⭐ 最終口碑：${G.reputation}<br>
+            😰 最終壓力：${G.stress}<br>
             👔 最終職級：<strong style="color:${G.rank>=2?'#fbbf24':G.rank>=1?'#22c55e':'#94a3b8'}">${['初級銷售','高級銷售顧問','銷售主管'][G.rank]}</strong><br>
             🔥 最高連續達標：${G.maxStreak} 個月<br><br>
             ${survived ?
@@ -1818,7 +1836,8 @@ function renderEnd() {
                  G.money >= 0 ? '3 年唔容易，但你撐過嚟了。雖然無大富大貴，但你學識咗好多嘢，認識咗好多人。' :
                  '勉強撐過 3 年，但經濟壓力好大。希望下一個 3 年會更好。') :
                 (G.money < -10000 ? '負債太多，已經撐唔落去了...你決定搵份穩定嘅工先還債。' :
-                 G.mood <= 0 ? '壓力太大，你每日都好唔開心...最後決定轉行，重新開始。' :
+                 G.stress >= 100 ? '壓力爆煲！你成日失眠、焦慮、手震...醫生話你需要停工休養。你遞咗辭職信。' :
+                 G.mood <= 0 ? '你對所有嘢都失去興趣，每日返工好似行屍走肉...最後決定轉行，重新開始。' :
                  '連續幾個月業績唔達標，經理話「公司需要調整人手」。你被辭退了。')}
         </div>
         <div class="end-cta">
@@ -1857,7 +1876,7 @@ async function startGame() {
     G.salesThisMonth=0; G.totalSales=0; G.salary=5000;
     G.commission=150; G.rent=5500; G.living=3000;
     G.transport=800; G.target=8; G.reputation=50;
-    G.skill=30; G.energy=100; G.streak=0; G.maxStreak=0; G.failMonths=0; G.rank=0;
+    G.skill=30; G.energy=100; G.stress=20; G.streak=0; G.maxStreak=0; G.failMonths=0; G.rank=0;
     G.log=[]; G.lastResult=null;
 
     await showTransition('🌅', '第 1 年，第 1 個月，第 1 日...', 2000);
@@ -1880,16 +1899,24 @@ async function doWork(index) {
     // Advance 1 day
     G.day += 1;
 
-    // Daily passive mood drain (work stress)
-    if (!WORK_CHOICES[index].isRest) { // not resting
-        G.mood -= 2; // daily work stress
-        if (G.energy < 30) G.mood -= 2; // extra drain when exhausted
-        if (G.salesThisMonth < G.target && G.day > 20) G.mood -= 2; // deadline anxiety
+    // Daily stress accumulation
+    if (!WORK_CHOICES[index].isRest) {
+        G.stress += 3; // daily work stress
+        if (G.energy < 30) G.stress += 3; // exhaustion stress
+        if (G.salesThisMonth < G.target && G.day > 20) G.stress += 4; // deadline anxiety
+        if (G.failMonths >= 1) G.stress += 2; // pressure from last month fail
+    } else {
+        G.stress = Math.max(0, G.stress - 15); // rest reduces stress
     }
+
+    // High stress drains mood
+    if (G.stress >= 80) G.mood -= 3;
+    else if (G.stress >= 60) G.mood -= 1;
 
     // Clamp
     G.mood = Math.max(0, Math.min(100, G.mood));
     G.energy = Math.max(0, Math.min(100, G.energy));
+    G.stress = Math.max(0, Math.min(100, G.stress));
 
     // Sound effects
     if (result.good === true) {
@@ -1960,6 +1987,7 @@ async function doEvent(choiceIndex) {
 
     G.mood = Math.max(0, Math.min(100, G.mood));
     G.energy = Math.max(0, Math.min(100, G.energy));
+    G.stress = Math.max(0, Math.min(100, G.stress));
 
     if (G.day > 30) {
         sfxMonthEnd();
@@ -2019,10 +2047,12 @@ async function nextMonth() {
         G.maxStreak = Math.max(G.maxStreak, G.streak);
         G.failMonths = 0;
         G.mood = Math.min(100, G.mood + 8);
+        G.stress = Math.max(0, G.stress - 10); // 達標減壓
     } else {
         G.streak = 0;
         G.failMonths++;
         G.mood = Math.max(0, G.mood - 12);
+        G.stress = Math.min(100, G.stress + 15); // 未達標加壓
     }
 
     if (G.month % 6 === 0) {
@@ -2062,7 +2092,7 @@ async function nextMonth() {
 }
 
 function checkGameOver() {
-    if (G.money < -10000 || G.mood <= 0 || G.failMonths >= 3) {
+    if (G.money < -10000 || G.mood <= 0 || G.stress >= 100 || G.failMonths >= 3) {
         stopBGM();
         sfxGameOver();
         G.phase = 'end';
