@@ -989,8 +989,8 @@ const WORK_CHOICES = [
         action: (g) => {
             g.energy = 100;
             g.mood = Math.min(100, g.mood + 10);
-            g.stress = Math.max(0, g.stress - 15);
-            return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精力回滿，壓力都減輕咗！', good: true };
+            g.stress = Math.max(0, g.stress - 8);
+            return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精力回滿，壓力減咗少少。', good: true };
         }
     },
     // --- 需要技能解鎖 ---
@@ -1116,7 +1116,7 @@ const RANDOM_EVENTS = [
     { tag:'life', tagLabel:'生活', scene:'night',
       text:'你最近成日覺得攰，瞓極都唔夠，返工無精神。\n\n朋友話你面色差咗好多。',
       choices:[
-        { text:'報健身房做運動（+$300/月）', action:g=>{g.living+=300; g.energy+=20; g.mood+=10; g.stress=Math.max(0,g.stress-20); return '開始做運動之後，精力心情都好咗，壓力大減！錢花得值。';}},
+        { text:'報健身房做運動（+$300/月）', action:g=>{g.living+=300; g.energy+=20; g.mood+=10; g.stress=Math.max(0,g.stress-10); return '開始做運動之後，精力心情都好咗，壓力減咗。錢花得值。';}},
         { text:'早啲瞓算數', action:g=>{g.energy+=5; return '都係咁捱落去吧...';}}
       ]},
     { tag:'good', tagLabel:'好消息', scene:'good',
@@ -1152,7 +1152,7 @@ const RANDOM_EVENTS = [
     { tag:'life', tagLabel:'生活', scene:'night',
       text:'朋友群組約你週末去唱 K + 食放題，每人 $450。\n\n你已經兩個月無娛樂了，但錢真係唔多...',
       choices:[
-        { text:'去！人始終需要 social（-$450）', action:g=>{g.money-=450; g.mood+=18; g.stress=Math.max(0,g.stress-20); g.reputation+=2; return '唱到收咪，食到肚脹。好耐無試過咁開心，壓力一掃而空！'; }},
+        { text:'去！人始終需要 social（-$450）', action:g=>{g.money-=450; g.mood+=18; g.stress=Math.max(0,g.stress-10); g.reputation+=2; return '唱到收咪，食到肚脹。好耐無試過咁開心，壓力減輕咗！'; }},
         { text:'話自己唔舒服，唔去', action:g=>{g.mood-=10; return '朋友開始覺得你成日推，群組都少咗 tag 你。有少少被孤立嘅感覺。'; }}
       ]},
     { tag:'life', tagLabel:'生活', scene:'event',
@@ -1178,15 +1178,15 @@ const RANDOM_EVENTS = [
     { tag:'crisis', tagLabel:'心理壓力', scene:'night',
       text:'你已經連續三個禮拜無放過假。\n\n今晚瞓喺床上，突然覺得心跳好快，呼吸困難，好似有塊大石壓住個胸。\n\n你知道自己壓力太大了。',
       choices:[
-        { text:'睇醫生（-$500）', action:g=>{g.money-=500; g.mood+=10; g.stress=Math.max(0,g.stress-25); g.energy+=15; return '醫生話你係焦慮症狀，開咗啲藥同教你放鬆技巧。壓力明顯減輕。'; }},
+        { text:'睇醫生（-$500）', action:g=>{g.money-=500; g.mood+=10; g.stress=Math.max(0,g.stress-12); g.energy+=15; return '醫生話你係焦慮症狀，開咗啲藥同教你放鬆技巧。壓力減輕咗少少。'; }},
         { text:'飲杯酒算數', action:g=>{g.money-=80; g.mood-=5; g.stress-=5; g.energy-=10; return '飲完暫時好咗，但第二日更加攰，成個人好 down。'; }},
-        { text:'同朋友傾下', action:g=>{g.mood+=8; g.stress=Math.max(0,g.stress-15); return '打咗個電話畀老友，傾咗個幾鐘。壓力減咗唔少，起碼有人聽你講。'; }}
+        { text:'同朋友傾下', action:g=>{g.mood+=8; g.stress=Math.max(0,g.stress-8); return '打咗個電話畀老友，傾咗個幾鐘。壓力減咗少少，起碼有人聽你講。'; }}
       ]},
     { tag:'crisis', tagLabel:'心理壓力', scene:'night',
       text:'凌晨三點，你仲瞓唔到。\n\n腦海不斷 loop：「如果月尾又唔達標點算？如果被炒點算？租金點交？」\n\n失眠已經持續咗一個禮拜。',
       choices:[
         { text:'食安眠藥（-$200）', action:g=>{g.money-=200; g.energy+=10; g.mood-=3; return '終於瞓到覺，但成日頭暈暈。你知道呢個唔係長遠辦法。'; }},
-        { text:'起身做運動消耗體力', action:g=>{g.energy-=10; g.mood+=5; g.stress=Math.max(0,g.stress-12); g.skill+=1; return '凌晨跑咗半個鐘，出咗一身汗。壓力釋放咗，反而瞓得好。'; }},
+        { text:'起身做運動消耗體力', action:g=>{g.energy-=10; g.mood+=5; g.stress=Math.max(0,g.stress-6); g.skill+=1; return '凌晨跑咗半個鐘，出咗一身汗。壓力減咗少少。'; }},
         { text:'繼續碌手機等天光', action:g=>{g.energy-=20; g.mood-=8; g.stress+=10; return '碌到天光，越睇越焦慮。返到公司完全無精神，壓力更大。'; }}
       ]},
     { tag:'crisis', tagLabel:'心理壓力', scene:'crisis',
@@ -1205,8 +1205,8 @@ const RANDOM_EVENTS = [
       text:'你攤喺床上碌 IG，見到舊同學去旅行、結婚、買車...\n\n再望望自己：獨居劏房，月薪幾千蚊，前路茫茫。\n\n「點解我咁廢...」你不禁咁諗。',
       choices:[
         { text:'唔碌了，早啲瞓', action:g=>{g.mood-=8; g.stress+=8; return '你關咗手機，但嗰種空虛感揮之不去，壓力又重咗。'; }},
-        { text:'寫日記記錄心情', action:g=>{g.mood+=3; g.stress=Math.max(0,g.stress-10); g.skill+=1; return '你拎出本簿寫咗幾頁。寫到後來，你發現自己其實做到咗好多嘢。壓力減輕，心情好返。'; }},
-        { text:'打畀阿媽傾下偈', action:g=>{g.mood+=10; g.stress=Math.max(0,g.stress-18); return '阿媽話「做人最緊要健康開心，錢嘅嘢慢慢嚟」。聽完眼濕濕，但壓力同孤獨感都減咗好多。'; }}
+        { text:'寫日記記錄心情', action:g=>{g.mood+=3; g.stress=Math.max(0,g.stress-5); g.skill+=1; return '你拎出本簿寫咗幾頁。寫到後來，你發現自己其實做到咗好多嘢。心情好返少少。'; }},
+        { text:'打畀阿媽傾下偈', action:g=>{g.mood+=10; g.stress=Math.max(0,g.stress-10); return '阿媽話「做人最緊要健康開心，錢嘅嘢慢慢嚟」。聽完眼濕濕，壓力減咗啲。'; }}
       ]},
     { tag:'life', tagLabel:'生活', scene:'event',
       text:'公司附近開咗間新 Cafe，同事日日都去飲 $48 嘅手沖咖啡。\n\n你一直飲緊公司嘅免費即溶。',
@@ -1895,17 +1895,21 @@ async function doWork(index) {
 
     // Daily stress accumulation
     if (!WORK_CHOICES[index].isRest) {
-        G.stress += 3; // daily work stress
-        if (G.energy < 30) G.stress += 3; // exhaustion stress
-        if (G.salesThisMonth < G.target && G.day > 20) G.stress += 4; // deadline anxiety
-        if (G.failMonths >= 1) G.stress += 2; // pressure from last month fail
+        G.stress += 5; // daily work stress
+        if (G.energy < 30) G.stress += 4; // exhaustion stress
+        if (G.salesThisMonth < G.target && G.day > 15) G.stress += 5; // deadline anxiety (earlier trigger)
+        if (G.salesThisMonth < G.target && G.day > 25) G.stress += 5; // panic mode
+        if (G.failMonths >= 1) G.stress += 3; // pressure from last month fail
+        if (G.failMonths >= 2) G.stress += 5; // about to be fired
+        if (G.money < 0) G.stress += 3; // debt stress
     } else {
-        G.stress = Math.max(0, G.stress - 15); // rest reduces stress
+        G.stress = Math.max(0, G.stress - 8); // rest reduces stress (less than before)
     }
 
     // High stress drains mood
-    if (G.stress >= 80) G.mood -= 3;
-    else if (G.stress >= 60) G.mood -= 1;
+    if (G.stress >= 80) G.mood -= 4;
+    else if (G.stress >= 60) G.mood -= 2;
+    else if (G.stress >= 40) G.mood -= 1;
 
     // Clamp
     G.mood = Math.max(0, Math.min(100, G.mood));
@@ -2041,12 +2045,12 @@ async function nextMonth() {
         G.maxStreak = Math.max(G.maxStreak, G.streak);
         G.failMonths = 0;
         G.mood = Math.min(100, G.mood + 8);
-        G.stress = Math.max(0, G.stress - 10); // 達標減壓
+        G.stress = Math.max(0, G.stress - 5); // 達標減壓（少量）
     } else {
         G.streak = 0;
         G.failMonths++;
         G.mood = Math.max(0, G.mood - 12);
-        G.stress = Math.min(100, G.stress + 15); // 未達標加壓
+        G.stress = Math.min(100, G.stress + 20); // 未達標大幅加壓
     }
 
     if (G.month % 6 === 0) {
