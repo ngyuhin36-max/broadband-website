@@ -826,6 +826,7 @@ const G = {
     rent: 5500, living: 3000, transport: 800,
     target: 8, reputation: 50, skill: 30, energy: 100,
     streak: 0, maxStreak: 0, failMonths: 0,
+    rank: 0, // 0=初級銷售, 1=高級銷售顧問, 2=銷售主管
     log: [], phase: 'start',
     currentEvent: null, lastResult: null,
 };
@@ -841,6 +842,7 @@ const SCENES = {
     referral: { cls: 'scene-referral', icon: '🤝', floats: ['👥','💬','⭐'] },
     study: { cls: 'scene-study', icon: '📖', floats: ['📚','💡','✏️'] },
     rest: { cls: 'scene-rest', icon: '😴', floats: ['💤','🛏️','☕'] },
+    office: { cls: 'scene-office', icon: '🏢', floats: ['📋','💼','📊'] },
     event: { cls: 'scene-event', icon: '❗', floats: ['❓','⚡','🎲'] },
     crisis: { cls: 'scene-crisis', icon: '🚨', floats: ['⚠️','📉','😰'] },
     good: { cls: 'scene-good', icon: '🎉', floats: ['⭐','🎊','✨'] },
@@ -984,6 +986,67 @@ const WORK_CHOICES = [
             g.energy = Math.min(100, g.energy + 35);
             g.mood = Math.min(100, g.mood + 10);
             return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精神好返好多！', good: true };
+        }
+    },
+    // --- 需要技能解鎖 ---
+    {
+        text: '🎓 做技術顧問諮詢',
+        desc: '需要技能 50+ | 體力 -15 | 高質量客人',
+        scene: 'study',
+        locked: (g) => g.skill < 50,
+        lockMsg: '🔒 需要技能 50 以上（進修學習提升技能）',
+        action: (g) => {
+            g.energy -= 15;
+            const luck = Math.random();
+            if (luck > 0.4) {
+                const n = luck > 0.8 ? 2 : 1;
+                g.salesThisMonth += n; g.totalSales += n; g.reputation += 5;
+                return { text: `你以專業顧問身份幫客人分析寬頻需求，用數據比較各Plan。\n\n客人話「你比其他銷售專業好多」，即場簽咗 ${n} 單！\n\n技術知識終於派上用場。`, good: true, sales: n };
+            } else {
+                g.skill = Math.min(100, g.skill + 2); g.reputation += 2;
+                return { text: '今日嘅客人需求好複雜，你花咗好多時間分析。\n\n雖然最後佢話「要再考慮」，但你嘅專業態度令佢印象深刻。', good: null };
+            }
+        }
+    },
+    // --- 需要升遷解鎖 ---
+    {
+        text: '👥 帶新人一齊跑客',
+        desc: '需要升遷至高級顧問 | 體力 -18 | 雙倍產出',
+        scene: 'referral',
+        locked: (g) => g.rank < 1,
+        lockMsg: '🔒 需要升遷至「高級銷售顧問」',
+        action: (g) => {
+            g.energy -= 18;
+            g.skill = Math.min(100, g.skill + 2);
+            const luck = Math.random();
+            const bonus = g.skill / 200;
+            if (luck + bonus > 0.5) {
+                const n = Math.floor(Math.random() * 2) + 2;
+                g.salesThisMonth += n; g.totalSales += n; g.reputation += 5; g.mood += 5;
+                return { text: `你帶住新人一齊出去跑客，你負責講 Pitch，佢負責做文件。\n\n配合得好好，一日簽咗 ${n} 單！新人仲話「跟你學到好多嘢」。`, good: true, sales: n };
+            } else {
+                g.mood += 3;
+                return { text: '帶新人出去跑，佢好緊張，講嘢甩甩漏漏。\n\n你幫佢執生，雖然無簽到單，但你覺得教人都幾有滿足感。', good: null };
+            }
+        }
+    },
+    {
+        text: '📊 做商業寬頻方案',
+        desc: '需要升遷至銷售主管 | 體力 -20 | 大單機會',
+        scene: 'office',
+        locked: (g) => g.rank < 2,
+        lockMsg: '🔒 需要升遷至「銷售主管」',
+        action: (g) => {
+            g.energy -= 20;
+            const luck = Math.random();
+            if (luck + g.skill / 200 > 0.45) {
+                const n = Math.floor(Math.random() * 3) + 3;
+                g.salesThisMonth += n; g.totalSales += n; g.reputation += 8; g.mood += 10;
+                return { text: `你幫一間公司設計咗整套寬頻方案，包括 ${n} 條商業線路。\n\n老闆好滿意，當場簽約！呢單大生意值 ${n} 單計！\n\n作為主管，你終於可以接觸到大客了。`, good: true, sales: n };
+            } else {
+                g.skill += 3; g.reputation += 3;
+                return { text: '你花咗成日準備商業方案，但客人話「預算唔夠，遲啲再傾」。\n\n起碼累積咗經驗，下次會做得更好。', good: null };
+            }
         }
     }
 ];
@@ -1159,6 +1222,128 @@ const RANDOM_EVENTS = [
         { text:'還 minimum 先（-$225）', action:g=>{g.money-=225; g.living+=200; g.mood-=5; return '只還最低還款額。但利息每月 $200，變咗長期負擔...'; }},
         { text:'遲啲先還...', action:g=>{g.mood-=15; g.living+=300; return '逾期了，銀行打嚟追數。利息加罰款，每月多 $300 負擔。壓力超大。'; }}
       ]},
+
+    // --- 技能門檻事件 ---
+    { tag:'random', tagLabel:'技能考驗', scene:'study',
+      text:'公司要求你下週做一場客戶簡介會，對住 30 個潛在客人演講。\n\n你從未試過公開演講...',
+      choices:[
+        { text:'硬住頭皮上', action:g=>{
+            if(g.skill>=50){
+                const n=Math.floor(Math.random()*3)+2;
+                g.salesThisMonth+=n; g.totalSales+=n; g.reputation+=10; g.mood+=10;
+                return `你嘅演講好有說服力！講到「點揀寬頻」嗰段全場拍手。簽咗 ${n} 單！（技能夠高，表現出色）`;
+            } else {
+                g.mood-=15; g.reputation-=5;
+                return '你緊張到聲都震，中途仲講錯價錢。台下嘅人開始滑手機...\n\n一單都無簽到。（技能太低，表現差）';
+            }
+        }},
+        { text:'推掉，話自己未準備好', action:g=>{g.mood-=5; return '經理有少少失望。機會就咁溜走了。';}}
+      ]},
+    { tag:'random', tagLabel:'技能考驗', scene:'event',
+      text:'一個大客想簽 10 條線嘅商業寬頻合約！\n\n但佢要求你即場解釋技術規格：頻寬、SLA、IP 方案...',
+      choices:[
+        { text:'自信咁解釋', action:g=>{
+            if(g.skill>=60){
+                g.salesThisMonth+=3; g.totalSales+=3; g.money+=500; g.reputation+=8; g.mood+=15;
+                return '你對答如流，客人好滿意！即場簽咗商業合約，3 單計！仲有 $500 特別獎金！（技能足夠）';
+            } else {
+                g.mood-=10; g.reputation-=5;
+                return '你答到一半就開始支吾以對...客人話「你返去再研究下啦」。\n\n大單飛咗。（技能不足）';
+            }
+        }},
+        { text:'話要返去準備資料再約', action:g=>{
+            if(g.skill>=40){
+                g.salesThisMonth+=1; g.totalSales+=1; g.skill+=3;
+                return '你花咗兩日準備，再約客人。雖然規模縮細咗，但最後都簽到 1 單。';
+            } else {
+                return '你準備咗幾日但仲係唔夠熟，客人等唔切搵咗第二間。';
+            }
+        }}
+      ]},
+    { tag:'random', tagLabel:'技能考驗', scene:'study',
+      text:'同事問你點解 WiFi 6 同 WiFi 5 有咩分別、光纖同銅線差幾遠。\n\n如果你答得好，佢話可以介紹佢嘅客人畀你。',
+      choices:[
+        { text:'即場解釋', action:g=>{
+            if(g.skill>=45){
+                g.salesThisMonth+=1; g.totalSales+=1; g.reputation+=5; g.mood+=5;
+                return '你流利咁解釋晒技術細節，同事好佩服。佢真係介紹咗個客畀你，仲簽到單！';
+            } else {
+                g.mood-=5;
+                return '你講到一半就唔識答了...同事禮貌咁話「算啦」。好尷尬。';
+            }
+        }},
+        { text:'老實話「我唔係好熟」', action:g=>{g.mood-=3; return '同事話「你做呢行都唔識呢啲？」你有少少面紅。'; }}
+      ]},
+    { tag:'random', tagLabel:'技能考驗', scene:'event',
+      text:'客人喺 WhatsApp 問咗一大堆技術問題：\n「Router 放邊度好？」「Mesh WiFi 係咩？」「裝幾耐？」\n\n如果答得好，佢話即刻簽。',
+      choices:[
+        { text:'逐條詳細回答', action:g=>{
+            if(g.skill>=35){
+                g.salesThisMonth+=1; g.totalSales+=1; g.mood+=8;
+                return '你答得又快又專業，客人話「終於搵到個識嘢嘅銷售」。即場簽單！';
+            } else {
+                g.mood-=5;
+                return '你有幾條答唔到，要話「幫你問返技術部」。客人已讀不回了...';
+            }
+        }},
+        { text:'叫佢直接打公司熱線', action:g=>{g.reputation-=3; return '客人覺得你唔專業，之後再無回覆。'; }}
+      ]},
+    { tag:'random', tagLabel:'技能考驗', scene:'crisis',
+      text:'經理突然要你培訓 3 個新入職嘅同事。\n\n「你經驗夠，教下佢哋啦。」',
+      choices:[
+        { text:'接受培訓任務', action:g=>{
+            if(g.skill>=55){
+                g.reputation+=10; g.mood+=10; g.skill+=3;
+                return '你教得好好，新同事好感激。經理話「你有領導潛質」。升遷嘅機會近咗！';
+            } else {
+                g.energy-=15; g.mood-=5;
+                return '你勉強教到啲基本嘢，但有啲問題自己都答唔到。有少少丟臉。';
+            }
+        }},
+        { text:'推掉，話自己都仲學緊', action:g=>{g.mood-=3; return '經理有少少失望。呢個表現自己嘅機會就咁無咗。'; }}
+      ]},
+
+    // --- 升遷相關事件 ---
+    { tag:'good', tagLabel:'升遷機會', scene:'good',
+      text:'經理搵你傾偈：「公司考慮升你做高級銷售顧問。」\n\n條件：技能 60+、口碑 60+、連續達標 2 個月。',
+      choices:[
+        { text:'我準備好了！', action:g=>{
+            if(g.skill>=60 && g.reputation>=60 && g.streak>=2){
+                g.rank = 1;
+                g.salary += 2000; g.commission += 50;
+                g.mood += 20; g.reputation += 10;
+                return `🎉 恭喜升職！你而家係「高級銷售顧問」！\n\n底薪升到 $${g.salary.toLocaleString()}/月，佣金 $${g.commission}/單。\n\n同事都嚟恭喜你！`;
+            } else {
+                g.mood -= 10;
+                let missing = [];
+                if(g.skill<60) missing.push('技能未夠60');
+                if(g.reputation<60) missing.push('口碑未夠60');
+                if(g.streak<2) missing.push('未連續達標2個月');
+                return `經理睇完你嘅數據話：「仲差少少。」\n\n未達標原因：${missing.join('、')}\n\n繼續努力！`;
+            }
+        }},
+        { text:'我覺得自己仲未夠班', action:g=>{g.mood-=5; return '經理話「唔好咁冇信心」。但機會就留返下次。'; }}
+      ]},
+    { tag:'good', tagLabel:'升遷機會', scene:'good',
+      text:'公司開咗個「銷售主管」空缺！\n\n需要：技能 80+、口碑 75+、總簽單 50+ 單。\n\n底薪會升到 $10,000，佣金 $300/單，仲有團隊獎金。',
+      choices:[
+        { text:'申請！', action:g=>{
+            if(g.skill>=80 && g.reputation>=75 && g.totalSales>=50){
+                g.rank = 2;
+                g.salary = 10000; g.commission = 300;
+                g.mood += 25; g.reputation += 15;
+                return `🏆 你成為咗「銷售主管」！\n\n底薪 $10,000/月，佣金 $300/單！\n\n你終於由一個菜鳥變成帶隊嘅人。呢條路走得好辛苦，但值得。`;
+            } else {
+                g.mood -= 8;
+                let missing = [];
+                if(g.skill<80) missing.push(`技能${g.skill}/80`);
+                if(g.reputation<75) missing.push(`口碑${g.reputation}/75`);
+                if(g.totalSales<50) missing.push(`總簽單${g.totalSales}/50`);
+                return `HR 回覆：「多謝申請，但暫時未符合要求。」\n\n差距：${missing.join('、')}\n\n你暗暗下定決心要達到。`;
+            }
+        }},
+        { text:'算了，我仲未準備好', action:g=>{return '你猶豫咗一陣，最後無申請。名額好快被人搶咗。'; }}
+      ]},
 ];
 
 // ============================================================
@@ -1328,6 +1513,10 @@ function renderSidebar() {
             <div class="sp-bar"><div class="sp-fill fill-blue" style="width:${G.skill}%"></div></div>
         </div>
     </div>
+    <div class="side-stat">
+        <div class="side-label">👔 職級</div>
+        <div style="font-size:0.85rem;font-weight:700;color:${G.rank>=2?'#fbbf24':G.rank>=1?'#22c55e':'#94a3b8'};">${['初級銷售','高級銷售顧問','銷售主管'][G.rank]}</div>
+    </div>
     ${G.streak > 0 ? `<div class="side-stat"><div class="side-label">🔥 連續達標</div><div style="font-size:0.9rem;font-weight:700;color:#f97316;">${G.streak} 個月</div></div>` : ''}
     <hr class="side-divider">
     <div class="side-stat" style="background:none;border:none;padding:4px 0;">
@@ -1471,13 +1660,19 @@ function renderGuide() {
 }
 
 function renderPlay() {
-    let choicesHTML = '<div class="choices">';
+    const rankNames = ['初級銷售','高級銷售顧問','銷售主管'];
+    let choicesHTML = `<div style="font-size:0.78rem;color:#64748b;margin-bottom:8px;">職級：<strong style="color:${G.rank>=2?'#fbbf24':G.rank>=1?'#22c55e':'#94a3b8'}">${rankNames[G.rank]}</strong></div>`;
+    choicesHTML += '<div class="choices">';
     if (G.energy <= 10) {
         choicesHTML += `<button class="choice-btn" onclick="doWork(5)">😴 你太累了，只能休息<span class="cost">精力不足，無法工作</span></button>`;
     } else {
         WORK_CHOICES.forEach((c, i) => {
-            const disabled = (G.energy <= 10 && i !== 5) ? 'style="opacity:0.4;pointer-events:none"' : '';
-            choicesHTML += `<button class="choice-btn" onclick="doWork(${i})" ${disabled}>${c.text}<span class="cost">${c.desc}</span></button>`;
+            if (c.locked && c.locked(G)) {
+                choicesHTML += `<button class="choice-btn" style="opacity:0.4;cursor:not-allowed;border-color:rgba(255,255,255,0.05);" disabled>${c.text}<span class="cost">${c.lockMsg}</span></button>`;
+            } else {
+                const disabled = (G.energy <= 10 && i !== 5) ? 'style="opacity:0.4;pointer-events:none"' : '';
+                choicesHTML += `<button class="choice-btn" onclick="doWork(${i})" ${disabled}>${c.text}<span class="cost">${c.desc}</span></button>`;
+            }
         });
     }
     choicesHTML += '</div>';
@@ -1583,6 +1778,7 @@ function renderEnd() {
             💰 最終儲蓄：<strong style="color:${G.money>=0?'#22c55e':'#ef4444'}">$${G.money.toLocaleString()}</strong><br>
             🎯 最終技能：${G.skill}<br>
             ⭐ 最終口碑：${G.reputation}<br>
+            👔 最終職級：<strong style="color:${G.rank>=2?'#fbbf24':G.rank>=1?'#22c55e':'#94a3b8'}">${['初級銷售','高級銷售顧問','銷售主管'][G.rank]}</strong><br>
             🔥 最高連續達標：${G.maxStreak} 個月<br><br>
             ${survived ?
                 (G.money >= 40000 ? '你靠住努力同堅持，喺寬頻銷售呢行闖出名堂。你証明咗只要唔放棄，就一定有出路！' :
@@ -1628,7 +1824,7 @@ async function startGame() {
     G.salesThisMonth=0; G.totalSales=0; G.salary=5000;
     G.commission=150; G.rent=5500; G.living=3000;
     G.transport=800; G.target=8; G.reputation=50;
-    G.skill=30; G.energy=100; G.streak=0; G.maxStreak=0; G.failMonths=0;
+    G.skill=30; G.energy=100; G.streak=0; G.maxStreak=0; G.failMonths=0; G.rank=0;
     G.log=[]; G.lastResult=null;
 
     await showTransition('🌅', '第 1 年，第 1 個月，第 1 日...', 2000);
