@@ -822,8 +822,8 @@ function typewrite(elementId, text, speed = 30) {
 const G = {
     month: 1, day: 1, money: 5000, mood: 80,
     salesThisMonth: 0, totalSales: 0,
-    salary: 5000, commission: 150,
-    rent: 5500, living: 3000, transport: 800,
+    salary: 8000, commission: 150,
+    rent: 3500, living: 2000, transport: 500,
     target: 8, reputation: 50, skill: 30, energy: 100, stress: 20,
     streak: 0, maxStreak: 0, failMonths: 0,
     rank: 0, // 0=初級銷售, 1=高級銷售顧問, 2=銷售主管
@@ -1327,14 +1327,14 @@ const RANDOM_EVENTS = [
         { text:'我覺得自己仲未夠班', action:g=>{g.mood-=5; return '經理話「唔好咁冇信心」。但機會就留返下次。'; }}
       ]},
     { tag:'good', tagLabel:'升遷機會', scene:'good',
-      text:'公司開咗個「銷售主管」空缺！\n\n需要：技能 80+、口碑 75+、總簽單 50+ 單。\n\n底薪會升到 $10,000，佣金 $300/單，仲有團隊獎金。',
+      text:'公司開咗個「銷售主管」空缺！\n\n需要：技能 80+、口碑 75+、總簽單 50+ 單。\n\n底薪會升到 $15,000，佣金 $300/單，仲有團隊獎金。',
       choices:[
         { text:'申請！', action:g=>{
             if(g.skill>=80 && g.reputation>=75 && g.totalSales>=50){
                 g.rank = 2;
-                g.salary = 10000; g.commission = 300;
+                g.salary = 15000; g.commission = 300;
                 g.mood += 25; g.reputation += 15;
-                return `🏆 你成為咗「銷售主管」！\n\n底薪 $10,000/月，佣金 $300/單！\n\n你終於由一個菜鳥變成帶隊嘅人。呢條路走得好辛苦，但值得。`;
+                return `🏆 你成為咗「銷售主管」！\n\n底薪 $15,000/月，佣金 $300/單！\n\n你終於由一個菜鳥變成帶隊嘅人。呢條路走得好辛苦，但值得。`;
             } else {
                 g.mood -= 8;
                 let missing = [];
@@ -1570,10 +1570,10 @@ function renderStart() {
         <div class="subtitle">一個寬頻銷售員的 3 年生涯</div>
         <div class="story">
             你叫<em>阿明</em>，25 歲，啱啱入咗一間寬頻公司做銷售。<br><br>
-            底薪 <em>$5,000</em>，每簽一單有 <em>$150</em> 佣金。<br>
+            底薪 <em>$8,000</em>，每簽一單有 <em>$150</em> 佣金。<br>
             每月目標：<em>8 單</em>。<br><br>
             但生活開支唔等人：<br>
-            🏠 租金 <em>$5,500</em> + 🍜 生活費 <em>$3,000</em> + 🚌 交通 <em>$800</em> = <em>$9,300/月</em><br><br>
+            🏠 租金 <em>$3,500</em> + 🍜 生活費 <em>$2,000</em> + 🚌 交通 <em>$500</em> = <em>$6,000/月</em><br><br>
             你手頭得 <em>$5,000</em> 積蓄。<br><br>
             未來 <em>3 年（36 個月）</em>，你要面對業績壓力、生活開支、突發事件...<br><br>
             你能撐到最後嗎？你嘅結局會係點？
