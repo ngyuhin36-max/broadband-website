@@ -1069,6 +1069,29 @@ const WORK_CHOICES = [
             return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精力回滿，壓力減咗少少。', good: true };
         }
     },
+    {
+        text: '🎮 娛樂放鬆',
+        desc: '精力 -5 | 心情 +15 | 壓力 -12 | 花費 $100-500',
+        scene: 'rest',
+        action: (g) => {
+            g.energy -= 5;
+            const activities = [
+                { name: '去戲院睇戲', cost: 100, mood: 12, stress: 10, text: '你揀咗套好評嘅港產片，坐喺戲院兩個鐘乜都唔諗。\n\n出嚟之後覺得個世界都靚咗少少。' },
+                { name: '約朋友打波', cost: 50, mood: 15, stress: 14, text: '約咗幾個老友打籃球，出咗一身汗。\n\n大家笑住傾偈，你發現好耐無試過咁放鬆。運動完精神都好咗。' },
+                { name: '去唱K', cost: 200, mood: 18, stress: 15, text: '一個人去咗唱K，由陳奕迅唱到周杰倫。\n\n唱到聲沙先走，但壓力真係釋放咗好多！' },
+                { name: '行山吸新鮮空氣', cost: 30, mood: 14, stress: 13, text: '你去咗行山，沿住山路行咗兩個鐘。\n\n企喺山頂望住成個香港，突然覺得自己嘅煩惱好渺小。' },
+                { name: '去按摩放鬆', cost: 300, mood: 16, stress: 16, text: '你去咗做全身按摩，師傅話你膊頭硬到好似石頭。\n\n按完成個人鬆晒，壓力大減！' },
+                { name: '約朋友食飯傾偈', cost: 250, mood: 17, stress: 14, text: '約咗老友食串燒飲啤酒，傾咗成晚。\n\n佢哋聽你講工作壓力，大家互相打氣。你覺得唔係自己一個人。' },
+                { name: '打機打到半夜', cost: 0, mood: 10, stress: 8, text: '你煲咗成晚機，打到忘記煩惱。\n\n雖然眼矇矇，但心情好咗。免費嘅快樂。' },
+                { name: '去海邊散步', cost: 20, mood: 13, stress: 12, text: '你搭車去咗海邊，除咗鞋喺沙灘行。\n\n聽住海浪聲，望住日落，腦袋放空。好耐無試過咁平靜。' },
+            ];
+            const act = activities[Math.floor(Math.random() * activities.length)];
+            g.money -= act.cost;
+            g.mood = Math.min(100, g.mood + act.mood);
+            g.stress = Math.max(0, g.stress - act.stress);
+            return { text: `【${act.name}】${act.cost > 0 ? `（-$${act.cost}）` : '（免費）'}\n\n${act.text}`, good: true };
+        }
+    },
     // --- 需要技能解鎖 ---
     {
         text: '🎓 做技術顧問諮詢',
