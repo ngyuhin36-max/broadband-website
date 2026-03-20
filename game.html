@@ -906,6 +906,9 @@ const G = {
     target: 8, reputation: 50, skill: 30, energy: 100, stress: 20,
     streak: 0, maxStreak: 0, failMonths: 0,
     rank: 0, // 0=初級銷售, 1=高級銷售顧問, 2=銷售主管
+    love: 0, // 0=單身, 1=曖昧, 2=拍拖, 3=穩定
+    loveName: '',
+    loveTimer: 0, // 冷落計數
     log: [], phase: 'start',
     currentEvent: null, lastResult: null,
 };
@@ -1407,6 +1410,88 @@ const RANDOM_EVENTS = [
         { text:'推掉，話自己都仲學緊', action:g=>{g.mood-=3; return '經理有少少失望。呢個表現自己嘅機會就咁無咗。'; }}
       ]},
 
+    // --- 感情事件 ---
+    // 認識階段（單身時觸發）
+    { tag:'life', tagLabel:'感情', scene:'good',
+      condition: g => g.love === 0,
+      text:'你喺客戶嘅公司等緊簽約，前台嘅女仔同你傾咗幾句。\n\n佢叫小雯，笑容好甜，仲主動問你攞卡片。\n\n「有寬頻問題可以搵你？」佢笑住問。',
+      choices:[
+        { text:'「隨時搵我！」（留電話）', action:g=>{g.love=1; g.loveName='小雯'; g.mood+=15; g.stress=Math.max(0,g.stress-5); return '你留咗電話畀佢，成日都心跳加速。返到屋企不斷check手機。好耐無試過咁嘅感覺！';}},
+        { text:'「搵公司熱線啦」（保持距離）', action:g=>{g.mood+=3; return '你笑住走咗。專心做嘢先，感情嘅嘢遲啲再算。';}}
+      ]},
+    { tag:'life', tagLabel:'感情', scene:'good',
+      condition: g => g.love === 0,
+      text:'朋友聚會上認識咗一個女仔叫阿詩，做設計師。\n\n傾咗成晚，發現大家好多共同話題。\n\n散場時佢話「下次再約」。',
+      choices:[
+        { text:'主動 WhatsApp 佢', action:g=>{g.love=1; g.loveName='阿詩'; g.mood+=15; g.stress=Math.max(0,g.stress-5); return '你鼓起勇氣 send 咗個訊息，佢好快回覆仲加咗個笑臉。心情超好！';}},
+        { text:'算啦，而家無心情拍拖', action:g=>{g.mood-=3; return '你覺得自己而家嘅狀態唔適合拍拖。但有少少後悔。';}}
+      ]},
+    { tag:'life', tagLabel:'感情', scene:'event',
+      condition: g => g.love === 0,
+      text:'你喺巴士上見到一個好靚嘅女仔，佢好似喺度睇你。\n\n到站嘅時候佢企咗起身準備落車...',
+      choices:[
+        { text:'鼓起勇氣搭訕', action:g=>{const luck=Math.random(); if(luck>0.5){g.love=1; g.loveName='巴士女孩'; g.mood+=18; return '你急急腳行過去：「唔好意思，可以認識你嗎？」佢笑住話好。交換咗電話！你開心到成晚瞓唔到。';}else{g.mood-=8; g.stress+=5; return '你行過去，但佢耳機都未除就落咗車。你企喺度好尷尬，成車人望住你...';}}},
+        { text:'算啦，唔好獻醜', action:g=>{g.mood-=5; return '佢落咗車，消失喺人群中。你望住窗口嘆咗口氣。';}}
+      ]},
+
+    // 追求階段（曖昧時觸發）
+    { tag:'life', tagLabel:'感情', scene:'good',
+      condition: g => g.love === 1,
+      text:`你同${()=>''}${''} WhatsApp 傾咗成個禮拜，越傾越投契。\n\n佢話「不如出嚟食飯？」`,
+      getText: g => `你同${g.loveName} WhatsApp 傾咗成個禮拜，越傾越投契。\n\n佢話「不如出嚟食飯？」`,
+      choices:[
+        { text:'約佢去間靚餐廳（-$500）', action:g=>{g.money-=500; g.mood+=20; g.stress=Math.max(0,g.stress-8); const luck=Math.random(); if(luck>0.35){g.love=2; return `你揀咗間好有氣氛嘅餐廳，傾到餐廳關門。臨走時${g.loveName}話「今晚好開心」。\n\n你哋正式開始拍拖了！💕`;}else{g.mood+=5; return `食完飯傾得好開心，但佢話「我哋做朋友先啦」。有少少失望，但起碼關係仲在。`;}}},
+        { text:'搵間平嘅食（-$150）', action:g=>{g.money-=150; g.mood+=10; const luck=Math.random(); if(luck>0.5){g.love=2; return `你帶佢去咗間隱世小店，反而佢好鍾意。${g.loveName}話「你好真實，唔使裝」。\n\n你哋正式拍拖了！💕`;}else{return `食完飯佢話「下次再約」，但之後回覆越嚟越慢...你開始擔心。`;}}},
+        { text:'話自己最近太忙', action:g=>{g.loveTimer++; if(g.loveTimer>=2){g.love=0; g.loveName=''; g.loveTimer=0; g.mood-=15; return '你推咗太多次...佢已讀不回了。呢段關係就咁無咗。';}else{g.mood-=5; return '佢話「好啦」，但語氣有啲失望。你知道唔可以再推了。';}}}
+      ]},
+
+    // 拍拖中事件
+    { tag:'life', tagLabel:'感情', scene:'good',
+      condition: g => g.love >= 2,
+      getText: g => `${g.loveName}今日生日！\n\n佢無講想要咩，但你知道佢好鍾意嗰個牌子嘅袋...`,
+      choices:[
+        { text:'買佢鍾意嗰個袋（-$2,000）', action:g=>{g.money-=2000; g.mood+=20; g.stress=Math.max(0,g.stress-10); if(g.love===2)g.love=3; return `${g.loveName}打開禮物嗰刻眼都濕埋：「你點知我鍾意呢個！」\n\n你哋嘅關係更加穩定了。💕`;}},
+        { text:'買束花 + 食飯（-$500）', action:g=>{g.money-=500; g.mood+=12; g.stress=Math.max(0,g.stress-5); return `${g.loveName}收到花好開心，食飯時你哋傾咗好多未來嘅計劃。`;}},
+        { text:'唔記得...遲咗先補', action:g=>{g.mood-=10; g.stress+=8; g.loveTimer+=2; return `${g.loveName}成日無出聲...到你想起嗰陣已經遲咗兩日。佢話「無所謂」，但你知道佢好傷心。`;}}
+      ]},
+    { tag:'life', tagLabel:'感情', scene:'crisis',
+      condition: g => g.love >= 2,
+      getText: g => `${g.loveName}投訴你最近成日加班，約會都取消咗三次。\n\n「你心入面到底有無我？」佢好嬲咁問。`,
+      choices:[
+        { text:'即刻請假陪佢（損失一日工作）', action:g=>{g.energy-=10; g.mood+=15; g.stress=Math.max(0,g.stress-8); g.loveTimer=Math.max(0,g.loveTimer-1); return `你放低工作陪${g.loveName}行咗成日街。佢笑返，攬住你話「多謝你」。\n\n有時候愛情比業績重要。`;}},
+        { text:'解釋工作壓力大，求佢體諒', action:g=>{const luck=Math.random(); if(luck>0.4){g.mood+=5; g.loveTimer=Math.max(0,g.loveTimer-1); return `${g.loveName}聽完之後嘆咗口氣：「我知你辛苦，但我都需要你。」\n\n你答應佢呢個週末一定陪佢。`;}else{g.mood-=10; g.stress+=10; g.loveTimer++; return `佢越聽越嬲：「每次都係咁講！」掛咗你線。你望住電話發呆。`;}}},
+        { text:'話「你唔明我嘅壓力」', action:g=>{g.mood-=15; g.stress+=12; g.loveTimer+=2; return `大吵咗一場。${g.loveName}嬲到喊，你都好內疚但就係控制唔到脾氣。\n\n冷戰開始了...`;}}
+      ]},
+    { tag:'life', tagLabel:'感情', scene:'good',
+      condition: g => g.love >= 2,
+      getText: g => `今日放工${g.loveName}突然嚟你公司樓下等你，仲買咗你最鍾意嘅奶茶。\n\n「你最近好攰，我嚟接你。」`,
+      choices:[
+        { text:'好感動！攬住佢', action:g=>{g.mood+=18; g.stress=Math.max(0,g.stress-12); if(g.love===2)g.love=3; return `你喺街上攬住${g.loveName}，差啲喊出嚟。有人撐住自己嘅感覺真好。\n\n「有你在，乜都捱得過。」你話。`;}}
+      ]},
+
+    // 分手危機（冷落太多次）
+    { tag:'crisis', tagLabel:'感情危機', scene:'crisis',
+      condition: g => g.love >= 2 && g.loveTimer >= 4,
+      getText: g => `${g.loveName}約你出嚟，一坐低就話：\n\n「我覺得我哋之間越嚟越遠...你係咪已經唔鍾意我了？」\n\n你知道呢次如果處理唔好，就真係完了。`,
+      choices:[
+        { text:'認真道歉，承諾改變（-$800 驚喜約會）', action:g=>{g.money-=800; g.mood+=10; g.stress=Math.max(0,g.stress-5); g.loveTimer=0; return `你帶${g.loveName}去咗佢一直想去嘅餐廳，認真同佢傾咗好耐。\n\n佢最後話「我再信你一次」。你知道唔可以再辜負佢。`;}},
+        { text:'「可能我哋要冷靜下」', action:g=>{g.love=0; g.loveName=''; g.loveTimer=0; g.mood-=25; g.stress+=20; return '佢聽完靜咗好耐，然後企起身走咗。\n\n你一個人坐喺度，望住佢走遠嘅背影。\n\n分手了。你成個禮拜都好唔開心。';}}
+      ]},
+
+    // 穩定期甜蜜事件
+    { tag:'good', tagLabel:'感情', scene:'good',
+      condition: g => g.love === 3,
+      getText: g => `${g.loveName}話佢嘅朋友啱啱搬咗屋，需要裝寬頻！\n\n「我幫你介紹啦！」`,
+      choices:[
+        { text:'太好了！多謝老婆！', action:g=>{g.salesThisMonth+=1; g.totalSales+=1; g.mood+=10; g.reputation+=3; return `${g.loveName}幫你介紹咗佢朋友，即場簽到一單！\n\n愛情同事業雙豐收！💕`;}}
+      ]},
+    { tag:'good', tagLabel:'感情', scene:'good',
+      condition: g => g.love === 3,
+      getText: g => `你同${g.loveName}一齊行街，佢突然企住同你講：\n\n「我覺得你好叻，由零開始做到而家。我好為你驕傲。」`,
+      choices:[
+        { text:'（感動到說不出話）', action:g=>{g.mood+=20; g.stress=Math.max(0,g.stress-15); return `你望住${g.loveName}，覺得再辛苦都值得。\n\n有人認同你嘅努力，係最大嘅動力。`;}}
+      ]},
+
     // --- 升遷相關事件 ---
     { tag:'good', tagLabel:'升遷機會', scene:'good',
       text:'經理搵你傾偈：「公司考慮升你做高級銷售顧問。」\n\n條件：技能 60+、口碑 60+、連續達標 2 個月。',
@@ -1599,6 +1684,7 @@ function renderTopbar() {
         <div class="ts"><span class="ts-label">🎯</span><span class="ts-val c-blue">${G.skill}</span><span class="ts-label">⭐</span><span class="ts-val c-blue">${G.reputation}</span></div>
         <div class="ts"><span class="ts-label">👔</span><span class="ts-val" style="color:${G.rank>=2?'#fbbf24':G.rank>=1?'#22c55e':'#94a3b8'};">${rankNames[G.rank]}</span></div>
         ${G.streak > 0 ? `<div class="ts"><span class="ts-label">🔥</span><span class="ts-val c-orange">${G.streak}月</span></div>` : ''}
+        ${G.love > 0 ? `<div class="ts${G.loveTimer>=3?' warning':''}"><span class="ts-label">${G.love>=2?'💕':'💭'}</span><span class="ts-val" style="color:${G.love>=3?'#f472b6':G.love>=2?'#fb7185':'#94a3b8'};">${G.love>=3?'穩定':G.love>=2?G.loveName:'曖昧'}</span></div>` : ''}
     </div>`;
 }
 
@@ -1869,6 +1955,7 @@ function renderEnd() {
             🎯 最終技能：${G.skill}<br>
             ⭐ 最終口碑：${G.reputation}<br>
             😰 最終壓力：${G.stress}<br>
+            💕 感情狀態：${G.love>=3?`同${G.loveName}穩定交往中 💕`:G.love>=2?`同${G.loveName}拍拖中`:G.love>=1?'曖昧中':'單身'}<br>
             👔 最終職級：<strong style="color:${G.rank>=2?'#fbbf24':G.rank>=1?'#22c55e':'#94a3b8'}">${['初級銷售','高級銷售顧問','銷售主管'][G.rank]}</strong><br>
             🔥 最高連續達標：${G.maxStreak} 個月<br><br>
             ${survived ?
@@ -1917,6 +2004,7 @@ async function startGame() {
     G.commission=150; G.rent=5500; G.living=3000;
     G.transport=800; G.target=8; G.reputation=50;
     G.skill=30; G.energy=100; G.stress=20; G.streak=0; G.maxStreak=0; G.failMonths=0; G.rank=0;
+    G.love=0; G.loveName=''; G.loveTimer=0;
     G.log=[]; G.lastResult=null;
 
     await showTransition('🌅', '第 1 年，第 1 個月，第 1 日...', 2000);
@@ -2005,7 +2093,11 @@ async function afterResult() {
 
 async function triggerRandomEvent() {
     sfxEvent();
-    const ev = RANDOM_EVENTS[Math.floor(Math.random() * RANDOM_EVENTS.length)];
+    // Filter events by condition, then pick random
+    const eligible = RANDOM_EVENTS.filter(e => !e.condition || e.condition(G));
+    const ev = eligible[Math.floor(Math.random() * eligible.length)];
+    // Support dynamic text
+    if (ev.getText) ev.text = ev.getText(G);
     G.currentEvent = ev;
 
     await showTransition(
@@ -2109,6 +2201,13 @@ async function nextMonth() {
         G.commission += 20;
         G.log.push({ text: `[通知] 年度調薪！底薪 $${G.salary.toLocaleString()}`, cls: 'log-good' });
         floatNotify('年度調薪！', 'good');
+    }
+
+    // Relationship: monthly maintenance
+    if (G.love >= 2) {
+        G.living += 0; // no passive cost, events handle spending
+        G.loveTimer++; // neglect accumulates unless reset by events
+        if (G.love >= 2) { G.mood += 3; G.stress = Math.max(0, G.stress - 3); } // small ongoing benefit
     }
 
     G.month++;
