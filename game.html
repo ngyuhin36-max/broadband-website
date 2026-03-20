@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寬頻人生 | 3年銷售生涯模擬遊戲 — BroadbandHK</title>
+    <meta name="description" content="寬頻人生 — 一個寬頻銷售員的3年生涯模擬遊戲。面對業績壓力、生活開支，你能撐到最後嗎？">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Noto Sans TC', sans-serif;
+        background: #0a0e1a;
+        color: #e2e8f0;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* --- Top Nav --- */
+    .game-nav {
+        background: rgba(15,23,42,0.95);
+        backdrop-filter: blur(10px);
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 100;
+    }
+    .game-nav .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .game-nav a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    .game-nav a:hover { color: #fff; }
+    .game-nav .logo { color: #60a5fa; font-weight: 900; font-size: 1.1rem; }
+
+    /* --- Game Container --- */
+    .game-wrap {
+        max-width: 700px;
+        margin: 80px auto 40px;
+        padding: 0 20px;
+    }
+
+    /* --- Start Screen --- */
+    .start-screen {
+        text-align: center;
+        padding: 80px 20px;
+    }
+    .start-screen h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 8px;
+        background: linear-gradient(135deg, #60a5fa, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .start-screen .subtitle {
+        font-size: 1.2rem;
+        color: #94a3b8;
+        margin-bottom: 32px;
+    }
+    .start-screen .story {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 28px;
+        text-align: left;
+        line-height: 2;
+        color: #cbd5e1;
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+    }
+    .start-screen .story em {
+        color: #fbbf24;
+        font-style: normal;
+    }
+    .start-btn {
+        display: inline-block;
+        padding: 16px 48px;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: inherit;
+    }
+    .start-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+    }
+
+    /* --- Status Bar --- */
+    .status-bar {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+    .stat-box {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 14px;
+        text-align: center;
+    }
+    .stat-box .label {
+        font-size: 0.75rem;
+        color: #64748b;
+        margin-bottom: 4px;
+    }
+    .stat-box .value {
+        font-size: 1.3rem;
+        font-weight: 900;
+    }
+    .stat-box .value.money { color: #22c55e; }
+    .stat-box .value.date { color: #60a5fa; }
+    .stat-box .value.mood { color: #fbbf24; }
+    .stat-box .value.sales { color: #f97316; }
+
+    /* --- Progress Bar --- */
+    .progress-wrap {
+        margin-bottom: 24px;
+    }
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-bottom: 6px;
+    }
+    .progress-bar {
+        height: 6px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #2563eb, #7c3aed);
+        border-radius: 3px;
+        transition: width 0.5s;
+    }
+
+    /* --- Story Panel --- */
+    .story-panel {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 28px;
+        margin-bottom: 20px;
+        min-height: 180px;
+    }
+    .story-panel .event-tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+    .tag-work { background: rgba(37,99,235,0.15); color: #60a5fa; }
+    .tag-life { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    .tag-random { background: rgba(168,85,247,0.15); color: #c084fc; }
+    .tag-crisis { background: rgba(239,68,68,0.15); color: #f87171; }
+    .tag-good { background: rgba(34,197,94,0.15); color: #4ade80; }
+
+    .story-panel .text {
+        font-size: 1rem;
+        line-height: 1.9;
+        color: #cbd5e1;
+        white-space: pre-line;
+    }
+    .story-panel .text .highlight {
+        color: #fbbf24;
+        font-weight: 700;
+    }
+
+    /* --- Choices --- */
+    .choices {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .choice-btn {
+        display: block;
+        width: 100%;
+        padding: 16px 20px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        color: #e2e8f0;
+        font-size: 0.95rem;
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.2s;
+        font-family: inherit;
+        line-height: 1.6;
+    }
+    .choice-btn:hover {
+        background: rgba(37,99,235,0.15);
+        border-color: #2563eb;
+        transform: translateX(4px);
+    }
+    .choice-btn .cost {
+        font-size: 0.8rem;
+        color: #64748b;
+        display: block;
+        margin-top: 2px;
+    }
+
+    /* --- Log --- */
+    .game-log {
+        background: rgba(0,0,0,0.3);
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 12px;
+        padding: 16px;
+        max-height: 200px;
+        overflow-y: auto;
+        font-size: 0.82rem;
+        color: #475569;
+        line-height: 1.8;
+    }
+    .game-log .log-entry { border-bottom: 1px solid rgba(255,255,255,0.03); padding: 4px 0; }
+    .game-log .log-good { color: #4ade80; }
+    .game-log .log-bad { color: #f87171; }
+    .game-log .log-info { color: #60a5fa; }
+
+    /* --- End Screen --- */
+    .end-screen {
+        text-align: center;
+        padding: 60px 20px;
+    }
+    .end-screen h2 {
+        font-size: 2.2rem;
+        font-weight: 900;
+        margin-bottom: 12px;
+    }
+    .end-screen .grade {
+        font-size: 5rem;
+        margin: 20px 0;
+    }
+    .end-screen .summary {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: left;
+        line-height: 2;
+        margin: 24px 0;
+        color: #cbd5e1;
+    }
+    .end-cta {
+        margin-top: 32px;
+        padding: 24px;
+        background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(124,58,237,0.15));
+        border: 1px solid rgba(96,165,250,0.2);
+        border-radius: 16px;
+    }
+    .end-cta p { margin-bottom: 12px; color: #94a3b8; }
+    .end-cta a {
+        display: inline-block;
+        padding: 12px 32px;
+        background: #2563eb;
+        color: #fff;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 4px;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+        .status-bar { grid-template-columns: repeat(2, 1fr); }
+        .start-screen h1 { font-size: 2rem; }
+        .story-panel { padding: 20px; }
+    }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<div class="game-nav">
+    <div class="container">
+        <a href="index.html" class="logo">⚡ BroadbandHK</a>
+        <a href="index.html">返回主頁</a>
+    </div>
+</div>
+
+<div class="game-wrap" id="app"></div>
+
+<script>
+// ============================================================
+// 寬頻人生 — Game Engine
+// ============================================================
+
+const G = {
+    month: 1,           // 1-36
+    day: 1,             // 1-30 per month
+    money: 5000,        // 起始資金
+    mood: 80,           // 心情 0-100
+    salesThisMonth: 0,  // 本月簽單數
+    totalSales: 0,      // 總簽單數
+    salary: 12000,      // 底薪
+    commission: 400,    // 每單佣金
+    rent: 5500,         // 租金
+    living: 3000,       // 生活費
+    transport: 800,     // 交通費
+    target: 8,          // 月目標
+    reputation: 50,     // 口碑 0-100
+    skill: 30,          // 技能 0-100
+    energy: 100,        // 精力 0-100
+    streak: 0,          // 連續達標月數
+    failMonths: 0,      // 未達標月數
+    log: [],
+    phase: 'start',     // start, play, monthEnd, end
+    events: [],
+};
+
+// ============================================================
+// Story / Events Data
+// ============================================================
+
+const WORK_CHOICES = [
+    {
+        text: '🏃 出去掃街拍門推銷',
+        desc: '體力消耗大，但有機會遇到大客',
+        action: (g) => {
+            g.energy -= 25;
+            const luck = Math.random();
+            const skillBonus = g.skill / 200;
+            if (luck + skillBonus > 0.55) {
+                const n = luck > 0.85 ? 2 : 1;
+                g.salesThisMonth += n;
+                g.totalSales += n;
+                g.skill = Math.min(100, g.skill + 2);
+                return { text: `你拍門推銷咗成個下晝，成功簽咗 ${n} 單！客人話屋企WiFi好慢，即場轉台。`, good: true };
+            } else if (luck < 0.2) {
+                g.mood -= 10;
+                return { text: '行咗成日都無人開門，有個阿伯仲鬧你「唔好煩我」。好攰好灰...', good: false };
+            } else {
+                g.skill = Math.min(100, g.skill + 1);
+                return { text: '拍咗十幾戶門，有幾個聽你講完但最後都話「考慮下先」。起碼練到口才。', good: null };
+            }
+        }
+    },
+    {
+        text: '📞 打 Cold Call 電銷',
+        desc: '安全穩定，消耗較少體力',
+        action: (g) => {
+            g.energy -= 12;
+            const luck = Math.random();
+            const skillBonus = g.skill / 250;
+            if (luck + skillBonus > 0.6) {
+                g.salesThisMonth += 1;
+                g.totalSales += 1;
+                g.skill = Math.min(100, g.skill + 1);
+                return { text: '打咗幾十個電話，終於有個客人啱啱合約到期，約咗佢聽日簽約！', good: true };
+            } else if (luck < 0.15) {
+                g.mood -= 8;
+                return { text: '打咗 60 個電話，30 個無人聽，20 個即掛，10 個話唔使。心好累。', good: false };
+            } else {
+                g.skill = Math.min(100, g.skill + 1);
+                return { text: '打咗幾十個電話，有兩三個有興趣但要同屋企人商量。留咗 WhatsApp 跟進。', good: null };
+            }
+        }
+    },
+    {
+        text: '💻 喺社交媒體搵客',
+        desc: '用 Facebook / IG 宣傳，建立口碑',
+        action: (g) => {
+            g.energy -= 8;
+            g.reputation = Math.min(100, g.reputation + 3);
+            const luck = Math.random();
+            if (luck > 0.7 || g.reputation > 70) {
+                const n = g.reputation > 80 ? 2 : 1;
+                g.salesThisMonth += n;
+                g.totalSales += n;
+                return { text: `你嘅寬頻比較 post 有人 inbox 查詢，傾咗陣簽咗 ${n} 單！網上口碑慢慢建立緊。`, good: true };
+            } else {
+                return { text: '出咗幾個 post，有人 like 但暫時無人查詢。口碑需要時間累積。', good: null };
+            }
+        }
+    },
+    {
+        text: '🤝 搵舊客介紹新客',
+        desc: '需要口碑基礎，成功率較高',
+        action: (g) => {
+            g.energy -= 10;
+            if (g.totalSales < 5) {
+                return { text: '你先簽咗幾單，舊客太少，暫時好難靠轉介紹。繼續努力先！', good: false };
+            }
+            const luck = Math.random();
+            const repBonus = g.reputation / 200;
+            if (luck + repBonus > 0.45) {
+                const n = luck > 0.8 ? 2 : 1;
+                g.salesThisMonth += n;
+                g.totalSales += n;
+                g.reputation = Math.min(100, g.reputation + 5);
+                return { text: `舊客陳先生幫你介紹咗鄰居，一傾即合，簽咗 ${n} 單！仲話會介紹埋同事。`, good: true };
+            } else {
+                g.reputation = Math.min(100, g.reputation + 2);
+                return { text: 'Send 咗幾個舊客 WhatsApp，有人話會留意身邊有無人需要。慢慢嚟。', good: null };
+            }
+        }
+    },
+    {
+        text: '📖 進修學習銷售技巧',
+        desc: '唔會簽單，但提升未來成功率',
+        action: (g) => {
+            g.energy -= 5;
+            g.skill = Math.min(100, g.skill + 8);
+            g.mood = Math.min(100, g.mood + 3);
+            return { text: `你睇咗銷售技巧書同研究對手Plan，技能提升咗！（技能 ${g.skill}）`, good: true };
+        }
+    },
+    {
+        text: '😴 休息一日',
+        desc: '回復精力同心情',
+        action: (g) => {
+            g.energy = Math.min(100, g.energy + 35);
+            g.mood = Math.min(100, g.mood + 10);
+            return { text: '你今日休息咗一日，瞓到自然醒，食咗頓好嘢。精神好返好多！', good: true };
+        }
+    }
+];
+
+const RANDOM_EVENTS = [
+    {
+        tag: 'random', tagLabel: '突發事件',
+        text: '你嘅手機跌咗爛Mon！要修理先可以繼續打 Cold Call。',
+        choices: [
+            { text: '即刻去修（-$800）', action: g => { g.money -= 800; return '手機修好了，損失 $800。'; }},
+            { text: '用舊機頂住先', action: g => { g.skill -= 5; return '舊機好慢，影響工作效率。'; }}
+        ]
+    },
+    {
+        tag: 'random', tagLabel: '突發事件',
+        text: '屋企冷氣壞咗，夏天瞓唔到覺...',
+        choices: [
+            { text: '叫師傅修（-$1,200）', action: g => { g.money -= 1200; g.mood += 5; return '冷氣修好了，起碼瞓得好。'; }},
+            { text: '開風扇捱過去', action: g => { g.mood -= 10; g.energy -= 15; return '熱到瞓唔到，第二日好攰。'; }}
+        ]
+    },
+    {
+        tag: 'random', tagLabel: '突發事件',
+        text: '有個朋友生日，問你去唔去食飯。',
+        choices: [
+            { text: '去！放鬆下（-$300）', action: g => { g.money -= 300; g.mood += 15; return '食完飯開心咗好多！朋友仲話幫你介紹客。'; }},
+            { text: '唔去了，慳錢', action: g => { g.mood -= 5; return '朋友有啲失望，你都覺得有少少孤獨。'; }}
+        ]
+    },
+    {
+        tag: 'good', tagLabel: '好消息',
+        text: '之前嘅客人覺得你服務好好，主動幫你喺 Facebook 寫好評！',
+        choices: [
+            { text: '太好了！', action: g => { g.reputation += 10; return '口碑大升！'; }}
+        ]
+    },
+    {
+        tag: 'crisis', tagLabel: '危機',
+        text: '大供應商減價搶客！你嘅 Plan 比人貴，客人紛紛取消預約...',
+        choices: [
+            { text: '主動聯絡客人強調服務優勢', action: g => { g.energy -= 15; g.skill += 3; return '辛苦咗，但保住咗大部分客人。'; }},
+            { text: '等風波過去', action: g => { g.salesThisMonth = Math.max(0, g.salesThisMonth - 2); return '流失咗 2 單，市場競爭好殘酷。'; }}
+        ]
+    },
+    {
+        tag: 'random', tagLabel: '突發事件',
+        text: '業主話下個月開始加租 $500。',
+        choices: [
+            { text: '接受加租', action: g => { g.rent += 500; return `租金增加到 $${g.rent.toLocaleString()}/月，開支壓力更大了。`; }},
+            { text: '搬去平啲嘅地方（搬屋費 $3,000）', action: g => { g.money -= 3000; g.rent -= 300; return `搬完屋，租金減少到 $${g.rent.toLocaleString()}/月，但好攰。`; }}
+        ]
+    },
+    {
+        tag: 'good', tagLabel: '好消息',
+        text: '公司推出新優惠計劃，客人反應好好！',
+        choices: [
+            { text: '把握機會全力推銷', action: g => { g.salesThisMonth += 2; g.totalSales += 2; g.energy -= 20; return '趁住個勢簽多咗 2 單！'; }},
+            { text: '照常工作', action: g => { g.salesThisMonth += 1; g.totalSales += 1; return '自然地多簽咗 1 單。'; }}
+        ]
+    },
+    {
+        tag: 'random', tagLabel: '突發事件',
+        text: '老同學搵你食晏，原來佢做緊地產經紀，想互相介紹客人。',
+        choices: [
+            { text: '合作！互相推薦', action: g => { g.reputation += 8; g.mood += 5; return '建立咗一個新嘅合作關係，未來可能有介紹客！'; }},
+            { text: '客氣拒絕', action: g => { return '你覺得暫時唔需要，繼續自己做。'; }}
+        ]
+    },
+    {
+        tag: 'crisis', tagLabel: '危機',
+        text: '你簽嘅客人投訴安裝有問題，鬧到要退單！',
+        choices: [
+            { text: '親自上門處理', action: g => { g.energy -= 20; g.reputation += 5; g.mood -= 5; return '花咗半日處理，最後客人滿意了，仲話會介紹朋友。'; }},
+            { text: '交返公司客服處理', action: g => { g.reputation -= 8; return '客人好唔滿意，喺 Facebook 留咗負評。口碑受損。'; }}
+        ]
+    },
+    {
+        tag: 'life', tagLabel: '生活',
+        text: '你好耐無做運動，最近成日病。',
+        choices: [
+            { text: '報健身房（-$300/月）', action: g => { g.living += 300; g.energy += 20; g.mood += 10; return '開始做運動，精力同心情都好咗！'; }},
+            { text: '早啲瞓就算', action: g => { g.energy += 5; return '都係咁熬落去。'; }}
+        ]
+    },
+    {
+        tag: 'good', tagLabel: '好消息',
+        text: '你幫一棟大廈嘅管理處做咗個寬頻比較簡介會！',
+        choices: [
+            { text: '趁機推銷', action: g => { const n = Math.floor(Math.random()*3)+2; g.salesThisMonth += n; g.totalSales += n; g.reputation += 10; return `一次過簽咗 ${n} 單！大廈住戶好多都想轉台。`; }}
+        ]
+    },
+    {
+        tag: 'random', tagLabel: '突發事件',
+        text: '阿媽打電話嚟，話最近身體唔舒服要睇醫生。',
+        choices: [
+            { text: '畀錢阿媽睇醫生（-$2,000）', action: g => { g.money -= 2000; g.mood += 5; return '阿媽睇完醫生無大礙，你安心咗。'; }},
+            { text: '叫阿媽用公立醫院', action: g => { g.mood -= 10; return '你覺得好內疚，但真係無辦法。'; }}
+        ]
+    }
+];
+
+const MONTH_END_COMMENTS = {
+    great: [
+        '你今個月表現超班！經理喺會議上點名讚你。',
+        '連續達標，同事都叫你「簽單王」！',
+        '今個月業績亮眼，你開始覺得呢行有前途。'
+    ],
+    ok: [
+        '剛好達標，鬆一口氣。',
+        '算係合格，但你知道下個月要更努力。',
+        '達標了，但其實好驚險。'
+    ],
+    bad: [
+        '未達標...經理叫你入房傾咗半個鐘。',
+        '業績唔夠，你好擔心下個月再唔得會被炒。',
+        '又一個月未達標，壓力好大，晚晚瞓唔到。'
+    ]
+};
+
+// ============================================================
+// Render Functions
+// ============================================================
+
+function render() {
+    const app = document.getElementById('app');
+    switch (G.phase) {
+        case 'start': app.innerHTML = renderStart(); break;
+        case 'play': app.innerHTML = renderPlay(); break;
+        case 'event': app.innerHTML = renderEvent(); break;
+        case 'monthEnd': app.innerHTML = renderMonthEnd(); break;
+        case 'end': app.innerHTML = renderEnd(); break;
+    }
+}
+
+function renderStart() {
+    return `
+    <div class="start-screen">
+        <h1>寬頻人生</h1>
+        <div class="subtitle">一個寬頻銷售員的 3 年生涯</div>
+        <div class="story">
+            你叫<em>阿明</em>，25 歲，啱啱入咗一間寬頻公司做銷售。<br><br>
+            底薪 <em>$12,000</em>，每簽一單有 <em>$400</em> 佣金。<br>
+            每月目標：<em>8 單</em>。<br><br>
+            但生活開支唔等人：<br>
+            租金 <em>$5,500</em> + 生活費 <em>$3,000</em> + 交通 <em>$800</em> = <em>$9,300/月</em><br><br>
+            你手頭得 <em>$5,000</em> 積蓄。<br><br>
+            未來 <em>3 年（36 個月）</em>，你要面對業績壓力、生活開支、突發事件...<br><br>
+            你能撐到最後嗎？你嘅結局會係點？
+        </div>
+        <button class="start-btn" onclick="startGame()">開始遊戲</button>
+    </div>`;
+}
+
+function moodEmoji(m) {
+    if (m >= 80) return '😄';
+    if (m >= 60) return '🙂';
+    if (m >= 40) return '😐';
+    if (m >= 20) return '😰';
+    return '😭';
+}
+
+function renderStatusBar() {
+    const year = Math.ceil(G.month / 12);
+    const monthInYear = ((G.month - 1) % 12) + 1;
+    const progress = ((G.month - 1) * 30 + G.day) / (36 * 30) * 100;
+    return `
+    <div class="status-bar">
+        <div class="stat-box">
+            <div class="label">日期</div>
+            <div class="value date">第${year}年 ${monthInYear}月</div>
+        </div>
+        <div class="stat-box">
+            <div class="label">儲蓄</div>
+            <div class="value money">$${G.money.toLocaleString()}</div>
+        </div>
+        <div class="stat-box">
+            <div class="label">本月簽單</div>
+            <div class="value sales">${G.salesThisMonth} / ${G.target}</div>
+        </div>
+        <div class="stat-box">
+            <div class="label">心情</div>
+            <div class="value mood">${moodEmoji(G.mood)} ${G.mood}</div>
+        </div>
+    </div>
+    <div class="progress-wrap">
+        <div class="progress-label">
+            <span>精力 ${G.energy}%</span>
+            <span>技能 ${G.skill} | 口碑 ${G.reputation}</span>
+            <span>進度 ${Math.round(progress)}%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
+    </div>`;
+}
+
+function renderPlay() {
+    let choicesHTML = '';
+    if (G.energy <= 10) {
+        choicesHTML = `<div class="choices">
+            <button class="choice-btn" onclick="doWork(5)">😴 你太累了，只能休息<span class="cost">回復精力</span></button>
+        </div>`;
+    } else {
+        choicesHTML = '<div class="choices">';
+        WORK_CHOICES.forEach((c, i) => {
+            const disabled = (i !== 5 && G.energy <= 10) ? 'style="opacity:0.5;pointer-events:none"' : '';
+            choicesHTML += `<button class="choice-btn" onclick="doWork(${i})" ${disabled}>
+                ${c.text}<span class="cost">${c.desc}</span>
+            </button>`;
+        });
+        choicesHTML += '</div>';
+    }
+
+    const logHTML = G.log.slice(-8).map(l =>
+        `<div class="log-entry ${l.cls}">${l.text}</div>`
+    ).join('');
+
+    return `
+    ${renderStatusBar()}
+    <div class="story-panel">
+        <span class="event-tag tag-work">工作日 · 第 ${G.day} 日</span>
+        <div class="text">今日你想點做？\n\n距離月尾仲有 <span class="highlight">${30 - G.day} 日</span>，仲差 <span class="highlight">${Math.max(0, G.target - G.salesThisMonth)} 單</span>達標。</div>
+    </div>
+    ${choicesHTML}
+    <div class="game-log">${logHTML || '<div class="log-entry log-info">遊戲開始！加油！</div>'}</div>`;
+}
+
+function renderEvent() {
+    const ev = G.currentEvent;
+    let choicesHTML = '<div class="choices">';
+    ev.choices.forEach((c, i) => {
+        choicesHTML += `<button class="choice-btn" onclick="doEvent(${i})">${c.text}</button>`;
+    });
+    choicesHTML += '</div>';
+
+    const logHTML = G.log.slice(-8).map(l =>
+        `<div class="log-entry ${l.cls}">${l.text}</div>`
+    ).join('');
+
+    return `
+    ${renderStatusBar()}
+    <div class="story-panel">
+        <span class="event-tag tag-${ev.tag}">${ev.tagLabel}</span>
+        <div class="text">${ev.text}</div>
+    </div>
+    ${choicesHTML}
+    <div class="game-log">${logHTML}</div>`;
+}
+
+function renderMonthEnd() {
+    const hit = G.salesThisMonth >= G.target;
+    const income = G.salary + G.salesThisMonth * G.commission;
+    const bonus = hit && G.streak >= 3 ? 2000 : 0;
+    const expenses = G.rent + G.living + G.transport;
+    const net = income + bonus - expenses;
+
+    let commentPool = hit ? (G.salesThisMonth >= G.target + 4 ? MONTH_END_COMMENTS.great : MONTH_END_COMMENTS.ok) : MONTH_END_COMMENTS.bad;
+    const comment = commentPool[Math.floor(Math.random() * commentPool.length)];
+
+    return `
+    ${renderStatusBar()}
+    <div class="story-panel">
+        <span class="event-tag ${hit ? 'tag-good' : 'tag-crisis'}">${hit ? '達標！' : '未達標'}</span>
+        <div class="text">
+<span class="highlight">月結報告</span>
+
+本月簽單：${G.salesThisMonth} 單（目標 ${G.target} 單）
+
+收入：
+  底薪　　$${G.salary.toLocaleString()}
+  佣金　　$${(G.salesThisMonth * G.commission).toLocaleString()}（${G.salesThisMonth} 單 x $${G.commission}）
+  ${bonus > 0 ? `獎金　　$${bonus.toLocaleString()}（連續達標獎勵）\n  ` : ''}合計　　<span class="highlight">$${(income + bonus).toLocaleString()}</span>
+
+支出：
+  租金　　$${G.rent.toLocaleString()}
+  生活費　$${G.living.toLocaleString()}
+  交通費　$${G.transport.toLocaleString()}
+  合計　　$${expenses.toLocaleString()}
+
+本月結餘：<span class="highlight">${net >= 0 ? '+' : ''}$${net.toLocaleString()}</span>
+
+${comment}</div>
+    </div>
+    <div class="choices">
+        <button class="choice-btn" onclick="nextMonth()">繼續下個月 →</button>
+    </div>`;
+}
+
+function renderEnd() {
+    let grade, title, color, emoji;
+    if (G.money >= 80000) { grade = 'S'; title = '寬頻之王'; color = '#fbbf24'; emoji = '👑'; }
+    else if (G.money >= 40000) { grade = 'A'; title = '金牌銷售'; color = '#22c55e'; emoji = '🏆'; }
+    else if (G.money >= 15000) { grade = 'B'; title = '穩打穩紮'; color = '#60a5fa'; emoji = '💪'; }
+    else if (G.money >= 0) { grade = 'C'; title = '勉強生存'; color = '#f97316'; emoji = '😅'; }
+    else { grade = 'D'; title = '負債累累'; color = '#ef4444'; emoji = '😭'; }
+
+    const gameOver = G.money < -10000 || G.mood <= 0 || G.failMonths >= 3;
+    const survived = !gameOver && G.month > 36;
+
+    return `
+    <div class="end-screen">
+        <h2>${survived ? '恭喜你撐過咗 3 年！' : '遊戲結束...'}</h2>
+        <div class="grade" style="color:${color}">${emoji} ${grade}</div>
+        <div style="font-size:1.3rem;color:${color};font-weight:700;margin-bottom:8px;">${title}</div>
+        <div class="summary">
+            <strong>3 年總結</strong><br><br>
+            總簽單數：${G.totalSales} 單<br>
+            最終儲蓄：$${G.money.toLocaleString()}<br>
+            最終技能：${G.skill}<br>
+            最終口碑：${G.reputation}<br>
+            連續達標最高：${G.streak} 個月<br><br>
+            ${survived ?
+                (G.money >= 40000 ? '你靠住努力同堅持，喺寬頻銷售呢行闖出名堂。你証明咗只要唔放棄，就一定有出路！' :
+                 G.money >= 0 ? '3 年唔容易，但你撐過嚟了。雖然無大富大貴，但你學識咗好多嘢。' :
+                 '勉強撐過 3 年，但經濟壓力好大。希望下一個 3 年會更好。') :
+                (G.money < -10000 ? '負債太多，已經撐唔落去了...' :
+                 G.mood <= 0 ? '心理壓力太大，你決定轉行了...' :
+                 '連續幾個月業績唔達標，被公司辭退了...')}
+        </div>
+        <div class="end-cta">
+            <p>現實中，BroadbandHK 幫你搵到最平最穩定嘅寬頻！</p>
+            <a href="index.html">查看寬頻月費</a>
+            <a href="shops.html">免費商舖推薦</a>
+        </div>
+        <br>
+        <button class="start-btn" onclick="location.reload()" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">再玩一次</button>
+    </div>`;
+}
+
+// ============================================================
+// Game Logic
+// ============================================================
+
+function startGame() {
+    G.month = 1; G.day = 1; G.money = 5000; G.mood = 80;
+    G.salesThisMonth = 0; G.totalSales = 0; G.salary = 12000;
+    G.commission = 400; G.rent = 5500; G.living = 3000;
+    G.transport = 800; G.target = 8; G.reputation = 50;
+    G.skill = 30; G.energy = 100; G.streak = 0; G.failMonths = 0;
+    G.log = []; G.phase = 'play';
+    render();
+}
+
+function doWork(index) {
+    const choice = WORK_CHOICES[index];
+    const result = choice.action(G);
+
+    G.log.push({
+        text: `[第${G.day}日] ${result.text}`,
+        cls: result.good === true ? 'log-good' : result.good === false ? 'log-bad' : 'log-info'
+    });
+
+    G.day += Math.floor(Math.random() * 2) + 2; // 2-3 days per action
+
+    // Clamp values
+    G.mood = Math.max(0, Math.min(100, G.mood));
+    G.energy = Math.max(0, Math.min(100, G.energy));
+
+    // Random event chance (~25%)
+    if (Math.random() < 0.25 && G.day < 28) {
+        triggerRandomEvent();
+        return;
+    }
+
+    // Check month end
+    if (G.day > 30) {
+        G.phase = 'monthEnd';
+    }
+
+    // Check game over
+    if (checkGameOver()) return;
+
+    render();
+}
+
+function triggerRandomEvent() {
+    const ev = RANDOM_EVENTS[Math.floor(Math.random() * RANDOM_EVENTS.length)];
+    G.currentEvent = ev;
+    G.phase = 'event';
+    render();
+}
+
+function doEvent(choiceIndex) {
+    const ev = G.currentEvent;
+    const result = ev.choices[choiceIndex].action(G);
+
+    G.log.push({ text: `[事件] ${result}`, cls: 'log-info' });
+
+    G.mood = Math.max(0, Math.min(100, G.mood));
+    G.energy = Math.max(0, Math.min(100, G.energy));
+
+    if (G.day > 30) {
+        G.phase = 'monthEnd';
+    } else {
+        G.phase = 'play';
+    }
+
+    if (checkGameOver()) return;
+    render();
+}
+
+function nextMonth() {
+    // Calculate monthly finances
+    const hit = G.salesThisMonth >= G.target;
+    const income = G.salary + G.salesThisMonth * G.commission;
+    const bonus = hit && G.streak >= 3 ? 2000 : 0;
+    const expenses = G.rent + G.living + G.transport;
+    G.money += income + bonus - expenses;
+
+    if (hit) {
+        G.streak++;
+        G.failMonths = 0;
+        G.mood = Math.min(100, G.mood + 8);
+    } else {
+        G.streak = 0;
+        G.failMonths++;
+        G.mood = Math.max(0, G.mood - 12);
+    }
+
+    // Difficulty scaling
+    if (G.month % 6 === 0) {
+        G.target = Math.min(15, G.target + 1);
+        G.log.push({ text: `[通知] 公司提高目標到每月 ${G.target} 單！`, cls: 'log-bad' });
+    }
+    if (G.month % 12 === 0) {
+        G.salary += 500;
+        G.commission += 50;
+        G.log.push({ text: `[通知] 年度調薪！底薪 $${G.salary.toLocaleString()}，佣金 $${G.commission}/單`, cls: 'log-good' });
+    }
+
+    G.month++;
+    G.day = 1;
+    G.salesThisMonth = 0;
+    G.energy = 100;
+
+    if (G.month > 36) {
+        G.phase = 'end';
+        render();
+        return;
+    }
+
+    if (checkGameOver()) return;
+
+    G.phase = 'play';
+    render();
+}
+
+function checkGameOver() {
+    if (G.money < -10000 || G.mood <= 0 || G.failMonths >= 3) {
+        G.phase = 'end';
+        render();
+        return true;
+    }
+    return false;
+}
+
+// Init
+render();
+</script>
+
+</body>
+</html>
