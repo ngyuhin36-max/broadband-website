@@ -90,7 +90,7 @@
     }
     .sound-toggle:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
 
-    /* --- Game Layout: Two Column --- */
+    /* --- Game Layout: Three Column --- */
     .game-layout {
         display: flex;
         height: calc(100vh - 50px);
@@ -99,24 +99,45 @@
         z-index: 1;
     }
     .game-sidebar {
-        width: 280px;
+        width: 240px;
         flex-shrink: 0;
         background: rgba(15,23,42,0.8);
         backdrop-filter: blur(10px);
         border-right: 1px solid rgba(255,255,255,0.06);
-        padding: 20px 16px;
+        padding: 16px 12px;
         overflow-y: auto;
-        position: sticky;
-        top: 50px;
         height: calc(100vh - 50px);
     }
     .game-main {
         flex: 1;
         overflow-y: auto;
         height: calc(100vh - 50px);
-        padding: 20px 24px;
-        max-width: 680px;
+        padding: 16px 20px;
+        min-width: 0;
     }
+    .game-choices {
+        width: 280px;
+        flex-shrink: 0;
+        background: rgba(15,23,42,0.6);
+        backdrop-filter: blur(10px);
+        border-left: 1px solid rgba(255,255,255,0.06);
+        padding: 16px 12px;
+        overflow-y: auto;
+        height: calc(100vh - 50px);
+    }
+    .game-choices .choices { animation: none; }
+    .game-choices .choices-title {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+    .game-choices .choice-btn {
+        font-size: 0.88rem;
+        padding: 12px 14px;
+    }
+    .game-choices .choice-btn .cost { font-size: 0.75rem; }
+
     /* Single column for start/guide/end screens */
     .game-wrap {
         max-width: 700px;
@@ -181,7 +202,7 @@
     .side-log .log-info { color: #60a5fa; }
 
     /* --- Responsive: Stack on mobile --- */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .game-layout {
             flex-direction: column;
             height: auto;
@@ -189,20 +210,24 @@
         .game-sidebar {
             width: 100%;
             height: auto;
-            position: relative;
-            top: 0;
             border-right: none;
             border-bottom: 1px solid rgba(255,255,255,0.06);
-            padding: 12px 16px;
+            padding: 10px 16px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            gap: 6px;
         }
         .side-divider, .side-log { display: none; }
         .game-main {
             height: auto;
             overflow-y: visible;
-            max-width: 100%;
+        }
+        .game-choices {
+            width: 100%;
+            height: auto;
+            border-left: none;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 12px 16px;
         }
     }
 
@@ -635,10 +660,11 @@
 <!-- Single-page screens (start, guide, end) -->
 <div class="game-wrap" id="appSingle"></div>
 
-<!-- Two-column game layout (play, result, event, monthEnd) -->
+<!-- Three-column game layout (play, result, event, monthEnd) -->
 <div class="game-layout" id="gameLayout" style="display:none;">
     <div class="game-sidebar" id="sidebar"></div>
     <div class="game-main" id="appMain"></div>
+    <div class="game-choices" id="appChoices"></div>
 </div>
 
 <script>
@@ -1220,13 +1246,17 @@ function render() {
     if (isGameplay) {
         single.style.display = 'none';
         layout.style.display = 'flex';
+        const choices = document.getElementById('appChoices');
         sidebar.innerHTML = renderSidebar();
+        let content;
         switch (G.phase) {
-            case 'play': main.innerHTML = renderPlay(); break;
-            case 'result': main.innerHTML = renderResult(); break;
-            case 'event': main.innerHTML = renderEvent(); break;
-            case 'monthEnd': main.innerHTML = renderMonthEnd(); break;
+            case 'play': content = renderPlay(); break;
+            case 'result': content = renderResult(); break;
+            case 'event': content = renderEvent(); break;
+            case 'monthEnd': content = renderMonthEnd(); break;
         }
+        main.innerHTML = content.story;
+        choices.innerHTML = content.choices;
         main.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
         single.style.display = 'block';
@@ -1457,15 +1487,16 @@ function renderPlay() {
     let urgency = '';
     if (daysLeft <= 5 && remaining > 0) urgency = '<span style="color:#f87171;"> ⚠️ 時間唔多了！</span>';
 
-    return `
-    <div class="story-panel">
-        ${renderScene('morning')}
-        <div class="story-body">
-            <span class="event-tag tag-work">📅 第 ${G.day} 日</span>
-            <div class="text" id="storyText">早上鬧鐘響起，新嘅一日開始了。\n\n距離月尾仲有 <span class="highlight">${daysLeft} 日</span>，仲差 <span class="highlight">${remaining} 單</span>先達標。${urgency}\n\n今日你想點做？</div>
-        </div>
-    </div>
-    ${choicesHTML}`;
+    return {
+        story: `<div class="story-panel">
+            ${renderScene('morning')}
+            <div class="story-body">
+                <span class="event-tag tag-work">📅 第 ${G.day} 日</span>
+                <div class="text" id="storyText">早上鬧鐘響起，新嘅一日開始了。\n\n距離月尾仲有 <span class="highlight">${daysLeft} 日</span>，仲差 <span class="highlight">${remaining} 單</span>先達標。${urgency}\n\n今日你想點做？</div>
+            </div>
+        </div>`,
+        choices: `<div class="choices-title">🎮 選擇行動</div>${choicesHTML}`
+    };
 }
 
 function renderResult() {
@@ -1473,17 +1504,16 @@ function renderResult() {
     const scene = r.good === true ? 'good' : (r.good === false ? 'crisis' : 'morning');
     const resultCls = r.good === true ? 'result-good' : (r.good === false ? 'result-bad' : 'result-neutral');
 
-    return `
-    <div class="result-panel ${resultCls}">
-        ${renderScene(r.scene || scene)}
-        <div class="result-body">
-            <span class="event-tag ${r.good === true ? 'tag-good' : r.good === false ? 'tag-crisis' : 'tag-work'}">${r.good === true ? '✅ 成功' : r.good === false ? '❌ 失敗' : '📝 結果'}</span>
-            <div class="text" id="resultText"></div>
-        </div>
-    </div>
-    <div class="choices">
-        <button class="choice-btn" onclick="afterResult()">繼續 →</button>
-    </div>`;
+    return {
+        story: `<div class="result-panel ${resultCls}">
+            ${renderScene(r.scene || scene)}
+            <div class="result-body">
+                <span class="event-tag ${r.good === true ? 'tag-good' : r.good === false ? 'tag-crisis' : 'tag-work'}">${r.good === true ? '✅ 成功' : r.good === false ? '❌ 失敗' : '📝 結果'}</span>
+                <div class="text" id="resultText"></div>
+            </div>
+        </div>`,
+        choices: `<div class="choices"><button class="choice-btn" onclick="afterResult()">繼續 →</button></div>`
+    };
 }
 
 function renderEvent() {
@@ -1496,15 +1526,16 @@ function renderEvent() {
 
     const sceneKey = ev.tag === 'crisis' ? 'crisis' : ev.tag === 'good' ? 'good' : 'event';
 
-    return `
-    <div class="story-panel">
-        ${renderScene(ev.scene || sceneKey)}
-        <div class="story-body">
-            <span class="event-tag tag-${ev.tag}">${ev.tagLabel}</span>
-            <div class="text" id="eventText"></div>
-        </div>
-    </div>
-    ${choicesHTML}`;
+    return {
+        story: `<div class="story-panel">
+            ${renderScene(ev.scene || sceneKey)}
+            <div class="story-body">
+                <span class="event-tag tag-${ev.tag}">${ev.tagLabel}</span>
+                <div class="text" id="eventText"></div>
+            </div>
+        </div>`,
+        choices: `<div class="choices-title">⚡ 你的選擇</div>${choicesHTML}`
+    };
 }
 
 function renderMonthEnd() {
@@ -1517,17 +1548,16 @@ function renderMonthEnd() {
     let pool = hit ? (G.salesThisMonth >= G.target + 4 ? MONTH_COMMENTS.great : MONTH_COMMENTS.ok) : MONTH_COMMENTS.bad;
     const comment = pool[Math.floor(Math.random() * pool.length)];
 
-    return `
-    <div class="story-panel">
-        ${renderScene('month')}
-        <div class="story-body">
-            <span class="event-tag ${hit ? 'tag-good' : 'tag-crisis'}">${hit ? '🎉 達標！' : '😰 未達標'}</span>
-            <div class="text" id="monthText"></div>
-        </div>
-    </div>
-    <div class="choices">
-        <button class="choice-btn" onclick="nextMonth()">📅 進入下個月 →</button>
-    </div>`;
+    return {
+        story: `<div class="story-panel">
+            ${renderScene('month')}
+            <div class="story-body">
+                <span class="event-tag ${hit ? 'tag-good' : 'tag-crisis'}">${hit ? '🎉 達標！' : '😰 未達標'}</span>
+                <div class="text" id="monthText"></div>
+            </div>
+        </div>`,
+        choices: `<div class="choices"><button class="choice-btn" onclick="nextMonth()">📅 進入下個月 →</button></div>`
+    };
 }
 
 function renderEnd() {
