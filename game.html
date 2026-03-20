@@ -29,6 +29,28 @@
         overflow-x: hidden;
     }
 
+    /* --- Particles Background --- */
+    #particles {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+    }
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(96,165,250,0.15);
+        animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+        0% { transform: translateY(100vh) scale(0); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
     /* --- Top Nav --- */
     .game-nav {
         background: rgba(15,23,42,0.95);
@@ -54,26 +76,114 @@
     }
     .game-nav a:hover { color: #fff; }
     .game-nav .logo { color: #60a5fa; font-weight: 900; font-size: 1.1rem; }
+    .nav-right { display: flex; gap: 16px; align-items: center; }
+    .sound-toggle {
+        background: none;
+        border: 1px solid rgba(255,255,255,0.2);
+        color: #94a3b8;
+        padding: 4px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        font-family: inherit;
+    }
+    .sound-toggle:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
 
     /* --- Game Container --- */
     .game-wrap {
         max-width: 700px;
         margin: 80px auto 40px;
         padding: 0 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* --- Transition Overlay --- */
+    .transition-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: #0a0e1a;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s;
+    }
+    .transition-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    .transition-overlay .trans-icon { font-size: 4rem; margin-bottom: 16px; animation: pulse 1s infinite; }
+    .transition-overlay .trans-text { font-size: 1.3rem; color: #94a3b8; }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+    /* --- Scene Image --- */
+    .scene-img {
+        width: 100%;
+        height: 180px;
+        border-radius: 16px 16px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .scene-img .scene-overlay {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 60px;
+        background: linear-gradient(transparent, rgba(10,14,26,0.95));
+    }
+    .scene-morning { background: linear-gradient(135deg, #1e3a5f, #2d6a9f, #f59e0b 120%); }
+    .scene-office { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); }
+    .scene-street { background: linear-gradient(135deg, #2d3436, #636e72, #dfe6e9 150%); }
+    .scene-phone { background: linear-gradient(135deg, #0c0c1d, #1a1a3e, #2563eb 150%); }
+    .scene-social { background: linear-gradient(135deg, #1a1a2e, #e1306c 80%, #f77737 120%); }
+    .scene-referral { background: linear-gradient(135deg, #064e3b, #059669, #10b981); }
+    .scene-study { background: linear-gradient(135deg, #1e1b4b, #3730a3, #6366f1); }
+    .scene-rest { background: linear-gradient(135deg, #1e1b4b, #312e81, #fbbf24 150%); }
+    .scene-event { background: linear-gradient(135deg, #4a1d96, #7c3aed, #c084fc); }
+    .scene-crisis { background: linear-gradient(135deg, #7f1d1d, #dc2626, #f87171); }
+    .scene-good { background: linear-gradient(135deg, #064e3b, #059669, #34d399); }
+    .scene-month { background: linear-gradient(135deg, #1e3a5f, #2563eb, #60a5fa); }
+    .scene-end { background: linear-gradient(135deg, #fbbf24, #f59e0b, #ef4444); }
+    .scene-night { background: linear-gradient(135deg, #0a0e1a, #1e1b4b, #312e81); }
+
+    /* Animated elements in scene */
+    .scene-img .float-el {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.4;
+        animation: floatEl 4s ease-in-out infinite;
+    }
+    @keyframes floatEl {
+        0%,100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(10deg); }
     }
 
     /* --- Start Screen --- */
     .start-screen {
         text-align: center;
-        padding: 80px 20px;
+        padding: 60px 20px;
     }
     .start-screen h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: 900;
         margin-bottom: 8px;
-        background: linear-gradient(135deg, #60a5fa, #a78bfa);
+        background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
+    }
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
     .start-screen .subtitle {
         font-size: 1.2rem;
@@ -89,7 +199,7 @@
         line-height: 2;
         color: #cbd5e1;
         font-size: 0.95rem;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
     }
     .start-screen .story em {
         color: #fbbf24;
@@ -107,18 +217,69 @@
         cursor: pointer;
         transition: all 0.3s;
         font-family: inherit;
+        margin: 6px;
     }
     .start-btn:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 24px rgba(37,99,235,0.4);
     }
+    .start-btn.secondary {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15);
+    }
+    .start-btn.secondary:hover {
+        background: rgba(255,255,255,0.12);
+        box-shadow: none;
+    }
+
+    /* --- Guide Screen --- */
+    .guide-section {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 16px;
+        text-align: left;
+    }
+    .guide-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        color: #60a5fa;
+    }
+    .guide-section .guide-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .guide-item {
+        background: rgba(255,255,255,0.03);
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+    .guide-item .gi-icon { font-size: 1.5rem; margin-bottom: 4px; display: block; }
+    .guide-item .gi-title { font-weight: 700; color: #fbbf24; }
+    .guide-item .gi-desc { color: #94a3b8; font-size: 0.82rem; }
+    .guide-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 6px 0;
+    }
+    .guide-bar-fill {
+        height: 8px;
+        border-radius: 4px;
+        flex: 1;
+    }
+    .guide-bar-label { font-size: 0.8rem; color: #94a3b8; min-width: 60px; }
 
     /* --- Status Bar --- */
     .status-bar {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 12px;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
     }
     .stat-box {
         background: rgba(255,255,255,0.04);
@@ -126,25 +287,21 @@
         border-radius: 12px;
         padding: 14px;
         text-align: center;
+        transition: all 0.3s;
     }
-    .stat-box .label {
-        font-size: 0.75rem;
-        color: #64748b;
-        margin-bottom: 4px;
-    }
-    .stat-box .value {
-        font-size: 1.3rem;
-        font-weight: 900;
-    }
+    .stat-box.flash-good { animation: flashGood 0.6s; }
+    .stat-box.flash-bad { animation: flashBad 0.6s; }
+    @keyframes flashGood { 0%,100% { background: rgba(255,255,255,0.04); } 50% { background: rgba(34,197,94,0.2); } }
+    @keyframes flashBad { 0%,100% { background: rgba(255,255,255,0.04); } 50% { background: rgba(239,68,68,0.2); } }
+    .stat-box .label { font-size: 0.75rem; color: #64748b; margin-bottom: 4px; }
+    .stat-box .value { font-size: 1.3rem; font-weight: 900; transition: all 0.3s; }
     .stat-box .value.money { color: #22c55e; }
     .stat-box .value.date { color: #60a5fa; }
     .stat-box .value.mood { color: #fbbf24; }
     .stat-box .value.sales { color: #f97316; }
 
-    /* --- Progress Bar --- */
-    .progress-wrap {
-        margin-bottom: 24px;
-    }
+    /* --- Progress Bars --- */
+    .progress-wrap { margin-bottom: 20px; }
     .progress-label {
         display: flex;
         justify-content: space-between;
@@ -157,23 +314,33 @@
         background: rgba(255,255,255,0.08);
         border-radius: 3px;
         overflow: hidden;
+        margin-bottom: 6px;
     }
     .progress-fill {
         height: 100%;
-        background: linear-gradient(90deg, #2563eb, #7c3aed);
         border-radius: 3px;
-        transition: width 0.5s;
+        transition: width 0.8s ease;
     }
+    .fill-blue { background: linear-gradient(90deg, #2563eb, #7c3aed); }
+    .fill-green { background: linear-gradient(90deg, #059669, #22c55e); }
+    .fill-orange { background: linear-gradient(90deg, #ea580c, #f59e0b); }
+    .fill-red { background: linear-gradient(90deg, #dc2626, #f87171); }
 
     /* --- Story Panel --- */
     .story-panel {
         background: rgba(255,255,255,0.03);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
-        padding: 28px;
         margin-bottom: 20px;
         min-height: 180px;
+        overflow: hidden;
+        animation: fadeSlideIn 0.5s ease;
     }
+    @keyframes fadeSlideIn {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .story-panel .story-body { padding: 24px; }
     .story-panel .event-tag {
         display: inline-block;
         padding: 3px 12px;
@@ -187,6 +354,7 @@
     .tag-random { background: rgba(168,85,247,0.15); color: #c084fc; }
     .tag-crisis { background: rgba(239,68,68,0.15); color: #f87171; }
     .tag-good { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .tag-month { background: rgba(37,99,235,0.15); color: #60a5fa; }
 
     .story-panel .text {
         font-size: 1rem;
@@ -194,10 +362,33 @@
         color: #cbd5e1;
         white-space: pre-line;
     }
-    .story-panel .text .highlight {
-        color: #fbbf24;
-        font-weight: 700;
+    .story-panel .text .highlight { color: #fbbf24; font-weight: 700; }
+
+    /* Typewriter cursor */
+    .typewriter-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1.1em;
+        background: #60a5fa;
+        margin-left: 2px;
+        animation: blink 0.7s infinite;
+        vertical-align: text-bottom;
     }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* --- Result Panel (after action) --- */
+    .result-panel {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        animation: fadeSlideIn 0.5s ease;
+    }
+    .result-panel .result-body { padding: 24px; }
+    .result-good { border-left: 4px solid #22c55e; }
+    .result-bad { border-left: 4px solid #ef4444; }
+    .result-neutral { border-left: 4px solid #60a5fa; }
 
     /* --- Choices --- */
     .choices {
@@ -205,6 +396,7 @@
         flex-direction: column;
         gap: 10px;
         margin-bottom: 20px;
+        animation: fadeSlideIn 0.5s ease 0.2s both;
     }
     .choice-btn {
         display: block;
@@ -217,21 +409,37 @@
         font-size: 0.95rem;
         cursor: pointer;
         text-align: left;
-        transition: all 0.2s;
+        transition: all 0.25s;
         font-family: inherit;
         line-height: 1.6;
     }
     .choice-btn:hover {
         background: rgba(37,99,235,0.15);
         border-color: #2563eb;
-        transform: translateX(4px);
+        transform: translateX(6px);
+        box-shadow: 0 4px 16px rgba(37,99,235,0.15);
     }
-    .choice-btn .cost {
-        font-size: 0.8rem;
-        color: #64748b;
-        display: block;
-        margin-top: 2px;
+    .choice-btn:active { transform: translateX(3px) scale(0.98); }
+    .choice-btn .cost { font-size: 0.8rem; color: #64748b; display: block; margin-top: 2px; }
+
+    /* --- Floating Notification --- */
+    .float-notify {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        padding: 12px 20px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        z-index: 200;
+        animation: slideInNotify 0.4s ease, fadeOutNotify 0.4s ease 2s forwards;
+        pointer-events: none;
     }
+    .float-notify.good { background: rgba(34,197,94,0.9); color: #fff; }
+    .float-notify.bad { background: rgba(239,68,68,0.9); color: #fff; }
+    .float-notify.info { background: rgba(37,99,235,0.9); color: #fff; }
+    @keyframes slideInNotify { 0% { transform: translateX(100px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+    @keyframes fadeOutNotify { 0% { opacity: 1; } 100% { opacity: 0; } }
 
     /* --- Log --- */
     .game-log {
@@ -251,19 +459,10 @@
     .game-log .log-info { color: #60a5fa; }
 
     /* --- End Screen --- */
-    .end-screen {
-        text-align: center;
-        padding: 60px 20px;
-    }
-    .end-screen h2 {
-        font-size: 2.2rem;
-        font-weight: 900;
-        margin-bottom: 12px;
-    }
-    .end-screen .grade {
-        font-size: 5rem;
-        margin: 20px 0;
-    }
+    .end-screen { text-align: center; padding: 40px 20px; }
+    .end-screen h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 12px; }
+    .end-screen .grade { font-size: 5rem; margin: 20px 0; animation: bounceIn 0.6s ease; }
+    @keyframes bounceIn { 0% { transform: scale(0); } 60% { transform: scale(1.2); } 100% { transform: scale(1); } }
     .end-screen .summary {
         background: rgba(255,255,255,0.03);
         border: 1px solid rgba(255,255,255,0.08);
@@ -296,307 +495,444 @@
     /* --- Responsive --- */
     @media (max-width: 600px) {
         .status-bar { grid-template-columns: repeat(2, 1fr); }
-        .start-screen h1 { font-size: 2rem; }
-        .story-panel { padding: 20px; }
+        .start-screen h1 { font-size: 2.2rem; }
+        .story-panel .story-body { padding: 16px; }
+        .scene-img { height: 140px; font-size: 3.5rem; }
+        .guide-section .guide-grid { grid-template-columns: 1fr; }
     }
     </style>
 </head>
 <body>
 
+<!-- Particle Background -->
+<div id="particles"></div>
+
 <!-- Nav -->
 <div class="game-nav">
     <div class="container">
         <a href="index.html" class="logo">⚡ BroadbandHK</a>
-        <a href="index.html">返回主頁</a>
+        <div class="nav-right">
+            <button class="sound-toggle" id="soundBtn" onclick="toggleSound()">🔊 音效</button>
+            <a href="index.html">返回主頁</a>
+        </div>
     </div>
+</div>
+
+<!-- Transition Overlay -->
+<div class="transition-overlay" id="transOverlay">
+    <div class="trans-icon" id="transIcon">🌅</div>
+    <div class="trans-text" id="transText">新的一天開始了...</div>
 </div>
 
 <div class="game-wrap" id="app"></div>
 
 <script>
 // ============================================================
-// 寬頻人生 — Game Engine
+// 寬頻人生 v2 — Enhanced Game Engine
+// ============================================================
+
+// --- Audio System (Web Audio API) ---
+let audioCtx = null;
+let soundEnabled = true;
+let bgmOsc = null;
+let bgmGain = null;
+let bgmPlaying = false;
+
+function initAudio() {
+    if (audioCtx) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
+
+function playTone(freq, duration, type = 'sine', vol = 0.08) {
+    if (!soundEnabled || !audioCtx) return;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + duration);
+}
+
+function sfxClick() { playTone(800, 0.08, 'sine', 0.06); }
+function sfxSuccess() {
+    playTone(523, 0.15, 'sine', 0.08);
+    setTimeout(() => playTone(659, 0.15, 'sine', 0.08), 100);
+    setTimeout(() => playTone(784, 0.25, 'sine', 0.08), 200);
+}
+function sfxFail() {
+    playTone(300, 0.2, 'sawtooth', 0.06);
+    setTimeout(() => playTone(250, 0.3, 'sawtooth', 0.06), 150);
+}
+function sfxEvent() {
+    playTone(600, 0.1, 'triangle', 0.07);
+    setTimeout(() => playTone(800, 0.1, 'triangle', 0.07), 80);
+    setTimeout(() => playTone(600, 0.1, 'triangle', 0.07), 160);
+}
+function sfxCoin() {
+    playTone(988, 0.08, 'sine', 0.07);
+    setTimeout(() => playTone(1319, 0.15, 'sine', 0.07), 80);
+}
+function sfxMonthEnd() {
+    [523, 587, 659, 784].forEach((f, i) => {
+        setTimeout(() => playTone(f, 0.2, 'sine', 0.06), i * 120);
+    });
+}
+function sfxGameOver() {
+    [400, 350, 300, 250].forEach((f, i) => {
+        setTimeout(() => playTone(f, 0.3, 'sawtooth', 0.05), i * 200);
+    });
+}
+
+// BGM using simple looping melody
+let bgmInterval = null;
+function startBGM() {
+    if (!soundEnabled || !audioCtx || bgmPlaying) return;
+    bgmPlaying = true;
+    const notes = [262, 294, 330, 349, 330, 294, 262, 247, 262, 294, 330, 294, 262, 247, 220, 247];
+    let i = 0;
+    bgmInterval = setInterval(() => {
+        if (!soundEnabled) return;
+        playTone(notes[i % notes.length], 0.4, 'sine', 0.02);
+        i++;
+    }, 500);
+}
+function stopBGM() {
+    bgmPlaying = false;
+    if (bgmInterval) { clearInterval(bgmInterval); bgmInterval = null; }
+}
+
+function toggleSound() {
+    soundEnabled = !soundEnabled;
+    document.getElementById('soundBtn').textContent = soundEnabled ? '🔊 音效' : '🔇 靜音';
+    if (soundEnabled) { initAudio(); startBGM(); }
+    else stopBGM();
+}
+
+// --- Particles ---
+function initParticles() {
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 6 + 2;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+        p.style.animationDelay = (Math.random() * 10) + 's';
+        container.appendChild(p);
+    }
+}
+
+// --- Transition ---
+function showTransition(icon, text, duration = 1500) {
+    return new Promise(resolve => {
+        const overlay = document.getElementById('transOverlay');
+        document.getElementById('transIcon').textContent = icon;
+        document.getElementById('transText').textContent = text;
+        overlay.classList.add('active');
+        setTimeout(() => {
+            overlay.classList.remove('active');
+            setTimeout(resolve, 400);
+        }, duration);
+    });
+}
+
+// --- Floating Notification ---
+function floatNotify(text, type = 'info') {
+    const el = document.createElement('div');
+    el.className = `float-notify ${type}`;
+    el.textContent = text;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 2500);
+}
+
+// --- Typewriter Effect ---
+let typewriterTimer = null;
+function typewrite(elementId, text, speed = 30) {
+    return new Promise(resolve => {
+        const el = document.getElementById(elementId);
+        if (!el) { resolve(); return; }
+        el.innerHTML = '<span class="typewriter-cursor"></span>';
+        let i = 0;
+        if (typewriterTimer) clearInterval(typewriterTimer);
+        typewriterTimer = setInterval(() => {
+            if (i < text.length) {
+                el.innerHTML = text.substring(0, i + 1) + '<span class="typewriter-cursor"></span>';
+                i++;
+            } else {
+                clearInterval(typewriterTimer);
+                typewriterTimer = null;
+                el.innerHTML = text;
+                resolve();
+            }
+        }, speed);
+    });
+}
+
+// ============================================================
+// Game State
 // ============================================================
 
 const G = {
-    month: 1,           // 1-36
-    day: 1,             // 1-30 per month
-    money: 5000,        // 起始資金
-    mood: 80,           // 心情 0-100
-    salesThisMonth: 0,  // 本月簽單數
-    totalSales: 0,      // 總簽單數
-    salary: 12000,      // 底薪
-    commission: 400,    // 每單佣金
-    rent: 5500,         // 租金
-    living: 3000,       // 生活費
-    transport: 800,     // 交通費
-    target: 8,          // 月目標
-    reputation: 50,     // 口碑 0-100
-    skill: 30,          // 技能 0-100
-    energy: 100,        // 精力 0-100
-    streak: 0,          // 連續達標月數
-    failMonths: 0,      // 未達標月數
-    log: [],
-    phase: 'start',     // start, play, monthEnd, end
-    events: [],
+    month: 1, day: 1, money: 5000, mood: 80,
+    salesThisMonth: 0, totalSales: 0,
+    salary: 5000, commission: 150,
+    rent: 5500, living: 3000, transport: 800,
+    target: 8, reputation: 50, skill: 30, energy: 100,
+    streak: 0, maxStreak: 0, failMonths: 0,
+    log: [], phase: 'start',
+    currentEvent: null, lastResult: null,
 };
 
 // ============================================================
-// Story / Events Data
+// Scene Images & Data
 // ============================================================
+const SCENES = {
+    morning: { cls: 'scene-morning', icon: '🌅', floats: ['☁️','🌤️','🏙️'] },
+    street: { cls: 'scene-street', icon: '🏃', floats: ['🏢','🚶','🏠'] },
+    phone: { cls: 'scene-phone', icon: '📞', floats: ['📱','💬','☎️'] },
+    social: { cls: 'scene-social', icon: '💻', floats: ['📱','❤️','👍'] },
+    referral: { cls: 'scene-referral', icon: '🤝', floats: ['👥','💬','⭐'] },
+    study: { cls: 'scene-study', icon: '📖', floats: ['📚','💡','✏️'] },
+    rest: { cls: 'scene-rest', icon: '😴', floats: ['💤','🛏️','☕'] },
+    event: { cls: 'scene-event', icon: '❗', floats: ['❓','⚡','🎲'] },
+    crisis: { cls: 'scene-crisis', icon: '🚨', floats: ['⚠️','📉','😰'] },
+    good: { cls: 'scene-good', icon: '🎉', floats: ['⭐','🎊','✨'] },
+    month: { cls: 'scene-month', icon: '📊', floats: ['📈','💰','📋'] },
+    end: { cls: 'scene-end', icon: '🏆', floats: ['⭐','🎯','👑'] },
+    night: { cls: 'scene-night', icon: '🌙', floats: ['⭐','🌟','✨'] },
+};
 
+function renderScene(key) {
+    const s = SCENES[key] || SCENES.morning;
+    const floats = s.floats.map((f, i) =>
+        `<div class="float-el" style="top:${20+i*30}%;left:${15+i*25}%;animation-delay:${i*0.8}s">${f}</div>`
+    ).join('');
+    return `<div class="scene-img ${s.cls}">${s.icon}${floats}<div class="scene-overlay"></div></div>`;
+}
+
+// ============================================================
+// Work Choices
+// ============================================================
 const WORK_CHOICES = [
     {
         text: '🏃 出去掃街拍門推銷',
-        desc: '體力消耗大，但有機會遇到大客',
+        desc: '體力 -25 | 有機會簽 1-2 單',
+        scene: 'street',
         action: (g) => {
             g.energy -= 25;
             const luck = Math.random();
             const skillBonus = g.skill / 200;
             if (luck + skillBonus > 0.55) {
                 const n = luck > 0.85 ? 2 : 1;
-                g.salesThisMonth += n;
-                g.totalSales += n;
-                g.skill = Math.min(100, g.skill + 2);
-                return { text: `你拍門推銷咗成個下晝，成功簽咗 ${n} 單！客人話屋企WiFi好慢，即場轉台。`, good: true };
+                g.salesThisMonth += n; g.totalSales += n; g.skill = Math.min(100, g.skill + 2);
+                return { text: `你拍門推銷咗成個下晝，成功簽咗 ${n} 單！\n\n客人話屋企 WiFi 好慢，即場決定轉台。你仲順便教佢點擺 Router 先收得好。`, good: true, sales: n };
             } else if (luck < 0.2) {
                 g.mood -= 10;
-                return { text: '行咗成日都無人開門，有個阿伯仲鬧你「唔好煩我」。好攰好灰...', good: false };
+                return { text: '行咗成日都無人開門...\n\n有個阿伯開門就鬧：「成日有人嚟煩，唔好再嚟！」\n\n你苦笑咁行返落樓，雙腳好攰，心情更攰。', good: false };
             } else {
                 g.skill = Math.min(100, g.skill + 1);
-                return { text: '拍咗十幾戶門，有幾個聽你講完但最後都話「考慮下先」。起碼練到口才。', good: null };
+                return { text: '拍咗十幾戶門，有幾個聽你講完但最後都話「考慮下先」。\n\n有個阿姐話「你張卡片留低，有需要搵你」。起碼練到口才。', good: null };
             }
         }
     },
     {
         text: '📞 打 Cold Call 電銷',
-        desc: '安全穩定，消耗較少體力',
+        desc: '體力 -12 | 穩定但講好多口水',
+        scene: 'phone',
         action: (g) => {
             g.energy -= 12;
             const luck = Math.random();
             const skillBonus = g.skill / 250;
             if (luck + skillBonus > 0.6) {
-                g.salesThisMonth += 1;
-                g.totalSales += 1;
-                g.skill = Math.min(100, g.skill + 1);
-                return { text: '打咗幾十個電話，終於有個客人啱啱合約到期，約咗佢聽日簽約！', good: true };
+                g.salesThisMonth += 1; g.totalSales += 1; g.skill = Math.min(100, g.skill + 1);
+                return { text: '打咗幾十個電話，終於有個客人啱啱合約到期！\n\n佢話「比較咗幾間，你哋個價最啱」，約咗聽日簽約。', good: true, sales: 1 };
             } else if (luck < 0.15) {
                 g.mood -= 8;
-                return { text: '打咗 60 個電話，30 個無人聽，20 個即掛，10 個話唔使。心好累。', good: false };
+                return { text: '打咗 60 個電話...\n\n30 個無人聽\n20 個即掛\n10 個話「唔使呀唔該」\n\n你放低電話，望住天花板發呆。心好累。', good: false };
             } else {
                 g.skill = Math.min(100, g.skill + 1);
-                return { text: '打咗幾十個電話，有兩三個有興趣但要同屋企人商量。留咗 WhatsApp 跟進。', good: null };
+                return { text: '打咗幾十個電話，有兩三個有興趣但要同屋企人商量。\n\n你留咗 WhatsApp 跟進，希望遲啲有回音。', good: null };
             }
         }
     },
     {
         text: '💻 喺社交媒體搵客',
-        desc: '用 Facebook / IG 宣傳，建立口碑',
+        desc: '體力 -8 | 建立口碑長線投資',
+        scene: 'social',
         action: (g) => {
             g.energy -= 8;
             g.reputation = Math.min(100, g.reputation + 3);
             const luck = Math.random();
             if (luck > 0.7 || g.reputation > 70) {
                 const n = g.reputation > 80 ? 2 : 1;
-                g.salesThisMonth += n;
-                g.totalSales += n;
-                return { text: `你嘅寬頻比較 post 有人 inbox 查詢，傾咗陣簽咗 ${n} 單！網上口碑慢慢建立緊。`, good: true };
+                g.salesThisMonth += n; g.totalSales += n;
+                return { text: `你出咗個寬頻比較 post，有人 inbox 查詢！\n\n傾咗陣之後成功簽咗 ${n} 單。\n\n網上口碑慢慢建立緊，開始有人 follow 你。`, good: true, sales: n };
             } else {
-                return { text: '出咗幾個 post，有人 like 但暫時無人查詢。口碑需要時間累積。', good: null };
+                return { text: '出咗幾個 post，有人 like 有人 share，但暫時無人查詢。\n\n口碑需要時間累積，你話「遲早有回報」。', good: null };
             }
         }
     },
     {
         text: '🤝 搵舊客介紹新客',
-        desc: '需要口碑基礎，成功率較高',
+        desc: '體力 -10 | 需要有一定舊客基礎',
+        scene: 'referral',
         action: (g) => {
             g.energy -= 10;
             if (g.totalSales < 5) {
-                return { text: '你先簽咗幾單，舊客太少，暫時好難靠轉介紹。繼續努力先！', good: false };
+                return { text: '你翻睇客戶名單，先得幾個...\n\n舊客太少，暫時好難靠轉介紹。\n\n「繼續努力累積先。」你同自己講。', good: false };
             }
             const luck = Math.random();
             const repBonus = g.reputation / 200;
             if (luck + repBonus > 0.45) {
                 const n = luck > 0.8 ? 2 : 1;
-                g.salesThisMonth += n;
-                g.totalSales += n;
-                g.reputation = Math.min(100, g.reputation + 5);
-                return { text: `舊客陳先生幫你介紹咗鄰居，一傾即合，簽咗 ${n} 單！仲話會介紹埋同事。`, good: true };
+                g.salesThisMonth += n; g.totalSales += n; g.reputation = Math.min(100, g.reputation + 5);
+                return { text: `舊客陳先生幫你介紹咗鄰居，一傾即合！\n\n簽咗 ${n} 單！佢仲話：「服務好自然會幫你介紹。」`, good: true, sales: n };
             } else {
                 g.reputation = Math.min(100, g.reputation + 2);
-                return { text: 'Send 咗幾個舊客 WhatsApp，有人話會留意身邊有無人需要。慢慢嚟。', good: null };
+                return { text: 'Send 咗幾個舊客 WhatsApp，大部分已讀不回...\n\n有一個話「最近身邊無人搬屋，有嘅話再話你知」。\n\n慢慢嚟啦。', good: null };
             }
         }
     },
     {
         text: '📖 進修學習銷售技巧',
-        desc: '唔會簽單，但提升未來成功率',
+        desc: '體力 -5 | 唔會簽單但提升能力',
+        scene: 'study',
         action: (g) => {
             g.energy -= 5;
             g.skill = Math.min(100, g.skill + 8);
             g.mood = Math.min(100, g.mood + 3);
-            return { text: `你睇咗銷售技巧書同研究對手Plan，技能提升咗！（技能 ${g.skill}）`, good: true };
+            return { text: `你今日無出去跑，留喺屋企研究對手Plan同睇銷售書。\n\n學到幾招新嘅促成技巧，下次實戰用得著。\n\n（技能提升到 ${g.skill}）`, good: true };
         }
     },
     {
         text: '😴 休息一日',
-        desc: '回復精力同心情',
+        desc: '精力 +35 | 心情 +10',
+        scene: 'rest',
         action: (g) => {
             g.energy = Math.min(100, g.energy + 35);
             g.mood = Math.min(100, g.mood + 10);
-            return { text: '你今日休息咗一日，瞓到自然醒，食咗頓好嘢。精神好返好多！', good: true };
+            return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精神好返好多！', good: true };
         }
     }
 ];
 
+// ============================================================
+// Random Events
+// ============================================================
 const RANDOM_EVENTS = [
-    {
-        tag: 'random', tagLabel: '突發事件',
-        text: '你嘅手機跌咗爛Mon！要修理先可以繼續打 Cold Call。',
-        choices: [
-            { text: '即刻去修（-$800）', action: g => { g.money -= 800; return '手機修好了，損失 $800。'; }},
-            { text: '用舊機頂住先', action: g => { g.skill -= 5; return '舊機好慢，影響工作效率。'; }}
-        ]
-    },
-    {
-        tag: 'random', tagLabel: '突發事件',
-        text: '屋企冷氣壞咗，夏天瞓唔到覺...',
-        choices: [
-            { text: '叫師傅修（-$1,200）', action: g => { g.money -= 1200; g.mood += 5; return '冷氣修好了，起碼瞓得好。'; }},
-            { text: '開風扇捱過去', action: g => { g.mood -= 10; g.energy -= 15; return '熱到瞓唔到，第二日好攰。'; }}
-        ]
-    },
-    {
-        tag: 'random', tagLabel: '突發事件',
-        text: '有個朋友生日，問你去唔去食飯。',
-        choices: [
-            { text: '去！放鬆下（-$300）', action: g => { g.money -= 300; g.mood += 15; return '食完飯開心咗好多！朋友仲話幫你介紹客。'; }},
-            { text: '唔去了，慳錢', action: g => { g.mood -= 5; return '朋友有啲失望，你都覺得有少少孤獨。'; }}
-        ]
-    },
-    {
-        tag: 'good', tagLabel: '好消息',
-        text: '之前嘅客人覺得你服務好好，主動幫你喺 Facebook 寫好評！',
-        choices: [
-            { text: '太好了！', action: g => { g.reputation += 10; return '口碑大升！'; }}
-        ]
-    },
-    {
-        tag: 'crisis', tagLabel: '危機',
-        text: '大供應商減價搶客！你嘅 Plan 比人貴，客人紛紛取消預約...',
-        choices: [
-            { text: '主動聯絡客人強調服務優勢', action: g => { g.energy -= 15; g.skill += 3; return '辛苦咗，但保住咗大部分客人。'; }},
-            { text: '等風波過去', action: g => { g.salesThisMonth = Math.max(0, g.salesThisMonth - 2); return '流失咗 2 單，市場競爭好殘酷。'; }}
-        ]
-    },
-    {
-        tag: 'random', tagLabel: '突發事件',
-        text: '業主話下個月開始加租 $500。',
-        choices: [
-            { text: '接受加租', action: g => { g.rent += 500; return `租金增加到 $${g.rent.toLocaleString()}/月，開支壓力更大了。`; }},
-            { text: '搬去平啲嘅地方（搬屋費 $3,000）', action: g => { g.money -= 3000; g.rent -= 300; return `搬完屋，租金減少到 $${g.rent.toLocaleString()}/月，但好攰。`; }}
-        ]
-    },
-    {
-        tag: 'good', tagLabel: '好消息',
-        text: '公司推出新優惠計劃，客人反應好好！',
-        choices: [
-            { text: '把握機會全力推銷', action: g => { g.salesThisMonth += 2; g.totalSales += 2; g.energy -= 20; return '趁住個勢簽多咗 2 單！'; }},
-            { text: '照常工作', action: g => { g.salesThisMonth += 1; g.totalSales += 1; return '自然地多簽咗 1 單。'; }}
-        ]
-    },
-    {
-        tag: 'random', tagLabel: '突發事件',
-        text: '老同學搵你食晏，原來佢做緊地產經紀，想互相介紹客人。',
-        choices: [
-            { text: '合作！互相推薦', action: g => { g.reputation += 8; g.mood += 5; return '建立咗一個新嘅合作關係，未來可能有介紹客！'; }},
-            { text: '客氣拒絕', action: g => { return '你覺得暫時唔需要，繼續自己做。'; }}
-        ]
-    },
-    {
-        tag: 'crisis', tagLabel: '危機',
-        text: '你簽嘅客人投訴安裝有問題，鬧到要退單！',
-        choices: [
-            { text: '親自上門處理', action: g => { g.energy -= 20; g.reputation += 5; g.mood -= 5; return '花咗半日處理，最後客人滿意了，仲話會介紹朋友。'; }},
-            { text: '交返公司客服處理', action: g => { g.reputation -= 8; return '客人好唔滿意，喺 Facebook 留咗負評。口碑受損。'; }}
-        ]
-    },
-    {
-        tag: 'life', tagLabel: '生活',
-        text: '你好耐無做運動，最近成日病。',
-        choices: [
-            { text: '報健身房（-$300/月）', action: g => { g.living += 300; g.energy += 20; g.mood += 10; return '開始做運動，精力同心情都好咗！'; }},
-            { text: '早啲瞓就算', action: g => { g.energy += 5; return '都係咁熬落去。'; }}
-        ]
-    },
-    {
-        tag: 'good', tagLabel: '好消息',
-        text: '你幫一棟大廈嘅管理處做咗個寬頻比較簡介會！',
-        choices: [
-            { text: '趁機推銷', action: g => { const n = Math.floor(Math.random()*3)+2; g.salesThisMonth += n; g.totalSales += n; g.reputation += 10; return `一次過簽咗 ${n} 單！大廈住戶好多都想轉台。`; }}
-        ]
-    },
-    {
-        tag: 'random', tagLabel: '突發事件',
-        text: '阿媽打電話嚟，話最近身體唔舒服要睇醫生。',
-        choices: [
-            { text: '畀錢阿媽睇醫生（-$2,000）', action: g => { g.money -= 2000; g.mood += 5; return '阿媽睇完醫生無大礙，你安心咗。'; }},
-            { text: '叫阿媽用公立醫院', action: g => { g.mood -= 10; return '你覺得好內疚，但真係無辦法。'; }}
-        ]
-    }
+    { tag:'random', tagLabel:'突發事件', scene:'event',
+      text:'你嘅手機跌咗爛 Mon！\n\n冇手機點打 Cold Call？點 WhatsApp 客人？',
+      choices:[
+        { text:'即刻去修（-$800）', action:g=>{g.money-=800; return '手機修好了，損失 $800。肉赤，但起碼唔使停工。';}},
+        { text:'用舊機頂住先', action:g=>{g.skill-=5; return '舊機好慢，WhatsApp 成日 lag，影響工作效率。';}}
+      ]},
+    { tag:'random', tagLabel:'突發事件', scene:'event',
+      text:'屋企冷氣壞咗！\n\n夏天成 35 度，瞓到成身汗，第二日點返工？',
+      choices:[
+        { text:'叫師傅修（-$1,200）', action:g=>{g.money-=1200; g.mood+=5; return '冷氣修好了，起碼瞓得好。';}},
+        { text:'開風扇捱過去', action:g=>{g.mood-=10; g.energy-=15; return '熱到成晚瞓唔到，第二日眼都矇埋。';}}
+      ]},
+    { tag:'random', tagLabel:'突發事件', scene:'event',
+      text:'有個好朋友生日，邀請你食飯唱 K。\n\n你已經好耐無同朋友聚會了...',
+      choices:[
+        { text:'去！人生唔係淨係返工（-$300）', action:g=>{g.money-=300; g.mood+=15; g.reputation+=3; return '食完飯開心咗好多！朋友仲話幫你介紹客。';}},
+        { text:'唔去了，要慳錢', action:g=>{g.mood-=8; return '朋友有啲失望。你掛咗線之後，對住空蕩蕩嘅屋企發呆。';}}
+      ]},
+    { tag:'good', tagLabel:'好消息', scene:'good',
+      text:'之前嘅客人覺得你服務好好！\n\n佢主動喺 Facebook 寫咗一篇好評，仲 tag 咗你公司！',
+      choices:[
+        { text:'太開心了！', action:g=>{g.reputation+=10; g.mood+=8; return '口碑大升！你覺得所有辛苦都值得了。';}}
+      ]},
+    { tag:'crisis', tagLabel:'危機', scene:'crisis',
+      text:'大供應商突然減價搶客！\n\n你嘅 Plan 比人貴，已經約好嘅客人紛紛取消...\n\n經理 WhatsApp 群組不斷催：「加油！唔好畀佢搶晒！」',
+      choices:[
+        { text:'主動打電話強調服務優勢', action:g=>{g.energy-=15; g.skill+=3; return '辛苦咗，打咗成日電話，保住咗大部分客人。';}},
+        { text:'冷靜等風波過去', action:g=>{g.salesThisMonth=Math.max(0,g.salesThisMonth-2); return '流失咗 2 單...市場競爭好殘酷。';}}
+      ]},
+    { tag:'random', tagLabel:'突發事件', scene:'event',
+      text:'業主打電話嚟：「下個月開始加租 $500。」\n\n你望住銀行戶口餘額，嘆咗口氣。',
+      choices:[
+        { text:'算啦，接受加租', action:g=>{g.rent+=500; return `租金增加到 $${g.rent.toLocaleString()}/月。壓力又大咗...`;}},
+        { text:'搬去平啲嘅地方（-$3,000 搬屋費）', action:g=>{g.money-=3000; g.rent-=300; g.energy-=20; return `搬完屋，租金減到 $${g.rent.toLocaleString()}/月。好攰，但長遠慳到。`;}}
+      ]},
+    { tag:'good', tagLabel:'好消息', scene:'good',
+      text:'公司推出限時新優惠計劃！\n\n100M 低至 $78/月，客人反應超好，電話響個不停！',
+      choices:[
+        { text:'把握機會全力推銷！', action:g=>{g.salesThisMonth+=2; g.totalSales+=2; g.energy-=20; return '趁住個勢簽多咗 2 單！忙到飯都無時間食。';}},
+        { text:'照常工作，唔使咁谷', action:g=>{g.salesThisMonth+=1; g.totalSales+=1; return '自然地多簽咗 1 單。';}}
+      ]},
+    { tag:'random', tagLabel:'突發事件', scene:'event',
+      text:'老同學約你食晏。\n\n原來佢做緊地產經紀，想同你互相介紹客人：\n「你推薦寬頻俾我啲客，我推薦裝修嗰批客俾你。」',
+      choices:[
+        { text:'好主意！合作！', action:g=>{g.reputation+=8; g.mood+=5; return '建立咗新嘅合作關係！搬屋客人就係最好嘅寬頻客。';}},
+        { text:'暫時唔使了', action:g=>{ return '你客氣拒絕咗。繼續自己做。';}}
+      ]},
+    { tag:'crisis', tagLabel:'危機', scene:'crisis',
+      text:'你簽嘅客人投訴安裝有問題！\n\n佢好嬲咁打嚟：「裝咗三日都未搞掂，你哋係咪呃人㗎！」',
+      choices:[
+        { text:'親自上門處理', action:g=>{g.energy-=20; g.reputation+=5; g.mood-=5; return '花咗半日上門跟進，終於搞掂。客人態度軟化：「辛苦你，遲啲介紹朋友。」';}},
+        { text:'交畀公司客服', action:g=>{g.reputation-=8; return '客人等咗兩日先有人跟，嬲到喺 Facebook 留負評。口碑受損...';}}
+      ]},
+    { tag:'life', tagLabel:'生活', scene:'night',
+      text:'你最近成日覺得攰，瞓極都唔夠，返工無精神。\n\n朋友話你面色差咗好多。',
+      choices:[
+        { text:'報健身房做運動（+$300/月）', action:g=>{g.living+=300; g.energy+=20; g.mood+=10; return '開始做運動之後，精力同心情都好咗！錢花得值。';}},
+        { text:'早啲瞓算數', action:g=>{g.energy+=5; return '都係咁捱落去吧...';}}
+      ]},
+    { tag:'good', tagLabel:'好消息', scene:'good',
+      text:'你幫一棟大廈嘅管理處做咗個寬頻比較簡介會！\n\n住戶坐滿成個會議室，個個都話屋企 WiFi 好差。',
+      choices:[
+        { text:'全力推銷！', action:g=>{const n=Math.floor(Math.random()*3)+2; g.salesThisMonth+=n; g.totalSales+=n; g.reputation+=10; return `一次過簽咗 ${n} 單！大廈住戶搶住報名。你終於感受到「爆單」嘅快感。`;}}
+      ]},
+    { tag:'random', tagLabel:'突發事件', scene:'night',
+      text:'阿媽打電話嚟：「阿仔，我最近成日頭暈，想去睇下醫生...」\n\n你聽到好擔心。',
+      choices:[
+        { text:'畀錢阿媽睇私家（-$2,000）', action:g=>{g.money-=2000; g.mood+=5; return '阿媽睇完醫生話無大礙，只係血壓偏高要食藥。你放心咗。';}},
+        { text:'叫阿媽排公立醫院', action:g=>{g.mood-=10; return '阿媽話「唔使擔心」就收線。你心裡面好內疚...';}}
+      ]},
+    { tag:'random', tagLabel:'突發事件', scene:'event',
+      text:'你搭巴士返工嘅時候，坐你隔籬嘅人正在講電話投訴寬頻慢。',
+      choices:[
+        { text:'主動搭話推銷', action:g=>{const luck=Math.random(); if(luck>0.5){g.salesThisMonth++;g.totalSales++;g.mood+=5;return '佢聽完你講即刻攞你卡片，第二日真係打嚟簽約！人生到處都有機會。';}else{return '佢禮貌咁話「多謝，考慮下」就落車了。起碼練到膽量。';}}},
+        { text:'唔好意思搭訕', action:g=>{return '你猶豫咗一陣，佢就落車了。有少少後悔。';}}
+      ]},
+    { tag:'good', tagLabel:'好消息', scene:'good',
+      text:'經理話你最近表現唔錯，公司決定獎你做「本月之星」！\n\n仲有 $1,000 額外獎金！',
+      choices:[
+        { text:'多謝公司！繼續努力！', action:g=>{g.money+=1000; g.mood+=15; g.reputation+=5; return '你攞住獎狀，覺得所有辛苦都值得了。同事都嚟恭喜你。';}}
+      ]},
 ];
 
-const MONTH_END_COMMENTS = {
+// ============================================================
+// Month End Comments
+// ============================================================
+const MONTH_COMMENTS = {
     great: [
-        '你今個月表現超班！經理喺會議上點名讚你。',
-        '連續達標，同事都叫你「簽單王」！',
-        '今個月業績亮眼，你開始覺得呢行有前途。'
+        '你今個月表現超班！經理喺會議上點名讚你，同事投嚟羨慕嘅目光。',
+        '連續達標！你開始被叫做「簽單王」，新人都嚟問你取經。',
+        '今個月業績亮眼，你終於覺得呢行係有前途嘅。'
     ],
     ok: [
-        '剛好達標，鬆一口氣。',
-        '算係合格，但你知道下個月要更努力。',
-        '達標了，但其實好驚險。'
+        '剛好達標，你長長咁呼一口氣。「好險...」',
+        '算係合格，經理拍拍你膊頭：「下個月繼續加油。」',
+        '達標了，但過程好驚險，最後一日先簽到最後一單。'
     ],
     bad: [
-        '未達標...經理叫你入房傾咗半個鐘。',
-        '業績唔夠，你好擔心下個月再唔得會被炒。',
-        '又一個月未達標，壓力好大，晚晚瞓唔到。'
+        '未達標...經理叫你入房傾咗半個鐘，語氣好嚴肅。',
+        '業績唔夠，你好擔心再咁落去會被炒。晚晚瞓唔到覺。',
+        '又一個月未達標。你坐喺公司樓梯間，望住手機發呆。'
     ]
 };
 
 // ============================================================
-// Render Functions
+// Render Helpers
 // ============================================================
-
-function render() {
-    const app = document.getElementById('app');
-    switch (G.phase) {
-        case 'start': app.innerHTML = renderStart(); break;
-        case 'play': app.innerHTML = renderPlay(); break;
-        case 'event': app.innerHTML = renderEvent(); break;
-        case 'monthEnd': app.innerHTML = renderMonthEnd(); break;
-        case 'end': app.innerHTML = renderEnd(); break;
-    }
-}
-
-function renderStart() {
-    return `
-    <div class="start-screen">
-        <h1>寬頻人生</h1>
-        <div class="subtitle">一個寬頻銷售員的 3 年生涯</div>
-        <div class="story">
-            你叫<em>阿明</em>，25 歲，啱啱入咗一間寬頻公司做銷售。<br><br>
-            底薪 <em>$12,000</em>，每簽一單有 <em>$400</em> 佣金。<br>
-            每月目標：<em>8 單</em>。<br><br>
-            但生活開支唔等人：<br>
-            租金 <em>$5,500</em> + 生活費 <em>$3,000</em> + 交通 <em>$800</em> = <em>$9,300/月</em><br><br>
-            你手頭得 <em>$5,000</em> 積蓄。<br><br>
-            未來 <em>3 年（36 個月）</em>，你要面對業績壓力、生活開支、突發事件...<br><br>
-            你能撐到最後嗎？你嘅結局會係點？
-        </div>
-        <button class="start-btn" onclick="startGame()">開始遊戲</button>
-    </div>`;
-}
 
 function moodEmoji(m) {
     if (m >= 80) return '😄';
@@ -606,68 +942,243 @@ function moodEmoji(m) {
     return '😭';
 }
 
+function energyColor(e) {
+    if (e >= 60) return 'fill-green';
+    if (e >= 30) return 'fill-orange';
+    return 'fill-red';
+}
+
 function renderStatusBar() {
     const year = Math.ceil(G.month / 12);
     const monthInYear = ((G.month - 1) % 12) + 1;
     const progress = ((G.month - 1) * 30 + G.day) / (36 * 30) * 100;
     return `
+    <div class="progress-wrap">
+        <div class="progress-label"><span>📊 遊戲進度 ${Math.round(progress)}%</span><span>第${year}年 ${monthInYear}月 · 第${G.day}日</span></div>
+        <div class="progress-bar"><div class="progress-fill fill-blue" style="width:${progress}%"></div></div>
+        <div class="progress-label"><span>⚡ 精力 ${G.energy}%</span><span>🎯 技能 ${G.skill} · ⭐ 口碑 ${G.reputation}</span></div>
+        <div class="progress-bar"><div class="progress-fill ${energyColor(G.energy)}" style="width:${G.energy}%"></div></div>
+    </div>
     <div class="status-bar">
         <div class="stat-box">
-            <div class="label">日期</div>
+            <div class="label">📅 日期</div>
             <div class="value date">第${year}年 ${monthInYear}月</div>
         </div>
-        <div class="stat-box">
-            <div class="label">儲蓄</div>
+        <div class="stat-box" id="statMoney">
+            <div class="label">💰 儲蓄</div>
             <div class="value money">$${G.money.toLocaleString()}</div>
         </div>
-        <div class="stat-box">
-            <div class="label">本月簽單</div>
+        <div class="stat-box" id="statSales">
+            <div class="label">📋 本月簽單</div>
             <div class="value sales">${G.salesThisMonth} / ${G.target}</div>
         </div>
         <div class="stat-box">
-            <div class="label">心情</div>
+            <div class="label">😊 心情</div>
             <div class="value mood">${moodEmoji(G.mood)} ${G.mood}</div>
         </div>
-    </div>
-    <div class="progress-wrap">
-        <div class="progress-label">
-            <span>精力 ${G.energy}%</span>
-            <span>技能 ${G.skill} | 口碑 ${G.reputation}</span>
-            <span>進度 ${Math.round(progress)}%</span>
+    </div>`;
+}
+
+// ============================================================
+// Phase Renderers
+// ============================================================
+
+function render() {
+    const app = document.getElementById('app');
+    switch (G.phase) {
+        case 'start': app.innerHTML = renderStart(); break;
+        case 'guide': app.innerHTML = renderGuide(); break;
+        case 'play': app.innerHTML = renderPlay(); break;
+        case 'result': app.innerHTML = renderResult(); break;
+        case 'event': app.innerHTML = renderEvent(); break;
+        case 'monthEnd': app.innerHTML = renderMonthEnd(); break;
+        case 'end': app.innerHTML = renderEnd(); break;
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderStart() {
+    return `
+    <div class="start-screen">
+        ${renderScene('morning')}
+        <h1>寬頻人生</h1>
+        <div class="subtitle">一個寬頻銷售員的 3 年生涯</div>
+        <div class="story">
+            你叫<em>阿明</em>，25 歲，啱啱入咗一間寬頻公司做銷售。<br><br>
+            底薪 <em>$5,000</em>，每簽一單有 <em>$150</em> 佣金。<br>
+            每月目標：<em>8 單</em>。<br><br>
+            但生活開支唔等人：<br>
+            🏠 租金 <em>$5,500</em> + 🍜 生活費 <em>$3,000</em> + 🚌 交通 <em>$800</em> = <em>$9,300/月</em><br><br>
+            你手頭得 <em>$5,000</em> 積蓄。<br><br>
+            未來 <em>3 年（36 個月）</em>，你要面對業績壓力、生活開支、突發事件...<br><br>
+            你能撐到最後嗎？你嘅結局會係點？
         </div>
-        <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
+        <button class="start-btn" onclick="showGuide()">📖 遊戲說明</button>
+        <button class="start-btn" onclick="startGame()">🎮 直接開始</button>
+    </div>`;
+}
+
+function renderGuide() {
+    return `
+    <div class="start-screen" style="padding-top:40px;">
+        <h1 style="font-size:2.2rem;">📖 遊戲說明</h1>
+        <div class="subtitle">玩之前睇清楚，生存機率大增！</div>
+
+        <div class="guide-section">
+            <h3>🎯 遊戲目標</h3>
+            <p style="color:#cbd5e1;line-height:1.8;">
+                你要喺 <strong style="color:#fbbf24;">36 個月（3 年）</strong>內生存落去。<br>
+                每月要完成簽單目標，賺取佣金維持生活。<br>
+                最終根據你嘅儲蓄同表現，獲得 S ~ D 評級。
+            </p>
+        </div>
+
+        <div class="guide-section">
+            <h3>📋 每月流程</h3>
+            <p style="color:#cbd5e1;line-height:1.8;">
+                每個月有 <strong style="color:#fbbf24;">30 日</strong>，每次行動消耗 <strong style="color:#fbbf24;">1 日</strong>。<br>
+                月尾自動結算：收入 - 支出 = 本月盈虧。<br>
+                期間會隨機觸發各種事件，需要你做出選擇。
+            </p>
+        </div>
+
+        <div class="guide-section">
+            <h3>🎮 行動選項</h3>
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <span class="gi-icon">🏃</span>
+                    <span class="gi-title">掃街拍門</span><br>
+                    <span class="gi-desc">高風險高回報，可能簽 1-2 單，但體力消耗大</span>
+                </div>
+                <div class="guide-item">
+                    <span class="gi-icon">📞</span>
+                    <span class="gi-title">Cold Call</span><br>
+                    <span class="gi-desc">穩定但成功率一般，體力消耗較少</span>
+                </div>
+                <div class="guide-item">
+                    <span class="gi-icon">💻</span>
+                    <span class="gi-title">社交媒體</span><br>
+                    <span class="gi-desc">建立口碑，長線投資，口碑越高越容易簽單</span>
+                </div>
+                <div class="guide-item">
+                    <span class="gi-icon">🤝</span>
+                    <span class="gi-title">舊客轉介紹</span><br>
+                    <span class="gi-desc">需要累積舊客（5單+），成功率受口碑影響</span>
+                </div>
+                <div class="guide-item">
+                    <span class="gi-icon">📖</span>
+                    <span class="gi-title">進修學習</span><br>
+                    <span class="gi-desc">唔會簽單，但大幅提升技能，影響未來成功率</span>
+                </div>
+                <div class="guide-item">
+                    <span class="gi-icon">😴</span>
+                    <span class="gi-title">休息一日</span><br>
+                    <span class="gi-desc">回復精力 +35 同心情 +10，精力太低會被迫休息</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h3>📊 關鍵數值</h3>
+            <div style="color:#cbd5e1;line-height:2;font-size:0.9rem;">
+                <div class="guide-bar">
+                    <span class="guide-bar-label">⚡ 精力</span>
+                    <div class="progress-bar" style="flex:1"><div class="progress-fill fill-green" style="width:80%"></div></div>
+                    <span style="font-size:0.78rem;color:#64748b;">歸零會被迫休息</span>
+                </div>
+                <div class="guide-bar">
+                    <span class="guide-bar-label">😊 心情</span>
+                    <div class="progress-bar" style="flex:1"><div class="progress-fill fill-orange" style="width:60%"></div></div>
+                    <span style="font-size:0.78rem;color:#64748b;">歸零 = 遊戲結束</span>
+                </div>
+                <div class="guide-bar">
+                    <span class="guide-bar-label">🎯 技能</span>
+                    <div class="progress-bar" style="flex:1"><div class="progress-fill fill-blue" style="width:40%"></div></div>
+                    <span style="font-size:0.78rem;color:#64748b;">影響簽單成功率</span>
+                </div>
+                <div class="guide-bar">
+                    <span class="guide-bar-label">⭐ 口碑</span>
+                    <div class="progress-bar" style="flex:1"><div class="progress-fill fill-blue" style="width:50%"></div></div>
+                    <span style="font-size:0.78rem;color:#64748b;">影響轉介紹同社媒</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h3>💀 Game Over 條件</h3>
+            <p style="color:#f87171;line-height:1.8;">
+                ❌ 儲蓄低於 <strong>-$10,000</strong>（負債太多）<br>
+                ❌ 心情跌到 <strong>0</strong>（精神崩潰）<br>
+                ❌ 連續 <strong>3 個月</strong>未達標（被公司辭退）
+            </p>
+        </div>
+
+        <div class="guide-section">
+            <h3>🏆 結局評級</h3>
+            <p style="color:#cbd5e1;line-height:1.8;font-size:0.9rem;">
+                👑 <strong style="color:#fbbf24;">S 寬頻之王</strong> — 儲蓄 $80,000+<br>
+                🏆 <strong style="color:#22c55e;">A 金牌銷售</strong> — 儲蓄 $40,000+<br>
+                💪 <strong style="color:#60a5fa;">B 穩打穩紮</strong> — 儲蓄 $15,000+<br>
+                😅 <strong style="color:#f97316;">C 勉強生存</strong> — 儲蓄 $0+<br>
+                😭 <strong style="color:#ef4444;">D 負債累累</strong> — 儲蓄負數
+            </p>
+        </div>
+
+        <div style="margin-top:16px;">
+            <button class="start-btn" onclick="startGame()">🎮 開始遊戲！</button>
+            <button class="start-btn secondary" onclick="G.phase='start';render();">← 返回</button>
+        </div>
     </div>`;
 }
 
 function renderPlay() {
-    let choicesHTML = '';
+    let choicesHTML = '<div class="choices">';
     if (G.energy <= 10) {
-        choicesHTML = `<div class="choices">
-            <button class="choice-btn" onclick="doWork(5)">😴 你太累了，只能休息<span class="cost">回復精力</span></button>
-        </div>`;
+        choicesHTML += `<button class="choice-btn" onclick="doWork(5)">😴 你太累了，只能休息<span class="cost">精力不足，無法工作</span></button>`;
     } else {
-        choicesHTML = '<div class="choices">';
         WORK_CHOICES.forEach((c, i) => {
-            const disabled = (i !== 5 && G.energy <= 10) ? 'style="opacity:0.5;pointer-events:none"' : '';
-            choicesHTML += `<button class="choice-btn" onclick="doWork(${i})" ${disabled}>
-                ${c.text}<span class="cost">${c.desc}</span>
-            </button>`;
+            const disabled = (G.energy <= 10 && i !== 5) ? 'style="opacity:0.4;pointer-events:none"' : '';
+            choicesHTML += `<button class="choice-btn" onclick="doWork(${i})" ${disabled}>${c.text}<span class="cost">${c.desc}</span></button>`;
         });
-        choicesHTML += '</div>';
     }
+    choicesHTML += '</div>';
 
-    const logHTML = G.log.slice(-8).map(l =>
-        `<div class="log-entry ${l.cls}">${l.text}</div>`
-    ).join('');
+    const remaining = Math.max(0, G.target - G.salesThisMonth);
+    const daysLeft = 30 - G.day;
+    let urgency = '';
+    if (daysLeft <= 5 && remaining > 0) urgency = '<span style="color:#f87171;"> ⚠️ 時間唔多了！</span>';
 
     return `
     ${renderStatusBar()}
     <div class="story-panel">
-        <span class="event-tag tag-work">工作日 · 第 ${G.day} 日</span>
-        <div class="text">今日你想點做？\n\n距離月尾仲有 <span class="highlight">${30 - G.day} 日</span>，仲差 <span class="highlight">${Math.max(0, G.target - G.salesThisMonth)} 單</span>達標。</div>
+        ${renderScene('morning')}
+        <div class="story-body">
+            <span class="event-tag tag-work">📅 第 ${G.day} 日</span>
+            <div class="text" id="storyText">早上鬧鐘響起，新嘅一日開始了。\n\n距離月尾仲有 <span class="highlight">${daysLeft} 日</span>，仲差 <span class="highlight">${remaining} 單</span>先達標。${urgency}\n\n今日你想點做？</div>
+        </div>
     </div>
     ${choicesHTML}
-    <div class="game-log">${logHTML || '<div class="log-entry log-info">遊戲開始！加油！</div>'}</div>`;
+    ${renderLog()}`;
+}
+
+function renderResult() {
+    const r = G.lastResult;
+    const scene = r.good === true ? 'good' : (r.good === false ? 'crisis' : 'morning');
+    const resultCls = r.good === true ? 'result-good' : (r.good === false ? 'result-bad' : 'result-neutral');
+
+    return `
+    ${renderStatusBar()}
+    <div class="result-panel ${resultCls}">
+        ${renderScene(r.scene || scene)}
+        <div class="result-body">
+            <span class="event-tag ${r.good === true ? 'tag-good' : r.good === false ? 'tag-crisis' : 'tag-work'}">${r.good === true ? '✅ 成功' : r.good === false ? '❌ 失敗' : '📝 結果'}</span>
+            <div class="text" id="resultText"></div>
+        </div>
+    </div>
+    <div class="choices">
+        <button class="choice-btn" onclick="afterResult()">繼續 →</button>
+    </div>
+    ${renderLog()}`;
 }
 
 function renderEvent() {
@@ -678,18 +1189,19 @@ function renderEvent() {
     });
     choicesHTML += '</div>';
 
-    const logHTML = G.log.slice(-8).map(l =>
-        `<div class="log-entry ${l.cls}">${l.text}</div>`
-    ).join('');
+    const sceneKey = ev.tag === 'crisis' ? 'crisis' : ev.tag === 'good' ? 'good' : 'event';
 
     return `
     ${renderStatusBar()}
     <div class="story-panel">
-        <span class="event-tag tag-${ev.tag}">${ev.tagLabel}</span>
-        <div class="text">${ev.text}</div>
+        ${renderScene(ev.scene || sceneKey)}
+        <div class="story-body">
+            <span class="event-tag tag-${ev.tag}">${ev.tagLabel}</span>
+            <div class="text" id="eventText"></div>
+        </div>
     </div>
     ${choicesHTML}
-    <div class="game-log">${logHTML}</div>`;
+    ${renderLog()}`;
 }
 
 function renderMonthEnd() {
@@ -699,153 +1211,235 @@ function renderMonthEnd() {
     const expenses = G.rent + G.living + G.transport;
     const net = income + bonus - expenses;
 
-    let commentPool = hit ? (G.salesThisMonth >= G.target + 4 ? MONTH_END_COMMENTS.great : MONTH_END_COMMENTS.ok) : MONTH_END_COMMENTS.bad;
-    const comment = commentPool[Math.floor(Math.random() * commentPool.length)];
+    let pool = hit ? (G.salesThisMonth >= G.target + 4 ? MONTH_COMMENTS.great : MONTH_COMMENTS.ok) : MONTH_COMMENTS.bad;
+    const comment = pool[Math.floor(Math.random() * pool.length)];
 
     return `
     ${renderStatusBar()}
     <div class="story-panel">
-        <span class="event-tag ${hit ? 'tag-good' : 'tag-crisis'}">${hit ? '達標！' : '未達標'}</span>
-        <div class="text">
-<span class="highlight">月結報告</span>
-
-本月簽單：${G.salesThisMonth} 單（目標 ${G.target} 單）
-
-收入：
-  底薪　　$${G.salary.toLocaleString()}
-  佣金　　$${(G.salesThisMonth * G.commission).toLocaleString()}（${G.salesThisMonth} 單 x $${G.commission}）
-  ${bonus > 0 ? `獎金　　$${bonus.toLocaleString()}（連續達標獎勵）\n  ` : ''}合計　　<span class="highlight">$${(income + bonus).toLocaleString()}</span>
-
-支出：
-  租金　　$${G.rent.toLocaleString()}
-  生活費　$${G.living.toLocaleString()}
-  交通費　$${G.transport.toLocaleString()}
-  合計　　$${expenses.toLocaleString()}
-
-本月結餘：<span class="highlight">${net >= 0 ? '+' : ''}$${net.toLocaleString()}</span>
-
-${comment}</div>
+        ${renderScene('month')}
+        <div class="story-body">
+            <span class="event-tag ${hit ? 'tag-good' : 'tag-crisis'}">${hit ? '🎉 達標！' : '😰 未達標'}</span>
+            <div class="text" id="monthText"></div>
+        </div>
     </div>
     <div class="choices">
-        <button class="choice-btn" onclick="nextMonth()">繼續下個月 →</button>
+        <button class="choice-btn" onclick="nextMonth()">📅 進入下個月 →</button>
     </div>`;
 }
 
 function renderEnd() {
     let grade, title, color, emoji;
-    if (G.money >= 80000) { grade = 'S'; title = '寬頻之王'; color = '#fbbf24'; emoji = '👑'; }
-    else if (G.money >= 40000) { grade = 'A'; title = '金牌銷售'; color = '#22c55e'; emoji = '🏆'; }
-    else if (G.money >= 15000) { grade = 'B'; title = '穩打穩紮'; color = '#60a5fa'; emoji = '💪'; }
-    else if (G.money >= 0) { grade = 'C'; title = '勉強生存'; color = '#f97316'; emoji = '😅'; }
-    else { grade = 'D'; title = '負債累累'; color = '#ef4444'; emoji = '😭'; }
+    if (G.money >= 80000) { grade='S'; title='寬頻之王'; color='#fbbf24'; emoji='👑'; }
+    else if (G.money >= 40000) { grade='A'; title='金牌銷售'; color='#22c55e'; emoji='🏆'; }
+    else if (G.money >= 15000) { grade='B'; title='穩打穩紮'; color='#60a5fa'; emoji='💪'; }
+    else if (G.money >= 0) { grade='C'; title='勉強生存'; color='#f97316'; emoji='😅'; }
+    else { grade='D'; title='負債累累'; color='#ef4444'; emoji='😭'; }
 
     const gameOver = G.money < -10000 || G.mood <= 0 || G.failMonths >= 3;
     const survived = !gameOver && G.month > 36;
 
     return `
     <div class="end-screen">
-        <h2>${survived ? '恭喜你撐過咗 3 年！' : '遊戲結束...'}</h2>
+        ${renderScene('end')}
+        <h2>${survived ? '🎊 恭喜你撐過咗 3 年！' : '💔 遊戲結束...'}</h2>
         <div class="grade" style="color:${color}">${emoji} ${grade}</div>
         <div style="font-size:1.3rem;color:${color};font-weight:700;margin-bottom:8px;">${title}</div>
         <div class="summary">
-            <strong>3 年總結</strong><br><br>
-            總簽單數：${G.totalSales} 單<br>
-            最終儲蓄：$${G.money.toLocaleString()}<br>
-            最終技能：${G.skill}<br>
-            最終口碑：${G.reputation}<br>
-            連續達標最高：${G.streak} 個月<br><br>
+            <strong>📊 3 年總結</strong><br><br>
+            📋 總簽單數：<strong>${G.totalSales}</strong> 單<br>
+            💰 最終儲蓄：<strong style="color:${G.money>=0?'#22c55e':'#ef4444'}">$${G.money.toLocaleString()}</strong><br>
+            🎯 最終技能：${G.skill}<br>
+            ⭐ 最終口碑：${G.reputation}<br>
+            🔥 最高連續達標：${G.maxStreak} 個月<br><br>
             ${survived ?
                 (G.money >= 40000 ? '你靠住努力同堅持，喺寬頻銷售呢行闖出名堂。你証明咗只要唔放棄，就一定有出路！' :
-                 G.money >= 0 ? '3 年唔容易，但你撐過嚟了。雖然無大富大貴，但你學識咗好多嘢。' :
+                 G.money >= 0 ? '3 年唔容易，但你撐過嚟了。雖然無大富大貴，但你學識咗好多嘢，認識咗好多人。' :
                  '勉強撐過 3 年，但經濟壓力好大。希望下一個 3 年會更好。') :
-                (G.money < -10000 ? '負債太多，已經撐唔落去了...' :
-                 G.mood <= 0 ? '心理壓力太大，你決定轉行了...' :
-                 '連續幾個月業績唔達標，被公司辭退了...')}
+                (G.money < -10000 ? '負債太多，已經撐唔落去了...你決定搵份穩定嘅工先還債。' :
+                 G.mood <= 0 ? '壓力太大，你每日都好唔開心...最後決定轉行，重新開始。' :
+                 '連續幾個月業績唔達標，經理話「公司需要調整人手」。你被辭退了。')}
         </div>
         <div class="end-cta">
-            <p>現實中，BroadbandHK 幫你搵到最平最穩定嘅寬頻！</p>
+            <p>💡 現實中，BroadbandHK 幫你搵到最平最穩定嘅寬頻！</p>
             <a href="index.html">查看寬頻月費</a>
             <a href="shops.html">免費商舖推薦</a>
         </div>
         <br>
-        <button class="start-btn" onclick="location.reload()" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">再玩一次</button>
+        <button class="start-btn" onclick="location.reload()" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">🔄 再玩一次</button>
+        <button class="start-btn secondary" onclick="G.phase='guide';render();">📖 重睇說明</button>
     </div>`;
+}
+
+function renderLog() {
+    const logHTML = G.log.slice(-8).map(l =>
+        `<div class="log-entry ${l.cls}">${l.text}</div>`
+    ).join('');
+    return `<div class="game-log">${logHTML || '<div class="log-entry log-info">新嘅旅程開始了，加油！💪</div>'}</div>`;
 }
 
 // ============================================================
 // Game Logic
 // ============================================================
 
-function startGame() {
-    G.month = 1; G.day = 1; G.money = 5000; G.mood = 80;
-    G.salesThisMonth = 0; G.totalSales = 0; G.salary = 12000;
-    G.commission = 400; G.rent = 5500; G.living = 3000;
-    G.transport = 800; G.target = 8; G.reputation = 50;
-    G.skill = 30; G.energy = 100; G.streak = 0; G.failMonths = 0;
-    G.log = []; G.phase = 'play';
+function showGuide() {
+    sfxClick();
+    G.phase = 'guide';
     render();
 }
 
-function doWork(index) {
+async function startGame() {
+    initAudio();
+    sfxClick();
+
+    G.month=1; G.day=1; G.money=5000; G.mood=80;
+    G.salesThisMonth=0; G.totalSales=0; G.salary=5000;
+    G.commission=150; G.rent=5500; G.living=3000;
+    G.transport=800; G.target=8; G.reputation=50;
+    G.skill=30; G.energy=100; G.streak=0; G.maxStreak=0; G.failMonths=0;
+    G.log=[]; G.lastResult=null;
+
+    await showTransition('🌅', '第 1 年，第 1 個月，第 1 日...', 2000);
+
+    G.phase = 'play';
+    render();
+    startBGM();
+}
+
+async function doWork(index) {
+    sfxClick();
     const choice = WORK_CHOICES[index];
     const result = choice.action(G);
 
     G.log.push({
-        text: `[第${G.day}日] ${result.text}`,
+        text: `[第${G.day}日] ${result.text.split('\n')[0]}`,
         cls: result.good === true ? 'log-good' : result.good === false ? 'log-bad' : 'log-info'
     });
 
-    G.day += Math.floor(Math.random() * 2) + 2; // 2-3 days per action
+    // Advance 1 day
+    G.day += 1;
 
-    // Clamp values
+    // Clamp
     G.mood = Math.max(0, Math.min(100, G.mood));
     G.energy = Math.max(0, Math.min(100, G.energy));
 
-    // Random event chance (~25%)
-    if (Math.random() < 0.25 && G.day < 28) {
-        triggerRandomEvent();
+    // Sound effects
+    if (result.good === true) {
+        if (result.sales) { sfxCoin(); floatNotify(`+${result.sales} 單！`, 'good'); }
+        else sfxSuccess();
+    } else if (result.good === false) {
+        sfxFail();
+    }
+
+    // Show result screen
+    G.lastResult = { ...result, scene: choice.scene };
+    G.phase = 'result';
+    render();
+
+    // Typewriter effect for result
+    await typewrite('resultText', result.text, 25);
+}
+
+async function afterResult() {
+    sfxClick();
+
+    // Random event chance (~20%)
+    if (Math.random() < 0.2 && G.day < 28) {
+        await triggerRandomEvent();
         return;
     }
 
     // Check month end
     if (G.day > 30) {
+        sfxMonthEnd();
+        await showTransition('📊', '月尾到了...結算時間！', 1500);
         G.phase = 'monthEnd';
+        render();
+        await typewriteMonthEnd();
+        return;
     }
 
-    // Check game over
     if (checkGameOver()) return;
-
+    G.phase = 'play';
     render();
 }
 
-function triggerRandomEvent() {
+async function triggerRandomEvent() {
+    sfxEvent();
     const ev = RANDOM_EVENTS[Math.floor(Math.random() * RANDOM_EVENTS.length)];
     G.currentEvent = ev;
+
+    await showTransition(
+        ev.tag === 'crisis' ? '🚨' : ev.tag === 'good' ? '🎉' : '❗',
+        ev.tag === 'crisis' ? '出事了...' : ev.tag === 'good' ? '有好消息！' : '突發事件！',
+        1200
+    );
+
     G.phase = 'event';
     render();
+    await typewrite('eventText', ev.text, 25);
 }
 
-function doEvent(choiceIndex) {
+async function doEvent(choiceIndex) {
+    sfxClick();
     const ev = G.currentEvent;
     const result = ev.choices[choiceIndex].action(G);
 
-    G.log.push({ text: `[事件] ${result}`, cls: 'log-info' });
+    if (result.includes('簽') || result.includes('獎金')) { sfxCoin(); floatNotify(result.split('。')[0], 'good'); }
+    else if (result.includes('損失') || result.includes('流失') || result.includes('受損')) { sfxFail(); floatNotify(result.split('。')[0], 'bad'); }
+
+    G.log.push({ text: `[事件] ${result.split('\n')[0]}`, cls: 'log-info' });
 
     G.mood = Math.max(0, Math.min(100, G.mood));
     G.energy = Math.max(0, Math.min(100, G.energy));
 
     if (G.day > 30) {
+        sfxMonthEnd();
+        await showTransition('📊', '月尾到了...結算時間！', 1500);
         G.phase = 'monthEnd';
-    } else {
-        G.phase = 'play';
+        render();
+        await typewriteMonthEnd();
+        return;
     }
 
     if (checkGameOver()) return;
+    G.phase = 'play';
     render();
 }
 
-function nextMonth() {
-    // Calculate monthly finances
+async function typewriteMonthEnd() {
+    const hit = G.salesThisMonth >= G.target;
+    const income = G.salary + G.salesThisMonth * G.commission;
+    const bonus = hit && G.streak >= 3 ? 2000 : 0;
+    const expenses = G.rent + G.living + G.transport;
+    const net = income + bonus - expenses;
+    let pool = hit ? (G.salesThisMonth >= G.target + 4 ? MONTH_COMMENTS.great : MONTH_COMMENTS.ok) : MONTH_COMMENTS.bad;
+    const comment = pool[Math.floor(Math.random() * pool.length)];
+
+    const text = `📊 月結報告
+
+本月簽單：${G.salesThisMonth} 單（目標 ${G.target} 單）
+
+💵 收入：
+　底薪　　$${G.salary.toLocaleString()}
+　佣金　　$${(G.salesThisMonth * G.commission).toLocaleString()}（${G.salesThisMonth} 單 × $${G.commission}）
+${bonus > 0 ? `　獎金　　$${bonus.toLocaleString()}（連續達標獎勵🔥）\n` : ''}　合計　　$${(income + bonus).toLocaleString()}
+
+💸 支出：
+　租金　　$${G.rent.toLocaleString()}
+　生活費　$${G.living.toLocaleString()}
+　交通費　$${G.transport.toLocaleString()}
+　合計　　$${expenses.toLocaleString()}
+
+本月結餘：${net >= 0 ? '+' : ''}$${net.toLocaleString()}
+
+${comment}`;
+
+    await typewrite('monthText', text, 15);
+}
+
+async function nextMonth() {
+    sfxClick();
     const hit = G.salesThisMonth >= G.target;
     const income = G.salary + G.salesThisMonth * G.commission;
     const bonus = hit && G.streak >= 3 ? 2000 : 0;
@@ -854,6 +1448,7 @@ function nextMonth() {
 
     if (hit) {
         G.streak++;
+        G.maxStreak = Math.max(G.maxStreak, G.streak);
         G.failMonths = 0;
         G.mood = Math.min(100, G.mood + 8);
     } else {
@@ -862,15 +1457,16 @@ function nextMonth() {
         G.mood = Math.max(0, G.mood - 12);
     }
 
-    // Difficulty scaling
     if (G.month % 6 === 0) {
         G.target = Math.min(15, G.target + 1);
         G.log.push({ text: `[通知] 公司提高目標到每月 ${G.target} 單！`, cls: 'log-bad' });
+        floatNotify(`目標提高到 ${G.target} 單！`, 'bad');
     }
     if (G.month % 12 === 0) {
-        G.salary += 500;
-        G.commission += 50;
-        G.log.push({ text: `[通知] 年度調薪！底薪 $${G.salary.toLocaleString()}，佣金 $${G.commission}/單`, cls: 'log-good' });
+        G.salary += 300;
+        G.commission += 20;
+        G.log.push({ text: `[通知] 年度調薪！底薪 $${G.salary.toLocaleString()}`, cls: 'log-good' });
+        floatNotify('年度調薪！', 'good');
     }
 
     G.month++;
@@ -879,6 +1475,9 @@ function nextMonth() {
     G.energy = 100;
 
     if (G.month > 36) {
+        stopBGM();
+        sfxSuccess();
+        await showTransition('🏆', '3 年過去了...', 2000);
         G.phase = 'end';
         render();
         return;
@@ -886,12 +1485,18 @@ function nextMonth() {
 
     if (checkGameOver()) return;
 
+    const year = Math.ceil(G.month / 12);
+    const monthInYear = ((G.month - 1) % 12) + 1;
+    await showTransition('🌅', `第 ${year} 年，第 ${monthInYear} 月`, 1500);
+
     G.phase = 'play';
     render();
 }
 
 function checkGameOver() {
     if (G.money < -10000 || G.mood <= 0 || G.failMonths >= 3) {
+        stopBGM();
+        sfxGameOver();
         G.phase = 'end';
         render();
         return true;
@@ -899,7 +1504,10 @@ function checkGameOver() {
     return false;
 }
 
+// ============================================================
 // Init
+// ============================================================
+initParticles();
 render();
 </script>
 
