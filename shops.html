@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港店舖推薦 | 免費宣傳你的店舖 — BroadbandHK 商舖目錄</title>
+    <meta name="description" content="免費香港店舖推薦目錄！搵餐廳、美容、維修、教育等本地好店。店主亦可免費登記，讓更多人認識你的生意。">
+    <meta name="keywords" content="香港店舖推薦, 香港好店, 本地商舖, 免費宣傳, 店舖目錄, 香港餐廳, 香港美容, 觀塘好店, 旺角好店, 深水埗好店">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://broadbandhk.com/shops.html">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://broadbandhk.com/shops.html">
+    <meta property="og:title" content="香港店舖推薦 | 免費宣傳你的店舖 — BroadbandHK">
+    <meta property="og:description" content="免費香港店舖推薦目錄！搵餐廳、美容、維修、教育等本地好店。店主亦可免費登記宣傳。">
+    <meta property="og:locale" content="zh_HK">
+
+    <!-- 結構化數據 - 商舖目錄 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "香港店舖推薦目錄",
+        "description": "BroadbandHK 免費香港本地店舖推薦目錄",
+        "url": "https://broadbandhk.com/shops.html",
+        "numberOfItems": 12
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📶</text></svg>">
+
+    <style>
+    /* --- Top Bar --- */
+    .top-bar {
+        background: #0a1628;
+        color: #94a3b8;
+        font-size: 0.85rem;
+        padding: 8px 0;
+    }
+    .top-bar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .top-bar a {
+        color: #94a3b8;
+        text-decoration: none;
+        margin-left: 20px;
+        transition: color 0.3s;
+    }
+    .top-bar a:hover { color: #fff; }
+
+    /* --- Shops Hero --- */
+    .shops-hero {
+        padding: 140px 0 80px;
+        text-align: center;
+        background: linear-gradient(135deg, #fef3c7 0%, #fff7ed 30%, #fff 70%);
+        position: relative;
+        overflow: hidden;
+    }
+    .shops-hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%);
+        border-radius: 50%;
+    }
+    .shops-hero h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1.3;
+        margin-bottom: 16px;
+        position: relative;
+    }
+    .shops-hero h1 .highlight {
+        background: linear-gradient(135deg, #f59e0b, #ef4444);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .shops-hero p {
+        font-size: 1.2rem;
+        color: var(--gray);
+        margin-bottom: 32px;
+        position: relative;
+    }
+    .shops-hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        margin-top: 40px;
+        position: relative;
+    }
+    .shops-hero-stats .stat-number {
+        font-size: 2rem;
+        font-weight: 900;
+        color: #f59e0b;
+    }
+    .shops-hero-stats .stat-label {
+        font-size: 0.9rem;
+        color: var(--gray);
+    }
+
+    /* --- Category Filter --- */
+    .category-section {
+        padding: 60px 0 20px;
+        background: var(--white);
+    }
+    .category-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    .cat-btn {
+        padding: 10px 24px;
+        border: 2px solid #e2e8f0;
+        border-radius: 50px;
+        background: var(--white);
+        color: var(--dark);
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+    .cat-btn:hover, .cat-btn.active {
+        background: #f59e0b;
+        color: var(--white);
+        border-color: #f59e0b;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(245,158,11,0.3);
+    }
+
+    /* --- Search Bar --- */
+    .search-bar {
+        max-width: 500px;
+        margin: 0 auto 40px;
+        position: relative;
+    }
+    .search-bar input {
+        width: 100%;
+        padding: 14px 20px 14px 48px;
+        border: 2px solid #e2e8f0;
+        border-radius: 50px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+    .search-bar input:focus {
+        border-color: #f59e0b;
+    }
+    .search-bar .search-icon {
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+    }
+
+    /* --- Shop Cards --- */
+    .shops-section {
+        padding: 40px 0 80px;
+        background: var(--light);
+    }
+    .shops-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .shop-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    .shop-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+    }
+    .shop-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background: linear-gradient(135deg, #dbeafe, #fef3c7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+    }
+    .shop-info {
+        padding: 20px;
+    }
+    .shop-cat {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    .shop-cat.food { background: #fef3c7; color: #b45309; }
+    .shop-cat.beauty { background: #fce7f3; color: #be185d; }
+    .shop-cat.repair { background: #dbeafe; color: #1d4ed8; }
+    .shop-cat.education { background: #d1fae5; color: #065f46; }
+    .shop-cat.health { background: #ede9fe; color: #6d28d9; }
+    .shop-cat.retail { background: #ffedd5; color: #c2410c; }
+    .shop-info h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+    }
+    .shop-location {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    .shop-desc {
+        color: #475569;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+    .shop-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .shop-tag {
+        padding: 3px 10px;
+        background: var(--light);
+        border-radius: 20px;
+        font-size: 0.78rem;
+        color: var(--gray);
+    }
+
+    /* --- District Section --- */
+    .district-section {
+        padding: 80px 0;
+        background: var(--white);
+    }
+    .district-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 12px;
+        margin-top: 40px;
+    }
+    .district-link {
+        display: block;
+        padding: 16px 12px;
+        text-align: center;
+        background: var(--light);
+        border-radius: var(--radius);
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s;
+    }
+    .district-link:hover {
+        background: #f59e0b;
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(245,158,11,0.3);
+    }
+    .district-link .count {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--gray);
+        font-weight: 400;
+        margin-top: 4px;
+    }
+    .district-link:hover .count {
+        color: rgba(255,255,255,0.8);
+    }
+
+    /* --- Register CTA --- */
+    .register-cta {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+        text-align: center;
+        color: var(--white);
+    }
+    .register-cta h2 {
+        font-size: 2.2rem;
+        font-weight: 900;
+        margin-bottom: 16px;
+    }
+    .register-cta p {
+        font-size: 1.15rem;
+        margin-bottom: 12px;
+        opacity: 0.95;
+    }
+    .register-benefits {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin: 32px 0;
+        flex-wrap: wrap;
+    }
+    .register-benefit {
+        font-size: 1.05rem;
+        font-weight: 600;
+    }
+    .register-cta .btn-register {
+        display: inline-block;
+        padding: 16px 40px;
+        background: var(--white);
+        color: #ef4444;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s;
+        margin-top: 8px;
+    }
+    .register-cta .btn-register:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    /* --- Broadband CTA --- */
+    .bb-cta {
+        padding: 60px 0;
+        background: var(--light);
+        text-align: center;
+    }
+    .bb-cta h3 {
+        font-size: 1.6rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+    }
+    .bb-cta p {
+        color: var(--gray);
+        font-size: 1.05rem;
+        margin-bottom: 24px;
+    }
+
+    /* --- Footer Overrides --- */
+    .footer {
+        padding: 48px 0 28px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        margin-bottom: 32px;
+        text-align: left;
+    }
+    .footer-col h4 {
+        color: var(--white);
+        margin-bottom: 16px;
+        font-size: 1.05rem;
+    }
+    .footer-col p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    .footer-col a {
+        display: block;
+        color: var(--gray);
+        text-decoration: none;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+        border-top: 1px solid #1e293b;
+        padding-top: 20px;
+        font-size: 0.85rem;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+        .shops-hero h1 { font-size: 2rem; }
+        .shops-hero-stats { flex-direction: column; gap: 16px; }
+        .shops-grid { grid-template-columns: 1fr; }
+        .district-grid { grid-template-columns: repeat(3, 1fr); }
+        .register-benefits { flex-direction: column; gap: 12px; }
+        .footer-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+        .district-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="container top-bar-inner">
+        <span>免費幫你宣傳店舖 — 零成本增加曝光！</span>
+        <div>
+            <a href="tel:23308372">📞 2330 8372</a>
+            <a href="https://wa.me/85252287541">💬 WhatsApp</a>
+            <a href="https://www.instagram.com/broadbandhk_speednet" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">⚡ BroadbandHK</a>
+        <ul class="nav-links">
+            <li><a href="index.html#plans">月費計劃</a></li>
+            <li><a href="calculator.html">格價計算器</a></li>
+            <li><a href="shops.html" style="color:#ef4444 !important;font-weight:700;">商舖推薦</a></li>
+            <li><a href="blog.html">知識庫</a></li>
+            <li><a href="moving.html">搬屋小幫手</a></li>
+            <li><a href="partner.html">合作夥伴</a></li>
+            <li><a href="index.html#contact">聯絡我們</a></li>
+        </ul>
+        <a href="https://wa.me/85252287541" class="btn btn-small">WhatsApp 查詢</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="shops-hero">
+    <div class="container">
+        <h1>香港<span class="highlight">本地好店</span>推薦</h1>
+        <p>免費幫香港店舖宣傳 — 搵美食、美容、維修、教育，乜都有！</p>
+        <a href="#register" class="btn btn-large" style="background:#f59e0b;color:#fff;border-color:#f59e0b;">免費登記我的店舖</a>
+        <div class="shops-hero-stats">
+            <div>
+                <div class="stat-number">18 區</div>
+                <div class="stat-label">全港覆蓋</div>
+            </div>
+            <div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">完全免費</div>
+            </div>
+            <div>
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">全天候曝光</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Category Filter -->
+<section class="category-section">
+    <div class="container">
+        <div class="category-tabs">
+            <button class="cat-btn active" onclick="filterShops('all')">全部</button>
+            <button class="cat-btn" onclick="filterShops('food')">🍜 美食餐廳</button>
+            <button class="cat-btn" onclick="filterShops('beauty')">💇 美容美髮</button>
+            <button class="cat-btn" onclick="filterShops('repair')">🔧 維修服務</button>
+            <button class="cat-btn" onclick="filterShops('education')">📚 教育培訓</button>
+            <button class="cat-btn" onclick="filterShops('health')">🏥 健康醫療</button>
+            <button class="cat-btn" onclick="filterShops('retail')">🛍️ 零售購物</button>
+        </div>
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="shopSearch" placeholder="搜尋店舖名稱、地區或類別..." oninput="searchShops(this.value)">
+        </div>
+    </div>
+</section>
+
+<!-- Shop Listings -->
+<section class="shops-section">
+    <div class="container">
+        <div class="shops-grid" id="shopsGrid">
+
+            <!-- Shop 1 -->
+            <div class="shop-card" data-cat="food" data-district="kwun-tong">
+                <div class="shop-img">🍜</div>
+                <div class="shop-info">
+                    <span class="shop-cat food">美食餐廳</span>
+                    <h3>（你的店舖可以出現喺度！）</h3>
+                    <div class="shop-location">📍 觀塘區</div>
+                    <p class="shop-desc">免費登記你的餐廳，讓更多街坊認識你的美食！我哋會幫你拍靚相、寫介紹。</p>
+                    <div class="shop-tags">
+                        <span class="shop-tag">外賣</span>
+                        <span class="shop-tag">堂食</span>
+                        <span class="shop-tag">中菜</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop 2 -->
+            <div class="shop-card" data-cat="beauty" data-district="mong-kok">
+                <div class="shop-img">💇</div>
+                <div class="shop-info">
+                    <span class="shop-cat beauty">美容美髮</span>
+                    <h3>（歡迎美容店免費登記！）</h3>
+                    <div class="shop-location">📍 旺角區</div>
+                    <p class="shop-desc">Hair Salon、美甲、美睫、皮膚管理⋯⋯免費刊登，增加網上曝光。</p>
+                    <div class="shop-tags">
+                        <span class="shop-tag">剪髮</span>
+                        <span class="shop-tag">染髮</span>
+                        <span class="shop-tag">美甲</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop 3 -->
+            <div class="shop-card" data-cat="repair" data-district="sham-shui-po">
+                <div class="shop-img">🔧</div>
+                <div class="shop-info">
+                    <span class="shop-cat repair">維修服務</span>
+                    <h3>（維修師傅快啲登記！）</h3>
+                    <div class="shop-location">📍 深水埗區</div>
+                    <p class="shop-desc">電器維修、冷氣清洗、水電工程⋯⋯街坊搵師傅第一站！</p>
+                    <div class="shop-tags">
+                        <span class="shop-tag">電器維修</span>
+                        <span class="shop-tag">冷氣</span>
+                        <span class="shop-tag">水電</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop 4 -->
+            <div class="shop-card" data-cat="education" data-district="sha-tin">
+                <div class="shop-img">📚</div>
+                <div class="shop-info">
+                    <span class="shop-cat education">教育培訓</span>
+                    <h3>（補習社/興趣班歡迎加入！）</h3>
+                    <div class="shop-location">📍 沙田區</div>
+                    <p class="shop-desc">補習社、琴行、畫室、STEM 教育⋯⋯幫你接觸更多家長同學生。</p>
+                    <div class="shop-tags">
+                        <span class="shop-tag">補習</span>
+                        <span class="shop-tag">興趣班</span>
+                        <span class="shop-tag">STEM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop 5 -->
+            <div class="shop-card" data-cat="health" data-district="tsuen-wan">
+                <div class="shop-img">🏥</div>
+                <div class="shop-info">
+                    <span class="shop-cat health">健康醫療</span>
+                    <h3>（診所/健康中心歡迎登記！）</h3>
+                    <div class="shop-location">📍 荃灣區</div>
+                    <p class="shop-desc">中醫、牙醫、物理治療、健身中心⋯⋯幫你建立網上口碑。</p>
+                    <div class="shop-tags">
+                        <span class="shop-tag">中醫</span>
+                        <span class="shop-tag">物理治療</span>
+                        <span class="shop-tag">健身</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop 6 -->
+            <div class="shop-card" data-cat="retail" data-district="yuen-long">
+                <div class="shop-img">🛍️</div>
+                <div class="shop-info">
+                    <span class="shop-cat retail">零售購物</span>
+                    <h3>（零售店快啲加入！）</h3>
+                    <div class="shop-location">📍 元朗區</div>
+                    <p class="shop-desc">時裝、文具、禮品、寵物用品⋯⋯全部免費刊登，等客人搵到你。</p>
+                    <div class="shop-tags">
+                        <span class="shop-tag">時裝</span>
+                        <span class="shop-tag">禮品</span>
+                        <span class="shop-tag">寵物</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop 7 -->
+            <div class="shop-card" data-cat="food" data-district="tuen-mun">
+                <div class="shop-img">☕</div>
+                <div class="shop-info">
+                    <span class="shop-cat food">美食餐廳</span>
+                    <h3>（Cafe / 甜品店歡迎登記！）</h3>
+                    <div class="shop-location">📍 屯門區</div>
+                    <p class="shop-desc">咖啡店、甜品店、茶餐廳⋯⋯我哋幫你寫食評，吸引新客人。</p>
+                    <div class="shop-tags">
+                        <span class="shop-tag">咖啡</span>
+                        <span class="shop-tag">甜品</span>
+                        <span class="shop-tag">下午茶</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop 8 -->
+            <div class="shop-card" data-cat="repair" data-district="wong-tai-sin">
+                <div class="shop-img">📱</div>
+                <div class="shop-info">
+                    <span class="shop-cat repair">維修服務</span>
+                    <h3>（手機維修店歡迎加入！）</h3>
+                    <div class="shop-location">📍 黃大仙區</div>
+                    <p class="shop-desc">手機維修、電腦維修、數碼產品⋯⋯免費曝光，等客搵到你。</p>
+                    <div class="shop-tags">
+                        <span class="shop-tag">手機維修</span>
+                        <span class="shop-tag">電腦</span>
+                        <span class="shop-tag">換Mon</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop 9 -->
+            <div class="shop-card" data-cat="beauty" data-district="causeway-bay">
+                <div class="shop-img">💅</div>
+                <div class="shop-info">
+                    <span class="shop-cat beauty">美容美髮</span>
+                    <h3>（美甲/美睫店歡迎登記！）</h3>
+                    <div class="shop-location">📍 銅鑼灣</div>
+                    <p class="shop-desc">美甲、美睫、半永久化妝⋯⋯免費宣傳你嘅手藝！</p>
+                    <div class="shop-tags">
+                        <span class="shop-tag">美甲</span>
+                        <span class="shop-tag">美睫</span>
+                        <span class="shop-tag">半永久</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="noResult" style="display:none;text-align:center;padding:60px 0;color:var(--gray);">
+            <div style="font-size:3rem;margin-bottom:16px;">🔍</div>
+            <p style="font-size:1.1rem;">搵唔到相關店舖，試下其他關鍵字？</p>
+        </div>
+    </div>
+</section>
+
+<!-- District Browse -->
+<section class="district-section">
+    <div class="container">
+        <h2 class="section-title">按地區搵好店</h2>
+        <p class="section-subtitle">全港 18 區，總有好店喺你附近</p>
+        <div class="district-grid">
+            <a href="#" class="district-link" onclick="filterByDistrict('kwun-tong')">觀塘區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('sha-tin')">沙田區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('sham-shui-po')">深水埗區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('mong-kok')">旺角區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('tsuen-wan')">荃灣區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('yuen-long')">元朗區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('tuen-mun')">屯門區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('tai-po')">大埔區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('wong-tai-sin')">黃大仙區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('north')">北區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('sai-kung')">西貢區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('causeway-bay')">灣仔/銅鑼灣<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('central')">中西區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('eastern')">東區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('southern')">南區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('kowloon-city')">九龍城區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('islands')">離島區<span class="count">招募中</span></a>
+            <a href="#" class="district-link" onclick="filterByDistrict('yau-tsim')">油尖旺區<span class="count">招募中</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- Register CTA -->
+<section class="register-cta" id="register">
+    <div class="container">
+        <h2>免費登記你的店舖</h2>
+        <p>零成本、零門檻 — 只要你係香港合法經營嘅店舖，我哋免費幫你宣傳！</p>
+        <div class="register-benefits">
+            <span class="register-benefit">✅ 永久免費刊登</span>
+            <span class="register-benefit">✅ 專人幫你寫介紹</span>
+            <span class="register-benefit">✅ Google SEO 曝光</span>
+            <span class="register-benefit">✅ 社交媒體推廣</span>
+        </div>
+        <p style="font-size:1rem;opacity:0.9;margin-bottom:24px;">WhatsApp 傳你嘅店舖資料（店名、地址、相片、簡介），我哋幫你上架！</p>
+        <a href="https://wa.me/85252287541?text=你好，我想免費登記我的店舖！%0A%0A店舖名稱：%0A地址：%0A類別（美食/美容/維修/教育/其他）：%0A簡介：" class="btn-register">
+            💬 WhatsApp 免費登記
+        </a>
+    </div>
+</section>
+
+<!-- Broadband CTA -->
+<section class="bb-cta">
+    <div class="container">
+        <h3>店主專享：寬頻月費低至 $98</h3>
+        <p>BroadbandHK 為合作商戶提供特別寬頻優惠，高速穩定，助你營運更順暢</p>
+        <a href="index.html#plans" class="btn btn-primary btn-large">查看寬頻月費計劃</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>⚡ BroadbandHK</h4>
+                <p>香港光纖寬頻服務供應商，提供穩定可靠的家居及商業寬頻服務。月費低至 $98，免安裝費，送 Wi-Fi Router。</p>
+            </div>
+            <div class="footer-col">
+                <h4>服務計劃</h4>
+                <a href="index.html#plans">基本版 100M — $98/月</a>
+                <a href="index.html#plans">進階版 500M — $158/月</a>
+                <a href="index.html#plans">極速版 1000M — $228/月</a>
+                <a href="pages/business.html">商業寬頻</a>
+            </div>
+            <div class="footer-col">
+                <h4>實用工具</h4>
+                <a href="shops.html">商舖推薦</a>
+                <a href="blog.html">知識庫</a>
+                <a href="calculator.html">格價計算器</a>
+                <a href="moving.html">搬屋小幫手</a>
+            </div>
+            <div class="footer-col">
+                <h4>聯絡我們</h4>
+                <a href="tel:23308372">📞 2330 8372</a>
+                <a href="https://wa.me/85252287541">💬 WhatsApp</a>
+                <a href="https://www.facebook.com/profile.php?id=61578537419518" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://www.instagram.com/broadbandhk_speednet" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 BroadbandHK 寬頻格價比較. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/85252287541?text=你好，我想免費登記我的店舖！" class="wa-float" aria-label="WhatsApp 免費登記店舖" style="position:fixed;bottom:28px;right:28px;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);z-index:999;transition:transform 0.3s;">
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.064l-.438-.334-2.654.89.89-2.654-.334-.438A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+// Category filter
+function filterShops(cat) {
+    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const cards = document.querySelectorAll('.shop-card');
+    let visible = 0;
+    cards.forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+            card.style.display = 'block';
+            visible++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    document.getElementById('noResult').style.display = visible === 0 ? 'block' : 'none';
+}
+
+// Search
+function searchShops(query) {
+    const q = query.toLowerCase();
+    const cards = document.querySelectorAll('.shop-card');
+    let visible = 0;
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (!q || text.includes(q)) {
+            card.style.display = 'block';
+            visible++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    document.getElementById('noResult').style.display = visible === 0 ? 'block' : 'none';
+}
+
+// District filter
+function filterByDistrict(district) {
+    event.preventDefault();
+    const cards = document.querySelectorAll('.shop-card');
+    let visible = 0;
+    cards.forEach(card => {
+        if (card.dataset.district === district) {
+            card.style.display = 'block';
+            visible++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    document.getElementById('noResult').style.display = visible === 0 ? 'block' : 'none';
+
+    // Reset category buttons
+    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+
+    // Scroll to shops
+    document.querySelector('.shops-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+        navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.2)';
+    } else {
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+    }
+});
+</script>
+
+</body>
+</html>
