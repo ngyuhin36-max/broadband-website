@@ -268,11 +268,46 @@
     .side-log .log-bad { color: #f87171; }
     .side-log .log-info { color: #60a5fa; }
 
-    /* --- Responsive: Stack on mobile --- */
+    /* --- Responsive: Mobile --- */
     @media (max-width: 768px) {
-        .topbar-stats { gap: 4px; }
-        .ts { padding: 2px 6px; font-size: 0.65rem; }
-        .game-choices .choice-btn { min-width: 100px; font-size: 0.78rem; padding: 8px 10px; }
+        .game-layout {
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: auto;
+            min-height: calc(100vh - 42px);
+        }
+        .game-topbar { padding: 4px 8px; }
+        .topbar-stats { gap: 3px; }
+        .ts { padding: 2px 5px; font-size: 0.62rem; }
+        .ts-bar { width: 28px; }
+        .topbar-warning { padding: 2px 8px; gap: 8px; }
+        .topbar-warning span { font-size: 0.62rem; }
+        .game-main {
+            flex: none;
+            overflow-y: visible;
+            padding: 8px 12px;
+        }
+        .story-panel .story-body { padding: 10px 12px; }
+        .story-panel .text { font-size: 0.85rem; line-height: 1.6; }
+        .game-choices {
+            flex-shrink: 0;
+            padding: 6px 8px;
+            overflow-x: auto;
+        }
+        .game-choices .choices {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        .game-choices .choice-btn {
+            min-width: 110px;
+            max-width: 160px;
+            font-size: 0.75rem;
+            padding: 8px 10px;
+            flex-shrink: 0;
+        }
+        .game-choices .choice-btn .cost { font-size: 0.65rem; }
+        .game-choices .choices-title { font-size: 0.65rem; margin-bottom: 3px; }
     }
 
     /* --- Transition Overlay --- */
