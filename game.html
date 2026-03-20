@@ -164,39 +164,46 @@
         transition: width 0.5s;
     }
 
-    /* Bottom area: story left, choices right */
-    .game-bottom {
-        flex: 1;
-        display: flex;
-        overflow: hidden;
-    }
+    /* Middle: story area */
     .game-main {
         flex: 1;
         overflow-y: auto;
-        padding: 10px 16px;
+        padding: 10px 20px;
         min-width: 0;
     }
+    /* Bottom: choices horizontal */
     .game-choices {
-        width: 260px;
         flex-shrink: 0;
-        background: rgba(15,23,42,0.5);
-        border-left: 1px solid rgba(255,255,255,0.06);
-        padding: 8px 8px;
-        overflow-y: auto;
+        background: rgba(15,23,42,0.7);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding: 8px 12px;
+        overflow-x: auto;
     }
-    .game-choices .choices { animation: none; gap: 5px; }
+    .game-choices .choices {
+        animation: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
     .game-choices .choices-title {
         font-size: 0.72rem;
         color: #64748b;
         margin-bottom: 4px;
         font-weight: 700;
+        width: 100%;
     }
     .game-choices .choice-btn {
-        font-size: 0.78rem;
-        padding: 7px 10px;
+        flex: 1 1 auto;
+        min-width: 130px;
+        max-width: 220px;
+        font-size: 0.85rem;
+        padding: 10px 14px;
         line-height: 1.4;
+        text-align: center;
     }
-    .game-choices .choice-btn .cost { font-size: 0.68rem; }
+    .game-choices .choice-btn .cost { font-size: 0.72rem; }
 
     /* Single column for start/guide/end screens */
     .game-wrap {
@@ -263,16 +270,9 @@
 
     /* --- Responsive: Stack on mobile --- */
     @media (max-width: 768px) {
-        .game-bottom {
-            flex-direction: column;
-        }
-        .game-choices {
-            width: 100%;
-            border-left: none;
-            border-top: 1px solid rgba(255,255,255,0.06);
-        }
         .topbar-stats { gap: 4px; }
         .ts { padding: 2px 6px; font-size: 0.65rem; }
+        .game-choices .choice-btn { min-width: 100px; font-size: 0.78rem; padding: 8px 10px; }
     }
 
     /* --- Transition Overlay --- */
@@ -535,8 +535,8 @@
     .tag-month { background: rgba(37,99,235,0.15); color: #60a5fa; }
 
     .story-panel .text {
-        font-size: 0.88rem;
-        line-height: 1.7;
+        font-size: 0.95rem;
+        line-height: 1.8;
         color: #cbd5e1;
         white-space: pre-line;
     }
@@ -708,10 +708,8 @@
 <!-- Game layout: top stats + bottom story/choices -->
 <div class="game-layout" id="gameLayout" style="display:none;">
     <div class="game-topbar" id="topbar"></div>
-    <div class="game-bottom">
-        <div class="game-main" id="appMain"></div>
-        <div class="game-choices" id="appChoices"></div>
-    </div>
+    <div class="game-main" id="appMain"></div>
+    <div class="game-choices" id="appChoices"></div>
 </div>
 
 <script>
