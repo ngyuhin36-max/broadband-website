@@ -55,12 +55,12 @@
     .game-nav {
         background: rgba(15,23,42,0.95);
         backdrop-filter: blur(10px);
-        padding: 8px 0;
+        padding: 4px 0;
         border-bottom: 1px solid rgba(255,255,255,0.05);
         position: fixed;
         top: 0; left: 0; right: 0;
         z-index: 100;
-        height: 50px;
+        height: 42px;
     }
     .game-nav .container {
         max-width: 900px;
@@ -90,53 +90,55 @@
     }
     .sound-toggle:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
 
-    /* --- Game Layout: Three Column --- */
+    /* --- Game Layout: Three Column, No Scroll --- */
     .game-layout {
         display: flex;
-        height: calc(100vh - 50px);
-        margin-top: 50px;
+        height: calc(100vh - 42px);
+        margin-top: 42px;
         position: relative;
         z-index: 1;
+        overflow: hidden;
     }
     .game-sidebar {
-        width: 240px;
+        width: 200px;
         flex-shrink: 0;
         background: rgba(15,23,42,0.8);
         backdrop-filter: blur(10px);
         border-right: 1px solid rgba(255,255,255,0.06);
-        padding: 16px 12px;
+        padding: 8px 8px;
         overflow-y: auto;
-        height: calc(100vh - 50px);
+        height: 100%;
     }
     .game-main {
         flex: 1;
         overflow-y: auto;
-        height: calc(100vh - 50px);
-        padding: 16px 20px;
+        height: 100%;
+        padding: 10px 16px;
         min-width: 0;
     }
     .game-choices {
-        width: 280px;
+        width: 240px;
         flex-shrink: 0;
         background: rgba(15,23,42,0.6);
         backdrop-filter: blur(10px);
         border-left: 1px solid rgba(255,255,255,0.06);
-        padding: 16px 12px;
+        padding: 8px 8px;
         overflow-y: auto;
-        height: calc(100vh - 50px);
+        height: 100%;
     }
-    .game-choices .choices { animation: none; }
+    .game-choices .choices { animation: none; gap: 6px; }
     .game-choices .choices-title {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: #64748b;
-        margin-bottom: 10px;
+        margin-bottom: 6px;
         font-weight: 700;
     }
     .game-choices .choice-btn {
-        font-size: 0.88rem;
-        padding: 12px 14px;
+        font-size: 0.8rem;
+        padding: 8px 10px;
+        line-height: 1.4;
     }
-    .game-choices .choice-btn .cost { font-size: 0.75rem; }
+    .game-choices .choice-btn .cost { font-size: 0.7rem; }
 
     /* Single column for start/guide/end screens */
     .game-wrap {
@@ -147,21 +149,21 @@
         z-index: 1;
     }
 
-    /* --- Sidebar Stats --- */
+    /* --- Sidebar Stats (Compact) --- */
     .side-stat {
         background: rgba(255,255,255,0.04);
         border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 10px;
-        padding: 12px;
-        margin-bottom: 10px;
+        border-radius: 8px;
+        padding: 6px 8px;
+        margin-bottom: 5px;
     }
     .side-stat .side-label {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
         color: #64748b;
-        margin-bottom: 4px;
+        margin-bottom: 2px;
     }
     .side-stat .side-value {
-        font-size: 1.15rem;
+        font-size: 0.95rem;
         font-weight: 900;
     }
     .side-stat .side-value.money { color: #22c55e; }
@@ -170,10 +172,10 @@
     .side-stat .side-value.sales { color: #f97316; }
     .side-stat .side-value.danger { color: #ef4444; }
     .side-progress {
-        margin-top: 4px;
+        margin-top: 2px;
     }
     .side-progress .sp-bar {
-        height: 5px;
+        height: 4px;
         background: rgba(255,255,255,0.08);
         border-radius: 3px;
         overflow: hidden;
@@ -187,7 +189,7 @@
     .side-divider {
         border: none;
         border-top: 1px solid rgba(255,255,255,0.06);
-        margin: 12px 0;
+        margin: 4px 0;
     }
     .side-log {
         font-size: 0.75rem;
@@ -463,17 +465,18 @@
     .story-panel {
         background: rgba(255,255,255,0.03);
         border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 16px;
-        margin-bottom: 20px;
-        min-height: 180px;
+        border-radius: 12px;
+        margin-bottom: 10px;
         overflow: hidden;
-        animation: fadeSlideIn 0.5s ease;
+        animation: fadeSlideIn 0.4s ease;
     }
+    /* Hide scene images in gameplay to save space */
+    .game-main .scene-img { display: none; }
     @keyframes fadeSlideIn {
         0% { opacity: 0; transform: translateY(20px); }
         100% { opacity: 1; transform: translateY(0); }
     }
-    .story-panel .story-body { padding: 24px; }
+    .story-panel .story-body { padding: 12px 14px; }
     .story-panel .event-tag {
         display: inline-block;
         padding: 3px 12px;
@@ -490,8 +493,8 @@
     .tag-month { background: rgba(37,99,235,0.15); color: #60a5fa; }
 
     .story-panel .text {
-        font-size: 1rem;
-        line-height: 1.9;
+        font-size: 0.88rem;
+        line-height: 1.7;
         color: #cbd5e1;
         white-space: pre-line;
     }
@@ -518,7 +521,7 @@
         overflow: hidden;
         animation: fadeSlideIn 0.5s ease;
     }
-    .result-panel .result-body { padding: 24px; }
+    .result-panel .result-body { padding: 12px 14px; }
     .result-good { border-left: 4px solid #22c55e; }
     .result-bad { border-left: 4px solid #ef4444; }
     .result-neutral { border-left: 4px solid #60a5fa; }
@@ -534,7 +537,7 @@
     .choice-btn {
         display: block;
         width: 100%;
-        padding: 16px 20px;
+        padding: 10px 14px;
         background: rgba(255,255,255,0.04);
         border: 1px solid rgba(255,255,255,0.1);
         border-radius: 12px;
@@ -1464,10 +1467,6 @@ function renderSidebar() {
     const remaining = Math.max(0, G.target - G.salesThisMonth);
     const daysLeft = 30 - G.day;
 
-    const logHTML = G.log.slice(-6).map(l =>
-        `<div class="sl-entry ${l.cls}">${l.text}</div>`
-    ).join('');
-
     // Danger warnings
     let warnings = [];
     if (G.money < -5000) warnings.push('💀 負債嚴重！超過 -$10,000 會 Game Over');
@@ -1480,8 +1479,8 @@ function renderSidebar() {
     else if (G.failMonths >= 1) warnings.push('⚠️ 上個月未達標，要努力追返');
 
     const warningHTML = warnings.length > 0 ? `
-    <div style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:10px;margin-bottom:10px;">
-        ${warnings.map(w => `<div style="font-size:0.78rem;color:#f87171;line-height:1.6;font-weight:600;">${w}</div>`).join('')}
+    <div style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:6px 8px;margin-bottom:5px;">
+        ${warnings.map(w => `<div style="font-size:0.7rem;color:#f87171;line-height:1.5;font-weight:600;">${w}</div>`).join('')}
     </div>` : '';
 
     return `
@@ -1554,12 +1553,7 @@ function renderSidebar() {
         <div class="side-label">👔 職級</div>
         <div style="font-size:0.85rem;font-weight:700;color:${G.rank>=2?'#fbbf24':G.rank>=1?'#22c55e':'#94a3b8'};">${['初級銷售','高級銷售顧問','銷售主管'][G.rank]}</div>
     </div>
-    ${G.streak > 0 ? `<div class="side-stat"><div class="side-label">🔥 連續達標</div><div style="font-size:0.9rem;font-weight:700;color:#f97316;">${G.streak} 個月</div></div>` : ''}
-    <hr class="side-divider">
-    <div class="side-stat" style="background:none;border:none;padding:4px 0;">
-        <div class="side-label">📝 最近記錄</div>
-    </div>
-    <div class="side-log">${logHTML || '<div class="sl-entry log-info">新旅程開始！💪</div>'}</div>`;
+    ${G.streak > 0 ? `<div class="side-stat"><div class="side-label">🔥 連續達標</div><div style="font-size:0.85rem;font-weight:700;color:#f97316;">${G.streak} 個月</div></div>` : ''}`;
 }
 
 function renderStart() {
