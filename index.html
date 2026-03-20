@@ -265,6 +265,41 @@
     .logo { color: #fff !important; font-size: 1.4rem; }
     .nav-links a { color: #cbd5e1 !important; font-size: 0.95rem; }
     .nav-links a:hover { color: #60a5fa !important; }
+
+    /* --- Dropdown Menu --- */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { cursor: pointer; }
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        padding: 8px 0;
+        min-width: 180px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        z-index: 1001;
+        margin-top: 8px;
+    }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a {
+        display: block !important;
+        padding: 10px 20px !important;
+        color: #cbd5e1 !important;
+        text-decoration: none;
+        font-size: 0.9rem !important;
+        transition: background 0.2s;
+        white-space: nowrap;
+    }
+    .dropdown-menu a:hover {
+        background: rgba(255,255,255,0.08) !important;
+        color: #fff !important;
+    }
+
     .btn-small {
         background: linear-gradient(135deg, #22c55e, #16a34a) !important;
         border-radius: 24px !important;
@@ -994,12 +1029,17 @@
         <ul class="nav-links">
             <li><a href="#plans">月費計劃</a></li>
             <li><a href="calculator.html" style="color:#ff6b35 !important;font-weight:700;">格價計算器</a></li>
-            <li><a href="#features">服務特色</a></li>
+            <li class="nav-dropdown">
+                <a href="#">實用工具 ▾</a>
+                <div class="dropdown-menu">
+                    <a href="speed-test.html">📶 速度測試</a>
+                    <a href="moving.html">🏠 搬屋小幫手</a>
+                    <a href="blog.html">📖 知識庫</a>
+                    <a href="#features">⭐ 服務特色</a>
+                </div>
+            </li>
             <li><a href="shops.html" style="color:#ef4444 !important;font-weight:700;">商舖推薦</a></li>
-            <li><a href="blog.html">知識庫</a></li>
-            <li><a href="speed-test.html">速度測試</a></li>
-            <li><a href="moving.html" style="color:#10b981 !important;font-weight:700;">搬屋小幫手</a></li>
-            <li><a href="partner.html" style="color:#f59e0b !important;font-weight:700;">合作夥伴</a></li>
+            <li><a href="partner.html">合作夥伴</a></li>
             <li><a href="#contact">聯絡我們</a></li>
         </ul>
         <a href="https://wa.me/85252287541" class="btn btn-small">WhatsApp 查詢</a>
