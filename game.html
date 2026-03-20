@@ -1467,7 +1467,22 @@ function renderSidebar() {
         `<div class="sl-entry ${l.cls}">${l.text}</div>`
     ).join('');
 
+    // Danger warnings
+    let warnings = [];
+    if (G.money < -5000) warnings.push('💀 負債嚴重！超過 -$10,000 會 Game Over');
+    else if (G.money < 0) warnings.push('⚠️ 已經負債！小心開支');
+    if (G.mood <= 15) warnings.push('💀 心情瀕臨崩潰！跌到 0 會 Game Over');
+    else if (G.mood <= 30) warnings.push('⚠️ 心情好差，記得休息或社交');
+    if (G.failMonths >= 2) warnings.push('💀 已連續 2 個月未達標！再多 1 個月會被炒');
+    else if (G.failMonths >= 1) warnings.push('⚠️ 上個月未達標，要努力追返');
+
+    const warningHTML = warnings.length > 0 ? `
+    <div style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:10px;margin-bottom:10px;">
+        ${warnings.map(w => `<div style="font-size:0.78rem;color:#f87171;line-height:1.6;font-weight:600;">${w}</div>`).join('')}
+    </div>` : '';
+
     return `
+    ${warningHTML}
     <div class="side-stat">
         <div class="side-label">📅 日期</div>
         <div class="side-value date">第${year}年 ${monthInYear}月 · 第${G.day}日</div>
@@ -1480,9 +1495,13 @@ function renderSidebar() {
         <div style="font-size:0.75rem;color:#64748b;margin-top:4px;">${Math.round(progress)}% · 仲有 ${36 - G.month + 1} 個月</div>
     </div>
     <hr class="side-divider">
-    <div class="side-stat">
-        <div class="side-label">💰 儲蓄</div>
-        <div class="side-value ${G.money < 0 ? 'danger' : 'money'}">$${G.money.toLocaleString()}</div>
+    <div class="side-stat" ${G.money < -5000 ? 'style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);"' : ''}>
+        <div class="side-label">💰 儲蓄 ${G.money < -5000 ? '<span style="color:#f87171;">· 危險</span>' : G.money < 0 ? '<span style="color:#f97316;">· 負債</span>' : ''}</div>
+        <div class="side-value ${G.money < -5000 ? 'danger' : G.money < 0 ? 'danger' : 'money'}">$${G.money.toLocaleString()}</div>
+        <div class="side-progress">
+            <div class="sp-bar"><div class="sp-fill" style="width:${Math.max(0, Math.min(100, (G.money + 10000) / 200 * 100))}%;background:${G.money<-5000?'#ef4444':G.money<0?'#f97316':'#22c55e'};"></div></div>
+        </div>
+        <div style="font-size:0.68rem;color:#64748b;margin-top:2px;">Game Over: -$10,000</div>
     </div>
     <div class="side-stat">
         <div class="side-label">📋 本月簽單</div>
@@ -1492,20 +1511,26 @@ function renderSidebar() {
             <div class="sp-bar"><div class="sp-fill" style="width:${Math.min(100, G.salesThisMonth/G.target*100)}%;background:${G.salesThisMonth>=G.target?'#22c55e':'#f97316'};"></div></div>
         </div>
     </div>
+    <div class="side-stat" ${G.failMonths >= 2 ? 'style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);"' : ''}>
+        <div class="side-label">📉 未達標月數 ${G.failMonths >= 2 ? '<span style="color:#f87171;">· 危險</span>' : ''}</div>
+        <div style="font-size:0.9rem;font-weight:700;color:${G.failMonths>=2?'#ef4444':G.failMonths>=1?'#f97316':'#22c55e'};">${G.failMonths} / 3</div>
+        <div style="font-size:0.68rem;color:#64748b;margin-top:2px;">連續 3 個月未達標 = 被炒</div>
+    </div>
     <hr class="side-divider">
-    <div class="side-stat">
-        <div class="side-label">⚡ 精力</div>
+    <div class="side-stat" ${G.energy <= 20 ? 'style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);"' : ''}>
+        <div class="side-label">⚡ 精力 ${G.energy <= 20 ? '<span style="color:#f87171;">· 低</span>' : ''}</div>
         <div class="side-progress">
             <div class="sp-bar"><div class="sp-fill ${energyColor(G.energy)}" style="width:${G.energy}%"></div></div>
         </div>
-        <div style="font-size:0.75rem;color:#64748b;margin-top:2px;">${G.energy}%</div>
+        <div style="font-size:0.75rem;color:#64748b;margin-top:2px;">${G.energy}%${G.energy <= 10 ? ' — 必須休息' : ''}</div>
     </div>
-    <div class="side-stat">
-        <div class="side-label">😊 心情</div>
+    <div class="side-stat" ${G.mood <= 20 ? 'style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);"' : ''}>
+        <div class="side-label">😊 心情 ${G.mood <= 15 ? '<span style="color:#f87171;">· 瀕危</span>' : G.mood <= 30 ? '<span style="color:#f97316;">· 低落</span>' : ''}</div>
         <div class="side-value mood">${moodEmoji(G.mood)} ${G.mood}</div>
         <div class="side-progress">
-            <div class="sp-bar"><div class="sp-fill" style="width:${G.mood}%;background:${G.mood>50?'#fbbf24':'#ef4444'};"></div></div>
+            <div class="sp-bar"><div class="sp-fill" style="width:${G.mood}%;background:${G.mood<=15?'#ef4444':G.mood<=30?'#f97316':G.mood>50?'#fbbf24':'#f97316'};"></div></div>
         </div>
+        <div style="font-size:0.68rem;color:#64748b;margin-top:2px;">Game Over: 0</div>
     </div>
     <div class="side-stat">
         <div class="side-label">🎯 技能 / ⭐ 口碑</div>
