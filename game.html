@@ -980,14 +980,14 @@ const WORK_CHOICES = [
     },
     {
         text: '😴 休息一日',
-        desc: '精力 +50 | 心情 +10',
+        desc: '精力回滿 | 心情 +10 | 壓力 -15',
         scene: 'rest',
         isRest: true,
         action: (g) => {
-            g.energy = Math.min(100, g.energy + 50);
+            g.energy = 100;
             g.mood = Math.min(100, g.mood + 10);
             g.stress = Math.max(0, g.stress - 15);
-            return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精神好返好多，壓力都減輕咗！', good: true };
+            return { text: '今日瞓到自然醒，出去飲杯咖啡，行下公園。\n\n望住藍天白雲，你同自己講：「休息係為咗走更遠嘅路。」\n\n精力回滿，壓力都減輕咗！', good: true };
         }
     },
     // --- 需要技能解鎖 ---
@@ -1638,7 +1638,7 @@ function renderGuide() {
                 <div class="guide-item">
                     <span class="gi-icon">😴</span>
                     <span class="gi-title">休息一日</span><br>
-                    <span class="gi-desc">回復精力 +35 同心情 +10，精力太低會被迫休息</span>
+                    <span class="gi-desc">精力回滿、心情 +10、壓力 -15，精力太低會被迫休息</span>
                 </div>
             </div>
         </div>
