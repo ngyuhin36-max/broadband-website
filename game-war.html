@@ -877,9 +877,9 @@ const DISTRICTS = [
 const MAP_ROWS = [[0,1,2],[3,4,5],[6,7,8],[9,10,11],[12,13,14],[15,16,17]];
 
 const COMPANY_DATA = [
-    { name: '鋼鐵巨頭', money: 1500, troops: 40, tech: 1, recruitCost: 200, startDistricts: [0, 1, 3] },
-    { name: '光速先鋒', money: 1000, troops: 30, tech: 3, recruitCost: 180, startDistricts: [2, 5, 8] },
-    { name: '靈活游擊', money: 1200, troops: 30, tech: 2, recruitCost: 120, startDistricts: [15, 16, 17] },
+    { name: '鋼鐵巨頭', money: 1800, troops: 45, tech: 2, recruitCost: 180, startDistricts: [0, 1, 3] },
+    { name: '光速先鋒', money: 1000, troops: 30, tech: 3, recruitCost: 200, startDistricts: [2, 5, 8] },
+    { name: '靈活游擊', money: 1200, troops: 35, tech: 2, recruitCost: 120, startDistricts: [15, 16, 17] },
 ];
 
 const GENERAL_POOL = [
@@ -1420,16 +1420,16 @@ function doAttack(districtId) {
     // Enhanced win rate calculation — generals and tech matter A LOT
     let winRate = Math.round((playerPower / (d.troops + d.defense + 10)) * 30 + G.tech * 8);
 
-    // No generals = severe penalty
+    // No generals = penalty
     if (G.generals.length === 0) {
-        winRate = Math.floor(winRate * 0.5); // 50% penalty without generals
+        winRate = Math.floor(winRate * 0.7); // 30% penalty without generals
     } else {
         winRate += getAtkBonus(); // General attack bonuses
     }
 
-    // Low tech = cap on win rate
-    if (G.tech <= 1) winRate = Math.min(winRate, 55); // Tech 1: max 55%
-    else if (G.tech <= 2) winRate = Math.min(winRate, 70); // Tech 2: max 70%
+    // Low tech = soft cap on win rate
+    if (G.tech <= 1) winRate = Math.min(winRate, 65); // Tech 1: max 65%
+    else if (G.tech <= 2) winRate = Math.min(winRate, 80); // Tech 2: max 80%
 
     if (d.owner === 'neutral') winRate += getNeutralAtkBonus(); // Neutral bonus
     winRate = Math.round(winRate * getMasterBonus()); // 陳sir master bonus
@@ -1458,7 +1458,7 @@ function doAttack(districtId) {
 
     // Attack costs troops from nearby owned districts (can't spam attack without consequence)
     const nearbyOwned = playerDistricts().filter(pd => DISTRICTS[pd.id].adj.includes(districtId));
-    const troopCost = 8 + Math.floor(Math.random() * 5);
+    const troopCost = 5 + Math.floor(Math.random() * 4);
     if (nearbyOwned.length > 0) {
         nearbyOwned[0].troops = Math.max(5, nearbyOwned[0].troops - troopCost);
     } else {
@@ -1471,8 +1471,8 @@ function doAttack(districtId) {
         G.totalWins++;
         const oldOwner = d.owner;
         d.owner = 'player';
-        d.troops = 15 + Math.floor(Math.random() * 8);
-        d.defense = 0; // New territory has no defense!
+        d.troops = 20 + Math.floor(Math.random() * 10);
+        d.defense = 3; // New territory has basic defense
 
         let genText = gen ? '\n\n' + gen.name + '帶住銷售團隊衝鋒陷陣，用超低月費吸引住戶轉台。' : '\n\n你嘅銷售團隊全力出擊。';
         let resultText = oldOwner === 'neutral'
@@ -1754,9 +1754,9 @@ function enemyTurn() {
         // Enemy gets income
         enemy.money += eDists.reduce((s, d) => s + d.income, 0) / 10;
 
-        // AI gets smarter over time — prioritize attacking weak player districts
+        // AI gets smarter over time
         const roll = Math.random();
-        const aggressiveness = 0.35 + G.month * 0.01; // Gets more aggressive each month
+        const aggressiveness = 0.25 + G.month * 0.005; // Moderate aggression
 
         if (roll < aggressiveness) {
             // Attack — prioritize weak player districts
@@ -1777,26 +1777,26 @@ function enemyTurn() {
                 });
                 const tgt = sortedTargets[0];
                 const d = G.districts[tgt];
-                const attackPower = eDists.reduce((s, dd) => s + dd.troops, 0) * 0.3 + enemy.tech * 12;
-                const defPower = d.troops + d.defense;
-                if (Math.random() < (attackPower / (attackPower + defPower + 10))) {
+                const attackPower = eDists.reduce((s, dd) => s + dd.troops, 0) * 0.2 + enemy.tech * 8;
+                const defPower = d.troops + d.defense + 15;
+                if (Math.random() < (attackPower / (attackPower + defPower + 20))) {
                     d.owner = tag;
                     d.troops = 15 + Math.floor(Math.random() * 10);
                     d.defense = 5;
                 }
             }
-        } else if (roll < aggressiveness + 0.2) {
-            // Reinforce — stronger
+        } else if (roll < aggressiveness + 0.25) {
+            // Reinforce
             eDists.forEach(d => {
-                d.troops += 3 + Math.floor(G.month / 8);
-                d.defense += 2;
+                d.troops += 2 + Math.floor(G.month / 12);
+                d.defense += 1;
             });
-        } else if (roll < aggressiveness + 0.35) {
-            // Recruit — stronger
-            eDists.forEach(d => d.troops += 4 + Math.floor(G.month / 6));
+        } else if (roll < aggressiveness + 0.4) {
+            // Recruit
+            eDists.forEach(d => d.troops += 2 + Math.floor(G.month / 10));
         } else {
-            // Tech — faster
-            enemy.tech += 0.8;
+            // Tech
+            enemy.tech += 0.5;
         }
     });
 }
@@ -1832,15 +1832,15 @@ function nextMonth() {
     // Enemy turn
     enemyTurn();
 
-    // ENEMY COUNTER-ATTACK: enemies target player's weakest district
+    // ENEMY COUNTER-ATTACK: enemies target player's weakest district (less frequent)
     let lostDistrict = '';
-    const vulnerableDistricts = playerDistricts().filter(d => d.defense < 8 && d.troops < 20);
-    if (vulnerableDistricts.length > 0 && Math.random() < 0.4 + (G.month * 0.01)) {
+    const vulnerableDistricts = playerDistricts().filter(d => d.defense < 5 && d.troops < 12);
+    if (vulnerableDistricts.length > 0 && Math.random() < 0.15 + (G.month * 0.005)) {
         // Enemy attacks weakest player district
         const weakest = vulnerableDistricts.reduce((a, b) => (a.defense + a.troops) < (b.defense + b.troops) ? a : b);
         const attackerTag = countDistricts('enemy1') >= countDistricts('enemy2') ? 'enemy1' : 'enemy2';
         const attackerName = attackerTag === 'enemy1' ? G.enemies[0].name : G.enemies[1].name;
-        const attackPower = Math.random() * 60 + G.month * 1.5;
+        const attackPower = Math.random() * 30 + G.month * 1;
         const defPower = weakest.defense + weakest.troops;
 
         if (attackPower > defPower) {
