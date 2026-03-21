@@ -216,7 +216,7 @@ class Fighter {
     this.x = x; this.y = 420; this.groundY = 420;
     this.name = name; this.color = color; this.isAI = isAI;
     this.width = 60; this.height = 110;
-    this.hp = 100; this.maxHp = 100;
+    this.hp = 200; this.maxHp = 200;
     this.special = 0; this.maxSpecial = 100;
     this.vx = 0; this.vy = 0;
     this.facing = isAI ? -1 : 1;
@@ -254,11 +254,11 @@ class Fighter {
   }
   getAttackBox() {
     if (this.state === 'punch' && this.stateTimer >= 4 && this.stateTimer <= 10)
-      return { x: this.x + this.facing * 30, y: this.y + 15, w: 45, h: 25, dmg: 8, type: 'punch' };
+      return { x: this.x + this.facing * 30, y: this.y + 15, w: 45, h: 25, dmg: 5, type: 'punch' };
     if (this.state === 'kick' && this.stateTimer >= 6 && this.stateTimer <= 14)
-      return { x: this.x + this.facing * 25, y: this.y + 50, w: 55, h: 30, dmg: 12, type: 'kick' };
+      return { x: this.x + this.facing * 25, y: this.y + 50, w: 55, h: 30, dmg: 8, type: 'kick' };
     if (this.state === 'special' && this.stateTimer >= 12 && this.stateTimer <= 16)
-      return { x: this.x + this.facing * 20, y: this.y, w: 120, h: 80, dmg: 30, type: 'special' };
+      return { x: this.x + this.facing * 20, y: this.y, w: 120, h: 80, dmg: 45, type: 'special' };
     return null;
   }
 
@@ -266,8 +266,8 @@ class Fighter {
     this.aiTimer++;
     let dist = Math.abs(this.x - opponent.x);
 
-    // Decide new action every 30-50 frames
-    if (this.aiTimer > 30 + Math.random() * 20) {
+    // Decide new action every 20-35 frames
+    if (this.aiTimer > 20 + Math.random() * 15) {
       this.aiTimer = 0;
       let r = Math.random();
 
@@ -283,8 +283,8 @@ class Fighter {
         if (r < 0.85) { this.aiAction = 'kick'; return; }
       }
 
-      // Dash behind player occasionally
-      if (this.dashCooldown <= 0 && dist < 150 && r < 0.1 && this.y >= this.groundY) {
+      // Dash behind player more often
+      if (this.dashCooldown <= 0 && dist < 180 && r < 0.18 && this.y >= this.groundY) {
         this.dashBehind(opponent);
         this.aiAction = 'punch';
         return;
@@ -292,9 +292,9 @@ class Fighter {
 
       if (dist < 80) {
         // Close range - aggressive attacks
-        if (this.special >= 50 && r < 0.25) this.aiAction = 'special';
-        else if (r < 0.45) this.aiAction = 'punch';
-        else if (r < 0.7) this.aiAction = 'kick';
+        if (this.special >= 50 && r < 0.35) this.aiAction = 'special';
+        else if (r < 0.5) this.aiAction = 'punch';
+        else if (r < 0.75) this.aiAction = 'kick';
         else if (r < 0.8) this.aiAction = 'block';
         else this.aiAction = 'back';
       } else if (dist < 180) {
@@ -415,7 +415,7 @@ class Fighter {
     if (this.x < 40) this.x = 40;
     if (this.x > 860) this.x = 860;
     if (this.y < this.groundY) this.state = 'jump';
-    if (this.special < this.maxSpecial) this.special += 0.05;
+    if (this.special < this.maxSpecial) this.special += (this.isAI ? 0.12 : 0.05);
     // Dash cooldown
     if (this.dashCooldown > 0) this.dashCooldown--;
     // Dash trails fade
