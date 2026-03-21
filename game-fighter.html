@@ -390,10 +390,9 @@ class Fighter {
       else if (keys['d']) { this.vx = speed; this.state = 'walk'; }
       if (keys['w'] && this.y >= this.groundY) { this.vy = -16; this.state = 'jump'; }
       if (this.y < this.groundY) this.state = 'jump';
-      if (keys['j'] && !this._jDown && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
-      if (keys['k'] && !this._kDown && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
-      if (keys['l'] && !this._lDown && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
-      this._jDown = keys['j']; this._kDown = keys['k']; this._lDown = keys['l'];
+      if (keys['j'] && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+      if (keys['k'] && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+      if (keys['l'] && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
     }
 
     this.x += this.vx;
