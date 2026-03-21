@@ -217,11 +217,45 @@
         <h2>遊戲玩法</h2>
         <p>按 <span class="key">SPACE</span> 開始遊戲。你扮演寬頻英雄，對抗令全港斷線的斷線魔皇！用光纖拳腳攻擊，打中會增加必殺技能量。能量充滿一半就能發射「光纖衝擊波」！先贏 2 回合就守護全港網絡成功！</p>
     </div>
+    <div id="share-bar" style="max-width:900px;width:100%;margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+        <a id="share-wa" onclick="shareGame('wa')" style="cursor:pointer;padding:10px 18px;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;">WhatsApp 分享</a>
+        <a id="share-fb" onclick="shareGame('fb')" style="cursor:pointer;padding:10px 18px;background:#1877F2;color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;">Facebook 分享</a>
+        <a id="share-copy" onclick="shareGame('copy')" style="cursor:pointer;padding:10px 18px;background:#555;color:#fff;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;">複製連結</a>
+    </div>
+    <div id="share-score" style="display:none;max-width:900px;width:100%;margin-top:8px;padding:12px;background:rgba(0,170,255,0.1);border:1px solid rgba(0,170,255,0.3);border-radius:8px;text-align:center;color:#0af;font-size:14px;"></div>
 </div>
 
 <script>
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
+
+// Share functions
+const GAME_URL = 'https://broadbandhk.com/game-fighter.html';
+function shareGame(platform, scoreText) {
+  let text = scoreText || '我喺度玩寬頻英雄大戰斷線魔皇！你敢挑戰嗎？';
+  let url = GAME_URL;
+  switch(platform) {
+    case 'wa':
+      window.open('https://wa.me/?text=' + encodeURIComponent(text + '\n' + url), '_blank'); break;
+    case 'fb':
+      window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(text), '_blank'); break;
+    case 'copy':
+      navigator.clipboard.writeText(text + '\n' + url).then(() => {
+        let el = document.getElementById('share-score');
+        el.style.display = 'block'; el.textContent = '已複製！可以貼去群組分享';
+        setTimeout(() => el.style.display = 'none', 3000);
+      }); break;
+  }
+}
+function showShareScore(score, hp, combo) {
+  let text = `我用寬頻英雄打敗斷線魔皇！分數: ${score.toLocaleString()} (剩餘血量${hp}%, 最高${combo}連擊)！你打得贏我嗎？`;
+  let el = document.getElementById('share-score');
+  el.style.display = 'block';
+  el.innerHTML = '恭喜勝利！分享你的成績：<br>' +
+    '<a onclick="shareGame(\'wa\',\'' + text.replace(/'/g,"\\'") + '\')" style="cursor:pointer;color:#25D366;font-weight:700;margin:0 8px">WhatsApp</a>' +
+    '<a onclick="shareGame(\'fb\',\'' + text.replace(/'/g,"\\'") + '\')" style="cursor:pointer;color:#1877F2;font-weight:700;margin:0 8px">Facebook</a>' +
+    '<a onclick="shareGame(\'copy\',\'' + text.replace(/'/g,"\\'") + '\')" style="cursor:pointer;color:#aaa;font-weight:700;margin:0 8px">複製</a>';
+}
 
 let playerName = localStorage.getItem('fighter_player_name') || '';
 let gameState = 'title';
@@ -1452,6 +1486,7 @@ function showVictoryScreen() {
     score = p1.hp * 100 + maxCombo * 500 + Math.max(0, (300 - matchTime)) * 10 + totalDamageDealt * 5;
     saveScore(playerName || '寬頻英雄', score, p1.hp, maxCombo, matchTime);
     submitGlobalScore(playerName || '寬頻英雄', p1.hp, maxCombo, matchTime, totalDamageDealt, score);
+    showShareScore(score, p1.hp, maxCombo);
   }
   // Store for drawing
   window._victoryData = { playerWon, score, hp: p1.hp, combo: maxCombo, time: matchTime, dmg: totalDamageDealt };
