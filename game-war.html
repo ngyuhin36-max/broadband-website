@@ -141,6 +141,7 @@
     .ts-val.c-green { color: #22c55e; }
     .ts-val.c-yellow { color: #fbbf24; }
     .ts-val.c-purple { color: #a78bfa; }
+    .ts-val.c-orange { color: #f97316; }
 
     /* Main story area */
     .game-main {
@@ -215,6 +216,11 @@
         font-size: 0.65rem;
         color: #fbbf24;
     }
+    .choice-btn.disabled {
+        opacity: 0.35;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
 
     /* Wrap for start/end screens */
     .game-wrap {
@@ -256,6 +262,8 @@
     .tag-month { background: rgba(167,139,250,0.15); color: #c084fc; }
     .tag-defense { background: rgba(37,99,235,0.15); color: #60a5fa; }
     .tag-research { background: rgba(168,85,247,0.15); color: #c084fc; }
+    .tag-good { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .tag-crisis { background: rgba(239,68,68,0.15); color: #f87171; }
 
     .story-panel .text {
         font-size: 0.95rem;
@@ -1186,7 +1194,8 @@ function showChoices(title, choices) {
     let html = '<div class="choices-title">' + title + '</div>';
     choices.forEach((c, i) => {
         const hlClass = c.highlight ? ' highlight' : '';
-        html += '<button class="choice-btn' + hlClass + '" onclick="handleChoice(' + i + ')">';
+        const disClass = c.disabled ? ' disabled' : '';
+        html += '<button class="choice-btn' + hlClass + disClass + '" onclick="handleChoice(' + i + ')">';
         html += c.label;
         if (c.cost) html += '<span class="cost">' + c.cost + '</span>';
         html += '</button>';
@@ -1246,7 +1255,7 @@ function showMonthStart() {
     G.phase = 'action';
 
     // Check game end
-    if (G.month > G.maxMonths || G.money < 0 || countDistricts('player') >= 12) {
+    if (G.month > G.maxMonths || G.money < -500 || countDistricts('player') >= 12) {
         endGame();
         return;
     }
@@ -1324,6 +1333,7 @@ function showActionMenu() {
             label: c.label,
             cost: c.cost,
             highlight: c.highlight,
+            disabled: c.disabled,
         })));
     });
 }
@@ -1511,7 +1521,7 @@ function doRecruit() {
     if (available.length === 0) {
         showStory('scene-recruit', '👥', '招募', 'tag-recruit',
             '「老闆，市場上已經冇人才俾我哋請喇...」\n\n所有武將都已經喺你麾下，你嘅團隊已經係最強嘅！',
-            () => { G.money += G.recruitCost; showEndTurnBtn(); }
+            () => { G.money += actualCost; showEndTurnBtn(); }
         );
         return;
     }
@@ -1714,6 +1724,10 @@ function showRandomEvent(callback) {
     if (evt.defBonus) playerDistricts().forEach(d => d.defense += evt.defBonus);
     if (evt.loseGeneral && G.generals.length > 0) {
         G.generals.pop();
+    }
+    if (evt.incomeReduction) {
+        const reduction = Math.round(G.monthIncome * (1 - evt.incomeReduction));
+        G.money -= reduction;
     }
 
     showStory('scene-event', '📰', '突發事件', 'tag-event', evt.text, () => {
