@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>寬頻三國志 | 18區爭霸戰 — BroadbandHK</title>
-    <meta name="description" content="寬頻三國志 — 三間寬頻公司爭奪香港18區！選擇你嘅公司，招募武將，攻城掠地，統一香港寬頻市場！">
+    <meta name="description" content="寬頻三國志 — 三間寬頻公司爭奪香港18區！選擇你嘅公司，招募武將，攻城掠地，統一香港寬頻市場！文字冒險策略遊戲，即玩挑戰！">
     <meta property="og:title" content="寬頻三國志 | 18區爭霸戰">
     <meta property="og:description" content="三間寬頻公司爭奪香港18區！你能統一寬頻市場嗎？即玩挑戰！">
     <meta property="og:type" content="website">
@@ -71,7 +71,7 @@
         height: 42px;
     }
     .game-nav .container {
-        max-width: 1200px;
+        max-width: 900px;
         margin: 0 auto;
         padding: 0 20px;
         display: flex;
@@ -98,52 +98,313 @@
     }
     .sound-toggle:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
 
-    /* Main layout */
-    .game-container {
+    /* Layout */
+    .game-layout {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 42px);
         margin-top: 42px;
         position: relative;
         z-index: 1;
-        min-height: calc(100vh - 42px);
+        overflow: hidden;
     }
+
+    /* Top bar */
+    .game-topbar {
+        flex-shrink: 0;
+        background: rgba(15,23,42,0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 6px 12px;
+    }
+    .topbar-stats {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .ts {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 6px;
+        padding: 3px 8px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+    .ts-label { color: #64748b; }
+    .ts-val { font-weight: 800; }
+    .ts-val.c-blue { color: #60a5fa; }
+    .ts-val.c-green { color: #22c55e; }
+    .ts-val.c-yellow { color: #fbbf24; }
+    .ts-val.c-purple { color: #a78bfa; }
+
+    /* Main story area */
+    .game-main {
+        flex: 1;
+        overflow-y: auto;
+        padding: 10px 20px;
+        min-width: 0;
+    }
+    .game-main-inner {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* Bottom choices */
+    .game-choices {
+        flex-shrink: 0;
+        background: rgba(15,23,42,0.7);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding: 8px 12px;
+    }
+    .choices {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .choices-title {
+        font-size: 0.72rem;
+        color: #64748b;
+        margin-bottom: 4px;
+        font-weight: 700;
+        width: 100%;
+        text-align: center;
+    }
+    .choice-btn {
+        flex: 1 1 auto;
+        min-width: 120px;
+        max-width: 220px;
+        padding: 10px 14px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 10px;
+        color: #e2e8f0;
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: center;
+        line-height: 1.4;
+    }
+    .choice-btn:hover {
+        background: rgba(96,165,250,0.12);
+        border-color: rgba(96,165,250,0.4);
+        transform: translateY(-2px);
+    }
+    .choice-btn .cost {
+        font-size: 0.7rem;
+        color: #94a3b8;
+        display: block;
+        margin-top: 2px;
+    }
+    .choice-btn.highlight {
+        border-color: rgba(251,191,36,0.5);
+        background: rgba(251,191,36,0.08);
+    }
+    .choice-btn.highlight::after {
+        content: ' 推薦';
+        font-size: 0.65rem;
+        color: #fbbf24;
+    }
+
+    /* Wrap for start/end screens */
+    .game-wrap {
+        max-width: 700px;
+        margin: 80px auto 40px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Story panel */
+    .story-panel {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        animation: fadeSlideIn 0.4s ease;
+    }
+    @keyframes fadeSlideIn {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .story-panel .story-body {
+        padding: 16px 18px;
+    }
+    .story-panel .event-tag {
+        display: inline-block;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+    .tag-battle { background: rgba(239,68,68,0.15); color: #f87171; }
+    .tag-recruit { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .tag-build { background: rgba(96,165,250,0.15); color: #60a5fa; }
+    .tag-event { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    .tag-month { background: rgba(167,139,250,0.15); color: #c084fc; }
+    .tag-defense { background: rgba(37,99,235,0.15); color: #60a5fa; }
+    .tag-research { background: rgba(168,85,247,0.15); color: #c084fc; }
+
+    .story-panel .text {
+        font-size: 0.95rem;
+        line-height: 1.9;
+        color: #cbd5e1;
+        white-space: pre-line;
+    }
+    .story-panel .text .highlight { color: #fbbf24; font-weight: 700; }
+    .story-panel .text .good { color: #4ade80; font-weight: 700; }
+    .story-panel .text .bad { color: #f87171; font-weight: 700; }
+
+    /* Typewriter cursor */
+    .typewriter-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1.1em;
+        background: #60a5fa;
+        margin-left: 2px;
+        animation: blink 0.7s infinite;
+        vertical-align: text-bottom;
+    }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* Map grid (display only) */
+    .map-panel {
+        background: rgba(15,23,42,0.5);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 12px;
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+    .map-title {
+        font-size: 0.78rem;
+        color: #64748b;
+        margin-bottom: 8px;
+        font-weight: 700;
+        text-align: center;
+    }
+    .map-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+    .map-row {
+        display: flex;
+        gap: 3px;
+        justify-content: center;
+    }
+    .district {
+        flex: 1;
+        max-width: 100px;
+        min-width: 50px;
+        padding: 4px 3px;
+        border-radius: 6px;
+        text-align: center;
+        border: 1px solid transparent;
+        font-size: 0.6rem;
+        font-weight: 700;
+        transition: all 0.3s;
+    }
+    .district .d-name { font-size: 0.62rem; font-weight: 900; }
+    .district .d-troops { font-size: 0.55rem; opacity: 0.7; }
+    .district.owner-player { background: rgba(96,165,250,0.3); border-color: rgba(96,165,250,0.5); color: #93c5fd; }
+    .district.owner-enemy1 { background: rgba(239,68,68,0.25); border-color: rgba(239,68,68,0.4); color: #fca5a5; }
+    .district.owner-enemy2 { background: rgba(34,197,94,0.25); border-color: rgba(34,197,94,0.4); color: #86efac; }
+    .district.owner-neutral { background: rgba(71,85,105,0.25); border-color: rgba(71,85,105,0.4); color: #94a3b8; }
+
+    /* Scene image */
+    .scene-img {
+        width: 100%;
+        height: 140px;
+        border-radius: 12px 12px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        position: relative;
+        overflow: hidden;
+    }
+    .scene-img .scene-overlay {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 50px;
+        background: linear-gradient(transparent, rgba(10,14,26,0.95));
+    }
+    .scene-battle { background: linear-gradient(135deg, #7f1d1d, #dc2626, #f87171); }
+    .scene-recruit { background: linear-gradient(135deg, #064e3b, #059669, #34d399); }
+    .scene-build { background: linear-gradient(135deg, #1e3a5f, #2563eb, #60a5fa); }
+    .scene-event { background: linear-gradient(135deg, #4a1d96, #7c3aed, #c084fc); }
+    .scene-defense { background: linear-gradient(135deg, #1e1b4b, #3730a3, #6366f1); }
+    .scene-research { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); }
+    .scene-month { background: linear-gradient(135deg, #1e3a5f, #2d6a9f, #f59e0b 120%); }
+    .scene-end { background: linear-gradient(135deg, #fbbf24, #f59e0b, #ef4444); }
 
     /* Start screen */
-    .screen {
-        display: none;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    .screen.active { display: block; }
-
-    .start-title {
+    .start-screen {
         text-align: center;
-        margin: 40px 0 20px;
+        padding: 40px 20px;
     }
-    .start-title h1 {
-        font-size: 2.8rem;
+    .start-screen h1 {
+        font-size: 3rem;
         font-weight: 900;
+        margin-bottom: 8px;
         background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        margin-bottom: 8px;
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
     }
-    .start-title p {
-        color: #64748b;
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    .start-screen .subtitle {
         font-size: 1.1rem;
+        color: #94a3b8;
+        margin-bottom: 28px;
+    }
+    .start-screen .story {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 28px;
+        text-align: left;
+        line-height: 2.2;
+        color: #cbd5e1;
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+    .start-screen .story em {
+        color: #fbbf24;
+        font-style: normal;
+        font-weight: 700;
     }
 
+    /* Company cards */
     .company-select {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        margin: 30px 0;
+        gap: 14px;
+        margin: 24px 0;
     }
     .company-card {
         background: rgba(255,255,255,0.04);
         border: 2px solid rgba(255,255,255,0.08);
         border-radius: 16px;
-        padding: 24px 18px;
+        padding: 20px 14px;
         cursor: pointer;
         transition: all 0.3s;
         text-align: center;
@@ -158,386 +419,54 @@
         background: rgba(96,165,250,0.1);
         box-shadow: 0 0 30px rgba(96,165,250,0.2);
     }
-    .company-card .icon { font-size: 3rem; margin-bottom: 12px; }
-    .company-card h3 { font-size: 1.2rem; font-weight: 900; margin-bottom: 4px; }
-    .company-card .type { color: #60a5fa; font-size: 0.85rem; margin-bottom: 10px; }
-    .company-card .desc { color: #94a3b8; font-size: 0.8rem; line-height: 1.6; }
-    .company-card .stats-preview {
-        margin-top: 12px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4px;
-        font-size: 0.75rem;
+    .company-card .icon { font-size: 2.5rem; margin-bottom: 10px; }
+    .company-card h3 { font-size: 1.1rem; font-weight: 900; margin-bottom: 4px; }
+    .company-card .type { color: #60a5fa; font-size: 0.8rem; margin-bottom: 8px; }
+    .company-card .quote {
+        color: #94a3b8;
+        font-size: 0.78rem;
+        line-height: 1.6;
+        font-style: italic;
+        margin-bottom: 10px;
     }
-    .company-card .sp-item {
-        background: rgba(255,255,255,0.04);
-        border-radius: 6px;
-        padding: 4px 8px;
-    }
-    .company-card .sp-label { color: #64748b; }
-    .company-card .sp-val { color: #e2e8f0; font-weight: 700; }
+    .company-card .desc { color: #64748b; font-size: 0.72rem; }
 
     .start-btn {
-        display: block;
-        width: 280px;
-        margin: 20px auto;
-        padding: 16px;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        display: inline-block;
+        padding: 14px 44px;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
         color: #fff;
         border: none;
         border-radius: 12px;
-        font-size: 1.2rem;
-        font-weight: 900;
-        font-family: inherit;
+        font-size: 1.15rem;
+        font-weight: 700;
         cursor: pointer;
         transition: all 0.3s;
+        font-family: inherit;
+        margin: 6px;
     }
-    .start-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(59,130,246,0.4); }
+    .start-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+    }
     .start-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
-    /* Game screen layout */
-    #game-screen {
-        max-width: 1200px;
-        padding: 10px;
-    }
-
-    .topbar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        padding: 8px 12px;
-        background: rgba(15,23,42,0.85);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 12px;
-        margin-bottom: 10px;
-        align-items: center;
-    }
-    .tb-item {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 6px;
-        padding: 4px 10px;
-        font-size: 0.78rem;
-        white-space: nowrap;
-    }
-    .tb-label { color: #64748b; }
-    .tb-val { font-weight: 800; }
-    .tb-val.blue { color: #60a5fa; }
-    .tb-val.green { color: #22c55e; }
-    .tb-val.yellow { color: #fbbf24; }
-    .tb-val.red { color: #ef4444; }
-    .tb-val.purple { color: #a78bfa; }
-
-    .game-body {
-        display: grid;
-        grid-template-columns: 1fr 300px;
-        gap: 10px;
-    }
-
-    /* Map */
-    .map-panel {
-        background: rgba(15,23,42,0.6);
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 12px;
-        padding: 12px;
-    }
-    .map-title {
-        font-size: 0.8rem;
-        color: #64748b;
-        margin-bottom: 8px;
-        font-weight: 700;
-    }
-    .map-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-    .map-row {
-        display: flex;
-        gap: 6px;
-        justify-content: center;
-    }
-    .district {
-        flex: 1;
-        max-width: 140px;
-        min-width: 80px;
-        padding: 8px 6px;
-        border-radius: 10px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.3s;
-        border: 2px solid transparent;
-        position: relative;
-    }
-    .district:hover {
-        transform: scale(1.05);
-        z-index: 5;
-    }
-    .district.selected {
-        border-color: #fbbf24 !important;
-        box-shadow: 0 0 20px rgba(251,191,36,0.3);
-    }
-    .district.target-highlight {
-        animation: pulseTarget 1s infinite;
-    }
-    @keyframes pulseTarget {
-        0%, 100% { box-shadow: 0 0 5px rgba(251,191,36,0.3); }
-        50% { box-shadow: 0 0 20px rgba(251,191,36,0.6); }
-    }
-    .district .d-name { font-size: 0.8rem; font-weight: 900; }
-    .district .d-info { font-size: 0.6rem; color: rgba(255,255,255,0.7); margin-top: 2px; }
-    .district .d-garrison { font-size: 0.6rem; margin-top: 2px; }
-    .district.owner-player { background: rgba(96,165,250,0.25); border-color: rgba(96,165,250,0.4); }
-    .district.owner-enemy1 { background: rgba(239,68,68,0.25); border-color: rgba(239,68,68,0.4); }
-    .district.owner-enemy2 { background: rgba(34,197,94,0.25); border-color: rgba(34,197,94,0.4); }
-    .district.owner-neutral { background: rgba(71,85,105,0.25); border-color: rgba(71,85,105,0.4); }
-
-    /* Actions bar */
-    .actions-bar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-top: 10px;
-    }
-    .action-btn {
-        flex: 1;
-        min-width: 100px;
-        padding: 10px 8px;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 10px;
-        color: #e2e8f0;
-        font-family: inherit;
-        font-size: 0.78rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.3s;
-        text-align: center;
-    }
-    .action-btn:hover:not(:disabled) {
-        background: rgba(96,165,250,0.1);
-        border-color: rgba(96,165,250,0.4);
-        transform: translateY(-2px);
-    }
-    .action-btn:disabled {
-        opacity: 0.35;
-        cursor: not-allowed;
-    }
-    .action-btn .a-icon { font-size: 1.2rem; display: block; margin-bottom: 4px; }
-    .action-btn.active {
-        border-color: #60a5fa;
-        background: rgba(96,165,250,0.15);
-    }
-
-    .end-turn-btn {
-        width: 100%;
-        margin-top: 8px;
-        padding: 12px;
-        background: linear-gradient(135deg, #f59e0b, #ef4444);
-        border: none;
-        border-radius: 10px;
-        color: #fff;
-        font-family: inherit;
-        font-size: 1rem;
-        font-weight: 900;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    .end-turn-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(245,158,11,0.3); }
-
-    /* Sidebar */
-    .sidebar {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-    .side-panel {
-        background: rgba(15,23,42,0.6);
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 12px;
-        padding: 10px;
-    }
-    .side-panel h3 {
-        font-size: 0.8rem;
-        color: #64748b;
-        margin-bottom: 8px;
-        font-weight: 700;
-    }
-
-    /* Generals list */
-    .general-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 8px;
+    /* Tutorial guide */
+    .guide-section {
         background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.05);
-        border-radius: 8px;
-        margin-bottom: 4px;
-        font-size: 0.75rem;
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-    .general-item:hover { background: rgba(96,165,250,0.08); }
-    .general-item.selected-general { border-color: #fbbf24; background: rgba(251,191,36,0.1); }
-    .general-item .g-name { font-weight: 900; color: #e2e8f0; flex-shrink: 0; }
-    .general-item .g-stats { color: #94a3b8; font-size: 0.65rem; }
-    .general-item .g-location { color: #60a5fa; font-size: 0.6rem; margin-left: auto; }
-
-    /* Event log */
-    .log-area {
-        max-height: 200px;
-        overflow-y: auto;
-        font-size: 0.72rem;
-        line-height: 1.7;
-    }
-    .log-entry {
-        padding: 3px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.03);
-    }
-    .log-good { color: #4ade80; }
-    .log-bad { color: #f87171; }
-    .log-info { color: #60a5fa; }
-    .log-event { color: #fbbf24; }
-    .log-battle { color: #a78bfa; }
-
-    /* District detail */
-    .detail-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 3px 0;
-        font-size: 0.75rem;
-        border-bottom: 1px solid rgba(255,255,255,0.03);
-    }
-    .detail-label { color: #64748b; }
-    .detail-val { font-weight: 700; }
-
-    /* Modal */
-    .modal-overlay {
-        display: none;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0,0,0,0.7);
-        backdrop-filter: blur(5px);
-        z-index: 200;
-        justify-content: center;
-        align-items: center;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal {
-        background: #0f172a;
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
         padding: 24px;
-        max-width: 500px;
-        width: 90%;
-        max-height: 80vh;
-        overflow-y: auto;
-        animation: modalIn 0.3s ease;
+        margin-bottom: 16px;
+        text-align: left;
+        line-height: 2;
+        color: #cbd5e1;
+        font-size: 0.95rem;
     }
-    @keyframes modalIn {
-        from { transform: scale(0.9); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
-    .modal h2 {
-        font-size: 1.3rem;
-        font-weight: 900;
+    .guide-section h3 {
+        font-size: 1.1rem;
         margin-bottom: 12px;
-        text-align: center;
-    }
-    .modal p {
-        font-size: 0.85rem;
-        color: #94a3b8;
-        line-height: 1.6;
-        margin-bottom: 8px;
-    }
-    .modal-btns {
-        display: flex;
-        gap: 8px;
-        margin-top: 16px;
-        flex-wrap: wrap;
-    }
-    .modal-btn {
-        flex: 1;
-        min-width: 100px;
-        padding: 10px;
-        border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.1);
-        background: rgba(255,255,255,0.04);
-        color: #e2e8f0;
-        font-family: inherit;
-        font-size: 0.85rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-    .modal-btn:hover { background: rgba(96,165,250,0.15); }
-    .modal-btn.primary {
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        border: none;
-        color: #fff;
-    }
-    .modal-btn.danger {
-        background: linear-gradient(135deg, #ef4444, #dc2626);
-        border: none;
-        color: #fff;
-    }
-
-    /* Battle narration */
-    .battle-text {
-        background: rgba(167,139,250,0.08);
-        border: 1px solid rgba(167,139,250,0.2);
-        border-radius: 10px;
-        padding: 16px;
-        margin: 10px 0;
-        font-size: 0.85rem;
-        line-height: 1.8;
-        color: #c4b5fd;
-    }
-    .battle-text .b-highlight { color: #fbbf24; font-weight: 900; }
-    .battle-text .b-win { color: #4ade80; font-weight: 900; }
-    .battle-text .b-lose { color: #f87171; font-weight: 900; }
-
-    /* Recruit card */
-    .recruit-card {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 12px;
-        padding: 16px;
-        margin: 8px 0;
-        text-align: center;
-    }
-    .recruit-card .rc-name { font-size: 1.4rem; font-weight: 900; color: #fbbf24; margin-bottom: 8px; }
-    .recruit-card .rc-title { font-size: 0.8rem; color: #a78bfa; margin-bottom: 12px; }
-    .recruit-card .rc-stats {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-    }
-    .recruit-card .rc-stat {
-        background: rgba(255,255,255,0.04);
-        border-radius: 8px;
-        padding: 8px 4px;
-    }
-    .recruit-card .rc-stat-label { font-size: 0.65rem; color: #64748b; }
-    .recruit-card .rc-stat-val { font-size: 1.1rem; font-weight: 900; }
-
-    /* Number input */
-    .num-input {
-        width: 80px;
-        padding: 6px 10px;
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 8px;
-        color: #e2e8f0;
-        font-family: inherit;
-        font-size: 0.9rem;
-        font-weight: 700;
-        text-align: center;
+        color: #60a5fa;
     }
 
     /* End screen */
@@ -554,31 +483,42 @@
         background-clip: text;
     }
     .end-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 900;
         margin: 12px 0;
     }
+    .end-story {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: left;
+        line-height: 2;
+        color: #cbd5e1;
+        font-size: 0.95rem;
+        margin: 16px 0;
+    }
     .end-stats {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 10px;
-        margin: 20px 0;
+        margin: 16px 0;
     }
     .end-stat {
         background: rgba(255,255,255,0.04);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 12px;
-        padding: 14px;
+        padding: 12px;
     }
-    .end-stat .es-label { font-size: 0.75rem; color: #64748b; }
-    .end-stat .es-val { font-size: 1.5rem; font-weight: 900; color: #60a5fa; }
+    .end-stat .es-label { font-size: 0.72rem; color: #64748b; }
+    .end-stat .es-val { font-size: 1.3rem; font-weight: 900; color: #60a5fa; }
 
     .share-btns {
         display: flex;
         gap: 10px;
         justify-content: center;
         flex-wrap: wrap;
-        margin: 20px 0;
+        margin: 16px 0;
     }
     .share-btn {
         padding: 10px 20px;
@@ -610,11 +550,20 @@
     }
 
     /* Leaderboard */
+    .lb-section {
+        margin-top: 20px;
+        text-align: left;
+    }
+    .lb-section h3 {
+        font-size: 1rem;
+        color: #64748b;
+        margin-bottom: 8px;
+        text-align: center;
+    }
     .lb-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 0.8rem;
-        margin-top: 12px;
+        font-size: 0.78rem;
     }
     .lb-table th {
         color: #64748b;
@@ -628,60 +577,93 @@
         border-bottom: 1px solid rgba(255,255,255,0.04);
     }
 
+    /* Transition overlay */
+    .transition-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: #0a0e1a;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s;
+    }
+    .transition-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    .transition-overlay .trans-icon { font-size: 4rem; margin-bottom: 16px; animation: pulse 1s infinite; }
+    .transition-overlay .trans-text { font-size: 1.3rem; color: #94a3b8; }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+    /* Monthly summary */
+    .summary-box {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 10px;
+    }
+    .summary-box h3 {
+        font-size: 1rem;
+        color: #60a5fa;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 0;
+        font-size: 0.85rem;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .summary-row .sr-label { color: #94a3b8; }
+    .summary-row .sr-val { font-weight: 700; }
+
     /* Scrollbar */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
 
-    /* Sidebar collapse for mobile */
-    .sidebar-toggle {
-        display: none;
-        width: 100%;
-        padding: 10px;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 10px;
-        color: #94a3b8;
-        font-family: inherit;
-        font-size: 0.85rem;
-        font-weight: 700;
-        cursor: pointer;
-        margin-top: 8px;
-    }
-
-    /* Event banner */
-    .event-banner {
-        background: rgba(251,191,36,0.1);
-        border: 1px solid rgba(251,191,36,0.3);
-        border-radius: 10px;
-        padding: 10px 14px;
-        margin: 8px 0;
-        font-size: 0.82rem;
-        color: #fbbf24;
-        font-weight: 700;
-        animation: eventFlash 0.5s ease;
-    }
-    @keyframes eventFlash {
-        0% { opacity: 0; transform: translateY(-10px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
+        .game-layout {
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: auto;
+            min-height: calc(100vh - 42px);
+        }
+        .game-topbar { padding: 4px 8px; }
+        .topbar-stats { gap: 3px; }
+        .ts { padding: 2px 5px; font-size: 0.62rem; }
+        .game-main {
+            flex: none;
+            overflow-y: visible;
+            padding: 8px 12px;
+        }
+        .game-choices {
+            flex-shrink: 0;
+            padding: 6px 8px;
+        }
+        .choices { flex-wrap: wrap; }
+        .choice-btn {
+            min-width: 90px;
+            max-width: none;
+            flex: 1 1 28%;
+            font-size: 0.75rem;
+            padding: 8px 8px;
+        }
+        .choice-btn .cost { font-size: 0.62rem; }
         .company-select { grid-template-columns: 1fr; }
-        .game-body { grid-template-columns: 1fr; }
-        .sidebar-toggle { display: block; }
-        .sidebar.collapsed { display: none; }
-        .district { min-width: 60px; padding: 6px 4px; }
-        .district .d-name { font-size: 0.68rem; }
-        .district .d-info, .district .d-garrison { font-size: 0.55rem; }
-        .topbar { padding: 6px 8px; gap: 4px; }
-        .tb-item { padding: 3px 6px; font-size: 0.65rem; }
-        .action-btn { min-width: 70px; font-size: 0.68rem; padding: 8px 4px; }
-        .action-btn .a-icon { font-size: 1rem; }
-        .start-title h1 { font-size: 2rem; }
-        .modal { padding: 16px; }
-        .recruit-card .rc-stats { grid-template-columns: repeat(2, 1fr); }
+        .start-screen h1 { font-size: 2rem; }
+        .start-screen .story { padding: 18px; font-size: 0.9rem; }
+        .district { min-width: 40px; padding: 3px 2px; }
+        .district .d-name { font-size: 0.52rem; }
+        .district .d-troops { font-size: 0.48rem; }
+        .scene-img { height: 100px; font-size: 3rem; }
     }
     </style>
 </head>
@@ -699,1471 +681,926 @@
     </div>
 </nav>
 
-<div class="game-container">
-    <!-- START SCREEN -->
-    <div class="screen active" id="start-screen">
-        <div class="start-title">
-            <h1>⚔️ 寬頻三國志</h1>
-            <p>香港18區爭霸戰 — 選擇你嘅公司，統一寬頻市場！</p>
+<div class="transition-overlay" id="transOverlay">
+    <div class="trans-icon" id="transIcon">⚔️</div>
+    <div class="trans-text" id="transText">載入中...</div>
+</div>
+
+<!-- START SCREEN -->
+<div id="start-screen" class="game-wrap">
+    <div class="start-screen">
+        <h1>寬頻三國志</h1>
+        <p class="subtitle">香港18區爭霸戰</p>
+
+        <div class="story" id="introStory">
+            2026年，香港寬頻市場風起雲湧...
+
+三間寬頻公司為咗爭奪全港18區嘅市場份額，展開咗一場前所未有嘅商業大戰。
+
+你，係其中一間公司嘅<em>新任CEO</em>。
+董事會俾咗你<em>36個月</em>時間，
+目標只有一個：<em>稱霸香港寬頻市場</em>。
+
+你準備好未？
         </div>
+
+        <h3 style="color:#64748b;margin-bottom:16px;">選擇你嘅公司：</h3>
 
         <div class="company-select" id="companySelect">
-            <div class="company-card" onclick="selectCompany('A')" data-company="A">
+            <div class="company-card" onclick="selectCompany(0)">
                 <div class="icon">🏢</div>
                 <h3>寬頻公司A</h3>
-                <div class="type">資金雄厚型（曹魏）</div>
-                <div class="desc">資金充裕，月費收入高，但技術一般。靠錢砸贏對手！</div>
-                <div class="stats-preview">
-                    <div class="sp-item"><span class="sp-label">💰 起始資金</span><br><span class="sp-val">$8,000萬</span></div>
-                    <div class="sp-item"><span class="sp-label">🔧 技術等級</span><br><span class="sp-val">Lv.2</span></div>
-                    <div class="sp-item"><span class="sp-label">📍 起始地區</span><br><span class="sp-val">油尖旺、九龍城</span></div>
-                    <div class="sp-item"><span class="sp-label">👥 起始兵力</span><br><span class="sp-val">120人</span></div>
-                </div>
+                <div class="type">「鋼鐵巨頭」</div>
+                <div class="quote">"我哋有嘅係錢。市場上面，錢就係最大嘅武器。"</div>
+                <div class="desc">💰 資金最多 | ⚔️ 兵力最強</div>
             </div>
-            <div class="company-card" onclick="selectCompany('B')" data-company="B">
+            <div class="company-card" onclick="selectCompany(1)">
                 <div class="icon">🚀</div>
                 <h3>寬頻公司B</h3>
-                <div class="type">技術領先型（蜀漢）</div>
-                <div class="desc">技術最強，客戶滿意度高，但資金較少。以質取勝！</div>
-                <div class="stats-preview">
-                    <div class="sp-item"><span class="sp-label">💰 起始資金</span><br><span class="sp-val">$5,000萬</span></div>
-                    <div class="sp-item"><span class="sp-label">🔧 技術等級</span><br><span class="sp-val">Lv.4</span></div>
-                    <div class="sp-item"><span class="sp-label">📍 起始地區</span><br><span class="sp-val">灣仔、東區</span></div>
-                    <div class="sp-item"><span class="sp-label">👥 起始兵力</span><br><span class="sp-val">80人</span></div>
-                </div>
+                <div class="type">「光速先鋒」</div>
+                <div class="quote">"技術先行，以質取勝。客戶體驗就係我哋嘅護城河。"</div>
+                <div class="desc">🔧 技術最高 | 🌟 口碑好</div>
             </div>
-            <div class="company-card" onclick="selectCompany('C')" data-company="C">
-                <div class="icon">🤝</div>
+            <div class="company-card" onclick="selectCompany(2)">
+                <div class="icon">🦊</div>
                 <h3>寬頻公司C</h3>
-                <div class="type">均衡外交型（東吳）</div>
-                <div class="desc">各項平均，外交能力強，招募費低。靈活應變！</div>
-                <div class="stats-preview">
-                    <div class="sp-item"><span class="sp-label">💰 起始資金</span><br><span class="sp-val">$6,500萬</span></div>
-                    <div class="sp-item"><span class="sp-label">🔧 技術等級</span><br><span class="sp-val">Lv.3</span></div>
-                    <div class="sp-item"><span class="sp-label">📍 起始地區</span><br><span class="sp-val">沙田、大埔</span></div>
-                    <div class="sp-item"><span class="sp-label">👥 起始兵力</span><br><span class="sp-val">100人</span></div>
-                </div>
+                <div class="type">「靈活游擊」</div>
+                <div class="quote">"唔使最強，只要最聰明。外交同招募就係我哋嘅強項。"</div>
+                <div class="desc">⚖️ 均衡型 | 👥 招募便宜</div>
             </div>
         </div>
 
-        <button class="start-btn" id="startBtn" onclick="startGame()" disabled>選擇公司後開始遊戲</button>
-
-        <div style="text-align:center;margin-top:20px;">
-            <p style="color:#475569;font-size:0.8rem;">遊戲時長：36個月（回合制） | 目標：控制12個或以上地區</p>
-        </div>
+        <button class="start-btn" id="startBtn" disabled onclick="startGame()">⚔️ 開始爭霸</button>
     </div>
-
-    <!-- GAME SCREEN -->
-    <div class="screen" id="game-screen">
-        <div class="topbar" id="topbar"></div>
-
-        <div id="eventBanner"></div>
-
-        <div class="game-body">
-            <div class="left-panel">
-                <div class="map-panel">
-                    <div class="map-title">📍 香港18區地圖 <span id="mapInstruction" style="color:#fbbf24;font-size:0.7rem;"></span></div>
-                    <div class="map-grid" id="mapGrid"></div>
-                </div>
-                <div class="actions-bar" id="actionsBar"></div>
-                <button class="end-turn-btn" id="endTurnBtn" onclick="endTurn()">⏭️ 結束回合</button>
-            </div>
-
-            <div>
-                <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">📋 展開詳情面板</button>
-                <div class="sidebar" id="sidebar">
-                    <div class="side-panel">
-                        <h3>📋 地區詳情</h3>
-                        <div id="districtDetail"><span style="color:#475569;font-size:0.75rem;">點擊地圖上嘅地區查看詳情</span></div>
-                    </div>
-                    <div class="side-panel">
-                        <h3>⚔️ 我方武將</h3>
-                        <div id="generalsList"><span style="color:#475569;font-size:0.75rem;">未有武將</span></div>
-                    </div>
-                    <div class="side-panel">
-                        <h3>📜 事件記錄</h3>
-                        <div class="log-area" id="logArea"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- END SCREEN -->
-    <div class="screen" id="end-screen"></div>
 </div>
 
-<!-- Modal -->
-<div class="modal-overlay" id="modal">
-    <div class="modal" id="modalContent"></div>
+<!-- TUTORIAL SCREEN -->
+<div id="tutorial-screen" class="game-wrap" style="display:none;">
+    <div class="start-screen">
+        <h1 style="font-size:2rem;">📖 遊戲說明</h1>
+        <div class="guide-section" id="tutorialContent">
+            你嘅目標係喺<em style="color:#fbbf24;font-style:normal;font-weight:700;">36個月</em>內，控制香港18區中嘅<em style="color:#fbbf24;font-style:normal;font-weight:700;">12區或以上</em>。
+
+每個月你可以做<em style="color:#fbbf24;font-style:normal;font-weight:700;">一個行動</em>：
+📍 <strong>進攻</strong> — 攻佔相鄰嘅地區
+🛡️ <strong>防守</strong> — 加強現有地區嘅防禦
+👥 <strong>招募</strong> — 請新嘅銷售武將
+🔧 <strong>建設</strong> — 提升地區收入
+📊 <strong>研發</strong> — 升級公司技術
+
+每月自動收取地區收入，支付人員薪水。
+控制越多地區 = 越多收入 = 越強大！
+
+<strong style="color:#60a5fa;">準備好就開始！</strong>
+        </div>
+        <button class="start-btn" onclick="startGameplay()">▶️ 開始第一個月</button>
+    </div>
 </div>
+
+<!-- GAME SCREEN -->
+<div id="game-screen" style="display:none;">
+    <div class="game-layout">
+        <div class="game-topbar">
+            <div class="topbar-stats" id="topbar">
+                <div class="ts"><span class="ts-label">📅</span><span class="ts-val c-blue" id="tb-month">第1月</span></div>
+                <div class="ts"><span class="ts-label">💰</span><span class="ts-val c-green" id="tb-money">$1000萬</span></div>
+                <div class="ts"><span class="ts-label">🔧</span><span class="ts-val c-purple" id="tb-tech">Lv.1</span></div>
+                <div class="ts"><span class="ts-label">📍</span><span class="ts-val c-yellow" id="tb-districts">3/18</span></div>
+                <div class="ts"><span class="ts-label">👥</span><span class="ts-val c-blue" id="tb-generals">0人</span></div>
+            </div>
+        </div>
+        <div class="game-main">
+            <div class="game-main-inner" id="storyArea"></div>
+        </div>
+        <div class="game-choices" id="choicesArea" style="display:none;">
+            <div class="choices" id="choicesBtns"></div>
+        </div>
+    </div>
+</div>
+
+<!-- END SCREEN -->
+<div id="end-screen" class="game-wrap" style="display:none;"></div>
 
 <script>
-// ============== SOUND ==============
+// ========== AUDIO ==========
 let soundOn = true;
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let audioCtx;
-function initAudio() { if (!audioCtx) audioCtx = new AudioCtx(); }
-function toggleSound() {
-    soundOn = !soundOn;
-    document.getElementById('soundBtn').textContent = soundOn ? '🔊 音效' : '🔇 靜音';
+function getCtx() {
+    if (!audioCtx) audioCtx = new AudioCtx();
+    return audioCtx;
 }
 function playTone(freq, dur, type='square', vol=0.08) {
     if (!soundOn) return;
     try {
-        initAudio();
-        const o = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        o.type = type;
-        o.frequency.value = freq;
-        g.gain.value = vol;
-        g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
-        o.connect(g); g.connect(audioCtx.destination);
-        o.start(); o.stop(audioCtx.currentTime + dur);
+        const ctx = getCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.value = freq;
+        gain.gain.value = vol;
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + dur);
     } catch(e) {}
 }
-function sfxClick() { playTone(800, 0.1, 'square', 0.05); }
-function sfxBattle() { playTone(200, 0.3, 'sawtooth', 0.06); setTimeout(()=>playTone(400,0.2,'square',0.05),150); setTimeout(()=>playTone(600,0.15,'square',0.04),300); }
-function sfxWin() { playTone(523,0.15,'square',0.06); setTimeout(()=>playTone(659,0.15,'square',0.06),150); setTimeout(()=>playTone(784,0.3,'square',0.06),300); }
-function sfxLose() { playTone(400,0.2,'sawtooth',0.06); setTimeout(()=>playTone(300,0.3,'sawtooth',0.06),200); }
-function sfxEvent() { playTone(600,0.1,'triangle',0.05); setTimeout(()=>playTone(800,0.15,'triangle',0.05),100); }
-function sfxRecruit() { playTone(440,0.1,'square',0.05); setTimeout(()=>playTone(660,0.1,'square',0.05),100); setTimeout(()=>playTone(880,0.2,'square',0.05),200); }
+function sfxClick() { playTone(800, 0.08, 'square', 0.06); }
+function sfxWin() { playTone(523, 0.15); setTimeout(()=>playTone(659, 0.15), 100); setTimeout(()=>playTone(784, 0.2), 200); }
+function sfxLose() { playTone(400, 0.15); setTimeout(()=>playTone(300, 0.2), 120); }
+function sfxRecruit() { playTone(600, 0.1); setTimeout(()=>playTone(900, 0.15), 80); }
+function sfxBuild() { playTone(500, 0.1); setTimeout(()=>playTone(700, 0.12), 100); }
+function sfxEvent() { playTone(440, 0.1, 'sine'); setTimeout(()=>playTone(660, 0.1, 'sine'), 80); setTimeout(()=>playTone(880, 0.12, 'sine'), 160); }
+function toggleSound() {
+    soundOn = !soundOn;
+    document.getElementById('soundBtn').textContent = soundOn ? '🔊 音效' : '🔇 靜音';
+}
 
-// ============== PARTICLES ==============
-(function() {
+// ========== PARTICLES ==========
+(function initParticles() {
     const c = document.getElementById('particles');
     for (let i = 0; i < 30; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
-        const sz = Math.random() * 4 + 2;
-        p.style.width = sz + 'px';
-        p.style.height = sz + 'px';
+        const s = Math.random() * 4 + 2;
+        p.style.width = s + 'px';
+        p.style.height = s + 'px';
         p.style.left = Math.random() * 100 + '%';
-        p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+        p.style.animationDuration = (Math.random() * 10 + 8) + 's';
         p.style.animationDelay = (Math.random() * 10) + 's';
         c.appendChild(p);
     }
 })();
 
-// ============== GAME DATA ==============
-const DISTRICTS_LAYOUT = [
-    ['yuenlong','tuenmun','tsuenwan','kwaitsing','islands'],
-    ['north','taipo','shatin','saikung'],
-    ['shamshuipo','yautsimmong','kowlooncity','wongtaisin','kwuntong'],
-    ['centralwestern','wanchai','eastern','southern']
+// ========== GAME DATA ==========
+const DISTRICTS = [
+    // Row 0
+    { id: 0, name: '屯門', adj: [1, 3] },
+    { id: 1, name: '元朗', adj: [0, 2, 4] },
+    { id: 2, name: '北區', adj: [1, 5] },
+    // Row 1
+    { id: 3, name: '荃灣', adj: [0, 4, 6, 7] },
+    { id: 4, name: '大埔', adj: [1, 3, 5, 7, 8] },
+    { id: 5, name: '西貢', adj: [2, 4, 8] },
+    // Row 2
+    { id: 6, name: '葵青', adj: [3, 7, 9, 10] },
+    { id: 7, name: '沙田', adj: [3, 4, 6, 8, 10, 11] },
+    { id: 8, name: '將軍澳', adj: [5, 7, 11] },
+    // Row 3
+    { id: 9, name: '深水埗', adj: [6, 10, 12, 13] },
+    { id: 10, name: '九龍城', adj: [6, 7, 9, 11, 13, 14] },
+    { id: 11, name: '觀塘', adj: [7, 8, 10, 14] },
+    // Row 4
+    { id: 12, name: '中西區', adj: [9, 13, 15] },
+    { id: 13, name: '油尖旺', adj: [9, 10, 12, 14, 15, 16] },
+    { id: 14, name: '黃大仙', adj: [10, 11, 13, 16] },
+    // Row 5
+    { id: 15, name: '灣仔', adj: [12, 13, 16, 17] },
+    { id: 16, name: '東區', adj: [13, 14, 15, 17] },
+    { id: 17, name: '南區', adj: [15, 16] },
 ];
+const MAP_ROWS = [[0,1,2],[3,4,5],[6,7,8],[9,10,11],[12,13,14],[15,16,17]];
 
-const DISTRICT_DATA = {
-    yuenlong:       { name:'元朗', pop:65, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    tuenmun:        { name:'屯門', pop:50, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    tsuenwan:       { name:'荃灣', pop:30, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    kwaitsing:      { name:'葵青', pop:52, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    islands:        { name:'離島', pop:18, infra:1, defense:2, owner:null, garrison:10, generals:[] },
-    north:          { name:'北區', pop:31, infra:1, defense:2, owner:null, garrison:15, generals:[] },
-    taipo:          { name:'大埔', pop:30, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    shatin:         { name:'沙田', pop:69, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    saikung:        { name:'西貢', pop:47, infra:1, defense:2, owner:null, garrison:15, generals:[] },
-    shamshuipo:     { name:'深水埗', pop:41, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    yautsimmong:    { name:'油尖旺', pop:34, infra:2, defense:4, owner:null, garrison:25, generals:[] },
-    kowlooncity:    { name:'九龍城', pop:42, infra:2, defense:4, owner:null, garrison:25, generals:[] },
-    wongtaisin:     { name:'黃大仙', pop:43, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    kwuntong:       { name:'觀塘', pop:66, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    centralwestern: { name:'中西區', pop:24, infra:2, defense:4, owner:null, garrison:25, generals:[] },
-    wanchai:        { name:'灣仔', pop:18, infra:2, defense:4, owner:null, garrison:25, generals:[] },
-    eastern:        { name:'東區', pop:56, infra:1, defense:3, owner:null, garrison:20, generals:[] },
-    southern:       { name:'南區', pop:27, infra:1, defense:2, owner:null, garrison:15, generals:[] }
-};
-
-// Adjacency map
-const ADJACENCY = {
-    yuenlong: ['tuenmun','tsuenwan','north'],
-    tuenmun: ['yuenlong','tsuenwan','islands'],
-    tsuenwan: ['yuenlong','tuenmun','kwaitsing','shamshuipo'],
-    kwaitsing: ['tsuenwan','shamshuipo','islands'],
-    islands: ['tuenmun','kwaitsing','southern'],
-    north: ['yuenlong','taipo'],
-    taipo: ['north','shatin'],
-    shatin: ['taipo','saikung','wongtaisin'],
-    saikung: ['shatin','kwuntong'],
-    shamshuipo: ['tsuenwan','kwaitsing','yautsimmong'],
-    yautsimmong: ['shamshuipo','kowlooncity'],
-    kowlooncity: ['yautsimmong','wongtaisin','wanchai'],
-    wongtaisin: ['shatin','kowlooncity','kwuntong'],
-    kwuntong: ['saikung','wongtaisin'],
-    centralwestern: ['wanchai','southern'],
-    wanchai: ['kowlooncity','centralwestern','eastern'],
-    eastern: ['wanchai','southern'],
-    southern: ['centralwestern','eastern','islands']
-};
+const COMPANY_DATA = [
+    { name: '鋼鐵巨頭', money: 1500, troops: 40, tech: 1, recruitCost: 200, startDistricts: [0, 1, 3] },
+    { name: '光速先鋒', money: 1000, troops: 30, tech: 3, recruitCost: 180, startDistricts: [2, 5, 8] },
+    { name: '靈活游擊', money: 1200, troops: 30, tech: 2, recruitCost: 120, startDistricts: [15, 16, 17] },
+];
 
 const GENERAL_POOL = [
-    { name:'光纖王', title:'光纖安裝達人', base:{atk:85,def:50,strat:60,charm:70} },
-    { name:'Router達人', title:'路由器專家', base:{atk:60,def:80,strat:75,charm:55} },
-    { name:'WiFi俠', title:'無線網絡英雄', base:{atk:70,def:65,strat:80,charm:60} },
-    { name:'簽單王', title:'業績之王', base:{atk:90,def:40,strat:55,charm:85} },
-    { name:'客服女王', title:'客戶服務專家', base:{atk:45,def:75,strat:70,charm:90} },
-    { name:'網絡大師', title:'網絡工程師', base:{atk:65,def:70,strat:90,charm:50} },
-    { name:'速度狂人', title:'極速安裝王', base:{atk:80,def:55,strat:65,charm:60} },
-    { name:'覆蓋達人', title:'覆蓋範圍專家', base:{atk:55,def:85,strat:60,charm:65} },
-    { name:'拉線王', title:'拉線安裝達人', base:{atk:75,def:60,strat:50,charm:70} },
-    { name:'月費殺手', title:'低價搶客專家', base:{atk:85,def:45,strat:75,charm:80} },
-    { name:'寬頻軍師', title:'戰略規劃師', base:{atk:50,def:55,strat:95,charm:65} },
-    { name:'5G先鋒', title:'5G技術先驅', base:{atk:70,def:60,strat:85,charm:70} },
-    { name:'銅線剋星', title:'光纖升級專員', base:{atk:80,def:50,strat:65,charm:75} },
-    { name:'客戶獵人', title:'新客開拓王', base:{atk:90,def:35,strat:50,charm:90} },
-    { name:'技術宅神', title:'後台維護之神', base:{atk:40,def:90,strat:85,charm:40} },
-    { name:'社區外交官', title:'屋苑關係達人', base:{atk:55,def:65,strat:70,charm:95} }
+    { name: 'WiFi俠', atk: 85, def: 50, wis: 60, salary: 30, title: '銷售之神' },
+    { name: '光纖王', atk: 60, def: 70, wis: 85, salary: 35, title: '安裝達人' },
+    { name: '數據姐', atk: 70, def: 65, wis: 80, salary: 28, title: '數據分析師' },
+    { name: '地推哥', atk: 90, def: 40, wis: 50, salary: 25, title: '街頭銷售王' },
+    { name: '客服花', atk: 45, def: 85, wis: 70, salary: 22, title: '客戶關係專家' },
+    { name: '工程佬', atk: 55, def: 80, wis: 75, salary: 32, title: '網絡工程師' },
+    { name: '阿明', atk: 75, def: 55, wis: 65, salary: 20, title: '新人Sales' },
+    { name: '陳sir', atk: 65, def: 75, wis: 90, salary: 40, title: '前高管' },
+    { name: '小鳳', atk: 80, def: 60, wis: 55, salary: 18, title: '推銷新星' },
+    { name: '大佬B', atk: 95, def: 45, wis: 40, salary: 35, title: '業界猛將' },
+    { name: 'Teresa', atk: 50, def: 90, wis: 85, salary: 38, title: '營運總監' },
+    { name: '阿偉', atk: 70, def: 70, wis: 70, salary: 26, title: '全能型選手' },
 ];
 
-const EVENTS = [
-    { text:'📉 價格戰！{district}月費大減，收入下降！', type:'bad', fn: (g) => { const d = randomOwnedDistrict(g.playerCompany); if(d){g.districts[d].infra=Math.max(1,g.districts[d].infra-1); return g.districts[d].name;} return null; }},
-    { text:'🔧 網絡故障！{district}客戶投訴，防守下降！', type:'bad', fn: (g) => { const d = randomOwnedDistrict(g.playerCompany); if(d){g.districts[d].defense=Math.max(1,g.districts[d].defense-1); return g.districts[d].name;} return null; }},
-    { text:'💰 政府補貼！獲得基建資金 $500萬！', type:'good', fn: (g) => { g.companies[g.playerCompany].money+=500; return ''; }},
-    { text:'⚔️ 競爭對手內鬥！{enemy}損失兵力！', type:'good', fn: (g) => { const enemies = Object.keys(g.companies).filter(k=>k!==g.playerCompany&&g.companies[k].alive); if(!enemies.length) return null; const e=enemies[Math.floor(Math.random()*enemies.length)]; const d=randomOwnedDistrict(e); if(d){g.districts[d].garrison=Math.max(5,g.districts[d].garrison-15);} return g.companies[e].name; }},
-    { text:'📡 5G升級機會！研發費用減半（本回合）！', type:'good', fn: (g) => { g.techDiscount=true; return ''; }},
-    { text:'🎉 客戶口碑爆發！免費獲得{district}！', type:'good', fn: (g) => { const neutrals = Object.keys(g.districts).filter(k=>g.districts[k].owner===null); if(!neutrals.length) return null; const d=neutrals[Math.floor(Math.random()*neutrals.length)]; g.districts[d].owner=g.playerCompany; g.districts[d].garrison=15; return g.districts[d].name; }},
-    { text:'🕵️ 挖角風雲！有機會招募敵方武將！', type:'good', fn: (g) => { const enemies = Object.keys(g.companies).filter(k=>k!==g.playerCompany&&g.companies[k].alive); for(const e of enemies){if(g.companies[e].generals.length>0){const gen=g.companies[e].generals.splice(0,1)[0]; gen.owner=g.playerCompany; g.companies[g.playerCompany].generals.push(gen); return gen.name;}} return null; }},
-    { text:'🌧️ 暴風雨！工程延誤，本回合無法進攻！', type:'bad', fn: (g) => { g.stormBlock=true; return ''; }},
-    { text:'📈 市場需求大增！所有地區收入加倍（本回合）！', type:'good', fn: (g) => { g.doubleIncome=true; return ''; }},
-    { text:'🏗️ 基建補助！{district}基礎設施提升！', type:'good', fn: (g) => { const d = randomOwnedDistrict(g.playerCompany); if(d){g.districts[d].infra=Math.min(5,g.districts[d].infra+1); return g.districts[d].name;} return null; }}
+const RANDOM_EVENTS = [
+    { text: '📰 突發新聞！\n\n政府宣佈「全港光纖升級計劃」，撥款20億支持基建！\n\n你公司獲得 $500萬 補貼！\n\n「呢個消息嚟得正好！」你嘅財務總監笑住話。', money: 500 },
+    { text: '⚡ 颱風襲港！\n\n超強颱風「山竹二號」正面吹襲香港，多區網絡設施受損。\n\n維修費用支出 $300萬！\n\n「盡快恢復服務，口碑最緊要！」', money: -300 },
+    { text: '📱 5G革命！\n\n政府開放新頻譜，你搶先投標成功！\n\n技術等級提升，但花費 $200萬。\n\n「呢個投資一定值得嘅！」', money: -200, tech: 1 },
+    { text: '🏆 行業大獎！\n\n你嘅公司獲得「最佳寬頻服務商」大獎！\n\n口碑大增，所有地區防守 +10！\n\n「呢個獎係對我哋團隊嘅肯定！」', defBonus: 10 },
+    { text: '💼 人才外流！\n\n競爭對手高薪挖角，你損失一名武將！\n\n「走嘅留唔住，我哋要搵更好嘅人！」', loseGeneral: true },
+    { text: '📊 市場調查報告出爐！\n\n調查顯示你嘅品牌知名度上升20%！\n\n獲得 $300萬 廣告收入！\n\n「我哋嘅策略係啱嘅！」', money: 300 },
+    { text: '🔧 設備升級！\n\n供應商推出新一代設備，你率先採用。\n\n免費獲得技術升級！\n\n「科技進步就係我哋嘅武器！」', tech: 1 },
+    { text: '📉 經濟不景！\n\n全球經濟衰退影響香港市場。\n\n本月收入減少40%！\n\n「捱過呢關就好了...」', incomeReduction: 0.6 },
 ];
 
-const COMPANY_CONFIGS = {
-    A: { name:'寬頻公司A', style:'資金雄厚', money:8000, tech:2, troops:120, startDistricts:['yautsimmong','kowlooncity'], recruitCost:300, color:'#60a5fa' },
-    B: { name:'寬頻公司B', style:'技術領先', money:5000, tech:4, troops:80, startDistricts:['wanchai','eastern'], recruitCost:300, color:'#60a5fa' },
-    C: { name:'寬頻公司C', style:'均衡外交', money:6500, tech:3, troops:100, startDistricts:['shatin','taipo'], recruitCost:200, color:'#60a5fa' }
-};
+// ========== GAME STATE ==========
+let G = {};
 
-// ============== GAME STATE ==============
-let G = null;
-let selectedCompany = null;
-let selectedDistrict = null;
-let currentAction = null;
-let attackSource = null;
+function initState(companyIdx) {
+    const c = COMPANY_DATA[companyIdx];
+    const enemyIdxs = [0,1,2].filter(i => i !== companyIdx);
 
-function selectCompany(c) {
-    sfxClick();
-    selectedCompany = c;
-    document.querySelectorAll('.company-card').forEach(el => el.classList.remove('selected'));
-    document.querySelector(`[data-company="${c}"]`).classList.add('selected');
-    const btn = document.getElementById('startBtn');
-    btn.disabled = false;
-    btn.textContent = '⚔️ 開始爭霸！';
-}
-
-function initGame(playerChoice) {
-    const allKeys = ['A','B','C'];
-    const enemies = allKeys.filter(k => k !== playerChoice);
-    // Assign enemy colors
-    const enemyColors = { [enemies[0]]: '#ef4444', [enemies[1]]: '#22c55e' };
-
-    const companies = {};
-    for (const k of allKeys) {
-        const cfg = COMPANY_CONFIGS[k];
-        const isPlayer = k === playerChoice;
-        companies[k] = {
-            name: cfg.name,
-            style: cfg.style,
-            money: cfg.money,
-            tech: cfg.tech,
-            troops: cfg.troops,
-            generals: [],
-            alive: true,
-            recruitCost: cfg.recruitCost,
-            color: isPlayer ? '#60a5fa' : (enemyColors[k] || '#ef4444'),
-            isPlayer: isPlayer,
-            alliance: null,
-            allianceTurns: 0
-        };
-    }
-
-    // Deep copy districts
-    const districts = {};
-    for (const [k, v] of Object.entries(DISTRICT_DATA)) {
-        districts[k] = { ...v, generals: [] };
-    }
-
-    // Assign starting districts
-    for (const k of allKeys) {
-        const cfg = COMPANY_CONFIGS[k];
-        const troopsPerDistrict = Math.floor(cfg.troops / cfg.startDistricts.length);
-        for (const d of cfg.startDistricts) {
-            districts[d].owner = k;
-            districts[d].garrison = troopsPerDistrict;
-            districts[d].defense = districts[d].defense + 1;
-        }
-    }
-
-    // Give each company 1 starting general
-    const shuffledGenerals = [...GENERAL_POOL].sort(() => Math.random() - 0.5);
-    let gi = 0;
-    for (const k of allKeys) {
-        const gen = createGeneral(shuffledGenerals[gi++], k);
-        companies[k].generals.push(gen);
-        // Station in first district
-        const firstDist = COMPANY_CONFIGS[k].startDistricts[0];
-        districts[firstDist].generals.push(gen.id);
-    }
-
-    return {
-        playerCompany: playerChoice,
-        companies,
-        districts,
+    G = {
         month: 1,
         maxMonths: 36,
-        actionPoints: 2,
-        maxActionPoints: 2,
-        logs: [],
-        techDiscount: false,
-        stormBlock: false,
-        doubleIncome: false,
-        nextGenId: 4,
-        usedGeneralPool: [0, 1, 2],
-        gameOver: false
+        playerCompany: companyIdx,
+        companyName: c.name,
+        money: c.money,
+        tech: c.tech,
+        recruitCost: c.recruitCost,
+        generals: [],
+        districts: [],
+        enemies: [],
+        phase: 'action', // action, attack-target, result, summary
+        tutorialMonth: 1,
+        totalAttacks: 0,
+        totalWins: 0,
+        totalRecruits: 0,
+        monthIncome: 0,
+        monthExpense: 0,
+        eventThisMonth: null,
     };
+
+    // Init districts
+    for (let i = 0; i < 18; i++) {
+        G.districts.push({
+            id: i,
+            owner: 'neutral', // 'player', 'enemy1', 'enemy2', 'neutral'
+            troops: 15 + Math.floor(Math.random() * 15),
+            income: 80 + Math.floor(Math.random() * 60),
+            defense: 0,
+        });
+    }
+
+    // Set player districts
+    c.startDistricts.forEach(id => {
+        G.districts[id].owner = 'player';
+        G.districts[id].troops = c.troops;
+    });
+
+    // Set enemy districts
+    const e1 = COMPANY_DATA[enemyIdxs[0]];
+    const e2 = COMPANY_DATA[enemyIdxs[1]];
+    e1.startDistricts.forEach(id => {
+        G.districts[id].owner = 'enemy1';
+        G.districts[id].troops = e1.troops;
+    });
+    e2.startDistricts.forEach(id => {
+        G.districts[id].owner = 'enemy2';
+        G.districts[id].troops = e2.troops;
+    });
+
+    G.enemies = [
+        { name: COMPANY_DATA[enemyIdxs[0]].name, idx: enemyIdxs[0], tech: COMPANY_DATA[enemyIdxs[0]].tech, money: COMPANY_DATA[enemyIdxs[0]].money },
+        { name: COMPANY_DATA[enemyIdxs[1]].name, idx: enemyIdxs[1], tech: COMPANY_DATA[enemyIdxs[1]].tech, money: COMPANY_DATA[enemyIdxs[1]].money },
+    ];
 }
 
-let nextGenId = 1;
-function createGeneral(template, owner) {
-    const randomize = (base) => Math.max(10, Math.min(99, base + Math.floor(Math.random()*20) - 10));
-    return {
-        id: nextGenId++,
-        name: template.name,
-        title: template.title,
-        atk: randomize(template.base.atk),
-        def: randomize(template.base.def),
-        strat: randomize(template.base.strat),
-        charm: randomize(template.base.charm),
-        owner: owner
-    };
+// ========== HELPERS ==========
+function playerDistricts() { return G.districts.filter(d => d.owner === 'player'); }
+function enemyDistricts(tag) { return G.districts.filter(d => d.owner === tag); }
+function countDistricts(owner) { return G.districts.filter(d => d.owner === owner).length; }
+function getAdjacentTargets() {
+    const owned = new Set(playerDistricts().map(d => d.id));
+    const targets = new Set();
+    playerDistricts().forEach(d => {
+        DISTRICTS[d.id].adj.forEach(adj => {
+            if (!owned.has(adj)) targets.add(adj);
+        });
+    });
+    return [...targets].map(id => G.districts[id]);
 }
-
-// ============== START GAME ==============
-function startGame() {
-    sfxClick();
-    G = initGame(selectedCompany);
-    showScreen('game-screen');
-    renderAll();
-    addLog('🏁 遊戲開始！第1個月，爭霸戰正式展開！', 'info');
+function bestGeneral(type) {
+    if (G.generals.length === 0) return null;
+    if (type === 'atk') return G.generals.reduce((a, b) => a.atk > b.atk ? a : b);
+    if (type === 'def') return G.generals.reduce((a, b) => a.def > b.def ? a : b);
+    return G.generals[0];
 }
+function totalSalary() { return G.generals.reduce((s, g) => s + g.salary, 0); }
 
+// ========== UI HELPERS ==========
 function showScreen(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+    ['start-screen', 'tutorial-screen', 'game-screen', 'end-screen'].forEach(s => {
+        document.getElementById(s).style.display = 'none';
+    });
+    document.getElementById(id).style.display = '';
 }
 
-// ============== RENDER ==============
-function renderAll() {
-    renderTopbar();
-    renderMap();
-    renderActions();
-    renderSidebar();
-}
-
-function renderTopbar() {
-    const c = G.companies[G.playerCompany];
-    const owned = countDistricts(G.playerCompany);
-    document.getElementById('topbar').innerHTML = `
-        <div class="tb-item"><span class="tb-label">📅 月份</span> <span class="tb-val blue">${G.month}/${G.maxMonths}</span></div>
-        <div class="tb-item"><span class="tb-label">🎯 行動點</span> <span class="tb-val yellow">${G.actionPoints}/${G.maxActionPoints}</span></div>
-        <div class="tb-item"><span class="tb-label">💰 資金</span> <span class="tb-val ${c.money<500?'red':'green'}">$${c.money}萬</span></div>
-        <div class="tb-item"><span class="tb-label">🔧 技術</span> <span class="tb-val purple">Lv.${c.tech}</span></div>
-        <div class="tb-item"><span class="tb-label">📍 地區</span> <span class="tb-val blue">${owned}/18</span></div>
-        <div class="tb-item"><span class="tb-label">⚔️ 武將</span> <span class="tb-val yellow">${c.generals.length}</span></div>
-        <div class="tb-item"><span class="tb-label">👥 總兵力</span> <span class="tb-val">${getTotalTroops(G.playerCompany)}</span></div>
-    `;
+function updateTopbar() {
+    document.getElementById('tb-month').textContent = '第' + G.month + '月';
+    document.getElementById('tb-money').textContent = '$' + G.money + '萬';
+    document.getElementById('tb-tech').textContent = 'Lv.' + G.tech;
+    document.getElementById('tb-districts').textContent = countDistricts('player') + '/18';
+    document.getElementById('tb-generals').textContent = G.generals.length + '人';
 }
 
 function renderMap() {
-    let html = '';
-    for (const row of DISTRICTS_LAYOUT) {
+    let html = '<div class="map-panel"><div class="map-title">📍 香港18區形勢圖';
+    html += ' — <span style="color:#60a5fa;">●你</span> <span style="color:#ef4444;">●' + G.enemies[0].name + '</span> <span style="color:#22c55e;">●' + G.enemies[1].name + '</span> <span style="color:#94a3b8;">●中立</span>';
+    html += '</div><div class="map-grid">';
+    MAP_ROWS.forEach(row => {
         html += '<div class="map-row">';
-        for (const did of row) {
-            const d = G.districts[did];
-            let ownerClass = 'owner-neutral';
-            let ownerLabel = '中立';
-            if (d.owner) {
-                if (d.owner === G.playerCompany) { ownerClass = 'owner-player'; ownerLabel = '我方'; }
-                else {
-                    const enemies = Object.keys(G.companies).filter(k=>k!==G.playerCompany&&G.companies[k].alive);
-                    if (d.owner === enemies[0]) { ownerClass = 'owner-enemy1'; ownerLabel = G.companies[d.owner].name; }
-                    else { ownerClass = 'owner-enemy2'; ownerLabel = G.companies[d.owner].name; }
-                }
-            }
-            const sel = selectedDistrict === did ? 'selected' : '';
-            const tgt = (currentAction === 'attack' && attackSource && isAdjacent(attackSource, did) && G.districts[did].owner !== G.playerCompany) ? 'target-highlight' : '';
-            html += `<div class="district ${ownerClass} ${sel} ${tgt}" onclick="clickDistrict('${did}')">
-                <div class="d-name">${d.name}</div>
-                <div class="d-info">${ownerLabel}</div>
-                <div class="d-garrison">👥${d.garrison} 🛡️${d.defense}</div>
-            </div>`;
-        }
+        row.forEach(id => {
+            const d = G.districts[id];
+            const cls = 'owner-' + d.owner.replace('enemy1','enemy1').replace('enemy2','enemy2');
+            html += '<div class="district ' + cls + '">';
+            html += '<div class="d-name">' + DISTRICTS[id].name + '</div>';
+            html += '<div class="d-troops">👥' + d.troops + '</div>';
+            html += '</div>';
+        });
         html += '</div>';
-    }
-    document.getElementById('mapGrid').innerHTML = html;
+    });
+    html += '</div></div>';
+    return html;
 }
 
-function renderActions() {
-    const ap = G.actionPoints;
-    const storm = G.stormBlock;
-    const btns = [
-        { id:'attack', icon:'📍', label:'攻佔地區', disabled: ap<1||storm },
-        { id:'defend', icon:'🛡️', label:'加強防守', disabled: ap<1 },
-        { id:'recruit', icon:'👥', label:'招募武將', disabled: ap<1 },
-        { id:'build', icon:'🔧', label:'內政建設', disabled: ap<1 },
-        { id:'research', icon:'📊', label:'研發升級', disabled: ap<1 },
-        { id:'diplomacy', icon:'🤝', label:'外交', disabled: ap<1 }
-    ];
-    let html = '';
-    for (const b of btns) {
-        const active = currentAction === b.id ? 'active' : '';
-        html += `<button class="action-btn ${active}" ${b.disabled?'disabled':''} onclick="doAction('${b.id}')">
-            <span class="a-icon">${b.icon}</span>${b.label}
-        </button>`;
-    }
-    document.getElementById('actionsBar').innerHTML = html;
+function showStory(sceneClass, icon, tag, tagClass, text, callback) {
+    const area = document.getElementById('storyArea');
+    let html = '<div class="story-panel">';
+    html += '<div class="scene-img ' + sceneClass + '">' + icon + '<div class="scene-overlay"></div></div>';
+    html += '<div class="story-body">';
+    if (tag) html += '<div class="event-tag ' + tagClass + '">' + tag + '</div>';
+    html += '<div class="text" id="typeTarget"></div>';
+    html += '</div></div>';
+    area.innerHTML = renderMap() + html;
+    area.scrollTop = area.scrollHeight;
+
+    // Typewriter
+    typewrite(text, 'typeTarget', callback);
 }
 
-function renderSidebar() {
-    // District detail
-    if (selectedDistrict) {
-        const d = G.districts[selectedDistrict];
-        let ownerName = d.owner ? G.companies[d.owner].name : '中立';
-        let gensHtml = '';
-        if (d.generals.length > 0) {
-            for (const gid of d.generals) {
-                const gen = findGeneral(gid);
-                if (gen) gensHtml += `<div style="font-size:0.7rem;color:#fbbf24;">⚔️ ${gen.name}</div>`;
-            }
+let typeTimer = null;
+function typewrite(text, targetId, callback) {
+    if (typeTimer) clearInterval(typeTimer);
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    let i = 0;
+    el.innerHTML = '<span class="typewriter-cursor"></span>';
+    typeTimer = setInterval(() => {
+        if (i < text.length) {
+            // Handle special tags
+            el.innerHTML = text.substring(0, i + 1) + '<span class="typewriter-cursor"></span>';
+            i++;
+        } else {
+            clearInterval(typeTimer);
+            typeTimer = null;
+            el.innerHTML = text;
+            if (callback) callback();
         }
-        const revenue = Math.floor(d.pop * d.infra * 1.5);
-        document.getElementById('districtDetail').innerHTML = `
-            <div class="detail-row"><span class="detail-label">名稱</span><span class="detail-val">${d.name}</span></div>
-            <div class="detail-row"><span class="detail-label">擁有者</span><span class="detail-val">${ownerName}</span></div>
-            <div class="detail-row"><span class="detail-label">人口</span><span class="detail-val">${d.pop}萬</span></div>
-            <div class="detail-row"><span class="detail-label">基建等級</span><span class="detail-val">Lv.${d.infra}</span></div>
-            <div class="detail-row"><span class="detail-label">防禦等級</span><span class="detail-val">${d.defense}</span></div>
-            <div class="detail-row"><span class="detail-label">駐軍</span><span class="detail-val">${d.garrison}人</span></div>
-            <div class="detail-row"><span class="detail-label">月收入</span><span class="detail-val" style="color:#22c55e;">$${revenue}萬</span></div>
-            ${gensHtml}
-        `;
+    }, 18);
+
+    // Click to skip
+    el.onclick = () => {
+        if (typeTimer) {
+            clearInterval(typeTimer);
+            typeTimer = null;
+            el.innerHTML = text;
+            el.onclick = null;
+            if (callback) callback();
+        }
+    };
+}
+
+function showChoices(title, choices) {
+    const area = document.getElementById('choicesArea');
+    const btns = document.getElementById('choicesBtns');
+    area.style.display = '';
+    let html = '<div class="choices-title">' + title + '</div>';
+    choices.forEach((c, i) => {
+        const hlClass = c.highlight ? ' highlight' : '';
+        html += '<button class="choice-btn' + hlClass + '" onclick="handleChoice(' + i + ')">';
+        html += c.label;
+        if (c.cost) html += '<span class="cost">' + c.cost + '</span>';
+        html += '</button>';
+    });
+    btns.innerHTML = html;
+}
+
+function hideChoices() {
+    document.getElementById('choicesArea').style.display = 'none';
+}
+
+function transition(icon, text, callback) {
+    const ov = document.getElementById('transOverlay');
+    document.getElementById('transIcon').textContent = icon;
+    document.getElementById('transText').textContent = text;
+    ov.classList.add('active');
+    setTimeout(() => {
+        ov.classList.remove('active');
+        if (callback) callback();
+    }, 1000);
+}
+
+// ========== COMPANY SELECTION ==========
+let selectedCompany = -1;
+
+function selectCompany(idx) {
+    sfxClick();
+    selectedCompany = idx;
+    document.querySelectorAll('.company-card').forEach((c, i) => {
+        c.classList.toggle('selected', i === idx);
+    });
+    document.getElementById('startBtn').disabled = false;
+}
+
+function startGame() {
+    if (selectedCompany < 0) return;
+    sfxClick();
+    initState(selectedCompany);
+    transition('⚔️', '準備開戰...', () => {
+        showScreen('tutorial-screen');
+    });
+}
+
+function startGameplay() {
+    sfxClick();
+    transition('📅', '第1個月開始...', () => {
+        showScreen('game-screen');
+        updateTopbar();
+        showMonthStart();
+    });
+}
+
+// ========== MAIN GAME LOOP ==========
+let currentChoices = [];
+
+function showMonthStart() {
+    G.phase = 'action';
+
+    // Check game end
+    if (G.month > G.maxMonths || G.money < 0 || countDistricts('player') >= 12) {
+        endGame();
+        return;
     }
 
-    // Generals
-    const pc = G.companies[G.playerCompany];
-    if (pc.generals.length > 0) {
-        let html = '';
-        for (const gen of pc.generals) {
-            const loc = findGeneralLocation(gen.id);
-            const locName = loc ? G.districts[loc].name : '待命';
-            html += `<div class="general-item" onclick="sfxClick()">
-                <span class="g-name">${gen.name}</span>
-                <span class="g-stats">⚔️${gen.atk} 🛡️${gen.def} 🧠${gen.strat} 💬${gen.charm}</span>
-                <span class="g-location">📍${locName}</span>
-            </div>`;
-        }
-        document.getElementById('generalsList').innerHTML = html;
+    // Also check if player has 0 districts
+    if (countDistricts('player') === 0) {
+        endGame();
+        return;
+    }
+
+    // Random event (20% chance after month 3)
+    if (G.month > 3 && Math.random() < 0.2) {
+        showRandomEvent(() => showActionMenu());
     } else {
-        document.getElementById('generalsList').innerHTML = '<span style="color:#475569;font-size:0.75rem;">未有武將，招募一個吧！</span>';
+        showActionMenu();
     }
 }
 
-// ============== MAP INTERACTION ==============
-function clickDistrict(did) {
+function showActionMenu() {
+    updateTopbar();
+
+    // Tutorial guidance for first 3 months
+    let tutText = '';
+    if (G.month === 1) {
+        tutText = '作為新任CEO，你嘅第一個決定係...\n\n「老闆，我哋公司依家得幾個人，要唔要先招兵買馬？」\n你嘅秘書遞上一疊履歷表。';
+    } else if (G.month === 2) {
+        tutText = '有咗武將之後，係時候擴張版圖！\n\n「CEO，隔離幾個區仲係中立嘅，我哋應該趁其他公司未出手，搶先攻佔！」';
+    } else if (G.month === 3) {
+        tutText = '進攻之後，記住要鞏固防守...\n\n「老闆，新佔嘅地區仲未穩定，建議加強防守或者搞下建設。」';
+    } else {
+        const pCount = countDistricts('player');
+        if (pCount < 6) {
+            tutText = '第' + G.month + '個月。\n\n你望住香港地圖，仲有好多地區等緊你去攻佔。\n\n「下一步點行，你話事。」秘書恭敬咁問。';
+        } else if (pCount < 12) {
+            tutText = '第' + G.month + '個月。\n\n版圖越嚟越大，但對手都唔係食素嘅。\n\n「CEO，要小心兩面受敵！」軍師提醒你。';
+        } else {
+            tutText = '第' + G.month + '個月。\n\n勝利在望！繼續保持進攻勢頭！';
+        }
+    }
+
+    showStory('scene-month', '📅', '第' + G.month + '個月', 'tag-month', tutText, () => {
+        // Show action choices
+        currentChoices = [];
+        const canAttack = getAdjacentTargets().length > 0;
+        const canRecruit = G.money >= G.recruitCost;
+        const canBuild = playerDistricts().length > 0 && G.money >= 100;
+        const canDefend = playerDistricts().length > 0 && G.money >= 80;
+        const canResearch = G.money >= 150;
+
+        currentChoices = [
+            { label: '📍 進攻', cost: canAttack ? '' : '（無可攻目標）', action: 'attack', disabled: !canAttack, highlight: G.month === 2 },
+            { label: '🛡️ 防守', cost: '$80萬', action: 'defend', disabled: !canDefend, highlight: G.month === 3 },
+            { label: '👥 招募', cost: '$' + G.recruitCost + '萬', action: 'recruit', disabled: !canRecruit, highlight: G.month === 1 },
+            { label: '🔧 建設', cost: '$100萬', action: 'build', disabled: !canBuild },
+            { label: '📊 研發', cost: '$150萬', action: 'research', disabled: !canResearch },
+        ];
+
+        showChoices('選擇你嘅行動：', currentChoices.map(c => ({
+            label: c.label,
+            cost: c.cost,
+            highlight: c.highlight,
+        })));
+    });
+}
+
+function handleChoice(idx) {
     sfxClick();
-    selectedDistrict = did;
+    hideChoices();
 
-    if (currentAction === 'attack') {
-        if (!attackSource) {
-            // Select source (must be player owned)
-            if (G.districts[did].owner === G.playerCompany) {
-                attackSource = did;
-                document.getElementById('mapInstruction').textContent = '選擇要進攻嘅目標地區';
-                renderMap();
-            } else {
-                showToast('請先選擇你擁有嘅地區作為出發點');
-            }
-            renderSidebar();
-            return;
-        } else {
-            // Select target
-            if (did === attackSource) { attackSource = null; currentAction = null; document.getElementById('mapInstruction').textContent = ''; renderMap(); renderActions(); renderSidebar(); return; }
-            if (!isAdjacent(attackSource, did)) { showToast('目標地區必須與出發地區相鄰！'); renderSidebar(); return; }
-            if (G.districts[did].owner === G.playerCompany) { showToast('唔可以進攻自己嘅地區！'); renderSidebar(); return; }
-            // Check alliance
-            const targetOwner = G.districts[did].owner;
-            if (targetOwner && G.companies[G.playerCompany].alliance === targetOwner) {
-                showToast('你同呢間公司有聯盟！唔可以進攻！');
-                renderSidebar();
-                return;
-            }
-            showAttackModal(attackSource, did);
-            renderSidebar();
-            return;
+    if (G.phase === 'action') {
+        const choice = currentChoices[idx];
+        if (!choice || choice.disabled) return;
+        switch(choice.action) {
+            case 'attack': showAttackTargets(); break;
+            case 'defend': doDefend(); break;
+            case 'recruit': doRecruit(); break;
+            case 'build': doBuild(); break;
+            case 'research': doResearch(); break;
         }
+    } else if (G.phase === 'attack-target') {
+        doAttack(currentChoices[idx].districtId);
+    } else if (G.phase === 'result' || G.phase === 'summary') {
+        nextMonth();
     }
-
-    if (currentAction === 'defend') {
-        if (G.districts[did].owner === G.playerCompany) {
-            showDefendModal(did);
-        } else {
-            showToast('只可以加強自己地區嘅防守！');
-        }
-        renderSidebar();
-        return;
-    }
-
-    if (currentAction === 'build') {
-        if (G.districts[did].owner === G.playerCompany) {
-            showBuildModal(did);
-        } else {
-            showToast('只可以建設自己嘅地區！');
-        }
-        renderSidebar();
-        return;
-    }
-
-    renderMap();
-    renderSidebar();
 }
 
-// ============== ACTIONS ==============
-function doAction(action) {
-    sfxClick();
-    if (G.actionPoints < 1) { showToast('行動點不足！'); return; }
+// ========== ACTIONS ==========
 
-    currentAction = action;
-    attackSource = null;
+function showAttackTargets() {
+    G.phase = 'attack-target';
+    const targets = getAdjacentTargets();
+    const playerPower = getTotalPlayerPower();
 
-    switch(action) {
-        case 'attack':
-            if (G.stormBlock) { showToast('暴風雨！本回合無法進攻！'); currentAction = null; return; }
-            document.getElementById('mapInstruction').textContent = '選擇你嘅出發地區';
-            break;
-        case 'defend':
-            document.getElementById('mapInstruction').textContent = '選擇要加強防守嘅地區';
-            break;
-        case 'recruit':
-            showRecruitModal();
-            currentAction = null;
-            break;
-        case 'build':
-            document.getElementById('mapInstruction').textContent = '選擇要建設嘅地區';
-            break;
-        case 'research':
-            showResearchModal();
-            currentAction = null;
-            break;
-        case 'diplomacy':
-            showDiplomacyModal();
-            currentAction = null;
-            break;
-    }
-    renderActions();
-}
-
-// ============== ATTACK ==============
-function showAttackModal(src, tgt) {
-    const srcD = G.districts[src];
-    const tgtD = G.districts[tgt];
-    const pc = G.companies[G.playerCompany];
-
-    // Available generals in src district
-    const availGens = pc.generals.filter(g => {
-        const loc = findGeneralLocation(g.id);
-        return loc === src;
+    currentChoices = targets.map(d => {
+        const ownerLabel = d.owner === 'neutral' ? '中立' : (d.owner === 'enemy1' ? G.enemies[0].name : G.enemies[1].name);
+        const winRate = Math.min(95, Math.max(10, Math.round((playerPower / (d.troops + d.defense + 10)) * 40 + G.tech * 5)));
+        return {
+            label: DISTRICTS[d.id].name + '\n' + ownerLabel + ' | 駐軍' + d.troops + '人',
+            cost: '勝率' + winRate + '%',
+            districtId: d.id,
+            winRate: winRate,
+        };
     });
 
-    let gensCheckboxes = '';
-    if (availGens.length > 0) {
-        gensCheckboxes = '<div style="margin:8px 0;"><p style="color:#fbbf24;font-size:0.8rem;font-weight:700;">派遣武將：</p>';
-        for (const g of availGens) {
-            gensCheckboxes += `<label style="display:block;padding:4px 0;font-size:0.8rem;cursor:pointer;">
-                <input type="checkbox" class="atk-general" value="${g.id}" checked> ${g.name} (⚔️${g.atk} 🧠${g.strat})
-            </label>`;
+    showStory('scene-battle', '⚔️', '選擇目標', 'tag-battle',
+        '你展開地圖，研究進攻路線...\n\n「以下地區都喺我哋嘅攻擊範圍內，你想攻邊個？」',
+        () => {
+            showChoices('選擇進攻目標：', currentChoices);
         }
-        gensCheckboxes += '</div>';
-    }
-
-    const maxTroops = Math.max(0, srcD.garrison - 5);
-    const defenderName = tgtD.owner ? G.companies[tgtD.owner].name : '中立守軍';
-
-    document.getElementById('modalContent').innerHTML = `
-        <h2>⚔️ 進攻 ${tgtD.name}</h2>
-        <p>從 <b style="color:#60a5fa;">${srcD.name}</b> 出發進攻 <b style="color:#ef4444;">${tgtD.name}</b></p>
-        <p>敵方：${defenderName} | 駐軍：${tgtD.garrison}人 | 防禦：${tgtD.defense}</p>
-        ${gensCheckboxes}
-        <p style="margin-top:8px;">派出兵力（可用：${maxTroops}人）：</p>
-        <input type="number" class="num-input" id="atkTroops" min="10" max="${maxTroops}" value="${Math.min(maxTroops, 40)}">
-        <div class="modal-btns">
-            <button class="modal-btn" onclick="closeModal()">取消</button>
-            <button class="modal-btn danger" onclick="executeAttack('${src}','${tgt}')">⚔️ 發動進攻！</button>
-        </div>
-    `;
-    openModal();
+    );
 }
 
-function executeAttack(src, tgt) {
-    const troops = parseInt(document.getElementById('atkTroops').value) || 0;
-    const srcD = G.districts[src];
-    const tgtD = G.districts[tgt];
+function getTotalPlayerPower() {
+    let power = 0;
+    playerDistricts().forEach(d => power += d.troops);
+    G.generals.forEach(g => power += g.atk);
+    return power;
+}
 
-    if (troops < 10) { showToast('最少派出10人！'); return; }
-    if (troops > srcD.garrison - 5) { showToast('必須保留至少5人駐守！'); return; }
+function doAttack(districtId) {
+    G.totalAttacks++;
+    const d = G.districts[districtId];
+    const dName = DISTRICTS[districtId].name;
+    const gen = bestGeneral('atk');
+    const playerPower = getTotalPlayerPower();
+    const winRate = Math.min(95, Math.max(10, Math.round((playerPower / (d.troops + d.defense + 10)) * 40 + G.tech * 5)));
+    const roll = Math.random() * 100;
+    const win = roll < winRate;
 
-    // Gather selected generals
-    const genCheckboxes = document.querySelectorAll('.atk-general:checked');
-    const selectedGens = [];
-    genCheckboxes.forEach(cb => {
-        const gen = findGeneral(parseInt(cb.value));
-        if (gen) selectedGens.push(gen);
-    });
-
-    closeModal();
-    sfxBattle();
-
-    const pc = G.companies[G.playerCompany];
-
-    // Calculate attack power
-    let atkPower = troops * pc.tech;
-    let atkStrat = 0;
-    for (const g of selectedGens) {
-        atkPower += g.atk * 2;
-        atkStrat = Math.max(atkStrat, g.strat);
-    }
-    atkPower += Math.floor(Math.random() * 20);
-
-    // Calculate defense power
-    let defPower = tgtD.garrison * (tgtD.defense * 0.8);
-    let defStrat = 0;
-    const defGens = tgtD.generals.map(gid => findGeneral(gid)).filter(Boolean);
-    for (const g of defGens) {
-        defPower += g.def * 2;
-        defStrat = Math.max(defStrat, g.strat);
-    }
-    if (tgtD.owner) defPower *= (1 + G.companies[tgtD.owner].tech * 0.1);
-    defPower += Math.floor(Math.random() * 15);
-
-    // Strategy chance
-    let critMultiplier = 1;
-    let stratText = '';
-    if (atkStrat > defStrat && Math.random() < (atkStrat - defStrat) / 100) {
-        critMultiplier = 1.5;
-        stratText = '🧠 智謀壓制！攻擊力×1.5！';
-    } else if (defStrat > atkStrat && Math.random() < (defStrat - atkStrat) / 100) {
-        defPower *= 1.3;
-        stratText = '🧠 敵方識破計策！防守加強！';
-    }
-
-    atkPower *= critMultiplier;
-
-    // Result
-    const atkWin = atkPower > defPower;
-    const ratio = atkWin ? atkPower / Math.max(defPower, 1) : defPower / Math.max(atkPower, 1);
-    const atkLoss = atkWin ? Math.floor(troops * 0.3 / ratio) : Math.floor(troops * 0.7);
-    const defLoss = atkWin ? Math.floor(tgtD.garrison * 0.8) : Math.floor(tgtD.garrison * 0.2);
-
-    srcD.garrison -= troops;
-
-    let battleNarration = '';
-    if (atkWin) {
+    if (win) {
         sfxWin();
-        const surviving = Math.max(troops - atkLoss, 5);
-        const oldOwner = tgtD.owner;
-        tgtD.owner = G.playerCompany;
-        tgtD.garrison = surviving;
-        // Move generals to new district
-        for (const g of selectedGens) {
-            removeGeneralFromDistrict(g.id);
-            tgtD.generals.push(g.id);
-        }
-        // Remove defeated generals (50% chance they flee)
-        for (const g of defGens) {
-            if (Math.random() < 0.5) {
-                removeGeneralFromAllDistricts(g.id);
-                if (oldOwner) {
-                    G.companies[oldOwner].generals = G.companies[oldOwner].generals.filter(x => x.id !== g.id);
-                }
-            } else {
-                // Retreat to another owned district
-                removeGeneralFromDistrict(g.id);
-                if (oldOwner) {
-                    const retreat = Object.keys(G.districts).find(k => G.districts[k].owner === oldOwner && k !== tgt);
-                    if (retreat) G.districts[retreat].generals.push(g.id);
-                }
-            }
-        }
+        G.totalWins++;
+        const oldOwner = d.owner;
+        d.owner = 'player';
+        d.troops = 20 + Math.floor(Math.random() * 10);
+        d.defense = 0;
 
-        battleNarration = `<div class="battle-text">
-            ⚔️ <span class="b-highlight">${srcD.name}</span> → <span class="b-highlight">${tgtD.name}</span> 進攻戰<br>
-            ${stratText ? stratText + '<br>' : ''}
-            攻擊力：${Math.floor(atkPower)} vs 防守力：${Math.floor(defPower)}<br>
-            <span class="b-win">🎉 進攻成功！佔領 ${tgtD.name}！</span><br>
-            我方損失：${atkLoss}人 | 敵方損失：${defLoss}人
-        </div>`;
-        addLog(`⚔️ 成功佔領 ${tgtD.name}！損失${atkLoss}人`, 'battle');
+        let genText = gen ? '\n\n' + gen.name + '帶住銷售團隊衝鋒陷陣，用超低月費吸引住戶轉台。' : '\n\n你嘅銷售團隊全力出擊。';
+        let resultText = oldOwner === 'neutral'
+            ? '街坊紛紛簽約，短短兩星期就搶佔咗成個區！'
+            : '對手嘅客戶紛紛倒戈，舊嘅銷售團隊灰頭土臉撤退！';
 
-        // Check elimination
-        if (oldOwner) checkElimination(oldOwner);
+        showStory('scene-battle', '⚔️', '進攻 ' + dName, 'tag-battle',
+            '「進攻' + dName + '！」\n\n你派出銷售團隊進駐' + dName + '區，喺各大屋苑擺攤推廣。' + genText + '\n\n' + resultText + '\n\n「報告CEO，' + dName + '區已經係我哋嘅喇！」\n\n📍 成功佔領' + dName + '！',
+            () => showEndTurnBtn()
+        );
     } else {
         sfxLose();
-        tgtD.garrison = Math.max(5, tgtD.garrison - defLoss);
-        // Return surviving troops
-        srcD.garrison += Math.max(0, troops - atkLoss);
+        const loss = 5 + Math.floor(Math.random() * 10);
+        // Remove some troops from player districts
+        const pDists = playerDistricts();
+        if (pDists.length > 0) {
+            pDists[Math.floor(Math.random() * pDists.length)].troops = Math.max(5, pDists[0].troops - loss);
+        }
 
-        battleNarration = `<div class="battle-text">
-            ⚔️ <span class="b-highlight">${srcD.name}</span> → <span class="b-highlight">${tgtD.name}</span> 進攻戰<br>
-            ${stratText ? stratText + '<br>' : ''}
-            攻擊力：${Math.floor(atkPower)} vs 防守力：${Math.floor(defPower)}<br>
-            <span class="b-lose">💀 進攻失敗！損失慘重！</span><br>
-            我方損失：${atkLoss}人 | 敵方損失：${defLoss}人
-        </div>`;
-        addLog(`💀 進攻 ${tgtD.name} 失敗！損失${atkLoss}人`, 'bad');
+        const ownerName = d.owner === 'neutral' ? '本地居民' : (d.owner === 'enemy1' ? G.enemies[0].name : G.enemies[1].name);
+        let failReason = d.owner === 'neutral'
+            ? '街坊話：「我哋用開第二間，唔會轉嘅。」\n你嘅Sales被拒絕咗一戶又一戶...'
+            : ownerName + '喺呢度經營多年，口碑極好。\n街坊話：「我哋用開' + ownerName + '，WiFi又快又穩，唔會轉嘅。」';
+
+        showStory('scene-battle', '⚔️', '進攻 ' + dName, 'tag-battle',
+            '「進攻' + dName + '！」\n\n你嘅團隊殺入' + dName + '，但' + failReason + '\n\n最後灰頭土臉撤退。\n\n❌ 進攻失敗！損失' + loss + '人',
+            () => showEndTurnBtn()
+        );
+    }
+}
+
+function doRecruit() {
+    G.money -= G.recruitCost;
+    G.totalRecruits++;
+
+    // Pick random general not already recruited
+    const available = GENERAL_POOL.filter(g => !G.generals.find(gg => gg.name === g.name));
+    if (available.length === 0) {
+        showStory('scene-recruit', '👥', '招募', 'tag-recruit',
+            '「老闆，市場上已經冇人才俾我哋請喇...」\n\n所有武將都已經喺你麾下，你嘅團隊已經係最強嘅！',
+            () => { G.money += G.recruitCost; showEndTurnBtn(); }
+        );
+        return;
     }
 
-    // Show battle result
-    document.getElementById('eventBanner').innerHTML = battleNarration;
-    setTimeout(() => { document.getElementById('eventBanner').innerHTML = ''; }, 5000);
-
-    G.actionPoints--;
-    currentAction = null;
-    attackSource = null;
-    document.getElementById('mapInstruction').textContent = '';
-    renderAll();
-    checkWinCondition();
-}
-
-// ============== DEFEND ==============
-function showDefendModal(did) {
-    const d = G.districts[did];
-    const cost = 100;
-    const pc = G.companies[G.playerCompany];
-
-    document.getElementById('modalContent').innerHTML = `
-        <h2>🛡️ 加強防守 — ${d.name}</h2>
-        <p>目前駐軍：${d.garrison}人 | 防禦等級：${d.defense}</p>
-        <p>消耗 $${cost}萬 增加 20 名駐軍</p>
-        <p style="color:${pc.money>=cost?'#22c55e':'#ef4444'}">目前資金：$${pc.money}萬</p>
-        <div class="modal-btns">
-            <button class="modal-btn" onclick="closeModal()">取消</button>
-            <button class="modal-btn primary" onclick="executeDefend('${did}')" ${pc.money<cost?'disabled':''}>🛡️ 加強防守</button>
-        </div>
-    `;
-    openModal();
-}
-
-function executeDefend(did) {
-    const cost = 100;
-    const pc = G.companies[G.playerCompany];
-    if (pc.money < cost) { showToast('資金不足！'); return; }
-    pc.money -= cost;
-    G.districts[did].garrison += 20;
-    G.districts[did].defense = Math.min(10, G.districts[did].defense + 1);
-    G.actionPoints--;
-    closeModal();
-    currentAction = null;
-    document.getElementById('mapInstruction').textContent = '';
-    addLog(`🛡️ ${G.districts[did].name} 防守加強！+20人`, 'good');
-    sfxClick();
-    renderAll();
-}
-
-// ============== RECRUIT ==============
-function showRecruitModal() {
-    const pc = G.companies[G.playerCompany];
-    const cost = pc.recruitCost;
-
-    // Pick a random general from pool
-    const availIdx = [];
-    for (let i = 0; i < GENERAL_POOL.length; i++) {
-        if (!G.usedGeneralPool.includes(i)) availIdx.push(i);
-    }
-    if (availIdx.length === 0) { showToast('已經冇可以招募嘅武將！'); return; }
-
-    const idx = availIdx[Math.floor(Math.random() * availIdx.length)];
-    const template = GENERAL_POOL[idx];
-    const gen = createGeneral(template, G.playerCompany);
-
-    document.getElementById('modalContent').innerHTML = `
-        <h2>👥 招募武將</h2>
-        <div class="recruit-card">
-            <div class="rc-name">${gen.name}</div>
-            <div class="rc-title">${gen.title}</div>
-            <div class="rc-stats">
-                <div class="rc-stat"><div class="rc-stat-label">⚔️ 銷售力</div><div class="rc-stat-val" style="color:#ef4444;">${gen.atk}</div></div>
-                <div class="rc-stat"><div class="rc-stat-label">🛡️ 防守力</div><div class="rc-stat-val" style="color:#60a5fa;">${gen.def}</div></div>
-                <div class="rc-stat"><div class="rc-stat-label">🧠 智謀</div><div class="rc-stat-val" style="color:#a78bfa;">${gen.strat}</div></div>
-                <div class="rc-stat"><div class="rc-stat-label">💬 魅力</div><div class="rc-stat-val" style="color:#fbbf24;">${gen.charm}</div></div>
-            </div>
-        </div>
-        <p>招募費用：$${cost}萬</p>
-        <p style="color:${pc.money>=cost?'#22c55e':'#ef4444'}">目前資金：$${pc.money}萬</p>
-        <div class="modal-btns">
-            <button class="modal-btn" onclick="closeModal()">唔請</button>
-            <button class="modal-btn primary" onclick="executeRecruit(${idx},${gen.id},${gen.atk},${gen.def},${gen.strat},${gen.charm})" ${pc.money<cost?'disabled':''}>👥 招募！($${cost}萬)</button>
-        </div>
-    `;
-    openModal();
-}
-
-function executeRecruit(poolIdx, genId, atk, def, strat, charm) {
-    const pc = G.companies[G.playerCompany];
-    if (pc.money < pc.recruitCost) { showToast('資金不足！'); return; }
-
-    const template = GENERAL_POOL[poolIdx];
-    const gen = { id: genId, name: template.name, title: template.title, atk, def, strat, charm, owner: G.playerCompany };
-
-    pc.money -= pc.recruitCost;
-    pc.generals.push(gen);
-    G.usedGeneralPool.push(poolIdx);
-
-    // Station in first owned district
-    const firstOwned = Object.keys(G.districts).find(k => G.districts[k].owner === G.playerCompany);
-    if (firstOwned) G.districts[firstOwned].generals.push(gen.id);
-
-    G.actionPoints--;
-    closeModal();
+    const gen = available[Math.floor(Math.random() * available.length)];
+    G.generals.push({...gen});
     sfxRecruit();
-    addLog(`👥 招募咗 ${gen.name}！`, 'good');
-    renderAll();
+
+    showStory('scene-recruit', '👥', '招募成功', 'tag-recruit',
+        '「老闆，有個人想見你。」\n\n你嘅秘書帶咗一個人入嚟 — ' + gen.name + '。\n佢喺業界打滾多年，' + gen.title + '嘅稱號無人不知。\n\n「我聽講你哋公司有野心，我鍾意有野心嘅老闆。」\n\n佢微笑住坐低，同你握手。\n\n👥 成功招募「' + gen.name + '」！\n⚔️銷售力 ' + gen.atk + ' | 🛡️防守力 ' + gen.def + ' | 🧠智謀 ' + gen.wis + '\n💰 月薪：$' + gen.salary + '萬',
+        () => showEndTurnBtn()
+    );
 }
 
-// ============== BUILD ==============
-function showBuildModal(did) {
-    const d = G.districts[did];
-    const cost = d.infra * 150;
-    const pc = G.companies[G.playerCompany];
+function doDefend() {
+    G.money -= 80;
+    sfxBuild();
+    const pDists = playerDistricts();
+    pDists.forEach(d => {
+        d.defense += 5 + Math.floor(Math.random() * 5);
+        d.troops += 3;
+    });
+    const gen = bestGeneral('def');
+    const genText = gen ? '\n\n' + gen.name + '親自督工，確保每個屋苑嘅網絡都穩定運作。' : '';
 
-    if (d.infra >= 5) { showToast('已經升到最高等級！'); closeModal(); currentAction = null; document.getElementById('mapInstruction').textContent = ''; return; }
-
-    document.getElementById('modalContent').innerHTML = `
-        <h2>🔧 內政建設 — ${d.name}</h2>
-        <p>目前基建等級：Lv.${d.infra} → Lv.${d.infra+1}</p>
-        <p>月收入：$${Math.floor(d.pop*d.infra*1.5)}萬 → $${Math.floor(d.pop*(d.infra+1)*1.5)}萬</p>
-        <p>建設費用：$${cost}萬</p>
-        <p style="color:${pc.money>=cost?'#22c55e':'#ef4444'}">目前資金：$${pc.money}萬</p>
-        <div class="modal-btns">
-            <button class="modal-btn" onclick="closeModal()">取消</button>
-            <button class="modal-btn primary" onclick="executeBuild('${did}')" ${pc.money<cost?'disabled':''}>🔧 建設！</button>
-        </div>
-    `;
-    openModal();
+    showStory('scene-defense', '🛡️', '加強防守', 'tag-defense',
+        '你決定鞏固現有陣地。' + genText + '\n\n技術團隊加班加點，喺所有已佔地區升級設備、改善服務。\n\n客戶滿意度大幅提升，競爭對手想搶都搶唔走！\n\n🛡️ 所有地區防禦力提升！',
+        () => showEndTurnBtn()
+    );
 }
 
-function executeBuild(did) {
-    const d = G.districts[did];
-    const cost = d.infra * 150;
-    const pc = G.companies[G.playerCompany];
-    if (pc.money < cost) { showToast('資金不足！'); return; }
-    pc.money -= cost;
-    d.infra = Math.min(5, d.infra + 1);
-    G.actionPoints--;
-    closeModal();
-    currentAction = null;
-    document.getElementById('mapInstruction').textContent = '';
-    addLog(`🔧 ${d.name} 基建升級至 Lv.${d.infra}！`, 'good');
-    sfxClick();
-    renderAll();
+function doBuild() {
+    G.money -= 100;
+    sfxBuild();
+    const pDists = playerDistricts();
+    pDists.forEach(d => {
+        d.income += 15 + Math.floor(Math.random() * 10);
+    });
+
+    showStory('scene-build', '🔧', '基建投資', 'tag-build',
+        '你投入資金進行大規模基建升級。\n\n鋪設更快嘅光纖、安裝更強嘅路由器、優化網絡架構...\n\n「報告CEO，所有地區嘅網速都提升咗30%！客戶反應非常好！」\n\n🔧 所有地區收入提升！',
+        () => showEndTurnBtn()
+    );
 }
 
-// ============== RESEARCH ==============
-function showResearchModal() {
-    const pc = G.companies[G.playerCompany];
-    let cost = 500 + pc.tech * 200;
-    if (G.techDiscount) cost = Math.floor(cost / 2);
+function doResearch() {
+    G.money -= 150;
+    G.tech++;
+    sfxBuild();
 
-    if (pc.tech >= 10) { showToast('技術已達最高等級！'); return; }
+    const techNames = ['基礎光纖', '千兆光纖', '萬兆光纖', 'WiFi 6', 'WiFi 7', '6G預研', 'AI網絡', '量子通訊'];
+    const techName = techNames[Math.min(G.tech - 1, techNames.length - 1)];
 
-    document.getElementById('modalContent').innerHTML = `
-        <h2>📊 研發升級</h2>
-        <p>目前技術等級：Lv.${pc.tech} → Lv.${pc.tech+1}</p>
-        <p>效果：所有戰鬥攻擊力 +10%</p>
-        <p>研發費用：$${cost}萬 ${G.techDiscount?'<span style="color:#4ade80;">（5G機會減半！）</span>':''}</p>
-        <p style="color:${pc.money>=cost?'#22c55e':'#ef4444'}">目前資金：$${pc.money}萬</p>
-        <div class="modal-btns">
-            <button class="modal-btn" onclick="closeModal()">取消</button>
-            <button class="modal-btn primary" onclick="executeResearch(${cost})" ${pc.money<cost?'disabled':''}>📊 升級！</button>
-        </div>
-    `;
-    openModal();
+    showStory('scene-research', '📊', '研發升級', 'tag-research',
+        '研發團隊日以繼夜咁工作...\n\n經過一個月嘅努力，終於突破技術瓶頸！\n\n「CEO，我哋成功研發咗' + techName + '技術！」\n首席技術官興奮咁報告。\n\n「呢個技術可以大幅提升我哋嘅競爭力！」\n\n📊 技術等級提升至 Lv.' + G.tech + '！',
+        () => showEndTurnBtn()
+    );
 }
 
-function executeResearch(cost) {
-    const pc = G.companies[G.playerCompany];
-    if (pc.money < cost) { showToast('資金不足！'); return; }
-    pc.money -= cost;
-    pc.tech++;
-    G.actionPoints--;
-    closeModal();
-    addLog(`📊 技術升級至 Lv.${pc.tech}！`, 'good');
-    sfxRecruit();
-    renderAll();
+function showEndTurnBtn() {
+    G.phase = 'result';
+    showChoices('', [{ label: '▶️ 結束本月' }]);
 }
 
-// ============== DIPLOMACY ==============
-function showDiplomacyModal() {
-    const enemies = Object.keys(G.companies).filter(k => k !== G.playerCompany && G.companies[k].alive);
-    if (enemies.length === 0) { showToast('已經冇對手喇！'); return; }
-
-    const pc = G.companies[G.playerCompany];
-    let html = '<h2>🤝 外交</h2>';
-    html += '<p>選擇外交對象同行動：</p>';
-
-    for (const e of enemies) {
-        const ec = G.companies[e];
-        const isAllied = pc.alliance === e;
-        html += `<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;margin:8px 0;">
-            <div style="font-weight:900;margin-bottom:6px;">${ec.name} <span style="color:${ec.color};font-size:0.8rem;">(${ec.style})</span></div>
-            <div style="font-size:0.75rem;color:#94a3b8;margin-bottom:8px;">地區：${countDistricts(e)} | 兵力：${getTotalTroops(e)} ${isAllied?'<span style="color:#4ade80;">【同盟中】</span>':''}</div>
-            <div style="display:flex;gap:6px;">
-                ${!isAllied ? `<button class="modal-btn" onclick="executeDiplomacy('${e}','alliance')" style="flex:1;">🤝 結盟</button>` : `<button class="modal-btn" onclick="executeDiplomacy('${e}','break')" style="flex:1;">💔 破盟</button>`}
-                <button class="modal-btn" onclick="executeDiplomacy('${e}','provoke')" style="flex:1;">😈 挑釁</button>
-            </div>
-        </div>`;
-    }
-
-    html += `<div class="modal-btns"><button class="modal-btn" onclick="closeModal()">返回</button></div>`;
-    document.getElementById('modalContent').innerHTML = html;
-    openModal();
-}
-
-function executeDiplomacy(target, action) {
-    const pc = G.companies[G.playerCompany];
-    const tc = G.companies[target];
-    const charmBonus = pc.generals.reduce((sum, g) => sum + g.charm, 0);
-    const successRate = Math.min(0.8, 0.3 + charmBonus / 500);
-
-    if (action === 'alliance') {
-        if (Math.random() < successRate) {
-            pc.alliance = target;
-            pc.allianceTurns = 6;
-            tc.alliance = G.playerCompany;
-            tc.allianceTurns = 6;
-            addLog(`🤝 同 ${tc.name} 成功結盟！（6個月）`, 'good');
-            sfxRecruit();
-        } else {
-            addLog(`🤝 ${tc.name} 拒絕結盟！`, 'bad');
-            sfxLose();
-        }
-    } else if (action === 'break') {
-        pc.alliance = null;
-        pc.allianceTurns = 0;
-        tc.alliance = null;
-        tc.allianceTurns = 0;
-        addLog(`💔 同 ${tc.name} 解除聯盟！`, 'info');
-    } else if (action === 'provoke') {
-        if (Math.random() < successRate) {
-            // Provoke: enemy attacks the other enemy instead
-            const others = Object.keys(G.companies).filter(k => k !== G.playerCompany && k !== target && G.companies[k].alive);
-            if (others.length > 0) {
-                addLog(`😈 成功挑釁 ${tc.name}，佢哋同 ${G.companies[others[0]].name} 開戰！`, 'good');
-                // AI attacks other
-                aiAttack(target, others[0]);
-            } else {
-                addLog(`😈 挑釁成功，但冇第三方可以攻擊`, 'info');
-            }
-            sfxEvent();
-        } else {
-            addLog(`😈 挑釁 ${tc.name} 失敗！`, 'bad');
-            sfxLose();
-        }
-    }
-
-    G.actionPoints--;
-    closeModal();
-    currentAction = null;
-    renderAll();
-}
-
-// ============== END TURN ==============
-function endTurn() {
-    sfxClick();
-    currentAction = null;
-    attackSource = null;
-    document.getElementById('mapInstruction').textContent = '';
-
-    // Monthly revenue
-    collectRevenue();
-
-    // Pay salaries
-    paySalaries();
-
-    // AI turns
-    aiTurn();
-
-    // Decrement alliance timers
-    for (const k of Object.keys(G.companies)) {
-        if (G.companies[k].allianceTurns > 0) {
-            G.companies[k].allianceTurns--;
-            if (G.companies[k].allianceTurns <= 0) {
-                const ally = G.companies[k].alliance;
-                G.companies[k].alliance = null;
-                if (ally && G.companies[ally]) {
-                    G.companies[ally].alliance = null;
-                    G.companies[ally].allianceTurns = 0;
-                }
-                if (k === G.playerCompany) addLog('🤝 聯盟到期，自動解散', 'info');
-            }
-        }
-    }
-
-    // Advance month
-    G.month++;
-    G.actionPoints = G.maxActionPoints;
-    G.techDiscount = false;
-    G.stormBlock = false;
-    G.doubleIncome = false;
-
-    // Random event
-    if (Math.random() < 0.6) {
-        triggerEvent();
-    }
-
-    // Neutral districts slowly build up
-    for (const [k, d] of Object.entries(G.districts)) {
-        if (d.owner === null) {
-            d.garrison = Math.min(40, d.garrison + 2);
-        }
-    }
-
-    renderAll();
-    checkWinCondition();
-
-    if (!G.gameOver) {
-        addLog(`📅 第 ${G.month} 個月開始！`, 'info');
-    }
-}
-
-function collectRevenue() {
-    for (const k of Object.keys(G.companies)) {
-        if (!G.companies[k].alive) continue;
-        let revenue = 0;
-        for (const [dk, d] of Object.entries(G.districts)) {
-            if (d.owner === k) {
-                revenue += Math.floor(d.pop * d.infra * 1.5);
-            }
-        }
-        if (k === G.playerCompany && G.doubleIncome) revenue *= 2;
-        G.companies[k].money += revenue;
-        if (k === G.playerCompany) addLog(`💰 月收入：$${revenue}萬`, 'good');
-    }
-}
-
-function paySalaries() {
-    for (const k of Object.keys(G.companies)) {
-        if (!G.companies[k].alive) continue;
-        const totalTroops = getTotalTroops(k);
-        const generalCost = G.companies[k].generals.length * 30;
-        const troopCost = Math.floor(totalTroops * 0.5);
-        const salary = generalCost + troopCost;
-        G.companies[k].money -= salary;
-        if (k === G.playerCompany) addLog(`💸 支出：武將$${generalCost}萬 + 兵糧$${troopCost}萬`, 'bad');
-
-        // Negative money = lose troops
-        if (G.companies[k].money < 0) {
-            for (const [dk, d] of Object.entries(G.districts)) {
-                if (d.owner === k) {
-                    d.garrison = Math.max(3, d.garrison - 5);
-                }
-            }
-            if (k === G.playerCompany) addLog('⚠️ 資金不足！兵力流失！', 'bad');
-        }
-    }
-}
-
-// ============== AI ==============
-function aiTurn() {
-    for (const k of Object.keys(G.companies)) {
-        if (k === G.playerCompany || !G.companies[k].alive) continue;
-
-        const ai = G.companies[k];
-        let aiActions = 2;
-
-        for (let a = 0; a < aiActions; a++) {
-            const ownedDistricts = Object.keys(G.districts).filter(d => G.districts[d].owner === k);
-            if (ownedDistricts.length === 0) break;
-
-            const totalTroops = getTotalTroops(k);
-            const rand = Math.random();
-
-            if (rand < 0.45 && totalTroops > 30) {
-                // Attack
-                let attacked = false;
-                for (const src of ownedDistricts) {
-                    if (attacked) break;
-                    const adj = ADJACENCY[src] || [];
-                    for (const tgt of adj) {
-                        if (attacked) break;
-                        const td = G.districts[tgt];
-                        if (td.owner === k) continue;
-                        if (td.owner && ai.alliance === td.owner) continue;
-                        const srcD = G.districts[src];
-                        if (srcD.garrison > td.garrison + 10 && srcD.garrison > 20) {
-                            const troops = Math.floor(srcD.garrison * 0.6);
-                            aiExecuteAttack(k, src, tgt, troops);
-                            attacked = true;
-                        }
-                    }
-                }
-                if (!attacked) {
-                    // Build instead
-                    const d = ownedDistricts[Math.floor(Math.random()*ownedDistricts.length)];
-                    if (ai.money >= 100) {
-                        ai.money -= 100;
-                        G.districts[d].garrison += 15;
-                    }
-                }
-            } else if (rand < 0.65) {
-                // Defend
-                const d = ownedDistricts[Math.floor(Math.random()*ownedDistricts.length)];
-                if (ai.money >= 80) {
-                    ai.money -= 80;
-                    G.districts[d].garrison += 15;
-                    G.districts[d].defense = Math.min(8, G.districts[d].defense + 1);
-                }
-            } else if (rand < 0.8) {
-                // Build
-                const d = ownedDistricts[Math.floor(Math.random()*ownedDistricts.length)];
-                const cost = G.districts[d].infra * 120;
-                if (ai.money >= cost && G.districts[d].infra < 5) {
-                    ai.money -= cost;
-                    G.districts[d].infra++;
-                }
-            } else if (rand < 0.9 && ai.generals.length < 4) {
-                // Recruit
-                const availIdx = [];
-                for (let i = 0; i < GENERAL_POOL.length; i++) {
-                    if (!G.usedGeneralPool.includes(i)) availIdx.push(i);
-                }
-                if (availIdx.length > 0 && ai.money >= ai.recruitCost) {
-                    const idx = availIdx[Math.floor(Math.random()*availIdx.length)];
-                    const gen = createGeneral(GENERAL_POOL[idx], k);
-                    ai.money -= ai.recruitCost;
-                    ai.generals.push(gen);
-                    G.usedGeneralPool.push(idx);
-                    const firstDist = ownedDistricts[0];
-                    G.districts[firstDist].generals.push(gen.id);
-                }
-            } else {
-                // Research
-                const cost = 400 + ai.tech * 150;
-                if (ai.money >= cost && ai.tech < 8) {
-                    ai.money -= cost;
-                    ai.tech++;
-                }
-            }
-        }
-    }
-}
-
-function aiAttack(attackerKey, defenderKey) {
-    const attackerDistricts = Object.keys(G.districts).filter(d => G.districts[d].owner === attackerKey);
-    const defenderDistricts = Object.keys(G.districts).filter(d => G.districts[d].owner === defenderKey);
-
-    for (const src of attackerDistricts) {
-        const adj = ADJACENCY[src] || [];
-        for (const tgt of adj) {
-            if (G.districts[tgt].owner === defenderKey) {
-                const srcD = G.districts[src];
-                if (srcD.garrison > 20) {
-                    const troops = Math.floor(srcD.garrison * 0.5);
-                    aiExecuteAttack(attackerKey, src, tgt, troops);
-                    return;
-                }
-            }
-        }
-    }
-}
-
-function aiExecuteAttack(aiKey, src, tgt, troops) {
-    const ai = G.companies[aiKey];
-    const srcD = G.districts[src];
-    const tgtD = G.districts[tgt];
-
-    let atkPower = troops * ai.tech;
-    const atkGens = srcD.generals.map(gid => findGeneral(gid)).filter(g => g && g.owner === aiKey);
-    for (const g of atkGens) atkPower += g.atk * 2;
-    atkPower += Math.floor(Math.random() * 20);
-
-    let defPower = tgtD.garrison * (tgtD.defense * 0.8);
-    const defGens = tgtD.generals.map(gid => findGeneral(gid)).filter(Boolean);
-    for (const g of defGens) defPower += g.def * 2;
-    if (tgtD.owner) defPower *= (1 + (G.companies[tgtD.owner]?.tech || 1) * 0.1);
-    defPower += Math.floor(Math.random() * 15);
-
-    srcD.garrison -= troops;
-    const oldOwner = tgtD.owner;
-
-    if (atkPower > defPower) {
-        const ratio = atkPower / Math.max(defPower, 1);
-        const atkLoss = Math.floor(troops * 0.3 / ratio);
-        tgtD.owner = aiKey;
-        tgtD.garrison = Math.max(5, troops - atkLoss);
-        // Move attacker generals
-        for (const g of atkGens) {
-            removeGeneralFromDistrict(g.id);
-            tgtD.generals.push(g.id);
-        }
-        // Handle defender generals
-        for (const g of defGens) {
-            removeGeneralFromDistrict(g.id);
-            if (oldOwner && Math.random() > 0.5) {
-                const retreat = Object.keys(G.districts).find(k => G.districts[k].owner === oldOwner && k !== tgt);
-                if (retreat) G.districts[retreat].generals.push(g.id);
-            } else if (oldOwner) {
-                G.companies[oldOwner].generals = G.companies[oldOwner].generals.filter(x => x.id !== g.id);
-            }
-        }
-
-        const isPlayerVictim = oldOwner === G.playerCompany;
-        addLog(`${isPlayerVictim?'💀':'⚔️'} ${ai.name} 佔領咗 ${tgtD.name}！`, isPlayerVictim ? 'bad' : 'info');
-
-        if (oldOwner) checkElimination(oldOwner);
-    } else {
-        const defLoss = Math.floor(tgtD.garrison * 0.2);
-        tgtD.garrison = Math.max(5, tgtD.garrison - defLoss);
-        srcD.garrison += Math.max(5, Math.floor(troops * 0.3));
-        addLog(`🛡️ ${tgtD.name} 成功防守住 ${ai.name} 嘅進攻！`, tgtD.owner === G.playerCompany ? 'good' : 'info');
-    }
-}
-
-// ============== EVENTS ==============
-function triggerEvent() {
-    const evt = EVENTS[Math.floor(Math.random() * EVENTS.length)];
-    const result = evt.fn(G);
-    if (result === null) return;
-
+// ========== RANDOM EVENTS ==========
+function showRandomEvent(callback) {
+    const evt = RANDOM_EVENTS[Math.floor(Math.random() * RANDOM_EVENTS.length)];
     sfxEvent();
-    let text = evt.text.replace('{district}', result).replace('{enemy}', result);
-    addLog(`🎲 ${text}`, evt.type === 'good' ? 'event' : 'bad');
 
-    document.getElementById('eventBanner').innerHTML = `<div class="event-banner">${text}</div>`;
-    setTimeout(() => { document.getElementById('eventBanner').innerHTML = ''; }, 4000);
+    if (evt.money) G.money += evt.money;
+    if (evt.tech) G.tech += evt.tech;
+    if (evt.defBonus) playerDistricts().forEach(d => d.defense += evt.defBonus);
+    if (evt.loseGeneral && G.generals.length > 0) {
+        G.generals.pop();
+    }
+
+    showStory('scene-event', '📰', '突發事件', 'tag-event', evt.text, () => {
+        showChoices('', [{ label: '▶️ 繼續' }]);
+        G.phase = 'action';
+        // Override handleChoice for this event
+        const origHandler = window.handleChoice;
+        window.handleChoice = function(idx) {
+            sfxClick();
+            hideChoices();
+            window.handleChoice = origHandler;
+            callback();
+        };
+    });
 }
 
-// ============== WIN / LOSE ==============
-function checkElimination(company) {
-    const owned = countDistricts(company);
-    if (owned === 0) {
-        G.companies[company].alive = false;
-        addLog(`☠️ ${G.companies[company].name} 已經被消滅！`, company === G.playerCompany ? 'bad' : 'good');
-        if (company === G.playerCompany) {
-            G.gameOver = true;
-            setTimeout(() => showEndScreen(false), 500);
-        }
-    }
-}
+// ========== ENEMY AI ==========
+function enemyTurn() {
+    ['enemy1', 'enemy2'].forEach((tag, ei) => {
+        const enemy = G.enemies[ei];
+        const eDists = enemyDistricts(tag);
+        if (eDists.length === 0) return;
 
-function checkWinCondition() {
-    if (G.gameOver) return;
+        // Enemy gets income
+        enemy.money += eDists.reduce((s, d) => s + d.income, 0) / 10;
 
-    const playerOwned = countDistricts(G.playerCompany);
-
-    // Win: 12+ districts
-    if (playerOwned >= 12) {
-        G.gameOver = true;
-        setTimeout(() => showEndScreen(true, '統一大業'), 500);
-        return;
-    }
-
-    // Player eliminated
-    if (playerOwned === 0) {
-        G.gameOver = true;
-        setTimeout(() => showEndScreen(false), 500);
-        return;
-    }
-
-    // Time up
-    if (G.month > G.maxMonths) {
-        G.gameOver = true;
-        let maxOwned = 0;
-        let winner = null;
-        for (const k of Object.keys(G.companies)) {
-            const owned = countDistricts(k);
-            if (owned > maxOwned) { maxOwned = owned; winner = k; }
-        }
-        if (winner === G.playerCompany) {
-            setTimeout(() => showEndScreen(true, '地區最多'), 500);
+        // Random action
+        const roll = Math.random();
+        if (roll < 0.4) {
+            // Attack
+            const owned = new Set(eDists.map(d => d.id));
+            const targets = [];
+            eDists.forEach(d => {
+                DISTRICTS[d.id].adj.forEach(adj => {
+                    if (!owned.has(adj)) targets.push(adj);
+                });
+            });
+            if (targets.length > 0) {
+                const tgt = targets[Math.floor(Math.random() * targets.length)];
+                const d = G.districts[tgt];
+                const attackPower = eDists.reduce((s, dd) => s + dd.troops, 0) * 0.3 + enemy.tech * 10;
+                const defPower = d.troops + d.defense;
+                if (Math.random() < (attackPower / (attackPower + defPower))) {
+                    d.owner = tag;
+                    d.troops = 15 + Math.floor(Math.random() * 10);
+                    d.defense = 0;
+                }
+            }
+        } else if (roll < 0.6) {
+            // Reinforce
+            eDists.forEach(d => {
+                d.troops += 2;
+                d.defense += 1;
+            });
+        } else if (roll < 0.8) {
+            // Recruit
+            eDists.forEach(d => d.troops += 3);
         } else {
-            setTimeout(() => showEndScreen(false), 500);
+            // Tech
+            enemy.tech += 0.5;
         }
-    }
+    });
 }
 
-function showEndScreen(win, reason) {
+// ========== MONTH END ==========
+function nextMonth() {
+    hideChoices();
+
+    // Calculate income/expense
+    const pDists = playerDistricts();
+    G.monthIncome = Math.round(pDists.reduce((s, d) => s + d.income, 0) / 10);
+    G.monthExpense = totalSalary();
+    G.money += G.monthIncome - G.monthExpense;
+
+    // Apply income reduction if event
+    // (handled in event itself)
+
+    // Grow player troops slightly
+    pDists.forEach(d => {
+        d.troops = Math.min(d.troops + 2, 99);
+    });
+
+    // Enemy turn
+    enemyTurn();
+
+    // Show summary
+    G.phase = 'summary';
+    const pCount = countDistricts('player');
+    const e1Count = countDistricts('enemy1');
+    const e2Count = countDistricts('enemy2');
+
+    let comment = '';
+    if (pCount >= 10) comment = '「勝利在望！繼續保持！」— 董事會評價';
+    else if (pCount >= 7) comment = '「表現出色，再接再厲！」— 董事會評價';
+    else if (pCount >= 4) comment = '「唔錯嘅進展，繼續努力！」— 董事會評價';
+    else comment = '「要加把勁喇，對手追上嚟喇！」— 董事會評價';
+
+    const summaryText = '📊 第' + G.month + '個月結束\n\n💰 收入：$' + G.monthIncome + '萬（' + pCount + '個地區）\n💸 支出：$' + G.monthExpense + '萬（武將薪水）\n💵 結餘：$' + G.money + '萬\n\n📍 你嘅地區：' + pCount + '/18\n⚔️ ' + G.enemies[0].name + '：' + e1Count + '/18\n🏢 ' + G.enemies[1].name + '：' + e2Count + '/18\n\n' + comment;
+
+    showStory('scene-month', '📊', '月結報告', 'tag-month', summaryText, () => {
+        G.month++;
+        showChoices('', [{ label: '▶️ 下一個月' }]);
+        // Override for next month
+        const origHandler = window.handleChoice;
+        window.handleChoice = function(idx) {
+            sfxClick();
+            hideChoices();
+            window.handleChoice = origHandler;
+            transition('📅', '第' + G.month + '個月...', () => {
+                showMonthStart();
+            });
+        };
+    });
+}
+
+// ========== END GAME ==========
+function endGame() {
+    const pCount = countDistricts('player');
+    const totalMonths = Math.min(G.month, G.maxMonths);
+    let grade, gradeTitle, gradeStory;
+
+    if (pCount >= 15) {
+        grade = 'S'; gradeTitle = '光纖之王';
+        gradeStory = '你成為咗香港寬頻界嘅傳奇！\n\n媒體稱你為「光纖之王」，你嘅公司壟斷咗全港大部分市場。\n\n「由一間小公司，到今日嘅行業霸主，呢個故事會被寫入商學院教材。」\n\n你站喺ICC頂層，俯瞰住維多利亞港，心中充滿成就感。\n\n「呢個城市嘅每一條光纖，都有我嘅故事。」';
+    } else if (pCount >= 12) {
+        grade = 'A'; gradeTitle = '市場領導者';
+        gradeStory = '出色嘅表現！你嘅公司成為市場領導者。\n\n董事會對你嘅成績非常滿意，續約多3年。\n\n「你證明咗自己係一個出色嘅CEO。」董事長笑住同你握手。\n\n未來仲有好長嘅路要行，但你已經證明咗自己。';
+    } else if (pCount >= 8) {
+        grade = 'B'; gradeTitle = '穩健經營者';
+        gradeStory = '穩打穩紮，你成功佔據一席之地。\n\n雖然未能統一市場，但你嘅公司穩步增長。\n\n「唔係最叻，但夠穩陣。」行業分析師咁評價你。\n\n你知道，下一次一定可以做得更好。';
+    } else if (pCount >= 4) {
+        grade = 'C'; gradeTitle = '苦苦支撐';
+        gradeStory = '勉強保住公司，但前路仍然漫長...\n\n董事會對你嘅表現有啲失望，但決定再俾你一次機會。\n\n「市場競爭激烈，你需要更大膽嘅策略。」\n\n你默默點頭，心中已經有咗新嘅計劃。';
+    } else {
+        grade = 'D'; gradeTitle = '慘淡收場';
+        gradeStory = '公司經營困難，最終被市場淘汰...\n\n但你從中學到好多嘢。\n\n「失敗乃成功之母。」你收拾辦公桌嘅時候，同自己講。\n\n「下次再嚟過！」你握緊拳頭。';
+    }
+
     sfxWin();
-    const playerOwned = countDistricts(G.playerCompany);
-    const totalGenerals = G.companies[G.playerCompany].generals.length;
-    const totalTroops = getTotalTroops(G.playerCompany);
-
-    // Grade
-    let grade = 'D';
-    if (win) {
-        if (playerOwned >= 16 && G.month <= 24) grade = 'S';
-        else if (playerOwned >= 14 && G.month <= 30) grade = 'A';
-        else if (playerOwned >= 12) grade = 'B';
-        else grade = 'C';
-    }
-
-    const resultText = win ? `🎉 ${reason}！你成功稱霸香港寬頻市場！` : '💀 你嘅公司已經被擊敗...';
-
-    // Final mini map
-    let mapHtml = '<div style="display:flex;flex-direction:column;gap:3px;margin:16px 0;">';
-    for (const row of DISTRICTS_LAYOUT) {
-        mapHtml += '<div style="display:flex;gap:3px;justify-content:center;">';
-        for (const did of row) {
-            const d = G.districts[did];
-            let color = '#475569';
-            if (d.owner === G.playerCompany) color = '#60a5fa';
-            else if (d.owner) color = G.companies[d.owner].color;
-            mapHtml += `<div style="flex:1;max-width:80px;padding:4px;background:${color}30;border:1px solid ${color};border-radius:6px;text-align:center;font-size:0.6rem;">${d.name}</div>`;
-        }
-        mapHtml += '</div>';
-    }
-    mapHtml += '</div>';
 
     // Save to leaderboard
-    saveScore(grade, playerOwned, G.month, G.companies[G.playerCompany].name);
+    saveScore(grade, pCount, totalMonths);
+
+    // Render end screen
+    const endEl = document.getElementById('end-screen');
+    let html = '<div class="end-screen">';
+    html += '<div class="end-grade">' + grade + '</div>';
+    html += '<h2 class="end-title">' + gradeTitle + '</h2>';
+
+    html += '<div class="end-story">' + gradeStory + '</div>';
+
+    html += '<div class="end-stats">';
+    html += '<div class="end-stat"><div class="es-label">評級</div><div class="es-val">' + grade + '級</div></div>';
+    html += '<div class="end-stat"><div class="es-label">控制地區</div><div class="es-val">' + pCount + '/18</div></div>';
+    html += '<div class="end-stat"><div class="es-label">遊戲月數</div><div class="es-val">' + totalMonths + '月</div></div>';
+    html += '<div class="end-stat"><div class="es-label">武將數量</div><div class="es-val">' + G.generals.length + '人</div></div>';
+    html += '<div class="end-stat"><div class="es-label">進攻次數</div><div class="es-val">' + G.totalAttacks + '次</div></div>';
+    html += '<div class="end-stat"><div class="es-label">勝率</div><div class="es-val">' + (G.totalAttacks > 0 ? Math.round(G.totalWins / G.totalAttacks * 100) : 0) + '%</div></div>';
+    html += '</div>';
+
+    // Final map
+    html += renderMap();
+
+    // Share
+    const shareText = '我喺「寬頻三國志」攞到' + grade + '級！控制咗' + pCount + '/18區！你得唔得？';
+    const shareUrl = 'https://broadbandhk.com/game-war.html';
+
+    html += '<div class="share-btns">';
+    html += '<button class="share-btn wa" onclick="window.open(\'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl) + '\')">📱 WhatsApp</button>';
+    html += '<button class="share-btn fb" onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&quote=' + encodeURIComponent(shareText) + '\')">📘 Facebook</button>';
+    html += '<button class="share-btn copy" onclick="navigator.clipboard.writeText(\'' + shareText + ' ' + shareUrl + '\');this.textContent=\'已複製！\'">📋 複製</button>';
+    html += '<button class="share-btn replay" onclick="location.reload()">🔄 再玩一次</button>';
+    html += '</div>';
 
     // Leaderboard
-    const scores = getScores();
-    let lbHtml = '';
-    if (scores.length > 0) {
-        lbHtml = '<table class="lb-table"><tr><th>#</th><th>等級</th><th>地區</th><th>月數</th><th>公司</th></tr>';
-        scores.slice(0, 10).forEach((s, i) => {
-            lbHtml += `<tr><td>${i+1}</td><td style="color:#fbbf24;font-weight:900;">${s.grade}</td><td>${s.districts}</td><td>${s.months}</td><td>${s.company}</td></tr>`;
-        });
-        lbHtml += '</table>';
-    }
+    html += renderLeaderboard();
 
-    const shareText = `寬頻三國志 | 等級：${grade} | 佔領${playerOwned}/18區 | 用咗${G.month}個月 | 你能做得更好嗎？ https://broadbandhk.com/game-war.html`;
+    // CTA
+    html += '<a href="https://broadbandhk.com" target="_blank" class="cta-link">🌐 了解真正嘅寬頻服務 →</a>';
 
-    document.getElementById('end-screen').innerHTML = `
-        <div class="end-screen">
-            <div class="end-grade">${grade}</div>
-            <div class="end-title">${resultText}</div>
-            ${mapHtml}
-            <div class="end-stats">
-                <div class="end-stat"><div class="es-label">📍 佔領地區</div><div class="es-val">${playerOwned}/18</div></div>
-                <div class="end-stat"><div class="es-label">📅 用時</div><div class="es-val">${G.month}個月</div></div>
-                <div class="end-stat"><div class="es-label">⚔️ 武將</div><div class="es-val">${totalGenerals}</div></div>
-                <div class="end-stat"><div class="es-label">👥 兵力</div><div class="es-val">${totalTroops}</div></div>
-                <div class="end-stat"><div class="es-label">💰 剩餘資金</div><div class="es-val">$${G.companies[G.playerCompany].money}萬</div></div>
-                <div class="end-stat"><div class="es-label">🔧 技術等級</div><div class="es-val">Lv.${G.companies[G.playerCompany].tech}</div></div>
-            </div>
-
-            <div class="share-btns">
-                <button class="share-btn wa" onclick="window.open('https://wa.me/?text=${encodeURIComponent(shareText)}')">📱 WhatsApp 分享</button>
-                <button class="share-btn fb" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://broadbandhk.com/game-war.html')}&quote=${encodeURIComponent(shareText)}')">📘 Facebook 分享</button>
-                <button class="share-btn copy" onclick="navigator.clipboard.writeText('${shareText.replace(/'/g,"\\'")}');this.textContent='✅ 已複製！';setTimeout(()=>this.textContent='📋 複製結果',2000);">📋 複製結果</button>
-                <button class="share-btn replay" onclick="location.reload()">🔄 再玩一次</button>
-            </div>
-
-            <div style="margin-top:20px;">
-                <h3 style="font-size:1rem;margin-bottom:8px;">🏆 排行榜</h3>
-                ${lbHtml || '<p style="color:#475569;">暫無記錄</p>'}
-            </div>
-
-            <a href="https://broadbandhk.com" class="cta-link" target="_blank">⚡ 了解更多寬頻優惠 — BroadbandHK.com</a>
-        </div>
-    `;
+    html += '</div>';
+    endEl.innerHTML = html;
 
     showScreen('end-screen');
 }
 
-// ============== LEADERBOARD ==============
-function saveScore(grade, districts, months, company) {
-    try {
-        const scores = getScores();
-        scores.push({ grade, districts, months, company, date: new Date().toISOString() });
-        scores.sort((a, b) => {
-            const gradeOrder = { S: 0, A: 1, B: 2, C: 3, D: 4 };
-            if (gradeOrder[a.grade] !== gradeOrder[b.grade]) return gradeOrder[a.grade] - gradeOrder[b.grade];
-            if (a.districts !== b.districts) return b.districts - a.districts;
-            return a.months - b.months;
-        });
-        localStorage.setItem('bbwar_scores', JSON.stringify(scores.slice(0, 20)));
-    } catch(e) {}
-}
-function getScores() {
-    try { return JSON.parse(localStorage.getItem('bbwar_scores') || '[]'); } catch(e) { return []; }
+// ========== LEADERBOARD ==========
+function saveScore(grade, districts, months) {
+    const scores = JSON.parse(localStorage.getItem('war_leaderboard') || '[]');
+    scores.push({
+        grade, districts, months,
+        company: G.companyName,
+        date: new Date().toLocaleDateString('zh-HK'),
+    });
+    scores.sort((a, b) => {
+        const go = { S: 5, A: 4, B: 3, C: 2, D: 1 };
+        if (go[a.grade] !== go[b.grade]) return go[b.grade] - go[a.grade];
+        return b.districts - a.districts;
+    });
+    localStorage.setItem('war_leaderboard', JSON.stringify(scores.slice(0, 10)));
 }
 
-// ============== HELPERS ==============
-function countDistricts(company) {
-    return Object.values(G.districts).filter(d => d.owner === company).length;
+function renderLeaderboard() {
+    const scores = JSON.parse(localStorage.getItem('war_leaderboard') || '[]');
+    if (scores.length === 0) return '';
+    let html = '<div class="lb-section"><h3>🏆 排行榜</h3>';
+    html += '<table class="lb-table"><thead><tr><th>#</th><th>公司</th><th>評級</th><th>地區</th><th>月數</th><th>日期</th></tr></thead><tbody>';
+    scores.forEach((s, i) => {
+        html += '<tr><td>' + (i + 1) + '</td><td>' + s.company + '</td><td>' + s.grade + '</td><td>' + s.districts + '/18</td><td>' + s.months + '</td><td>' + s.date + '</td></tr>';
+    });
+    html += '</tbody></table></div>';
+    return html;
 }
-function getTotalTroops(company) {
-    let total = 0;
-    for (const d of Object.values(G.districts)) {
-        if (d.owner === company) total += d.garrison;
-    }
-    return total;
-}
-function randomOwnedDistrict(company) {
-    const owned = Object.keys(G.districts).filter(k => G.districts[k].owner === company);
-    return owned.length > 0 ? owned[Math.floor(Math.random() * owned.length)] : null;
-}
-function isAdjacent(a, b) {
-    return (ADJACENCY[a] || []).includes(b);
-}
-function findGeneral(id) {
-    for (const k of Object.keys(G.companies)) {
-        for (const g of G.companies[k].generals) {
-            if (g.id === id) return g;
-        }
-    }
-    return null;
-}
-function findGeneralLocation(genId) {
-    for (const [dk, d] of Object.entries(G.districts)) {
-        if (d.generals.includes(genId)) return dk;
-    }
-    return null;
-}
-function removeGeneralFromDistrict(genId) {
-    for (const d of Object.values(G.districts)) {
-        d.generals = d.generals.filter(id => id !== genId);
+
+// ========== GA TRACKING ==========
+function trackEvent(action, label) {
+    if (typeof gtag === 'function') {
+        gtag('event', action, { event_category: 'game_war', event_label: label });
     }
 }
-function removeGeneralFromAllDistricts(genId) {
-    removeGeneralFromDistrict(genId);
-}
-
-function addLog(text, type) {
-    if (!G) return;
-    G.logs.unshift({ text, type });
-    if (G.logs.length > 50) G.logs.pop();
-    const area = document.getElementById('logArea');
-    if (area) {
-        let html = '';
-        for (const l of G.logs) {
-            html += `<div class="log-entry log-${l.type}">${l.text}</div>`;
-        }
-        area.innerHTML = html;
-    }
-}
-
-function openModal() { document.getElementById('modal').classList.add('active'); }
-function closeModal() { document.getElementById('modal').classList.remove('active'); }
-
-function showToast(msg) {
-    const banner = document.getElementById('eventBanner');
-    banner.innerHTML = `<div class="event-banner" style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);color:#f87171;">${msg}</div>`;
-    setTimeout(() => { banner.innerHTML = ''; }, 2500);
-}
-
-function toggleSidebar() {
-    const sb = document.getElementById('sidebar');
-    const btn = document.getElementById('sidebarToggle');
-    sb.classList.toggle('collapsed');
-    btn.textContent = sb.classList.contains('collapsed') ? '📋 展開詳情面板' : '📋 收起詳情面板';
-}
-
-// Close modal on overlay click
-document.getElementById('modal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-});
 </script>
 </body>
 </html>
