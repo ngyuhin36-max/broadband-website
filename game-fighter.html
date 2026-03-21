@@ -314,8 +314,14 @@ window.addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
     btn.addEventListener('mouseup', release);
     btn.addEventListener('mouseleave', release);
   });
-  // Prevent default touch behavior on canvas
-  document.getElementById('game').addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+  // Tap canvas to start game
+  document.getElementById('game').addEventListener('touchstart', e => {
+    e.preventDefault();
+    if (gameState === 'title' || gameState === 'victory') startRound();
+  }, { passive: false });
+  document.getElementById('game').addEventListener('click', e => {
+    if (gameState === 'title' || gameState === 'victory') startRound();
+  });
 })();
 
 class Fighter {
@@ -1531,9 +1537,10 @@ function drawTitle() {
   ctx.fillStyle = '#ff6600'; ctx.font = 'bold 48px Arial'; ctx.fillText('VS', 450, 370);
   ctx.fillStyle = '#f44'; ctx.font = 'bold 32px Arial'; ctx.fillText('斷線魔皇 (CPU)', 650, 360);
   if (Math.sin(Date.now()*0.005) > 0) {
-    ctx.fillStyle = '#fff'; ctx.font = 'bold 24px Arial'; ctx.fillText('按 SPACE 開始遊戲', 450, 480);
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 24px Arial';
+    ctx.fillText('按 SPACE 或點擊畫面開始', 450, 480);
   }
-  ctx.font = '16px Arial'; ctx.fillStyle = '#888'; ctx.fillText('PRESS SPACE TO START', 450, 510);
+  ctx.font = '16px Arial'; ctx.fillStyle = '#888'; ctx.fillText('PRESS SPACE / TAP TO START', 450, 510);
   ctx.fillStyle = '#555'; ctx.font = '12px Arial'; ctx.fillText('broadbandhk.com', 450, 560);
   ctx.textAlign = 'left'; ctx.restore();
 }
