@@ -401,88 +401,371 @@ class Fighter {
 
   draw() {
     ctx.save();
-    let drawY = this.state === 'crouch' ? this.y + 40 : this.y;
-    let bodyColor = this.color, skinColor = '#ffd4a0';
-    let hairColor = this.isAI ? '#222' : '#ffa500';
-    let pantsColor = this.isAI ? '#333' : '#fff';
-    let breathe = Math.sin(this.animTimer * 0.15) * 2;
-    let walkBob = this.state === 'walk' ? Math.sin(this.animFrame * 1.2) * 3 : 0;
+    let skinColor = '#f5d0a0';
+    let breathe = Math.sin(this.animTimer * 0.12) * 1.5;
+    let walkCycle = this.state === 'walk' ? Math.sin(this.animFrame * 1.4) : 0;
+    // KOF style colors
+    // P1 Kyo style: white school jacket, dark jeans, brown hair with headband
+    // CPU Iori style: purple moon jacket, black pants, red wild hair
+    let jacketColor = this.isAI ? '#4a1a6b' : '#eee';
+    let jacketColor2 = this.isAI ? '#3a1055' : '#ddd';
+    let shirtColor = this.isAI ? '#1a1a2e' : '#222';
+    let pantsColor = this.isAI ? '#1a1a1a' : '#2a3a5c';
+    let shoeColor = this.isAI ? '#2a0a3a' : '#8b4513';
+    let hairColor = this.isAI ? '#cc0000' : '#8b5e2f';
+    let gloveColor = this.isAI ? '#3a1055' : '#a0522d';
+    let flameColor = this.isAI ? '#9b30ff' : '#ff6600';
+    let flameColor2 = this.isAI ? '#cc66ff' : '#ffaa00';
+
+    let drawY = this.state === 'crouch' ? this.y + 30 : this.y;
+
     // Shadow
-    ctx.fillStyle = 'rgba(0,0,0,0.3)';
-    ctx.beginPath(); ctx.ellipse(this.x, this.groundY + this.height, 30, 8, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'rgba(0,0,0,0.4)';
+    ctx.beginPath();
+    ctx.ellipse(this.x, this.groundY + this.height + 2, 28, 6, 0, 0, Math.PI * 2);
+    ctx.fill();
+
     ctx.translate(this.x, drawY);
     if (this.facing === -1) ctx.scale(-1, 1);
     if (this.state === 'ko') ctx.rotate(Math.PI / 2);
-    if (this.state === 'hit' && this.hitStun % 4 < 2) ctx.globalAlpha = 0.6;
-    if (this.state === 'block') ctx.translate(-5, 0);
-    // Legs
-    ctx.fillStyle = pantsColor;
-    if (this.state === 'walk') {
-      ctx.fillRect(-12, 70 + walkBob, 12, 40); ctx.fillStyle = skinColor; ctx.fillRect(-10, 95 + walkBob, 12, 18); ctx.fillStyle = pantsColor;
-      ctx.fillRect(2, 70 - walkBob, 12, 40); ctx.fillStyle = skinColor; ctx.fillRect(4, 95 - walkBob, 12, 18);
-    } else if (this.state === 'kick' && this.stateTimer >= 4 && this.stateTimer <= 14) {
-      ctx.fillRect(-12, 70, 12, 40); ctx.save(); ctx.translate(5, 75); ctx.rotate(-0.3);
-      ctx.fillRect(0, 0, 12, 20); ctx.fillStyle = skinColor; ctx.fillRect(5, 15, 40, 14); ctx.restore();
-    } else if (this.state === 'crouch') {
-      ctx.fillRect(-12, 40, 12, 25); ctx.fillRect(5, 40, 12, 25);
-      ctx.fillStyle = skinColor; ctx.fillRect(-10, 55, 12, 12); ctx.fillRect(7, 55, 12, 12);
+    if (this.state === 'hit' && this.hitStun % 3 < 2) ctx.globalAlpha = 0.5;
+    if (this.state === 'block') ctx.translate(-3, 0);
+
+    let crouching = this.state === 'crouch';
+    let tY = crouching ? 15 : 0; // torso offset when crouching
+
+    // ===== LEGS =====
+    let legLen = crouching ? 25 : 45;
+    let footY = crouching ? 75 : 95;
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+
+    if (this.state === 'kick' && this.stateTimer >= 4 && this.stateTimer <= 14) {
+      // Kicking - one leg forward extended
+      // Standing leg
+      ctx.fillStyle = pantsColor;
+      this.drawLimb(-8, 65+tY, -10, footY+tY, 11);
+      ctx.fillStyle = shoeColor;
+      ctx.fillRect(-16, footY+tY, 14, 7);
+      // Kick leg - horizontal
+      ctx.fillStyle = pantsColor;
+      ctx.save();
+      ctx.translate(5, 68+tY);
+      ctx.rotate(-0.15);
+      ctx.fillRect(0, -6, 14, 12);
+      ctx.fillStyle = skinColor;
+      ctx.fillRect(14, -5, 35, 10);
+      ctx.fillStyle = shoeColor;
+      ctx.fillRect(44, -7, 16, 14);
+      ctx.restore();
     } else {
-      ctx.fillRect(-12, 70, 12, 35); ctx.fillRect(5, 70, 12, 35);
-      ctx.fillStyle = '#555'; ctx.fillRect(-14, 102, 16, 8); ctx.fillRect(3, 102, 16, 8);
+      // Normal legs with fighting stance
+      let lOff = walkCycle * 10;
+      // Left leg
+      ctx.fillStyle = pantsColor;
+      this.drawLimb(-9, 65+tY, -12+lOff*0.3, footY+tY+lOff*0.5, 11);
+      ctx.fillStyle = shoeColor;
+      ctx.beginPath();
+      ctx.ellipse(-12+lOff*0.3, footY+tY+lOff*0.5+3, 9, 5, 0, 0, Math.PI*2);
+      ctx.fill();
+      // Right leg
+      ctx.fillStyle = pantsColor;
+      this.drawLimb(5, 65+tY, 8-lOff*0.3, footY+tY-lOff*0.5, 11);
+      ctx.fillStyle = shoeColor;
+      ctx.beginPath();
+      ctx.ellipse(8-lOff*0.3, footY+tY-lOff*0.5+3, 9, 5, 0, 0, Math.PI*2);
+      ctx.fill();
     }
-    // Torso
-    ctx.fillStyle = bodyColor;
-    let torsoY = this.state === 'crouch' ? 10 : 20;
-    ctx.fillRect(-18, torsoY + breathe, 38, 52 - (this.state === 'crouch' ? 20 : 0));
-    ctx.fillStyle = this.isAI ? '#c00' : '#000';
-    ctx.fillRect(-18, torsoY + 44 + breathe, 38, 6);
-    // Arms
-    ctx.fillStyle = skinColor;
+
+    // ===== TORSO =====
+    let torsoH = crouching ? 30 : 42;
+    // Jacket body
+    ctx.fillStyle = jacketColor;
+    ctx.beginPath();
+    ctx.moveTo(-20, 22+tY+breathe);
+    ctx.lineTo(20, 22+tY+breathe);
+    ctx.lineTo(18, 22+torsoH+tY+breathe);
+    ctx.lineTo(-18, 22+torsoH+tY+breathe);
+    ctx.closePath();
+    ctx.fill();
+    // Jacket lapels / detail
+    ctx.fillStyle = jacketColor2;
+    ctx.beginPath();
+    ctx.moveTo(-5, 22+tY+breathe);
+    ctx.lineTo(5, 22+tY+breathe);
+    ctx.lineTo(3, 22+torsoH+tY+breathe);
+    ctx.lineTo(-3, 22+torsoH+tY+breathe);
+    ctx.closePath();
+    ctx.fill();
+    // Inner shirt visible
+    ctx.fillStyle = shirtColor;
+    ctx.fillRect(-4, 24+tY+breathe, 8, torsoH-6);
+    // Belt
+    ctx.fillStyle = this.isAI ? '#222' : '#444';
+    ctx.fillRect(-19, 60+tY+breathe, 38, 5);
+    // Belt buckle
+    ctx.fillStyle = '#daa520';
+    ctx.fillRect(-3, 60+tY+breathe, 6, 5);
+
+    // Collar
+    ctx.fillStyle = jacketColor;
+    ctx.beginPath();
+    ctx.moveTo(-14, 22+tY+breathe);
+    ctx.lineTo(-8, 15+tY+breathe);
+    ctx.lineTo(-2, 22+tY+breathe);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(14, 22+tY+breathe);
+    ctx.lineTo(8, 15+tY+breathe);
+    ctx.lineTo(2, 22+tY+breathe);
+    ctx.fill();
+
+    // ===== ARMS =====
     if (this.state === 'punch' && this.stateTimer >= 3 && this.stateTimer <= 12) {
-      ctx.fillRect(15, torsoY + 8, 45, 12);
-      ctx.fillStyle = this.isAI ? '#c00' : '#fff'; ctx.fillRect(55, torsoY + 5, 16, 18);
-      ctx.fillStyle = skinColor; ctx.fillRect(-25, torsoY + 15, 12, 25);
+      // Punching arm - extended forward
+      ctx.fillStyle = skinColor;
+      this.drawLimb(16, 30+tY+breathe, 55, 32+tY+breathe, 8);
+      // Fist with glove
+      ctx.fillStyle = gloveColor;
+      ctx.beginPath(); ctx.arc(60, 32+tY+breathe, 9, 0, Math.PI*2); ctx.fill();
+      // Impact effect
+      if (this.stateTimer >= 5 && this.stateTimer <= 9) {
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2;
+        for (let i = 0; i < 4; i++) {
+          let a = (i/4)*Math.PI - 0.5;
+          ctx.beginPath();
+          ctx.moveTo(65 + Math.cos(a)*8, 32+tY+breathe + Math.sin(a)*8);
+          ctx.lineTo(65 + Math.cos(a)*15, 32+tY+breathe + Math.sin(a)*15);
+          ctx.stroke();
+        }
+      }
+      // Back arm guard
+      ctx.fillStyle = skinColor;
+      this.drawLimb(-16, 30+tY+breathe, -20, 48+tY+breathe, 7);
+      ctx.fillStyle = gloveColor;
+      ctx.beginPath(); ctx.arc(-20, 48+tY+breathe, 7, 0, Math.PI*2); ctx.fill();
     } else if (this.state === 'special' && this.stateTimer >= 5 && this.stateTimer <= 20) {
-      ctx.fillRect(10, torsoY + 2, 35, 14); ctx.fillRect(10, torsoY + 20, 35, 14);
-      let glow = Math.sin(this.stateTimer * 0.5) * 5;
-      ctx.fillStyle = this.isAI ? '#f00' : '#0af';
-      ctx.shadowColor = this.isAI ? '#f00' : '#0af'; ctx.shadowBlur = 20 + glow;
-      ctx.beginPath(); ctx.arc(55, torsoY + 18, 18 + glow, 0, Math.PI * 2); ctx.fill(); ctx.shadowBlur = 0;
+      // Special attack - both arms forward, energy blast
+      ctx.fillStyle = skinColor;
+      this.drawLimb(14, 28+tY, 42, 30+tY, 8);
+      this.drawLimb(14, 38+tY, 42, 40+tY, 8);
+      // Flame / energy ball
+      let t = this.stateTimer;
+      let glow = Math.sin(t * 0.6) * 6;
+      ctx.shadowColor = flameColor;
+      ctx.shadowBlur = 25 + glow;
+      // Outer flame
+      ctx.fillStyle = flameColor;
+      ctx.beginPath(); ctx.arc(52, 35+tY, 20+glow, 0, Math.PI*2); ctx.fill();
+      // Inner flame
+      ctx.fillStyle = flameColor2;
+      ctx.beginPath(); ctx.arc(52, 35+tY, 12+glow*0.5, 0, Math.PI*2); ctx.fill();
+      // Core
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(52, 35+tY, 5, 0, Math.PI*2); ctx.fill();
+      ctx.shadowBlur = 0;
+      // Flame wisps
+      for (let i = 0; i < 5; i++) {
+        let fx = 52 + Math.sin(Date.now()*0.01+i*1.5)*(15+glow);
+        let fy = 35+tY + Math.cos(Date.now()*0.012+i*2)*(15+glow);
+        ctx.fillStyle = flameColor2;
+        ctx.globalAlpha = 0.6;
+        ctx.beginPath(); ctx.arc(fx, fy, 4+Math.random()*3, 0, Math.PI*2); ctx.fill();
+        ctx.globalAlpha = 1;
+      }
     } else if (this.state === 'block') {
-      ctx.fillRect(-5, torsoY + 5, 12, 35); ctx.fillRect(8, torsoY + 5, 12, 35);
-      ctx.strokeStyle = '#0ff'; ctx.lineWidth = 2;
-      ctx.globalAlpha = 0.5 + Math.sin(Date.now() * 0.01) * 0.3;
-      ctx.beginPath(); ctx.arc(5, torsoY + 30, 30, 0, Math.PI * 2); ctx.stroke(); ctx.globalAlpha = 1;
+      // Arms crossed in front - guard pose
+      ctx.fillStyle = skinColor;
+      this.drawLimb(-14, 28+tY+breathe, 2, 32+tY+breathe, 8);
+      this.drawLimb(14, 28+tY+breathe, 0, 38+tY+breathe, 8);
+      ctx.fillStyle = gloveColor;
+      ctx.beginPath(); ctx.arc(2, 32+tY+breathe, 7, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(0, 38+tY+breathe, 7, 0, Math.PI*2); ctx.fill();
+      // Shield aura
+      ctx.strokeStyle = this.isAI ? '#9b30ff' : '#4af';
+      ctx.lineWidth = 2;
+      ctx.globalAlpha = 0.4 + Math.sin(Date.now()*0.008)*0.3;
+      ctx.beginPath(); ctx.arc(2, 38+tY, 28, 0, Math.PI*2); ctx.stroke();
+      ctx.globalAlpha = 1;
     } else {
-      ctx.fillRect(-25, torsoY + 8 + breathe, 12, 30); ctx.fillRect(15, torsoY + 8 + breathe, 12, 30);
-      ctx.fillStyle = this.isAI ? '#c00' : '#fff';
-      ctx.fillRect(-27, torsoY + 5 + breathe, 14, 14); ctx.fillRect(15, torsoY + 5 + breathe, 14, 14);
+      // Fighting stance - fists up (KOF idle pose)
+      let bob = breathe;
+      // Front arm (raised fist)
+      ctx.fillStyle = skinColor;
+      this.drawLimb(14, 26+tY+bob, 22, 18+tY+bob, 7);
+      ctx.fillStyle = gloveColor;
+      ctx.beginPath(); ctx.arc(22, 16+tY+bob, 8, 0, Math.PI*2); ctx.fill();
+      // Back arm (guard near chin)
+      ctx.fillStyle = skinColor;
+      this.drawLimb(-14, 26+tY+bob, -8, 14+tY+bob, 7);
+      ctx.fillStyle = gloveColor;
+      ctx.beginPath(); ctx.arc(-8, 12+tY+bob, 7, 0, Math.PI*2); ctx.fill();
     }
-    // Head
-    let headY = torsoY - 28 + breathe;
-    ctx.fillStyle = skinColor; ctx.beginPath(); ctx.arc(2, headY, 20, 0, Math.PI * 2); ctx.fill();
+
+    // Jacket sleeves on top of arms
+    if (this.state !== 'punch' && this.state !== 'special') {
+      ctx.fillStyle = jacketColor;
+      ctx.fillRect(-22, 22+tY+breathe, 8, 14);
+      ctx.fillRect(14, 22+tY+breathe, 8, 14);
+    }
+
+    // ===== HEAD =====
+    let headY = 2 + tY + breathe;
+
+    // Neck
+    ctx.fillStyle = skinColor;
+    ctx.fillRect(-5, 12+tY+breathe, 10, 12);
+
+    // Head shape
+    ctx.fillStyle = skinColor;
+    ctx.beginPath(); ctx.arc(0, headY, 18, 0, Math.PI*2); ctx.fill();
+    // Jaw line - slightly angular
+    ctx.beginPath();
+    ctx.moveTo(-14, headY+5);
+    ctx.quadraticCurveTo(-8, headY+20, 0, headY+22);
+    ctx.quadraticCurveTo(8, headY+20, 14, headY+5);
+    ctx.fill();
+
+    // ===== HAIR =====
     ctx.fillStyle = hairColor;
     if (this.isAI) {
-      ctx.beginPath(); ctx.moveTo(-18, headY-5); ctx.lineTo(-12, headY-25); ctx.lineTo(-5, headY-15);
-      ctx.lineTo(2, headY-28); ctx.lineTo(10, headY-15); ctx.lineTo(16, headY-22); ctx.lineTo(22, headY-5);
-      ctx.closePath(); ctx.fill();
+      // Iori style - wild red hair sweeping back and up
+      ctx.beginPath();
+      ctx.moveTo(-20, headY);
+      ctx.quadraticCurveTo(-22, headY-20, -15, headY-28);
+      ctx.lineTo(-8, headY-18);
+      ctx.lineTo(-5, headY-32);
+      ctx.lineTo(0, headY-22);
+      ctx.lineTo(5, headY-35);
+      ctx.lineTo(8, headY-20);
+      ctx.lineTo(14, headY-30);
+      ctx.quadraticCurveTo(22, headY-18, 20, headY);
+      ctx.quadraticCurveTo(18, headY-5, 0, headY-14);
+      ctx.quadraticCurveTo(-18, headY-5, -20, headY);
+      ctx.fill();
+      // Hair strands hanging over face
+      ctx.beginPath();
+      ctx.moveTo(-12, headY-10);
+      ctx.quadraticCurveTo(-16, headY+5, -10, headY+12);
+      ctx.quadraticCurveTo(-8, headY+5, -6, headY-5);
+      ctx.fill();
+      // Moon symbol on jacket (Iori's crescent)
+      ctx.fillStyle = '#ddd';
+      ctx.beginPath();
+      ctx.arc(0, 40+tY+breathe, 6, 0.3, Math.PI*2-0.3);
+      ctx.stroke();
     } else {
-      ctx.beginPath(); ctx.moveTo(-20, headY-5); ctx.lineTo(-8, headY-30); ctx.lineTo(2, headY-20);
-      ctx.lineTo(12, headY-32); ctx.lineTo(22, headY-5); ctx.closePath(); ctx.fill();
-      ctx.fillStyle = '#f00'; ctx.fillRect(-22, headY-8, 46, 6); ctx.fillRect(-22, headY-8, 4, 20);
+      // Kyo style - spiky brown hair with headband
+      ctx.beginPath();
+      ctx.moveTo(-18, headY+2);
+      ctx.quadraticCurveTo(-20, headY-12, -12, headY-22);
+      ctx.lineTo(-6, headY-15);
+      ctx.lineTo(-3, headY-26);
+      ctx.lineTo(3, headY-18);
+      ctx.lineTo(8, headY-28);
+      ctx.lineTo(12, headY-16);
+      ctx.quadraticCurveTo(20, headY-12, 18, headY+2);
+      ctx.quadraticCurveTo(14, headY-8, 0, headY-14);
+      ctx.quadraticCurveTo(-14, headY-8, -18, headY+2);
+      ctx.fill();
+      // White headband
+      ctx.fillStyle = '#fff';
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(0, headY, 19, -2.8, -0.3);
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = '#fff';
+      ctx.stroke();
+      ctx.restore();
+      // Headband tail
+      ctx.fillStyle = '#fff';
+      ctx.beginPath();
+      ctx.moveTo(-18, headY-4);
+      ctx.quadraticCurveTo(-28, headY+2, -24, headY+12);
+      ctx.quadraticCurveTo(-22, headY+4, -16, headY-2);
+      ctx.fill();
+      // Sun emblem on jacket back (Kyo's sun)
+      ctx.fillStyle = '#ff6600';
+      ctx.beginPath();
+      ctx.arc(0, 42+tY+breathe, 5, 0, Math.PI*2);
+      ctx.fill();
     }
-    ctx.fillStyle = '#fff'; ctx.fillRect(-6, headY-5, 8, 6); ctx.fillRect(6, headY-5, 8, 6);
-    ctx.fillStyle = this.state === 'special' ? '#ff0' : '#222';
-    ctx.fillRect(-3, headY-4, 4, 5); ctx.fillRect(9, headY-4, 4, 5);
-    if (this.state === 'hit') { ctx.fillStyle = '#a00'; ctx.fillRect(-4, headY+8, 10, 6); }
-    else if (this.state === 'special') { ctx.fillStyle = '#a00'; ctx.beginPath(); ctx.arc(3, headY+10, 5, 0, Math.PI*2); ctx.fill(); }
-    else { ctx.fillStyle = '#a00'; ctx.fillRect(-2, headY+8, 8, 3); }
+
+    // ===== FACE =====
+    // Eyes
+    let eyeState = this.state;
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.ellipse(-6, headY-2, 5, 4, 0, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(6, headY-2, 5, 4, 0, 0, Math.PI*2); ctx.fill();
+    // Pupils
+    if (eyeState === 'special') {
+      ctx.fillStyle = flameColor;
+    } else if (eyeState === 'hit') {
+      ctx.fillStyle = '#666';
+    } else {
+      ctx.fillStyle = this.isAI ? '#800' : '#333';
+    }
+    ctx.beginPath(); ctx.ellipse(-5, headY-1, 3, 3, 0, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(7, headY-1, 3, 3, 0, 0, Math.PI*2); ctx.fill();
+    // Eyebrows - angry
+    ctx.strokeStyle = this.isAI ? '#800' : '#5a3a1a';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(-10, headY-7); ctx.lineTo(-3, headY-5); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(3, headY-5); ctx.lineTo(10, headY-7); ctx.stroke();
+    // Nose
+    ctx.fillStyle = '#dbb88a';
+    ctx.beginPath(); ctx.moveTo(0, headY+2); ctx.lineTo(-2, headY+7); ctx.lineTo(2, headY+7); ctx.fill();
+    // Mouth
+    if (this.state === 'hit') {
+      ctx.fillStyle = '#a00';
+      ctx.beginPath(); ctx.ellipse(0, headY+12, 6, 4, 0, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(-4, headY+11, 8, 2);
+    } else if (this.state === 'special') {
+      ctx.fillStyle = '#a00';
+      ctx.beginPath(); ctx.ellipse(0, headY+12, 5, 5, 0, 0, Math.PI*2); ctx.fill();
+    } else {
+      // Confident smirk
+      ctx.strokeStyle = '#a05030';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(-4, headY+11);
+      ctx.quadraticCurveTo(0, headY+14, 5, headY+10);
+      ctx.stroke();
+    }
+
+    // ===== FLAME AURA (idle) =====
+    if (this.state === 'idle' || this.state === 'walk') {
+      // Subtle flame particles around hands
+      let t = Date.now() * 0.003;
+      for (let i = 0; i < 3; i++) {
+        let fx = 22 + Math.sin(t+i*2)*4;
+        let fy = 14+tY+breathe - i*5 + Math.cos(t+i)*3;
+        ctx.fillStyle = flameColor;
+        ctx.globalAlpha = 0.3 - i*0.08;
+        ctx.beginPath(); ctx.arc(fx, fy, 3-i*0.5, 0, Math.PI*2); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
     ctx.restore();
+  }
+
+  // Helper: draw a thick limb between two points
+  drawLimb(x1, y1, x2, y2, thickness) {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.lineWidth = thickness;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = ctx.fillStyle;
+    ctx.stroke();
   }
 }
 
-let p1 = new Fighter(200, '龍 Dragon', '#2255cc', false);
-let p2 = new Fighter(700, '虎 Tiger', '#cc2222', true);
+let p1 = new Fighter(200, '京 KYO', '#2255cc', false);
+let p2 = new Fighter(700, '庵 IORI', '#cc2222', true);
 
 function startRound() {
   gameState = 'fighting'; timer = 99;
@@ -607,9 +890,9 @@ function drawTitle() {
   tg.addColorStop(0, '#ff4400'); tg.addColorStop(0.5, '#ffaa00'); tg.addColorStop(1, '#ff4400');
   ctx.fillStyle = tg; ctx.font = 'bold 72px Arial'; ctx.fillText('街 頭 格 鬥', 450, 200);
   ctx.fillStyle = '#fff'; ctx.font = 'bold 28px Arial'; ctx.fillText('STREET FIGHTER', 450, 250);
-  ctx.fillStyle = '#4af'; ctx.font = 'bold 36px Arial'; ctx.fillText('龍 Dragon', 250, 360);
+  ctx.fillStyle = '#4af'; ctx.font = 'bold 36px Arial'; ctx.fillText('京 KYO', 250, 360);
   ctx.fillStyle = '#ff6600'; ctx.font = 'bold 48px Arial'; ctx.fillText('VS', 450, 370);
-  ctx.fillStyle = '#f44'; ctx.font = 'bold 36px Arial'; ctx.fillText('虎 Tiger (CPU)', 650, 360);
+  ctx.fillStyle = '#f44'; ctx.font = 'bold 36px Arial'; ctx.fillText('庵 IORI (CPU)', 650, 360);
   if (Math.sin(Date.now()*0.005) > 0) {
     ctx.fillStyle = '#fff'; ctx.font = 'bold 24px Arial'; ctx.fillText('按 SPACE 開始遊戲', 450, 480);
   }
