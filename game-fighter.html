@@ -102,9 +102,65 @@
         font-size: 14px; color: #888; line-height: 1.8;
     }
     .game-desc h2 { color: #ff6600; font-size: 18px; margin-bottom: 8px; }
+    /* Mobile touch controls */
+    #mobile-controls {
+        display: none;
+        width: 100%; max-width: 900px;
+        margin-top: 8px;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: none;
+    }
+    .touch-row {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0 5px;
+    }
+    .dpad {
+        display: grid; grid-template-columns: 50px 50px 50px; grid-template-rows: 50px 50px 50px;
+        gap: 3px;
+    }
+    .dpad-btn {
+        width: 50px; height: 50px; border-radius: 8px;
+        background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25);
+        color: #fff; font-size: 20px; font-weight: bold;
+        display: flex; align-items: center; justify-content: center;
+        touch-action: none;
+    }
+    .dpad-btn:active, .dpad-btn.active { background: rgba(0,170,255,0.4); border-color: #0af; }
+    .dpad-empty { visibility: hidden; }
+    .action-btns {
+        display: grid; grid-template-columns: 58px 58px; grid-template-rows: 58px 58px;
+        gap: 6px;
+    }
+    .act-btn {
+        width: 58px; height: 58px; border-radius: 50%;
+        border: 2px solid rgba(255,255,255,0.3);
+        color: #fff; font-size: 13px; font-weight: bold;
+        display: flex; align-items: center; justify-content: center;
+        touch-action: none;
+    }
+    .act-btn:active, .act-btn.active { transform: scale(0.92); }
+    .btn-punch { background: rgba(0,150,255,0.35); border-color: #0af; }
+    .btn-kick { background: rgba(255,100,0,0.35); border-color: #f60; }
+    .btn-special { background: rgba(255,0,80,0.35); border-color: #f05; }
+    .btn-block { background: rgba(0,200,100,0.35); border-color: #0c6; }
+    .extra-btns { display: flex; gap: 6px; margin-top: 6px; justify-content: center; }
+    .extra-btn {
+        padding: 10px 20px; border-radius: 8px;
+        background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);
+        color: #fff; font-size: 13px; font-weight: bold;
+        touch-action: none;
+    }
+    .extra-btn:active, .extra-btn.active { background: rgba(255,200,0,0.3); border-color: #ff0; }
     @media (max-width: 600px) {
-        h1 { font-size: 20px; }
+        h1 { font-size: 18px; }
         .top-bar { flex-direction: column; gap: 8px; }
+        .controls-info { display: none; }
+        .game-desc { display: none; }
+        #mobile-controls { display: block; }
+    }
+    @media (pointer: coarse) {
+        #mobile-controls { display: block; }
     }
     </style>
 </head>
@@ -134,6 +190,29 @@
             <div class="control-row"><span>必殺技</span><span><span class="key">L</span> (能量50%以上)</span></div>
             <div class="control-row"><span>防禦</span><span><span class="key">M</span></span></div>
             <div class="control-row"><span>閃現</span><span><span class="key">E</span> (閃到對手身後，有冷卻)</span></div>
+        </div>
+    </div>
+
+    <div id="mobile-controls">
+        <div class="touch-row">
+            <div class="dpad">
+                <div class="dpad-btn dpad-empty"></div>
+                <div class="dpad-btn" data-key="w">W</div>
+                <div class="dpad-btn dpad-empty"></div>
+                <div class="dpad-btn" data-key="a">A</div>
+                <div class="dpad-btn" data-key="s">S</div>
+                <div class="dpad-btn" data-key="d">D</div>
+            </div>
+            <div class="action-btns">
+                <div class="act-btn btn-punch" data-key="j">拳</div>
+                <div class="act-btn btn-kick" data-key="k">腳</div>
+                <div class="act-btn btn-special" data-key="l">必殺</div>
+                <div class="act-btn btn-block" data-key="m">防</div>
+            </div>
+        </div>
+        <div class="extra-btns">
+            <div class="extra-btn" data-key="e">閃現</div>
+            <div class="extra-btn" data-key=" ">開始 / 下一回合</div>
         </div>
     </div>
 
@@ -210,6 +289,34 @@ window.addEventListener('keydown', e => {
   if ([' ','w','a','s','d','e','j','k','l','m'].includes(e.key.toLowerCase())) e.preventDefault();
 });
 window.addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
+
+// Mobile touch controls
+(function setupTouch() {
+  const btns = document.querySelectorAll('[data-key]');
+  btns.forEach(btn => {
+    const key = btn.dataset.key;
+    function press(e) {
+      e.preventDefault();
+      keys[key] = true;
+      btn.classList.add('active');
+      if (key === ' ' && (gameState === 'title' || gameState === 'victory')) startRound();
+    }
+    function release(e) {
+      e.preventDefault();
+      keys[key] = false;
+      btn.classList.remove('active');
+    }
+    btn.addEventListener('touchstart', press, { passive: false });
+    btn.addEventListener('touchend', release, { passive: false });
+    btn.addEventListener('touchcancel', release, { passive: false });
+    // Also handle mouse for testing
+    btn.addEventListener('mousedown', press);
+    btn.addEventListener('mouseup', release);
+    btn.addEventListener('mouseleave', release);
+  });
+  // Prevent default touch behavior on canvas
+  document.getElementById('game').addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+})();
 
 class Fighter {
   constructor(x, name, color, isAI) {
