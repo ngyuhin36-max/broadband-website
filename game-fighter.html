@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>街頭格鬥 | 免費線上格鬥遊戲 — BroadbandHK</title>
-    <meta name="description" content="街頭格鬥 — 單機格鬥遊戲！龍 vs 虎，拳腳必殺技連擊，即開即玩！免費線上遊戲，無需下載。">
-    <meta property="og:title" content="街頭格鬥 | 免費格鬥遊戲">
-    <meta property="og:description" content="龍 vs 虎！拳腳必殺技連擊對戰，即開即玩的免費格鬥遊戲！">
+    <title>寬頻英雄大戰斷線魔皇 | 免費線上格鬥遊戲 — BroadbandHK</title>
+    <meta name="description" content="寬頻英雄大戰斷線魔皇！守護全港網絡，用光纖拳擊敗斷線魔皇！免費格鬥遊戲，即開即玩！">
+    <meta property="og:title" content="寬頻英雄大戰斷線魔皇 | 免費格鬥遊戲">
+    <meta property="og:description" content="寬頻英雄 vs 斷線魔皇！守護全港網絡的格鬥遊戲，即開即玩！">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://broadbandhk.com/game-fighter.html">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="街頭格鬥 | 免費格鬥遊戲">
-    <meta name="twitter:description" content="龍 vs 虎！即開即玩的免費格鬥遊戲！">
+    <meta name="twitter:title" content="寬頻英雄大戰斷線魔皇 | 免費格鬥遊戲">
+    <meta name="twitter:description" content="寬頻英雄 vs 斷線魔皇！守護全港網絡，即開即玩！">
     <meta name="keywords" content="格鬥遊戲,免費遊戲,線上遊戲,fighting game,街頭格鬥,拳皇,香港遊戲,browser game,對戰遊戲,單機遊戲">
     <link rel="canonical" href="https://broadbandhk.com/game-fighter.html">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥊</text></svg>">
@@ -115,12 +115,12 @@
     <div class="game-links">
         <a href="game.html">寬頻人生</a>
         <a href="game-war.html">寬頻三國志</a>
-        <a href="game-fighter.html" style="color:#ff6600">街頭格鬥</a>
+        <a href="game-fighter.html" style="color:#ff6600">寬頻英雄</a>
     </div>
 </div>
 
 <div class="game-wrapper">
-    <h1>街頭格鬥 STREET FIGHTER</h1>
+    <h1>寬頻英雄大戰斷線魔皇</h1>
     <canvas id="game" width="900" height="600"></canvas>
 
     <div class="controls-info">
@@ -138,7 +138,7 @@
 
     <div class="game-desc">
         <h2>遊戲玩法</h2>
-        <p>按 <span class="key">SPACE</span> 開始遊戲。用拳腳攻擊電腦對手，打中會增加必殺技能量。能量條充到一半以上就能發動必殺技！先贏 2 回合就獲得最終勝利。防禦可以減少傷害，善用連擊組合來最大化傷害！</p>
+        <p>按 <span class="key">SPACE</span> 開始遊戲。你扮演寬頻英雄，對抗令全港斷線的斷線魔皇！用光纖拳腳攻擊，打中會增加必殺技能量。能量充滿一半就能發射「光纖衝擊波」！先贏 2 回合就守護全港網絡成功！</p>
     </div>
 </div>
 
@@ -404,18 +404,17 @@ class Fighter {
     let skinColor = '#f5d0a0';
     let breathe = Math.sin(this.animTimer * 0.12) * 1.5;
     let walkCycle = this.state === 'walk' ? Math.sin(this.animFrame * 1.4) : 0;
-    // KOF style colors
-    // P1 Kyo style: white school jacket, dark jeans, brown hair with headband
-    // CPU Iori style: purple moon jacket, black pants, red wild hair
-    let jacketColor = this.isAI ? '#4a1a6b' : '#eee';
-    let jacketColor2 = this.isAI ? '#3a1055' : '#ddd';
-    let shirtColor = this.isAI ? '#1a1a2e' : '#222';
-    let pantsColor = this.isAI ? '#1a1a1a' : '#2a3a5c';
-    let shoeColor = this.isAI ? '#2a0a3a' : '#8b4513';
-    let hairColor = this.isAI ? '#cc0000' : '#8b5e2f';
-    let gloveColor = this.isAI ? '#3a1055' : '#a0522d';
-    let flameColor = this.isAI ? '#9b30ff' : '#ff6600';
-    let flameColor2 = this.isAI ? '#cc66ff' : '#ffaa00';
+    // P1 寬頻英雄: blue-white fiber armor, WiFi emblem, cyan energy
+    // CPU 斷線魔皇: dark red-black, broken signal, red corruption energy
+    let jacketColor = this.isAI ? '#2a0a0a' : '#1a4a8a';
+    let jacketColor2 = this.isAI ? '#400808' : '#2266bb';
+    let shirtColor = this.isAI ? '#1a0505' : '#0a2a5a';
+    let pantsColor = this.isAI ? '#1a0a0a' : '#1a3366';
+    let shoeColor = this.isAI ? '#330505' : '#0a2244';
+    let hairColor = this.isAI ? '#440000' : '#1a3a6a';
+    let gloveColor = this.isAI ? '#550000' : '#0af';
+    let flameColor = this.isAI ? '#cc0000' : '#00ccff';
+    let flameColor2 = this.isAI ? '#ff4444' : '#88eeff';
 
     let drawY = this.state === 'crouch' ? this.y + 30 : this.y;
 
@@ -627,124 +626,154 @@ class Fighter {
     ctx.quadraticCurveTo(8, headY+20, 14, headY+5);
     ctx.fill();
 
-    // ===== HAIR =====
-    ctx.fillStyle = hairColor;
+    // ===== HAIR / HELMET =====
     if (this.isAI) {
-      // Iori style - wild red hair sweeping back and up
+      // 斷線魔皇 - dark horned helmet with red cracks
+      ctx.fillStyle = '#1a0505';
+      // Helmet base
       ctx.beginPath();
-      ctx.moveTo(-20, headY);
-      ctx.quadraticCurveTo(-22, headY-20, -15, headY-28);
-      ctx.lineTo(-8, headY-18);
-      ctx.lineTo(-5, headY-32);
-      ctx.lineTo(0, headY-22);
-      ctx.lineTo(5, headY-35);
-      ctx.lineTo(8, headY-20);
-      ctx.lineTo(14, headY-30);
-      ctx.quadraticCurveTo(22, headY-18, 20, headY);
-      ctx.quadraticCurveTo(18, headY-5, 0, headY-14);
-      ctx.quadraticCurveTo(-18, headY-5, -20, headY);
+      ctx.arc(0, headY-2, 22, Math.PI, 0);
       ctx.fill();
-      // Hair strands hanging over face
+      // Horns
+      ctx.fillStyle = '#440000';
       ctx.beginPath();
-      ctx.moveTo(-12, headY-10);
-      ctx.quadraticCurveTo(-16, headY+5, -10, headY+12);
-      ctx.quadraticCurveTo(-8, headY+5, -6, headY-5);
+      ctx.moveTo(-18, headY-8);
+      ctx.lineTo(-28, headY-38);
+      ctx.lineTo(-14, headY-18);
       ctx.fill();
-      // Moon symbol on jacket (Iori's crescent)
-      ctx.fillStyle = '#ddd';
       ctx.beginPath();
-      ctx.arc(0, 40+tY+breathe, 6, 0.3, Math.PI*2-0.3);
-      ctx.stroke();
+      ctx.moveTo(18, headY-8);
+      ctx.lineTo(28, headY-38);
+      ctx.lineTo(14, headY-18);
+      ctx.fill();
+      // Red crack lines on helmet
+      ctx.strokeStyle = '#cc0000';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(0, headY-20); ctx.lineTo(-3, headY-10); ctx.lineTo(-8, headY-5); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(2, headY-18); ctx.lineTo(5, headY-8); ctx.stroke();
+      // Red eyes glow under helmet
+      ctx.fillStyle = '#ff0000';
+      ctx.shadowColor = '#ff0000'; ctx.shadowBlur = 8;
+      ctx.beginPath(); ctx.ellipse(-6, headY-2, 4, 3, 0, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(6, headY-2, 4, 3, 0, 0, Math.PI*2); ctx.fill();
+      ctx.shadowBlur = 0;
+      // Broken signal X on chest
+      ctx.strokeStyle = '#cc0000';
+      ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(-8, 32+tY+breathe); ctx.lineTo(8, 48+tY+breathe); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(8, 32+tY+breathe); ctx.lineTo(-8, 48+tY+breathe); ctx.stroke();
+      // Broken WiFi icon
+      ctx.strokeStyle = '#550000';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(0, 52+tY+breathe, 6, -2.5, -0.6); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, 52+tY+breathe, 10, -2.4, -0.7); ctx.stroke();
     } else {
-      // Kyo style - spiky brown hair with headband
+      // 寬頻英雄 - glowing blue visor helmet
+      ctx.fillStyle = '#1a3a6a';
+      // Helmet base
       ctx.beginPath();
-      ctx.moveTo(-18, headY+2);
-      ctx.quadraticCurveTo(-20, headY-12, -12, headY-22);
-      ctx.lineTo(-6, headY-15);
-      ctx.lineTo(-3, headY-26);
-      ctx.lineTo(3, headY-18);
-      ctx.lineTo(8, headY-28);
-      ctx.lineTo(12, headY-16);
-      ctx.quadraticCurveTo(20, headY-12, 18, headY+2);
-      ctx.quadraticCurveTo(14, headY-8, 0, headY-14);
-      ctx.quadraticCurveTo(-14, headY-8, -18, headY+2);
+      ctx.arc(0, headY-2, 22, Math.PI, 0);
       ctx.fill();
-      // White headband
-      ctx.fillStyle = '#fff';
-      ctx.save();
+      // Visor
+      ctx.fillStyle = '#0af';
+      ctx.shadowColor = '#0af'; ctx.shadowBlur = 10;
       ctx.beginPath();
-      ctx.arc(0, headY, 19, -2.8, -0.3);
-      ctx.lineWidth = 4;
-      ctx.strokeStyle = '#fff';
-      ctx.stroke();
-      ctx.restore();
-      // Headband tail
-      ctx.fillStyle = '#fff';
-      ctx.beginPath();
-      ctx.moveTo(-18, headY-4);
-      ctx.quadraticCurveTo(-28, headY+2, -24, headY+12);
-      ctx.quadraticCurveTo(-22, headY+4, -16, headY-2);
+      ctx.moveTo(-16, headY-4);
+      ctx.quadraticCurveTo(0, headY-8, 16, headY-4);
+      ctx.quadraticCurveTo(0, headY+2, -16, headY-4);
       ctx.fill();
-      // Sun emblem on jacket back (Kyo's sun)
-      ctx.fillStyle = '#ff6600';
-      ctx.beginPath();
-      ctx.arc(0, 42+tY+breathe, 5, 0, Math.PI*2);
-      ctx.fill();
+      ctx.shadowBlur = 0;
+      // Antenna
+      ctx.fillStyle = '#0af';
+      ctx.fillRect(-2, headY-28, 4, 12);
+      ctx.beginPath(); ctx.arc(0, headY-30, 4, 0, Math.PI*2); ctx.fill();
+      // Signal waves from antenna
+      ctx.strokeStyle = '#0af';
+      ctx.lineWidth = 1.5;
+      ctx.globalAlpha = 0.6;
+      ctx.beginPath(); ctx.arc(0, headY-30, 8, -2.2, -0.9); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, headY-30, 13, -2.1, -1.0); ctx.stroke();
+      ctx.globalAlpha = 1;
+      // WiFi emblem on chest
+      ctx.strokeStyle = '#0af';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.arc(0, 52+tY+breathe, 5, -2.5, -0.6); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, 52+tY+breathe, 10, -2.4, -0.7); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, 52+tY+breathe, 15, -2.3, -0.8); ctx.stroke();
+      ctx.fillStyle = '#0af';
+      ctx.beginPath(); ctx.arc(0, 52+tY+breathe, 2, 0, Math.PI*2); ctx.fill();
+      // Fiber optic lines on armor
+      ctx.strokeStyle = '#4af';
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = 0.5;
+      ctx.beginPath(); ctx.moveTo(-18, 28+tY+breathe); ctx.lineTo(-18, 58+tY+breathe); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(18, 28+tY+breathe); ctx.lineTo(18, 58+tY+breathe); ctx.stroke();
+      ctx.globalAlpha = 1;
     }
 
     // ===== FACE =====
-    // Eyes
-    let eyeState = this.state;
-    ctx.fillStyle = '#fff';
-    ctx.beginPath(); ctx.ellipse(-6, headY-2, 5, 4, 0, 0, Math.PI*2); ctx.fill();
-    ctx.beginPath(); ctx.ellipse(6, headY-2, 5, 4, 0, 0, Math.PI*2); ctx.fill();
-    // Pupils
-    if (eyeState === 'special') {
-      ctx.fillStyle = flameColor;
-    } else if (eyeState === 'hit') {
-      ctx.fillStyle = '#666';
-    } else {
-      ctx.fillStyle = this.isAI ? '#800' : '#333';
-    }
-    ctx.beginPath(); ctx.ellipse(-5, headY-1, 3, 3, 0, 0, Math.PI*2); ctx.fill();
-    ctx.beginPath(); ctx.ellipse(7, headY-1, 3, 3, 0, 0, Math.PI*2); ctx.fill();
-    // Eyebrows - angry
-    ctx.strokeStyle = this.isAI ? '#800' : '#5a3a1a';
-    ctx.lineWidth = 2.5;
-    ctx.beginPath(); ctx.moveTo(-10, headY-7); ctx.lineTo(-3, headY-5); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(3, headY-5); ctx.lineTo(10, headY-7); ctx.stroke();
-    // Nose
-    ctx.fillStyle = '#dbb88a';
-    ctx.beginPath(); ctx.moveTo(0, headY+2); ctx.lineTo(-2, headY+7); ctx.lineTo(2, headY+7); ctx.fill();
-    // Mouth
-    if (this.state === 'hit') {
-      ctx.fillStyle = '#a00';
-      ctx.beginPath(); ctx.ellipse(0, headY+12, 6, 4, 0, 0, Math.PI*2); ctx.fill();
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(-4, headY+11, 8, 2);
-    } else if (this.state === 'special') {
-      ctx.fillStyle = '#a00';
-      ctx.beginPath(); ctx.ellipse(0, headY+12, 5, 5, 0, 0, Math.PI*2); ctx.fill();
-    } else {
-      // Confident smirk
-      ctx.strokeStyle = '#a05030';
-      ctx.lineWidth = 2;
+    if (this.isAI) {
+      // 斷線魔皇 - dark face under helmet, glowing red mouth
+      ctx.fillStyle = '#0a0202';
       ctx.beginPath();
-      ctx.moveTo(-4, headY+11);
-      ctx.quadraticCurveTo(0, headY+14, 5, headY+10);
-      ctx.stroke();
+      ctx.moveTo(-12, headY+4);
+      ctx.quadraticCurveTo(0, headY+22, 12, headY+4);
+      ctx.fill();
+      // Mouth
+      if (this.state === 'hit') {
+        ctx.fillStyle = '#f00';
+        ctx.beginPath(); ctx.ellipse(0, headY+12, 6, 5, 0, 0, Math.PI*2); ctx.fill();
+      } else if (this.state === 'special') {
+        ctx.fillStyle = '#f00'; ctx.shadowColor = '#f00'; ctx.shadowBlur = 12;
+        ctx.beginPath(); ctx.ellipse(0, headY+12, 7, 6, 0, 0, Math.PI*2); ctx.fill();
+        ctx.shadowBlur = 0;
+      } else {
+        ctx.strokeStyle = '#cc0000'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(-5, headY+11); ctx.lineTo(5, headY+11); ctx.stroke();
+      }
+    } else {
+      // 寬頻英雄 - lower face visible under visor
+      ctx.fillStyle = skinColor;
+      // Nose
+      ctx.beginPath(); ctx.moveTo(0, headY+2); ctx.lineTo(-2, headY+7); ctx.lineTo(2, headY+7); ctx.fill();
+      // Mouth
+      if (this.state === 'hit') {
+        ctx.fillStyle = '#a00';
+        ctx.beginPath(); ctx.ellipse(0, headY+12, 5, 4, 0, 0, Math.PI*2); ctx.fill();
+      } else if (this.state === 'special') {
+        ctx.fillStyle = '#06a';
+        ctx.beginPath(); ctx.ellipse(0, headY+12, 4, 4, 0, 0, Math.PI*2); ctx.fill();
+      } else {
+        ctx.strokeStyle = '#a05030'; ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(-4, headY+11);
+        ctx.quadraticCurveTo(0, headY+14, 5, headY+10);
+        ctx.stroke();
+      }
     }
 
-    // ===== FLAME AURA (idle) =====
+    // ===== ENERGY AURA (idle) =====
     if (this.state === 'idle' || this.state === 'walk') {
-      // Subtle flame particles around hands
       let t = Date.now() * 0.003;
-      for (let i = 0; i < 3; i++) {
-        let fx = 22 + Math.sin(t+i*2)*4;
-        let fy = 14+tY+breathe - i*5 + Math.cos(t+i)*3;
-        ctx.fillStyle = flameColor;
-        ctx.globalAlpha = 0.3 - i*0.08;
-        ctx.beginPath(); ctx.arc(fx, fy, 3-i*0.5, 0, Math.PI*2); ctx.fill();
+      if (this.isAI) {
+        // 斷線魔皇 - glitchy red static particles
+        for (let i = 0; i < 4; i++) {
+          let fx = (Math.sin(t*1.5+i*3)*20);
+          let fy = 20+tY + Math.cos(t+i*2)*30;
+          ctx.fillStyle = '#f00';
+          ctx.globalAlpha = 0.2 + Math.sin(t*3+i)*0.15;
+          ctx.fillRect(fx-3, fy-1, 6, 2);
+          ctx.fillRect(fx-1, fy-3, 2, 6);
+        }
+      } else {
+        // 寬頻英雄 - flowing cyan data particles around fists
+        for (let i = 0; i < 4; i++) {
+          let fx = 22 + Math.sin(t+i*2)*5;
+          let fy = 14+tY+breathe - i*4 + Math.cos(t+i)*3;
+          ctx.fillStyle = '#0af';
+          ctx.globalAlpha = 0.4 - i*0.08;
+          ctx.beginPath(); ctx.arc(fx, fy, 2.5-i*0.4, 0, Math.PI*2); ctx.fill();
+        }
       }
       ctx.globalAlpha = 1;
     }
@@ -764,8 +793,8 @@ class Fighter {
   }
 }
 
-let p1 = new Fighter(200, '京 KYO', '#2255cc', false);
-let p2 = new Fighter(700, '庵 IORI', '#cc2222', true);
+let p1 = new Fighter(200, '寬頻英雄', '#2255cc', false);
+let p2 = new Fighter(700, '斷線魔皇', '#cc2222', true);
 
 function startRound() {
   gameState = 'fighting'; timer = 99;
@@ -885,14 +914,15 @@ function drawTitle() {
     ctx.fillRect(x-100, y-100, 200, 200);
   }
   ctx.globalAlpha = 1; ctx.textAlign = 'center';
-  ctx.fillStyle = '#000'; ctx.font = 'bold 72px Arial'; ctx.fillText('街 頭 格 鬥', 453, 203);
-  let tg = ctx.createLinearGradient(200, 150, 700, 250);
-  tg.addColorStop(0, '#ff4400'); tg.addColorStop(0.5, '#ffaa00'); tg.addColorStop(1, '#ff4400');
-  ctx.fillStyle = tg; ctx.font = 'bold 72px Arial'; ctx.fillText('街 頭 格 鬥', 450, 200);
-  ctx.fillStyle = '#fff'; ctx.font = 'bold 28px Arial'; ctx.fillText('STREET FIGHTER', 450, 250);
-  ctx.fillStyle = '#4af'; ctx.font = 'bold 36px Arial'; ctx.fillText('京 KYO', 250, 360);
+  ctx.fillStyle = '#000'; ctx.font = 'bold 52px Arial'; ctx.fillText('寬頻英雄大戰斷線魔皇', 453, 183);
+  let tg = ctx.createLinearGradient(100, 150, 800, 200);
+  tg.addColorStop(0, '#0088ff'); tg.addColorStop(0.5, '#00ddff'); tg.addColorStop(1, '#0088ff');
+  ctx.fillStyle = tg; ctx.font = 'bold 52px Arial'; ctx.fillText('寬頻英雄大戰斷線魔皇', 450, 180);
+  ctx.fillStyle = '#fff'; ctx.font = 'bold 22px Arial'; ctx.fillText('BROADBAND HERO vs DISCONNECT DEVIL', 450, 220);
+  ctx.fillStyle = '#888'; ctx.font = '16px Arial'; ctx.fillText('守護全港網絡！擊敗斷線魔皇！', 450, 250);
+  ctx.fillStyle = '#0af'; ctx.font = 'bold 32px Arial'; ctx.fillText('寬頻英雄', 250, 360);
   ctx.fillStyle = '#ff6600'; ctx.font = 'bold 48px Arial'; ctx.fillText('VS', 450, 370);
-  ctx.fillStyle = '#f44'; ctx.font = 'bold 36px Arial'; ctx.fillText('庵 IORI (CPU)', 650, 360);
+  ctx.fillStyle = '#f44'; ctx.font = 'bold 32px Arial'; ctx.fillText('斷線魔皇 (CPU)', 650, 360);
   if (Math.sin(Date.now()*0.005) > 0) {
     ctx.fillStyle = '#fff'; ctx.font = 'bold 24px Arial'; ctx.fillText('按 SPACE 開始遊戲', 450, 480);
   }
