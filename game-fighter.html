@@ -390,9 +390,10 @@ class Fighter {
       else if (keys['d']) { this.vx = speed; this.state = 'walk'; }
       if (keys['w'] && this.y >= this.groundY) { this.vy = -16; this.state = 'jump'; }
       if (this.y < this.groundY) this.state = 'jump';
-      if (keys['f'] && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
-      if (keys['g'] && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
-      if (keys['h'] && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
+      if (keys['f'] && !this._fDown && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+      if (keys['g'] && !this._gDown && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+      if (keys['h'] && !this._hDown && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
+      this._fDown = keys['f']; this._gDown = keys['g']; this._hDown = keys['h'];
     }
 
     this.x += this.vx;
@@ -435,7 +436,7 @@ class Fighter {
         vx: Math.cos(ang)*spd, vy: Math.sin(ang)*spd - (isSpecial ? 4 : 0),
         life: 20+Math.random()*15,
         size: isSpecial ? 3+Math.random()*5 : 2+Math.random()*3,
-        color: isSpecial ? `hsl(${attacker.isAI ? 0 : 190}+${Math.random()*40}, 100%, ${60+Math.random()*30}%)` : sparkCol,
+        color: isSpecial ? `hsl(${(attacker.isAI ? 0 : 190) + Math.random()*40}, 100%, ${60+Math.random()*30}%)` : sparkCol,
         type: isSpecial && i < 8 ? 'ring' : 'spark'
       });
     }
