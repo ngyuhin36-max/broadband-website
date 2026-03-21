@@ -834,8 +834,12 @@ const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let audioCtx;
 function getCtx() {
     if (!audioCtx) audioCtx = new AudioCtx();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
     return audioCtx;
 }
+// Ensure audio works on mobile (requires user gesture)
+document.addEventListener('touchstart', () => getCtx(), {once: true});
+document.addEventListener('click', () => getCtx(), {once: true});
 function playTone(freq, dur, type='square', vol=0.08) {
     if (!soundOn) return;
     try {

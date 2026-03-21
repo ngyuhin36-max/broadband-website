@@ -855,9 +855,12 @@ let bgmGain = null;
 let bgmPlaying = false;
 
 function initAudio() {
-    if (audioCtx) return;
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
 }
+// Ensure audio works on mobile (requires user gesture)
+document.addEventListener('touchstart', initAudio, {once: true});
+document.addEventListener('click', initAudio, {once: true});
 
 function playTone(freq, duration, type = 'sine', vol = 0.08) {
     if (!soundEnabled || !audioCtx) return;
