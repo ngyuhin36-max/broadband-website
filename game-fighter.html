@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>街頭格鬥 | 免費線上格鬥遊戲 — BroadbandHK</title>
-    <meta name="description" content="街頭格鬥 — 雙人對戰格鬥遊戲！龍 vs 虎，拳腳必殺技連擊，即開即玩！免費線上遊戲，無需下載。">
-    <meta property="og:title" content="街頭格鬥 | 免費雙人格鬥遊戲">
+    <meta name="description" content="街頭格鬥 — 單機格鬥遊戲！龍 vs 虎，拳腳必殺技連擊，即開即玩！免費線上遊戲，無需下載。">
+    <meta property="og:title" content="街頭格鬥 | 免費格鬥遊戲">
     <meta property="og:description" content="龍 vs 虎！拳腳必殺技連擊對戰，即開即玩的免費格鬥遊戲！">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://broadbandhk.com/game-fighter.html">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="街頭格鬥 | 免費雙人格鬥遊戲">
+    <meta name="twitter:title" content="街頭格鬥 | 免費格鬥遊戲">
     <meta name="twitter:description" content="龍 vs 虎！即開即玩的免費格鬥遊戲！">
-    <meta name="keywords" content="格鬥遊戲,免費遊戲,線上遊戲,雙人遊戲,fighting game,街頭格鬥,拳皇,香港遊戲,browser game,對戰遊戲">
+    <meta name="keywords" content="格鬥遊戲,免費遊戲,線上遊戲,fighting game,街頭格鬥,拳皇,香港遊戲,browser game,對戰遊戲,單機遊戲">
     <link rel="canonical" href="https://broadbandhk.com/game-fighter.html">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥊</text></svg>">
 
@@ -21,30 +21,20 @@
       "@context": "https://schema.org",
       "@type": "VideoGame",
       "name": "街頭格鬥",
-      "description": "雙人對戰格鬥遊戲，龍 vs 虎，拳腳必殺技連擊，即開即玩！",
+      "description": "單機格鬥遊戲，龍 vs 虎，拳腳必殺技連擊，即開即玩！",
       "url": "https://broadbandhk.com/game-fighter.html",
       "genre": ["Fighting", "Action", "Arcade"],
       "gamePlatform": "Web Browser",
       "applicationCategory": "Game",
       "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "HKD",
-        "availability": "https://schema.org/InStock"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "BroadbandHK",
-        "url": "https://broadbandhk.com"
-      },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "HKD", "availability": "https://schema.org/InStock" },
+      "author": { "@type": "Organization", "name": "BroadbandHK", "url": "https://broadbandhk.com" },
       "inLanguage": "zh-Hant-HK",
-      "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2 },
-      "playMode": "MultiPlayer"
+      "numberOfPlayers": { "@type": "QuantitativeValue", "value": 1 },
+      "playMode": "SinglePlayer"
     }
     </script>
 
-    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -71,100 +61,49 @@
         align-items: center;
         border-bottom: 2px solid #ff6600;
     }
-    .top-bar a {
-        color: #ff6600;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 14px;
-    }
+    .top-bar a { color: #ff6600; text-decoration: none; font-weight: bold; font-size: 14px; }
     .top-bar a:hover { color: #ffaa00; }
     .game-links { display: flex; gap: 15px; }
-    .game-links a {
-        color: #aaa;
-        font-size: 13px;
-    }
+    .game-links a { color: #aaa; font-size: 13px; }
     .game-links a:hover { color: #fff; }
     .game-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 15px 10px 30px;
+        display: flex; flex-direction: column; align-items: center; padding: 15px 10px 30px;
     }
     h1 {
         font-size: 28px;
         background: linear-gradient(90deg, #ff4400, #ffaa00);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         margin-bottom: 10px;
     }
     canvas {
-        display: block;
-        image-rendering: pixelated;
-        max-width: 100%;
-        height: auto;
-        border: 3px solid #ff6600;
-        border-radius: 6px;
+        display: block; image-rendering: pixelated; max-width: 100%; height: auto;
+        border: 3px solid #ff6600; border-radius: 6px;
         box-shadow: 0 0 30px rgba(255,102,0,0.3);
     }
     .controls-info {
-        display: flex;
-        justify-content: space-between;
-        max-width: 900px;
-        width: 100%;
-        margin-top: 15px;
-        gap: 20px;
+        max-width: 900px; width: 100%; margin-top: 15px;
     }
     .control-col {
-        flex: 1;
-        background: rgba(255,255,255,0.05);
-        border-radius: 8px;
-        padding: 12px 15px;
+        background: rgba(255,255,255,0.05); border-radius: 8px; padding: 12px 15px;
         border: 1px solid rgba(255,255,255,0.1);
     }
-    .control-col h3 {
-        color: #ff6600;
-        margin-bottom: 8px;
-        font-size: 15px;
-    }
-    .control-col.p2 h3 { color: #f44; }
+    .control-col h3 { color: #ff6600; margin-bottom: 8px; font-size: 15px; }
     .control-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 4px;
-        font-size: 13px;
-        color: #aaa;
+        display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 13px; color: #aaa;
     }
     .key {
-        display: inline-block;
-        background: #333;
-        padding: 2px 8px;
-        border-radius: 3px;
-        margin: 0 2px;
-        border: 1px solid #555;
-        font-size: 12px;
-        color: #fff;
-        min-width: 24px;
-        text-align: center;
+        display: inline-block; background: #333; padding: 2px 8px; border-radius: 3px;
+        margin: 0 2px; border: 1px solid #555; font-size: 12px; color: #fff;
+        min-width: 24px; text-align: center;
     }
     .game-desc {
-        max-width: 900px;
-        width: 100%;
-        margin-top: 20px;
-        padding: 15px;
-        background: rgba(255,255,255,0.03);
-        border-radius: 8px;
-        font-size: 14px;
-        color: #888;
-        line-height: 1.8;
+        max-width: 900px; width: 100%; margin-top: 20px; padding: 15px;
+        background: rgba(255,255,255,0.03); border-radius: 8px;
+        font-size: 14px; color: #888; line-height: 1.8;
     }
-    .game-desc h2 {
-        color: #ff6600;
-        font-size: 18px;
-        margin-bottom: 8px;
-    }
+    .game-desc h2 { color: #ff6600; font-size: 18px; margin-bottom: 8px; }
     @media (max-width: 600px) {
         h1 { font-size: 20px; }
-        .controls-info { flex-direction: column; }
         .top-bar { flex-direction: column; gap: 8px; }
     }
     </style>
@@ -186,30 +125,20 @@
 
     <div class="controls-info">
         <div class="control-col">
-            <h3>P1 玩家一 — 龍 Dragon</h3>
-            <div class="control-row"><span>移動</span><span><span class="key">A</span> <span class="key">D</span></span></div>
+            <h3>操作方法</h3>
+            <div class="control-row"><span>移動</span><span><span class="key">A</span> 左 / <span class="key">D</span> 右</span></div>
             <div class="control-row"><span>跳躍</span><span><span class="key">W</span></span></div>
             <div class="control-row"><span>蹲下</span><span><span class="key">S</span></span></div>
             <div class="control-row"><span>出拳</span><span><span class="key">F</span></span></div>
             <div class="control-row"><span>踢腳</span><span><span class="key">G</span></span></div>
-            <div class="control-row"><span>必殺技</span><span><span class="key">H</span></span></div>
+            <div class="control-row"><span>必殺技</span><span><span class="key">H</span> (能量50%以上)</span></div>
             <div class="control-row"><span>防禦</span><span><span class="key">R</span></span></div>
-        </div>
-        <div class="control-col p2">
-            <h3>P2 玩家二 — 虎 Tiger</h3>
-            <div class="control-row"><span>移動</span><span><span class="key">←</span> <span class="key">→</span></span></div>
-            <div class="control-row"><span>跳躍</span><span><span class="key">↑</span></span></div>
-            <div class="control-row"><span>蹲下</span><span><span class="key">↓</span></span></div>
-            <div class="control-row"><span>出拳</span><span><span class="key">J</span></span></div>
-            <div class="control-row"><span>踢腳</span><span><span class="key">K</span></span></div>
-            <div class="control-row"><span>必殺技</span><span><span class="key">L</span></span></div>
-            <div class="control-row"><span>防禦</span><span><span class="key">U</span></span></div>
         </div>
     </div>
 
     <div class="game-desc">
         <h2>遊戲玩法</h2>
-        <p>按 <span class="key">SPACE</span> 開始遊戲。用拳腳攻擊對手，打中會增加必殺技能量。能量條充到一半以上就能發動必殺技！先贏 2 回合就獲得最終勝利。防禦可以減少傷害，但仍會受到少量穿透傷害。善用連擊組合來最大化傷害！</p>
+        <p>按 <span class="key">SPACE</span> 開始遊戲。用拳腳攻擊電腦對手，打中會增加必殺技能量。能量條充到一半以上就能發動必殺技！先贏 2 回合就獲得最終勝利。防禦可以減少傷害，善用連擊組合來最大化傷害！</p>
     </div>
 </div>
 
@@ -226,43 +155,59 @@ let p2Wins = 0;
 let koTimer = 0;
 let shakeScreen = 0;
 let comboTexts = [];
-let particles = [];
 let hitSparks = [];
+
+// Pre-calculate window positions to avoid flickering
+const buildings = [
+  [0,250,60,150],[55,220,50,180],[100,280,70,120],[165,200,45,200],[205,260,55,140],
+  [255,230,40,170],[290,270,65,130],[350,210,50,190],[395,250,45,150],[435,190,55,210],
+  [485,240,60,160],[540,220,40,180],[575,260,55,140],[625,200,45,200],[665,270,50,130],
+  [710,230,60,170],[765,250,50,150],[810,210,45,190],[850,240,55,160]
+];
+const windowData = [];
+function seedRandom(s) { return function() { s = Math.sin(s) * 10000; return s - Math.floor(s); }; }
+(function buildWindows() {
+  const rng = seedRandom(42);
+  for (let b of buildings) {
+    let wins = [];
+    for (let wy = b[1]+10; wy < b[1]+b[3]-10; wy += 18) {
+      for (let wx = b[0]+8; wx < b[0]+b[2]-8; wx += 14) {
+        if (rng() > 0.4) {
+          wins.push({ x: wx, y: wy, lit: rng() > 0.7 });
+        }
+      }
+    }
+    windowData.push(wins);
+  }
+})();
 
 const keys = {};
 window.addEventListener('keydown', e => {
   if (e.key === ' ' && (gameState === 'title' || gameState === 'victory')) startRound();
   keys[e.key.toLowerCase()] = true;
-  if (e.key === 'ArrowLeft') keys['arrowleft'] = true;
-  if (e.key === 'ArrowRight') keys['arrowright'] = true;
-  if (e.key === 'ArrowUp') keys['arrowup'] = true;
-  if (e.key === 'ArrowDown') keys['arrowdown'] = true;
-  if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key)) e.preventDefault();
+  if ([' ','w','a','s','d','f','g','h','r'].includes(e.key.toLowerCase())) e.preventDefault();
 });
-window.addEventListener('keyup', e => {
-  keys[e.key.toLowerCase()] = false;
-  if (e.key === 'ArrowLeft') keys['arrowleft'] = false;
-  if (e.key === 'ArrowRight') keys['arrowright'] = false;
-  if (e.key === 'ArrowUp') keys['arrowup'] = false;
-  if (e.key === 'ArrowDown') keys['arrowdown'] = false;
-});
+window.addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
 
 class Fighter {
-  constructor(x, name, color, isP2) {
+  constructor(x, name, color, isAI) {
     this.x = x; this.y = 420; this.groundY = 420;
-    this.name = name; this.color = color; this.isP2 = isP2;
+    this.name = name; this.color = color; this.isAI = isAI;
     this.width = 60; this.height = 110;
     this.hp = 100; this.maxHp = 100;
     this.special = 0; this.maxSpecial = 100;
     this.vx = 0; this.vy = 0;
-    this.facing = isP2 ? -1 : 1;
+    this.facing = isAI ? -1 : 1;
     this.state = 'idle'; this.stateTimer = 0;
     this.attackHit = false;
     this.comboCount = 0; this.comboTimer = 0;
     this.blocking = false;
     this.animFrame = 0; this.animTimer = 0;
     this.hitStun = 0; this.blockStun = 0;
-    this.projectiles = [];
+    // AI
+    this.aiTimer = 0;
+    this.aiAction = 'idle';
+    this.aiReactTime = 0;
   }
   reset(x) {
     this.x = x; this.y = this.groundY;
@@ -271,7 +216,7 @@ class Fighter {
     this.state = 'idle'; this.stateTimer = 0;
     this.comboCount = 0; this.comboTimer = 0;
     this.hitStun = 0; this.blockStun = 0;
-    this.projectiles = [];
+    this.aiTimer = 0; this.aiAction = 'idle';
   }
   getHitbox() {
     let h = this.state === 'crouch' ? 70 : this.height;
@@ -287,6 +232,95 @@ class Fighter {
       return { x: this.x + this.facing * 20, y: this.y, w: 60, h: 80, dmg: 25, type: 'special' };
     return null;
   }
+
+  aiUpdate(opponent) {
+    this.aiTimer++;
+    let dist = Math.abs(this.x - opponent.x);
+    let facingOpponent = (opponent.x > this.x && this.facing === 1) || (opponent.x < this.x && this.facing === -1);
+
+    // Decide new action every 20-40 frames
+    if (this.aiTimer > 20 + Math.random() * 20) {
+      this.aiTimer = 0;
+      let r = Math.random();
+
+      // If opponent is attacking, try to block
+      if (opponent.state === 'punch' || opponent.state === 'kick' || opponent.state === 'special') {
+        if (r < 0.5) { this.aiAction = 'block'; return; }
+      }
+
+      if (dist < 80) {
+        // Close range - attack
+        if (this.special >= 50 && r < 0.15) this.aiAction = 'special';
+        else if (r < 0.4) this.aiAction = 'punch';
+        else if (r < 0.7) this.aiAction = 'kick';
+        else if (r < 0.85) this.aiAction = 'block';
+        else this.aiAction = 'back';
+      } else if (dist < 200) {
+        // Mid range - approach or attack
+        if (r < 0.5) this.aiAction = 'approach';
+        else if (r < 0.7) this.aiAction = 'jump_attack';
+        else if (this.special >= 50 && r < 0.8) this.aiAction = 'special';
+        else this.aiAction = 'approach';
+      } else {
+        // Far - approach
+        if (r < 0.7) this.aiAction = 'approach';
+        else if (r < 0.85) this.aiAction = 'jump_approach';
+        else this.aiAction = 'idle';
+      }
+    }
+
+    // Execute AI action
+    let moveDir = opponent.x > this.x ? 1 : -1;
+    switch (this.aiAction) {
+      case 'approach':
+        this.vx = moveDir * 4;
+        this.state = 'walk';
+        break;
+      case 'back':
+        this.vx = -moveDir * 3.5;
+        this.state = 'walk';
+        break;
+      case 'punch':
+        if (dist < 90 && this.y >= this.groundY) {
+          this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0;
+          this.aiAction = 'idle';
+        } else {
+          this.vx = moveDir * 4; this.state = 'walk';
+        }
+        break;
+      case 'kick':
+        if (dist < 100 && this.y >= this.groundY) {
+          this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0;
+          this.aiAction = 'idle';
+        } else {
+          this.vx = moveDir * 4; this.state = 'walk';
+        }
+        break;
+      case 'special':
+        if (dist < 120 && this.special >= 50) {
+          this.state = 'special'; this.stateTimer = 0; this.attackHit = false;
+          this.special -= 50; this.vx = 0; shakeScreen = 10;
+          this.aiAction = 'idle';
+        } else {
+          this.vx = moveDir * 4; this.state = 'walk';
+        }
+        break;
+      case 'block':
+        this.blocking = true; this.state = 'block'; this.vx = 0;
+        break;
+      case 'jump_attack':
+        if (this.y >= this.groundY) { this.vy = -15; this.vx = moveDir * 3; }
+        this.aiAction = 'punch';
+        break;
+      case 'jump_approach':
+        if (this.y >= this.groundY) { this.vy = -14; this.vx = moveDir * 4; }
+        this.aiAction = 'approach';
+        break;
+      default:
+        this.vx = 0; this.state = 'idle';
+    }
+  }
+
   update(opponent) {
     this.animTimer++;
     if (this.animTimer > 8) { this.animTimer = 0; this.animFrame++; }
@@ -313,34 +347,32 @@ class Fighter {
     this.vy += 0.8; this.y += this.vy;
     if (this.y >= this.groundY) { this.y = this.groundY; this.vy = 0; }
     if (opponent.x > this.x) this.facing = 1; else this.facing = -1;
-    let speed = 4.5;
+
     this.vx = 0; this.state = 'idle'; this.blocking = false;
-    let left = this.isP2 ? keys['arrowleft'] : keys['a'];
-    let right = this.isP2 ? keys['arrowright'] : keys['d'];
-    let up = this.isP2 ? keys['arrowup'] : keys['w'];
-    let down = this.isP2 ? keys['arrowdown'] : keys['s'];
-    let punch = this.isP2 ? keys['j'] : keys['f'];
-    let kick = this.isP2 ? keys['k'] : keys['g'];
-    let special = this.isP2 ? keys['l'] : keys['h'];
-    let block = this.isP2 ? keys['u'] : keys['r'];
-    if (block) { this.blocking = true; this.state = 'block'; }
-    if (down) { this.state = 'crouch'; }
-    else if (left) { this.vx = -speed; this.state = 'walk'; }
-    else if (right) { this.vx = speed; this.state = 'walk'; }
-    if (up && this.y >= this.groundY) { this.vy = -16; this.state = 'jump'; }
-    if (this.y < this.groundY) this.state = 'jump';
-    if (punch && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
-    if (kick && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
-    if (special && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
+
+    if (this.isAI) {
+      this.aiUpdate(opponent);
+    } else {
+      // Player input
+      let speed = 4.5;
+      if (keys['r']) { this.blocking = true; this.state = 'block'; }
+      if (keys['s']) { this.state = 'crouch'; }
+      else if (keys['a']) { this.vx = -speed; this.state = 'walk'; }
+      else if (keys['d']) { this.vx = speed; this.state = 'walk'; }
+      if (keys['w'] && this.y >= this.groundY) { this.vy = -16; this.state = 'jump'; }
+      if (this.y < this.groundY) this.state = 'jump';
+      if (keys['f'] && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+      if (keys['g'] && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+      if (keys['h'] && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
+    }
+
     this.x += this.vx;
     if (this.x < 40) this.x = 40;
     if (this.x > 860) this.x = 860;
-    for (let i = this.projectiles.length - 1; i >= 0; i--) {
-      let p = this.projectiles[i]; p.x += p.vx; p.life--;
-      if (p.life <= 0 || p.x < 0 || p.x > 900) this.projectiles.splice(i, 1);
-    }
+    if (this.y < this.groundY) this.state = 'jump';
     if (this.special < this.maxSpecial) this.special += 0.05;
   }
+
   takeDamage(dmg, attackType, attacker) {
     if (this.blocking) {
       this.blockStun = 12; this.state = 'block';
@@ -366,20 +398,21 @@ class Fighter {
     }
     if (this.hp <= 0) { this.hp = 0; this.state = 'ko'; }
   }
+
   draw() {
     ctx.save();
-    let drawX = this.x;
     let drawY = this.state === 'crouch' ? this.y + 40 : this.y;
     let bodyColor = this.color, skinColor = '#ffd4a0';
-    let hairColor = this.isP2 ? '#222' : '#ffa500';
-    let pantsColor = this.isP2 ? '#333' : '#fff';
+    let hairColor = this.isAI ? '#222' : '#ffa500';
+    let pantsColor = this.isAI ? '#333' : '#fff';
     let breathe = Math.sin(this.animTimer * 0.15) * 2;
     let walkBob = this.state === 'walk' ? Math.sin(this.animFrame * 1.2) * 3 : 0;
+    // Shadow
     ctx.fillStyle = 'rgba(0,0,0,0.3)';
     ctx.beginPath(); ctx.ellipse(this.x, this.groundY + this.height, 30, 8, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.translate(drawX, drawY);
+    ctx.translate(this.x, drawY);
     if (this.facing === -1) ctx.scale(-1, 1);
-    if (this.state === 'ko') ctx.rotate(Math.PI / 2 * Math.min(1, this.hitStun > 0 ? 0.5 : 1));
+    if (this.state === 'ko') ctx.rotate(Math.PI / 2);
     if (this.state === 'hit' && this.hitStun % 4 < 2) ctx.globalAlpha = 0.6;
     if (this.state === 'block') ctx.translate(-5, 0);
     // Legs
@@ -401,19 +434,19 @@ class Fighter {
     ctx.fillStyle = bodyColor;
     let torsoY = this.state === 'crouch' ? 10 : 20;
     ctx.fillRect(-18, torsoY + breathe, 38, 52 - (this.state === 'crouch' ? 20 : 0));
-    ctx.fillStyle = this.isP2 ? '#c00' : '#000';
+    ctx.fillStyle = this.isAI ? '#c00' : '#000';
     ctx.fillRect(-18, torsoY + 44 + breathe, 38, 6);
     // Arms
     ctx.fillStyle = skinColor;
     if (this.state === 'punch' && this.stateTimer >= 3 && this.stateTimer <= 12) {
       ctx.fillRect(15, torsoY + 8, 45, 12);
-      ctx.fillStyle = this.isP2 ? '#c00' : '#fff'; ctx.fillRect(55, torsoY + 5, 16, 18);
+      ctx.fillStyle = this.isAI ? '#c00' : '#fff'; ctx.fillRect(55, torsoY + 5, 16, 18);
       ctx.fillStyle = skinColor; ctx.fillRect(-25, torsoY + 15, 12, 25);
     } else if (this.state === 'special' && this.stateTimer >= 5 && this.stateTimer <= 20) {
       ctx.fillRect(10, torsoY + 2, 35, 14); ctx.fillRect(10, torsoY + 20, 35, 14);
       let glow = Math.sin(this.stateTimer * 0.5) * 5;
-      ctx.fillStyle = this.isP2 ? '#f00' : '#0af';
-      ctx.shadowColor = this.isP2 ? '#f00' : '#0af'; ctx.shadowBlur = 20 + glow;
+      ctx.fillStyle = this.isAI ? '#f00' : '#0af';
+      ctx.shadowColor = this.isAI ? '#f00' : '#0af'; ctx.shadowBlur = 20 + glow;
       ctx.beginPath(); ctx.arc(55, torsoY + 18, 18 + glow, 0, Math.PI * 2); ctx.fill(); ctx.shadowBlur = 0;
     } else if (this.state === 'block') {
       ctx.fillRect(-5, torsoY + 5, 12, 35); ctx.fillRect(8, torsoY + 5, 12, 35);
@@ -422,14 +455,14 @@ class Fighter {
       ctx.beginPath(); ctx.arc(5, torsoY + 30, 30, 0, Math.PI * 2); ctx.stroke(); ctx.globalAlpha = 1;
     } else {
       ctx.fillRect(-25, torsoY + 8 + breathe, 12, 30); ctx.fillRect(15, torsoY + 8 + breathe, 12, 30);
-      ctx.fillStyle = this.isP2 ? '#c00' : '#fff';
+      ctx.fillStyle = this.isAI ? '#c00' : '#fff';
       ctx.fillRect(-27, torsoY + 5 + breathe, 14, 14); ctx.fillRect(15, torsoY + 5 + breathe, 14, 14);
     }
     // Head
     let headY = torsoY - 28 + breathe;
     ctx.fillStyle = skinColor; ctx.beginPath(); ctx.arc(2, headY, 20, 0, Math.PI * 2); ctx.fill();
     ctx.fillStyle = hairColor;
-    if (this.isP2) {
+    if (this.isAI) {
       ctx.beginPath(); ctx.moveTo(-18, headY-5); ctx.lineTo(-12, headY-25); ctx.lineTo(-5, headY-15);
       ctx.lineTo(2, headY-28); ctx.lineTo(10, headY-15); ctx.lineTo(16, headY-22); ctx.lineTo(22, headY-5);
       ctx.closePath(); ctx.fill();
@@ -445,11 +478,6 @@ class Fighter {
     else if (this.state === 'special') { ctx.fillStyle = '#a00'; ctx.beginPath(); ctx.arc(3, headY+10, 5, 0, Math.PI*2); ctx.fill(); }
     else { ctx.fillStyle = '#a00'; ctx.fillRect(-2, headY+8, 8, 3); }
     ctx.restore();
-    for (let p of this.projectiles) {
-      ctx.save(); ctx.fillStyle = this.isP2 ? '#f44' : '#4af';
-      ctx.shadowColor = this.isP2 ? '#f00' : '#0af'; ctx.shadowBlur = 15;
-      ctx.beginPath(); ctx.arc(p.x, p.y, 12, 0, Math.PI*2); ctx.fill(); ctx.restore();
-    }
   }
 }
 
@@ -459,7 +487,7 @@ let p2 = new Fighter(700, '虎 Tiger', '#cc2222', true);
 function startRound() {
   gameState = 'fighting'; timer = 99;
   p1.reset(200); p2.reset(700);
-  comboTexts = []; particles = []; hitSparks = []; koTimer = 0;
+  comboTexts = []; hitSparks = []; koTimer = 0;
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     if (gameState === 'fighting') { timer--; if (timer <= 0) { timer = 0; endRound(); } }
@@ -475,7 +503,6 @@ function endRound() {
 function rectCollision(a, b) {
   return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
 }
-
 function checkAttack(attacker, defender) {
   let atk = attacker.getAttackBox();
   if (atk && !attacker.attackHit) {
@@ -489,29 +516,31 @@ function checkAttack(attacker, defender) {
 }
 
 function drawBackground() {
+  // Sky
   let grad = ctx.createLinearGradient(0, 0, 0, 400);
   grad.addColorStop(0, '#1a0a2e'); grad.addColorStop(0.5, '#2d1b4e'); grad.addColorStop(1, '#4a2c6e');
   ctx.fillStyle = grad; ctx.fillRect(0, 0, 900, 400);
-  ctx.fillStyle = '#0d0620';
-  let buildings = [
-    [0,250,60,150],[55,220,50,180],[100,280,70,120],[165,200,45,200],[205,260,55,140],
-    [255,230,40,170],[290,270,65,130],[350,210,50,190],[395,250,45,150],[435,190,55,210],
-    [485,240,60,160],[540,220,40,180],[575,260,55,140],[625,200,45,200],[665,270,50,130],
-    [710,230,60,170],[765,250,50,150],[810,210,45,190],[850,240,55,160]
-  ];
-  for (let b of buildings) {
-    ctx.fillRect(b[0], b[1], b[2], b[3]);
-    ctx.fillStyle = Math.random() > 0.7 ? '#ffa' : '#553';
-    for (let wy = b[1]+10; wy < b[1]+b[3]-10; wy += 18)
-      for (let wx = b[0]+8; wx < b[0]+b[2]-8; wx += 14)
-        if (Math.random() > 0.4) ctx.fillRect(wx, wy, 6, 8);
+
+  // Buildings with pre-calculated windows (no flickering)
+  for (let bi = 0; bi < buildings.length; bi++) {
+    let b = buildings[bi];
     ctx.fillStyle = '#0d0620';
+    ctx.fillRect(b[0], b[1], b[2], b[3]);
+    let wins = windowData[bi];
+    for (let w of wins) {
+      ctx.fillStyle = w.lit ? '#ffa' : '#553';
+      ctx.fillRect(w.x, w.y, 6, 8);
+    }
   }
+
+  // Ground
   let groundGrad = ctx.createLinearGradient(0, 530, 0, 600);
   groundGrad.addColorStop(0, '#3a3a3a'); groundGrad.addColorStop(1, '#222');
   ctx.fillStyle = groundGrad; ctx.fillRect(0, 530, 900, 70);
   ctx.strokeStyle = '#555'; ctx.lineWidth = 2;
   ctx.beginPath(); ctx.moveTo(0, 530); ctx.lineTo(900, 530); ctx.stroke();
+
+  // Stars (deterministic)
   ctx.fillStyle = '#fff';
   for (let i = 0; i < 30; i++) {
     let sx = (i*137+50)%900, sy = (i*89+20)%250;
@@ -519,35 +548,44 @@ function drawBackground() {
     ctx.fillRect(sx, sy, 2, 2);
   }
   ctx.globalAlpha = 1;
+
+  // Moon
   ctx.fillStyle = '#ffe8a0'; ctx.shadowColor = '#ffe8a0'; ctx.shadowBlur = 30;
   ctx.beginPath(); ctx.arc(780, 80, 35, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
 }
 
 function drawHUD() {
   ctx.fillStyle = 'rgba(0,0,0,0.7)'; ctx.fillRect(0, 0, 900, 55);
+  // P1 HP
   let p1HpW = 350*(p1.hp/p1.maxHp);
   ctx.fillStyle = '#333'; ctx.fillRect(40, 12, 350, 22);
   ctx.fillStyle = p1.hp > 50 ? '#0c0' : p1.hp > 25 ? '#fc0' : '#f00';
   ctx.fillRect(40, 12, p1HpW, 22);
   ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.strokeRect(40, 12, 350, 22);
+  // P2 HP
   let p2HpW = 350*(p2.hp/p2.maxHp);
   ctx.fillStyle = '#333'; ctx.fillRect(510, 12, 350, 22);
   ctx.fillStyle = p2.hp > 50 ? '#0c0' : p2.hp > 25 ? '#fc0' : '#f00';
   ctx.fillRect(510+350-p2HpW, 12, p2HpW, 22);
   ctx.strokeStyle = '#fff'; ctx.strokeRect(510, 12, 350, 22);
+  // P1 Special
   let p1SpW = 120*(p1.special/p1.maxSpecial);
   ctx.fillStyle = '#222'; ctx.fillRect(40, 38, 120, 8);
   ctx.fillStyle = p1.special >= 50 ? '#0ff' : '#066'; ctx.fillRect(40, 38, p1SpW, 8);
   if (p1.special >= 50) { ctx.fillStyle = '#0ff'; ctx.font = '10px Arial'; ctx.fillText('必殺 READY!', 42, 55); }
+  // P2 Special
   let p2SpW = 120*(p2.special/p2.maxSpecial);
   ctx.fillStyle = '#222'; ctx.fillRect(740, 38, 120, 8);
   ctx.fillStyle = p2.special >= 50 ? '#f44' : '#600'; ctx.fillRect(740+120-p2SpW, 38, p2SpW, 8);
   if (p2.special >= 50) { ctx.fillStyle = '#f44'; ctx.font = '10px Arial'; ctx.textAlign = 'right'; ctx.fillText('必殺 READY!', 858, 55); ctx.textAlign = 'left'; }
+  // Timer
   ctx.fillStyle = '#ff6600'; ctx.font = 'bold 30px Arial'; ctx.textAlign = 'center';
   ctx.fillText(timer.toString().padStart(2,'0'), 450, 36);
+  // Names
   ctx.font = 'bold 14px Arial'; ctx.fillStyle = '#4af'; ctx.textAlign = 'left';
   ctx.fillText(`P1 ${p1.name}`, 42, 8);
-  ctx.fillStyle = '#f44'; ctx.textAlign = 'right'; ctx.fillText(`P2 ${p2.name}`, 858, 8);
+  ctx.fillStyle = '#f44'; ctx.textAlign = 'right'; ctx.fillText(`CPU ${p2.name}`, 858, 8);
+  // Wins
   ctx.textAlign = 'left';
   for (let i = 0; i < p1Wins; i++) { ctx.fillStyle = '#ff0'; ctx.beginPath(); ctx.arc(45+i*20, 53, 6, 0, Math.PI*2); ctx.fill(); }
   for (let i = 0; i < p2Wins; i++) { ctx.fillStyle = '#ff0'; ctx.beginPath(); ctx.arc(855-i*20, 53, 6, 0, Math.PI*2); ctx.fill(); }
@@ -569,7 +607,7 @@ function drawTitle() {
   ctx.fillStyle = '#fff'; ctx.font = 'bold 28px Arial'; ctx.fillText('STREET FIGHTER', 450, 250);
   ctx.fillStyle = '#4af'; ctx.font = 'bold 36px Arial'; ctx.fillText('龍 Dragon', 250, 360);
   ctx.fillStyle = '#ff6600'; ctx.font = 'bold 48px Arial'; ctx.fillText('VS', 450, 370);
-  ctx.fillStyle = '#f44'; ctx.font = 'bold 36px Arial'; ctx.fillText('虎 Tiger', 650, 360);
+  ctx.fillStyle = '#f44'; ctx.font = 'bold 36px Arial'; ctx.fillText('虎 Tiger (CPU)', 650, 360);
   if (Math.sin(Date.now()*0.005) > 0) {
     ctx.fillStyle = '#fff'; ctx.font = 'bold 24px Arial'; ctx.fillText('按 SPACE 開始遊戲', 450, 480);
   }
