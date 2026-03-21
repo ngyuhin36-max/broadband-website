@@ -1416,12 +1416,12 @@ function gameLoop() {
     let alpha = s.life / 35;
     ctx.globalAlpha = alpha;
     if (s.type === 'ring') {
+      let r = Math.max(0.1, (35 - s.life) * 3);
       ctx.strokeStyle = s.color;
       ctx.lineWidth = 2;
-      let r = (35 - s.life) * 3;
       ctx.beginPath(); ctx.arc(s.x, s.y, r, 0, Math.PI*2); ctx.stroke();
     } else {
-      let sz = (s.size || 3) * (s.life / 35);
+      let sz = Math.max(0.1, (s.size || 3) * (s.life / 35));
       // Outer glow (larger, transparent)
       ctx.fillStyle = s.color;
       ctx.globalAlpha = alpha * 0.3;
@@ -1440,8 +1440,8 @@ function gameLoop() {
   // Energy trails (no shadowBlur)
   for (let i = energyTrails.length-1; i >= 0; i--) {
     let t = energyTrails[i]; t.life--;
-    let a = t.life / 30;
-    let r = t.size*(t.life/30);
+    let a = Math.max(0, t.life / 30);
+    let r = Math.max(0.1, t.size*(t.life/30));
     let ty = t.y + Math.sin(t.life*0.3)*5;
     ctx.fillStyle = t.color;
     ctx.globalAlpha = a * 0.3;
