@@ -258,8 +258,8 @@ class Fighter {
     this.aiTimer++;
     let dist = Math.abs(this.x - opponent.x);
 
-    // Decide new action every 15-25 frames (faster reactions)
-    if (this.aiTimer > 15 + Math.random() * 10) {
+    // Decide new action every 30-50 frames
+    if (this.aiTimer > 30 + Math.random() * 20) {
       this.aiTimer = 0;
       let r = Math.random();
 
@@ -302,11 +302,11 @@ class Fighter {
     let moveDir = opponent.x > this.x ? 1 : -1;
     switch (this.aiAction) {
       case 'approach':
-        this.vx = moveDir * 4.5;
+        this.vx = moveDir * 3;
         this.state = 'walk';
         break;
       case 'back':
-        this.vx = -moveDir * 4;
+        this.vx = -moveDir * 2.5;
         this.state = 'walk';
         break;
       case 'punch':
@@ -314,7 +314,7 @@ class Fighter {
           this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0;
           this.aiAction = 'idle';
         } else {
-          this.vx = moveDir * 4; this.state = 'walk';
+          this.vx = moveDir * 3; this.state = 'walk';
         }
         break;
       case 'kick':
@@ -322,7 +322,7 @@ class Fighter {
           this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0;
           this.aiAction = 'idle';
         } else {
-          this.vx = moveDir * 4; this.state = 'walk';
+          this.vx = moveDir * 3; this.state = 'walk';
         }
         break;
       case 'special':
@@ -331,18 +331,18 @@ class Fighter {
           this.special -= 50; this.vx = 0; shakeScreen = 10;
           this.aiAction = 'idle';
         } else {
-          this.vx = moveDir * 4; this.state = 'walk';
+          this.vx = moveDir * 3; this.state = 'walk';
         }
         break;
       case 'block':
         this.blocking = true; this.state = 'block'; this.vx = 0;
         break;
       case 'jump_attack':
-        if (this.y >= this.groundY) { this.vy = -15; this.vx = moveDir * 3; }
+        if (this.y >= this.groundY) { this.vy = -12; this.vx = moveDir * 2.5; }
         this.aiAction = 'punch';
         break;
       case 'jump_approach':
-        if (this.y >= this.groundY) { this.vy = -14; this.vx = moveDir * 4; }
+        if (this.y >= this.groundY) { this.vy = -12; this.vx = moveDir * 3; }
         this.aiAction = 'approach';
         break;
       default:
@@ -368,7 +368,7 @@ class Fighter {
     }
     if (this.state === 'punch' || this.state === 'kick' || this.state === 'special') {
       this.stateTimer++;
-      let dur = this.state === 'punch' ? 24 : this.state === 'kick' ? 30 : 40;
+      let dur = this.state === 'punch' ? 32 : this.state === 'kick' ? 40 : 55;
       if (this.stateTimer >= dur) { this.state = 'idle'; this.stateTimer = 0; this.attackHit = false; }
       if (this.y < this.groundY) { this.vy += 0.8; this.y += this.vy; if (this.y >= this.groundY) { this.y = this.groundY; this.vy = 0; } }
       return;
@@ -383,12 +383,12 @@ class Fighter {
       this.aiUpdate(opponent);
     } else {
       // Player input
-      let speed = 4.5;
+      let speed = 3;
       if (keys['m']) { this.blocking = true; this.state = 'block'; }
       if (keys['s']) { this.state = 'crouch'; }
       else if (keys['a']) { this.vx = -speed; this.state = 'walk'; }
       else if (keys['d']) { this.vx = speed; this.state = 'walk'; }
-      if (keys['w'] && this.y >= this.groundY) { this.vy = -16; this.state = 'jump'; }
+      if (keys['w'] && this.y >= this.groundY) { this.vy = -13; this.state = 'jump'; }
       if (this.y < this.groundY) this.state = 'jump';
       if (keys['j'] && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
       if (keys['k'] && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
