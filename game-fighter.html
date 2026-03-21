@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>街頭格鬥 | 免費線上格鬥遊戲 — BroadbandHK</title>
+    <meta name="description" content="街頭格鬥 — 雙人對戰格鬥遊戲！龍 vs 虎，拳腳必殺技連擊，即開即玩！免費線上遊戲，無需下載。">
+    <meta property="og:title" content="街頭格鬥 | 免費雙人格鬥遊戲">
+    <meta property="og:description" content="龍 vs 虎！拳腳必殺技連擊對戰，即開即玩的免費格鬥遊戲！">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://broadbandhk.com/game-fighter.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="街頭格鬥 | 免費雙人格鬥遊戲">
+    <meta name="twitter:description" content="龍 vs 虎！即開即玩的免費格鬥遊戲！">
+    <meta name="keywords" content="格鬥遊戲,免費遊戲,線上遊戲,雙人遊戲,fighting game,街頭格鬥,拳皇,香港遊戲,browser game,對戰遊戲">
+    <link rel="canonical" href="https://broadbandhk.com/game-fighter.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥊</text></svg>">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "街頭格鬥",
+      "description": "雙人對戰格鬥遊戲，龍 vs 虎，拳腳必殺技連擊，即開即玩！",
+      "url": "https://broadbandhk.com/game-fighter.html",
+      "genre": ["Fighting", "Action", "Arcade"],
+      "gamePlatform": "Web Browser",
+      "applicationCategory": "Game",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "HKD",
+        "availability": "https://schema.org/InStock"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "BroadbandHK",
+        "url": "https://broadbandhk.com"
+      },
+      "inLanguage": "zh-Hant-HK",
+      "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2 },
+      "playMode": "MultiPlayer"
+    }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Noto Sans TC', sans-serif;
+        background: #0a0e1a;
+        color: #e2e8f0;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+    .top-bar {
+        background: rgba(0,0,0,0.8);
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #ff6600;
+    }
+    .top-bar a {
+        color: #ff6600;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .top-bar a:hover { color: #ffaa00; }
+    .game-links { display: flex; gap: 15px; }
+    .game-links a {
+        color: #aaa;
+        font-size: 13px;
+    }
+    .game-links a:hover { color: #fff; }
+    .game-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 10px 30px;
+    }
+    h1 {
+        font-size: 28px;
+        background: linear-gradient(90deg, #ff4400, #ffaa00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+    }
+    canvas {
+        display: block;
+        image-rendering: pixelated;
+        max-width: 100%;
+        height: auto;
+        border: 3px solid #ff6600;
+        border-radius: 6px;
+        box-shadow: 0 0 30px rgba(255,102,0,0.3);
+    }
+    .controls-info {
+        display: flex;
+        justify-content: space-between;
+        max-width: 900px;
+        width: 100%;
+        margin-top: 15px;
+        gap: 20px;
+    }
+    .control-col {
+        flex: 1;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        padding: 12px 15px;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .control-col h3 {
+        color: #ff6600;
+        margin-bottom: 8px;
+        font-size: 15px;
+    }
+    .control-col.p2 h3 { color: #f44; }
+    .control-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+        font-size: 13px;
+        color: #aaa;
+    }
+    .key {
+        display: inline-block;
+        background: #333;
+        padding: 2px 8px;
+        border-radius: 3px;
+        margin: 0 2px;
+        border: 1px solid #555;
+        font-size: 12px;
+        color: #fff;
+        min-width: 24px;
+        text-align: center;
+    }
+    .game-desc {
+        max-width: 900px;
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 8px;
+        font-size: 14px;
+        color: #888;
+        line-height: 1.8;
+    }
+    .game-desc h2 {
+        color: #ff6600;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    @media (max-width: 600px) {
+        h1 { font-size: 20px; }
+        .controls-info { flex-direction: column; }
+        .top-bar { flex-direction: column; gap: 8px; }
+    }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="/">← BroadbandHK 主頁</a>
+    <div class="game-links">
+        <a href="game.html">寬頻人生</a>
+        <a href="game-war.html">寬頻三國志</a>
+        <a href="game-fighter.html" style="color:#ff6600">街頭格鬥</a>
+    </div>
+</div>
+
+<div class="game-wrapper">
+    <h1>街頭格鬥 STREET FIGHTER</h1>
+    <canvas id="game" width="900" height="600"></canvas>
+
+    <div class="controls-info">
+        <div class="control-col">
+            <h3>P1 玩家一 — 龍 Dragon</h3>
+            <div class="control-row"><span>移動</span><span><span class="key">A</span> <span class="key">D</span></span></div>
+            <div class="control-row"><span>跳躍</span><span><span class="key">W</span></span></div>
+            <div class="control-row"><span>蹲下</span><span><span class="key">S</span></span></div>
+            <div class="control-row"><span>出拳</span><span><span class="key">F</span></span></div>
+            <div class="control-row"><span>踢腳</span><span><span class="key">G</span></span></div>
+            <div class="control-row"><span>必殺技</span><span><span class="key">H</span></span></div>
+            <div class="control-row"><span>防禦</span><span><span class="key">R</span></span></div>
+        </div>
+        <div class="control-col p2">
+            <h3>P2 玩家二 — 虎 Tiger</h3>
+            <div class="control-row"><span>移動</span><span><span class="key">←</span> <span class="key">→</span></span></div>
+            <div class="control-row"><span>跳躍</span><span><span class="key">↑</span></span></div>
+            <div class="control-row"><span>蹲下</span><span><span class="key">↓</span></span></div>
+            <div class="control-row"><span>出拳</span><span><span class="key">J</span></span></div>
+            <div class="control-row"><span>踢腳</span><span><span class="key">K</span></span></div>
+            <div class="control-row"><span>必殺技</span><span><span class="key">L</span></span></div>
+            <div class="control-row"><span>防禦</span><span><span class="key">U</span></span></div>
+        </div>
+    </div>
+
+    <div class="game-desc">
+        <h2>遊戲玩法</h2>
+        <p>按 <span class="key">SPACE</span> 開始遊戲。用拳腳攻擊對手，打中會增加必殺技能量。能量條充到一半以上就能發動必殺技！先贏 2 回合就獲得最終勝利。防禦可以減少傷害，但仍會受到少量穿透傷害。善用連擊組合來最大化傷害！</p>
+    </div>
+</div>
+
+<script>
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+
+let gameState = 'title';
+let timer = 99;
+let timerInterval = null;
+let roundNum = 1;
+let p1Wins = 0;
+let p2Wins = 0;
+let koTimer = 0;
+let shakeScreen = 0;
+let comboTexts = [];
+let particles = [];
+let hitSparks = [];
+
+const keys = {};
+window.addEventListener('keydown', e => {
+  if (e.key === ' ' && (gameState === 'title' || gameState === 'victory')) startRound();
+  keys[e.key.toLowerCase()] = true;
+  if (e.key === 'ArrowLeft') keys['arrowleft'] = true;
+  if (e.key === 'ArrowRight') keys['arrowright'] = true;
+  if (e.key === 'ArrowUp') keys['arrowup'] = true;
+  if (e.key === 'ArrowDown') keys['arrowdown'] = true;
+  if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key)) e.preventDefault();
+});
+window.addEventListener('keyup', e => {
+  keys[e.key.toLowerCase()] = false;
+  if (e.key === 'ArrowLeft') keys['arrowleft'] = false;
+  if (e.key === 'ArrowRight') keys['arrowright'] = false;
+  if (e.key === 'ArrowUp') keys['arrowup'] = false;
+  if (e.key === 'ArrowDown') keys['arrowdown'] = false;
+});
+
+class Fighter {
+  constructor(x, name, color, isP2) {
+    this.x = x; this.y = 420; this.groundY = 420;
+    this.name = name; this.color = color; this.isP2 = isP2;
+    this.width = 60; this.height = 110;
+    this.hp = 100; this.maxHp = 100;
+    this.special = 0; this.maxSpecial = 100;
+    this.vx = 0; this.vy = 0;
+    this.facing = isP2 ? -1 : 1;
+    this.state = 'idle'; this.stateTimer = 0;
+    this.attackHit = false;
+    this.comboCount = 0; this.comboTimer = 0;
+    this.blocking = false;
+    this.animFrame = 0; this.animTimer = 0;
+    this.hitStun = 0; this.blockStun = 0;
+    this.projectiles = [];
+  }
+  reset(x) {
+    this.x = x; this.y = this.groundY;
+    this.hp = this.maxHp; this.special = 0;
+    this.vx = 0; this.vy = 0;
+    this.state = 'idle'; this.stateTimer = 0;
+    this.comboCount = 0; this.comboTimer = 0;
+    this.hitStun = 0; this.blockStun = 0;
+    this.projectiles = [];
+  }
+  getHitbox() {
+    let h = this.state === 'crouch' ? 70 : this.height;
+    let y = this.state === 'crouch' ? this.groundY + 40 : this.y;
+    return { x: this.x - 25, y, w: 50, h };
+  }
+  getAttackBox() {
+    if (this.state === 'punch' && this.stateTimer >= 4 && this.stateTimer <= 10)
+      return { x: this.x + this.facing * 30, y: this.y + 15, w: 45, h: 25, dmg: 8, type: 'punch' };
+    if (this.state === 'kick' && this.stateTimer >= 6 && this.stateTimer <= 14)
+      return { x: this.x + this.facing * 25, y: this.y + 50, w: 55, h: 30, dmg: 12, type: 'kick' };
+    if (this.state === 'special' && this.stateTimer === 10)
+      return { x: this.x + this.facing * 20, y: this.y, w: 60, h: 80, dmg: 25, type: 'special' };
+    return null;
+  }
+  update(opponent) {
+    this.animTimer++;
+    if (this.animTimer > 8) { this.animTimer = 0; this.animFrame++; }
+    if (this.comboTimer > 0) { this.comboTimer--; if (this.comboTimer <= 0) this.comboCount = 0; }
+    if (this.hitStun > 0) {
+      this.hitStun--;
+      if (this.hitStun <= 0) this.state = 'idle';
+      this.y += this.vy; this.vy += 0.8;
+      if (this.y >= this.groundY) { this.y = this.groundY; this.vy = 0; }
+      return;
+    }
+    if (this.blockStun > 0) {
+      this.blockStun--;
+      if (this.blockStun <= 0) this.state = 'idle';
+      return;
+    }
+    if (this.state === 'punch' || this.state === 'kick' || this.state === 'special') {
+      this.stateTimer++;
+      let dur = this.state === 'punch' ? 18 : this.state === 'kick' ? 22 : 30;
+      if (this.stateTimer >= dur) { this.state = 'idle'; this.stateTimer = 0; this.attackHit = false; }
+      if (this.y < this.groundY) { this.vy += 0.8; this.y += this.vy; if (this.y >= this.groundY) { this.y = this.groundY; this.vy = 0; } }
+      return;
+    }
+    this.vy += 0.8; this.y += this.vy;
+    if (this.y >= this.groundY) { this.y = this.groundY; this.vy = 0; }
+    if (opponent.x > this.x) this.facing = 1; else this.facing = -1;
+    let speed = 4.5;
+    this.vx = 0; this.state = 'idle'; this.blocking = false;
+    let left = this.isP2 ? keys['arrowleft'] : keys['a'];
+    let right = this.isP2 ? keys['arrowright'] : keys['d'];
+    let up = this.isP2 ? keys['arrowup'] : keys['w'];
+    let down = this.isP2 ? keys['arrowdown'] : keys['s'];
+    let punch = this.isP2 ? keys['j'] : keys['f'];
+    let kick = this.isP2 ? keys['k'] : keys['g'];
+    let special = this.isP2 ? keys['l'] : keys['h'];
+    let block = this.isP2 ? keys['u'] : keys['r'];
+    if (block) { this.blocking = true; this.state = 'block'; }
+    if (down) { this.state = 'crouch'; }
+    else if (left) { this.vx = -speed; this.state = 'walk'; }
+    else if (right) { this.vx = speed; this.state = 'walk'; }
+    if (up && this.y >= this.groundY) { this.vy = -16; this.state = 'jump'; }
+    if (this.y < this.groundY) this.state = 'jump';
+    if (punch && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+    if (kick && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+    if (special && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
+    this.x += this.vx;
+    if (this.x < 40) this.x = 40;
+    if (this.x > 860) this.x = 860;
+    for (let i = this.projectiles.length - 1; i >= 0; i--) {
+      let p = this.projectiles[i]; p.x += p.vx; p.life--;
+      if (p.life <= 0 || p.x < 0 || p.x > 900) this.projectiles.splice(i, 1);
+    }
+    if (this.special < this.maxSpecial) this.special += 0.05;
+  }
+  takeDamage(dmg, attackType, attacker) {
+    if (this.blocking) {
+      this.blockStun = 12; this.state = 'block';
+      this.hp -= Math.floor(dmg * 0.15);
+      this.x -= this.facing * 15;
+      return;
+    }
+    this.hp -= dmg;
+    this.hitStun = attackType === 'special' ? 25 : 15;
+    this.state = 'hit';
+    let kb = attackType === 'special' ? 12 : attackType === 'kick' ? 8 : 5;
+    this.x -= this.facing * kb;
+    if (attackType === 'special') this.vy = -8;
+    attacker.special = Math.min(attacker.maxSpecial, attacker.special + dmg * 0.5);
+    attacker.comboCount++; attacker.comboTimer = 60;
+    shakeScreen = attackType === 'special' ? 15 : 5;
+    let sparkX = (this.x + attacker.x) / 2, sparkY = this.y + 30;
+    for (let i = 0; i < (attackType === 'special' ? 20 : 8); i++) {
+      hitSparks.push({ x: sparkX, y: sparkY, vx: (Math.random()-0.5)*12, vy: (Math.random()-0.5)*12, life: 15+Math.random()*10, color: attackType === 'special' ? `hsl(${Math.random()*60}, 100%, 70%)` : '#fff' });
+    }
+    if (attacker.comboCount > 1) {
+      comboTexts.push({ text: `${attacker.comboCount} HIT COMBO!`, x: this.x, y: this.y - 40, life: 60, color: attacker.comboCount >= 5 ? '#ff0' : '#fff' });
+    }
+    if (this.hp <= 0) { this.hp = 0; this.state = 'ko'; }
+  }
+  draw() {
+    ctx.save();
+    let drawX = this.x;
+    let drawY = this.state === 'crouch' ? this.y + 40 : this.y;
+    let bodyColor = this.color, skinColor = '#ffd4a0';
+    let hairColor = this.isP2 ? '#222' : '#ffa500';
+    let pantsColor = this.isP2 ? '#333' : '#fff';
+    let breathe = Math.sin(this.animTimer * 0.15) * 2;
+    let walkBob = this.state === 'walk' ? Math.sin(this.animFrame * 1.2) * 3 : 0;
+    ctx.fillStyle = 'rgba(0,0,0,0.3)';
+    ctx.beginPath(); ctx.ellipse(this.x, this.groundY + this.height, 30, 8, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.translate(drawX, drawY);
+    if (this.facing === -1) ctx.scale(-1, 1);
+    if (this.state === 'ko') ctx.rotate(Math.PI / 2 * Math.min(1, this.hitStun > 0 ? 0.5 : 1));
+    if (this.state === 'hit' && this.hitStun % 4 < 2) ctx.globalAlpha = 0.6;
+    if (this.state === 'block') ctx.translate(-5, 0);
+    // Legs
+    ctx.fillStyle = pantsColor;
+    if (this.state === 'walk') {
+      ctx.fillRect(-12, 70 + walkBob, 12, 40); ctx.fillStyle = skinColor; ctx.fillRect(-10, 95 + walkBob, 12, 18); ctx.fillStyle = pantsColor;
+      ctx.fillRect(2, 70 - walkBob, 12, 40); ctx.fillStyle = skinColor; ctx.fillRect(4, 95 - walkBob, 12, 18);
+    } else if (this.state === 'kick' && this.stateTimer >= 4 && this.stateTimer <= 14) {
+      ctx.fillRect(-12, 70, 12, 40); ctx.save(); ctx.translate(5, 75); ctx.rotate(-0.3);
+      ctx.fillRect(0, 0, 12, 20); ctx.fillStyle = skinColor; ctx.fillRect(5, 15, 40, 14); ctx.restore();
+    } else if (this.state === 'crouch') {
+      ctx.fillRect(-12, 40, 12, 25); ctx.fillRect(5, 40, 12, 25);
+      ctx.fillStyle = skinColor; ctx.fillRect(-10, 55, 12, 12); ctx.fillRect(7, 55, 12, 12);
+    } else {
+      ctx.fillRect(-12, 70, 12, 35); ctx.fillRect(5, 70, 12, 35);
+      ctx.fillStyle = '#555'; ctx.fillRect(-14, 102, 16, 8); ctx.fillRect(3, 102, 16, 8);
+    }
+    // Torso
+    ctx.fillStyle = bodyColor;
+    let torsoY = this.state === 'crouch' ? 10 : 20;
+    ctx.fillRect(-18, torsoY + breathe, 38, 52 - (this.state === 'crouch' ? 20 : 0));
+    ctx.fillStyle = this.isP2 ? '#c00' : '#000';
+    ctx.fillRect(-18, torsoY + 44 + breathe, 38, 6);
+    // Arms
+    ctx.fillStyle = skinColor;
+    if (this.state === 'punch' && this.stateTimer >= 3 && this.stateTimer <= 12) {
+      ctx.fillRect(15, torsoY + 8, 45, 12);
+      ctx.fillStyle = this.isP2 ? '#c00' : '#fff'; ctx.fillRect(55, torsoY + 5, 16, 18);
+      ctx.fillStyle = skinColor; ctx.fillRect(-25, torsoY + 15, 12, 25);
+    } else if (this.state === 'special' && this.stateTimer >= 5 && this.stateTimer <= 20) {
+      ctx.fillRect(10, torsoY + 2, 35, 14); ctx.fillRect(10, torsoY + 20, 35, 14);
+      let glow = Math.sin(this.stateTimer * 0.5) * 5;
+      ctx.fillStyle = this.isP2 ? '#f00' : '#0af';
+      ctx.shadowColor = this.isP2 ? '#f00' : '#0af'; ctx.shadowBlur = 20 + glow;
+      ctx.beginPath(); ctx.arc(55, torsoY + 18, 18 + glow, 0, Math.PI * 2); ctx.fill(); ctx.shadowBlur = 0;
+    } else if (this.state === 'block') {
+      ctx.fillRect(-5, torsoY + 5, 12, 35); ctx.fillRect(8, torsoY + 5, 12, 35);
+      ctx.strokeStyle = '#0ff'; ctx.lineWidth = 2;
+      ctx.globalAlpha = 0.5 + Math.sin(Date.now() * 0.01) * 0.3;
+      ctx.beginPath(); ctx.arc(5, torsoY + 30, 30, 0, Math.PI * 2); ctx.stroke(); ctx.globalAlpha = 1;
+    } else {
+      ctx.fillRect(-25, torsoY + 8 + breathe, 12, 30); ctx.fillRect(15, torsoY + 8 + breathe, 12, 30);
+      ctx.fillStyle = this.isP2 ? '#c00' : '#fff';
+      ctx.fillRect(-27, torsoY + 5 + breathe, 14, 14); ctx.fillRect(15, torsoY + 5 + breathe, 14, 14);
+    }
+    // Head
+    let headY = torsoY - 28 + breathe;
+    ctx.fillStyle = skinColor; ctx.beginPath(); ctx.arc(2, headY, 20, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = hairColor;
+    if (this.isP2) {
+      ctx.beginPath(); ctx.moveTo(-18, headY-5); ctx.lineTo(-12, headY-25); ctx.lineTo(-5, headY-15);
+      ctx.lineTo(2, headY-28); ctx.lineTo(10, headY-15); ctx.lineTo(16, headY-22); ctx.lineTo(22, headY-5);
+      ctx.closePath(); ctx.fill();
+    } else {
+      ctx.beginPath(); ctx.moveTo(-20, headY-5); ctx.lineTo(-8, headY-30); ctx.lineTo(2, headY-20);
+      ctx.lineTo(12, headY-32); ctx.lineTo(22, headY-5); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#f00'; ctx.fillRect(-22, headY-8, 46, 6); ctx.fillRect(-22, headY-8, 4, 20);
+    }
+    ctx.fillStyle = '#fff'; ctx.fillRect(-6, headY-5, 8, 6); ctx.fillRect(6, headY-5, 8, 6);
+    ctx.fillStyle = this.state === 'special' ? '#ff0' : '#222';
+    ctx.fillRect(-3, headY-4, 4, 5); ctx.fillRect(9, headY-4, 4, 5);
+    if (this.state === 'hit') { ctx.fillStyle = '#a00'; ctx.fillRect(-4, headY+8, 10, 6); }
+    else if (this.state === 'special') { ctx.fillStyle = '#a00'; ctx.beginPath(); ctx.arc(3, headY+10, 5, 0, Math.PI*2); ctx.fill(); }
+    else { ctx.fillStyle = '#a00'; ctx.fillRect(-2, headY+8, 8, 3); }
+    ctx.restore();
+    for (let p of this.projectiles) {
+      ctx.save(); ctx.fillStyle = this.isP2 ? '#f44' : '#4af';
+      ctx.shadowColor = this.isP2 ? '#f00' : '#0af'; ctx.shadowBlur = 15;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 12, 0, Math.PI*2); ctx.fill(); ctx.restore();
+    }
+  }
+}
+
+let p1 = new Fighter(200, '龍 Dragon', '#2255cc', false);
+let p2 = new Fighter(700, '虎 Tiger', '#cc2222', true);
+
+function startRound() {
+  gameState = 'fighting'; timer = 99;
+  p1.reset(200); p2.reset(700);
+  comboTexts = []; particles = []; hitSparks = []; koTimer = 0;
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    if (gameState === 'fighting') { timer--; if (timer <= 0) { timer = 0; endRound(); } }
+  }, 1000);
+}
+
+function endRound() {
+  gameState = 'ko'; koTimer = 180;
+  if (p1.hp > p2.hp) p1Wins++; else if (p2.hp > p1.hp) p2Wins++;
+  if (timerInterval) clearInterval(timerInterval);
+}
+
+function rectCollision(a, b) {
+  return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+}
+
+function checkAttack(attacker, defender) {
+  let atk = attacker.getAttackBox();
+  if (atk && !attacker.attackHit) {
+    let def = defender.getHitbox();
+    if (rectCollision(atk, def)) {
+      attacker.attackHit = true;
+      defender.takeDamage(atk.dmg, atk.type, attacker);
+      if (defender.hp <= 0) endRound();
+    }
+  }
+}
+
+function drawBackground() {
+  let grad = ctx.createLinearGradient(0, 0, 0, 400);
+  grad.addColorStop(0, '#1a0a2e'); grad.addColorStop(0.5, '#2d1b4e'); grad.addColorStop(1, '#4a2c6e');
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, 900, 400);
+  ctx.fillStyle = '#0d0620';
+  let buildings = [
+    [0,250,60,150],[55,220,50,180],[100,280,70,120],[165,200,45,200],[205,260,55,140],
+    [255,230,40,170],[290,270,65,130],[350,210,50,190],[395,250,45,150],[435,190,55,210],
+    [485,240,60,160],[540,220,40,180],[575,260,55,140],[625,200,45,200],[665,270,50,130],
+    [710,230,60,170],[765,250,50,150],[810,210,45,190],[850,240,55,160]
+  ];
+  for (let b of buildings) {
+    ctx.fillRect(b[0], b[1], b[2], b[3]);
+    ctx.fillStyle = Math.random() > 0.7 ? '#ffa' : '#553';
+    for (let wy = b[1]+10; wy < b[1]+b[3]-10; wy += 18)
+      for (let wx = b[0]+8; wx < b[0]+b[2]-8; wx += 14)
+        if (Math.random() > 0.4) ctx.fillRect(wx, wy, 6, 8);
+    ctx.fillStyle = '#0d0620';
+  }
+  let groundGrad = ctx.createLinearGradient(0, 530, 0, 600);
+  groundGrad.addColorStop(0, '#3a3a3a'); groundGrad.addColorStop(1, '#222');
+  ctx.fillStyle = groundGrad; ctx.fillRect(0, 530, 900, 70);
+  ctx.strokeStyle = '#555'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(0, 530); ctx.lineTo(900, 530); ctx.stroke();
+  ctx.fillStyle = '#fff';
+  for (let i = 0; i < 30; i++) {
+    let sx = (i*137+50)%900, sy = (i*89+20)%250;
+    ctx.globalAlpha = Math.sin(Date.now()*0.002+i)*0.5+0.5;
+    ctx.fillRect(sx, sy, 2, 2);
+  }
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = '#ffe8a0'; ctx.shadowColor = '#ffe8a0'; ctx.shadowBlur = 30;
+  ctx.beginPath(); ctx.arc(780, 80, 35, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
+}
+
+function drawHUD() {
+  ctx.fillStyle = 'rgba(0,0,0,0.7)'; ctx.fillRect(0, 0, 900, 55);
+  let p1HpW = 350*(p1.hp/p1.maxHp);
+  ctx.fillStyle = '#333'; ctx.fillRect(40, 12, 350, 22);
+  ctx.fillStyle = p1.hp > 50 ? '#0c0' : p1.hp > 25 ? '#fc0' : '#f00';
+  ctx.fillRect(40, 12, p1HpW, 22);
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.strokeRect(40, 12, 350, 22);
+  let p2HpW = 350*(p2.hp/p2.maxHp);
+  ctx.fillStyle = '#333'; ctx.fillRect(510, 12, 350, 22);
+  ctx.fillStyle = p2.hp > 50 ? '#0c0' : p2.hp > 25 ? '#fc0' : '#f00';
+  ctx.fillRect(510+350-p2HpW, 12, p2HpW, 22);
+  ctx.strokeStyle = '#fff'; ctx.strokeRect(510, 12, 350, 22);
+  let p1SpW = 120*(p1.special/p1.maxSpecial);
+  ctx.fillStyle = '#222'; ctx.fillRect(40, 38, 120, 8);
+  ctx.fillStyle = p1.special >= 50 ? '#0ff' : '#066'; ctx.fillRect(40, 38, p1SpW, 8);
+  if (p1.special >= 50) { ctx.fillStyle = '#0ff'; ctx.font = '10px Arial'; ctx.fillText('必殺 READY!', 42, 55); }
+  let p2SpW = 120*(p2.special/p2.maxSpecial);
+  ctx.fillStyle = '#222'; ctx.fillRect(740, 38, 120, 8);
+  ctx.fillStyle = p2.special >= 50 ? '#f44' : '#600'; ctx.fillRect(740+120-p2SpW, 38, p2SpW, 8);
+  if (p2.special >= 50) { ctx.fillStyle = '#f44'; ctx.font = '10px Arial'; ctx.textAlign = 'right'; ctx.fillText('必殺 READY!', 858, 55); ctx.textAlign = 'left'; }
+  ctx.fillStyle = '#ff6600'; ctx.font = 'bold 30px Arial'; ctx.textAlign = 'center';
+  ctx.fillText(timer.toString().padStart(2,'0'), 450, 36);
+  ctx.font = 'bold 14px Arial'; ctx.fillStyle = '#4af'; ctx.textAlign = 'left';
+  ctx.fillText(`P1 ${p1.name}`, 42, 8);
+  ctx.fillStyle = '#f44'; ctx.textAlign = 'right'; ctx.fillText(`P2 ${p2.name}`, 858, 8);
+  ctx.textAlign = 'left';
+  for (let i = 0; i < p1Wins; i++) { ctx.fillStyle = '#ff0'; ctx.beginPath(); ctx.arc(45+i*20, 53, 6, 0, Math.PI*2); ctx.fill(); }
+  for (let i = 0; i < p2Wins; i++) { ctx.fillStyle = '#ff0'; ctx.beginPath(); ctx.arc(855-i*20, 53, 6, 0, Math.PI*2); ctx.fill(); }
+  ctx.textAlign = 'left';
+}
+
+function drawTitle() {
+  ctx.save(); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, 900, 600);
+  for (let i = 0; i < 50; i++) {
+    ctx.fillStyle = `hsl(${(Date.now()*0.05+i*20)%360}, 80%, 50%)`; ctx.globalAlpha = 0.05;
+    let x = Math.sin(Date.now()*0.001+i)*400+450, y = Math.cos(Date.now()*0.001+i*0.7)*250+300;
+    ctx.fillRect(x-100, y-100, 200, 200);
+  }
+  ctx.globalAlpha = 1; ctx.textAlign = 'center';
+  ctx.fillStyle = '#000'; ctx.font = 'bold 72px Arial'; ctx.fillText('街 頭 格 鬥', 453, 203);
+  let tg = ctx.createLinearGradient(200, 150, 700, 250);
+  tg.addColorStop(0, '#ff4400'); tg.addColorStop(0.5, '#ffaa00'); tg.addColorStop(1, '#ff4400');
+  ctx.fillStyle = tg; ctx.font = 'bold 72px Arial'; ctx.fillText('街 頭 格 鬥', 450, 200);
+  ctx.fillStyle = '#fff'; ctx.font = 'bold 28px Arial'; ctx.fillText('STREET FIGHTER', 450, 250);
+  ctx.fillStyle = '#4af'; ctx.font = 'bold 36px Arial'; ctx.fillText('龍 Dragon', 250, 360);
+  ctx.fillStyle = '#ff6600'; ctx.font = 'bold 48px Arial'; ctx.fillText('VS', 450, 370);
+  ctx.fillStyle = '#f44'; ctx.font = 'bold 36px Arial'; ctx.fillText('虎 Tiger', 650, 360);
+  if (Math.sin(Date.now()*0.005) > 0) {
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 24px Arial'; ctx.fillText('按 SPACE 開始遊戲', 450, 480);
+  }
+  ctx.font = '16px Arial'; ctx.fillStyle = '#888'; ctx.fillText('PRESS SPACE TO START', 450, 510);
+  ctx.fillStyle = '#555'; ctx.font = '12px Arial'; ctx.fillText('broadbandhk.com', 450, 560);
+  ctx.textAlign = 'left'; ctx.restore();
+}
+
+function drawKO() {
+  ctx.save(); ctx.textAlign = 'center';
+  let winner = p1.hp > p2.hp ? p1 : p2;
+  let scale = Math.min(1, (180-koTimer)/20);
+  ctx.fillStyle = '#f00'; ctx.font = `bold ${100*scale}px Arial`; ctx.fillText('K.O.!', 450, 280);
+  if (koTimer < 120) {
+    ctx.fillStyle = '#ff0'; ctx.font = 'bold 36px Arial'; ctx.fillText(`${winner.name} 勝利!`, 450, 340);
+    if (p1Wins >= 2 || p2Wins >= 2) {
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 28px Arial'; ctx.fillText('最終勝利!!', 450, 390);
+      if (Math.sin(Date.now()*0.005) > 0) { ctx.fillStyle = '#aaa'; ctx.font = '20px Arial'; ctx.fillText('按 SPACE 重新開始', 450, 440); }
+    } else {
+      if (Math.sin(Date.now()*0.005) > 0) { ctx.fillStyle = '#aaa'; ctx.font = '20px Arial'; ctx.fillText('按 SPACE 下一回合', 450, 440); }
+    }
+  }
+  ctx.textAlign = 'left'; ctx.restore();
+}
+
+function gameLoop() {
+  ctx.save();
+  if (shakeScreen > 0) {
+    ctx.translate((Math.random()-0.5)*shakeScreen*2, (Math.random()-0.5)*shakeScreen*2);
+    shakeScreen--;
+  }
+  if (gameState === 'title') { drawTitle(); ctx.restore(); requestAnimationFrame(gameLoop); return; }
+  drawBackground();
+  if (gameState === 'fighting') {
+    p1.update(p2); p2.update(p1);
+    checkAttack(p1, p2); checkAttack(p2, p1);
+    let dist = Math.abs(p1.x - p2.x);
+    if (dist < 50) {
+      let push = (50-dist)/2;
+      if (p1.x < p2.x) { p1.x -= push; p2.x += push; } else { p1.x += push; p2.x -= push; }
+    }
+  }
+  if (gameState === 'ko') { koTimer--; if (koTimer <= 0) { if (p1Wins >= 2 || p2Wins >= 2) { gameState = 'victory'; p1Wins = 0; p2Wins = 0; } else { gameState = 'victory'; roundNum++; } } }
+  p1.draw(); p2.draw();
+  for (let i = hitSparks.length-1; i >= 0; i--) {
+    let s = hitSparks[i]; s.x += s.vx; s.y += s.vy; s.life--;
+    ctx.fillStyle = s.color; ctx.globalAlpha = s.life/25; ctx.fillRect(s.x-3, s.y-3, 6, 6); ctx.globalAlpha = 1;
+    if (s.life <= 0) hitSparks.splice(i, 1);
+  }
+  for (let i = comboTexts.length-1; i >= 0; i--) {
+    let ct = comboTexts[i]; ct.y -= 0.8; ct.life--;
+    ctx.fillStyle = ct.color; ctx.globalAlpha = ct.life/60; ctx.font = 'bold 24px Arial'; ctx.textAlign = 'center';
+    ctx.fillText(ct.text, ct.x, ct.y); ctx.textAlign = 'left'; ctx.globalAlpha = 1;
+    if (ct.life <= 0) comboTexts.splice(i, 1);
+  }
+  drawHUD();
+  if (gameState === 'ko' || gameState === 'victory') drawKO();
+  if (gameState === 'fighting') {
+    ctx.fillStyle = '#fff'; ctx.font = '14px Arial'; ctx.textAlign = 'center';
+    ctx.fillText(`ROUND ${roundNum}`, 450, 65); ctx.textAlign = 'left';
+  }
+  ctx.restore();
+  requestAnimationFrame(gameLoop);
+}
+gameLoop();
+</script>
+</body>
+</html>
