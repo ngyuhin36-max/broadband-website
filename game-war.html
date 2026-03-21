@@ -869,19 +869,111 @@ const COMPANY_DATA = [
 ];
 
 const GENERAL_POOL = [
-    { name: 'WiFi俠', atk: 85, def: 50, wis: 60, salary: 30, title: '銷售之神' },
-    { name: '光纖王', atk: 60, def: 70, wis: 85, salary: 35, title: '安裝達人' },
-    { name: '數據姐', atk: 70, def: 65, wis: 80, salary: 28, title: '數據分析師' },
-    { name: '地推哥', atk: 90, def: 40, wis: 50, salary: 25, title: '街頭銷售王' },
-    { name: '客服花', atk: 45, def: 85, wis: 70, salary: 22, title: '客戶關係專家' },
-    { name: '工程佬', atk: 55, def: 80, wis: 75, salary: 32, title: '網絡工程師' },
-    { name: '阿明', atk: 75, def: 55, wis: 65, salary: 20, title: '新人Sales' },
-    { name: '陳sir', atk: 65, def: 75, wis: 90, salary: 40, title: '前高管' },
-    { name: '小鳳', atk: 80, def: 60, wis: 55, salary: 18, title: '推銷新星' },
-    { name: '大佬B', atk: 95, def: 45, wis: 40, salary: 35, title: '業界猛將' },
-    { name: 'Teresa', atk: 50, def: 90, wis: 85, salary: 38, title: '營運總監' },
-    { name: '阿偉', atk: 70, def: 70, wis: 70, salary: 26, title: '全能型選手' },
+    { name: 'WiFi俠', atk: 85, def: 50, wis: 60, salary: 30, title: '銷售之神', skill: '進攻時額外 +15% 勝率' },
+    { name: '光纖王', atk: 60, def: 70, wis: 85, salary: 35, title: '安裝達人', skill: '建設效果翻倍' },
+    { name: '數據姐', atk: 70, def: 65, wis: 80, salary: 28, title: '數據分析師', skill: '研發費用 -30%' },
+    { name: '地推哥', atk: 90, def: 40, wis: 50, salary: 25, title: '街頭銷售王', skill: '進攻中立區勝率 +20%' },
+    { name: '客服花', atk: 45, def: 85, wis: 70, salary: 22, title: '客戶關係專家', skill: '每月額外收入 +$50萬' },
+    { name: '工程佬', atk: 55, def: 80, wis: 75, salary: 32, title: '網絡工程師', skill: '防守效果翻倍' },
+    { name: '阿明', atk: 75, def: 55, wis: 65, salary: 20, title: '新人Sales', skill: '招募費用 -20%' },
+    { name: '陳sir', atk: 65, def: 75, wis: 90, salary: 40, title: '前高管（軍師）', skill: '所有行動效果 +20%' },
+    { name: '小鳳', atk: 80, def: 60, wis: 55, salary: 18, title: '推銷新星', skill: '進攻時兵力損失減半' },
+    { name: '大佬B', atk: 95, def: 45, wis: 40, salary: 35, title: '業界猛將', skill: '進攻時額外 +20% 勝率' },
+    { name: 'Teresa', atk: 50, def: 90, wis: 85, salary: 38, title: '營運總監', skill: '每月額外收入 +$80萬' },
+    { name: '阿偉', atk: 70, def: 70, wis: 70, salary: 26, title: '全能型選手', skill: '所有地區兵力每月 +5' },
 ];
+
+// ========== ADVISOR (軍師) SYSTEM ==========
+function getAdvisor() {
+    // Find highest wisdom general as advisor
+    if (G.generals.length === 0) return null;
+    return G.generals.reduce((a, b) => a.wis > b.wis ? a : b);
+}
+
+function getAdvisorTip() {
+    const advisor = getAdvisor();
+    const pCount = countDistricts('player');
+    const e1Count = countDistricts('enemy1');
+    const e2Count = countDistricts('enemy2');
+    const targets = getAdjacentTargets();
+    const weakTarget = targets.length > 0 ? targets.reduce((a, b) => (a.troops + a.defense) < (b.troops + b.defense) ? a : b) : null;
+
+    if (!advisor) {
+        return '💡 秘書提示：「老闆，我哋連一個武將都冇，建議先招募人才！」';
+    }
+
+    const tips = [];
+
+    // Strategic analysis
+    if (G.money < 200) {
+        tips.push('💰 資金緊張！建議做建設增加收入，或者慳住使。');
+    }
+    if (G.generals.length < 2) {
+        tips.push('👥 人手不足！多招募武將可以大幅提升進攻同防守實力。');
+    }
+    if (pCount < e1Count || pCount < e2Count) {
+        tips.push('⚠️ 對手地區比你多！要加快進攻步伐！');
+    }
+    if (weakTarget && weakTarget.owner === 'neutral' && weakTarget.troops <= 20) {
+        tips.push('📍 ' + DISTRICTS[weakTarget.id].name + '防守薄弱（只有' + weakTarget.troops + '人），建議進攻！');
+    }
+    if (G.tech < 3 && G.money >= 150) {
+        tips.push('📊 技術等級偏低，研發可以提升所有戰鬥力！');
+    }
+    if (pCount >= 5 && playerDistricts().some(d => d.defense < 10)) {
+        tips.push('🛡️ 部分地區防守薄弱，小心被敵人偷襲！');
+    }
+    if (pCount >= 10) {
+        tips.push('🎯 勝利在望！集中兵力進攻剩餘目標！');
+    }
+
+    const tip = tips.length > 0 ? tips[Math.floor(Math.random() * tips.length)] : '一切順利，繼續保持！';
+    return '🧠 軍師' + advisor.name + '進言：「' + tip + '」';
+}
+
+// General skill bonuses
+function hasGeneralWithName(name) {
+    return G.generals.some(g => g.name === name);
+}
+function getAtkBonus() {
+    let bonus = 0;
+    if (hasGeneralWithName('WiFi俠')) bonus += 15;
+    if (hasGeneralWithName('大佬B')) bonus += 20;
+    G.generals.forEach(g => bonus += Math.floor(g.atk / 5)); // Each general's atk contributes more
+    return bonus;
+}
+function getNeutralAtkBonus() {
+    return hasGeneralWithName('地推哥') ? 20 : 0;
+}
+function getDefBonus() {
+    let bonus = hasGeneralWithName('工程佬') ? 2 : 1;
+    G.generals.forEach(g => bonus += g.def / 50);
+    return bonus;
+}
+function getBuildBonus() {
+    return hasGeneralWithName('光纖王') ? 2 : 1;
+}
+function getResearchDiscount() {
+    return hasGeneralWithName('數據姐') ? 0.7 : 1;
+}
+function getRecruitDiscount() {
+    return hasGeneralWithName('阿明') ? 0.8 : 1;
+}
+function getExtraIncome() {
+    let extra = 0;
+    if (hasGeneralWithName('客服花')) extra += 50;
+    if (hasGeneralWithName('Teresa')) extra += 80;
+    return extra;
+}
+function getMasterBonus() {
+    return hasGeneralWithName('陳sir') ? 1.2 : 1;
+}
+function getExtraTroops() {
+    return hasGeneralWithName('阿偉') ? 5 : 2;
+}
+function getAttackLossReduction() {
+    return hasGeneralWithName('小鳳') ? 0.5 : 1;
+}
 
 const RANDOM_EVENTS = [
     { text: '📰 突發新聞！\n\n政府宣佈「全港光纖升級計劃」，撥款20億支持基建！\n\n你公司獲得 $500萬 補貼！\n\n「呢個消息嚟得正好！」你嘅財務總監笑住話。', money: 500 },
@@ -1160,13 +1252,14 @@ function showActionMenu() {
     } else if (G.month === 3) {
         tutText = '進攻之後，記住要鞏固防守...\n\n「老闆，新佔嘅地區仲未穩定，建議加強防守或者搞下建設。」';
     } else {
+        const advisorTip = getAdvisorTip();
         const pCount = countDistricts('player');
         if (pCount < 6) {
-            tutText = '第' + G.month + '個月。\n\n你望住香港地圖，仲有好多地區等緊你去攻佔。\n\n「下一步點行，你話事。」秘書恭敬咁問。';
+            tutText = '第' + G.month + '個月。\n\n你望住香港地圖，仲有好多地區等緊你去攻佔。\n\n' + advisorTip;
         } else if (pCount < 12) {
-            tutText = '第' + G.month + '個月。\n\n版圖越嚟越大，但對手都唔係食素嘅。\n\n「CEO，要小心兩面受敵！」軍師提醒你。';
+            tutText = '第' + G.month + '個月。\n\n版圖越嚟越大，但對手都唔係食素嘅。\n\n' + advisorTip;
         } else {
-            tutText = '第' + G.month + '個月。\n\n勝利在望！繼續保持進攻勢頭！';
+            tutText = '第' + G.month + '個月。\n\n勝利在望！繼續保持進攻勢頭！\n\n' + advisorTip;
         }
     }
 
@@ -1179,12 +1272,19 @@ function showActionMenu() {
         const canDefend = playerDistricts().length > 0 && G.money >= 80;
         const canResearch = G.money >= 150;
 
+        const rCost = Math.floor(G.recruitCost * getRecruitDiscount());
+        const resCost = Math.floor(150 * getResearchDiscount());
+        const canResearchActual = G.money >= resCost;
+        const canRecruitActual = G.money >= rCost;
+        const genCount = G.generals.length;
+        const atkBonusDisplay = getAtkBonus();
+
         currentChoices = [
-            { label: '📍 進攻', cost: canAttack ? '' : '（無可攻目標）', action: 'attack', disabled: !canAttack, highlight: G.month === 2 },
-            { label: '🛡️ 防守', cost: '$80萬', action: 'defend', disabled: !canDefend, highlight: G.month === 3 },
-            { label: '👥 招募', cost: '$' + G.recruitCost + '萬', action: 'recruit', disabled: !canRecruit, highlight: G.month === 1 },
-            { label: '🔧 建設', cost: '$100萬', action: 'build', disabled: !canBuild },
-            { label: '📊 研發', cost: '$150萬', action: 'research', disabled: !canResearch },
+            { label: '📍 進攻' + (atkBonusDisplay > 0 ? '（加成+' + atkBonusDisplay + '%）' : ''), cost: canAttack ? '' : '（無可攻目標）', action: 'attack', disabled: !canAttack, highlight: G.month === 2 },
+            { label: '🛡️ 防守（全部地區）', cost: '$80萬', action: 'defend', disabled: !canDefend, highlight: G.month === 3 },
+            { label: '👥 招募武將（' + genCount + '人）', cost: '$' + rCost + '萬', action: 'recruit', disabled: !canRecruitActual, highlight: G.month === 1 },
+            { label: '🔧 建設（增收入）', cost: '$100萬', action: 'build', disabled: !canBuild },
+            { label: '📊 研發（Lv.' + G.tech + '→' + (G.tech+1) + '）', cost: '$' + resCost + '萬', action: 'research', disabled: !canResearchActual },
         ];
 
         showChoices('選擇你嘅行動：', currentChoices.map(c => ({
@@ -1225,12 +1325,23 @@ function showAttackTargets() {
 
     currentChoices = targets.map(d => {
         const ownerLabel = d.owner === 'neutral' ? '中立' : (d.owner === 'enemy1' ? G.enemies[0].name : G.enemies[1].name);
-        const winRate = Math.min(95, Math.max(10, Math.round((playerPower / (d.troops + d.defense + 10)) * 40 + G.tech * 5)));
+        // Calculate actual win rate using same formula as doAttack
+        let wr = Math.round((playerPower / (d.troops + d.defense + 10)) * 30 + G.tech * 8);
+        if (G.generals.length === 0) wr = Math.floor(wr * 0.5);
+        else wr += getAtkBonus();
+        if (G.tech <= 1) wr = Math.min(wr, 55);
+        else if (G.tech <= 2) wr = Math.min(wr, 70);
+        if (d.owner === 'neutral') wr += getNeutralAtkBonus();
+        wr = Math.round(wr * getMasterBonus());
+        if (d.owner !== 'neutral') wr -= Math.floor(G.month / 6) * 3;
+        wr = Math.min(95, Math.max(10, wr));
+
+        const difficulty = wr >= 70 ? '🟢' : wr >= 45 ? '🟡' : '🔴';
         return {
-            label: DISTRICTS[d.id].name + '\n' + ownerLabel + ' | 駐軍' + d.troops + '人',
-            cost: '勝率' + winRate + '%',
+            label: difficulty + ' ' + DISTRICTS[d.id].name + '\n' + ownerLabel + ' | 駐軍' + d.troops + '人 | 防禦' + d.defense,
+            cost: '勝率' + wr + '%',
             districtId: d.id,
-            winRate: winRate,
+            winRate: wr,
         };
     });
 
@@ -1254,32 +1365,75 @@ function doAttack(districtId) {
     const d = G.districts[districtId];
     const dName = DISTRICTS[districtId].name;
     const gen = bestGeneral('atk');
+    const advisor = getAdvisor();
     const playerPower = getTotalPlayerPower();
-    const winRate = Math.min(95, Math.max(10, Math.round((playerPower / (d.troops + d.defense + 10)) * 40 + G.tech * 5)));
+
+    // Enhanced win rate calculation — generals and tech matter A LOT
+    let winRate = Math.round((playerPower / (d.troops + d.defense + 10)) * 30 + G.tech * 8);
+
+    // No generals = severe penalty
+    if (G.generals.length === 0) {
+        winRate = Math.floor(winRate * 0.5); // 50% penalty without generals
+    } else {
+        winRate += getAtkBonus(); // General attack bonuses
+    }
+
+    // Low tech = cap on win rate
+    if (G.tech <= 1) winRate = Math.min(winRate, 55); // Tech 1: max 55%
+    else if (G.tech <= 2) winRate = Math.min(winRate, 70); // Tech 2: max 70%
+
+    if (d.owner === 'neutral') winRate += getNeutralAtkBonus(); // Neutral bonus
+    winRate = Math.round(winRate * getMasterBonus()); // 陳sir master bonus
+
+    // Enemy districts are harder as game progresses
+    if (d.owner !== 'neutral') winRate -= Math.floor(G.month / 6) * 3;
+
+    winRate = Math.min(95, Math.max(10, winRate));
+
     const roll = Math.random() * 100;
     const win = roll < winRate;
+
+    // Advisor commentary during battle
+    let advisorComment = '';
+    if (advisor && advisor.wis >= 70) {
+        if (winRate >= 75) advisorComment = '\n\n🧠 軍師' + advisor.name + '：「勝券在握！全力進攻！」';
+        else if (winRate >= 50) advisorComment = '\n\n🧠 軍師' + advisor.name + '：「五五波，但我哋有實力贏！」';
+        else advisorComment = '\n\n🧠 軍師' + advisor.name + '：「風險好高...但搏一搏，單車變摩托！」';
+    }
+
+    // Attack costs troops from nearby owned districts (can't spam attack without consequence)
+    const nearbyOwned = playerDistricts().filter(pd => DISTRICTS[pd.id].adj.includes(districtId));
+    const troopCost = 8 + Math.floor(Math.random() * 5);
+    if (nearbyOwned.length > 0) {
+        nearbyOwned[0].troops = Math.max(5, nearbyOwned[0].troops - troopCost);
+    } else {
+        const anyDist = playerDistricts()[0];
+        if (anyDist) anyDist.troops = Math.max(5, anyDist.troops - troopCost);
+    }
 
     if (win) {
         sfxWin();
         G.totalWins++;
         const oldOwner = d.owner;
         d.owner = 'player';
-        d.troops = 20 + Math.floor(Math.random() * 10);
-        d.defense = 0;
+        d.troops = 15 + Math.floor(Math.random() * 8);
+        d.defense = 0; // New territory has no defense!
 
         let genText = gen ? '\n\n' + gen.name + '帶住銷售團隊衝鋒陷陣，用超低月費吸引住戶轉台。' : '\n\n你嘅銷售團隊全力出擊。';
         let resultText = oldOwner === 'neutral'
             ? '街坊紛紛簽約，短短兩星期就搶佔咗成個區！'
             : '對手嘅客戶紛紛倒戈，舊嘅銷售團隊灰頭土臉撤退！';
+        let skillText = '';
+        if (gen && gen.skill) skillText = '\n\n🌟 ' + gen.name + '嘅技能「' + gen.skill + '」發揮作用！';
 
         showStory('scene-battle', '⚔️', '進攻 ' + dName, 'tag-battle',
-            '「進攻' + dName + '！」\n\n你派出銷售團隊進駐' + dName + '區，喺各大屋苑擺攤推廣。' + genText + '\n\n' + resultText + '\n\n「報告CEO，' + dName + '區已經係我哋嘅喇！」\n\n📍 成功佔領' + dName + '！',
+            '「進攻' + dName + '！」' + advisorComment + '\n\n你派出銷售團隊進駐' + dName + '區，喺各大屋苑擺攤推廣。' + genText + '\n\n' + resultText + skillText + '\n\n「報告CEO，' + dName + '區已經係我哋嘅喇！」\n\n📍 成功佔領' + dName + '！（勝率：' + winRate + '%）\n⚠️ 出發地區兵力 -' + troopCost + '（新地區防守為0，記得加強！）',
             () => showEndTurnBtn()
         );
     } else {
         sfxLose();
-        const loss = 5 + Math.floor(Math.random() * 10);
-        // Remove some troops from player districts
+        let loss = 5 + Math.floor(Math.random() * 10);
+        loss = Math.floor(loss * getAttackLossReduction()); // 小鳳減損
         const pDists = playerDistricts();
         if (pDists.length > 0) {
             pDists[Math.floor(Math.random() * pDists.length)].troops = Math.max(5, pDists[0].troops - loss);
@@ -1290,15 +1444,21 @@ function doAttack(districtId) {
             ? '街坊話：「我哋用開第二間，唔會轉嘅。」\n你嘅Sales被拒絕咗一戶又一戶...'
             : ownerName + '喺呢度經營多年，口碑極好。\n街坊話：「我哋用開' + ownerName + '，WiFi又快又穩，唔會轉嘅。」';
 
+        let advisorAfter = '';
+        if (advisor && advisor.wis >= 70) {
+            advisorAfter = '\n\n🧠 軍師' + advisor.name + '：「唔緊要，吸取教訓，下次再嚟！建議先加強實力再進攻。」';
+        }
+
         showStory('scene-battle', '⚔️', '進攻 ' + dName, 'tag-battle',
-            '「進攻' + dName + '！」\n\n你嘅團隊殺入' + dName + '，但' + failReason + '\n\n最後灰頭土臉撤退。\n\n❌ 進攻失敗！損失' + loss + '人',
+            '「進攻' + dName + '！」' + advisorComment + '\n\n你嘅團隊殺入' + dName + '，但' + failReason + '\n\n最後灰頭土臉撤退。\n\n❌ 進攻失敗！損失' + loss + '人（勝率只有' + winRate + '%）' + advisorAfter,
             () => showEndTurnBtn()
         );
     }
 }
 
 function doRecruit() {
-    G.money -= G.recruitCost;
+    const actualCost = Math.floor(G.recruitCost * getRecruitDiscount());
+    G.money -= actualCost;
     G.totalRecruits++;
 
     // Pick random general not already recruited
@@ -1315,8 +1475,11 @@ function doRecruit() {
     G.generals.push({...gen});
     sfxRecruit();
 
+    const isAdvisor = gen.wis >= 80;
+    const advisorText = isAdvisor ? '\n\n🧠 軍師就位！今後每月會為你分析形勢、建議策略！' : '';
+
     showStory('scene-recruit', '👥', '招募成功', 'tag-recruit',
-        '「老闆，有個人想見你。」\n\n你嘅秘書帶咗一個人入嚟 — ' + gen.name + '。\n佢喺業界打滾多年，' + gen.title + '嘅稱號無人不知。\n\n「我聽講你哋公司有野心，我鍾意有野心嘅老闆。」\n\n佢微笑住坐低，同你握手。\n\n👥 成功招募「' + gen.name + '」！\n⚔️銷售力 ' + gen.atk + ' | 🛡️防守力 ' + gen.def + ' | 🧠智謀 ' + gen.wis + '\n💰 月薪：$' + gen.salary + '萬',
+        '「老闆，有個人想見你。」\n\n你嘅秘書帶咗一個人入嚟 — ' + gen.name + '。\n佢喺業界打滾多年，' + gen.title + '嘅稱號無人不知。\n\n「我聽講你哋公司有野心，我鍾意有野心嘅老闆。」\n\n佢微笑住坐低，同你握手。\n\n👥 成功招募「' + gen.name + '」！\n⚔️銷售力 ' + gen.atk + ' | 🛡️防守力 ' + gen.def + ' | 🧠智謀 ' + gen.wis + '\n💰 月薪：$' + gen.salary + '萬\n🌟 特殊技能：' + gen.skill + advisorText + '\n\n（目前團隊' + G.generals.length + '人，進攻加成 +' + getAtkBonus() + '% 勝率）',
         () => showEndTurnBtn()
     );
 }
@@ -1325,15 +1488,23 @@ function doDefend() {
     G.money -= 80;
     sfxBuild();
     const pDists = playerDistricts();
+    const defMultiplier = getDefBonus();
+    const masterMultiplier = getMasterBonus();
+    const baseDefIncrease = Math.floor((8 + Math.floor(Math.random() * 7)) * defMultiplier * masterMultiplier);
+    const baseTroopIncrease = Math.floor(5 * defMultiplier);
+
     pDists.forEach(d => {
-        d.defense += 5 + Math.floor(Math.random() * 5);
-        d.troops += 3;
+        d.defense += baseDefIncrease;
+        d.troops += baseTroopIncrease;
     });
+
     const gen = bestGeneral('def');
-    const genText = gen ? '\n\n' + gen.name + '親自督工，確保每個屋苑嘅網絡都穩定運作。' : '';
+    const genText = gen ? '\n\n' + gen.name + '親自督工，確保每個屋苑嘅網絡都穩定運作。\n🌟 技能「' + gen.skill + '」發揮效果！' : '';
+    const advisor = getAdvisor();
+    const advisorText = advisor ? '\n\n🧠 軍師' + advisor.name + '：「防守穩固，進可攻退可守，好策略！」' : '';
 
     showStory('scene-defense', '🛡️', '加強防守', 'tag-defense',
-        '你決定鞏固現有陣地。' + genText + '\n\n技術團隊加班加點，喺所有已佔地區升級設備、改善服務。\n\n客戶滿意度大幅提升，競爭對手想搶都搶唔走！\n\n🛡️ 所有地區防禦力提升！',
+        '你決定鞏固現有陣地。' + genText + '\n\n技術團隊加班加點，喺所有已佔地區升級設備、改善服務。\n\n客戶滿意度大幅提升，競爭對手想搶都搶唔走！\n\n🛡️ 所有' + pDists.length + '個地區防禦力 +' + baseDefIncrease + '，兵力 +' + baseTroopIncrease + '！' + advisorText,
         () => showEndTurnBtn()
     );
 }
@@ -1342,26 +1513,58 @@ function doBuild() {
     G.money -= 100;
     sfxBuild();
     const pDists = playerDistricts();
+    const buildMultiplier = getBuildBonus();
+    const masterMultiplier = getMasterBonus();
+    const incomeBoost = Math.floor((25 + Math.floor(Math.random() * 15)) * buildMultiplier * masterMultiplier);
+    const defBoost = Math.floor(3 * buildMultiplier);
+
     pDists.forEach(d => {
-        d.income += 15 + Math.floor(Math.random() * 10);
+        d.income += incomeBoost;
+        d.defense += defBoost; // Building also improves defense
     });
 
+    const totalNewIncome = Math.round(pDists.length * incomeBoost / 10);
+    const gen = G.generals.find(g => g.name === '光纖王');
+    const genText = gen ? '\n\n🌟 光纖王嘅技能「建設效果翻倍」發揮作用！效果大增！' : '';
+    const advisor = getAdvisor();
+    const advisorText = advisor ? '\n\n🧠 軍師' + advisor.name + '：「基建係長線投資，每月收入會持續增長！現預計月入增加 $' + totalNewIncome + '萬。」' : '';
+
     showStory('scene-build', '🔧', '基建投資', 'tag-build',
-        '你投入資金進行大規模基建升級。\n\n鋪設更快嘅光纖、安裝更強嘅路由器、優化網絡架構...\n\n「報告CEO，所有地區嘅網速都提升咗30%！客戶反應非常好！」\n\n🔧 所有地區收入提升！',
+        '你投入資金進行大規模基建升級。\n\n鋪設更快嘅光纖、安裝更強嘅路由器、優化網絡架構...\n\n「報告CEO，所有地區嘅網速都提升咗30%！客戶反應非常好！」' + genText + '\n\n🔧 所有' + pDists.length + '個地區：收入 +' + incomeBoost + '，防禦 +' + defBoost + '！\n💰 預計每月額外收入：$' + totalNewIncome + '萬' + advisorText,
         () => showEndTurnBtn()
     );
 }
 
 function doResearch() {
-    G.money -= 150;
+    const actualCost = Math.floor(150 * getResearchDiscount());
+    G.money -= actualCost;
     G.tech++;
+
+    // Research also permanently buffs all districts
+    const techTroopBonus = G.tech;
+    playerDistricts().forEach(d => {
+        d.troops += techTroopBonus;
+        d.defense += Math.floor(G.tech * 1.5);
+    });
+
     sfxBuild();
 
     const techNames = ['基礎光纖', '千兆光纖', '萬兆光纖', 'WiFi 6', 'WiFi 7', '6G預研', 'AI網絡', '量子通訊'];
     const techName = techNames[Math.min(G.tech - 1, techNames.length - 1)];
 
+    const techEffects = [
+        '進攻勝率 +' + (G.tech * 8) + '%',
+        '所有地區兵力 +' + techTroopBonus,
+        '所有地區防禦 +' + Math.floor(G.tech * 1.5),
+    ];
+
+    const gen = G.generals.find(g => g.name === '數據姐');
+    const genText = gen ? '\n\n🌟 數據姐嘅技能「研發費用-30%」生效！只花咗 $' + actualCost + '萬！' : '';
+    const advisor = getAdvisor();
+    const advisorText = advisor ? '\n\n🧠 軍師' + advisor.name + '：「技術就係硬實力！Lv.' + G.tech + '嘅技術令我哋嘅進攻同防守都大幅提升！」' : '';
+
     showStory('scene-research', '📊', '研發升級', 'tag-research',
-        '研發團隊日以繼夜咁工作...\n\n經過一個月嘅努力，終於突破技術瓶頸！\n\n「CEO，我哋成功研發咗' + techName + '技術！」\n首席技術官興奮咁報告。\n\n「呢個技術可以大幅提升我哋嘅競爭力！」\n\n📊 技術等級提升至 Lv.' + G.tech + '！',
+        '研發團隊日以繼夜咁工作...\n\n經過一個月嘅努力，終於突破技術瓶頸！\n\n「CEO，我哋成功研發咗' + techName + '技術！」\n首席技術官興奮咁報告。' + genText + '\n\n📊 技術等級提升至 Lv.' + G.tech + '！\n\n具體效果：\n• ' + techEffects.join('\n• ') + advisorText,
         () => showEndTurnBtn()
     );
 }
@@ -1407,10 +1610,12 @@ function enemyTurn() {
         // Enemy gets income
         enemy.money += eDists.reduce((s, d) => s + d.income, 0) / 10;
 
-        // Random action
+        // AI gets smarter over time — prioritize attacking weak player districts
         const roll = Math.random();
-        if (roll < 0.4) {
-            // Attack
+        const aggressiveness = 0.35 + G.month * 0.01; // Gets more aggressive each month
+
+        if (roll < aggressiveness) {
+            // Attack — prioritize weak player districts
             const owned = new Set(eDists.map(d => d.id));
             const targets = [];
             eDists.forEach(d => {
@@ -1419,28 +1624,35 @@ function enemyTurn() {
                 });
             });
             if (targets.length > 0) {
-                const tgt = targets[Math.floor(Math.random() * targets.length)];
+                // Sort targets: prefer player's weakest districts
+                const sortedTargets = targets.sort((a, b) => {
+                    const da = G.districts[a]; const db = G.districts[b];
+                    const aScore = (da.owner === 'player' ? -100 : 0) + da.troops + da.defense;
+                    const bScore = (db.owner === 'player' ? -100 : 0) + db.troops + db.defense;
+                    return aScore - bScore;
+                });
+                const tgt = sortedTargets[0];
                 const d = G.districts[tgt];
-                const attackPower = eDists.reduce((s, dd) => s + dd.troops, 0) * 0.3 + enemy.tech * 10;
+                const attackPower = eDists.reduce((s, dd) => s + dd.troops, 0) * 0.3 + enemy.tech * 12;
                 const defPower = d.troops + d.defense;
-                if (Math.random() < (attackPower / (attackPower + defPower))) {
+                if (Math.random() < (attackPower / (attackPower + defPower + 10))) {
                     d.owner = tag;
                     d.troops = 15 + Math.floor(Math.random() * 10);
-                    d.defense = 0;
+                    d.defense = 5;
                 }
             }
-        } else if (roll < 0.6) {
-            // Reinforce
+        } else if (roll < aggressiveness + 0.2) {
+            // Reinforce — stronger
             eDists.forEach(d => {
-                d.troops += 2;
-                d.defense += 1;
+                d.troops += 3 + Math.floor(G.month / 8);
+                d.defense += 2;
             });
-        } else if (roll < 0.8) {
-            // Recruit
-            eDists.forEach(d => d.troops += 3);
+        } else if (roll < aggressiveness + 0.35) {
+            // Recruit — stronger
+            eDists.forEach(d => d.troops += 4 + Math.floor(G.month / 6));
         } else {
-            // Tech
-            enemy.tech += 0.5;
+            // Tech — faster
+            enemy.tech += 0.8;
         }
     });
 }
@@ -1449,22 +1661,41 @@ function enemyTurn() {
 function nextMonth() {
     hideChoices();
 
-    // Calculate income/expense
+    // Calculate income/expense with general bonuses
     const pDists = playerDistricts();
-    G.monthIncome = Math.round(pDists.reduce((s, d) => s + d.income, 0) / 10);
+    const baseIncome = Math.round(pDists.reduce((s, d) => s + d.income, 0) / 10);
+    const extraIncome = getExtraIncome(); // 客服花 + Teresa bonus
+    G.monthIncome = baseIncome + extraIncome;
     G.monthExpense = totalSalary();
     G.money += G.monthIncome - G.monthExpense;
 
-    // Apply income reduction if event
-    // (handled in event itself)
-
-    // Grow player troops slightly
+    // Grow player troops — generals boost this
+    const troopGrowth = getExtraTroops(); // 阿偉 bonus
     pDists.forEach(d => {
-        d.troops = Math.min(d.troops + 2, 99);
+        d.troops = Math.min(d.troops + troopGrowth, 99);
     });
 
     // Enemy turn
     enemyTurn();
+
+    // ENEMY COUNTER-ATTACK: enemies target player's weakest district
+    let lostDistrict = '';
+    const vulnerableDistricts = playerDistricts().filter(d => d.defense < 8 && d.troops < 20);
+    if (vulnerableDistricts.length > 0 && Math.random() < 0.4 + (G.month * 0.01)) {
+        // Enemy attacks weakest player district
+        const weakest = vulnerableDistricts.reduce((a, b) => (a.defense + a.troops) < (b.defense + b.troops) ? a : b);
+        const attackerTag = countDistricts('enemy1') >= countDistricts('enemy2') ? 'enemy1' : 'enemy2';
+        const attackerName = attackerTag === 'enemy1' ? G.enemies[0].name : G.enemies[1].name;
+        const attackPower = Math.random() * 60 + G.month * 1.5;
+        const defPower = weakest.defense + weakest.troops;
+
+        if (attackPower > defPower) {
+            weakest.owner = attackerTag;
+            weakest.troops = 15 + Math.floor(Math.random() * 10);
+            weakest.defense = 5;
+            lostDistrict = '\n\n⚠️ 危險！' + attackerName + '偷襲咗 ' + DISTRICTS[weakest.id].name + '！防守太弱被搶走！';
+        }
+    }
 
     // Show summary
     G.phase = 'summary';
@@ -1478,7 +1709,22 @@ function nextMonth() {
     else if (pCount >= 4) comment = '「唔錯嘅進展，繼續努力！」— 董事會評價';
     else comment = '「要加把勁喇，對手追上嚟喇！」— 董事會評價';
 
-    const summaryText = '📊 第' + G.month + '個月結束\n\n💰 收入：$' + G.monthIncome + '萬（' + pCount + '個地區）\n💸 支出：$' + G.monthExpense + '萬（武將薪水）\n💵 結餘：$' + G.money + '萬\n\n📍 你嘅地區：' + pCount + '/18\n⚔️ ' + G.enemies[0].name + '：' + e1Count + '/18\n🏢 ' + G.enemies[1].name + '：' + e2Count + '/18\n\n' + comment;
+    // Advisor monthly analysis
+    const advisor = getAdvisor();
+    let advisorMonthly = '';
+    if (advisor) {
+        const weakDists = playerDistricts().filter(d => d.defense < 10);
+        if (weakDists.length > 0) {
+            advisorMonthly = '\n\n🧠 軍師' + advisor.name + '：「有' + weakDists.length + '個地區防守偏弱，小心被敵人偷襲！建議加強防守。」';
+        } else if (G.generals.length < 3) {
+            advisorMonthly = '\n\n🧠 軍師' + advisor.name + '：「人手唔夠，建議多招募武將提升實力。」';
+        } else if (G.tech < 3) {
+            advisorMonthly = '\n\n🧠 軍師' + advisor.name + '：「技術仲可以提升，研發會令所有行動更有效。」';
+        }
+    }
+
+    const extraIncomeDisplay = getExtraIncome() > 0 ? '（含武將加成 +$' + getExtraIncome() + '萬）' : '';
+    const summaryText = '📊 第' + G.month + '個月結束' + lostDistrict + '\n\n💰 收入：$' + G.monthIncome + '萬' + extraIncomeDisplay + '\n💸 支出：$' + G.monthExpense + '萬（武將薪水）\n💵 結餘：$' + G.money + '萬\n\n📍 你嘅地區：' + pCount + '/18\n⚔️ ' + G.enemies[0].name + '：' + e1Count + '/18\n🏢 ' + G.enemies[1].name + '：' + e2Count + '/18\n\n' + comment + advisorMonthly;
 
     showStory('scene-month', '📊', '月結報告', 'tag-month', summaryText, () => {
         G.month++;
