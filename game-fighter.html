@@ -129,10 +129,10 @@
             <div class="control-row"><span>移動</span><span><span class="key">A</span> 左 / <span class="key">D</span> 右</span></div>
             <div class="control-row"><span>跳躍</span><span><span class="key">W</span></span></div>
             <div class="control-row"><span>蹲下</span><span><span class="key">S</span></span></div>
-            <div class="control-row"><span>出拳</span><span><span class="key">F</span></span></div>
-            <div class="control-row"><span>踢腳</span><span><span class="key">G</span></span></div>
-            <div class="control-row"><span>必殺技</span><span><span class="key">H</span> (能量50%以上)</span></div>
-            <div class="control-row"><span>防禦</span><span><span class="key">R</span></span></div>
+            <div class="control-row"><span>出拳</span><span><span class="key">J</span></span></div>
+            <div class="control-row"><span>踢腳</span><span><span class="key">K</span></span></div>
+            <div class="control-row"><span>必殺技</span><span><span class="key">L</span> (能量50%以上)</span></div>
+            <div class="control-row"><span>防禦</span><span><span class="key">M</span></span></div>
         </div>
     </div>
 
@@ -206,7 +206,7 @@ const keys = {};
 window.addEventListener('keydown', e => {
   if (e.key === ' ' && (gameState === 'title' || gameState === 'victory')) startRound();
   keys[e.key.toLowerCase()] = true;
-  if ([' ','w','a','s','d','f','g','h','r'].includes(e.key.toLowerCase())) e.preventDefault();
+  if ([' ','w','a','s','d','j','k','l','m'].includes(e.key.toLowerCase())) e.preventDefault();
 });
 window.addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
 
@@ -384,16 +384,16 @@ class Fighter {
     } else {
       // Player input
       let speed = 4.5;
-      if (keys['r']) { this.blocking = true; this.state = 'block'; }
+      if (keys['m']) { this.blocking = true; this.state = 'block'; }
       if (keys['s']) { this.state = 'crouch'; }
       else if (keys['a']) { this.vx = -speed; this.state = 'walk'; }
       else if (keys['d']) { this.vx = speed; this.state = 'walk'; }
       if (keys['w'] && this.y >= this.groundY) { this.vy = -16; this.state = 'jump'; }
       if (this.y < this.groundY) this.state = 'jump';
-      if (keys['f'] && !this._fDown && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
-      if (keys['g'] && !this._gDown && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
-      if (keys['h'] && !this._hDown && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
-      this._fDown = keys['f']; this._gDown = keys['g']; this._hDown = keys['h'];
+      if (keys['j'] && !this._jDown && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+      if (keys['k'] && !this._kDown && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
+      if (keys['l'] && !this._lDown && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
+      this._jDown = keys['j']; this._kDown = keys['k']; this._lDown = keys['l'];
     }
 
     this.x += this.vx;
