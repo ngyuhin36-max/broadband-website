@@ -656,7 +656,6 @@ class Fighter {
         // Charging - energy gathering around hands
         let chargeR = (t-3) * 5;
         ctx.strokeStyle = flameColor; ctx.lineWidth = 3;
-        ctx.shadowColor = flameColor; ctx.shadowBlur = 20;
         ctx.globalAlpha = 0.7;
         for (let r = 0; r < 3; r++) {
           ctx.beginPath();
@@ -675,34 +674,33 @@ class Fighter {
             ctx.fill();
           }
         }
-        ctx.shadowBlur = 0;
       } else {
         // FIRING - huge beam shooting forward
         let beamProgress = Math.min(1, (t-8)/4);
         let beamLen = 300 * beamProgress;
         let beamWidth = 28 + Math.sin(t*1.5)*6;
 
-        // Beam glow (outer)
-        ctx.shadowColor = flameColor; ctx.shadowBlur = 40;
+        // Beam outer glow
         ctx.fillStyle = flameColor;
-        ctx.globalAlpha = 0.5;
-        ctx.fillRect(42, 33+tY-beamWidth*0.7, beamLen, beamWidth*1.4);
+        ctx.globalAlpha = 0.25;
+        ctx.fillRect(42, 33+tY-beamWidth, beamLen, beamWidth*2);
+        // Beam main
+        ctx.globalAlpha = 0.6;
+        ctx.fillRect(42, 33+tY-beamWidth*0.6, beamLen, beamWidth*1.2);
         ctx.globalAlpha = 1;
 
         // Beam core
         ctx.fillStyle = flameColor2;
-        ctx.fillRect(42, 33+tY-beamWidth*0.4, beamLen, beamWidth*0.8);
+        ctx.fillRect(42, 33+tY-beamWidth*0.35, beamLen, beamWidth*0.7);
 
         // Beam bright center
         ctx.fillStyle = '#fff';
-        ctx.fillRect(42, 33+tY-beamWidth*0.15, beamLen, beamWidth*0.3);
-
-        ctx.shadowBlur = 0;
+        ctx.fillRect(42, 33+tY-beamWidth*0.12, beamLen, beamWidth*0.24);
 
         // Energy particles along beam
-        for (let i = 0; i < 10; i++) {
-          let bx = 50 + (beamLen * i/10);
-          let by = 33+tY + (Math.sin(Date.now()*0.02+i)*beamWidth*0.5);
+        for (let i = 0; i < 6; i++) {
+          let bx = 50 + (beamLen * i/6);
+          let by = 33+tY + (Math.sin(Date.now()*0.02+i)*beamWidth*0.4);
           ctx.fillStyle = flameColor2;
           ctx.globalAlpha = 0.7;
           ctx.beginPath(); ctx.arc(bx, by, 2+Math.sin(t+i)*2, 0, Math.PI*2); ctx.fill();
@@ -714,21 +712,20 @@ class Fighter {
           let impX = 42 + beamLen;
           let impR = 15 + Math.sin(t*2)*8;
           ctx.fillStyle = flameColor;
-          ctx.shadowColor = flameColor; ctx.shadowBlur = 25;
+          ctx.globalAlpha = 0.4;
+          ctx.beginPath(); ctx.arc(impX, 33+tY, impR*1.5, 0, Math.PI*2); ctx.fill();
+          ctx.globalAlpha = 1;
           ctx.beginPath(); ctx.arc(impX, 33+tY, impR, 0, Math.PI*2); ctx.fill();
           ctx.fillStyle = '#fff';
           ctx.beginPath(); ctx.arc(impX, 33+tY, impR*0.4, 0, Math.PI*2); ctx.fill();
-          ctx.shadowBlur = 0;
         }
 
         // Character name flash
         ctx.fillStyle = flameColor;
-        ctx.shadowColor = flameColor; ctx.shadowBlur = 15;
         ctx.font = 'bold 16px Arial';
         ctx.textAlign = 'center';
         ctx.fillText(this.isAI ? '斷線衝擊！' : '光纖衝擊波！', 0, -15+tY);
         ctx.textAlign = 'left';
-        ctx.shadowBlur = 0;
       }
     } else if (this.state === 'block') {
       // Arms crossed in front - guard pose
@@ -747,7 +744,6 @@ class Fighter {
       let shieldR = 32;
 
       // Shield glow background
-      ctx.shadowColor = shieldColor; ctx.shadowBlur = 20;
       ctx.fillStyle = shieldColor;
       ctx.globalAlpha = 0.1 + pulse*0.1;
       ctx.beginPath();
@@ -799,18 +795,15 @@ class Fighter {
         ctx.beginPath(); ctx.arc(px, py, 2+Math.sin(Date.now()*0.01+i)*1.5, 0, Math.PI*2); ctx.fill();
       }
 
-      ctx.shadowBlur = 0;
       ctx.globalAlpha = 1;
 
       // "防禦" text
       if (this.blockStun > 8) {
         ctx.fillStyle = shieldColor;
-        ctx.shadowColor = shieldColor; ctx.shadowBlur = 10;
         ctx.font = 'bold 14px Arial';
         ctx.textAlign = 'center';
         ctx.fillText(this.isAI ? '干擾盾！' : '光纖護盾！', 0, -10+tY);
         ctx.textAlign = 'left';
-        ctx.shadowBlur = 0;
       }
     } else {
       // Fighting stance - fists up (KOF idle pose)
@@ -878,10 +871,8 @@ class Fighter {
       ctx.beginPath(); ctx.moveTo(2, headY-18); ctx.lineTo(5, headY-8); ctx.stroke();
       // Red eyes glow under helmet
       ctx.fillStyle = '#ff0000';
-      ctx.shadowColor = '#ff0000'; ctx.shadowBlur = 8;
       ctx.beginPath(); ctx.ellipse(-6, headY-2, 4, 3, 0, 0, Math.PI*2); ctx.fill();
       ctx.beginPath(); ctx.ellipse(6, headY-2, 4, 3, 0, 0, Math.PI*2); ctx.fill();
-      ctx.shadowBlur = 0;
       // Broken signal X on chest
       ctx.strokeStyle = '#cc0000';
       ctx.lineWidth = 3;
@@ -901,13 +892,19 @@ class Fighter {
       ctx.fill();
       // Visor
       ctx.fillStyle = '#0af';
-      ctx.shadowColor = '#0af'; ctx.shadowBlur = 10;
       ctx.beginPath();
       ctx.moveTo(-16, headY-4);
       ctx.quadraticCurveTo(0, headY-8, 16, headY-4);
       ctx.quadraticCurveTo(0, headY+2, -16, headY-4);
       ctx.fill();
-      ctx.shadowBlur = 0;
+      // Visor glow (extra layer)
+      ctx.globalAlpha = 0.3;
+      ctx.beginPath();
+      ctx.moveTo(-20, headY-4);
+      ctx.quadraticCurveTo(0, headY-12, 20, headY-4);
+      ctx.quadraticCurveTo(0, headY+4, -20, headY-4);
+      ctx.fill();
+      ctx.globalAlpha = 1;
       // Antenna
       ctx.fillStyle = '#0af';
       ctx.fillRect(-2, headY-28, 4, 12);
@@ -949,9 +946,8 @@ class Fighter {
         ctx.fillStyle = '#f00';
         ctx.beginPath(); ctx.ellipse(0, headY+12, 6, 5, 0, 0, Math.PI*2); ctx.fill();
       } else if (this.state === 'special') {
-        ctx.fillStyle = '#f00'; ctx.shadowColor = '#f00'; ctx.shadowBlur = 12;
+        ctx.fillStyle = '#f00';
         ctx.beginPath(); ctx.ellipse(0, headY+12, 7, 6, 0, 0, Math.PI*2); ctx.fill();
-        ctx.shadowBlur = 0;
       } else {
         ctx.strokeStyle = '#cc0000'; ctx.lineWidth = 2;
         ctx.beginPath(); ctx.moveTo(-5, headY+11); ctx.lineTo(5, headY+11); ctx.stroke();
@@ -1094,10 +1090,11 @@ function drawVictoryScreen() {
     // Title
     let titleScale = Math.min(1, (victoryTimer-10)/20);
     ctx.fillStyle = '#0af';
-    ctx.shadowColor = '#0af'; ctx.shadowBlur = 30;
     ctx.font = `bold ${48*titleScale}px Arial`;
+    ctx.strokeStyle = '#0af'; ctx.lineWidth = 4; ctx.globalAlpha = 0.5;
+    ctx.strokeText('全港網絡已守護！', 450, 140);
+    ctx.globalAlpha = 1;
     ctx.fillText('全港網絡已守護！', 450, 140);
-    ctx.shadowBlur = 0;
 
     ctx.fillStyle = '#fff';
     ctx.font = 'bold 28px Arial';
@@ -1128,9 +1125,7 @@ function drawVictoryScreen() {
       // Score
       ctx.fillStyle = '#ff0';
       ctx.font = 'bold 26px Arial';
-      ctx.shadowColor = '#ff0'; ctx.shadowBlur = 15;
       ctx.fillText(`總分: ${d.score.toLocaleString()}`, 450, sy+130);
-      ctx.shadowBlur = 0;
 
       ctx.globalAlpha = 1;
     }
@@ -1163,10 +1158,11 @@ function drawVictoryScreen() {
 
     let titleScale = Math.min(1, (victoryTimer-10)/20);
     ctx.fillStyle = '#f00';
-    ctx.shadowColor = '#f00'; ctx.shadowBlur = 20;
     ctx.font = `bold ${48*titleScale}px Arial`;
+    ctx.strokeStyle = '#f00'; ctx.lineWidth = 4; ctx.globalAlpha = 0.5;
+    ctx.strokeText('全港斷線！', 450, 180);
+    ctx.globalAlpha = 1;
     ctx.fillText('全港斷線！', 450, 180);
-    ctx.shadowBlur = 0;
 
     ctx.fillStyle = '#f88'; ctx.font = 'bold 28px Arial';
     ctx.fillText('斷線魔皇 勝利...', 450, 230);
@@ -1251,8 +1247,13 @@ function drawBackground() {
   ctx.globalAlpha = 1;
 
   // Moon
-  ctx.fillStyle = '#ffe8a0'; ctx.shadowColor = '#ffe8a0'; ctx.shadowBlur = 30;
-  ctx.beginPath(); ctx.arc(780, 80, 35, 0, Math.PI*2); ctx.fill(); ctx.shadowBlur = 0;
+  // Moon with glow (no shadowBlur)
+  ctx.fillStyle = 'rgba(255,232,160,0.15)';
+  ctx.beginPath(); ctx.arc(780, 80, 55, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = 'rgba(255,232,160,0.3)';
+  ctx.beginPath(); ctx.arc(780, 80, 42, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#ffe8a0';
+  ctx.beginPath(); ctx.arc(780, 80, 35, 0, Math.PI*2); ctx.fill();
 }
 
 function drawHUD() {
@@ -1330,11 +1331,15 @@ function drawKO() {
 
   // K.O. text with glow
   let koColor = winner === p1 ? '#0af' : '#f00';
-  ctx.shadowColor = koColor; ctx.shadowBlur = 30 + Math.sin(elapsed*0.1)*10;
   ctx.fillStyle = koColor;
   ctx.font = `bold ${Math.min(120, 120*scale)}px Arial`;
+  // KO text outline glow
+  ctx.strokeStyle = koColor;
+  ctx.lineWidth = 6;
+  ctx.globalAlpha = 0.5;
+  ctx.strokeText('K.O.!', 450, 260);
+  ctx.globalAlpha = 1;
   ctx.fillText('K.O.!', 450, 260);
-  ctx.shadowBlur = 0;
 
   // Impact lines radiating from center
   if (elapsed < 30) {
@@ -1404,56 +1409,66 @@ function gameLoop() {
   }
   p1.draw(); p2.draw();
 
-  // Enhanced hit sparks
+  // Hit sparks (no shadowBlur for performance)
   for (let i = hitSparks.length-1; i >= 0; i--) {
     let s = hitSparks[i];
     s.x += s.vx; s.y += s.vy; s.vy += 0.3; s.vx *= 0.97; s.life--;
     let alpha = s.life / 35;
     ctx.globalAlpha = alpha;
     if (s.type === 'ring') {
-      // Expanding ring
       ctx.strokeStyle = s.color;
       ctx.lineWidth = 2;
       let r = (35 - s.life) * 3;
       ctx.beginPath(); ctx.arc(s.x, s.y, r, 0, Math.PI*2); ctx.stroke();
     } else {
-      // Glowing spark
-      ctx.fillStyle = s.color;
-      ctx.shadowColor = s.color; ctx.shadowBlur = 8;
       let sz = (s.size || 3) * (s.life / 35);
+      // Outer glow (larger, transparent)
+      ctx.fillStyle = s.color;
+      ctx.globalAlpha = alpha * 0.3;
+      ctx.beginPath(); ctx.arc(s.x, s.y, sz*1.8, 0, Math.PI*2); ctx.fill();
+      // Core
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(s.x, s.y, sz*0.5, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = s.color;
       ctx.beginPath(); ctx.arc(s.x, s.y, sz, 0, Math.PI*2); ctx.fill();
-      ctx.shadowBlur = 0;
-      // Spark trail
-      ctx.globalAlpha = alpha * 0.4;
-      ctx.beginPath(); ctx.arc(s.x - s.vx, s.y - s.vy, sz*0.6, 0, Math.PI*2); ctx.fill();
     }
     ctx.globalAlpha = 1;
     if (s.life <= 0) hitSparks.splice(i, 1);
   }
 
-  // Energy trails
+  // Energy trails (no shadowBlur)
   for (let i = energyTrails.length-1; i >= 0; i--) {
     let t = energyTrails[i]; t.life--;
+    let a = t.life / 30;
+    let r = t.size*(t.life/30);
+    let ty = t.y + Math.sin(t.life*0.3)*5;
     ctx.fillStyle = t.color;
-    ctx.shadowColor = t.color; ctx.shadowBlur = 12;
-    ctx.globalAlpha = t.life / 30;
-    ctx.beginPath(); ctx.arc(t.x, t.y + Math.sin(t.life*0.3)*5, t.size*(t.life/30), 0, Math.PI*2); ctx.fill();
-    ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+    ctx.globalAlpha = a * 0.3;
+    ctx.beginPath(); ctx.arc(t.x, ty, r*2, 0, Math.PI*2); ctx.fill();
+    ctx.globalAlpha = a;
+    ctx.beginPath(); ctx.arc(t.x, ty, r, 0, Math.PI*2); ctx.fill();
+    ctx.globalAlpha = 1;
     if (t.life <= 0) energyTrails.splice(i, 1);
   }
 
-  // Combo texts with scaling
+  // Combo texts
   for (let i = comboTexts.length-1; i >= 0; i--) {
     let ct = comboTexts[i]; ct.y -= 0.6; ct.life--;
     let alpha = ct.life / 80;
     let bounce = ct.life > 60 ? 1 + Math.sin((80-ct.life)*0.3)*0.3 : 1;
-    ctx.fillStyle = ct.color;
-    ctx.shadowColor = ct.color; ctx.shadowBlur = 10;
-    ctx.globalAlpha = alpha;
-    ctx.font = `bold ${(ct.size||24)*bounce}px Arial`;
+    let fs = `bold ${(ct.size||24)*bounce}px Arial`;
+    // Text outline for glow effect (no shadowBlur)
+    ctx.font = fs;
     ctx.textAlign = 'center';
+    ctx.globalAlpha = alpha * 0.4;
+    ctx.strokeStyle = ct.color;
+    ctx.lineWidth = 4;
+    ctx.strokeText(ct.text, ct.x, ct.y);
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = '#fff';
     ctx.fillText(ct.text, ct.x, ct.y);
-    ctx.shadowBlur = 0; ctx.textAlign = 'left'; ctx.globalAlpha = 1;
+    ctx.textAlign = 'left'; ctx.globalAlpha = 1;
     if (ct.life <= 0) comboTexts.splice(i, 1);
   }
 
