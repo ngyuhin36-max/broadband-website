@@ -744,12 +744,16 @@
 每個月你可以做<em style="color:#fbbf24;font-style:normal;font-weight:700;">一個行動</em>：
 📍 <strong>進攻</strong> — 攻佔相鄰嘅地區
 🛡️ <strong>防守</strong> — 加強現有地區嘅防禦
-👥 <strong>招募</strong> — 請新嘅銷售武將
-🔧 <strong>建設</strong> — 提升地區收入
-📊 <strong>研發</strong> — 升級公司技術
+👥 <strong>招募</strong> — 請新嘅銷售武將（每人有獨特技能）
+🔧 <strong>建設</strong> — 提升地區收入同防禦
+📊 <strong>研發</strong> — 升級公司技術（影響所有戰力）
+📢 <strong>推廣</strong> — 做廣告提升品牌，增加收入同進攻力
+💥 <strong>價格戰</strong> — 大幅削弱敵人，但會減少自己收入
 
-每月自動收取地區收入，支付人員薪水。
-控制越多地區 = 越多收入 = 越強大！
+💡 <strong>小貼士：</strong>
+• 招募武將後會有<strong>軍師</strong>幫你分析形勢
+• 唔可以只靠進攻！新地區防守為0，會被搶走
+• 推廣同價格戰配合進攻，效果最好
 
 <strong style="color:#60a5fa;">準備好就開始！</strong>
         </div>
@@ -767,6 +771,8 @@
                 <div class="ts"><span class="ts-label">🔧</span><span class="ts-val c-purple" id="tb-tech">Lv.1</span></div>
                 <div class="ts"><span class="ts-label">📍</span><span class="ts-val c-yellow" id="tb-districts">3/18</span></div>
                 <div class="ts"><span class="ts-label">👥</span><span class="ts-val c-blue" id="tb-generals">0人</span></div>
+                <div class="ts"><span class="ts-label">📢</span><span class="ts-val c-orange" id="tb-brand">30</span></div>
+                <div class="ts"><span class="ts-label">😊</span><span class="ts-val c-green" id="tb-sat">60</span></div>
             </div>
         </div>
         <div class="game-main">
@@ -926,6 +932,15 @@ function getAdvisorTip() {
     if (pCount >= 10) {
         tips.push('🎯 勝利在望！集中兵力進攻剩餘目標！');
     }
+    if (G.brand < 30 && G.money >= 120) {
+        tips.push('📢 品牌知名度太低！做推廣可以提升進攻勝率同收入。');
+    }
+    if (G.priceWarActive === 0 && pCount >= 5 && G.money >= 200) {
+        tips.push('💥 考慮發動價格戰！可以大幅削弱敵人，趁機進攻！');
+    }
+    if (G.customerSat < 40) {
+        tips.push('😟 客戶滿意度偏低，影響收入！建議做推廣或者建設改善。');
+    }
 
     const tip = tips.length > 0 ? tips[Math.floor(Math.random() * tips.length)] : '一切順利，繼續保持！';
     return '🧠 軍師' + advisor.name + '進言：「' + tip + '」';
@@ -1004,7 +1019,7 @@ function initState(companyIdx) {
         generals: [],
         districts: [],
         enemies: [],
-        phase: 'action', // action, attack-target, result, summary
+        phase: 'action',
         tutorialMonth: 1,
         totalAttacks: 0,
         totalWins: 0,
@@ -1012,6 +1027,14 @@ function initState(companyIdx) {
         monthIncome: 0,
         monthExpense: 0,
         eventThisMonth: null,
+        // Business management stats
+        brand: 30,         // 品牌知名度 (0-100)
+        pricing: 'normal', // 'cheap','normal','premium'
+        promoActive: 0,    // 推廣活動剩餘月數
+        priceWarActive: 0, // 價格戰剩餘月數
+        customerSat: 60,   // 客戶滿意度 (0-100)
+        totalPromos: 0,
+        totalPriceWars: 0,
     };
 
     // Init districts
@@ -1085,6 +1108,8 @@ function updateTopbar() {
     document.getElementById('tb-tech').textContent = 'Lv.' + G.tech;
     document.getElementById('tb-districts').textContent = countDistricts('player') + '/18';
     document.getElementById('tb-generals').textContent = G.generals.length + '人';
+    document.getElementById('tb-brand').textContent = G.brand;
+    document.getElementById('tb-sat').textContent = G.customerSat;
 }
 
 function renderMap() {
@@ -1279,12 +1304,20 @@ function showActionMenu() {
         const genCount = G.generals.length;
         const atkBonusDisplay = getAtkBonus();
 
+        const canPromote = G.money >= 120;
+        const canPriceWar = G.money >= 200;
+        const promoStatus = G.promoActive > 0 ? '（推廣中⏰' + G.promoActive + '月）' : '';
+        const priceWarStatus = G.priceWarActive > 0 ? '（進行中⏰' + G.priceWarActive + '月）' : '';
+        const totalAtkBonus = atkBonusDisplay + (G.promoActive > 0 ? 10 : 0) + (G.priceWarActive > 0 ? 25 : 0) + Math.floor(G.brand / 10);
+
         currentChoices = [
-            { label: '📍 進攻' + (atkBonusDisplay > 0 ? '（加成+' + atkBonusDisplay + '%）' : ''), cost: canAttack ? '' : '（無可攻目標）', action: 'attack', disabled: !canAttack, highlight: G.month === 2 },
+            { label: '📍 進攻' + (totalAtkBonus > 0 ? '（加成+' + totalAtkBonus + '%）' : ''), cost: canAttack ? '' : '（無可攻目標）', action: 'attack', disabled: !canAttack, highlight: G.month === 2 },
             { label: '🛡️ 防守（全部地區）', cost: '$80萬', action: 'defend', disabled: !canDefend, highlight: G.month === 3 },
             { label: '👥 招募武將（' + genCount + '人）', cost: '$' + rCost + '萬', action: 'recruit', disabled: !canRecruitActual, highlight: G.month === 1 },
             { label: '🔧 建設（增收入）', cost: '$100萬', action: 'build', disabled: !canBuild },
             { label: '📊 研發（Lv.' + G.tech + '→' + (G.tech+1) + '）', cost: '$' + resCost + '萬', action: 'research', disabled: !canResearchActual },
+            { label: '📢 推廣活動' + promoStatus, cost: '$120萬', action: 'promote', disabled: !canPromote },
+            { label: '💥 發動價格戰' + priceWarStatus, cost: '$200萬', action: 'pricewar', disabled: !canPriceWar },
         ];
 
         showChoices('選擇你嘅行動：', currentChoices.map(c => ({
@@ -1308,6 +1341,8 @@ function handleChoice(idx) {
             case 'recruit': doRecruit(); break;
             case 'build': doBuild(); break;
             case 'research': doResearch(); break;
+            case 'promote': doPromote(); break;
+            case 'pricewar': doPriceWar(); break;
         }
     } else if (G.phase === 'attack-target') {
         doAttack(currentChoices[idx].districtId);
@@ -1333,6 +1368,10 @@ function showAttackTargets() {
         else if (G.tech <= 2) wr = Math.min(wr, 70);
         if (d.owner === 'neutral') wr += getNeutralAtkBonus();
         wr = Math.round(wr * getMasterBonus());
+        wr += Math.floor(G.brand / 10);
+        if (G.promoActive > 0) wr += 10;
+        if (G.priceWarActive > 0) wr += 25;
+        if (G.customerSat >= 80) wr += 5;
         if (d.owner !== 'neutral') wr -= Math.floor(G.month / 6) * 3;
         wr = Math.min(95, Math.max(10, wr));
 
@@ -1384,6 +1423,12 @@ function doAttack(districtId) {
 
     if (d.owner === 'neutral') winRate += getNeutralAtkBonus(); // Neutral bonus
     winRate = Math.round(winRate * getMasterBonus()); // 陳sir master bonus
+
+    // Business management bonuses
+    winRate += Math.floor(G.brand / 10); // Brand awareness helps
+    if (G.promoActive > 0) winRate += 10; // Active promo = easier attack
+    if (G.priceWarActive > 0) winRate += 25; // Price war = massive attack boost
+    if (G.customerSat >= 80) winRate += 5; // High satisfaction helps
 
     // Enemy districts are harder as game progresses
     if (d.owner !== 'neutral') winRate -= Math.floor(G.month / 6) * 3;
@@ -1569,6 +1614,91 @@ function doResearch() {
     );
 }
 
+// ========== PROMOTE (推廣) ==========
+function doPromote() {
+    const cost = 120;
+    G.money -= cost;
+    G.totalPromos++;
+    sfxBuild();
+
+    const brandGain = 12 + Math.floor(Math.random() * 8);
+    const satGain = 5 + Math.floor(Math.random() * 5);
+    G.brand = Math.min(100, G.brand + brandGain);
+    G.customerSat = Math.min(100, G.customerSat + satGain);
+    G.promoActive = 3; // 持續3個月
+
+    // 推廣也增加所有地區收入
+    const incomeBoost = Math.floor(G.brand / 10);
+    playerDistricts().forEach(d => d.income += incomeBoost);
+
+    // 推廣令進攻中立區更容易（品牌效應）
+    const promoTypes = [
+        { name: 'KOL合作推廣', desc: '你搵咗本地KOL拍片介紹你哋嘅寬頻服務，\n影片喺YouTube同IG瘋傳，一星期就有50萬觀看次數！\n\n「嘩，好多人inbox問我哋點申請！」客服主管開心到彈起。' },
+        { name: '地鐵廣告攻勢', desc: '你買斷咗港鐵主要路線嘅燈箱廣告位，\n每日數百萬乘客都會見到你哋嘅品牌。\n\n「搭地鐵成日見到你哋，搞到我真係想換寬頻。」一個街坊話。' },
+        { name: '社區嘉年華', desc: '你喺多個屋苑舉辦免費WiFi速度測試嘉年華，\n即場示範1000M光纖有幾快，街坊大開眼界。\n\n「原來我屋企個WiFi慢成咁！即刻轉台！」' },
+        { name: '網上口碑行銷', desc: '你安排團隊喺各大討論區分享真實用家評價，\n連登仔都大讚你哋嘅服務穩定、CP值高。\n\n「呢間真心唔錯，我自己都用緊。」帖文有過千回覆。' },
+        { name: 'Facebook 限時優惠', desc: '你喺 Facebook 推出「限時48小時免安裝費」活動，\n帖文被 share 過萬次，查詢電話響唔停。\n\n「呢次推廣效果超乎預期！」市場部經理興奮咁報告。' },
+    ];
+
+    const promo = promoTypes[Math.floor(Math.random() * promoTypes.length)];
+    const advisor = getAdvisor();
+    const advisorText = advisor ? '\n\n🧠 軍師' + advisor.name + '：「品牌知名度提升到' + G.brand + '，客戶會更容易接受我哋嘅服務！進攻勝率都會提高。」' : '';
+
+    showStory('scene-event', '📢', '推廣活動 — ' + promo.name, 'tag-good',
+        '你決定投入資源做推廣！\n\n【' + promo.name + '】\n\n' + promo.desc + '\n\n📢 品牌知名度 +' + brandGain + '（現：' + G.brand + '）\n😊 客戶滿意度 +' + satGain + '（現：' + G.customerSat + '）\n💰 所有地區收入 +' + incomeBoost + '\n⏰ 推廣效果持續 3 個月（進攻加成）' + advisorText,
+        () => showEndTurnBtn()
+    );
+}
+
+// ========== PRICE WAR (價格戰) ==========
+function doPriceWar() {
+    const cost = 200;
+    G.money -= cost;
+    G.totalPriceWars++;
+    sfxEvent();
+
+    G.priceWarActive = 2; // 持續2個月
+
+    // 價格戰：大幅增加進攻勝率，但減少收入
+    // 同時削弱敵人地區（客戶流失）
+    const enemyWeaken = 8 + Math.floor(Math.random() * 7);
+    let weakenedCount = 0;
+    G.districts.forEach(d => {
+        if (d.owner === 'enemy1' || d.owner === 'enemy2') {
+            d.troops = Math.max(5, d.troops - enemyWeaken);
+            d.defense = Math.max(0, d.defense - 3);
+            weakenedCount++;
+        }
+    });
+
+    // 但自己收入也會暫時減少
+    const incomeLoss = 5;
+    playerDistricts().forEach(d => {
+        d.income = Math.max(30, d.income - incomeLoss);
+    });
+
+    // 客戶滿意度可能下降（平嘢冇好嘢嘅印象）
+    const satChange = Math.random() < 0.5 ? -5 : 3;
+    G.customerSat = Math.max(10, Math.min(100, G.customerSat + satChange));
+
+    const priceWarTypes = [
+        { name: '月費半價大戰', desc: '你宣佈所有寬頻方案月費減半！\n\n呢個消息好似炸彈咁，對手嘅客戶紛紛打電話查詢轉台。\n\n「佢哋賣$198，我哋只要$99！」你嘅廣告喺全港播放。\n\n對手嘅營銷部門陷入恐慌...' },
+        { name: '免費試用30日', desc: '你推出「免費試用30日，唔滿意即退」計劃。\n\n呢個策略令客戶毫無風險就可以試你嘅服務，\n一試之下發現真係快過原本嗰間！\n\n「試完之後邊個會返轉頭？」你自信咁笑。' },
+        { name: '買一送一優惠', desc: '你推出「寬頻+電視組合」買一送一！\n\n街坊互相通知，屋苑群組瘋傳呢個消息。\n\n對手話：「呢個價錢我哋做唔到...」\n\n你成功用價格優勢搶走大量客戶。' },
+        { name: '學生/長者特惠', desc: '你針對學生同長者推出超低月費Plan。\n\n大學生群組瘋傳：「$68就有500M，邊間做到？」\n老人院職員都幫住宿者轉台。\n\n你嘅市場份額急速增長，對手焦頭爛額。' },
+    ];
+
+    const pw = priceWarTypes[Math.floor(Math.random() * priceWarTypes.length)];
+    const advisor = getAdvisor();
+    const advisorText = advisor ? '\n\n🧠 軍師' + advisor.name + '：「價格戰係雙刃劍 — 搶到客但利潤會減。建議盡快趁對手虛弱時進攻佔地！」' : '';
+    const satText = satChange >= 0 ? '😊 客戶滿意度 +' + satChange : '😐 客戶滿意度 ' + satChange + '（平嘢影響品質印象）';
+
+    showStory('scene-battle', '💥', '價格戰 — ' + pw.name, 'tag-crisis',
+        '你決定發動價格戰！\n\n【' + pw.name + '】\n\n' + pw.desc + '\n\n💥 敵方' + weakenedCount + '個地區兵力 -' + enemyWeaken + '，防禦 -3\n💸 你嘅地區收入暫時 -' + incomeLoss + '（價格戰代價）\n' + satText + '\n⏰ 價格戰效果持續 2 個月（進攻大幅加成）' + advisorText,
+        () => showEndTurnBtn()
+    );
+}
+
 function showEndTurnBtn() {
     G.phase = 'result';
     showChoices('', [{ label: '▶️ 結束本月' }]);
@@ -1669,6 +1799,16 @@ function nextMonth() {
     G.monthExpense = totalSalary();
     G.money += G.monthIncome - G.monthExpense;
 
+    // Decay promo/pricewar timers
+    if (G.promoActive > 0) G.promoActive--;
+    if (G.priceWarActive > 0) G.priceWarActive--;
+
+    // Brand naturally decays slightly each month
+    G.brand = Math.max(10, G.brand - 2);
+
+    // High customer satisfaction gives bonus income
+    if (G.customerSat >= 70) G.monthIncome += Math.floor(G.customerSat / 10);
+
     // Grow player troops — generals boost this
     const troopGrowth = getExtraTroops(); // 阿偉 bonus
     pDists.forEach(d => {
@@ -1724,7 +1864,9 @@ function nextMonth() {
     }
 
     const extraIncomeDisplay = getExtraIncome() > 0 ? '（含武將加成 +$' + getExtraIncome() + '萬）' : '';
-    const summaryText = '📊 第' + G.month + '個月結束' + lostDistrict + '\n\n💰 收入：$' + G.monthIncome + '萬' + extraIncomeDisplay + '\n💸 支出：$' + G.monthExpense + '萬（武將薪水）\n💵 結餘：$' + G.money + '萬\n\n📍 你嘅地區：' + pCount + '/18\n⚔️ ' + G.enemies[0].name + '：' + e1Count + '/18\n🏢 ' + G.enemies[1].name + '：' + e2Count + '/18\n\n' + comment + advisorMonthly;
+    const promoLine = G.promoActive > 0 ? '\n📢 推廣活動進行中（剩' + G.promoActive + '個月）' : '';
+    const priceLine = G.priceWarActive > 0 ? '\n💥 價格戰進行中（剩' + G.priceWarActive + '個月）' : '';
+    const summaryText = '📊 第' + G.month + '個月結束' + lostDistrict + '\n\n💰 收入：$' + G.monthIncome + '萬' + extraIncomeDisplay + '\n💸 支出：$' + G.monthExpense + '萬（武將薪水）\n💵 結餘：$' + G.money + '萬\n\n📍 你嘅地區：' + pCount + '/18\n⚔️ ' + G.enemies[0].name + '：' + e1Count + '/18\n🏢 ' + G.enemies[1].name + '：' + e2Count + '/18\n\n📢 品牌知名度：' + G.brand + ' | 😊 客戶滿意度：' + G.customerSat + promoLine + priceLine + '\n\n' + comment + advisorMonthly;
 
     showStory('scene-month', '📊', '月結報告', 'tag-month', summaryText, () => {
         G.month++;
@@ -1785,6 +1927,9 @@ function endGame() {
     html += '<div class="end-stat"><div class="es-label">武將數量</div><div class="es-val">' + G.generals.length + '人</div></div>';
     html += '<div class="end-stat"><div class="es-label">進攻次數</div><div class="es-val">' + G.totalAttacks + '次</div></div>';
     html += '<div class="end-stat"><div class="es-label">勝率</div><div class="es-val">' + (G.totalAttacks > 0 ? Math.round(G.totalWins / G.totalAttacks * 100) : 0) + '%</div></div>';
+    html += '<div class="end-stat"><div class="es-label">品牌知名度</div><div class="es-val">' + G.brand + '</div></div>';
+    html += '<div class="end-stat"><div class="es-label">推廣次數</div><div class="es-val">' + G.totalPromos + '</div></div>';
+    html += '<div class="end-stat"><div class="es-label">價格戰次數</div><div class="es-val">' + G.totalPriceWars + '</div></div>';
     html += '</div>';
 
     // Final map
