@@ -271,16 +271,28 @@ class Fighter {
       this.aiTimer = 0;
       let r = Math.random();
 
+      // If opponent is blocking, use special to guard break!
+      if (opponent.blocking && this.special >= 50 && dist < 120) {
+        this.aiAction = 'special';
+        return;
+      }
+
       // React to opponent attacks - block or dodge
-      if (opponent.state === 'punch' || opponent.state === 'kick' || opponent.state === 'special') {
-        if (r < 0.65) { this.aiAction = 'block'; return; }
-        if (r < 0.8) { this.aiAction = 'back'; return; }
+      if (opponent.state === 'punch' || opponent.state === 'kick') {
+        if (r < 0.55) { this.aiAction = 'block'; return; }
+        if (r < 0.75) { this.aiAction = 'back'; return; }
+      }
+      // Dodge special attacks instead of blocking (guard break!)
+      if (opponent.state === 'special') {
+        if (r < 0.5) { this.aiAction = 'back'; return; }
+        if (this.dashCooldown <= 0 && r < 0.7) { this.dashBehind(opponent); this.aiAction = 'kick'; return; }
       }
 
       // Counter-attack when opponent is in recovery
       if (opponent.stateTimer > 12 && dist < 100) {
-        if (r < 0.6) { this.aiAction = 'punch'; return; }
-        if (r < 0.85) { this.aiAction = 'kick'; return; }
+        if (r < 0.5) { this.aiAction = 'punch'; return; }
+        if (r < 0.8) { this.aiAction = 'kick'; return; }
+        if (this.special >= 50) { this.aiAction = 'special'; return; }
       }
 
       // Dash behind player more often
@@ -415,7 +427,7 @@ class Fighter {
     if (this.x < 40) this.x = 40;
     if (this.x > 860) this.x = 860;
     if (this.y < this.groundY) this.state = 'jump';
-    if (this.special < this.maxSpecial) this.special += (this.isAI ? 0.12 : 0.05);
+    if (this.special < this.maxSpecial) this.special += (this.isAI ? 0.15 : 0.05);
     // Dash cooldown
     if (this.dashCooldown > 0) this.dashCooldown--;
     // Dash trails fade
@@ -427,13 +439,38 @@ class Fighter {
 
   takeDamage(dmg, attackType, attacker) {
     if (this.blocking) {
-      this.blockStun = 15; this.state = 'block';
-      // Perfect block: no chip damage on punch/kick, tiny on special
       if (attackType === 'special') {
-        this.hp -= Math.floor(dmg * 0.1);
+        // GUARD BREAK! Special attack breaks through defense
+        this.blocking = false;
+        this.blockStun = 0;
+        this.hitStun = 35; // Long stun
+        this.state = 'hit';
+        this.hp -= Math.floor(dmg * 0.7); // 70% damage goes through
+        this.x -= this.facing * 25;
+        this.vy = -6;
+        shakeScreen = 15;
+        screenFlash = 10;
+        screenFlashColor = attacker.isAI ? 'rgba(255,0,0,0.4)' : 'rgba(0,200,255,0.4)';
+        // Guard break text
+        comboTexts.push({ text: 'GUARD BREAK!', x: this.x, y: this.y - 60, life: 80, color: '#f80', size: 34 });
+        // Shatter sparks
+        let sparkX = this.x + this.facing * 20, sparkY = this.y + 35;
+        for (let i = 0; i < 20; i++) {
+          let ang = Math.random() * Math.PI * 2;
+          let spd = 5 + Math.random() * 10;
+          hitSparks.push({ x: sparkX, y: sparkY, vx: Math.cos(ang)*spd, vy: Math.sin(ang)*spd-3, life: 20+Math.random()*15, size: 2+Math.random()*4, color: i < 8 ? '#ff0' : '#f80', type: 'spark' });
+        }
+        // Attacker gains meter
+        attacker.special = Math.min(attacker.maxSpecial, attacker.special + dmg * 0.3);
+        attacker.comboCount++; attacker.comboTimer = 60;
+        totalDamageDealt += Math.floor(dmg * 0.7);
+        if (attacker.comboCount > maxCombo) maxCombo = attacker.comboCount;
+        if (this.hp <= 0) { this.hp = 0; this.state = 'ko'; }
+        return;
       }
-      // else: 0 damage! Perfect block
-      // Gain lots of special meter when blocking (reward defense)
+      // Normal attacks: perfect block
+      this.blockStun = 15; this.state = 'block';
+      // Gain special meter when blocking
       this.special = Math.min(this.maxSpecial, this.special + dmg * 0.5);
       // Push back
       this.x -= this.facing * 20;
