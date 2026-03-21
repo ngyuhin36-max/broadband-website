@@ -156,6 +156,27 @@ let koTimer = 0;
 let shakeScreen = 0;
 let comboTexts = [];
 let hitSparks = [];
+let screenFlash = 0;
+let screenFlashColor = '#fff';
+let energyTrails = [];
+let totalDamageDealt = 0;
+let maxCombo = 0;
+let matchStartTime = 0;
+let victoryTimer = 0;
+let showingVictory = false;
+
+// Leaderboard
+function getLeaderboard() {
+  try { return JSON.parse(localStorage.getItem('fighter_leaderboard') || '[]'); } catch(e) { return []; }
+}
+function saveScore(name, score, hp, combo, time) {
+  let lb = getLeaderboard();
+  lb.push({ name, score, hp, combo, time, date: new Date().toLocaleDateString('zh-HK') });
+  lb.sort((a,b) => b.score - a.score);
+  lb = lb.slice(0, 10);
+  localStorage.setItem('fighter_leaderboard', JSON.stringify(lb));
+  return lb;
+}
 
 // Pre-calculate window positions to avoid flickering
 const buildings = [
@@ -228,43 +249,51 @@ class Fighter {
       return { x: this.x + this.facing * 30, y: this.y + 15, w: 45, h: 25, dmg: 8, type: 'punch' };
     if (this.state === 'kick' && this.stateTimer >= 6 && this.stateTimer <= 14)
       return { x: this.x + this.facing * 25, y: this.y + 50, w: 55, h: 30, dmg: 12, type: 'kick' };
-    if (this.state === 'special' && this.stateTimer === 10)
-      return { x: this.x + this.facing * 20, y: this.y, w: 60, h: 80, dmg: 25, type: 'special' };
+    if (this.state === 'special' && this.stateTimer >= 12 && this.stateTimer <= 16)
+      return { x: this.x + this.facing * 20, y: this.y, w: 120, h: 80, dmg: 30, type: 'special' };
     return null;
   }
 
   aiUpdate(opponent) {
     this.aiTimer++;
     let dist = Math.abs(this.x - opponent.x);
-    let facingOpponent = (opponent.x > this.x && this.facing === 1) || (opponent.x < this.x && this.facing === -1);
 
-    // Decide new action every 20-40 frames
-    if (this.aiTimer > 20 + Math.random() * 20) {
+    // Decide new action every 15-25 frames (faster reactions)
+    if (this.aiTimer > 15 + Math.random() * 10) {
       this.aiTimer = 0;
       let r = Math.random();
 
-      // If opponent is attacking, try to block
+      // React to opponent attacks - block or dodge
       if (opponent.state === 'punch' || opponent.state === 'kick' || opponent.state === 'special') {
-        if (r < 0.5) { this.aiAction = 'block'; return; }
+        if (r < 0.65) { this.aiAction = 'block'; return; }
+        if (r < 0.8) { this.aiAction = 'back'; return; }
+      }
+
+      // Counter-attack when opponent is in recovery
+      if (opponent.stateTimer > 12 && dist < 100) {
+        if (r < 0.6) { this.aiAction = 'punch'; return; }
+        if (r < 0.85) { this.aiAction = 'kick'; return; }
       }
 
       if (dist < 80) {
-        // Close range - attack
-        if (this.special >= 50 && r < 0.15) this.aiAction = 'special';
-        else if (r < 0.4) this.aiAction = 'punch';
+        // Close range - aggressive attacks
+        if (this.special >= 50 && r < 0.25) this.aiAction = 'special';
+        else if (r < 0.45) this.aiAction = 'punch';
         else if (r < 0.7) this.aiAction = 'kick';
-        else if (r < 0.85) this.aiAction = 'block';
+        else if (r < 0.8) this.aiAction = 'block';
         else this.aiAction = 'back';
-      } else if (dist < 200) {
-        // Mid range - approach or attack
-        if (r < 0.5) this.aiAction = 'approach';
-        else if (r < 0.7) this.aiAction = 'jump_attack';
-        else if (this.special >= 50 && r < 0.8) this.aiAction = 'special';
+      } else if (dist < 180) {
+        // Mid range - push in aggressively
+        if (r < 0.4) this.aiAction = 'approach';
+        else if (r < 0.6) this.aiAction = 'jump_attack';
+        else if (this.special >= 50 && r < 0.75) this.aiAction = 'special';
+        else if (r < 0.85) this.aiAction = 'kick';
         else this.aiAction = 'approach';
       } else {
-        // Far - approach
-        if (r < 0.7) this.aiAction = 'approach';
-        else if (r < 0.85) this.aiAction = 'jump_approach';
+        // Far - rush in
+        if (r < 0.55) this.aiAction = 'approach';
+        else if (r < 0.75) this.aiAction = 'jump_approach';
+        else if (r < 0.9) this.aiAction = 'approach';
         else this.aiAction = 'idle';
       }
     }
@@ -273,11 +302,11 @@ class Fighter {
     let moveDir = opponent.x > this.x ? 1 : -1;
     switch (this.aiAction) {
       case 'approach':
-        this.vx = moveDir * 4;
+        this.vx = moveDir * 4.5;
         this.state = 'walk';
         break;
       case 'back':
-        this.vx = -moveDir * 3.5;
+        this.vx = -moveDir * 4;
         this.state = 'walk';
         break;
       case 'punch':
@@ -339,7 +368,7 @@ class Fighter {
     }
     if (this.state === 'punch' || this.state === 'kick' || this.state === 'special') {
       this.stateTimer++;
-      let dur = this.state === 'punch' ? 18 : this.state === 'kick' ? 22 : 30;
+      let dur = this.state === 'punch' ? 24 : this.state === 'kick' ? 30 : 40;
       if (this.stateTimer >= dur) { this.state = 'idle'; this.stateTimer = 0; this.attackHit = false; }
       if (this.y < this.groundY) { this.vy += 0.8; this.y += this.vy; if (this.y >= this.groundY) { this.y = this.groundY; this.vy = 0; } }
       return;
@@ -388,13 +417,47 @@ class Fighter {
     if (attackType === 'special') this.vy = -8;
     attacker.special = Math.min(attacker.maxSpecial, attacker.special + dmg * 0.5);
     attacker.comboCount++; attacker.comboTimer = 60;
-    shakeScreen = attackType === 'special' ? 15 : 5;
+    shakeScreen = attackType === 'special' ? 20 : attackType === 'kick' ? 8 : 5;
     let sparkX = (this.x + attacker.x) / 2, sparkY = this.y + 30;
-    for (let i = 0; i < (attackType === 'special' ? 20 : 8); i++) {
-      hitSparks.push({ x: sparkX, y: sparkY, vx: (Math.random()-0.5)*12, vy: (Math.random()-0.5)*12, life: 15+Math.random()*10, color: attackType === 'special' ? `hsl(${Math.random()*60}, 100%, 70%)` : '#fff' });
+    let isSpecial = attackType === 'special';
+    let sparkCount = isSpecial ? 35 : attackType === 'kick' ? 15 : 10;
+    // Screen flash
+    if (isSpecial) { screenFlash = 12; screenFlashColor = attacker.isAI ? 'rgba(255,0,0,0.4)' : 'rgba(0,170,255,0.4)'; }
+    else { screenFlash = 4; screenFlashColor = 'rgba(255,255,255,0.3)'; }
+    // Sparks
+    let sparkCol = attacker.isAI ? '#f44' : '#4ef';
+    for (let i = 0; i < sparkCount; i++) {
+      let speed = isSpecial ? 18 : 10;
+      let ang = Math.random() * Math.PI * 2;
+      let spd = Math.random() * speed;
+      hitSparks.push({
+        x: sparkX, y: sparkY,
+        vx: Math.cos(ang)*spd, vy: Math.sin(ang)*spd - (isSpecial ? 4 : 0),
+        life: 20+Math.random()*15,
+        size: isSpecial ? 3+Math.random()*5 : 2+Math.random()*3,
+        color: isSpecial ? `hsl(${attacker.isAI ? 0 : 190}+${Math.random()*40}, 100%, ${60+Math.random()*30}%)` : sparkCol,
+        type: isSpecial && i < 8 ? 'ring' : 'spark'
+      });
     }
+    // Energy trail from attacker to target
+    if (isSpecial) {
+      for (let i = 0; i < 12; i++) {
+        energyTrails.push({
+          x: attacker.x + (this.x - attacker.x) * (i/12),
+          y: sparkY + (Math.random()-0.5)*20,
+          life: 30 + i*2,
+          size: 6 - i*0.3,
+          color: attacker.isAI ? '#f44' : '#0ef'
+        });
+      }
+    }
+    // Track stats
+    totalDamageDealt += dmg;
+    if (attacker.comboCount > maxCombo) maxCombo = attacker.comboCount;
     if (attacker.comboCount > 1) {
-      comboTexts.push({ text: `${attacker.comboCount} HIT COMBO!`, x: this.x, y: this.y - 40, life: 60, color: attacker.comboCount >= 5 ? '#ff0' : '#fff' });
+      let comboSize = attacker.comboCount >= 7 ? 42 : attacker.comboCount >= 5 ? 36 : attacker.comboCount >= 3 ? 30 : 24;
+      let comboColor = attacker.comboCount >= 7 ? '#f0f' : attacker.comboCount >= 5 ? '#ff0' : attacker.comboCount >= 3 ? '#0ff' : '#fff';
+      comboTexts.push({ text: `${attacker.comboCount} HIT COMBO!`, x: this.x, y: this.y - 50, life: 80, color: comboColor, size: comboSize });
     }
     if (this.hp <= 0) { this.hp = 0; this.state = 'ko'; }
   }
@@ -544,34 +607,93 @@ class Fighter {
       this.drawLimb(-16, 30+tY+breathe, -20, 48+tY+breathe, 7);
       ctx.fillStyle = gloveColor;
       ctx.beginPath(); ctx.arc(-20, 48+tY+breathe, 7, 0, Math.PI*2); ctx.fill();
-    } else if (this.state === 'special' && this.stateTimer >= 5 && this.stateTimer <= 20) {
-      // Special attack - both arms forward, energy blast
-      ctx.fillStyle = skinColor;
-      this.drawLimb(14, 28+tY, 42, 30+tY, 8);
-      this.drawLimb(14, 38+tY, 42, 40+tY, 8);
-      // Flame / energy ball
+    } else if (this.state === 'special' && this.stateTimer >= 3 && this.stateTimer <= 25) {
+      // === ULTIMATE SPECIAL ATTACK - massive energy beam ===
       let t = this.stateTimer;
-      let glow = Math.sin(t * 0.6) * 6;
-      ctx.shadowColor = flameColor;
-      ctx.shadowBlur = 25 + glow;
-      // Outer flame
-      ctx.fillStyle = flameColor;
-      ctx.beginPath(); ctx.arc(52, 35+tY, 20+glow, 0, Math.PI*2); ctx.fill();
-      // Inner flame
-      ctx.fillStyle = flameColor2;
-      ctx.beginPath(); ctx.arc(52, 35+tY, 12+glow*0.5, 0, Math.PI*2); ctx.fill();
-      // Core
-      ctx.fillStyle = '#fff';
-      ctx.beginPath(); ctx.arc(52, 35+tY, 5, 0, Math.PI*2); ctx.fill();
-      ctx.shadowBlur = 0;
-      // Flame wisps
-      for (let i = 0; i < 5; i++) {
-        let fx = 52 + Math.sin(Date.now()*0.01+i*1.5)*(15+glow);
-        let fy = 35+tY + Math.cos(Date.now()*0.012+i*2)*(15+glow);
-        ctx.fillStyle = flameColor2;
-        ctx.globalAlpha = 0.6;
-        ctx.beginPath(); ctx.arc(fx, fy, 4+Math.random()*3, 0, Math.PI*2); ctx.fill();
+      let phase = t < 8 ? 'charge' : 'fire';
+
+      // Arms thrust forward
+      ctx.fillStyle = skinColor;
+      this.drawLimb(14, 26+tY, 40, 28+tY, 9);
+      this.drawLimb(14, 36+tY, 40, 38+tY, 9);
+
+      if (phase === 'charge') {
+        // Charging - energy gathering around hands
+        let chargeR = (t-3) * 5;
+        ctx.strokeStyle = flameColor; ctx.lineWidth = 3;
+        ctx.shadowColor = flameColor; ctx.shadowBlur = 20;
+        ctx.globalAlpha = 0.7;
+        for (let r = 0; r < 3; r++) {
+          ctx.beginPath();
+          ctx.arc(45, 33+tY, chargeR + r*8, 0, Math.PI*2);
+          ctx.stroke();
+        }
         ctx.globalAlpha = 1;
+        // Particles being sucked in
+        for (let i = 0; i < 8; i++) {
+          let a = (i/8)*Math.PI*2 + t*0.5;
+          let dist = 40 - t*4;
+          if (dist > 5) {
+            ctx.fillStyle = flameColor2;
+            ctx.beginPath();
+            ctx.arc(45+Math.cos(a)*dist, 33+tY+Math.sin(a)*dist, 3, 0, Math.PI*2);
+            ctx.fill();
+          }
+        }
+        ctx.shadowBlur = 0;
+      } else {
+        // FIRING - huge beam shooting forward
+        let beamProgress = Math.min(1, (t-8)/4);
+        let beamLen = 300 * beamProgress;
+        let beamWidth = 28 + Math.sin(t*1.5)*6;
+
+        // Beam glow (outer)
+        ctx.shadowColor = flameColor; ctx.shadowBlur = 40;
+        ctx.fillStyle = flameColor;
+        ctx.globalAlpha = 0.5;
+        ctx.fillRect(42, 33+tY-beamWidth*0.7, beamLen, beamWidth*1.4);
+        ctx.globalAlpha = 1;
+
+        // Beam core
+        ctx.fillStyle = flameColor2;
+        ctx.fillRect(42, 33+tY-beamWidth*0.4, beamLen, beamWidth*0.8);
+
+        // Beam bright center
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(42, 33+tY-beamWidth*0.15, beamLen, beamWidth*0.3);
+
+        ctx.shadowBlur = 0;
+
+        // Energy particles along beam
+        for (let i = 0; i < 10; i++) {
+          let bx = 50 + (beamLen * i/10);
+          let by = 33+tY + (Math.sin(Date.now()*0.02+i)*beamWidth*0.5);
+          ctx.fillStyle = flameColor2;
+          ctx.globalAlpha = 0.7;
+          ctx.beginPath(); ctx.arc(bx, by, 2+Math.sin(t+i)*2, 0, Math.PI*2); ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+
+        // Impact explosion at beam tip
+        if (beamProgress >= 1) {
+          let impX = 42 + beamLen;
+          let impR = 15 + Math.sin(t*2)*8;
+          ctx.fillStyle = flameColor;
+          ctx.shadowColor = flameColor; ctx.shadowBlur = 25;
+          ctx.beginPath(); ctx.arc(impX, 33+tY, impR, 0, Math.PI*2); ctx.fill();
+          ctx.fillStyle = '#fff';
+          ctx.beginPath(); ctx.arc(impX, 33+tY, impR*0.4, 0, Math.PI*2); ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+
+        // Character name flash
+        ctx.fillStyle = flameColor;
+        ctx.shadowColor = flameColor; ctx.shadowBlur = 15;
+        ctx.font = 'bold 16px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(this.isAI ? '斷線衝擊！' : '光纖衝擊波！', 0, -15+tY);
+        ctx.textAlign = 'left';
+        ctx.shadowBlur = 0;
       }
     } else if (this.state === 'block') {
       // Arms crossed in front - guard pose
@@ -799,7 +921,9 @@ let p2 = new Fighter(700, '斷線魔皇', '#cc2222', true);
 function startRound() {
   gameState = 'fighting'; timer = 99;
   p1.reset(200); p2.reset(700);
-  comboTexts = []; hitSparks = []; koTimer = 0;
+  comboTexts = []; hitSparks = []; energyTrails = []; koTimer = 0;
+  showingVictory = false; victoryTimer = 0;
+  if (roundNum === 1) { totalDamageDealt = 0; maxCombo = 0; matchStartTime = Date.now(); }
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     if (gameState === 'fighting') { timer--; if (timer <= 0) { timer = 0; endRound(); } }
@@ -807,9 +931,169 @@ function startRound() {
 }
 
 function endRound() {
-  gameState = 'ko'; koTimer = 180;
+  gameState = 'ko'; koTimer = 200;
   if (p1.hp > p2.hp) p1Wins++; else if (p2.hp > p1.hp) p2Wins++;
   if (timerInterval) clearInterval(timerInterval);
+  // Big screen flash on KO
+  screenFlash = 20;
+  screenFlashColor = 'rgba(255,255,255,0.6)';
+  shakeScreen = 25;
+}
+
+function showVictoryScreen() {
+  if (showingVictory) return;
+  showingVictory = true;
+  victoryTimer = 0;
+  let matchTime = Math.floor((Date.now() - matchStartTime) / 1000);
+  let playerWon = p1Wins >= 2;
+  let score = 0;
+  if (playerWon) {
+    score = p1.hp * 100 + maxCombo * 500 + Math.max(0, (300 - matchTime)) * 10 + totalDamageDealt * 5;
+    saveScore('寬頻英雄', score, p1.hp, maxCombo, matchTime);
+  }
+  // Store for drawing
+  window._victoryData = { playerWon, score, hp: p1.hp, combo: maxCombo, time: matchTime, dmg: totalDamageDealt };
+}
+
+function drawVictoryScreen() {
+  let d = window._victoryData;
+  if (!d) return;
+  victoryTimer++;
+  let alpha = Math.min(1, victoryTimer / 40);
+
+  // Dark overlay
+  ctx.fillStyle = `rgba(0,0,0,${alpha * 0.85})`;
+  ctx.fillRect(0, 0, 900, 600);
+  ctx.textAlign = 'center';
+
+  if (victoryTimer < 10) return;
+
+  if (d.playerWon) {
+    // === PLAYER WINS ===
+    // Glow effect
+    let glowSize = 100 + Math.sin(victoryTimer * 0.05) * 20;
+    let grd = ctx.createRadialGradient(450, 200, 0, 450, 200, glowSize);
+    grd.addColorStop(0, 'rgba(0,170,255,0.3)');
+    grd.addColorStop(1, 'rgba(0,170,255,0)');
+    ctx.fillStyle = grd;
+    ctx.fillRect(250, 100, 400, 200);
+
+    // Victory particles
+    for (let i = 0; i < 20; i++) {
+      let px = 450 + Math.sin(victoryTimer*0.02 + i*0.6) * (150 + i*5);
+      let py = 300 + Math.cos(victoryTimer*0.025 + i*0.8) * (100 + i*3);
+      ctx.fillStyle = `hsl(${190 + i*5}, 100%, ${60 + Math.sin(victoryTimer*0.03+i)*20}%)`;
+      ctx.globalAlpha = 0.5 + Math.sin(victoryTimer*0.04+i)*0.3;
+      ctx.beginPath(); ctx.arc(px, py, 3+Math.sin(victoryTimer*0.05+i)*2, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    // Title
+    let titleScale = Math.min(1, (victoryTimer-10)/20);
+    ctx.fillStyle = '#0af';
+    ctx.shadowColor = '#0af'; ctx.shadowBlur = 30;
+    ctx.font = `bold ${48*titleScale}px Arial`;
+    ctx.fillText('全港網絡已守護！', 450, 140);
+    ctx.shadowBlur = 0;
+
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 28px Arial';
+    ctx.fillText('寬頻英雄 勝利！', 450, 190);
+
+    // Stats panel
+    if (victoryTimer > 30) {
+      let panelAlpha = Math.min(1, (victoryTimer-30)/20);
+      ctx.globalAlpha = panelAlpha;
+      // Panel background
+      ctx.fillStyle = 'rgba(0,50,100,0.5)';
+      ctx.strokeStyle = '#0af';
+      ctx.lineWidth = 2;
+      let px = 250, py = 220, pw = 400, ph = 200;
+      ctx.fillRect(px, py, pw, ph);
+      ctx.strokeRect(px, py, pw, ph);
+
+      ctx.fillStyle = '#0af'; ctx.font = 'bold 20px Arial';
+      ctx.fillText('- 戰鬥統計 -', 450, 250);
+
+      ctx.font = '18px Arial'; ctx.fillStyle = '#fff';
+      let sy = 280;
+      ctx.fillText(`剩餘血量: ${d.hp}%`, 450, sy);
+      ctx.fillText(`最高連擊: ${d.combo} HIT`, 450, sy+30);
+      ctx.fillText(`總傷害量: ${d.dmg}`, 450, sy+60);
+      ctx.fillText(`用時: ${d.time} 秒`, 450, sy+90);
+
+      // Score
+      ctx.fillStyle = '#ff0';
+      ctx.font = 'bold 26px Arial';
+      ctx.shadowColor = '#ff0'; ctx.shadowBlur = 15;
+      ctx.fillText(`總分: ${d.score.toLocaleString()}`, 450, sy+130);
+      ctx.shadowBlur = 0;
+
+      ctx.globalAlpha = 1;
+    }
+
+    // Leaderboard
+    if (victoryTimer > 60) {
+      let lbAlpha = Math.min(1, (victoryTimer-60)/20);
+      ctx.globalAlpha = lbAlpha;
+      let lb = getLeaderboard();
+      if (lb.length > 0) {
+        ctx.fillStyle = '#ff6600'; ctx.font = 'bold 16px Arial';
+        ctx.fillText('排行榜 TOP ' + Math.min(lb.length, 5), 450, 460);
+        ctx.font = '14px Arial';
+        for (let i = 0; i < Math.min(lb.length, 5); i++) {
+          let entry = lb[i];
+          let isNew = entry.score === d.score && i === lb.findIndex(e => e.score === d.score);
+          ctx.fillStyle = isNew ? '#ff0' : '#aaa';
+          ctx.fillText(`#${i+1}  ${entry.score.toLocaleString()} 分  (血量${entry.hp}% 連擊${entry.combo} 用時${entry.time}秒)  ${entry.date}`, 450, 482 + i*18);
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+  } else {
+    // === PLAYER LOSES ===
+    // Red glitch effect
+    for (let i = 0; i < 10; i++) {
+      ctx.fillStyle = `rgba(255,0,0,${0.05 + Math.sin(victoryTimer*0.1+i)*0.03})`;
+      ctx.fillRect(Math.sin(victoryTimer*0.5+i)*400+50, i*60, 800, 3);
+    }
+
+    let titleScale = Math.min(1, (victoryTimer-10)/20);
+    ctx.fillStyle = '#f00';
+    ctx.shadowColor = '#f00'; ctx.shadowBlur = 20;
+    ctx.font = `bold ${48*titleScale}px Arial`;
+    ctx.fillText('全港斷線！', 450, 180);
+    ctx.shadowBlur = 0;
+
+    ctx.fillStyle = '#f88'; ctx.font = 'bold 28px Arial';
+    ctx.fillText('斷線魔皇 勝利...', 450, 230);
+
+    ctx.fillStyle = '#aaa'; ctx.font = '18px Arial';
+    ctx.fillText('網絡被破壞了...再試一次吧！', 450, 280);
+
+    // Still show leaderboard
+    if (victoryTimer > 40) {
+      let lb = getLeaderboard();
+      if (lb.length > 0) {
+        ctx.fillStyle = '#ff6600'; ctx.font = 'bold 16px Arial';
+        ctx.fillText('歷史排行榜 TOP ' + Math.min(lb.length, 5), 450, 360);
+        ctx.font = '14px Arial';
+        for (let i = 0; i < Math.min(lb.length, 5); i++) {
+          ctx.fillStyle = '#888';
+          ctx.fillText(`#${i+1}  ${lb[i].score.toLocaleString()} 分  (血量${lb[i].hp}% 連擊${lb[i].combo})  ${lb[i].date}`, 450, 382 + i*18);
+        }
+      }
+    }
+  }
+
+  // Restart prompt
+  if (victoryTimer > 80) {
+    if (Math.sin(Date.now()*0.005) > 0) {
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 22px Arial';
+      ctx.fillText('按 SPACE 重新挑戰', 450, 570);
+    }
+  }
+  ctx.textAlign = 'left';
 }
 
 function rectCollision(a, b) {
@@ -934,15 +1218,47 @@ function drawTitle() {
 function drawKO() {
   ctx.save(); ctx.textAlign = 'center';
   let winner = p1.hp > p2.hp ? p1 : p2;
-  let scale = Math.min(1, (180-koTimer)/20);
-  ctx.fillStyle = '#f00'; ctx.font = `bold ${100*scale}px Arial`; ctx.fillText('K.O.!', 450, 280);
-  if (koTimer < 120) {
-    ctx.fillStyle = '#ff0'; ctx.font = 'bold 36px Arial'; ctx.fillText(`${winner.name} 勝利!`, 450, 340);
-    if (p1Wins >= 2 || p2Wins >= 2) {
-      ctx.fillStyle = '#fff'; ctx.font = 'bold 28px Arial'; ctx.fillText('最終勝利!!', 450, 390);
-      if (Math.sin(Date.now()*0.005) > 0) { ctx.fillStyle = '#aaa'; ctx.font = '20px Arial'; ctx.fillText('按 SPACE 重新開始', 450, 440); }
-    } else {
-      if (Math.sin(Date.now()*0.005) > 0) { ctx.fillStyle = '#aaa'; ctx.font = '20px Arial'; ctx.fillText('按 SPACE 下一回合', 450, 440); }
+  let elapsed = 200 - koTimer;
+  let scale = Math.min(1, elapsed/15);
+
+  // Dramatic slowmo dark overlay
+  ctx.fillStyle = `rgba(0,0,0,${Math.min(0.4, elapsed*0.01)})`;
+  ctx.fillRect(0, 0, 900, 600);
+
+  // K.O. text with glow
+  let koColor = winner === p1 ? '#0af' : '#f00';
+  ctx.shadowColor = koColor; ctx.shadowBlur = 30 + Math.sin(elapsed*0.1)*10;
+  ctx.fillStyle = koColor;
+  ctx.font = `bold ${Math.min(120, 120*scale)}px Arial`;
+  ctx.fillText('K.O.!', 450, 260);
+  ctx.shadowBlur = 0;
+
+  // Impact lines radiating from center
+  if (elapsed < 30) {
+    ctx.strokeStyle = '#fff';
+    ctx.globalAlpha = 1 - elapsed/30;
+    ctx.lineWidth = 3;
+    for (let i = 0; i < 12; i++) {
+      let a = (i/12)*Math.PI*2;
+      let r1 = elapsed * 8;
+      let r2 = r1 + 60;
+      ctx.beginPath();
+      ctx.moveTo(450+Math.cos(a)*r1, 230+Math.sin(a)*r1);
+      ctx.lineTo(450+Math.cos(a)*r2, 230+Math.sin(a)*r2);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  if (elapsed > 40) {
+    ctx.fillStyle = '#ff0'; ctx.font = 'bold 36px Arial';
+    ctx.fillText(`${winner.name} 勝利!`, 450, 340);
+
+    if (!(p1Wins >= 2 || p2Wins >= 2)) {
+      if (Math.sin(Date.now()*0.005) > 0) {
+        ctx.fillStyle = '#aaa'; ctx.font = '20px Arial';
+        ctx.fillText('按 SPACE 下一回合', 450, 400);
+      }
     }
   }
   ctx.textAlign = 'left'; ctx.restore();
@@ -952,9 +1268,15 @@ function gameLoop() {
   ctx.save();
   if (shakeScreen > 0) {
     ctx.translate((Math.random()-0.5)*shakeScreen*2, (Math.random()-0.5)*shakeScreen*2);
-    shakeScreen--;
+    shakeScreen *= 0.9;
+    if (shakeScreen < 0.5) shakeScreen = 0;
   }
   if (gameState === 'title') { drawTitle(); ctx.restore(); requestAnimationFrame(gameLoop); return; }
+  if (gameState === 'victory' && showingVictory) {
+    drawBackground(); p1.draw(); p2.draw(); drawHUD();
+    drawVictoryScreen();
+    ctx.restore(); requestAnimationFrame(gameLoop); return;
+  }
   drawBackground();
   if (gameState === 'fighting') {
     p1.update(p2); p2.update(p1);
@@ -965,21 +1287,84 @@ function gameLoop() {
       if (p1.x < p2.x) { p1.x -= push; p2.x += push; } else { p1.x += push; p2.x -= push; }
     }
   }
-  if (gameState === 'ko') { koTimer--; if (koTimer <= 0) { if (p1Wins >= 2 || p2Wins >= 2) { gameState = 'victory'; p1Wins = 0; p2Wins = 0; } else { gameState = 'victory'; roundNum++; } } }
+  if (gameState === 'ko') {
+    koTimer--;
+    if (koTimer <= 0) {
+      if (p1Wins >= 2 || p2Wins >= 2) {
+        gameState = 'victory';
+        showVictoryScreen();
+      } else {
+        gameState = 'victory';
+        roundNum++;
+      }
+    }
+  }
   p1.draw(); p2.draw();
+
+  // Enhanced hit sparks
   for (let i = hitSparks.length-1; i >= 0; i--) {
-    let s = hitSparks[i]; s.x += s.vx; s.y += s.vy; s.life--;
-    ctx.fillStyle = s.color; ctx.globalAlpha = s.life/25; ctx.fillRect(s.x-3, s.y-3, 6, 6); ctx.globalAlpha = 1;
+    let s = hitSparks[i];
+    s.x += s.vx; s.y += s.vy; s.vy += 0.3; s.vx *= 0.97; s.life--;
+    let alpha = s.life / 35;
+    ctx.globalAlpha = alpha;
+    if (s.type === 'ring') {
+      // Expanding ring
+      ctx.strokeStyle = s.color;
+      ctx.lineWidth = 2;
+      let r = (35 - s.life) * 3;
+      ctx.beginPath(); ctx.arc(s.x, s.y, r, 0, Math.PI*2); ctx.stroke();
+    } else {
+      // Glowing spark
+      ctx.fillStyle = s.color;
+      ctx.shadowColor = s.color; ctx.shadowBlur = 8;
+      let sz = (s.size || 3) * (s.life / 35);
+      ctx.beginPath(); ctx.arc(s.x, s.y, sz, 0, Math.PI*2); ctx.fill();
+      ctx.shadowBlur = 0;
+      // Spark trail
+      ctx.globalAlpha = alpha * 0.4;
+      ctx.beginPath(); ctx.arc(s.x - s.vx, s.y - s.vy, sz*0.6, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
     if (s.life <= 0) hitSparks.splice(i, 1);
   }
+
+  // Energy trails
+  for (let i = energyTrails.length-1; i >= 0; i--) {
+    let t = energyTrails[i]; t.life--;
+    ctx.fillStyle = t.color;
+    ctx.shadowColor = t.color; ctx.shadowBlur = 12;
+    ctx.globalAlpha = t.life / 30;
+    ctx.beginPath(); ctx.arc(t.x, t.y + Math.sin(t.life*0.3)*5, t.size*(t.life/30), 0, Math.PI*2); ctx.fill();
+    ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+    if (t.life <= 0) energyTrails.splice(i, 1);
+  }
+
+  // Combo texts with scaling
   for (let i = comboTexts.length-1; i >= 0; i--) {
-    let ct = comboTexts[i]; ct.y -= 0.8; ct.life--;
-    ctx.fillStyle = ct.color; ctx.globalAlpha = ct.life/60; ctx.font = 'bold 24px Arial'; ctx.textAlign = 'center';
-    ctx.fillText(ct.text, ct.x, ct.y); ctx.textAlign = 'left'; ctx.globalAlpha = 1;
+    let ct = comboTexts[i]; ct.y -= 0.6; ct.life--;
+    let alpha = ct.life / 80;
+    let bounce = ct.life > 60 ? 1 + Math.sin((80-ct.life)*0.3)*0.3 : 1;
+    ctx.fillStyle = ct.color;
+    ctx.shadowColor = ct.color; ctx.shadowBlur = 10;
+    ctx.globalAlpha = alpha;
+    ctx.font = `bold ${(ct.size||24)*bounce}px Arial`;
+    ctx.textAlign = 'center';
+    ctx.fillText(ct.text, ct.x, ct.y);
+    ctx.shadowBlur = 0; ctx.textAlign = 'left'; ctx.globalAlpha = 1;
     if (ct.life <= 0) comboTexts.splice(i, 1);
   }
+
+  // Screen flash
+  if (screenFlash > 0) {
+    ctx.fillStyle = screenFlashColor;
+    ctx.globalAlpha = screenFlash / 20;
+    ctx.fillRect(0, 0, 900, 600);
+    ctx.globalAlpha = 1;
+    screenFlash--;
+  }
+
   drawHUD();
-  if (gameState === 'ko' || gameState === 'victory') drawKO();
+  if (gameState === 'ko') drawKO();
   if (gameState === 'fighting') {
     ctx.fillStyle = '#fff'; ctx.font = '14px Arial'; ctx.textAlign = 'center';
     ctx.fillText(`ROUND ${roundNum}`, 450, 65); ctx.textAlign = 'left';
