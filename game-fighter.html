@@ -242,7 +242,7 @@ let matchStartTime = 0;
 let victoryTimer = 0;
 let showingVictory = false;
 
-// Leaderboard
+// Local leaderboard
 function getLeaderboard() {
   try { return JSON.parse(localStorage.getItem('fighter_leaderboard') || '[]'); } catch(e) { return []; }
 }
@@ -254,6 +254,46 @@ function saveScore(name, score, hp, combo, time) {
   localStorage.setItem('fighter_leaderboard', JSON.stringify(lb));
   return lb;
 }
+
+// === Global Leaderboard (Cloudflare Workers) ===
+const LB_API = 'https://broadband-leaderboard.broadbandhk.workers.dev/api/leaderboard';
+const LB_KEY = 'bdhk-lb-s3cr3t-x7k9m2p4q8';
+let globalLeaderboard = [];
+
+async function hmacSign(data) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', enc.encode(LB_KEY), {name:'HMAC',hash:'SHA-256'}, false, ['sign']);
+  const sig = await crypto.subtle.sign('HMAC', key, enc.encode(data));
+  return Array.from(new Uint8Array(sig)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function fetchGlobalLB() {
+  try {
+    const r = await fetch(LB_API + '/fighter');
+    if (r.ok) globalLeaderboard = await r.json();
+  } catch(e) {}
+}
+
+async function submitGlobalScore(name, hp, combo, time, dmg, score) {
+  try {
+    const ts = Date.now();
+    const payload = { name, hp, combo, time, dmg, score };
+    const sigData = { ...payload, ts };
+    const sig = await hmacSign(JSON.stringify(sigData));
+    const r = await fetch(LB_API + '/fighter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...sigData, sig, ts })
+    });
+    if (r.ok) {
+      const data = await r.json();
+      if (data.scores) globalLeaderboard = data.scores;
+    }
+  } catch(e) {}
+}
+
+// Fetch global leaderboard on load
+fetchGlobalLB();
 
 // Pre-calculate window positions to avoid flickering
 const buildings = [
@@ -1389,6 +1429,7 @@ function showVictoryScreen() {
   if (playerWon) {
     score = p1.hp * 100 + maxCombo * 500 + Math.max(0, (300 - matchTime)) * 10 + totalDamageDealt * 5;
     saveScore('寬頻英雄', score, p1.hp, maxCombo, matchTime);
+    submitGlobalScore('寬頻英雄', p1.hp, maxCombo, matchTime, totalDamageDealt, score);
   }
   // Store for drawing
   window._victoryData = { playerWon, score, hp: p1.hp, combo: maxCombo, time: matchTime, dmg: totalDamageDealt };
@@ -1474,16 +1515,28 @@ function drawVictoryScreen() {
     if (victoryTimer > 60) {
       let lbAlpha = Math.min(1, (victoryTimer-60)/20);
       ctx.globalAlpha = lbAlpha;
-      let lb = getLeaderboard();
-      if (lb.length > 0) {
-        ctx.fillStyle = '#ff6600'; ctx.font = 'bold 16px Arial';
-        ctx.fillText('排行榜 TOP ' + Math.min(lb.length, 5), 450, 460);
-        ctx.font = '14px Arial';
-        for (let i = 0; i < Math.min(lb.length, 5); i++) {
-          let entry = lb[i];
-          let isNew = entry.score === d.score && i === lb.findIndex(e => e.score === d.score);
-          ctx.fillStyle = isNew ? '#ff0' : '#aaa';
-          ctx.fillText(`#${i+1}  ${entry.score.toLocaleString()} 分  (血量${entry.hp}% 連擊${entry.combo} 用時${entry.time}秒)  ${entry.date}`, 450, 482 + i*18);
+      // Global leaderboard
+      let glb = globalLeaderboard;
+      if (glb.length > 0) {
+        ctx.fillStyle = '#0af'; ctx.font = 'bold 16px Arial';
+        ctx.fillText('🌍 全球排行榜 TOP ' + Math.min(glb.length, 5), 450, 455);
+        ctx.font = '13px Arial';
+        for (let i = 0; i < Math.min(glb.length, 5); i++) {
+          let entry = glb[i];
+          ctx.fillStyle = i === 0 ? '#ff0' : '#ccc';
+          ctx.fillText(`#${i+1}  ${entry.name}  ${entry.score.toLocaleString()} 分  ${entry.details || ''}  ${entry.date}`, 450, 475 + i*17);
+        }
+      } else {
+        // Fallback to local
+        let lb = getLeaderboard();
+        if (lb.length > 0) {
+          ctx.fillStyle = '#ff6600'; ctx.font = 'bold 16px Arial';
+          ctx.fillText('排行榜 TOP ' + Math.min(lb.length, 5), 450, 455);
+          ctx.font = '13px Arial';
+          for (let i = 0; i < Math.min(lb.length, 5); i++) {
+            ctx.fillStyle = '#aaa';
+            ctx.fillText(`#${i+1}  ${lb[i].score.toLocaleString()} 分  (血量${lb[i].hp}% 連擊${lb[i].combo})  ${lb[i].date}`, 450, 475 + i*17);
+          }
         }
       }
       ctx.globalAlpha = 1;
@@ -1510,16 +1563,27 @@ function drawVictoryScreen() {
     ctx.fillStyle = '#aaa'; ctx.font = '18px Arial';
     ctx.fillText('網絡被破壞了...再試一次吧！', 450, 280);
 
-    // Still show leaderboard
+    // Show global leaderboard
     if (victoryTimer > 40) {
-      let lb = getLeaderboard();
-      if (lb.length > 0) {
-        ctx.fillStyle = '#ff6600'; ctx.font = 'bold 16px Arial';
-        ctx.fillText('歷史排行榜 TOP ' + Math.min(lb.length, 5), 450, 360);
-        ctx.font = '14px Arial';
-        for (let i = 0; i < Math.min(lb.length, 5); i++) {
-          ctx.fillStyle = '#888';
-          ctx.fillText(`#${i+1}  ${lb[i].score.toLocaleString()} 分  (血量${lb[i].hp}% 連擊${lb[i].combo})  ${lb[i].date}`, 450, 382 + i*18);
+      let glb = globalLeaderboard;
+      if (glb.length > 0) {
+        ctx.fillStyle = '#0af'; ctx.font = 'bold 16px Arial';
+        ctx.fillText('🌍 全球排行榜 TOP ' + Math.min(glb.length, 5), 450, 340);
+        ctx.font = '13px Arial';
+        for (let i = 0; i < Math.min(glb.length, 5); i++) {
+          ctx.fillStyle = i === 0 ? '#ff0' : '#888';
+          ctx.fillText(`#${i+1}  ${glb[i].name}  ${glb[i].score.toLocaleString()} 分  ${glb[i].details || ''}`, 450, 360 + i*17);
+        }
+      } else {
+        let lb = getLeaderboard();
+        if (lb.length > 0) {
+          ctx.fillStyle = '#ff6600'; ctx.font = 'bold 16px Arial';
+          ctx.fillText('排行榜 TOP ' + Math.min(lb.length, 5), 450, 340);
+          ctx.font = '13px Arial';
+          for (let i = 0; i < Math.min(lb.length, 5); i++) {
+            ctx.fillStyle = '#888';
+            ctx.fillText(`#${i+1}  ${lb[i].score.toLocaleString()} 分  (血量${lb[i].hp}%)  ${lb[i].date}`, 450, 360 + i*17);
+          }
         }
       }
     }

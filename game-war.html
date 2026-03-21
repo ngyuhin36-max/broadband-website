@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>寬頻三國志 | 18區爭霸戰 — BroadbandHK</title>
-    <meta name="description" content="寬頻三國志 — 三間寬頻公司爭奪香港18區！選擇你嘅公司，招募武將，攻城掠地，統一香港寬頻市場！文字冒險策略遊戲，即玩挑戰！">
+    <meta name="description" content="寬頻三國志 — 三間寬頻公司爭奪香港18區！選擇你嘅公司，招募武將，攻城掠地，統一香港光纖寬頻市場！文字冒險策略遊戲，即玩挑戰！">
     <meta property="og:title" content="寬頻三國志 | 18區爭霸戰">
     <meta property="og:description" content="三間寬頻公司爭奪香港18區！你能統一寬頻市場嗎？即玩挑戰！">
     <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
       "@context": "https://schema.org",
       "@type": "VideoGame",
       "name": "寬頻三國志",
-      "description": "三間寬頻公司爭奪香港18區！選擇你嘅公司，招募武將，推廣品牌，發動價格戰，統一香港寬頻市場！",
+      "description": "三間寬頻公司爭奪香港18區！選擇你嘅公司，招募武將，推廣品牌，發動價格戰，統一香港光纖寬頻市場！",
       "url": "https://broadbandhk.com/game-war.html",
       "image": "https://broadbandhk.com/game-og.png",
       "genre": ["Strategy", "Simulation", "Business"],
@@ -733,13 +733,13 @@
         <p class="subtitle">香港18區爭霸戰</p>
 
         <div class="story" id="introStory">
-            2026年，香港寬頻市場風起雲湧...
+            2026年，香港光纖寬頻市場風起雲湧...
 
 三間寬頻公司為咗爭奪全港18區嘅市場份額，展開咗一場前所未有嘅商業大戰。
 
 你，係其中一間公司嘅<em>新任CEO</em>。
 董事會俾咗你<em>36個月</em>時間，
-目標只有一個：<em>稱霸香港寬頻市場</em>。
+目標只有一個：<em>稱霸香港光纖寬頻市場</em>。
 
 你準備好未？
         </div>
@@ -1974,7 +1974,7 @@ function endGame() {
 
     if (pCount >= 15) {
         grade = 'S'; gradeTitle = '光纖之王';
-        gradeStory = '你成為咗香港寬頻界嘅傳奇！\n\n媒體稱你為「光纖之王」，你嘅公司壟斷咗全港大部分市場。\n\n「由一間小公司，到今日嘅行業霸主，呢個故事會被寫入商學院教材。」\n\n你站喺ICC頂層，俯瞰住維多利亞港，心中充滿成就感。\n\n「呢個城市嘅每一條光纖，都有我嘅故事。」';
+        gradeStory = '你成為咗香港光纖寬頻界嘅傳奇！\n\n媒體稱你為「光纖之王」，你嘅公司壟斷咗全港大部分市場。\n\n「由一間小公司，到今日嘅行業霸主，呢個故事會被寫入商學院教材。」\n\n你站喺ICC頂層，俯瞰住維多利亞港，心中充滿成就感。\n\n「呢個城市嘅每一條光纖，都有我嘅故事。」';
     } else if (pCount >= 12) {
         grade = 'A'; gradeTitle = '市場領導者';
         gradeStory = '出色嘅表現！你嘅公司成為市場領導者。\n\n董事會對你嘅成績非常滿意，續約多3年。\n\n「你證明咗自己係一個出色嘅CEO。」董事長笑住同你握手。\n\n未來仲有好長嘅路要行，但你已經證明咗自己。';
@@ -2054,6 +2054,33 @@ function saveScore(grade, districts, months) {
         return b.districts - a.districts;
     });
     localStorage.setItem('war_leaderboard', JSON.stringify(scores.slice(0, 10)));
+    // Submit to global leaderboard
+    submitGlobalScore_war(grade, districts, months);
+}
+
+// === Global Leaderboard ===
+const LB_API_WAR = 'https://broadband-leaderboard.broadbandhk.workers.dev/api/leaderboard';
+const LB_KEY_WAR = 'bdhk-lb-s3cr3t-x7k9m2p4q8';
+
+async function hmacSign_war(data) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', enc.encode(LB_KEY_WAR), {name:'HMAC',hash:'SHA-256'}, false, ['sign']);
+  const sig = await crypto.subtle.sign('HMAC', key, enc.encode(data));
+  return Array.from(new Uint8Array(sig)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function submitGlobalScore_war(grade, districts, months) {
+  try {
+    const ts = Date.now();
+    const payload = { name: G.companyName, grade, districts, months, company: G.companyName };
+    const sigData = { ...payload, ts };
+    const sig = await hmacSign_war(JSON.stringify(sigData));
+    await fetch(LB_API_WAR + '/war', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...sigData, sig, ts })
+    });
+  } catch(e) {}
 }
 
 function renderLeaderboard() {

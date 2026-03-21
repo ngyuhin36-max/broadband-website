@@ -2371,8 +2371,34 @@ function saveToLeaderboard(entry) {
     const lb = getLeaderboard();
     lb.push(entry);
     lb.sort((a, b) => b.money - a.money);
-    // Keep top 10
     localStorage.setItem('broadband_game_lb', JSON.stringify(lb.slice(0, 10)));
+    // Submit to global leaderboard
+    submitGlobalScore_life(entry);
+}
+
+// === Global Leaderboard ===
+const LB_API_LIFE = 'https://broadband-leaderboard.broadbandhk.workers.dev/api/leaderboard';
+const LB_KEY_LIFE = 'bdhk-lb-s3cr3t-x7k9m2p4q8';
+
+async function hmacSign_life(data) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey('raw', enc.encode(LB_KEY_LIFE), {name:'HMAC',hash:'SHA-256'}, false, ['sign']);
+  const sig = await crypto.subtle.sign('HMAC', key, enc.encode(data));
+  return Array.from(new Uint8Array(sig)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function submitGlobalScore_life(entry) {
+  try {
+    const ts = Date.now();
+    const payload = { name: '寬頻人生', money: entry.money, sales: entry.sales, grade: entry.grade, rank: entry.rank };
+    const sigData = { ...payload, ts };
+    const sig = await hmacSign_life(JSON.stringify(sigData));
+    await fetch(LB_API_LIFE + '/life', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...sigData, sig, ts })
+    });
+  } catch(e) {}
 }
 
 function clearLeaderboard() {
