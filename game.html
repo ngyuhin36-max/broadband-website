@@ -847,6 +847,9 @@
 // 寬頻人生 v2 — Enhanced Game Engine
 // ============================================================
 
+// --- Player Name ---
+let lifePlayerName = localStorage.getItem('life_player_name') || '';
+
 // --- Audio System (Web Audio API) ---
 let audioCtx = null;
 let soundEnabled = true;
@@ -2042,6 +2045,7 @@ function renderEnd() {
         currentRunSaved = true;
         const now = new Date();
         saveToLeaderboard({
+            name: lifePlayerName || '匿名',
             money: G.money,
             sales: G.totalSales,
             grade: grade,
@@ -2109,6 +2113,13 @@ function showGuide() {
 }
 
 async function startGame() {
+    if (!lifePlayerName) {
+        let name = prompt('輸入你的玩家名稱（排行榜顯示）：', '');
+        if (name && name.trim()) {
+            lifePlayerName = name.trim().substring(0, 12);
+            localStorage.setItem('life_player_name', lifePlayerName);
+        } else return;
+    }
     initAudio();
     sfxClick();
 
@@ -2390,7 +2401,7 @@ async function hmacSign_life(data) {
 async function submitGlobalScore_life(entry) {
   try {
     const ts = Date.now();
-    const payload = { name: '寬頻人生', money: entry.money, sales: entry.sales, grade: entry.grade, rank: entry.rank };
+    const payload = { name: entry.name || lifePlayerName || '匿名', money: entry.money, sales: entry.sales, grade: entry.grade, rank: entry.rank };
     const sigData = { ...payload, ts };
     const sig = await hmacSign_life(JSON.stringify(sigData));
     await fetch(LB_API_LIFE + '/life', {
@@ -2433,6 +2444,7 @@ function renderLeaderboard(currentMoney) {
         const isCurrent = entry.ts === currentMoney;
         return `<tr class="${isCurrent ? 'current' : ''}">
             <td class="lb-rank ${rankClass}">${rankIcon}</td>
+            <td style="color:#0af;font-weight:700;font-size:0.8rem">${entry.name || '匿名'}</td>
             <td><span class="lb-grade" style="color:${gi.color}">${gi.grade}</span> ${gi.title}</td>
             <td style="color:${entry.money >= 0 ? '#22c55e' : '#ef4444'}">$${entry.money.toLocaleString()}</td>
             <td>${entry.sales}單</td>
@@ -2443,7 +2455,7 @@ function renderLeaderboard(currentMoney) {
     return `<div class="leaderboard">
         <h3>🏆 排行榜 TOP 10</h3>
         <table class="lb-table">
-            <tr><th></th><th>等級</th><th>儲蓄</th><th>簽單</th><th>日期</th></tr>
+            <tr><th></th><th>玩家</th><th>等級</th><th>儲蓄</th><th>簽單</th><th>日期</th></tr>
             ${rows}
         </table>
         <button class="lb-clear" onclick="clearLeaderboard()">清除排行榜</button>

@@ -828,6 +828,9 @@
 <div id="end-screen" class="game-wrap" style="display:none;"></div>
 
 <script>
+// ========== PLAYER NAME ==========
+let warPlayerName = localStorage.getItem('war_player_name') || '';
+
 // ========== AUDIO ==========
 let soundOn = true;
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -1268,6 +1271,11 @@ function selectCompany(idx) {
 
 function startGame() {
     if (selectedCompany < 0) return;
+    if (!warPlayerName) {
+        let name = prompt('輸入你的玩家名稱（排行榜顯示）：', '');
+        if (name && name.trim()) { warPlayerName = name.trim().substring(0, 12); localStorage.setItem('war_player_name', warPlayerName); }
+        else return;
+    }
     sfxClick();
     initState(selectedCompany);
     transition('⚔️', '準備開戰...', () => {
@@ -2044,6 +2052,7 @@ function endGame() {
 function saveScore(grade, districts, months) {
     const scores = JSON.parse(localStorage.getItem('war_leaderboard') || '[]');
     scores.push({
+        name: warPlayerName || '匿名',
         grade, districts, months,
         company: G.companyName,
         date: new Date().toLocaleDateString('zh-HK'),
@@ -2072,7 +2081,7 @@ async function hmacSign_war(data) {
 async function submitGlobalScore_war(grade, districts, months) {
   try {
     const ts = Date.now();
-    const payload = { name: G.companyName, grade, districts, months, company: G.companyName };
+    const payload = { name: warPlayerName || '匿名', grade, districts, months, company: G.companyName };
     const sigData = { ...payload, ts };
     const sig = await hmacSign_war(JSON.stringify(sigData));
     await fetch(LB_API_WAR + '/war', {
@@ -2087,9 +2096,9 @@ function renderLeaderboard() {
     const scores = JSON.parse(localStorage.getItem('war_leaderboard') || '[]');
     if (scores.length === 0) return '';
     let html = '<div class="lb-section"><h3>🏆 排行榜</h3>';
-    html += '<table class="lb-table"><thead><tr><th>#</th><th>公司</th><th>評級</th><th>地區</th><th>月數</th><th>日期</th></tr></thead><tbody>';
+    html += '<table class="lb-table"><thead><tr><th>#</th><th>玩家</th><th>公司</th><th>評級</th><th>地區</th><th>月數</th><th>日期</th></tr></thead><tbody>';
     scores.forEach((s, i) => {
-        html += '<tr><td>' + (i + 1) + '</td><td>' + s.company + '</td><td>' + s.grade + '</td><td>' + s.districts + '/18</td><td>' + s.months + '</td><td>' + s.date + '</td></tr>';
+        html += '<tr><td>' + (i + 1) + '</td><td style="color:#0af;font-weight:700">' + (s.name || '匿名') + '</td><td>' + s.company + '</td><td>' + s.grade + '</td><td>' + s.districts + '/18</td><td>' + s.months + '</td><td>' + s.date + '</td></tr>';
     });
     html += '</tbody></table></div>';
     return html;
