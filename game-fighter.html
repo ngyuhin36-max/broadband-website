@@ -133,6 +133,7 @@
             <div class="control-row"><span>踢腳</span><span><span class="key">K</span></span></div>
             <div class="control-row"><span>必殺技</span><span><span class="key">L</span> (能量50%以上)</span></div>
             <div class="control-row"><span>防禦</span><span><span class="key">M</span></span></div>
+            <div class="control-row"><span>閃現</span><span><span class="key">E</span> (閃到對手身後，有冷卻)</span></div>
         </div>
     </div>
 
@@ -206,7 +207,7 @@ const keys = {};
 window.addEventListener('keydown', e => {
   if (e.key === ' ' && (gameState === 'title' || gameState === 'victory')) startRound();
   keys[e.key.toLowerCase()] = true;
-  if ([' ','w','a','s','d','j','k','l','m'].includes(e.key.toLowerCase())) e.preventDefault();
+  if ([' ','w','a','s','d','e','j','k','l','m'].includes(e.key.toLowerCase())) e.preventDefault();
 });
 window.addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
 
@@ -229,6 +230,12 @@ class Fighter {
     this.aiTimer = 0;
     this.aiAction = 'idle';
     this.aiReactTime = 0;
+    // Dash/flash
+    this.dashCooldown = 0;
+    this.dashMaxCooldown = 120; // 2 seconds at 60fps
+    this.isDashing = false;
+    this.dashTimer = 0;
+    this.dashTrails = [];
   }
   reset(x) {
     this.x = x; this.y = this.groundY;
@@ -238,6 +245,7 @@ class Fighter {
     this.comboCount = 0; this.comboTimer = 0;
     this.hitStun = 0; this.blockStun = 0;
     this.aiTimer = 0; this.aiAction = 'idle';
+    this.dashCooldown = 0; this.isDashing = false; this.dashTimer = 0; this.dashTrails = [];
   }
   getHitbox() {
     let h = this.state === 'crouch' ? 70 : this.height;
@@ -273,6 +281,13 @@ class Fighter {
       if (opponent.stateTimer > 12 && dist < 100) {
         if (r < 0.6) { this.aiAction = 'punch'; return; }
         if (r < 0.85) { this.aiAction = 'kick'; return; }
+      }
+
+      // Dash behind player occasionally
+      if (this.dashCooldown <= 0 && dist < 150 && r < 0.1 && this.y >= this.groundY) {
+        this.dashBehind(opponent);
+        this.aiAction = 'punch';
+        return;
       }
 
       if (dist < 80) {
@@ -393,6 +408,7 @@ class Fighter {
       if (keys['j'] && this.y >= this.groundY) { this.state = 'punch'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
       if (keys['k'] && this.y >= this.groundY) { this.state = 'kick'; this.stateTimer = 0; this.attackHit = false; this.vx = 0; }
       if (keys['l'] && this.special >= 50) { this.state = 'special'; this.stateTimer = 0; this.attackHit = false; this.special -= 50; this.vx = 0; shakeScreen = 10; }
+      if (keys['e'] && this.dashCooldown <= 0 && this.y >= this.groundY) { this.dashBehind(opponent); }
     }
 
     this.x += this.vx;
@@ -400,15 +416,25 @@ class Fighter {
     if (this.x > 860) this.x = 860;
     if (this.y < this.groundY) this.state = 'jump';
     if (this.special < this.maxSpecial) this.special += 0.05;
+    // Dash cooldown
+    if (this.dashCooldown > 0) this.dashCooldown--;
+    // Dash trails fade
+    for (let i = this.dashTrails.length-1; i >= 0; i--) {
+      this.dashTrails[i].life--;
+      if (this.dashTrails[i].life <= 0) this.dashTrails.splice(i, 1);
+    }
   }
 
   takeDamage(dmg, attackType, attacker) {
     if (this.blocking) {
       this.blockStun = 15; this.state = 'block';
-      // Reduced chip damage (5% instead of 15%)
-      this.hp -= Math.floor(dmg * 0.05);
-      // Gain special meter when blocking
-      this.special = Math.min(this.maxSpecial, this.special + dmg * 0.3);
+      // Perfect block: no chip damage on punch/kick, tiny on special
+      if (attackType === 'special') {
+        this.hp -= Math.floor(dmg * 0.1);
+      }
+      // else: 0 damage! Perfect block
+      // Gain lots of special meter when blocking (reward defense)
+      this.special = Math.min(this.maxSpecial, this.special + dmg * 0.5);
       // Push back
       this.x -= this.facing * 20;
       // Block sparks - deflected energy
@@ -515,6 +541,18 @@ class Fighter {
     let flameColor2 = this.isAI ? '#ff4444' : '#88eeff';
 
     let drawY = this.state === 'crouch' ? this.y + 30 : this.y;
+
+    // Dash afterimage trails
+    for (let t of this.dashTrails) {
+      let a = t.life / t.maxLife * 0.5;
+      ctx.globalAlpha = a;
+      ctx.fillStyle = this.isAI ? '#f44' : '#0af';
+      // Silhouette
+      ctx.beginPath();
+      ctx.ellipse(t.x, t.y + 50, 18, 55, 0, 0, Math.PI*2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
 
     // Shadow
     ctx.fillStyle = 'rgba(0,0,0,0.4)';
@@ -1002,6 +1040,34 @@ class Fighter {
     ctx.restore();
   }
 
+  dashBehind(opponent) {
+    if (this.dashCooldown > 0) return;
+    // Save current position for trail
+    for (let i = 0; i < 4; i++) {
+      this.dashTrails.push({
+        x: this.x + (opponent.x - this.x) * (i/4),
+        y: this.y,
+        life: 15,
+        maxLife: 15
+      });
+    }
+    // Teleport behind opponent
+    let behindDist = 60;
+    if (opponent.x > this.x) {
+      this.x = opponent.x + behindDist;
+    } else {
+      this.x = opponent.x - behindDist;
+    }
+    // Clamp to bounds
+    if (this.x < 40) this.x = 40;
+    if (this.x > 860) this.x = 860;
+    // Set cooldown
+    this.dashCooldown = this.dashMaxCooldown;
+    // Screen effect
+    screenFlash = 5;
+    screenFlashColor = this.isAI ? 'rgba(255,0,0,0.2)' : 'rgba(0,200,255,0.2)';
+  }
+
   // Helper: draw a thick limb between two points
   drawLimb(x1, y1, x2, y2, thickness) {
     ctx.beginPath();
@@ -1291,6 +1357,15 @@ function drawHUD() {
   ctx.textAlign = 'left';
   for (let i = 0; i < p1Wins; i++) { ctx.fillStyle = '#ff0'; ctx.beginPath(); ctx.arc(45+i*20, 53, 6, 0, Math.PI*2); ctx.fill(); }
   for (let i = 0; i < p2Wins; i++) { ctx.fillStyle = '#ff0'; ctx.beginPath(); ctx.arc(855-i*20, 53, 6, 0, Math.PI*2); ctx.fill(); }
+  // Dash cooldown indicator (P1)
+  let dashReady = p1.dashCooldown <= 0;
+  let dashPct = dashReady ? 1 : 1 - (p1.dashCooldown / p1.dashMaxCooldown);
+  ctx.fillStyle = '#222'; ctx.fillRect(170, 38, 60, 8);
+  ctx.fillStyle = dashReady ? '#0f0' : '#555';
+  ctx.fillRect(170, 38, 60 * dashPct, 8);
+  ctx.fillStyle = dashReady ? '#0f0' : '#666';
+  ctx.font = '9px Arial';
+  ctx.fillText(dashReady ? '閃現 OK' : '閃現 CD', 172, 55);
   ctx.textAlign = 'left';
 }
 
