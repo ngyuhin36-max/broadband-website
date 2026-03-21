@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>寬頻人生 | 3年銷售生涯模擬遊戲 — BroadbandHK</title>
-    <meta name="description" content="寬頻人生 — 一個寬頻銷售員的3年生涯模擬遊戲。面對業績壓力、生活開支，你能撐到最後嗎？">
+    <meta name="description" content="寬頻人生 — 一個寬頻銷售員的3年生涯模擬遊戲。面對業績壓力、生活開支、感情抉擇，你能撐到最後嗎？即玩挑戰，睇下你做到邊個等級！">
+    <meta property="og:title" content="寬頻人生 | 3年銷售生涯模擬遊戲">
+    <meta property="og:description" content="你做寬頻Sales能捱過3年嗎？面對業績壓力、生活開支、感情抉擇，即玩挑戰！">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://broadbandhk.com/game.html">
+    <meta property="og:image" content="https://broadbandhk.com/game-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="寬頻人生 | 3年銷售生涯模擬遊戲">
+    <meta name="twitter:description" content="你做寬頻Sales能捱過3年嗎？即玩挑戰！">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 
     <!-- Google Analytics 4 -->
@@ -712,6 +720,61 @@
         .scene-img { height: 140px; font-size: 3.5rem; }
         .guide-section .guide-grid { grid-template-columns: 1fr; }
     }
+    /* --- Share Buttons --- */
+    .share-section {
+        margin-top: 24px;
+        padding: 20px;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+    }
+    .share-section h3 { font-size: 1rem; color: #60a5fa; margin-bottom: 12px; }
+    .share-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .share-btn {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 10px 18px; border-radius: 10px;
+        font-size: 0.9rem; font-weight: 700;
+        text-decoration: none; color: #fff;
+        cursor: pointer; border: none;
+        font-family: inherit; transition: all 0.25s;
+    }
+    .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .share-btn.whatsapp { background: #25D366; }
+    .share-btn.facebook { background: #1877F2; }
+    .share-btn.copy-link { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+
+    /* --- Leaderboard --- */
+    .leaderboard {
+        margin-top: 24px;
+        padding: 20px;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+    }
+    .leaderboard h3 { font-size: 1rem; color: #fbbf24; margin-bottom: 12px; }
+    .lb-table { width: 100%; border-collapse: collapse; }
+    .lb-table th {
+        text-align: left; font-size: 0.75rem; color: #64748b;
+        padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .lb-table td {
+        padding: 8px; font-size: 0.85rem;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .lb-table tr.current { background: rgba(96,165,250,0.1); border-radius: 8px; }
+    .lb-rank { font-weight: 900; width: 40px; }
+    .lb-rank.gold { color: #fbbf24; }
+    .lb-rank.silver { color: #94a3b8; }
+    .lb-rank.bronze { color: #cd7f32; }
+    .lb-grade { font-weight: 900; font-size: 1.1rem; }
+    .lb-empty { text-align: center; color: #475569; padding: 16px; font-size: 0.85rem; }
+    .lb-clear {
+        margin-top: 8px; background: none; border: none;
+        color: #475569; font-size: 0.75rem; cursor: pointer;
+        font-family: inherit; text-decoration: underline;
+    }
+    .lb-clear:hover { color: #ef4444; }
+
     </style>
 </head>
 <body>
@@ -1932,15 +1995,25 @@ function renderMonthEnd() {
 }
 
 function renderEnd() {
-    let grade, title, color, emoji;
-    if (G.money >= 80000) { grade='S'; title='寬頻之王'; color='#fbbf24'; emoji='👑'; }
-    else if (G.money >= 40000) { grade='A'; title='金牌銷售'; color='#22c55e'; emoji='🏆'; }
-    else if (G.money >= 15000) { grade='B'; title='穩打穩紮'; color='#60a5fa'; emoji='💪'; }
-    else if (G.money >= 0) { grade='C'; title='勉強生存'; color='#f97316'; emoji='😅'; }
-    else { grade='D'; title='負債累累'; color='#ef4444'; emoji='😭'; }
+    const gi = getGradeInfo(G.money);
+    const { grade, title, color, emoji } = gi;
 
     const gameOver = G.money < -10000 || G.mood <= 0 || G.failMonths >= 3;
     const survived = !gameOver && G.month > 36;
+
+    // Save to leaderboard (once per game)
+    if (!currentRunSaved) {
+        currentRunSaved = true;
+        const now = new Date();
+        saveToLeaderboard({
+            money: G.money,
+            sales: G.totalSales,
+            grade: grade,
+            rank: G.rank,
+            date: `${now.getDate()}/${now.getMonth()+1}`,
+            ts: Date.now()
+        });
+    }
 
     return `
     <div class="end-screen">
@@ -1967,13 +2040,17 @@ function renderEnd() {
                  G.mood <= 0 ? '你對所有嘢都失去興趣，每日返工好似行屍走肉...最後決定轉行，重新開始。' :
                  '連續幾個月業績唔達標，經理話「公司需要調整人手」。你被辭退了。')}
         </div>
+
+        ${renderShareButtons()}
+        ${renderLeaderboard(Date.now())}
+
         <div class="end-cta">
             <p>💡 現實中，BroadbandHK 幫你搵到最平最穩定嘅寬頻！</p>
             <a href="index.html">查看寬頻月費</a>
             <a href="shops.html">免費商舖推薦</a>
         </div>
         <br>
-        <button class="start-btn" onclick="location.reload()" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">🔄 再玩一次</button>
+        <button class="start-btn" onclick="currentRunSaved=false;location.reload()" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">🔄 再玩一次</button>
         <button class="start-btn secondary" onclick="G.phase='guide';render();">📖 重睇說明</button>
     </div>`;
 }
@@ -2243,6 +2320,117 @@ function checkGameOver() {
         return true;
     }
     return false;
+}
+
+// ============================================================
+// Leaderboard (localStorage)
+// ============================================================
+function getLeaderboard() {
+    try {
+        return JSON.parse(localStorage.getItem('broadband_game_lb') || '[]');
+    } catch(e) { return []; }
+}
+
+function saveToLeaderboard(entry) {
+    const lb = getLeaderboard();
+    lb.push(entry);
+    lb.sort((a, b) => b.money - a.money);
+    // Keep top 10
+    localStorage.setItem('broadband_game_lb', JSON.stringify(lb.slice(0, 10)));
+}
+
+function clearLeaderboard() {
+    if (confirm('確定要清除排行榜？')) {
+        localStorage.removeItem('broadband_game_lb');
+        render();
+    }
+}
+
+function getGradeInfo(money) {
+    if (money >= 80000) return { grade: 'S', title: '寬頻之王', color: '#fbbf24', emoji: '👑' };
+    if (money >= 40000) return { grade: 'A', title: '金牌銷售', color: '#22c55e', emoji: '🏆' };
+    if (money >= 15000) return { grade: 'B', title: '穩打穩紮', color: '#60a5fa', emoji: '💪' };
+    if (money >= 0) return { grade: 'C', title: '勉強生存', color: '#f97316', emoji: '😅' };
+    return { grade: 'D', title: '負債累累', color: '#ef4444', emoji: '😭' };
+}
+
+let currentRunSaved = false;
+
+function renderLeaderboard(currentMoney) {
+    const lb = getLeaderboard();
+    if (lb.length === 0) {
+        return `<div class="leaderboard">
+            <h3>🏆 排行榜</h3>
+            <div class="lb-empty">暫時未有記錄，你係第一個！</div>
+        </div>`;
+    }
+    const rows = lb.map((entry, i) => {
+        const gi = getGradeInfo(entry.money);
+        const rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+        const rankIcon = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `#${i + 1}`;
+        const isCurrent = entry.ts === currentMoney;
+        return `<tr class="${isCurrent ? 'current' : ''}">
+            <td class="lb-rank ${rankClass}">${rankIcon}</td>
+            <td><span class="lb-grade" style="color:${gi.color}">${gi.grade}</span> ${gi.title}</td>
+            <td style="color:${entry.money >= 0 ? '#22c55e' : '#ef4444'}">$${entry.money.toLocaleString()}</td>
+            <td>${entry.sales}單</td>
+            <td style="color:#64748b;font-size:0.75rem">${entry.date || ''}</td>
+        </tr>`;
+    }).join('');
+
+    return `<div class="leaderboard">
+        <h3>🏆 排行榜 TOP 10</h3>
+        <table class="lb-table">
+            <tr><th></th><th>等級</th><th>儲蓄</th><th>簽單</th><th>日期</th></tr>
+            ${rows}
+        </table>
+        <button class="lb-clear" onclick="clearLeaderboard()">清除排行榜</button>
+    </div>`;
+}
+
+// ============================================================
+// Share Functions
+// ============================================================
+function getShareText() {
+    const gi = getGradeInfo(G.money);
+    return `我喺「寬頻人生」模擬遊戲獲得 ${gi.emoji}${gi.grade}級 — ${gi.title}！\n💰 儲蓄: $${G.money.toLocaleString()}\n📋 簽單: ${G.totalSales}單\n👔 職級: ${['初級銷售','高級銷售顧問','銷售主管'][G.rank]}\n\n你又得唔得？即玩挑戰！👇\nhttps://broadbandhk.com/game.html`;
+}
+
+function shareWhatsApp() {
+    const text = encodeURIComponent(getShareText());
+    window.open('https://wa.me/?text=' + text, '_blank');
+}
+
+function shareFacebook() {
+    const url = encodeURIComponent('https://broadbandhk.com/game.html');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank');
+}
+
+function copyShareLink() {
+    const text = getShareText();
+    navigator.clipboard.writeText(text).then(() => {
+        floatNotify('已複製到剪貼簿！', 'good');
+    }).catch(() => {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        floatNotify('已複製到剪貼簿！', 'good');
+    });
+}
+
+function renderShareButtons() {
+    return `<div class="share-section">
+        <h3>📤 分享你的結局</h3>
+        <div class="share-btns">
+            <button class="share-btn whatsapp" onclick="shareWhatsApp()">💬 WhatsApp 分享</button>
+            <button class="share-btn facebook" onclick="shareFacebook()">📘 Facebook 分享</button>
+            <button class="share-btn copy-link" onclick="copyShareLink()">📋 複製結果</button>
+        </div>
+    </div>`;
 }
 
 // ============================================================
