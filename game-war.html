@@ -877,9 +877,9 @@ const DISTRICTS = [
 const MAP_ROWS = [[0,1,2],[3,4,5],[6,7,8],[9,10,11],[12,13,14],[15,16,17]];
 
 const COMPANY_DATA = [
-    { name: '鋼鐵巨頭', money: 1800, troops: 45, tech: 2, recruitCost: 180, startDistricts: [0, 1, 3] },
-    { name: '光速先鋒', money: 1000, troops: 30, tech: 3, recruitCost: 200, startDistricts: [2, 5, 8] },
-    { name: '靈活游擊', money: 1200, troops: 35, tech: 2, recruitCost: 120, startDistricts: [15, 16, 17] },
+    { name: '鋼鐵巨頭', money: 1300, troops: 35, tech: 2, recruitCost: 200, startDistricts: [6, 7, 10] },
+    { name: '光速先鋒', money: 1100, troops: 30, tech: 2, recruitCost: 180, startDistricts: [0, 1, 2] },
+    { name: '靈活游擊', money: 1300, troops: 35, tech: 2, recruitCost: 120, startDistricts: [15, 16, 17] },
 ];
 
 const GENERAL_POOL = [
@@ -1418,7 +1418,7 @@ function doAttack(districtId) {
     const playerPower = getTotalPlayerPower();
 
     // Enhanced win rate calculation — generals and tech matter A LOT
-    let winRate = Math.round((playerPower / (d.troops + d.defense + 10)) * 30 + G.tech * 8);
+    let winRate = Math.round((playerPower / (d.troops + d.defense + 10)) * 35 + G.tech * 8);
 
     // No generals = penalty
     if (G.generals.length === 0) {
@@ -1754,50 +1754,97 @@ function enemyTurn() {
         // Enemy gets income
         enemy.money += eDists.reduce((s, d) => s + d.income, 0) / 10;
 
-        // AI gets smarter over time
-        const roll = Math.random();
-        const aggressiveness = 0.25 + G.month * 0.005; // Moderate aggression
+        // Enemy does 1 smart action per turn
+        for (let action = 0; action < 1; action++) {
+            const roll = Math.random();
+            const phase = G.month <= 6 ? 'early' : G.month <= 18 ? 'mid' : 'late';
 
-        if (roll < aggressiveness) {
-            // Attack — prioritize weak player districts
-            const owned = new Set(eDists.map(d => d.id));
+            // Find attackable targets
+            const owned = new Set();
+            eDists.forEach(d => owned.add(d.id));
+            // Re-check since districts may have changed
+            G.districts.forEach((d, i) => { if (d.owner === tag) owned.add(i); });
             const targets = [];
-            eDists.forEach(d => {
-                DISTRICTS[d.id].adj.forEach(adj => {
-                    if (!owned.has(adj)) targets.push(adj);
+            owned.forEach(id => {
+                DISTRICTS[id].adj.forEach(adj => {
+                    if (!owned.has(adj)) targets.add ? null : targets.push(adj);
                 });
             });
-            if (targets.length > 0) {
-                // Sort targets: prefer player's weakest districts
-                const sortedTargets = targets.sort((a, b) => {
-                    const da = G.districts[a]; const db = G.districts[b];
-                    const aScore = (da.owner === 'player' ? -100 : 0) + da.troops + da.defense;
-                    const bScore = (db.owner === 'player' ? -100 : 0) + db.troops + db.defense;
-                    return aScore - bScore;
-                });
-                const tgt = sortedTargets[0];
-                const d = G.districts[tgt];
-                const attackPower = eDists.reduce((s, dd) => s + dd.troops, 0) * 0.2 + enemy.tech * 8;
-                const defPower = d.troops + d.defense + 15;
-                if (Math.random() < (attackPower / (attackPower + defPower + 20))) {
-                    d.owner = tag;
-                    d.troops = 15 + Math.floor(Math.random() * 10);
-                    d.defense = 5;
+            // Deduplicate
+            const targetSet = new Set();
+            owned.forEach(id => { DISTRICTS[id].adj.forEach(adj => { if (!owned.has(adj)) targetSet.add(adj); }); });
+            const uniqueTargets = [...targetSet];
+
+            // Find weak player districts adjacent to enemy
+            const weakPlayerTargets = uniqueTargets.filter(id => G.districts[id].owner === 'player' && (G.districts[id].troops + G.districts[id].defense) < 30);
+            const neutralTargets = uniqueTargets.filter(id => G.districts[id].owner === 'neutral');
+
+            // Smart decision making
+            if (phase === 'early') {
+                // Early game: grab neutral territories
+                if (roll < 0.5 && neutralTargets.length > 0) {
+                    aiAttackTarget(tag, ei, neutralTargets, enemy);
+                } else {
+                    aiReinforce(tag, phase);
+                }
+            } else if (phase === 'mid') {
+                // Mid game: attack player if weak, otherwise expand
+                if (roll < 0.25 && weakPlayerTargets.length > 0) {
+                    aiAttackTarget(tag, ei, weakPlayerTargets, enemy);
+                } else if (roll < 0.50 && neutralTargets.length > 0) {
+                    aiAttackTarget(tag, ei, neutralTargets, enemy);
+                } else if (roll < 0.75) {
+                    aiReinforce(tag, phase);
+                } else {
+                    enemy.tech += 0.6;
+                }
+            } else {
+                // Late game: aggressive — focus on attacking player
+                if (roll < 0.35 && weakPlayerTargets.length > 0) {
+                    aiAttackTarget(tag, ei, weakPlayerTargets, enemy);
+                } else if (roll < 0.55 && uniqueTargets.length > 0) {
+                    aiAttackTarget(tag, ei, uniqueTargets, enemy);
+                } else if (roll < 0.85) {
+                    aiReinforce(tag, phase);
+                } else {
+                    enemy.tech += 0.8;
                 }
             }
-        } else if (roll < aggressiveness + 0.25) {
-            // Reinforce
-            eDists.forEach(d => {
-                d.troops += 2 + Math.floor(G.month / 12);
-                d.defense += 1;
-            });
-        } else if (roll < aggressiveness + 0.4) {
-            // Recruit
-            eDists.forEach(d => d.troops += 2 + Math.floor(G.month / 10));
-        } else {
-            // Tech
-            enemy.tech += 0.5;
         }
+    });
+}
+
+function aiAttackTarget(tag, ei, targetList, enemy) {
+    if (targetList.length === 0) return;
+    // Pick weakest target
+    const tgt = targetList.reduce((a, b) =>
+        (G.districts[a].troops + G.districts[a].defense) < (G.districts[b].troops + G.districts[b].defense) ? a : b
+    );
+    const d = G.districts[tgt];
+    const eDists = enemyDistricts(tag);
+    const totalTroops = eDists.reduce((s, dd) => s + dd.troops, 0);
+    const attackPower = totalTroops * 0.22 + enemy.tech * 7 + G.month * 0.25;
+    const defPower = d.troops + d.defense;
+    const winChance = attackPower / (attackPower + defPower + 13);
+
+    if (Math.random() < winChance) {
+        const oldOwner = d.owner;
+        d.owner = tag;
+        d.troops = 18 + Math.floor(Math.random() * 12);
+        d.defense = 5 + Math.floor(G.month / 6);
+        // Notify player if they lost a district
+        if (oldOwner === 'player') {
+            G.enemyAttackLog = (G.enemyAttackLog || '') + '\n⚠️ ' + (tag === 'enemy1' ? G.enemies[0].name : G.enemies[1].name) + ' 搶走咗 ' + DISTRICTS[tgt].name + '！';
+        }
+    }
+}
+
+function aiReinforce(tag, phase) {
+    const eDists = enemyDistricts(tag);
+    const bonus = phase === 'early' ? 0 : phase === 'mid' ? 1 : 2;
+    eDists.forEach(d => {
+        d.troops += 2 + bonus + Math.floor(G.month / 12);
+        d.defense += 1 + Math.floor(bonus / 2);
     });
 }
 
@@ -1832,24 +1879,9 @@ function nextMonth() {
     // Enemy turn
     enemyTurn();
 
-    // ENEMY COUNTER-ATTACK: enemies target player's weakest district (less frequent)
-    let lostDistrict = '';
-    const vulnerableDistricts = playerDistricts().filter(d => d.defense < 5 && d.troops < 12);
-    if (vulnerableDistricts.length > 0 && Math.random() < 0.15 + (G.month * 0.005)) {
-        // Enemy attacks weakest player district
-        const weakest = vulnerableDistricts.reduce((a, b) => (a.defense + a.troops) < (b.defense + b.troops) ? a : b);
-        const attackerTag = countDistricts('enemy1') >= countDistricts('enemy2') ? 'enemy1' : 'enemy2';
-        const attackerName = attackerTag === 'enemy1' ? G.enemies[0].name : G.enemies[1].name;
-        const attackPower = Math.random() * 30 + G.month * 1;
-        const defPower = weakest.defense + weakest.troops;
-
-        if (attackPower > defPower) {
-            weakest.owner = attackerTag;
-            weakest.troops = 15 + Math.floor(Math.random() * 10);
-            weakest.defense = 5;
-            lostDistrict = '\n\n⚠️ 危險！' + attackerName + '偷襲咗 ' + DISTRICTS[weakest.id].name + '！防守太弱被搶走！';
-        }
-    }
+    // Show enemy attack results from AI turn
+    let lostDistrict = G.enemyAttackLog || '';
+    G.enemyAttackLog = '';
 
     // Show summary
     G.phase = 'summary';
