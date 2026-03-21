@@ -1396,12 +1396,16 @@ let p1 = new Fighter(200, '寬頻英雄', '#2255cc', false);
 let p2 = new Fighter(700, '斷線魔皇', '#cc2222', true);
 
 function startRound() {
+  // If match is over (someone got 2 wins), reset everything for new match
+  if (p1Wins >= 2 || p2Wins >= 2 || roundNum === 1) {
+    p1Wins = 0; p2Wins = 0; roundNum = 1;
+    totalDamageDealt = 0; maxCombo = 0; matchStartTime = Date.now();
+  }
   gameState = 'fighting'; timer = 99;
   initAudio(); playSound('start');
   p1.reset(200); p2.reset(700);
   comboTexts = []; hitSparks = []; energyTrails = []; koTimer = 0;
   showingVictory = false; victoryTimer = 0;
-  if (roundNum === 1) { totalDamageDealt = 0; maxCombo = 0; matchStartTime = Date.now(); }
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     if (gameState === 'fighting') { timer--; if (timer <= 0) { timer = 0; endRound(); } }
@@ -1691,10 +1695,18 @@ function drawHUD() {
   ctx.font = 'bold 14px Arial'; ctx.fillStyle = '#4af'; ctx.textAlign = 'left';
   ctx.fillText(`P1 ${p1.name}`, 42, 8);
   ctx.fillStyle = '#f44'; ctx.textAlign = 'right'; ctx.fillText(`CPU ${p2.name}`, 858, 8);
-  // Wins
+  // Round wins (BO3 dots)
   ctx.textAlign = 'left';
-  for (let i = 0; i < p1Wins; i++) { ctx.fillStyle = '#ff0'; ctx.beginPath(); ctx.arc(45+i*20, 53, 6, 0, Math.PI*2); ctx.fill(); }
-  for (let i = 0; i < p2Wins; i++) { ctx.fillStyle = '#ff0'; ctx.beginPath(); ctx.arc(855-i*20, 53, 6, 0, Math.PI*2); ctx.fill(); }
+  for (let i = 0; i < 2; i++) {
+    ctx.fillStyle = i < p1Wins ? '#0f0' : '#333';
+    ctx.beginPath(); ctx.arc(45+i*16, 53, 5, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#888'; ctx.lineWidth = 1; ctx.stroke();
+  }
+  for (let i = 0; i < 2; i++) {
+    ctx.fillStyle = i < p2Wins ? '#f00' : '#333';
+    ctx.beginPath(); ctx.arc(855-i*16, 53, 5, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = '#888'; ctx.lineWidth = 1; ctx.stroke();
+  }
   // Dash cooldown indicator (P1)
   let dashReady = p1.dashCooldown <= 0;
   let dashPct = dashReady ? 1 : 1 - (p1.dashCooldown / p1.dashMaxCooldown);
@@ -1774,12 +1786,46 @@ function drawKO() {
 
   if (elapsed > 40) {
     ctx.fillStyle = '#ff0'; ctx.font = 'bold 36px Arial';
-    ctx.fillText(`${winner.name} 勝利!`, 450, 340);
+    ctx.fillText(`${winner.name} 勝利!`, 450, 320);
 
-    if (!(p1Wins >= 2 || p2Wins >= 2)) {
+    // Round score display
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 22px Arial';
+    ctx.fillText(`ROUND ${roundNum}`, 450, 360);
+
+    // Score circles: P1 vs P2
+    ctx.font = 'bold 18px Arial';
+    ctx.fillStyle = '#0af';
+    ctx.fillText('寬頻英雄', 300, 395);
+    ctx.fillStyle = '#f44';
+    ctx.fillText('斷線魔皇', 600, 395);
+
+    // Win dots
+    for (let i = 0; i < 2; i++) {
+      // P1 dots
+      ctx.fillStyle = i < p1Wins ? '#0f0' : '#333';
+      ctx.beginPath(); ctx.arc(280 + i*30, 415, 10, 0, Math.PI*2); ctx.fill();
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+      ctx.stroke();
+      // P2 dots
+      ctx.fillStyle = i < p2Wins ? '#f00' : '#333';
+      ctx.beginPath(); ctx.arc(580 + i*30, 415, 10, 0, Math.PI*2); ctx.fill();
+      ctx.stroke();
+    }
+
+    // VS text
+    ctx.fillStyle = '#ff6600'; ctx.font = 'bold 26px Arial';
+    ctx.fillText(`${p1Wins} - ${p2Wins}`, 450, 420);
+
+    if (p1Wins >= 2 || p2Wins >= 2) {
+      // Match over
+      ctx.fillStyle = p1Wins >= 2 ? '#0af' : '#f44';
+      ctx.font = 'bold 24px Arial';
+      ctx.fillText(p1Wins >= 2 ? '全港網絡已守護！' : '全港斷線...', 450, 460);
+    } else {
+      // Next round prompt
       if (Math.sin(Date.now()*0.005) > 0) {
         ctx.fillStyle = '#aaa'; ctx.font = '20px Arial';
-        ctx.fillText('按 SPACE 下一回合', 450, 400);
+        ctx.fillText('按 SPACE 或點擊畫面 → 下一回合', 450, 470);
       }
     }
   }
@@ -1813,11 +1859,14 @@ function gameLoop() {
     koTimer--;
     if (koTimer <= 0) {
       if (p1Wins >= 2 || p2Wins >= 2) {
+        // Match over! Show final victory screen
         gameState = 'victory';
         showVictoryScreen();
       } else {
+        // Round over, wait for player to start next round
         gameState = 'victory';
         roundNum++;
+        // Don't set showingVictory — KO screen shows score + "next round" prompt
       }
     }
   }
