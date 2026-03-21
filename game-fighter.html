@@ -516,10 +516,12 @@ function checkAttack(attacker, defender) {
 }
 
 function drawBackground() {
-  // Sky
-  let grad = ctx.createLinearGradient(0, 0, 0, 400);
+  // Clear entire canvas first
+  ctx.clearRect(0, 0, 900, 600);
+  // Sky - fill full height as base
+  let grad = ctx.createLinearGradient(0, 0, 0, 530);
   grad.addColorStop(0, '#1a0a2e'); grad.addColorStop(0.5, '#2d1b4e'); grad.addColorStop(1, '#4a2c6e');
-  ctx.fillStyle = grad; ctx.fillRect(0, 0, 900, 400);
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, 900, 530);
 
   // Buildings with pre-calculated windows (no flickering)
   for (let bi = 0; bi < buildings.length; bi++) {
@@ -593,7 +595,7 @@ function drawHUD() {
 }
 
 function drawTitle() {
-  ctx.save(); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, 900, 600);
+  ctx.save(); ctx.clearRect(0, 0, 900, 600); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, 900, 600);
   for (let i = 0; i < 50; i++) {
     ctx.fillStyle = `hsl(${(Date.now()*0.05+i*20)%360}, 80%, 50%)`; ctx.globalAlpha = 0.05;
     let x = Math.sin(Date.now()*0.001+i)*400+450, y = Math.cos(Date.now()*0.001+i*0.7)*250+300;
