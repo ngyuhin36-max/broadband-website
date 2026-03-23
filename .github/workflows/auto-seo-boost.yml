@@ -1,0 +1,33 @@
+name: Auto SEO Boost - 自動爭取曝光
+
+# 每日香港時間早上 8 點自動執行 (UTC 00:00)
+on:
+  schedule:
+    - cron: '0 0 * * *'    # 每日跑一次
+  workflow_dispatch:         # 可以手動觸發
+
+jobs:
+  seo-boost:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run auto SEO boost
+        run: python .github/scripts/auto_boost.py
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-report-${{ github.run_number }}
+          path: seo_daily_report.json
+          retention-days: 30
