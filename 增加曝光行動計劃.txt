@@ -1,0 +1,182 @@
+=============================================
+BroadbandHK 增加曝光 — 行動計劃
+網站：https://broadbandhk.com
+日期：2026-03-19
+=============================================
+
+
+=== 問題分析 ===
+
+1. Google 仍然索引緊舊版網站內容（/en/ 路徑、報價熱線 23308372）
+2. 新網站內容（$98 計劃、SpeedNet）未被 Google 收錄
+3. 網站只有 2 日，Google 需時收錄
+4. 競爭對手（probroadbandprice.com, 5gplanhk.com, findplanking.com）已佔據搜尋排名
+
+
+=== 第一：Google Search Console 提交（最重要，5 分鐘）===
+
+1. 去 https://search.google.com/search-console
+2. 登入 Google 帳號
+3. 新增網站：https://broadbandhk.com
+4. 驗證方式：HTML 標籤（最簡單）
+   - 複製 Google 畀你嘅 meta tag
+   - 加到網站 <head> 裡面
+5. 驗證成功後：
+   - 左邊選單 → Sitemaps
+   - 提交：https://broadbandhk.com/sitemap.xml
+6. 左邊選單 → URL Inspection
+   - 輸入 https://broadbandhk.com/
+   - 點「Request Indexing」（要求索引）
+   - 對每個重要頁面都做一次
+
+呢步最重要！主動叫 Google 嚟收錄你嘅網站。
+
+
+=== 第二：Google My Business 商家檔案（免費，10 分鐘）===
+
+1. 去 https://business.google.com/
+2. 建立商家檔案：
+   - 商家名：BroadbandHK 寬頻格價比較
+   - 類別：Internet Service Provider
+   - 地區：香港
+   - 電話：2330 8372
+   - 網站：https://broadbandhk.com
+   - WhatsApp：5228 7541
+3. 驗證商家（通常寄明信片或電話驗證）
+4. 加相片、營業時間、服務描述
+
+效果：
+- Google 搜尋「broadbandhk」會喺右邊顯示你嘅商家資訊
+- Google Maps 會顯示你嘅商家
+- 增加可信度
+
+
+=== 第三：免費登錄香港目錄網站（30 分鐘）===
+
+去以下網站登錄你嘅商家（免費）：
+
+1. HK Listing — https://www.hklisting.com/
+2. 香港貿發局 — https://www.hktdc.com/
+3. 28Hse — https://www.28hse.com/（地產相關，搬屋客人）
+4. OpenRice 商戶 — 雖然係食店，但有本地 SEO 效果
+5. Facebook Page（你已有）
+6. Instagram（你已有）
+7. LinkedIn Company Page
+8. Yelp Hong Kong
+
+每個網站都加：
+- 商家名
+- 網址 https://broadbandhk.com
+- 電話
+- 描述
+
+效果：建立 Backlink（外部連結），幫助 Google 排名
+
+
+=== 第四：在討論區/社群推廣（每日 15 分鐘）===
+
+去以下地方分享有用內容（唔好硬銷）：
+
+1. LIHKG（連登）
+   - 搜尋「寬頻」相關帖子
+   - 真誠回答人哋嘅寬頻問題
+   - 可以適當提到你嘅網站
+
+2. 香港討論區 discuss.com.hk
+   - 寬頻/上網版塊
+   - 回答問題，附上你嘅格價連結
+
+3. Facebook Groups
+   - 搜尋「香港寬頻」「搬屋」「新居入伙」群組
+   - 加入後分享有用資訊
+   - 例如：「幫大家比較咗 2026 年各大寬頻商月費」附連結
+
+4. Baby Kingdom / 親子王國
+   - 搬屋/家居版塊
+   - 媽媽群組成日傾寬頻
+
+5. WhatsApp 群組
+   - 屋苑業主群
+   - 轉發你嘅格價資訊
+
+重點：提供有用資訊，唔好純廣告，否則會被 ban。
+
+
+=== 第五：Google Ads 小額廣告（最快見效）===
+
+預算：$50-100/日 就夠
+
+設定：
+1. 去 https://ads.google.com
+2. 建立搜尋廣告（Search Campaign）
+3. 關鍵詞：
+   - 寬頻格價
+   - 寬頻比較
+   - 平價寬頻
+   - 光纖寬頻月費
+   - 搬屋寬頻
+   - 寬頻報價
+   - 100M 寬頻
+   - 1000M 寬頻
+4. 地區：只限香港
+5. 語言：繁體中文
+6. 廣告文字範例：
+   標題：寬頻格價比較 | 月費低至 $98
+   描述：一次比較全港寬頻供應商，免安裝費，免費 Router，即時 WhatsApp 報價
+7. Landing Page：https://broadbandhk.com
+
+效果：即日見效，有人搜尋寬頻就會見到你嘅廣告
+
+
+=== 第六：Facebook 廣告引流（$20-50/日）===
+
+1. 去 Facebook Ads Manager
+2. 目標：Traffic（網站流量）
+3. 受眾：
+   - 地區：香港
+   - 年齡：25-55
+   - 興趣：搬屋、家居、WiFi、科技
+4. 廣告素材：用你已有嘅 IG 帖子圖片
+5. CTA：「了解更多」→ https://broadbandhk.com
+
+配合你嘅 FB Page 一齊用，效果更好。
+
+
+=== 第七：內容 SEO（長期策略）===
+
+你嘅網站已有知識庫文章，但需要更多針對搜尋嘅內容：
+
+目標關鍵詞同建議文章：
+
+1. 「寬頻比較 2026」→ 寫一篇全面比較文章
+2. 「搬屋寬頻攻略」→ 搬屋轉寬頻完整指南
+3. 「公屋寬頻邊間好」→ 公屋寬頻格價比較
+4. 「村屋寬頻」→ 村屋寬頻安裝指南
+5. 「Router 推薦 2026」→ 最新 Router 選購指南
+6. 「5G 家居寬頻 vs 光纖」→ 詳細比較文章
+7. 「寬頻約滿點算」→ 合約到期轉台攻略
+8. 「XX屋苑寬頻」→ 各大屋苑專屬頁面（你已有）
+
+每篇文章 800-1500 字，包含：
+- 標題含關鍵詞
+- H2/H3 小標題
+- 表格比較
+- FAQ 問答
+- CTA（WhatsApp 查詢）
+
+
+=== 優先順序（由快到慢）===
+
+即日做：
+1. ✅ Google Search Console 提交 sitemap
+2. ✅ Google My Business 登錄
+3. ✅ Facebook / 討論區分享
+
+本週做：
+4. ✅ Google Ads 小額廣告
+5. ✅ 免費目錄網站登錄
+6. ✅ FB 廣告引流
+
+持續做：
+7. ✅ 每週發 1-2 篇 SEO 文章
+8. ✅ 每日在討論區/群組互動

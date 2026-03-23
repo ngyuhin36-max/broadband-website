@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #eee; }
+  .slide { width: 1080px; height: 1350px; font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif; background: #0A1628; color: white; padding: 60px; display: flex; flex-direction: column; }
+  .logo { font-size: 32px; font-weight: 900; color: #1E90FF; margin-bottom: 40px; }
+  .logo span { color: #FF6B35; }
+  .title { font-size: 52px; font-weight: 900; text-align: center; margin-bottom: 60px; color: #8BB8E8; }
+  .compare-list { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 40px; }
+  .row { display: flex; align-items: center; padding: 35px 40px; border-radius: 20px; font-size: 44px; font-weight: 700; }
+  .row.winner { background: linear-gradient(135deg, #1E90FF 0%, #0066CC 100%); border: 4px solid #4DA6FF; }
+  .row.loser { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #999; }
+  .row .name { flex: 1; }
+  .row .price { text-align: right; }
+  .row.winner .price { color: #FFD700; font-size: 52px; }
+  .row .badge { background: #FF6B35; color: white; padding: 8px 20px; border-radius: 30px; font-size: 28px; margin-left: 20px; }
+  .save { text-align: center; margin-top: 40px; font-size: 36px; color: #FF6B35; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="logo">Speed<span>Net</span></div>
+  <div class="title">⚡ 100M 月費比較</div>
+  <div class="compare-list">
+    <div class="row winner">
+      <div class="name">SpeedNet</div>
+      <div class="price">$98/月</div>
+      <div class="badge">最平 ✅</div>
+    </div>
+    <div class="row loser">
+      <div class="name">供應商 A</div>
+      <div class="price">$158/月</div>
+    </div>
+    <div class="row loser">
+      <div class="name">供應商 B</div>
+      <div class="price">$138/月</div>
+    </div>
+    <div class="row loser">
+      <div class="name">供應商 C</div>
+      <div class="price">$148/月</div>
+    </div>
+  </div>
+  <div class="save">每月慳 $40-60！一年慳超過 $500！</div>
+</div>
+</body>
+</html>

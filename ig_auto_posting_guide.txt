@@ -1,0 +1,129 @@
+=============================================
+SpeedNet Instagram 自動發帖工具設置指南
+=============================================
+
+
+=== 免費工具推薦 ===
+
+--- 1. Meta Business Suite（最推薦，完全免費）---
+
+呢個係 Facebook / Instagram 官方工具，可以預先排好帖子自動發佈。
+
+設定步驟：
+1. 下載「Meta Business Suite」app（手機）或去 business.facebook.com（電腦）
+2. 登入你嘅 Facebook 帳號
+3. 連接 SpeedNet 嘅 IG 帳號（@broadbandhk）
+   - IG 要先轉為 Professional Account
+   - 設定 → Account → Switch to Professional Account → Business
+4. 連接你嘅 Facebook Page
+
+排程發帖：
+1. 打開 Meta Business Suite
+2. 點「Create Post」
+3. 選擇「Instagram Feed」（或同時發 IG + FB）
+4. 上傳圖片 / 影片
+5. 寫 Caption
+6. 點「Schedule」（排程）→ 揀日期同時間
+7. 確認！到時間就會自動發佈
+
+可以排程嘅內容：
+✅ Feed 帖子（單圖 + 輪播圖）
+✅ Story
+✅ Reels
+✅ Facebook 帖子（可以同步發）
+
+優點：
+- 完全免費
+- 官方工具，唔怕被封帳號
+- 可以同時管理 IG + FB
+- 有 Insights 數據分析
+
+
+--- 2. Later（免費版每月 5 個帖子）---
+
+網站：later.com
+
+適合：想要更好嘅視覺排版預覽
+免費版限制：每月 5 個帖子
+付費版：$25 USD/月（30 個帖子）
+
+功能：
+- 拖放式排程
+- 預覽 IG 版面效果
+- 最佳發帖時間建議
+- Hashtag 建議
+
+
+--- 3. Canva 內建排程 ===
+
+如果你已經用 Canva 設計圖片，可以直接從 Canva 排程發帖！
+
+步驟：
+1. 設計好圖片
+2. 點右上角「Share」
+3. 選「Schedule」
+4. 連接 IG 帳號
+5. 寫 Caption + 揀時間
+6. 搞掂！設計 + 發帖一條龍
+
+免費版限制：每月 5 個排程帖子
+Pro 版（$13 USD/月）：無限排程
+
+
+=== 推薦工作流程（全免費）===
+
+用 Meta Business Suite 做排程，因為完全免費無限制。
+
+每週日花 1-2 小時一次過搞掂成個星期：
+
+Step 1：用 Canva 設計 3-4 張帖子圖片（約 40-60 分鐘）
+Step 2：下載所有圖片到手機
+Step 3：打開 Meta Business Suite
+Step 4：逐個帖子上傳 + 寫 Caption + 設定排程時間（約 20-30 分鐘）
+Step 5：確認所有排程帖子
+
+排程時間建議：
+- 星期一 20:00 — 價格/優惠帖
+- 星期三 12:30 — Reel / 教學帖
+- 星期五 20:00 — 客戶評價 / 知識帖
+- 星期日 10:00 — 輪播圖教學帖
+
+咁樣每日只需要花 5-10 分鐘做互動（回留言、去其他帳號留言），唔使每日諗發咩帖！
+
+
+=== IG Professional Account 設定（必做）===
+
+如果未轉，跟住以下步驟：
+
+1. 打開 IG app
+2. 去你嘅 Profile
+3. 點右上角 ☰ 選單
+4. Settings and privacy
+5. Account type and tools
+6. Switch to Professional Account
+7. 選「Business」（唔係 Creator）
+8. 選 Category：「Internet Service Provider」或「Telecommunications」
+9. 連接你嘅 Facebook Page
+10. 搞掂！
+
+轉咗之後你會有：
+- Insights（數據分析）
+- 排程功能
+- 廣告功能
+- 聯絡按鈕（Email / WhatsApp / 地址）
+- 可以加 WhatsApp 按鈕喺 profile
+
+
+=== IG Profile 優化 ===
+
+轉咗 Professional Account 之後，更新 Profile：
+
+1. Profile Photo：SpeedNet logo（清晰、圓形裁剪好睇）
+2. Name：SpeedNet 極速寬頻（用中文，方便搜索）
+3. Username：@broadbandhk
+4. Bio：用之前寫好嘅（見 instagram_content.txt）
+5. Contact：加 WhatsApp 按鈕 → 5228 7541
+6. Action Button：加 WhatsApp 或 Website
+7. Link：broadbandhk.com（或用 linktr.ee 放多個連結）
+8. Category：Internet Service Provider
+9. Highlights：設定 5 個分類（見 instagram_content.txt）
