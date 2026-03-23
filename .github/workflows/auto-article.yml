@@ -1,0 +1,41 @@
+name: Auto Article Publisher - 自動發佈深度文章
+
+# 每周一、四 香港時間早上 9 點自動發佈 (UTC 01:00)
+on:
+  schedule:
+    - cron: '0 1 * * 1,4'   # 周一、周四
+  workflow_dispatch:          # 可手動觸發
+
+permissions:
+  contents: write
+
+jobs:
+  publish-article:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate and publish article
+        run: python .github/scripts/auto_article.py
+
+      - name: Commit and push new article
+        run: |
+          git config user.name "BroadbandHK Bot"
+          git config user.email "bot@broadbandhk.com"
+          git add -A
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No new articles to publish"
+          else
+            git commit -m "Auto-publish new KB article $(date +%Y-%m-%d)"
+            git push
+            echo "New article published!"
+          fi
