@@ -353,7 +353,18 @@
         min-width: 180px;
         box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         z-index: 1001;
-        margin-top: 8px;
+        margin-top: 0;
+        padding-top: 16px;
+    }
+    /* 透明橋接區域，防止滑鼠移動時 hover 斷開 */
+    .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        left: 0;
+        right: 0;
+        height: 16px;
+        background: transparent;
     }
     .nav-dropdown:hover .dropdown-menu { display: block; }
     .dropdown-menu a {
