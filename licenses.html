@@ -50,7 +50,7 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "香港牌照申請大全 2026",
-        "description": "香港所有牌照申請類型及詳情一覽，涵蓋食肆、酒牌、商業登記、建築、運輸、教育等 50 多個牌照。",
+        "description": "涵蓋食肆、酒牌、商業登記、金融、建築、運輸、醫療、娛樂及環境安全等 90 多個牌照",
         "url": "https://broadbandhk.com/licenses.html",
         "datePublished": "2026-03-29",
         "dateModified": "2026-03-29",
@@ -142,20 +142,18 @@
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "香港牌照申請分類",
-        "description": "香港所有牌照申請分為 10 大類別",
-        "numberOfItems": 11,
+        "description": "香港所有牌照申請分為 9 大類別",
+        "numberOfItems": 9,
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "食品餐飲牌照"},
-            {"@type": "ListItem", "position": 2, "name": "商業營運牌照"},
-            {"@type": "ListItem", "position": 3, "name": "運輸及駕駛牌照"},
-            {"@type": "ListItem", "position": 4, "name": "建築及工程牌照"},
-            {"@type": "ListItem", "position": 5, "name": "教育及培訓牌照"},
-            {"@type": "ListItem", "position": 6, "name": "醫療及健康牌照"},
-            {"@type": "ListItem", "position": 7, "name": "娛樂及消閒牌照"},
-            {"@type": "ListItem", "position": 8, "name": "物業及地產牌照"},
-            {"@type": "ListItem", "position": 9, "name": "金融及保險牌照"},
-            {"@type": "ListItem", "position": 10, "name": "個人專業牌照"},
-            {"@type": "ListItem", "position": 11, "name": "其他常見牌照"}
+            {"@type": "ListItem", "position": 2, "name": "商業及公司牌照"},
+            {"@type": "ListItem", "position": 3, "name": "金融及專業服務牌照"},
+            {"@type": "ListItem", "position": 4, "name": "運輸及駕駛牌照"},
+            {"@type": "ListItem", "position": 5, "name": "建築及工程牌照"},
+            {"@type": "ListItem", "position": 6, "name": "娛樂、消閒及款待牌照"},
+            {"@type": "ListItem", "position": 7, "name": "醫療及社福牌照"},
+            {"@type": "ListItem", "position": 8, "name": "專業資格及培訓牌照"},
+            {"@type": "ListItem", "position": 9, "name": "環境、安全及特殊許可牌照"}
         ]
     }
     </script>
@@ -318,10 +316,13 @@
     .category-title {
         font-size: 1.8rem;
         font-weight: 800;
-        margin: 0 0 24px 0;
+        margin: 48px 0 24px 0;
         padding-bottom: 12px;
         border-bottom: 3px solid #6366f1;
         display: inline-block;
+    }
+    .category-title:first-of-type {
+        margin-top: 0;
     }
     .category-title .cat-icon {
         margin-right: 8px;
@@ -330,9 +331,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
         gap: 24px;
-        margin-bottom: 48px;
-    }
-    .license-grid:last-of-type {
         margin-bottom: 0;
     }
     .license-card {
@@ -530,16 +528,14 @@
         <div class="filter-tags">
             <button class="filter-tag active" data-cat="all">全部</button>
             <button class="filter-tag" data-cat="food">🍽️ 食品餐飲</button>
-            <button class="filter-tag" data-cat="business">🏢 商業營運</button>
-            <button class="filter-tag" data-cat="transport">🚗 運輸駕駛</button>
-            <button class="filter-tag" data-cat="construction">🏗️ 建築工程</button>
-            <button class="filter-tag" data-cat="education">🎓 教育培訓</button>
-            <button class="filter-tag" data-cat="health">🏥 醫療健康</button>
-            <button class="filter-tag" data-cat="entertainment">🎭 娛樂消閒</button>
-            <button class="filter-tag" data-cat="property">🏠 物業地產</button>
-            <button class="filter-tag" data-cat="finance">💰 金融保險</button>
-            <button class="filter-tag" data-cat="personal">🪪 個人專業</button>
-            <button class="filter-tag" data-cat="others">📦 其他牌照</button>
+            <button class="filter-tag" data-cat="business">🏢 商業及公司</button>
+            <button class="filter-tag" data-cat="finance">💰 金融及專業服務</button>
+            <button class="filter-tag" data-cat="transport">🚗 運輸及駕駛</button>
+            <button class="filter-tag" data-cat="construction">🏗️ 建築及工程</button>
+            <button class="filter-tag" data-cat="entertainment">🎭 娛樂、消閒及款待</button>
+            <button class="filter-tag" data-cat="health">🏥 醫療及社福</button>
+            <button class="filter-tag" data-cat="professional">🪪 專業資格及培訓</button>
+            <button class="filter-tag" data-cat="environment">🛡️ 環境、安全及特殊許可</button>
         </div>
     </div>
 </section>
@@ -547,6 +543,7 @@
 <!-- License Content -->
 <section class="license-section">
 <div class="container">
+
 
 <!-- ===== 食品餐飲 ===== -->
 <h2 class="category-title" data-cat="food"><span class="cat-icon">🍽️</span> 食品餐飲牌照</h2>
@@ -733,10 +730,21 @@
         <span class="tag tag-time">最多 7 天</span>
     </div>
 
+    <div class="license-card" data-keywords="臨時酒牌 活動酒牌 event 派對">
+        <span class="card-icon">🥂</span>
+        <h3>臨時酒牌</h3>
+        <p class="desc">在特定活動或場合中臨時供應酒類飲品須申請臨時酒牌。適用於嘉年華、派對、婚禮等。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">民政事務總署牌照事務處</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">指定日期（通常數天）</span></div>
+        </div>
+        <span class="tag tag-gov">民政事務總署</span>
+    </div>
+
 </div>
 
-<!-- ===== 商業營運 ===== -->
-<h2 class="category-title" data-cat="business"><span class="cat-icon">🏢</span> 商業營運牌照</h2>
+<!-- ===== 商業及公司 ===== -->
+<h2 class="category-title" data-cat="business"><span class="cat-icon">🏢</span> 商業及公司牌照</h2>
 <div class="license-grid" data-cat="business">
 
     <div class="license-card" data-keywords="商業登記證 BR 開公司">
@@ -782,18 +790,6 @@
         <span class="tag tag-gov">工業貿易署</span>
     </div>
 
-    <div class="license-card" data-keywords="二手交易商 二手店 當鋪 當押商">
-        <span class="card-icon">🏪</span>
-        <h3>當押商牌照</h3>
-        <p class="desc">經營當押業務（當鋪）必須持有。受《當押商條例》規管，需符合嚴格營運要求。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">警務處</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
-            <div class="info-row"><span class="label">注意事項</span><span class="value">需無犯罪紀錄，處所須符合保安要求</span></div>
-        </div>
-        <span class="tag tag-gov">警務處</span>
-    </div>
-
     <div class="license-card" data-keywords="旅行代理商 旅行社 旅遊">
         <span class="card-icon">✈️</span>
         <h3>旅行代理商牌照</h3>
@@ -811,7 +807,7 @@
     <div class="license-card" data-keywords="保安公司 保安服務 護衞公司">
         <span class="card-icon">🛡️</span>
         <h3>保安公司牌照</h3>
-        <p class="desc">經營保安及護衞服務公司必須持有保安公司牌照。個人保安員許可證請參閱「個人專業」分類。</p>
+        <p class="desc">經營保安及護衞服務公司必須持有保安公司牌照。個人保安員許可證請參閱「環境、安全及特殊許可」分類。</p>
         <div class="license-info">
             <div class="info-row"><span class="label">簽發機關</span><span class="value">保安及護衞業管理委員會（SGSIA）</span></div>
             <div class="info-row"><span class="label">有效期</span><span class="value">2 年</span></div>
@@ -835,6 +831,18 @@
         <span class="tag tag-renew">3 年續期</span>
     </div>
 
+    <div class="license-card" data-keywords="二手交易商 二手店 當鋪 當押商">
+        <span class="card-icon">🏪</span>
+        <h3>當押商牌照</h3>
+        <p class="desc">經營當押業務（當鋪）必須持有。受《當押商條例》規管，需符合嚴格營運要求。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">警務處</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
+            <div class="info-row"><span class="label">注意事項</span><span class="value">需無犯罪紀錄，處所須符合保安要求</span></div>
+        </div>
+        <span class="tag tag-gov">警務處</span>
+    </div>
+
     <div class="license-card" data-keywords="殮葬商 殯儀 殯儀館 喪禮 白事">
         <span class="card-icon">⚱️</span>
         <h3>殮葬商牌照 / 殯儀館牌照</h3>
@@ -846,20 +854,197 @@
         <span class="tag tag-gov">食環署</span>
     </div>
 
-    <div class="license-card" data-keywords="厭惡性行業 化工 染廠 油漆">
-        <span class="card-icon">🏭</span>
-        <h3>厭惡性行業牌照</h3>
-        <p class="desc">經營產生噪音、氣味或污染的行業（如染廠、動物屠房、化學品加工等）須持有。</p>
+    <div class="license-card" data-keywords="物業管理 物管 大廈管理">
+        <span class="card-icon">🏢</span>
+        <h3>物業管理公司牌照</h3>
+        <p class="desc">提供物業管理服務的公司必須持有物業管理公司牌照。從業員亦需取得個人牌照。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">食物環境衞生署</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">物業管理業監管局</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">3 年</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">聘有持牌物業管理人、符合最低人手要求</span></div>
         </div>
-        <span class="tag tag-gov">食環署</span>
+        <span class="tag tag-gov">物管監管局</span>
+    </div>
+
+    <div class="license-card" data-keywords="電訊 ISP 寬頻 網絡 電訊商">
+        <span class="card-icon">📡</span>
+        <h3>電訊牌照</h3>
+        <p class="desc">提供電訊服務（如互聯網服務供應商 ISP、流動通訊等）必須持有相應電訊牌照。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">通訊事務管理局</span></div>
+            <div class="info-row"><span class="label">類別</span><span class="value">統一運營商牌照、服務營辦商牌照、類別牌照</span></div>
+        </div>
+        <span class="tag tag-gov">通訊局</span>
+    </div>
+
+    <div class="license-card" data-keywords="印刷 報紙 出版 傳媒">
+        <span class="card-icon">📰</span>
+        <h3>本地報刊註冊</h3>
+        <p class="desc">在香港出版報刊須向政府註冊。受《本地報刊註冊條例》規管。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">政府新聞處</span></div>
+        </div>
+        <span class="tag tag-gov">新聞處</span>
+    </div>
+
+    <div class="license-card" data-keywords="導遊 領隊 領隊牌 導遊牌 旅遊 TIC 出團">
+        <span class="card-icon">🧭</span>
+        <h3>導遊證 / 領隊證</h3>
+        <p class="desc">帶團出境需持有「領隊證」，帶團入境或本地需持有「導遊證」。須修讀認可課程並通過考核。兩者可同時申請。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">旅遊業監管局</span></div>
+            <div class="info-row"><span class="label">課程費用</span><span class="value">約 $1,500 - $3,000（認可培訓機構）</span></div>
+            <div class="info-row"><span class="label">證件費</span><span class="value">$200 - $300</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">3 年</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">年滿 18 歲、完成認可培訓課程、通過考核、無犯罪紀錄</span></div>
+        </div>
+        <span class="tag tag-gov">旅監局</span>
+        <span class="tag tag-fee">$200 起</span>
+        <span class="tag tag-renew">3 年續期</span>
     </div>
 
 </div>
 
-<!-- ===== 運輸駕駛 ===== -->
+<!-- ===== 金融及專業服務 ===== -->
+<h2 class="category-title" data-cat="finance"><span class="cat-icon">💰</span> 金融及專業服務牌照</h2>
+<div class="license-grid" data-cat="finance">
+
+    <div class="license-card" data-keywords="放債人 財務公司 貸款">
+        <span class="card-icon">🏦</span>
+        <h3>放債人牌照</h3>
+        <p class="desc">從事貸款業務（財務公司）必須持有放債人牌照。受《放債人條例》規管。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">放債人註冊處（高等法院）</span></div>
+            <div class="info-row"><span class="label">處理時間</span><span class="value">約 3-6 個月</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
+        </div>
+        <span class="tag tag-gov">高等法院</span>
+    </div>
+
+    <div class="license-card" data-keywords="金錢服務 找換店 匯款">
+        <span class="card-icon">💱</span>
+        <h3>金錢服務經營者牌照</h3>
+        <p class="desc">經營匯款或貨幣兌換服務（找換店）必須持有。受《打擊洗錢條例》規管。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">海關</span></div>
+            <div class="info-row"><span class="label">申請費用</span><span class="value">$8,920 起</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">2 年</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">無犯罪紀錄、反洗錢合規制度、適當人選審查</span></div>
+        </div>
+        <span class="tag tag-gov">海關</span>
+        <span class="tag tag-fee">$8,920 起</span>
+    </div>
+
+    <div class="license-card" data-keywords="虛擬資產 VASP 加密貨幣 交易所 crypto bitcoin">
+        <span class="card-icon">🪙</span>
+        <h3>虛擬資產服務提供者牌照（VASP）</h3>
+        <p class="desc">在香港經營虛擬資產（加密貨幣）交易平台須持有 VASP 牌照。2023 年 6 月起實施新發牌制度。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">證券及期貨事務監察委員會（SFC）</span></div>
+            <div class="info-row"><span class="label">申請費用</span><span class="value">$1,000,000（申請費）+ $1,500,000（年費）</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">資本要求、反洗錢合規、網絡安全措施、客戶資產保管制度</span></div>
+        </div>
+        <span class="tag tag-gov">證監會</span>
+        <span class="tag tag-fee">$100 萬起</span>
+    </div>
+
+    <div class="license-card" data-keywords="SVF 儲值支付 電子錢包 八達通 PayMe AlipayHK">
+        <span class="card-icon">📱</span>
+        <h3>儲值支付工具牌照（SVF）</h3>
+        <p class="desc">發行儲值支付工具（如電子錢包、預付卡）須持有 SVF 牌照。八達通、PayMe、AlipayHK 等均持有此牌。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港金融管理局（HKMA）</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">最低資本要求、風險管理制度、反洗錢合規</span></div>
+        </div>
+        <span class="tag tag-gov">金管局</span>
+    </div>
+
+    <div class="license-card" data-keywords="強積金 MPF 中介人 受託人">
+        <span class="card-icon">🏦</span>
+        <h3>強積金中介人 / 受託人註冊</h3>
+        <p class="desc">銷售強積金產品的中介人及營運強積金計劃的受託人均須向積金局註冊。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">強制性公積金計劃管理局（MPFA）</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">通過相關資格考試、受僱於註冊機構</span></div>
+        </div>
+        <span class="tag tag-gov">積金局</span>
+    </div>
+
+    <div class="license-card" data-keywords="保險個人 保險代理人 IIQE 保險中介人">
+        <span class="card-icon">📋</span>
+        <h3>個人保險代理人牌照</h3>
+        <p class="desc">以個人身份從事保險銷售須持有保險中介人牌照。需通過 IIQE（保險中介人資格考試）相關卷別。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">保險業監管局（IA）</span></div>
+            <div class="info-row"><span class="label">考試費</span><span class="value">$600 / 卷</span></div>
+            <div class="info-row"><span class="label">考試卷別</span><span class="value">卷一（基礎）、卷二（一般保險）、卷三（長期保險）、卷五（投連險）</span></div>
+            <div class="info-row"><span class="label">持續進修</span><span class="value">每年至少 10 小時 CPD</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">年滿 18 歲、中五畢業或同等學歷、通過 IIQE、品格審查</span></div>
+        </div>
+        <span class="tag tag-gov">保監局 IA</span>
+        <span class="tag tag-fee">$600 / 卷</span>
+    </div>
+
+    <div class="license-card" data-keywords="證券 個人 SFC RA 負責人員 持牌代表">
+        <span class="card-icon">📊</span>
+        <h3>證券持牌代表 / 負責人員</h3>
+        <p class="desc">從事證券、期貨、資產管理等受規管活動的個人，必須取得 SFC 持牌代表資格。負責人員（RO）需額外經驗要求。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">證券及期貨事務監察委員會（SFC）</span></div>
+            <div class="info-row"><span class="label">考試</span><span class="value">LE 卷一至卷十二（因活動類別而異）</span></div>
+            <div class="info-row"><span class="label">牌照費</span><span class="value">持牌代表 $2,710 / 負責人員 $4,340</span></div>
+            <div class="info-row"><span class="label">持續培訓</span><span class="value">每年至少 5 小時 CPT</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">通過相關 LE 考試、學歷及經驗要求、品格審查、受僱於持牌法團</span></div>
+        </div>
+        <span class="tag tag-gov">證監會 SFC</span>
+        <span class="tag tag-fee">$2,710 起</span>
+    </div>
+
+    <div class="license-card" data-keywords="會計師 CPA 核數師 個人 執業會計師">
+        <span class="card-icon">🧮</span>
+        <h3>執業會計師（CPA）</h3>
+        <p class="desc">在香港從事核數或公司秘書工作須為註冊會計師。需通過 QP 考試（專業資格課程）並完成實務經驗。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港會計師公會（HKICPA）</span></div>
+            <div class="info-row"><span class="label">會員費</span><span class="value">年費約 $3,800</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可學位、通過 QP 考試、3 年認可工作經驗</span></div>
+            <div class="info-row"><span class="label">持續進修</span><span class="value">每年 40 小時 CPD</span></div>
+        </div>
+        <span class="tag tag-gov">會計師公會</span>
+        <span class="tag tag-fee">年費 $3,800</span>
+    </div>
+
+    <div class="license-card" data-keywords="報關 報關員 海關 報關行">
+        <span class="card-icon">📦</span>
+        <h3>報關行 / 報關員資格</h3>
+        <p class="desc">從事報關業務的公司及個人。雖然香港無強制報關員牌照，但需熟悉海關條例及報關程序。認可資格有助就業。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">相關機構</span><span class="value">香港海關 / 香港報關業協會</span></div>
+            <div class="info-row"><span class="label">認可課程</span><span class="value">報關及國際貿易證書課程</span></div>
+        </div>
+        <span class="tag tag-gov">海關</span>
+    </div>
+
+    <div class="license-card" data-keywords="地產營業員 E牌 個人 地產代理 營業員資格">
+        <span class="card-icon">🏘️</span>
+        <h3>地產代理（個人）營業員牌照（E 牌）</h3>
+        <p class="desc">以個人身份從事地產代理工作必須考取營業員牌照（E 牌）。須通過地產代理資格考試（營業員），受僱於持牌地產代理公司方可執業。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">地產代理監管局（EAA）</span></div>
+            <div class="info-row"><span class="label">考試費</span><span class="value">$800</span></div>
+            <div class="info-row"><span class="label">牌照費</span><span class="value">$1,110（首次 2 年）/ 續牌 $1,110（1 年）</span></div>
+            <div class="info-row"><span class="label">考試內容</span><span class="value">地產代理條例、操守守則、物業轉易、租務、按揭（選擇題）</span></div>
+            <div class="info-row"><span class="label">合格要求</span><span class="value">60% 合格</span></div>
+            <div class="info-row"><span class="label">所需文件</span><span class="value">身份證、考試合格證明、相片、學歷證明</span></div>
+        </div>
+        <span class="tag tag-gov">地監局 EAA</span>
+        <span class="tag tag-fee">$1,110</span>
+        <span class="tag tag-renew">每年續牌</span>
+    </div>
+
+</div>
+
+<!-- ===== 運輸及駕駛 ===== -->
 <h2 class="category-title" data-cat="transport"><span class="cat-icon">🚗</span> 運輸及駕駛牌照</h2>
 <div class="license-grid" data-cat="transport">
 
@@ -951,9 +1136,22 @@
         <span class="tag tag-renew">每年續期</span>
     </div>
 
+    <div class="license-card" data-keywords="駕駛教師 學車師傅 教車">
+        <span class="card-icon">🎓</span>
+        <h3>駕駛教師執照</h3>
+        <p class="desc">從事教授駕駛工作須持有駕駛教師執照。需持有相關車輛類別駕駛執照滿 3 年並通過教師考試。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">運輸署</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">10 年</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">持有相關駕駛執照滿 3 年、通過駕駛教師筆試及路試</span></div>
+        </div>
+        <span class="tag tag-gov">運輸署</span>
+        <span class="tag tag-renew">10 年續期</span>
+    </div>
+
 </div>
 
-<!-- ===== 建築工程 ===== -->
+<!-- ===== 建築及工程 ===== -->
 <h2 class="category-title" data-cat="construction"><span class="cat-icon">🏗️</span> 建築及工程牌照</h2>
 <div class="license-grid" data-cat="construction">
 
@@ -1034,119 +1232,50 @@
         <span class="tag tag-renew">4 年續期</span>
     </div>
 
-</div>
-
-<!-- ===== 教育培訓 ===== -->
-<h2 class="category-title" data-cat="education"><span class="cat-icon">🎓</span> 教育及培訓牌照</h2>
-<div class="license-grid" data-cat="education">
-
-    <div class="license-card" data-keywords="學校註冊 辦學 教育中心 補習社">
-        <span class="card-icon">🏫</span>
-        <h3>學校註冊</h3>
-        <p class="desc">任何在處所內向 8 人或以上同時提供教育的地方均須註冊為學校（包括補習社、教育中心）。</p>
+    <div class="license-card" data-keywords="建築噪音 施工噪音 地盤噪音">
+        <span class="card-icon">🔊</span>
+        <h3>建築噪音許可證</h3>
+        <p class="desc">在限制時間內進行產生噪音的建築工程須取得許可證。包括撞擊式打樁、使用機動設備等。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">教育局</span></div>
-            <div class="info-row"><span class="label">申請費用</span><span class="value">$5,370</span></div>
-            <div class="info-row"><span class="label">處理時間</span><span class="value">3-6 個月</span></div>
-            <div class="info-row"><span class="label">所需文件</span><span class="value">校舍平面圖、消防證書、課程大綱、教師資歷證明、辦學團體資料</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">環境保護署</span></div>
+            <div class="info-row"><span class="label">申請費用</span><span class="value">$545</span></div>
         </div>
-        <span class="tag tag-gov">教育局</span>
-        <span class="tag tag-fee">$5,370</span>
-        <span class="tag tag-time">3-6 個月</span>
+        <span class="tag tag-gov">環保署</span>
+        <span class="tag tag-fee">$545</span>
     </div>
 
-    <div class="license-card" data-keywords="幼稚園 幼兒園 幼兒中心 託兒所">
-        <span class="card-icon">👶</span>
-        <h3>幼兒中心牌照</h3>
-        <p class="desc">為 6 歲以下幼兒提供照顧服務的中心必須持有。包括育嬰園（0-2 歲）及幼兒中心（2-6 歲）。</p>
+    <div class="license-card" data-keywords="石棉 石棉承辦商 拆除 asbestos">
+        <span class="card-icon">🧱</span>
+        <h3>註冊石棉承辦商</h3>
+        <p class="desc">進行石棉消減工程須由註冊石棉承辦商進行。受《空氣污染管制條例》規管。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">社會福利署</span></div>
-            <div class="info-row"><span class="label">所需文件</span><span class="value">處所平面圖、消防證書、員工資歷、課程計劃、保險證明</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">環境保護署</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">相關工程經驗、合資格石棉監督、安全裝備</span></div>
         </div>
-        <span class="tag tag-gov">社會福利署</span>
+        <span class="tag tag-gov">環保署</span>
     </div>
 
-    <div class="license-card" data-keywords="駕駛教師 學車師傅 教車">
-        <span class="card-icon">🎓</span>
-        <h3>駕駛教師執照</h3>
-        <p class="desc">從事教授駕駛工作須持有駕駛教師執照。需持有相關車輛類別駕駛執照滿 3 年並通過教師考試。</p>
+    <div class="license-card" data-keywords="安全卡 平安卡 綠卡 建造業安全 地盤">
+        <span class="card-icon">🪖</span>
+        <h3>建造業安全訓練證明書（平安卡 / 安全卡）</h3>
+        <p class="desc">所有進入建造工地的工人及管理人員均須持有俗稱「平安卡」或「綠卡」的安全訓練證明書。未持有者不得進入地盤工作。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">運輸署</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">10 年</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">持有相關駕駛執照滿 3 年、通過駕駛教師筆試及路試</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">勞工處 / 認可培訓機構</span></div>
+            <div class="info-row"><span class="label">課程費用</span><span class="value">約 $100 - $250（視乎機構）</span></div>
+            <div class="info-row"><span class="label">課程時間</span><span class="value">1 日（約 6.5 小時）</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">永久有效（無需續期）</span></div>
+            <div class="info-row"><span class="label">類別</span><span class="value">銀卡（工人）/ 綠卡（管工及專業人士）</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">年滿 15 歲、出席課程並通過考核</span></div>
         </div>
-        <span class="tag tag-gov">運輸署</span>
-        <span class="tag tag-renew">10 年續期</span>
+        <span class="tag tag-gov">勞工處</span>
+        <span class="tag tag-fee">$100 起</span>
+        <span class="tag tag-time">1 日課程</span>
     </div>
 
 </div>
 
-<!-- ===== 醫療健康 ===== -->
-<h2 class="category-title" data-cat="health"><span class="cat-icon">🏥</span> 醫療及健康牌照</h2>
-<div class="license-grid" data-cat="health">
-
-    <div class="license-card" data-keywords="醫生 執業醫生 醫生牌 西醫">
-        <span class="card-icon">👨‍⚕️</span>
-        <h3>醫生執業資格</h3>
-        <p class="desc">在香港執業行醫必須於香港醫務委員會註冊。需完成認可醫學課程及實習。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港醫務委員會</span></div>
-            <div class="info-row"><span class="label">申請費用</span><span class="value">$3,370（註冊費）</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可醫學學位、完成實習、通過執業資格試（海外醫生）</span></div>
-        </div>
-        <span class="tag tag-gov">醫務委員會</span>
-    </div>
-
-    <div class="license-card" data-keywords="中醫 中醫師 中藥">
-        <span class="card-icon">🏥</span>
-        <h3>中醫執業資格</h3>
-        <p class="desc">在香港執業中醫必須為註冊中醫師或表列中醫師。需通過中醫執業資格試。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">中醫藥管理委員會</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可中醫學歷、通過中醫執業資格試</span></div>
-        </div>
-        <span class="tag tag-gov">中醫藥管理委員會</span>
-    </div>
-
-    <div class="license-card" data-keywords="藥房 藥劑師 配藥 藥房牌">
-        <span class="card-icon">💊</span>
-        <h3>藥房牌照 / 藥劑師註冊</h3>
-        <p class="desc">經營藥房須持有藥房牌照，且必須聘用已註冊藥劑師。藥劑師須於藥劑業及毒藥管理局註冊。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">藥劑業及毒藥管理局</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
-        </div>
-        <span class="tag tag-gov">藥劑業及毒藥管理局</span>
-    </div>
-
-    <div class="license-card" data-keywords="私家醫院 診所 護理院 安老院">
-        <span class="card-icon">🏨</span>
-        <h3>私家醫院 / 護養院牌照</h3>
-        <p class="desc">經營私家醫院、護養院或安老院必須向衞生署申請牌照。需符合嚴格設施及人手要求。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">衞生署 / 社會福利署（安老院）</span></div>
-            <div class="info-row"><span class="label">所需文件</span><span class="value">處所平面圖、設備清單、人手編制表、營運計劃</span></div>
-        </div>
-        <span class="tag tag-gov">衞生署</span>
-    </div>
-
-    <div class="license-card" data-keywords="美容院 理髮店 紋身 美甲">
-        <span class="card-icon">💇</span>
-        <h3>美容院 / 理髮店牌照</h3>
-        <p class="desc">經營理髮店或美容院須向食環署申請。處所需符合衞生及通風要求。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">食物環境衞生署</span></div>
-            <div class="info-row"><span class="label">申請費用</span><span class="value">$820</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
-        </div>
-        <span class="tag tag-gov">食環署</span>
-        <span class="tag tag-fee">$820</span>
-    </div>
-
-</div>
-
-<!-- ===== 娛樂消閒 ===== -->
-<h2 class="category-title" data-cat="entertainment"><span class="cat-icon">🎭</span> 娛樂及消閒牌照</h2>
+<!-- ===== 娛樂、消閒及款待 ===== -->
+<h2 class="category-title" data-cat="entertainment"><span class="cat-icon">🎭</span> 娛樂、消閒及款待牌照</h2>
 <div class="license-grid" data-cat="entertainment">
 
     <div class="license-card" data-keywords="公眾娛樂場所 卡拉OK 遊戲機 娛樂">
@@ -1275,12 +1404,6 @@
         <span class="tag tag-gov">民政事務總署</span>
     </div>
 
-</div>
-
-<!-- ===== 物業地產 ===== -->
-<h2 class="category-title" data-cat="property"><span class="cat-icon">🏠</span> 物業及地產牌照</h2>
-<div class="license-grid" data-cat="property">
-
     <div class="license-card" data-keywords="旅館 賓館 酒店 民宿 Airbnb">
         <span class="card-icon">🏨</span>
         <h3>旅館牌照</h3>
@@ -1297,211 +1420,105 @@
         <span class="tag tag-time">6-12 個月</span>
     </div>
 
-    <div class="license-card" data-keywords="物業管理 物管 大廈管理">
-        <span class="card-icon">🏢</span>
-        <h3>物業管理公司牌照</h3>
-        <p class="desc">提供物業管理服務的公司必須持有物業管理公司牌照。從業員亦需取得個人牌照。</p>
+    <div class="license-card" data-keywords="美容院 理髮店 紋身 美甲">
+        <span class="card-icon">💇</span>
+        <h3>美容院 / 理髮店牌照</h3>
+        <p class="desc">經營理髮店或美容院須向食環署申請。處所需符合衞生及通風要求。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">物業管理業監管局</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">3 年</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">聘有持牌物業管理人、符合最低人手要求</span></div>
-        </div>
-        <span class="tag tag-gov">物管監管局</span>
-    </div>
-
-</div>
-
-<!-- ===== 金融保險 ===== -->
-<h2 class="category-title" data-cat="finance"><span class="cat-icon">💰</span> 金融及保險牌照</h2>
-<div class="license-grid" data-cat="finance">
-
-    <div class="license-card" data-keywords="放債人 財務公司 貸款">
-        <span class="card-icon">🏦</span>
-        <h3>放債人牌照</h3>
-        <p class="desc">從事貸款業務（財務公司）必須持有放債人牌照。受《放債人條例》規管。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">放債人註冊處（高等法院）</span></div>
-            <div class="info-row"><span class="label">處理時間</span><span class="value">約 3-6 個月</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">食物環境衞生署</span></div>
+            <div class="info-row"><span class="label">申請費用</span><span class="value">$820</span></div>
             <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
         </div>
-        <span class="tag tag-gov">高等法院</span>
+        <span class="tag tag-gov">食環署</span>
+        <span class="tag tag-fee">$820</span>
     </div>
 
-    <div class="license-card" data-keywords="金錢服務 找換店 匯款">
-        <span class="card-icon">💱</span>
-        <h3>金錢服務經營者牌照</h3>
-        <p class="desc">經營匯款或貨幣兌換服務（找換店）必須持有。受《打擊洗錢條例》規管。</p>
+    <div class="license-card" data-keywords="商營浴室 桑拿 sauna 蒸氣浴">
+        <span class="card-icon">🧖</span>
+        <h3>商營浴室牌照</h3>
+        <p class="desc">經營商業浴室、桑拿或蒸氣浴室須持有。需符合衞生及通風要求。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">海關</span></div>
-            <div class="info-row"><span class="label">申請費用</span><span class="value">$8,920 起</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">2 年</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">無犯罪紀錄、反洗錢合規制度、適當人選審查</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">食物環境衞生署</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
         </div>
-        <span class="tag tag-gov">海關</span>
-        <span class="tag tag-fee">$8,920 起</span>
+        <span class="tag tag-gov">食環署</span>
     </div>
 
-    <div class="license-card" data-keywords="虛擬資產 VASP 加密貨幣 交易所 crypto bitcoin">
-        <span class="card-icon">🪙</span>
-        <h3>虛擬資產服務提供者牌照（VASP）</h3>
-        <p class="desc">在香港經營虛擬資產（加密貨幣）交易平台須持有 VASP 牌照。2023 年 6 月起實施新發牌制度。</p>
+    <div class="license-card" data-keywords="舞獅 舞龍 舞麒麟 公眾活動 集會">
+        <span class="card-icon">🦁</span>
+        <h3>舞獅 / 舞龍許可證</h3>
+        <p class="desc">在公眾地方進行舞獅、舞龍或舞麒麟活動須向警方申請許可。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">證券及期貨事務監察委員會（SFC）</span></div>
-            <div class="info-row"><span class="label">申請費用</span><span class="value">$1,000,000（申請費）+ $1,500,000（年費）</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">資本要求、反洗錢合規、網絡安全措施、客戶資產保管制度</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">警務處</span></div>
+            <div class="info-row"><span class="label">申請費用</span><span class="value">免費</span></div>
         </div>
-        <span class="tag tag-gov">證監會</span>
-        <span class="tag tag-fee">$100 萬起</span>
-    </div>
-
-    <div class="license-card" data-keywords="SVF 儲值支付 電子錢包 八達通 PayMe AlipayHK">
-        <span class="card-icon">📱</span>
-        <h3>儲值支付工具牌照（SVF）</h3>
-        <p class="desc">發行儲值支付工具（如電子錢包、預付卡）須持有 SVF 牌照。八達通、PayMe、AlipayHK 等均持有此牌。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港金融管理局（HKMA）</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">最低資本要求、風險管理制度、反洗錢合規</span></div>
-        </div>
-        <span class="tag tag-gov">金管局</span>
-    </div>
-
-    <div class="license-card" data-keywords="強積金 MPF 中介人 受託人">
-        <span class="card-icon">🏦</span>
-        <h3>強積金中介人 / 受託人註冊</h3>
-        <p class="desc">銷售強積金產品的中介人及營運強積金計劃的受託人均須向積金局註冊。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">強制性公積金計劃管理局（MPFA）</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">通過相關資格考試、受僱於註冊機構</span></div>
-        </div>
-        <span class="tag tag-gov">積金局</span>
+        <span class="tag tag-gov">警務處</span>
+        <span class="tag tag-fee">免費</span>
     </div>
 
 </div>
 
-<!-- ===== 個人專業牌照 ===== -->
-<h2 class="category-title" data-cat="personal"><span class="cat-icon">🪪</span> 個人專業牌照</h2>
-<div class="license-grid" data-cat="personal">
+<!-- ===== 醫療及社福 ===== -->
+<h2 class="category-title" data-cat="health"><span class="cat-icon">🏥</span> 醫療及社福牌照</h2>
+<div class="license-grid" data-cat="health">
 
-    <div class="license-card" data-keywords="地產營業員 E牌 個人 地產代理 營業員資格">
-        <span class="card-icon">🏘️</span>
-        <h3>地產代理（個人）營業員牌照（E 牌）</h3>
-        <p class="desc">以個人身份從事地產代理工作必須考取營業員牌照（E 牌）。須通過地產代理資格考試（營業員），受僱於持牌地產代理公司方可執業。</p>
+    <div class="license-card" data-keywords="醫生 執業醫生 醫生牌 西醫">
+        <span class="card-icon">👨‍⚕️</span>
+        <h3>醫生執業資格</h3>
+        <p class="desc">在香港執業行醫必須於香港醫務委員會註冊。需完成認可醫學課程及實習。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">地產代理監管局（EAA）</span></div>
-            <div class="info-row"><span class="label">考試費</span><span class="value">$800</span></div>
-            <div class="info-row"><span class="label">牌照費</span><span class="value">$1,110（首次 2 年）/ 續牌 $1,110（1 年）</span></div>
-            <div class="info-row"><span class="label">考試內容</span><span class="value">地產代理條例、操守守則、物業轉易、租務、按揭（選擇題）</span></div>
-            <div class="info-row"><span class="label">合格要求</span><span class="value">60% 合格</span></div>
-            <div class="info-row"><span class="label">所需文件</span><span class="value">身份證、考試合格證明、相片、學歷證明</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港醫務委員會</span></div>
+            <div class="info-row"><span class="label">申請費用</span><span class="value">$3,370（註冊費）</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可醫學學位、完成實習、通過執業資格試（海外醫生）</span></div>
         </div>
-        <span class="tag tag-gov">地監局 EAA</span>
-        <span class="tag tag-fee">$1,110</span>
-        <span class="tag tag-renew">每年續牌</span>
+        <span class="tag tag-gov">醫務委員會</span>
     </div>
 
-    <div class="license-card" data-keywords="地產代理 S牌 個人 牌照 地產經紀">
-        <span class="card-icon">🏠</span>
-        <h3>地產代理（個人）牌照（S 牌）</h3>
-        <p class="desc">S 牌比 E 牌高一級，持牌人可獨立經營地產代理公司或擔任合夥人。考試範圍較 E 牌更廣，包括法律及物業估值。</p>
+    <div class="license-card" data-keywords="中醫 中醫師 中藥">
+        <span class="card-icon">🏥</span>
+        <h3>中醫執業資格</h3>
+        <p class="desc">在香港執業中醫必須為註冊中醫師或表列中醫師。需通過中醫執業資格試。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">地產代理監管局（EAA）</span></div>
-            <div class="info-row"><span class="label">考試費</span><span class="value">$800</span></div>
-            <div class="info-row"><span class="label">牌照費</span><span class="value">$1,520（首次 2 年）/ 續牌 $1,520（1 年）</span></div>
-            <div class="info-row"><span class="label">考試內容</span><span class="value">E 牌所有範圍 + 物業估值、土地註冊制度、建築及規劃法規</span></div>
-            <div class="info-row"><span class="label">合格要求</span><span class="value">60% 合格</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">中醫藥管理委員會</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可中醫學歷、通過中醫執業資格試</span></div>
         </div>
-        <span class="tag tag-gov">地監局 EAA</span>
-        <span class="tag tag-fee">$1,520</span>
-        <span class="tag tag-renew">每年續牌</span>
+        <span class="tag tag-gov">中醫藥管理委員會</span>
     </div>
 
-    <div class="license-card" data-keywords="導遊 領隊 領隊牌 導遊牌 旅遊 TIC 出團">
-        <span class="card-icon">🧭</span>
-        <h3>導遊證 / 領隊證</h3>
-        <p class="desc">帶團出境需持有「領隊證」，帶團入境或本地需持有「導遊證」。須修讀認可課程並通過考核。兩者可同時申請。</p>
+    <div class="license-card" data-keywords="藥房 藥劑師 配藥 藥房牌">
+        <span class="card-icon">💊</span>
+        <h3>藥房牌照 / 藥劑師註冊</h3>
+        <p class="desc">經營藥房須持有藥房牌照，且必須聘用已註冊藥劑師。藥劑師須於藥劑業及毒藥管理局註冊。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">旅遊業監管局</span></div>
-            <div class="info-row"><span class="label">課程費用</span><span class="value">約 $1,500 - $3,000（認可培訓機構）</span></div>
-            <div class="info-row"><span class="label">證件費</span><span class="value">$200 - $300</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">3 年</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">年滿 18 歲、完成認可培訓課程、通過考核、無犯罪紀錄</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">藥劑業及毒藥管理局</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
         </div>
-        <span class="tag tag-gov">旅監局</span>
-        <span class="tag tag-fee">$200 起</span>
-        <span class="tag tag-renew">3 年續期</span>
+        <span class="tag tag-gov">藥劑業及毒藥管理局</span>
     </div>
 
-    <div class="license-card" data-keywords="保險個人 保險代理人 IIQE 保險中介人">
-        <span class="card-icon">📋</span>
-        <h3>個人保險代理人牌照</h3>
-        <p class="desc">以個人身份從事保險銷售須持有保險中介人牌照。需通過 IIQE（保險中介人資格考試）相關卷別。</p>
+    <div class="license-card" data-keywords="私家醫院 診所 護理院 安老院">
+        <span class="card-icon">🏨</span>
+        <h3>私家醫院 / 護養院牌照</h3>
+        <p class="desc">經營私家醫院、護養院或安老院必須向衞生署申請牌照。需符合嚴格設施及人手要求。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">保險業監管局（IA）</span></div>
-            <div class="info-row"><span class="label">考試費</span><span class="value">$600 / 卷</span></div>
-            <div class="info-row"><span class="label">考試卷別</span><span class="value">卷一（基礎）、卷二（一般保險）、卷三（長期保險）、卷五（投連險）</span></div>
-            <div class="info-row"><span class="label">持續進修</span><span class="value">每年至少 10 小時 CPD</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">年滿 18 歲、中五畢業或同等學歷、通過 IIQE、品格審查</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">衞生署 / 社會福利署（安老院）</span></div>
+            <div class="info-row"><span class="label">所需文件</span><span class="value">處所平面圖、設備清單、人手編制表、營運計劃</span></div>
         </div>
-        <span class="tag tag-gov">保監局 IA</span>
-        <span class="tag tag-fee">$600 / 卷</span>
+        <span class="tag tag-gov">衞生署</span>
     </div>
 
-    <div class="license-card" data-keywords="證券 個人 SFC RA 負責人員 持牌代表">
-        <span class="card-icon">📊</span>
-        <h3>證券持牌代表 / 負責人員</h3>
-        <p class="desc">從事證券、期貨、資產管理等受規管活動的個人，必須取得 SFC 持牌代表資格。負責人員（RO）需額外經驗要求。</p>
+    <div class="license-card" data-keywords="牙醫 牙科 牙科醫生 註冊牙醫">
+        <span class="card-icon">🦷</span>
+        <h3>註冊牙醫</h3>
+        <p class="desc">在香港從事牙科工作須於香港牙醫管理委員會註冊。需完成認可牙科學位並通過許可試（海外牙醫）。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">證券及期貨事務監察委員會（SFC）</span></div>
-            <div class="info-row"><span class="label">考試</span><span class="value">LE 卷一至卷十二（因活動類別而異）</span></div>
-            <div class="info-row"><span class="label">牌照費</span><span class="value">持牌代表 $2,710 / 負責人員 $4,340</span></div>
-            <div class="info-row"><span class="label">持續培訓</span><span class="value">每年至少 5 小時 CPT</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">通過相關 LE 考試、學歷及經驗要求、品格審查、受僱於持牌法團</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港牙醫管理委員會</span></div>
+            <div class="info-row"><span class="label">註冊費</span><span class="value">$3,885</span></div>
+            <div class="info-row"><span class="label">年費</span><span class="value">$2,980</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可牙科學位、通過許可試（非本地畢業生）</span></div>
         </div>
-        <span class="tag tag-gov">證監會 SFC</span>
-        <span class="tag tag-fee">$2,710 起</span>
-    </div>
-
-    <div class="license-card" data-keywords="會計師 CPA 核數師 個人 執業會計師">
-        <span class="card-icon">🧮</span>
-        <h3>執業會計師（CPA）</h3>
-        <p class="desc">在香港從事核數或公司秘書工作須為註冊會計師。需通過 QP 考試（專業資格課程）並完成實務經驗。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港會計師公會（HKICPA）</span></div>
-            <div class="info-row"><span class="label">會員費</span><span class="value">年費約 $3,800</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可學位、通過 QP 考試、3 年認可工作經驗</span></div>
-            <div class="info-row"><span class="label">持續進修</span><span class="value">每年 40 小時 CPD</span></div>
-        </div>
-        <span class="tag tag-gov">會計師公會</span>
-        <span class="tag tag-fee">年費 $3,800</span>
-    </div>
-
-    <div class="license-card" data-keywords="律師 事務律師 大律師 法律 PCLL">
-        <span class="card-icon">⚖️</span>
-        <h3>事務律師 / 大律師執業資格</h3>
-        <p class="desc">在香港從事法律工作須取得執業資格。事務律師需完成 PCLL 及 2 年實習；大律師需完成 PCLL 及 1 年實習。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港律師會（事務律師）/ 香港大律師公會</span></div>
-            <div class="info-row"><span class="label">執業證費</span><span class="value">事務律師約 $9,480 / 年</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可法律學位、PCLL 合格、完成實習期</span></div>
-            <div class="info-row"><span class="label">持續進修</span><span class="value">每年 15 小時 CPD</span></div>
-        </div>
-        <span class="tag tag-gov">律師會</span>
-        <span class="tag tag-renew">每年續期</span>
-    </div>
-
-    <div class="license-card" data-keywords="社工 註冊社工 社會工作者 RSW">
-        <span class="card-icon">🤝</span>
-        <h3>註冊社會工作者（RSW）</h3>
-        <p class="desc">在香港從事社會工作須為註冊社工。需持有認可社工學歷並向社會工作者註冊局註冊。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">社會工作者註冊局</span></div>
-            <div class="info-row"><span class="label">註冊費</span><span class="value">$579</span></div>
-            <div class="info-row"><span class="label">續期費</span><span class="value">$451（每 3 年）</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可社工學位或文憑、品格審查</span></div>
-        </div>
-        <span class="tag tag-gov">社工註冊局</span>
-        <span class="tag tag-fee">$579</span>
-        <span class="tag tag-renew">3 年續期</span>
+        <span class="tag tag-gov">牙醫管理委員會</span>
+        <span class="tag tag-fee">$3,885</span>
     </div>
 
     <div class="license-card" data-keywords="護士 註冊護士 登記護士 RN EN">
@@ -1519,131 +1536,15 @@
         <span class="tag tag-renew">3 年續期</span>
     </div>
 
-    <div class="license-card" data-keywords="測量師 工料測量師 產業測量師 建築測量師 HKIS">
-        <span class="card-icon">📐</span>
-        <h3>專業測量師</h3>
-        <p class="desc">從事土地測量、建築測量、產業測量、工料測量等專業工作需為註冊專業測量師。</p>
+    <div class="license-card" data-keywords="助產士 接生 midwife 產科">
+        <span class="card-icon">👶</span>
+        <h3>註冊助產士</h3>
+        <p class="desc">從事助產工作須於助產士管理局註冊。需完成認可助產學課程。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港測量師學會（HKIS）/ 測量師註冊委員會</span></div>
-            <div class="info-row"><span class="label">年費</span><span class="value">約 $3,500</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可學位、通過 APC 專業評核、2 年工作經驗</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">助產士管理局</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可助產學歷、通過執業試</span></div>
         </div>
-        <span class="tag tag-gov">測量師學會</span>
-    </div>
-
-    <div class="license-card" data-keywords="工程師 RPE 註冊專業工程師 HKIE">
-        <span class="card-icon">👷</span>
-        <h3>註冊專業工程師（RPE）</h3>
-        <p class="desc">在香港簽署工程圖則及認證文件須為註冊專業工程師。涵蓋土木、結構、電機、機械等多個界別。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">工程師註冊管理局 / 香港工程師學會（HKIE）</span></div>
-            <div class="info-row"><span class="label">註冊費</span><span class="value">$2,450</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可工程學位、通過 HKIE 專業評核、至少 4 年經驗</span></div>
-            <div class="info-row"><span class="label">持續進修</span><span class="value">每年 30 小時 CPD</span></div>
-        </div>
-        <span class="tag tag-gov">工程師註冊管理局</span>
-        <span class="tag tag-fee">$2,450</span>
-    </div>
-
-    <div class="license-card" data-keywords="建築師 HKIA 認可人士 AP 註冊建築師">
-        <span class="card-icon">🏛️</span>
-        <h3>註冊建築師 / 認可人士（AP）</h3>
-        <p class="desc">設計建築物及簽署入則文件須為認可人士（AP）。需先成為註冊建築師再申請 AP 資格。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">建築師註冊管理局 / 屋宇署（AP）</span></div>
-            <div class="info-row"><span class="label">註冊費</span><span class="value">$2,680</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可建築學學位、通過 HKIA 專業評核、至少 2 年實習</span></div>
-        </div>
-        <span class="tag tag-gov">建築師註冊管理局</span>
-        <span class="tag tag-fee">$2,680</span>
-    </div>
-
-    <div class="license-card" data-keywords="教師 教師註冊 教育文憑 PGDE 檢定教員 准用教員">
-        <span class="card-icon">👨‍🏫</span>
-        <h3>檢定教員 / 准用教員資格</h3>
-        <p class="desc">在香港學校任教須為檢定教員（持有教育文憑 PGDE）或准用教員。准用教員無需教育文憑但受限較多。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">教育局</span></div>
-            <div class="info-row"><span class="label">費用</span><span class="value">免費申請</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">檢定教員：學位 + PGDE / 准用教員：學位（由學校推薦）</span></div>
-            <div class="info-row"><span class="label">處理時間</span><span class="value">約 6-8 個星期</span></div>
-        </div>
-        <span class="tag tag-gov">教育局</span>
-        <span class="tag tag-fee">免費</span>
-    </div>
-
-    <div class="license-card" data-keywords="物業管理人 PML 個人牌照 物管">
-        <span class="card-icon">🔑</span>
-        <h3>持牌物業管理人（PML）</h3>
-        <p class="desc">從事物業管理工作的個人須持有物業管理人（第 1 級或第 2 級）牌照。第 1 級可擔任管理公司負責人。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">物業管理業監管局（PMSA）</span></div>
-            <div class="info-row"><span class="label">牌照費</span><span class="value">第 1 級 $1,700 / 第 2 級 $850（每 3 年）</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">第 1 級：學位 + 6 年經驗 / 第 2 級：文憑 + 3 年經驗</span></div>
-            <div class="info-row"><span class="label">持續進修</span><span class="value">每 3 年 45 小時 CPD（第 1 級）/ 24 小時（第 2 級）</span></div>
-        </div>
-        <span class="tag tag-gov">物管監管局</span>
-        <span class="tag tag-fee">$850 起</span>
-        <span class="tag tag-renew">3 年續期</span>
-    </div>
-
-    <div class="license-card" data-keywords="報關 報關員 海關 報關行">
-        <span class="card-icon">📦</span>
-        <h3>報關行 / 報關員資格</h3>
-        <p class="desc">從事報關業務的公司及個人。雖然香港無強制報關員牌照，但需熟悉海關條例及報關程序。認可資格有助就業。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">相關機構</span><span class="value">香港海關 / 香港報關業協會</span></div>
-            <div class="info-row"><span class="label">認可課程</span><span class="value">報關及國際貿易證書課程</span></div>
-        </div>
-        <span class="tag tag-gov">海關</span>
-    </div>
-
-    <div class="license-card" data-keywords="牙醫 牙科 牙科醫生 註冊牙醫">
-        <span class="card-icon">🦷</span>
-        <h3>註冊牙醫</h3>
-        <p class="desc">在香港從事牙科工作須於香港牙醫管理委員會註冊。需完成認可牙科學位並通過許可試（海外牙醫）。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港牙醫管理委員會</span></div>
-            <div class="info-row"><span class="label">註冊費</span><span class="value">$3,885</span></div>
-            <div class="info-row"><span class="label">年費</span><span class="value">$2,980</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可牙科學位、通過許可試（非本地畢業生）</span></div>
-        </div>
-        <span class="tag tag-gov">牙醫管理委員會</span>
-        <span class="tag tag-fee">$3,885</span>
-    </div>
-
-    <div class="license-card" data-keywords="保安員許可證 個人保安牌 保安 QAS 質素保證計劃">
-        <span class="card-icon">🛡️</span>
-        <h3>保安人員許可證（個人保安牌）</h3>
-        <p class="desc">擔任保安員必須持有保安人員許可證。分為甲類（保安工作）及乙類（護衞工作），需完成認可培訓課程及通過品格審查。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">保安及護衞業管理委員會（SGSIA）</span></div>
-            <div class="info-row"><span class="label">申請費用</span><span class="value">$160</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">5 年</span></div>
-            <div class="info-row"><span class="label">類別</span><span class="value">甲類（看更、巡邏）/ 乙類（押運、護衞）</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">年滿 18 歲、完成認可保安培訓課程、無嚴重犯罪紀錄、體格合適</span></div>
-            <div class="info-row"><span class="label">處理時間</span><span class="value">約 4-6 個星期</span></div>
-        </div>
-        <span class="tag tag-gov">保安業管委會</span>
-        <span class="tag tag-fee">$160</span>
-        <span class="tag tag-renew">5 年續期</span>
-    </div>
-
-    <div class="license-card" data-keywords="安全卡 平安卡 綠卡 建造業安全 地盤">
-        <span class="card-icon">🪖</span>
-        <h3>建造業安全訓練證明書（平安卡 / 安全卡）</h3>
-        <p class="desc">所有進入建造工地的工人及管理人員均須持有俗稱「平安卡」或「綠卡」的安全訓練證明書。未持有者不得進入地盤工作。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">勞工處 / 認可培訓機構</span></div>
-            <div class="info-row"><span class="label">課程費用</span><span class="value">約 $100 - $250（視乎機構）</span></div>
-            <div class="info-row"><span class="label">課程時間</span><span class="value">1 日（約 6.5 小時）</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">永久有效（無需續期）</span></div>
-            <div class="info-row"><span class="label">類別</span><span class="value">銀卡（工人）/ 綠卡（管工及專業人士）</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">年滿 15 歲、出席課程並通過考核</span></div>
-        </div>
-        <span class="tag tag-gov">勞工處</span>
-        <span class="tag tag-fee">$100 起</span>
-        <span class="tag tag-time">1 日課程</span>
+        <span class="tag tag-gov">助產士管理局</span>
     </div>
 
     <div class="license-card" data-keywords="職業治療師 物理治療師 脊醫 視光師 輔助醫療">
@@ -1674,15 +1575,100 @@
         <span class="tag tag-fee">$2,725</span>
     </div>
 
-    <div class="license-card" data-keywords="助產士 接生 midwife 產科">
-        <span class="card-icon">👶</span>
-        <h3>註冊助產士</h3>
-        <p class="desc">從事助產工作須於助產士管理局註冊。需完成認可助產學課程。</p>
+    <div class="license-card" data-keywords="社工 註冊社工 社會工作者 RSW">
+        <span class="card-icon">🤝</span>
+        <h3>註冊社會工作者（RSW）</h3>
+        <p class="desc">在香港從事社會工作須為註冊社工。需持有認可社工學歷並向社會工作者註冊局註冊。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">助產士管理局</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">認可助產學歷、通過執業試</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">社會工作者註冊局</span></div>
+            <div class="info-row"><span class="label">註冊費</span><span class="value">$579</span></div>
+            <div class="info-row"><span class="label">續期費</span><span class="value">$451（每 3 年）</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可社工學位或文憑、品格審查</span></div>
         </div>
-        <span class="tag tag-gov">助產士管理局</span>
+        <span class="tag tag-gov">社工註冊局</span>
+        <span class="tag tag-fee">$579</span>
+        <span class="tag tag-renew">3 年續期</span>
+    </div>
+
+    <div class="license-card" data-keywords="社團 NGO 非牟利 慈善">
+        <span class="card-icon">🤝</span>
+        <h3>社團註冊 / 慈善團體</h3>
+        <p class="desc">成立社團須向警務處註冊。如要成為認可慈善團體享稅務豁免，需向稅務局申請。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">警務處（社團）/ 稅務局（慈善）</span></div>
+            <div class="info-row"><span class="label">處理時間</span><span class="value">社團註冊約 1 個月</span></div>
+        </div>
+        <span class="tag tag-gov">警務處</span>
+    </div>
+
+    <div class="license-card" data-keywords="幼稚園 幼兒園 幼兒中心 託兒所">
+        <span class="card-icon">👶</span>
+        <h3>幼兒中心牌照</h3>
+        <p class="desc">為 6 歲以下幼兒提供照顧服務的中心必須持有。包括育嬰園（0-2 歲）及幼兒中心（2-6 歲）。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">社會福利署</span></div>
+            <div class="info-row"><span class="label">所需文件</span><span class="value">處所平面圖、消防證書、員工資歷、課程計劃、保險證明</span></div>
+        </div>
+        <span class="tag tag-gov">社會福利署</span>
+    </div>
+
+</div>
+
+<!-- ===== 專業資格及培訓 ===== -->
+<h2 class="category-title" data-cat="professional"><span class="cat-icon">🪪</span> 專業資格及培訓牌照</h2>
+<div class="license-grid" data-cat="professional">
+
+    <div class="license-card" data-keywords="律師 事務律師 大律師 法律 PCLL">
+        <span class="card-icon">⚖️</span>
+        <h3>事務律師 / 大律師執業資格</h3>
+        <p class="desc">在香港從事法律工作須取得執業資格。事務律師需完成 PCLL 及 2 年實習；大律師需完成 PCLL 及 1 年實習。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港律師會（事務律師）/ 香港大律師公會</span></div>
+            <div class="info-row"><span class="label">執業證費</span><span class="value">事務律師約 $9,480 / 年</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可法律學位、PCLL 合格、完成實習期</span></div>
+            <div class="info-row"><span class="label">持續進修</span><span class="value">每年 15 小時 CPD</span></div>
+        </div>
+        <span class="tag tag-gov">律師會</span>
+        <span class="tag tag-renew">每年續期</span>
+    </div>
+
+    <div class="license-card" data-keywords="建築師 HKIA 認可人士 AP 註冊建築師">
+        <span class="card-icon">🏛️</span>
+        <h3>註冊建築師 / 認可人士（AP）</h3>
+        <p class="desc">設計建築物及簽署入則文件須為認可人士（AP）。需先成為註冊建築師再申請 AP 資格。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">建築師註冊管理局 / 屋宇署（AP）</span></div>
+            <div class="info-row"><span class="label">註冊費</span><span class="value">$2,680</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可建築學學位、通過 HKIA 專業評核、至少 2 年實習</span></div>
+        </div>
+        <span class="tag tag-gov">建築師註冊管理局</span>
+        <span class="tag tag-fee">$2,680</span>
+    </div>
+
+    <div class="license-card" data-keywords="工程師 RPE 註冊專業工程師 HKIE">
+        <span class="card-icon">👷</span>
+        <h3>註冊專業工程師（RPE）</h3>
+        <p class="desc">在香港簽署工程圖則及認證文件須為註冊專業工程師。涵蓋土木、結構、電機、機械等多個界別。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">工程師註冊管理局 / 香港工程師學會（HKIE）</span></div>
+            <div class="info-row"><span class="label">註冊費</span><span class="value">$2,450</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可工程學位、通過 HKIE 專業評核、至少 4 年經驗</span></div>
+            <div class="info-row"><span class="label">持續進修</span><span class="value">每年 30 小時 CPD</span></div>
+        </div>
+        <span class="tag tag-gov">工程師註冊管理局</span>
+        <span class="tag tag-fee">$2,450</span>
+    </div>
+
+    <div class="license-card" data-keywords="測量師 工料測量師 產業測量師 建築測量師 HKIS">
+        <span class="card-icon">📐</span>
+        <h3>專業測量師</h3>
+        <p class="desc">從事土地測量、建築測量、產業測量、工料測量等專業工作需為註冊專業測量師。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">香港測量師學會（HKIS）/ 測量師註冊委員會</span></div>
+            <div class="info-row"><span class="label">年費</span><span class="value">約 $3,500</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">認可學位、通過 APC 專業評核、2 年工作經驗</span></div>
+        </div>
+        <span class="tag tag-gov">測量師學會</span>
     </div>
 
     <div class="license-card" data-keywords="園境師 園藝 景觀設計 landscape">
@@ -1707,33 +1693,71 @@
         <span class="tag tag-gov">規劃師註冊管理局</span>
     </div>
 
+    <div class="license-card" data-keywords="教師 教師註冊 教育文憑 PGDE 檢定教員 准用教員">
+        <span class="card-icon">👨‍🏫</span>
+        <h3>檢定教員 / 准用教員資格</h3>
+        <p class="desc">在香港學校任教須為檢定教員（持有教育文憑 PGDE）或准用教員。准用教員無需教育文憑但受限較多。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">教育局</span></div>
+            <div class="info-row"><span class="label">費用</span><span class="value">免費申請</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">檢定教員：學位 + PGDE / 准用教員：學位（由學校推薦）</span></div>
+            <div class="info-row"><span class="label">處理時間</span><span class="value">約 6-8 個星期</span></div>
+        </div>
+        <span class="tag tag-gov">教育局</span>
+        <span class="tag tag-fee">免費</span>
+    </div>
+
+    <div class="license-card" data-keywords="學校註冊 辦學 教育中心 補習社">
+        <span class="card-icon">🏫</span>
+        <h3>學校註冊</h3>
+        <p class="desc">任何在處所內向 8 人或以上同時提供教育的地方均須註冊為學校（包括補習社、教育中心）。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">教育局</span></div>
+            <div class="info-row"><span class="label">申請費用</span><span class="value">$5,370</span></div>
+            <div class="info-row"><span class="label">處理時間</span><span class="value">3-6 個月</span></div>
+            <div class="info-row"><span class="label">所需文件</span><span class="value">校舍平面圖、消防證書、課程大綱、教師資歷證明、辦學團體資料</span></div>
+        </div>
+        <span class="tag tag-gov">教育局</span>
+        <span class="tag tag-fee">$5,370</span>
+        <span class="tag tag-time">3-6 個月</span>
+    </div>
+
+    <div class="license-card" data-keywords="地產代理 S牌 個人 牌照 地產經紀">
+        <span class="card-icon">🏠</span>
+        <h3>地產代理（個人）牌照（S 牌）</h3>
+        <p class="desc">S 牌比 E 牌高一級，持牌人可獨立經營地產代理公司或擔任合夥人。考試範圍較 E 牌更廣，包括法律及物業估值。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">地產代理監管局（EAA）</span></div>
+            <div class="info-row"><span class="label">考試費</span><span class="value">$800</span></div>
+            <div class="info-row"><span class="label">牌照費</span><span class="value">$1,520（首次 2 年）/ 續牌 $1,520（1 年）</span></div>
+            <div class="info-row"><span class="label">考試內容</span><span class="value">E 牌所有範圍 + 物業估值、土地註冊制度、建築及規劃法規</span></div>
+            <div class="info-row"><span class="label">合格要求</span><span class="value">60% 合格</span></div>
+        </div>
+        <span class="tag tag-gov">地監局 EAA</span>
+        <span class="tag tag-fee">$1,520</span>
+        <span class="tag tag-renew">每年續牌</span>
+    </div>
+
+    <div class="license-card" data-keywords="物業管理人 PML 個人牌照 物管">
+        <span class="card-icon">🔑</span>
+        <h3>持牌物業管理人（PML）</h3>
+        <p class="desc">從事物業管理工作的個人須持有物業管理人（第 1 級或第 2 級）牌照。第 1 級可擔任管理公司負責人。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">物業管理業監管局（PMSA）</span></div>
+            <div class="info-row"><span class="label">牌照費</span><span class="value">第 1 級 $1,700 / 第 2 級 $850（每 3 年）</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">第 1 級：學位 + 6 年經驗 / 第 2 級：文憑 + 3 年經驗</span></div>
+            <div class="info-row"><span class="label">持續進修</span><span class="value">每 3 年 45 小時 CPD（第 1 級）/ 24 小時（第 2 級）</span></div>
+        </div>
+        <span class="tag tag-gov">物管監管局</span>
+        <span class="tag tag-fee">$850 起</span>
+        <span class="tag tag-renew">3 年續期</span>
+    </div>
+
 </div>
 
-<!-- ===== 其他牌照 ===== -->
-<h2 class="category-title" data-cat="others"><span class="cat-icon">📦</span> 其他常見牌照</h2>
-<div class="license-grid" data-cat="others">
-
-    <div class="license-card" data-keywords="電訊 ISP 寬頻 網絡 電訊商">
-        <span class="card-icon">📡</span>
-        <h3>電訊牌照</h3>
-        <p class="desc">提供電訊服務（如互聯網服務供應商 ISP、流動通訊等）必須持有相應電訊牌照。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">通訊事務管理局</span></div>
-            <div class="info-row"><span class="label">類別</span><span class="value">統一運營商牌照、服務營辦商牌照、類別牌照</span></div>
-        </div>
-        <span class="tag tag-gov">通訊局</span>
-    </div>
-
-    <div class="license-card" data-keywords="環保 廢物處理 排污 化學廢物">
-        <span class="card-icon">♻️</span>
-        <h3>廢物處理牌照</h3>
-        <p class="desc">收集、運輸或處置化學廢物須持有牌照。受《廢物處置條例》規管。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">環境保護署</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">2 年</span></div>
-        </div>
-        <span class="tag tag-gov">環保署</span>
-    </div>
+<!-- ===== 環境、安全及特殊許可 ===== -->
+<h2 class="category-title" data-cat="environment"><span class="cat-icon">🛡️</span> 環境、安全及特殊許可牌照</h2>
+<div class="license-grid" data-cat="environment">
 
     <div class="license-card" data-keywords="危險品 危險貨物 爆竹 煙花 儲存">
         <span class="card-icon">⚠️</span>
@@ -1747,49 +1771,15 @@
         <span class="tag tag-gov">消防處</span>
     </div>
 
-    <div class="license-card" data-keywords="狗牌 動物 寵物 動物售賣 寵物店">
-        <span class="card-icon">🐕</span>
-        <h3>動物售賣商牌照 / 狗隻牌照</h3>
-        <p class="desc">經營寵物店須持有動物售賣商牌照。所有超過 5 個月大的狗隻亦須領取狗隻牌照。</p>
+    <div class="license-card" data-keywords="環保 廢物處理 排污 化學廢物">
+        <span class="card-icon">♻️</span>
+        <h3>廢物處理牌照</h3>
+        <p class="desc">收集、運輸或處置化學廢物須持有牌照。受《廢物處置條例》規管。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">漁農自然護理署</span></div>
-            <div class="info-row"><span class="label">申請費用</span><span class="value">狗牌 $80 / 動物售賣商另計</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">狗牌 3 年</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">環境保護署</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">2 年</span></div>
         </div>
-        <span class="tag tag-gov">漁護署</span>
-        <span class="tag tag-fee">$80 起</span>
-    </div>
-
-    <div class="license-card" data-keywords="煙草 售賣香煙 煙仔 賣煙">
-        <span class="card-icon">🚬</span>
-        <h3>煙草零售商牌照</h3>
-        <p class="desc">零售煙草產品須向衞生署申請牌照。禁止向 18 歲以下人士售賣煙草產品。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">衞生署控煙酒辦公室</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
-        </div>
-        <span class="tag tag-gov">衞生署</span>
-    </div>
-
-    <div class="license-card" data-keywords="印刷 報紙 出版 傳媒">
-        <span class="card-icon">📰</span>
-        <h3>本地報刊註冊</h3>
-        <p class="desc">在香港出版報刊須向政府註冊。受《本地報刊註冊條例》規管。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">政府新聞處</span></div>
-        </div>
-        <span class="tag tag-gov">新聞處</span>
-    </div>
-
-    <div class="license-card" data-keywords="社團 NGO 非牟利 慈善">
-        <span class="card-icon">🤝</span>
-        <h3>社團註冊 / 慈善團體</h3>
-        <p class="desc">成立社團須向警務處註冊。如要成為認可慈善團體享稅務豁免，需向稅務局申請。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">警務處（社團）/ 稅務局（慈善）</span></div>
-            <div class="info-row"><span class="label">處理時間</span><span class="value">社團註冊約 1 個月</span></div>
-        </div>
-        <span class="tag tag-gov">警務處</span>
+        <span class="tag tag-gov">環保署</span>
     </div>
 
     <div class="license-card" data-keywords="回收 廢金屬 廢紙 回收商">
@@ -1814,25 +1804,13 @@
         <span class="tag tag-gov">環保署</span>
     </div>
 
-    <div class="license-card" data-keywords="建築噪音 施工噪音 地盤噪音">
-        <span class="card-icon">🔊</span>
-        <h3>建築噪音許可證</h3>
-        <p class="desc">在限制時間內進行產生噪音的建築工程須取得許可證。包括撞擊式打樁、使用機動設備等。</p>
+    <div class="license-card" data-keywords="環境影響評估 EIA 環評">
+        <span class="card-icon">🌿</span>
+        <h3>環境影響評估許可證（EIA）</h3>
+        <p class="desc">進行指定工程項目（如大型基建、填海、發電廠等）前須完成環境影響評估並取得許可證。</p>
         <div class="license-info">
             <div class="info-row"><span class="label">簽發機關</span><span class="value">環境保護署</span></div>
-            <div class="info-row"><span class="label">申請費用</span><span class="value">$545</span></div>
-        </div>
-        <span class="tag tag-gov">環保署</span>
-        <span class="tag tag-fee">$545</span>
-    </div>
-
-    <div class="license-card" data-keywords="石棉 石棉承辦商 拆除 asbestos">
-        <span class="card-icon">🧱</span>
-        <h3>註冊石棉承辦商</h3>
-        <p class="desc">進行石棉消減工程須由註冊石棉承辦商進行。受《空氣污染管制條例》規管。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">環境保護署</span></div>
-            <div class="info-row"><span class="label">所需條件</span><span class="value">相關工程經驗、合資格石棉監督、安全裝備</span></div>
+            <div class="info-row"><span class="label">所需文件</span><span class="value">環境影響評估報告、公眾諮詢結果、緩解措施計劃</span></div>
         </div>
         <span class="tag tag-gov">環保署</span>
     </div>
@@ -1859,10 +1837,21 @@
         <span class="tag tag-gov">警務處</span>
     </div>
 
-    <div class="license-card" data-keywords="商營浴室 桑拿 sauna 蒸氣浴">
-        <span class="card-icon">🧖</span>
-        <h3>商營浴室牌照</h3>
-        <p class="desc">經營商業浴室、桑拿或蒸氣浴室須持有。需符合衞生及通風要求。</p>
+    <div class="license-card" data-keywords="煙草 售賣香煙 煙仔 賣煙">
+        <span class="card-icon">🚬</span>
+        <h3>煙草零售商牌照</h3>
+        <p class="desc">零售煙草產品須向衞生署申請牌照。禁止向 18 歲以下人士售賣煙草產品。</p>
+        <div class="license-info">
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">衞生署控煙酒辦公室</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
+        </div>
+        <span class="tag tag-gov">衞生署</span>
+    </div>
+
+    <div class="license-card" data-keywords="厭惡性行業 化工 染廠 油漆">
+        <span class="card-icon">🏭</span>
+        <h3>厭惡性行業牌照</h3>
+        <p class="desc">經營產生噪音、氣味或污染的行業（如染廠、動物屠房、化學品加工等）須持有。</p>
         <div class="license-info">
             <div class="info-row"><span class="label">簽發機關</span><span class="value">食物環境衞生署</span></div>
             <div class="info-row"><span class="label">有效期</span><span class="value">1 年</span></div>
@@ -1870,38 +1859,34 @@
         <span class="tag tag-gov">食環署</span>
     </div>
 
-    <div class="license-card" data-keywords="臨時酒牌 活動酒牌 event 派對">
-        <span class="card-icon">🥂</span>
-        <h3>臨時酒牌</h3>
-        <p class="desc">在特定活動或場合中臨時供應酒類飲品須申請臨時酒牌。適用於嘉年華、派對、婚禮等。</p>
+    <div class="license-card" data-keywords="狗牌 動物 寵物 動物售賣 寵物店">
+        <span class="card-icon">🐕</span>
+        <h3>動物售賣商牌照 / 狗隻牌照</h3>
+        <p class="desc">經營寵物店須持有動物售賣商牌照。所有超過 5 個月大的狗隻亦須領取狗隻牌照。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">民政事務總署牌照事務處</span></div>
-            <div class="info-row"><span class="label">有效期</span><span class="value">指定日期（通常數天）</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">漁農自然護理署</span></div>
+            <div class="info-row"><span class="label">申請費用</span><span class="value">狗牌 $80 / 動物售賣商另計</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">狗牌 3 年</span></div>
         </div>
-        <span class="tag tag-gov">民政事務總署</span>
+        <span class="tag tag-gov">漁護署</span>
+        <span class="tag tag-fee">$80 起</span>
     </div>
 
-    <div class="license-card" data-keywords="環境影響評估 EIA 環評">
-        <span class="card-icon">🌿</span>
-        <h3>環境影響評估許可證（EIA）</h3>
-        <p class="desc">進行指定工程項目（如大型基建、填海、發電廠等）前須完成環境影響評估並取得許可證。</p>
+    <div class="license-card" data-keywords="保安員許可證 個人保安牌 保安 QAS 質素保證計劃">
+        <span class="card-icon">🛡️</span>
+        <h3>保安人員許可證（個人保安牌）</h3>
+        <p class="desc">擔任保安員必須持有保安人員許可證。分為甲類（保安工作）及乙類（護衞工作），需完成認可培訓課程及通過品格審查。</p>
         <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">環境保護署</span></div>
-            <div class="info-row"><span class="label">所需文件</span><span class="value">環境影響評估報告、公眾諮詢結果、緩解措施計劃</span></div>
+            <div class="info-row"><span class="label">簽發機關</span><span class="value">保安及護衞業管理委員會（SGSIA）</span></div>
+            <div class="info-row"><span class="label">申請費用</span><span class="value">$160</span></div>
+            <div class="info-row"><span class="label">有效期</span><span class="value">5 年</span></div>
+            <div class="info-row"><span class="label">類別</span><span class="value">甲類（看更、巡邏）/ 乙類（押運、護衞）</span></div>
+            <div class="info-row"><span class="label">所需條件</span><span class="value">年滿 18 歲、完成認可保安培訓課程、無嚴重犯罪紀錄、體格合適</span></div>
+            <div class="info-row"><span class="label">處理時間</span><span class="value">約 4-6 個星期</span></div>
         </div>
-        <span class="tag tag-gov">環保署</span>
-    </div>
-
-    <div class="license-card" data-keywords="舞獅 舞龍 舞麒麟 公眾活動 集會">
-        <span class="card-icon">🦁</span>
-        <h3>舞獅 / 舞龍許可證</h3>
-        <p class="desc">在公眾地方進行舞獅、舞龍或舞麒麟活動須向警方申請許可。</p>
-        <div class="license-info">
-            <div class="info-row"><span class="label">簽發機關</span><span class="value">警務處</span></div>
-            <div class="info-row"><span class="label">申請費用</span><span class="value">免費</span></div>
-        </div>
-        <span class="tag tag-gov">警務處</span>
-        <span class="tag tag-fee">免費</span>
+        <span class="tag tag-gov">保安業管委會</span>
+        <span class="tag tag-fee">$160</span>
+        <span class="tag tag-renew">5 年續期</span>
     </div>
 
 </div>
@@ -1910,6 +1895,7 @@
 <div class="no-results" id="noResults">
     😔 搵唔到相關牌照，試下其他關鍵字？
 </div>
+
 
 </div>
 </section>
