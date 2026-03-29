@@ -1144,9 +1144,41 @@
         .tabs-row { overflow-x: auto; }
         .tab-item { padding: 12px 20px; font-size: 0.9rem; white-space: nowrap; }
         .kb-grid { grid-template-columns: 1fr; }
-        .district-grid { grid-template-columns: repeat(3, 1fr); }
+        .district-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
         .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
         .plan-card.popular { transform: scale(1); }
+
+        /* 比較表格手機版可滾動 */
+        .comparison .container { overflow-x: auto; }
+        .comp-table { min-width: 500px; font-size: 0.8rem; }
+        .comp-table th, .comp-table td { padding: 10px 8px; }
+
+        /* AI 產品區手機版 */
+        #ai-products .container > div:nth-child(3) {
+            grid-template-columns: 1fr !important;
+        }
+
+        /* 輪播圓點加大 */
+        .carousel-dot { width: 16px; height: 16px; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+
+        /* 頁腳字體 */
+        .footer-col { font-size: 0.85rem; }
+        .footer-col h4 { font-size: 1rem; }
+
+        /* WhatsApp 浮動按鈕避開 chatbot */
+        .wa-float { bottom: 20px; right: 16px; width: 50px; height: 50px; }
+        .chatbot-btn { bottom: 80px !important; right: 16px !important; }
+    }
+
+    /* 更小螢幕 */
+    @media (max-width: 480px) {
+        .hero-slide h1 { font-size: 1.6rem; }
+        .hero-slide .price-highlight { font-size: 2.8rem; }
+        .hero-slide .price-highlight .currency { font-size: 1.4rem; }
+        .hero-slide .price-highlight .period { font-size: 1rem; }
+        .district-grid { grid-template-columns: repeat(2, 1fr); }
+        .footer-grid { grid-template-columns: 1fr; }
+        .biz-grid { grid-template-columns: 1fr 1fr; }
     }
     </style>
 </head>
