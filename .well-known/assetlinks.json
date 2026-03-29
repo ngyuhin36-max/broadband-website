@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.broadbandhk.twa",
+        "sha256_cert_fingerprints": ["87:11:B9:35:91:2F:B0:41:41:6D:C2:6D:64:CA:F3:52:FC:28:DE:2B:7D:0C:F2:38:38:2E:80:0B:C2:0E:94:9B"]
+      }
+    }]
