@@ -21,6 +21,11 @@
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📶</text></svg>">
 
@@ -2345,6 +2350,12 @@ window.addEventListener('scroll', () => {
     // Show welcome message on load
     setTimeout(() => showMenu('main'), 500);
 })();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
 </script>
 
 </body>

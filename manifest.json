@@ -1,0 +1,55 @@
+{
+  "name": "BroadbandHK 寬頻格價比較",
+  "short_name": "BroadbandHK",
+  "description": "香港光纖寬頻格價比較，月費低至 $98。即時比較各大寬頻供應商價錢、速度及覆蓋。",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "lang": "zh-Hant",
+  "categories": ["utilities", "business"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "BroadbandHK 主頁"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "格價計算器",
+      "short_name": "格價",
+      "url": "/calculator.html",
+      "icons": [{"src": "/icons/icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "速度測試",
+      "short_name": "測速",
+      "url": "/speed-test.html",
+      "icons": [{"src": "/icons/icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "牌照申請",
+      "short_name": "牌照",
+      "url": "/licenses.html",
+      "icons": [{"src": "/icons/icon-192.png", "sizes": "192x192"}]
+    }
+  ]
+}
