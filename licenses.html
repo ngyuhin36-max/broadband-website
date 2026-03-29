@@ -318,7 +318,7 @@
     .category-title {
         font-size: 1.8rem;
         font-weight: 800;
-        margin-bottom: 32px;
+        margin: 0 0 24px 0;
         padding-bottom: 12px;
         border-bottom: 3px solid #6366f1;
         display: inline-block;
@@ -330,7 +330,10 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
         gap: 24px;
-        margin-bottom: 60px;
+        margin-bottom: 48px;
+    }
+    .license-grid:last-of-type {
+        margin-bottom: 0;
     }
     .license-card {
         background: #fff;
