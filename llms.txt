@@ -1,0 +1,44 @@
+# BroadbandHK
+
+> BroadbandHK 係香港寬頻及 WiFi 產品服務供應商，提供家居及商業寬頻方案，AI WiFi 管理、AI 自動化、AI 監控、AI 智能家電及 AI 客服等 AI 產品。
+
+## 公司簡介
+BroadbandHK 提供香港光纖寬頻服務，月費低至 HK$98。專業跟進，售後無憂。服務覆蓋全港十八區。
+
+## 寬頻服務計劃
+- 基本版 100M：HK$98/月
+- 進階版 500M：HK$158/月
+- 極速版 1000M：HK$228/月
+- 商業寬頻：按需報價
+
+## WiFi 產品
+- WiFi 6 Gateway（家居版）：月費約 HK$28-$33，支援 WiFi 6、WPA3、Mesh WiFi 擴展、myWiFi App 管理
+- Managed WiFi+（企業版）：與 RUCKUS Networks 合作，AI 驅動優化，企業級無線 AP，月費訂閱制
+
+## AI 產品
+- AI WiFi 管理：智能頻寬分配、AI 自動偵測診斷、實時流量分析
+- AI 自動化：自動化網絡管理及業務流程
+- AI 監控：AI 攝影機、智能安防、人流分析
+- AI 智能家電：智能家居控制及管理
+- AI 客服：智能客服系統
+
+## WiFi 應用場景
+- 智慧零售：電子支付、人流分析、AI 防盜
+- 企業辦公室：智能頻寬、安全防護、門禁整合
+- 智慧酒店：無縫漫遊、AI 安防、人力優化
+- 工廠倉儲：IoT 支援、AGV 無人搬運車、生產線監控
+- 校園公共場所：網絡分離、上網管理、AI 安防
+
+## 實用工具
+- 格價計算器：比較各寬頻供應商月費
+- 速度測試：測試你嘅寬頻速度
+- 搬屋小幫手：搬屋寬頻轉移指南
+- 知識庫：寬頻相關知識文章
+- 牌照申請：電訊牌照申請指南
+
+## 聯絡方式
+- 電話：2330 8372
+- WhatsApp：5228 7541
+- 網站：https://broadbandhk.com
+- Facebook：https://www.facebook.com/profile.php?id=61578537419518
+- Instagram：https://www.instagram.com/broadbandhk_speednet

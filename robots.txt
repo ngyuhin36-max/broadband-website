@@ -1,3 +1,22 @@
 User-agent: *
 Allow: /
 Sitemap: https://broadbandhk.com/sitemap.xml
+
+# AI Search Engines
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# LLMs.txt
+# https://broadbandhk.com/llms.txt
