@@ -2,6 +2,8 @@
 
 > BroadbandHK 係香港寬頻及 WiFi 產品服務供應商，提供家居及商業寬頻方案，AI WiFi 管理、AI 自動化、AI 監控、AI 智能家電及 AI 客服等 AI 產品。
 
+- [完整資訊](https://broadbandhk.com/llms-full.txt): 所有服務、產品、價格、FAQ 嘅詳細描述
+
 ## 公司簡介
 BroadbandHK 提供香港光纖寬頻服務，月費低至 HK$98。專業跟進，售後無憂。服務覆蓋全港十八區。
 
