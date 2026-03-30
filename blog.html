@@ -223,6 +223,20 @@
         .related-link:hover { background: var(--primary); color: var(--white); }
 
         @media (max-width: 768px) {
+            /* Logo: icon on top, text below, centered */
+            .logo {
+                display: flex !important; flex-direction: column; align-items: center;
+                line-height: 1.2; gap: 0;
+            }
+            .logo-icon { font-size: 1.4rem; }
+            .logo-text { font-size: 0.75rem; }
+            /* WhatsApp button: 查詢 on second line */
+            .btn-small {
+                display: flex !important; flex-direction: column; align-items: center;
+                line-height: 1.2; padding: 6px 14px !important;
+            }
+            .wa-line1 { font-size: 0.8rem; }
+            .wa-line2 { font-size: 0.7rem; }
             .article { padding: 28px 20px; }
             .blog-hero h1 { font-size: 2rem; }
             .comparison-table { font-size: 0.85rem; }
@@ -238,14 +252,14 @@
 <!-- Navigation -->
 <nav class="navbar">
     <div class="container nav-container">
-        <a href="index.html" class="logo">⚡ BroadbandHK</a>
+        <a href="index.html" class="logo"><span class="logo-icon">⚡</span><span class="logo-text">BroadbandHK</span></a>
         <ul class="nav-links">
             <li><a href="index.html#plans">月費計劃</a></li>
             <li><a href="index.html#features">服務特色</a></li>
             <li><a href="blog.html">知識庫</a></li>
             <li><a href="index.html#contact">聯絡我們</a></li>
         </ul>
-        <a href="https://wa.me/85252287541" class="btn btn-small">WhatsApp 查詢</a>
+        <a href="https://wa.me/85252287541" class="btn btn-small"><span class="wa-line1">WhatsApp</span><span class="wa-line2"> 查詢</span></a>
     </div>
 </nav>
 
