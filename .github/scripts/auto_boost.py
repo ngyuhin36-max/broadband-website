@@ -210,8 +210,8 @@ def submit_indexnow():
 
     log(f"  Submitting {len(to_submit)} new/changed URLs (skipping {len(all_urls) - len(to_submit)} unchanged)")
 
-    # IndexNow 每次最多提交 10,000 個
-    batch_size = 10000
+    # IndexNow 小批量提交，避免伺服器負載過高
+    batch_size = 100
     success = False
     for i in range(0, len(to_submit), batch_size):
         batch = to_submit[i:i + batch_size]
