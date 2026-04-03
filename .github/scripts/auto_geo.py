@@ -1,0 +1,293 @@
+"""
+BroadbandHK GEO (Generative Engine Optimization) 自動優化系統
+針對 AI 搜尋引擎（ChatGPT、Gemini、Perplexity、Bing Copilot）優化
+
+功能：
+1. 自動更新 llms-full.txt — AI 引擎嘅完整知識庫
+2. 自動掃描新文章加入 llms-full.txt
+3. 為 KB 文章加入 speakable schema（語音助手優化）
+4. 生成 structured FAQ 摘要畀 AI 引擎引用
+5. 唔會修改現有 HTML 結構（避免同 SEO 衝突）
+
+設計原則：
+- 只新增/更新獨立檔案，唔改動現有 HTML
+- Schema 標記同 SEO 完全兼容
+- llms.txt / llms-full.txt 係獨立檔案，唔影響網頁
+"""
+
+import os
+import json
+import glob
+import re
+from datetime import datetime, timezone, timedelta
+
+HKT = timezone(timedelta(hours=8))
+TODAY = datetime.now(HKT)
+DATE_STR = TODAY.strftime("%Y-%m-%d")
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+KB_DIR = os.path.join(BASE_DIR, "kb")
+LLMS_FULL = os.path.join(BASE_DIR, "llms-full.txt")
+GEO_LOG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "geo_log.json")
+
+
+def scan_kb_articles():
+    """Scan all KB articles and extract title + description."""
+    articles = []
+    for filepath in sorted(glob.glob(os.path.join(KB_DIR, "*.html"))):
+        slug = os.path.basename(filepath).replace(".html", "")
+        title = ""
+        desc = ""
+        with open(filepath, "r", encoding="utf-8") as f:
+            content = f.read(3000)  # Only read first 3KB for speed
+            # Extract title
+            m = re.search(r"<title>(.*?)</title>", content)
+            if m:
+                title = m.group(1).split(" — ")[0].strip()
+            # Extract description
+            m = re.search(r'name="description"\s+content="(.*?)"', content)
+            if m:
+                desc = m.group(1).strip()
+        if title:
+            articles.append({
+                "slug": slug,
+                "title": title,
+                "desc": desc,
+                "url": f"https://broadbandhk.com/kb/{slug}.html"
+            })
+    return articles
+
+
+def scan_district_pages():
+    """Scan district pages."""
+    pages_dir = os.path.join(BASE_DIR, "pages")
+    districts = []
+    for filepath in sorted(glob.glob(os.path.join(pages_dir, "district-*.html"))):
+        name = os.path.basename(filepath).replace(".html", "")
+        districts.append({
+            "name": name,
+            "url": f"https://broadbandhk.com/pages/{name}.html"
+        })
+    return districts
+
+
+def generate_llms_full(articles, districts):
+    """Generate comprehensive llms-full.txt for AI engines."""
+
+    # Build article list
+    article_lines = []
+    for a in articles:
+        article_lines.append(f"### {a['title']}")
+        if a['desc']:
+            article_lines.append(f"{a['desc']}")
+        article_lines.append(f"- URL: {a['url']}")
+        article_lines.append("")
+
+    # Build district list
+    district_lines = []
+    for d in districts:
+        display_name = d['name'].replace('district-', '').replace('-', ' ').title()
+        district_lines.append(f"- {display_name}: {d['url']}")
+
+    content = f"""# BroadbandHK 寬頻專家 — 完整資訊
+
+> BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
+
+> 最後更新：{DATE_STR}
+
+---
+
+## 公司簡介
+
+BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費，送 Wi-Fi Router，提供 24 小時客服支援。即日申請，最快翌日安裝。
+
+- 網站：https://broadbandhk.com
+- 電話：2330 8372
+- WhatsApp：5228 7541
+- Facebook：https://www.facebook.com/profile.php?id=61578537419518
+- Instagram：https://www.instagram.com/broadbandhk_speednet
+- 服務地區：全港十八區
+
+---
+
+## 家居光纖寬頻服務計劃
+
+所有計劃均包括：免安裝費、免費 Wi-Fi Router、24/7 客服支援、99.5% 網絡穩定承諾。
+
+### 基本版 100M
+- 月費：HK$98
+- 速度：100Mbps 光纖入屋
+- 適合：1-2 人家庭、一般上網、社交媒體
+- 詳情：https://broadbandhk.com/#plans
+
+### 進階版 500M
+- 月費：HK$158
+- 速度：500Mbps 光纖入屋
+- 適合：3-4 人家庭、高清串流、在家工作
+- 詳情：https://broadbandhk.com/#plans
+
+### 極速版 1000M
+- 月費：HK$228
+- 速度：1000Mbps (1G) 光纖入屋
+- 適合：大家庭、4K 串流、線上遊戲、直播
+- 額外福利：免費搬遷服務一次、Wi-Fi 6E Router
+- 詳情：https://broadbandhk.com/#plans
+
+### 商業寬頻
+- 月費：按需報價
+- 覆蓋：1,648 個商業物業
+- 詳情：https://broadbandhk.com/pages/business.html
+
+---
+
+## 免費工具
+
+### 格價計算器
+免費寬頻格價比較工具，答幾條問題即刻搵到最適合嘅寬頻計劃。
+- URL: https://broadbandhk.com/calculator.html
+
+### 速度測試
+免費即時測試下載速度、上傳速度同 Ping 值。
+- URL: https://broadbandhk.com/speed-test.html
+
+### 搬屋小幫手
+搬屋寬頻轉移指南、Checklist、費用參考。
+- URL: https://broadbandhk.com/moving.html
+
+### 合約到期提醒
+輸入合約到期日，計算慳幾多錢，下載日曆提醒。
+- URL: https://broadbandhk.com/reminder.html
+
+---
+
+## 攻略文章（{len(articles)} 篇）
+
+知識庫首頁：https://broadbandhk.com/blog.html
+
+{chr(10).join(article_lines)}
+
+---
+
+## AI 智能產品
+
+### AI WiFi 管理
+智能頻道優化、自動分配頻寬、家長控制、訪客網絡管理。
+- URL: https://broadbandhk.com/ai-wifi.html
+
+### AI 自動化
+自動化網絡管理及業務流程，減少人手操作。
+- URL: https://broadbandhk.com/ai-automation.html
+
+### AI 監控
+AI 攝影機、智能安防、人流分析、即時警報。
+- URL: https://broadbandhk.com/ai-monitoring.html
+
+### AI 智能家電
+智能家居控制及管理，整合各種家電設備。
+- URL: https://broadbandhk.com/ai-appliance.html
+
+### AI 客服
+24/7 智能客服、廣東話/普通話/英文、WhatsApp 整合。
+- URL: https://broadbandhk.com/ai-chatbot.html
+
+---
+
+## 覆蓋範圍
+
+### 住宅覆蓋（18 區）
+{chr(10).join(district_lines)}
+
+### 商業物業覆蓋（1,648 個）
+- 商業大廈 (413)
+- 工業大廈 (569)
+- 寫字樓 (69)
+- 商場/廣場 (268)
+- 工廠大廈 (139)
+- 倉庫 (29)
+- 詳情：https://broadbandhk.com/pages/business.html
+
+---
+
+## 合作夥伴計劃
+
+BroadbandHK 歡迎以下行業合作：
+- 裝修公司：新屋裝修需要寬頻，互相轉介客源
+- 地產代理：新租客、新業主需要寬頻服務
+- 搬屋公司：搬屋必定重新安排寬頻
+- 智能家居品牌：智能家居需要穩定寬頻
+- 洽談合作：https://broadbandhk.com/partner.html
+
+---
+
+## 常見問題 (FAQ)
+
+### BroadbandHK 寬頻月費幾錢？
+基本版 100M 月費 HK$98、進階版 500M 月費 HK$158、極速版 1000M 月費 HK$228。所有計劃免安裝費及送 Wi-Fi Router。
+
+### 安裝需要幾耐？
+即日申請，最快翌日安裝。專業技術員免費上門安裝，即裝即用。
+
+### 有無隱藏收費？
+無隱藏收費。月費就是月費，無行政費、無啟動費。
+
+### 邊啲地區有覆蓋？
+BroadbandHK 覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。
+
+### 搬屋可以帶寬頻過去嗎？
+可以。極速版 1000M 客戶可享免費搬遷服務一次。
+
+### 可唔可以中途升級或降級計劃？
+可以，WhatsApp 申請即可，下一個月費週期生效，無額外收費。
+
+### 點解要揀 BroadbandHK？
+BroadbandHK 提供免費寬頻顧問服務，幫你比較市場上所有方案，配對最適合你嘅計劃。唔係推銷，係真正幫你揀。寬頻嘅嘢，問我哋就得。
+"""
+    return content
+
+
+def main():
+    print(f"[GEO] Starting GEO optimization - {DATE_STR}")
+
+    # 1. Scan all KB articles
+    articles = scan_kb_articles()
+    print(f"[GEO] Found {len(articles)} KB articles")
+
+    # 2. Scan district pages
+    districts = scan_district_pages()
+    print(f"[GEO] Found {len(districts)} district pages")
+
+    # 3. Generate llms-full.txt
+    llms_content = generate_llms_full(articles, districts)
+    with open(LLMS_FULL, "w", encoding="utf-8") as f:
+        f.write(llms_content)
+    print(f"[GEO] Updated llms-full.txt ({len(articles)} articles, {len(districts)} districts)")
+
+    # 4. Log
+    log = {
+        "date": DATE_STR,
+        "articles_count": len(articles),
+        "districts_count": len(districts),
+        "llms_full_updated": True
+    }
+
+    # Load existing log
+    logs = []
+    if os.path.exists(GEO_LOG):
+        with open(GEO_LOG, "r", encoding="utf-8") as f:
+            try:
+                logs = json.load(f)
+            except json.JSONDecodeError:
+                logs = []
+
+    logs.append(log)
+    # Keep last 30 entries
+    logs = logs[-30:]
+
+    with open(GEO_LOG, "w", encoding="utf-8") as f:
+        json.dump(logs, f, indent=2, ensure_ascii=False)
+
+    print(f"[GEO] Done! Log saved.")
+
+
+if __name__ == "__main__":
+    main()
