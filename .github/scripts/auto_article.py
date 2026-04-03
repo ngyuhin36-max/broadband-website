@@ -97,10 +97,10 @@ ARTICLE_TEMPLATES = [
             <p>根據我哋嘅數據，<strong>同一供應商嘅續約價平均比新客價貴15-30%</strong>。舉個例子：</p>
             <table class="comparison-table">
                 <tr><th>供應商</th><th>1000M 新客價</th><th>1000M 續約價</th><th>差價</th></tr>
-                <tr><td>HKBN</td><td>$158/月</td><td>$198/月</td><td>+$40</td></tr>
-                <tr><td>HGC 環電</td><td>$148/月</td><td>$188/月</td><td>+$40</td></tr>
-                <tr><td>CMHK 中國移動</td><td>$108/月</td><td>$148/月</td><td>+$40</td></tr>
-                <tr><td>SmarTone</td><td>$168/月</td><td>$208/月</td><td>+$40</td></tr>
+                <tr><td>供應商 A</td><td>$158/月</td><td>$198/月</td><td>+$40</td></tr>
+                <tr><td>供應商 B</td><td>$148/月</td><td>$188/月</td><td>+$40</td></tr>
+                <tr><td>供應商 C</td><td>$108/月</td><td>$148/月</td><td>+$40</td></tr>
+                <tr><td>供應商 D</td><td>$168/月</td><td>$208/月</td><td>+$40</td></tr>
             </table>
             <p><em>*以上為2026年Q1市場參考價，實際價格因地區、合約期而異</em></p>
             <div class="tip-box"><strong>💡 關鍵：</strong>識得議價嘅客戶平均可以慳到$30-60/月，即每年慳$360-720！</div>
@@ -268,7 +268,7 @@ ARTICLE_TEMPLATES = [
                 <li><strong>要有中文客服：</strong>萬一有問題，長者可以自己打去問</li>
                 <li><strong>考慮寬頻+手機組合：</strong>部分供應商有「全家Plan」，一齊出可以慳更多</li>
             </ul>
-            <div class="tip-box"><strong>💡 Tips：</strong>好多供應商有長者優惠（65歲以上），記得問！CMHK中國移動同HKBN都有相關計劃。</div>
+            <div class="tip-box"><strong>💡 Tips：</strong>好多供應商有長者優惠（65歲以上），記得問！供應商 C中國移動同供應商 A都有相關計劃。</div>
             """),
             ("Router設定懶人包：一次搞掂", """
             <p>幫長者設定好以下嘢，之後佢哋就唔需要理Router：</p>
@@ -424,52 +424,52 @@ ARTICLE_TEMPLATES = [
     {
         "slug": "hong-kong-broadband-providers-comparison",
         "title": "2026年香港6大寬頻供應商全面比較：邊間最平？邊間最快？邊間最穩？",
-        "description": "HKBN、HGC、CMHK、SmarTone、PCCW、i-Cable 六大供應商逐間比較，價錢、速度、覆蓋、客服全面評分。",
-        "keywords": "寬頻比較, 寬頻供應商, HKBN, HGC, CMHK, SmarTone, PCCW, i-Cable, 寬頻邊間好, 最平寬頻",
+        "description": "供應商 A、供應商 B、供應商 C、供應商 D、供應商 E、供應商 F 六大供應商逐間比較，價錢、速度、覆蓋、客服全面評分。",
+        "keywords": "寬頻比較, 寬頻供應商, 供應商 A, 供應商 B, 供應商 C, 供應商 D, 供應商 E, 供應商 F, 寬頻邊間好, 最平寬頻",
         "category": "trending",
         "cat_class": "cat-trending",
         "cat_name": "熱門話題",
         "card_desc": "六大供應商逐間比較：價錢、速度、覆蓋、客服全面評分，幫你揀最啱嘅一間。",
         "faqs": [
-            ("香港邊間寬頻最平？", "以2026年市場價計，CMHK中國移動通常提供最低月費，1000M可以低至$108/月。但「最平」唔一定係「最抵」，要考慮覆蓋範圍、穩定性同客服質素。建議用BroadbandHK格價計算器按你嘅地址比較實際可用嘅方案。"),
-            ("HKBN同HGC邊間好？", "兩間都係香港主要光纖供應商，各有優勢。HKBN覆蓋較廣（特別係住宅區）、品牌知名度高；HGC係全港最大光纖網絡商，backbone網絡質素好，價錢通常較HKBN平少少。如果兩間都有覆蓋你嘅大廈，建議比較實際報價再決定。"),
+            ("香港邊間寬頻最平？", "以2026年市場價計，供應商 C中國移動通常提供最低月費，1000M可以低至$108/月。但「最平」唔一定係「最抵」，要考慮覆蓋範圍、穩定性同客服質素。建議用BroadbandHK格價計算器按你嘅地址比較實際可用嘅方案。"),
+            ("供應商 A同供應商 B邊間好？", "兩間都係香港主要光纖供應商，各有優勢。供應商 A覆蓋較廣（特別係住宅區）、品牌知名度高；供應商 B係全港最大光纖網絡商，backbone網絡質素好，價錢通常較供應商 A平少少。如果兩間都有覆蓋你嘅大廈，建議比較實際報價再決定。"),
             ("寬頻穩唔穩定點樣睇？", "可以參考：(1)供應商嘅SLA（服務水平協議），承諾幾多%正常運作時間；(2)用戶評價（連登、Facebook群組）；(3)你大廈嘅鄰居用緊邊間。同一供應商喺唔同大廈嘅表現可以差好遠，因為取決於大廈嘅線路質素。")
         ],
         "sections": [
             ("六大供應商一覽表", """
             <table class="comparison-table">
                 <tr><th>供應商</th><th>1000M月費</th><th>覆蓋率</th><th>網絡類型</th><th>適合</th></tr>
-                <tr><td><strong>HKBN</strong></td><td>$158起</td><td>★★★★☆</td><td>FTTH/FTTB</td><td>一般家庭</td></tr>
-                <tr><td><strong>HGC 環電</strong></td><td>$148起</td><td>★★★★★</td><td>FTTH</td><td>追求穩定</td></tr>
-                <tr><td><strong>CMHK 中國移動</strong></td><td>$108起</td><td>★★★☆☆</td><td>FTTH/FTTB</td><td>慳錢首選</td></tr>
-                <tr><td><strong>SmarTone</strong></td><td>$168起</td><td>★★★☆☆</td><td>FTTH</td><td>手機+寬頻組合</td></tr>
-                <tr><td><strong>PCCW/網上行</strong></td><td>$178起</td><td>★★★★★</td><td>FTTH/FTTB</td><td>要求最廣覆蓋</td></tr>
-                <tr><td><strong>i-Cable 有線</strong></td><td>$128起</td><td>★★☆☆☆</td><td>HFC/FTTH</td><td>特定屋苑</td></tr>
+                <tr><td><strong>供應商 A</strong></td><td>$158起</td><td>★★★★☆</td><td>FTTH/FTTB</td><td>一般家庭</td></tr>
+                <tr><td><strong>供應商 B</strong></td><td>$148起</td><td>★★★★★</td><td>FTTH</td><td>追求穩定</td></tr>
+                <tr><td><strong>供應商 C</strong></td><td>$108起</td><td>★★★☆☆</td><td>FTTH/FTTB</td><td>慳錢首選</td></tr>
+                <tr><td><strong>供應商 D</strong></td><td>$168起</td><td>★★★☆☆</td><td>FTTH</td><td>手機+寬頻組合</td></tr>
+                <tr><td><strong>供應商 E</strong></td><td>$178起</td><td>★★★★★</td><td>FTTH/FTTB</td><td>要求最廣覆蓋</td></tr>
+                <tr><td><strong>供應商 F</strong></td><td>$128起</td><td>★★☆☆☆</td><td>HFC/FTTH</td><td>特定屋苑</td></tr>
             </table>
             <p><em>*價錢為2026年Q1新客參考價，實際因地區、合約期而異</em></p>
             """),
             ("逐間供應商深度分析", """
-            <h3>HKBN</h3>
+            <h3>供應商 A</h3>
             <p><strong>優點：</strong>覆蓋廣、客服中心多、有門市可以當面傾。品牌知名度高，服務相對穩定。</p>
             <p><strong>缺點：</strong>價錢偏貴、合約條款較嚴格、續約價同新客價差距大。</p>
             <p><strong>適合：</strong>唔想煩、想搵間大品牌嘅用戶。</p>
 
-            <h3>HGC 環電（和記環球電訊）</h3>
+            <h3>供應商 B（和記環球電訊）</h3>
             <p><strong>優點：</strong>全港最大光纖網絡、backbone質素高、企業級網絡穩定性、價錢合理。</p>
             <p><strong>缺點：</strong>品牌認知度較低、門市較少。</p>
             <p><strong>適合：</strong>追求網絡穩定性、在家工作用戶。</p>
 
-            <h3>CMHK 中國移動香港</h3>
+            <h3>供應商 C香港</h3>
             <p><strong>優點：</strong>價錢最平、經常有超值促銷、手機+寬頻組合優惠多。</p>
             <p><strong>缺點：</strong>覆蓋範圍較細（主要大型屋苑）、部分地區只有FTTB。</p>
             <p><strong>適合：</strong>預算有限、追求最低月費嘅用戶。</p>
 
-            <h3>SmarTone</h3>
+            <h3>供應商 D</h3>
             <p><strong>優點：</strong>手機+寬頻組合折扣大、服務態度好、網絡質素不錯。</p>
             <p><strong>缺點：</strong>純寬頻價錢偏貴、覆蓋範圍一般。</p>
-            <p><strong>適合：</strong>已經用SmarTone手機、想一齊出享折扣嘅用戶。</p>
+            <p><strong>適合：</strong>已經用供應商 D手機、想一齊出享折扣嘅用戶。</p>
 
-            <h3>PCCW/網上行</h3>
+            <h3>供應商 E</h3>
             <p><strong>優點：</strong>覆蓋最廣（前電訊盈科）、幾乎全港都有、技術支援完善。</p>
             <p><strong>缺點：</strong>最貴、合約條款複雜、客服等候時間長。</p>
             <p><strong>適合：</strong>其他供應商冇覆蓋嘅地區、或者要求最穩定服務嘅用戶。</p>
@@ -609,7 +609,7 @@ ARTICLE_TEMPLATES = [
         "card_desc": "公屋住戶寬頻揀邊間好？逐區覆蓋比較、FTTH定FTTB、月費最平攻略。",
         "faqs": [
             ("公屋係咪全部都有光纖入屋？", "唔係。好多舊公屋（2010年前落成）只有FTTB（光纖到樓），最後一段用銅線入屋，速度上限大約100-200M。較新嘅屋邨（2015年後）大部分有FTTH（光纖到戶），可以享用1000M全速。你可以喺BroadbandHK格價計算器輸入地址查到。"),
-            ("公屋寬頻邊間最平？", "以2026年市場價計，CMHK中國移動通常係最平，100M低至$68/月、1000M低至$108/月。但唔係每條邨都有覆蓋。HGC同HKBN覆蓋較廣，價錢中等。建議先查覆蓋再格價。"),
+            ("公屋寬頻邊間最平？", "以2026年市場價計，供應商 C中國移動通常係最平，100M低至$68/月、1000M低至$108/月。但唔係每條邨都有覆蓋。供應商 B同供應商 A覆蓋較廣，價錢中等。建議先查覆蓋再格價。"),
             ("公屋可以自己拉光纖線嗎？", "唔可以自己拉。光纖入屋要由供應商嘅技師安裝，而且要經房署批准。如果你條邨未有某間供應商嘅光纖，個人係冇辦法加裝嘅。只能用已經鋪設好嘅供應商。")
         ],
         "sections": [
@@ -627,7 +627,7 @@ ARTICLE_TEMPLATES = [
             ("各區公屋覆蓋情況", """
             <p>以下係主要公屋區域嘅供應商覆蓋概況：</p>
             <table class="comparison-table">
-                <tr><th>區域</th><th>HKBN</th><th>HGC</th><th>CMHK</th><th>PCCW</th></tr>
+                <tr><th>區域</th><th>供應商 A</th><th>供應商 B</th><th>供應商 C</th><th>供應商 E</th></tr>
                 <tr><td>觀塘區（翠屏邨等）</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
                 <tr><td>黃大仙區（彩虹邨等）</td><td>✅</td><td>✅</td><td>部分</td><td>✅</td></tr>
                 <tr><td>沙田區（瀝源邨等）</td><td>✅</td><td>✅</td><td>部分</td><td>✅</td></tr>
@@ -652,7 +652,7 @@ ARTICLE_TEMPLATES = [
                 <li><strong>速度慢過應有水平：</strong>先用LAN線測速排除WiFi問題。如果LAN線測速都慢，打去供應商投訴，可能係大廈機房設備問題</li>
                 <li><strong>WiFi訊號弱：</strong>公屋牆壁多數係石屎牆，穿牆衰減大。將Router放喺客廳中央位置，唔好放入電視櫃</li>
                 <li><strong>經常斷線：</strong>可能係大廈線路老化。記錄斷線時間同頻率，向供應商投訴要求免費檢修</li>
-                <li><strong>冇供應商覆蓋：</strong>極少數偏遠公屋可能只有PCCW覆蓋。如果月費太貴，可以考慮5G家居寬頻作替代</li>
+                <li><strong>冇供應商覆蓋：</strong>極少數偏遠公屋可能只有供應商 E覆蓋。如果月費太貴，可以考慮5G家居寬頻作替代</li>
             </ul>
             """)
         ]
@@ -708,9 +708,9 @@ ARTICLE_TEMPLATES = [
             <table class="comparison-table">
                 <tr><th>地區</th><th>供應商</th><th>下載速度</th><th>上傳速度</th><th>延遲</th></tr>
                 <tr><td>元朗錦田</td><td>3HK</td><td>280Mbps</td><td>45Mbps</td><td>12ms</td></tr>
-                <tr><td>大埔林村</td><td>CMHK</td><td>350Mbps</td><td>52Mbps</td><td>10ms</td></tr>
-                <tr><td>西貢壁屋</td><td>SmarTone</td><td>210Mbps</td><td>38Mbps</td><td>15ms</td></tr>
-                <tr><td>粉嶺軍地</td><td>CMHK</td><td>180Mbps</td><td>35Mbps</td><td>18ms</td></tr>
+                <tr><td>大埔林村</td><td>供應商 C</td><td>350Mbps</td><td>52Mbps</td><td>10ms</td></tr>
+                <tr><td>西貢壁屋</td><td>供應商 D</td><td>210Mbps</td><td>38Mbps</td><td>15ms</td></tr>
+                <tr><td>粉嶺軍地</td><td>供應商 C</td><td>180Mbps</td><td>35Mbps</td><td>18ms</td></tr>
             </table>
             <p><em>*實測數據僅供參考，速度受基站距離、天氣、用戶數量影響</em></p>
             <div class="tip-box"><strong>💡 Tips：</strong>買5G家居寬頻前，先問供應商借Router試用幾日，測試你屋企嘅實際速度。大部分供應商都有14日冷靜期。</div>
@@ -974,8 +974,8 @@ ARTICLE_TEMPLATES = [
             <table class="comparison-table">
                 <tr><th>供應商</th><th>月費</th><th>速度</th><th>合約期</th><th>特色</th></tr>
                 <tr><td>3HK</td><td>$128起</td><td>5G無限</td><td>24個月</td><td>覆蓋廣、價錢中等</td></tr>
-                <tr><td>CMHK</td><td>$98起</td><td>5G無限</td><td>24個月</td><td>最平、經常有優惠</td></tr>
-                <tr><td>SmarTone</td><td>$158起</td><td>5G無限</td><td>24個月</td><td>網絡質素好</td></tr>
+                <tr><td>供應商 C</td><td>$98起</td><td>5G無限</td><td>24個月</td><td>最平、經常有優惠</td></tr>
+                <tr><td>供應商 D</td><td>$158起</td><td>5G無限</td><td>24個月</td><td>網絡質素好</td></tr>
                 <tr><td>csl</td><td>$168起</td><td>5G無限</td><td>24個月</td><td>覆蓋最廣</td></tr>
             </table>
             <p><em>*價錢為2026年Q1參考價，實際因促銷而異</em></p>
@@ -1628,7 +1628,7 @@ ARTICLE_TEMPLATES = [
         "cat_name": "熱門話題",
         "card_desc": "觀塘區住得好唔好？寬頻覆蓋、交通、美食、租樓全面睇。",
         "faqs": [
-            ("觀塘區寬頻覆蓋情況點？", "觀塘區係全港寬頻覆蓋最好嘅地區之一。大部分私樓同較新嘅公屋都有FTTH光纖到戶，HKBN、HGC、CMHK、PCCW全部有覆蓋。月費方面因為競爭激烈，通常比偏遠地區平10-20%。"),
+            ("觀塘區寬頻覆蓋情況點？", "觀塘區係全港寬頻覆蓋最好嘅地區之一。大部分私樓同較新嘅公屋都有FTTH光纖到戶，供應商 A、供應商 B、供應商 C、供應商 E全部有覆蓋。月費方面因為競爭激烈，通常比偏遠地區平10-20%。"),
             ("觀塘租樓大概幾錢？", "2026年參考：觀塘市中心兩房單位約$12,000-18,000/月、翠屏邨公屋約$2,000-3,500/月。如果揀觀塘工廈改建嘅住宅（要留意係咪合法），可以平啲但配套較少。牛頭角/九龍灣一帶較貴但交通更方便。"),
             ("觀塘區適合邊種人住？", "適合喺觀塘/九龍灣返工嘅打工仔（步行/短程巴士就到）、預算有限嘅年輕人（租金比港島平好多）、鍾意多元化美食嘅人（工廈、熟食市場選擇極多）。唔太適合追求寧靜環境嘅人，觀塘始終比較嘈。")
         ],
@@ -2005,7 +2005,7 @@ ARTICLE_TEMPLATES = [
         "cat_name": "新手入門",
         "card_desc": "香港邊度有免費WiFi？速度幾快？安全嗎？免費WiFi熱點全攻略。",
         "faqs": [
-            ("Wi-Fi.HK係咩？", "Wi-Fi.HK係香港政府推動嘅免費WiFi計劃，喺全港超過35,000個熱點提供免費WiFi。包括政府場所（圖書館、體育館、公園）、港鐵站、商場、餐廳等。連接方法：搜尋WiFi名稱「Wi-Fi.HK via PCCW」或類似名稱，開瀏覽器接受條款即可。"),
+            ("Wi-Fi.HK係咩？", "Wi-Fi.HK係香港政府推動嘅免費WiFi計劃，喺全港超過35,000個熱點提供免費WiFi。包括政府場所（圖書館、體育館、公園）、港鐵站、商場、餐廳等。連接方法：搜尋WiFi名稱「Wi-Fi.HK via 供應商 E」或類似名稱，開瀏覽器接受條款即可。"),
             ("免費WiFi速度快唔快？", "視乎地點同使用人數。政府場所嘅WiFi通常有5-30Mbps，夠用嚟睇網頁同收Email。商場WiFi可能更快（20-50Mbps）。但繁忙時段（例如午飯時間嘅商場）速度會大幅下降。唔建議用嚟做視像會議或下載大型檔案。"),
             ("用免費WiFi安全嗎？", "基本上唔安全。公共WiFi嘅數據可以被截取。安全建議：(1)唔好登入銀行或輸入信用卡資料；(2)用VPN加密連接；(3)確保網站有HTTPS（鎖頭符號）；(4)用完後忘記該WiFi網絡。最安全嘅做法係用自己嘅流動數據。")
         ],
@@ -2013,7 +2013,7 @@ ARTICLE_TEMPLATES = [
             ("香港免費WiFi熱點分佈", """
             <table class="comparison-table">
                 <tr><th>地點類型</th><th>WiFi名稱</th><th>速度</th><th>時間限制</th></tr>
-                <tr><td>政府場所（圖書館、體育館）</td><td>Wi-Fi.HK via PCCW</td><td>5-30Mbps</td><td>無限</td></tr>
+                <tr><td>政府場所（圖書館、體育館）</td><td>Wi-Fi.HK via 供應商 E</td><td>5-30Mbps</td><td>無限</td></tr>
                 <tr><td>港鐵站</td><td>MTR Free Wi-Fi</td><td>5-20Mbps</td><td>15-30分鐘/次</td></tr>
                 <tr><td>商場（大型）</td><td>各商場自己嘅WiFi</td><td>20-50Mbps</td><td>1-2小時</td></tr>
                 <tr><td>連鎖餐廳</td><td>各餐廳WiFi</td><td>10-30Mbps</td><td>通常無限</td></tr>
