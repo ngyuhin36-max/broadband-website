@@ -1,0 +1,41 @@
+name: Auto Internal Links - 內部連結優化
+
+# 每周日 香港時間早上 11 點自動執行 (UTC 03:00)
+# 喺新文章發佈後（周一四）同 GEO 更新後（周三六）之後跑
+on:
+  schedule:
+    - cron: '0 3 * * 0'   # 每周日
+  workflow_dispatch:        # 可手動觸發
+
+permissions:
+  contents: write
+
+jobs:
+  internal-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run internal links optimization
+        run: python .github/scripts/auto_internal_links.py
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "BroadbandHK Bot"
+          git config user.email "bot@broadbandhk.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No internal link updates needed"
+          else
+            git commit -m "Links: Auto-update internal links across district + KB pages $(date +%Y-%m-%d)"
+            git push
+            echo "Internal links optimization complete!"
+          fi
