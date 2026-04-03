@@ -97,7 +97,7 @@ ARTICLE_TEMPLATES = [
             <p>根據我哋嘅數據，<strong>同一供應商嘅續約價平均比新客價貴15-30%</strong>。舉個例子：</p>
             <table class="comparison-table">
                 <tr><th>供應商</th><th>1000M 新客價</th><th>1000M 續約價</th><th>差價</th></tr>
-                <tr><td>HKBN 香港寬頻</td><td>$158/月</td><td>$198/月</td><td>+$40</td></tr>
+                <tr><td>HKBN</td><td>$158/月</td><td>$198/月</td><td>+$40</td></tr>
                 <tr><td>HGC 環電</td><td>$148/月</td><td>$188/月</td><td>+$40</td></tr>
                 <tr><td>CMHK 中國移動</td><td>$108/月</td><td>$148/月</td><td>+$40</td></tr>
                 <tr><td>SmarTone</td><td>$168/月</td><td>$208/月</td><td>+$40</td></tr>
@@ -425,7 +425,7 @@ ARTICLE_TEMPLATES = [
         "slug": "hong-kong-broadband-providers-comparison",
         "title": "2026年香港6大寬頻供應商全面比較：邊間最平？邊間最快？邊間最穩？",
         "description": "HKBN、HGC、CMHK、SmarTone、PCCW、i-Cable 六大供應商逐間比較，價錢、速度、覆蓋、客服全面評分。",
-        "keywords": "香港寬頻比較, 寬頻供應商, HKBN, HGC, CMHK, SmarTone, PCCW, i-Cable, 寬頻邊間好, 最平寬頻",
+        "keywords": "寬頻比較, 寬頻供應商, HKBN, HGC, CMHK, SmarTone, PCCW, i-Cable, 寬頻邊間好, 最平寬頻",
         "category": "trending",
         "cat_class": "cat-trending",
         "cat_name": "熱門話題",
@@ -439,7 +439,7 @@ ARTICLE_TEMPLATES = [
             ("六大供應商一覽表", """
             <table class="comparison-table">
                 <tr><th>供應商</th><th>1000M月費</th><th>覆蓋率</th><th>網絡類型</th><th>適合</th></tr>
-                <tr><td><strong>HKBN 香港寬頻</strong></td><td>$158起</td><td>★★★★☆</td><td>FTTH/FTTB</td><td>一般家庭</td></tr>
+                <tr><td><strong>HKBN</strong></td><td>$158起</td><td>★★★★☆</td><td>FTTH/FTTB</td><td>一般家庭</td></tr>
                 <tr><td><strong>HGC 環電</strong></td><td>$148起</td><td>★★★★★</td><td>FTTH</td><td>追求穩定</td></tr>
                 <tr><td><strong>CMHK 中國移動</strong></td><td>$108起</td><td>★★★☆☆</td><td>FTTH/FTTB</td><td>慳錢首選</td></tr>
                 <tr><td><strong>SmarTone</strong></td><td>$168起</td><td>★★★☆☆</td><td>FTTH</td><td>手機+寬頻組合</td></tr>
@@ -449,7 +449,7 @@ ARTICLE_TEMPLATES = [
             <p><em>*價錢為2026年Q1新客參考價，實際因地區、合約期而異</em></p>
             """),
             ("逐間供應商深度分析", """
-            <h3>HKBN 香港寬頻</h3>
+            <h3>HKBN</h3>
             <p><strong>優點：</strong>覆蓋廣、客服中心多、有門市可以當面傾。品牌知名度高，服務相對穩定。</p>
             <p><strong>缺點：</strong>價錢偏貴、合約條款較嚴格、續約價同新客價差距大。</p>
             <p><strong>適合：</strong>唔想煩、想搵間大品牌嘅用戶。</p>
