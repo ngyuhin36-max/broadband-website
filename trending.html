@@ -342,25 +342,52 @@ var tipsDB=['Router放喺屋企中間位置，WiFi覆蓋大三成。','每隔2-3
     '用Ethernet線打機睇片穩定過WiFi。','Mesh WiFi適合複式單位消除死角。','搬屋前1個月預約寬頻安裝。',
     '定期更新Router韌體修復安全漏洞。','WFH建議最少500M計劃。','申請前確認大廈有冇光纖到戶。'];
 
-var pollsDB=[
-    {q:'你屋企用緊邊間寬頻？',opts:['HKBN香港寬頻','HKT/PCCW','SmarTone','CMHK中國移動','其他'],votes:[35,28,18,12,7]},
-    {q:'你覺得屋企寬頻夠唔夠快？',opts:['非常滿意','基本夠用','時快時慢','經常唔夠','考慮轉台'],votes:[15,32,28,18,7]},
-    {q:'你用緊幾多M寬頻？',opts:['100M','500M','1000M','2000M+','唔清楚'],votes:[12,25,38,15,10]},
-    {q:'揀寬頻你最重視咩？',opts:['價錢平','速度快','穩定唔斷','客服好','無合約'],votes:[30,22,28,10,10]},
-    {q:'你會唔會用AI工具？',opts:['日日用','偶爾用','想學未開始','唔信AI','唔知'],votes:[25,30,22,13,10]},
-    {q:'你屋企幾多部裝置連WiFi？',opts:['1-3部','4-6部','7-10部','10+部','唔清楚'],votes:[10,28,32,22,8]}];
-
-function renderPoll(){
-    var p=pollsDB[new Date().getDate()%pollsDB.length],t=p.votes.reduce(function(a,b){return a+b;},0);
-    document.getElementById('pollQuestion').textContent=p.q;
-    document.getElementById('pollOptions').innerHTML=p.opts.map(function(o,i){
-        var pct=Math.round(p.votes[i]/t*100);
-        return '<div class="poll-option" onclick="vote(this)"><div class="poll-bar" style="width:'+pct+'%"></div>' +
-            '<div class="poll-text"><span>'+o+'</span><span>'+pct+'%</span></div></div>';
-    }).join('');
-    document.getElementById('pollTotal').textContent='共 '+(t*8+new Date().getDate()*17)+' 人投票';
+// 真實投票系統 - 數據儲存在Cloudflare KV
+var pollLoaded=false;
+async function renderPoll(){
+    try{
+        var res=await fetch(NEWS_API+'/poll');
+        var data=await res.json();
+        if(!data.question)return;
+        document.getElementById('pollQuestion').textContent=data.question;
+        var t=data.total||0;
+        document.getElementById('pollOptions').innerHTML=data.options.map(function(o,i){
+            var v=data.votes?data.votes[i]:0;
+            var pct=t>0?Math.round(v/t*100):0;
+            return '<div class="poll-option" data-idx="'+i+'" onclick="vote(this,'+i+')">' +
+                '<div class="poll-bar" style="width:'+(t>0?pct:0)+'%"></div>' +
+                '<div class="poll-text"><span>'+o+'</span>'+(t>0?'<span>'+pct+'%</span>':'')+'</div></div>';
+        }).join('');
+        document.getElementById('pollTotal').textContent=t>0?'共 '+t+' 人投票':'成為第一個投票嘅人！';
+        pollLoaded=true;
+    }catch(e){
+        document.getElementById('pollQuestion').textContent='投票載入中...';
+    }
 }
-function vote(el){document.querySelectorAll('.poll-option').forEach(function(o){o.classList.add('voted');});}
+async function vote(el,idx){
+    if(el.classList.contains('voted'))return;
+    try{
+        var res=await fetch(NEWS_API+'/poll',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({option:idx})});
+        var data=await res.json();
+        if(data.alreadyVoted){
+            alert('你今日已經投過票喇！');
+            // 仍然顯示結果
+            renderPoll();
+            return;
+        }
+        if(data.success){
+            var t=data.total;
+            document.querySelectorAll('.poll-option').forEach(function(o,i){
+                o.classList.add('voted');
+                var v=data.votes[i]||0;
+                var pct=t>0?Math.round(v/t*100):0;
+                o.querySelector('.poll-bar').style.width=pct+'%';
+                o.querySelector('.poll-text').innerHTML='<span>'+data.options[i]+'</span><span>'+pct+'%</span>';
+            });
+            document.getElementById('pollTotal').textContent='共 '+t+' 人投票';
+        }
+    }catch(e){alert('投票失敗，請稍後再試。');}
+}
 function renderTip(){document.getElementById('dailyTip').textContent=tipsDB[new Date().getDate()%tipsDB.length];}
 
 document.querySelectorAll('.tab-btn').forEach(function(b){
