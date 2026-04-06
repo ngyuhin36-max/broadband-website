@@ -273,15 +273,11 @@ body { font-family:'Noto Sans TC','Inter',sans-serif; background:#f8fafc; color:
 // Worker API URL - change this after deploying
 const NEWS_API = 'https://broadband-news.broadbandhk.workers.dev';
 
-// Multiple RSS2JSON sources as fallback (free, no API key needed)
+// RSS2JSON - only 3 sources for fast loading
 const RSS_SOURCES = [
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=寬頻+WiFi+香港&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'broadband' },
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=科技+香港&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'tech' },
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=AI+人工智能&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'ai' },
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=iPhone+Android+手機&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'mobile' },
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=Netflix+遊戲+串流&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'digital' },
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=網絡安全+私隱&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'security' },
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=香港+數碼+智慧城市&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'hk' },
+    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=寬頻+WiFi+科技+香港&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'tech' },
+    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=AI+人工智能+手機&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'ai' },
+    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=香港+數碼+網絡安全&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'hk' },
 ];
 
 let allNewsData = []; // Store fetched news globally
@@ -410,67 +406,74 @@ function renderNews(filter) {
     }).join('');
 }
 
-// Fetch real news from multiple RSS sources via RSS2JSON
+// Race: fetch from both Worker + RSS2JSON, show whichever arrives first
 async function fetchAllNews() {
     showLoading();
-    let allItems = [];
 
-    // Try Worker API first
+    // Start both sources in parallel
+    const workerPromise = fetchFromWorker();
+    const rssPromise = fetchFromRSS2JSON();
+
+    // Use Promise.any - first success wins
     try {
-        const res = await fetch(NEWS_API);
-        if (res.ok) {
-            const data = await res.json();
-            if (data.success && data.news && data.news.length > 0) {
-                allNewsData = data.news.slice(0, 30);
-                document.getElementById('updateTime').textContent = new Date(data.updated).toLocaleString('zh-HK');
-                renderNews('all');
-                extractKeywords();
-                return;
-            }
+        const firstResult = await Promise.any([workerPromise, rssPromise]);
+        if (firstResult && firstResult.length > 0) {
+            allNewsData = firstResult;
+            updateTime();
+            renderNews('all');
+            extractKeywords();
+            return;
         }
-    } catch(e) { /* Fall through to RSS2JSON fallback */ }
+    } catch(e) { /* all failed */ }
 
-    // Fallback: fetch from RSS2JSON directly
+    // If both fail, show error
+    document.getElementById('trendingGrid').innerHTML =
+        '<div style="text-align:center;padding:60px;color:#94a3b8;">新聞載入失敗，請稍後重新整理頁面。</div>';
+}
+
+async function fetchFromWorker() {
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(), 6000); // 6s timeout
+    const res = await fetch(NEWS_API, { signal: controller.signal });
+    if (!res.ok) throw new Error('Worker failed');
+    const data = await res.json();
+    if (!data.success || !data.news || data.news.length === 0) throw new Error('No data');
+    return data.news.slice(0, 30);
+}
+
+async function fetchFromRSS2JSON() {
     const results = await Promise.allSettled(
         RSS_SOURCES.map(async (src) => {
-            try {
-                const res = await fetch(src.url);
-                if (!res.ok) return [];
-                const data = await res.json();
-                if (data.status !== 'ok' || !data.items) return [];
-                return data.items.map(item => ({
-                    title: item.title || '',
-                    link: item.link || '',
-                    desc: (item.description || '').replace(/<[^>]+>/g, '').slice(0, 200),
-                    date: item.pubDate || '',
-                    source: extractSource(item.title, item.link),
-                    category: autoCategory(item.title || src.category),
-                }));
-            } catch(e) { return []; }
+            const controller = new AbortController();
+            setTimeout(() => controller.abort(), 5000); // 5s timeout
+            const res = await fetch(src.url, { signal: controller.signal });
+            if (!res.ok) return [];
+            const data = await res.json();
+            if (data.status !== 'ok' || !data.items) return [];
+            return data.items.map(item => ({
+                title: item.title || '',
+                link: item.link || '',
+                desc: (item.description || '').replace(/<[^>]+>/g, '').slice(0, 200),
+                date: item.pubDate || '',
+                source: extractSource(item.title, item.link),
+                category: autoCategory(item.title || src.category),
+            }));
         })
     );
-
-    results.forEach(r => {
-        if (r.status === 'fulfilled') allItems = allItems.concat(r.value);
-    });
-
-    // Remove duplicates
+    let items = [];
+    results.forEach(r => { if (r.status === 'fulfilled') items = items.concat(r.value); });
+    // Dedupe
     const seen = new Set();
-    allItems = allItems.filter(item => {
+    items = items.filter(item => {
         if (!item.title || item.title.length < 5) return false;
         const key = item.title.slice(0, 25);
         if (seen.has(key)) return false;
         seen.add(key);
         return true;
     });
-
-    // Sort by date
-    allItems.sort((a, b) => new Date(b.date) - new Date(a.date));
-    allNewsData = allItems.slice(0, 30);
-
-    updateTime();
-    renderNews('all');
-    extractKeywords();
+    items.sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (items.length === 0) throw new Error('No RSS items');
+    return items.slice(0, 30);
 }
 
 // Extract source name from Google News title format "Title - Source"
