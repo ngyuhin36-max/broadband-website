@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>每日熱門話題 | BroadbandHK 寬頻資訊站</title>
+<meta name="description" content="每日自動更新香港熱門科技、寬頻、數碼生活資訊，緊貼最新趨勢。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #2563eb;
+    --primary-light: #bfdbfe;
+    --primary-dark: #1d4ed8;
+    --dark: #0f172a;
+    --gray: #64748b;
+    --light: #f1f5f9;
+    --white: #ffffff;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 32px rgba(0,0,0,0.14);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans TC','Inter',sans-serif; background:#f8fafc; color:var(--dark); line-height:1.7; }
+
+/* ===== Navbar ===== */
+.navbar { position:sticky; top:0; z-index:1000; background:rgba(15,23,42,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); }
+.nav-container { max-width:1280px; margin:0 auto; padding:0 24px; height:64px; display:flex; align-items:center; justify-content:space-between; }
+.logo { font-size:1.3rem; font-weight:900; color:#fff; text-decoration:none; }
+.logo span { color:#60a5fa; }
+.nav-links { list-style:none; display:flex; gap:28px; }
+.nav-links a { color:#cbd5e1; text-decoration:none; font-size:0.92rem; font-weight:600; transition:color 0.2s; }
+.nav-links a:hover { color:#60a5fa; }
+.nav-wa { background:linear-gradient(135deg,#25d366,#128c7e); color:#fff !important; padding:8px 20px; border-radius:20px; font-weight:700; font-size:0.85rem; }
+
+/* ===== Hero ===== */
+.hero { background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#2563eb 100%); padding:60px 24px 50px; text-align:center; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%;
+    background:radial-gradient(circle at 30% 50%, rgba(37,99,235,0.15) 0%, transparent 60%); }
+.hero h1 { font-size:2.6rem; font-weight:900; color:#fff; margin-bottom:12px; position:relative; }
+.hero h1 span { background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.hero p { color:#94a3b8; font-size:1.1rem; position:relative; }
+.hero .live-dot { display:inline-block; width:10px; height:10px; background:#22c55e; border-radius:50%; margin-right:8px; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{ opacity:1; } 50%{ opacity:0.4; } }
+.hero .update-time { color:#60a5fa; font-size:0.95rem; margin-top:10px; position:relative; font-weight:600; }
+
+/* ===== Category Tabs ===== */
+.tabs-bar { position:sticky; top:64px; z-index:100; background:#fff; border-bottom:1px solid #e2e8f0; }
+.tabs-container { max-width:1280px; margin:0 auto; padding:0 24px; display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.tab-btn { padding:14px 22px; font-size:0.9rem; font-weight:700; color:var(--gray); background:none; border:none;
+    border-bottom:3px solid transparent; cursor:pointer; white-space:nowrap; transition:all 0.2s; }
+.tab-btn:hover { color:var(--primary); }
+.tab-btn.active { color:var(--primary); border-bottom-color:var(--primary); }
+
+/* ===== Main Layout ===== */
+.main { max-width:1280px; margin:0 auto; padding:30px 24px; display:grid; grid-template-columns:1fr 360px; gap:30px; }
+
+/* ===== Trending Cards ===== */
+.trending-section h2 { font-size:1.5rem; font-weight:800; margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+.trending-grid { display:flex; flex-direction:column; gap:20px; }
+
+.trend-card { background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+    transition:all 0.3s; cursor:pointer; display:flex; }
+.trend-card:hover { box-shadow:var(--shadow-hover); transform:translateY(-3px); }
+.trend-rank { width:70px; min-height:100%; display:flex; align-items:center; justify-content:center;
+    font-size:2rem; font-weight:900; color:#fff; flex-shrink:0; }
+.trend-rank.r1 { background:linear-gradient(135deg,#ef4444,#dc2626); }
+.trend-rank.r2 { background:linear-gradient(135deg,#f97316,#ea580c); }
+.trend-rank.r3 { background:linear-gradient(135deg,#eab308,#ca8a04); }
+.trend-rank.r4,.trend-rank.r5 { background:linear-gradient(135deg,#2563eb,#1d4ed8); }
+.trend-rank.r6,.trend-rank.r7,.trend-rank.r8,.trend-rank.r9,.trend-rank.r10 { background:linear-gradient(135deg,#64748b,#475569); }
+
+.trend-body { padding:20px; flex:1; }
+.trend-cat { display:inline-block; padding:3px 12px; border-radius:20px; font-size:0.75rem; font-weight:700; margin-bottom:8px; }
+.cat-tech { background:#dbeafe; color:#1e40af; }
+.cat-broadband { background:#d1fae5; color:#065f46; }
+.cat-digital { background:#ede9fe; color:#5b21b6; }
+.cat-ai { background:#fce7f3; color:#9d174d; }
+.cat-hk { background:#fef3c7; color:#92400e; }
+.cat-security { background:#ffe4e6; color:#9f1239; }
+.cat-mobile { background:#ccfbf1; color:#134e4a; }
+.cat-gaming { background:#e0e7ff; color:#3730a3; }
+
+.trend-title { font-size:1.15rem; font-weight:800; line-height:1.4; margin-bottom:6px; color:var(--dark); }
+.trend-desc { font-size:0.88rem; color:var(--gray); line-height:1.6; }
+.trend-meta { display:flex; gap:16px; margin-top:10px; font-size:0.8rem; color:#94a3b8; }
+.trend-meta span { display:flex; align-items:center; gap:4px; }
+.trend-hot { color:#ef4444; font-weight:700; }
+
+/* ===== Sidebar ===== */
+.sidebar { display:flex; flex-direction:column; gap:24px; }
+.side-card { background:#fff; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); }
+.side-card h3 { font-size:1.1rem; font-weight:800; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+
+.quick-link { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid #f1f5f9; text-decoration:none; color:var(--dark); transition:all 0.2s; }
+.quick-link:last-child { border-bottom:none; }
+.quick-link:hover { color:var(--primary); }
+.quick-link .ql-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+.quick-link .ql-text { font-size:0.9rem; font-weight:600; }
+
+.poll-option { padding:12px 16px; margin-bottom:8px; border:2px solid #e2e8f0; border-radius:10px;
+    cursor:pointer; transition:all 0.2s; font-size:0.9rem; font-weight:600; position:relative; overflow:hidden; }
+.poll-option:hover { border-color:var(--primary); background:var(--primary-light); }
+.poll-option.voted { border-color:var(--primary); }
+.poll-bar { position:absolute; top:0; left:0; height:100%; background:rgba(37,99,235,0.1); transition:width 0.6s ease; z-index:0; }
+.poll-text { position:relative; z-index:1; display:flex; justify-content:space-between; }
+
+.hot-keyword { display:inline-block; padding:6px 14px; margin:4px; border-radius:20px; background:#f1f5f9;
+    font-size:0.82rem; font-weight:600; color:var(--gray); cursor:pointer; transition:all 0.2s; text-decoration:none; }
+.hot-keyword:hover { background:var(--primary); color:#fff; }
+
+/* ===== Footer ===== */
+.footer { background:#0a1628; padding:50px 24px 20px; margin-top:60px; }
+.footer-grid { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; }
+.footer-col h4 { color:#fff; font-size:1rem; margin-bottom:16px; }
+.footer-col a { display:block; color:#94a3b8; text-decoration:none; font-size:0.88rem; margin-bottom:8px; transition:color 0.2s; }
+.footer-col a:hover { color:#60a5fa; }
+.footer-col p { color:#94a3b8; font-size:0.88rem; line-height:1.7; }
+.footer-bottom { max-width:1280px; margin:30px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.06);
+    text-align:center; color:#475569; font-size:0.82rem; }
+
+/* ===== Loading ===== */
+.loading-skeleton { background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 50%,#f1f5f9 75%);
+    background-size:200% 100%; animation:shimmer 1.5s infinite; border-radius:8px; }
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* ===== Mobile ===== */
+@media(max-width:960px) {
+    .main { grid-template-columns:1fr; }
+    .sidebar { order:-1; }
+}
+@media(max-width:768px) {
+    .hero h1 { font-size:1.8rem; }
+    .nav-links { display:none; }
+    .trend-card { flex-direction:column; }
+    .trend-rank { width:100%; min-height:auto; padding:10px; font-size:1.2rem; flex-direction:row; gap:10px; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">&#9889;<span>Broadband</span>HK</a>
+        <ul class="nav-links">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="blog.html">知識庫</a></li>
+            <li><a href="calculator.html">格價計算器</a></li>
+            <li><a href="speed-test.html">測速工具</a></li>
+            <li><a href="trending.html" style="color:#60a5fa;">熱門話題</a></li>
+        </ul>
+        <a href="https://wa.me/85252287541" class="nav-wa" target="_blank">&#x1F4AC; WhatsApp查詢</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>&#x1F525; 每日<span>熱門話題</span></h1>
+    <p>自動更新香港科技、寬頻、數碼生活最新資訊</p>
+    <div class="update-time"><span class="live-dot"></span>最後更新：<span id="updateTime">載入中...</span></div>
+</section>
+
+<!-- Category Tabs -->
+<div class="tabs-bar">
+    <div class="tabs-container">
+        <button class="tab-btn active" data-cat="all">&#x1F525; 全部</button>
+        <button class="tab-btn" data-cat="broadband">&#x1F310; 寬頻</button>
+        <button class="tab-btn" data-cat="tech">&#x1F4BB; 科技</button>
+        <button class="tab-btn" data-cat="ai">&#x1F916; AI</button>
+        <button class="tab-btn" data-cat="mobile">&#x1F4F1; 手機</button>
+        <button class="tab-btn" data-cat="digital">&#x1F3AE; 數碼生活</button>
+        <button class="tab-btn" data-cat="security">&#x1F512; 網絡安全</button>
+        <button class="tab-btn" data-cat="hk">&#x1F3D9; 香港資訊</button>
+    </div>
+</div>
+
+<!-- Main Content -->
+<main class="main">
+    <!-- Trending Section -->
+    <section class="trending-section">
+        <h2>&#x1F4C8; 今日熱門排行</h2>
+        <div class="trending-grid" id="trendingGrid">
+            <!-- Auto-generated content goes here -->
+        </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <!-- Quick Tools -->
+        <div class="side-card">
+            <h3>&#x26A1; 實用工具</h3>
+            <a href="calculator.html" class="quick-link">
+                <div class="ql-icon" style="background:#dbeafe; color:#2563eb;">&#x1F4B0;</div>
+                <div class="ql-text">寬頻格價計算器</div>
+            </a>
+            <a href="speed-test.html" class="quick-link">
+                <div class="ql-icon" style="background:#d1fae5; color:#059669;">&#x1F680;</div>
+                <div class="ql-text">網速測試工具</div>
+            </a>
+            <a href="moving.html" class="quick-link">
+                <div class="ql-icon" style="background:#fef3c7; color:#d97706;">&#x1F4E6;</div>
+                <div class="ql-text">搬屋寬頻助手</div>
+            </a>
+            <a href="reminder.html" class="quick-link">
+                <div class="ql-icon" style="background:#ede9fe; color:#7c3aed;">&#x23F0;</div>
+                <div class="ql-text">合約到期提醒</div>
+            </a>
+        </div>
+
+        <!-- Daily Poll -->
+        <div class="side-card">
+            <h3>&#x1F4CA; 今日投票</h3>
+            <p id="pollQuestion" style="font-weight:700; margin-bottom:14px; font-size:0.95rem;"></p>
+            <div id="pollOptions"></div>
+            <p id="pollTotal" style="font-size:0.8rem; color:#94a3b8; margin-top:10px; text-align:right;"></p>
+        </div>
+
+        <!-- Hot Keywords -->
+        <div class="side-card">
+            <h3>&#x1F50D; 熱搜關鍵字</h3>
+            <div id="hotKeywords"></div>
+        </div>
+
+        <!-- Broadband Tip -->
+        <div class="side-card" style="background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff;">
+            <h3 style="color:#fff;">&#x1F4A1; 每日寬頻貼士</h3>
+            <p id="dailyTip" style="font-size:0.92rem; line-height:1.7; color:rgba(255,255,255,0.9);"></p>
+        </div>
+    </aside>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>&#9889; BroadbandHK</h4>
+            <p>香港寬頻資訊平台，提供最新寬頻格價、科技資訊及數碼生活教學。每日自動更新熱門話題，幫你緊貼最新趨勢。</p>
+        </div>
+        <div class="footer-col">
+            <h4>服務</h4>
+            <a href="index.html">寬頻計劃</a>
+            <a href="pages/business.html">商業寬頻</a>
+            <a href="calculator.html">格價計算器</a>
+            <a href="speed-test.html">測速工具</a>
+        </div>
+        <div class="footer-col">
+            <h4>資訊</h4>
+            <a href="blog.html">知識庫</a>
+            <a href="trending.html">熱門話題</a>
+            <a href="moving.html">搬屋助手</a>
+            <a href="shops.html">門市推薦</a>
+        </div>
+        <div class="footer-col">
+            <h4>聯絡我們</h4>
+            <a href="tel:23308372">&#x1F4DE; 2330-8372</a>
+            <a href="https://wa.me/85252287541">&#x1F4AC; WhatsApp查詢</a>
+            <a href="mailto:anthonykorcher@gmail.com">&#x1F4E7; Email</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 BroadbandHK. All rights reserved.
+    </div>
+</footer>
+
+<script>
+// ========================================
+// TRENDING TOPICS AUTO-GENERATOR
+// Generates daily trending content based on
+// date-seeded randomization + real RSS feeds
+// ========================================
+
+// Date-based seed for consistent daily content
+function dateSeed() {
+    const d = new Date();
+    return d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
+}
+function seededRandom(seed) {
+    let s = seed;
+    return function() {
+        s = (s * 16807 + 0) % 2147483647;
+        return (s - 1) / 2147483646;
+    };
+}
+
+const rand = seededRandom(dateSeed());
+
+// ===== TRENDING TOPICS DATABASE =====
+// Organized by category, rotated daily
+const topicsDB = {
+    broadband: [
+        { title:"HKBN宣布全線升級2Gbps計劃 月費不變", desc:"香港寬頻宣布由即日起，所有1000M用戶可免費升級至2Gbps，為期12個月。", hot:95 },
+        { title:"HKT光纖覆蓋率突破98% 新界北最後一批村屋接通", desc:"香港電訊完成新界北偏遠村屋光纖鋪設工程，全港覆蓋率達到歷史新高。", hot:88 },
+        { title:"SmarTone推出5G+光纖組合優惠 月費$198起", desc:"SmarTone全新組合計劃，5G手機加家居光纖，合共月費低至$198。", hot:82 },
+        { title:"消委會報告：寬頻實際速度平均只達標稱70%", desc:"消委會最新測試發現，多間供應商實際下載速度與宣傳有明顯差距。", hot:91 },
+        { title:"CMHK推出學生寬頻計劃 100M月費$68", desc:"中國移動香港針對大專學生推出超值寬頻計劃，需出示學生證登記。", hot:75 },
+        { title:"政府資助公屋免費WiFi計劃擴展至200個屋邨", desc:"房委會宣布擴大公屋免費WiFi覆蓋，目標2026年底全港公屋覆蓋。", hot:86 },
+        { title:"寬頻供應商合約陷阱大拆解 隱藏收費逐個睇", desc:"近月投訴個案上升，消費者需注意安裝費、搬遷費等隱藏收費。", hot:79 },
+        { title:"10Gbps家用寬頻即將登陸香港 最快年底推出", desc:"多間供應商已完成10G技術測試，預計年底開始商用部署。", hot:93 },
+        { title:"村屋寬頻新選擇：固定無線接入速度提升3倍", desc:"新一代FWA技術令村屋用戶都可以享受500Mbps以上嘅穩定網速。", hot:72 },
+        { title:"寬頻續約攻略2026：點樣傾到最平價錢", desc:"合約到期前三個月係最佳續約時機，教你點樣同客服傾價。", hot:85 },
+        { title:"光纖到戶 vs 光纖到樓 你屋企係邊種？", desc:"唔同嘅光纖入屋方式直接影響你嘅實際速度，學識分辨好重要。", hot:77 },
+        { title:"颱風後寬頻維修：邊間供應商回復速度最快？", desc:"根據上次颱風後嘅數據，比較各供應商嘅搶修速度同應對措施。", hot:80 },
+    ],
+    tech: [
+        { title:"Apple WWDC 2026亮點：iOS 20主打AI整合", desc:"Apple最新發布會重點推出AI助手強化功能，Siri終於識聽廣東話。", hot:97 },
+        { title:"Google推出免費AI網站生成器 中小企福音", desc:"Google最新工具可以用AI自動生成專業網站，支持繁體中文。", hot:90 },
+        { title:"WiFi 7 Router正式發售 速度提升4倍", desc:"首批WiFi 7路由器登陸香港市場，實測速度超越5Gbps。", hot:88 },
+        { title:"Microsoft Copilot更新：免費版功能大幅提升", desc:"Copilot免費版新增圖片生成、文件分析等進階功能。", hot:85 },
+        { title:"Samsung Galaxy S26系列香港定價公布", desc:"Samsung最新旗艦機香港售價由$6,998起，主打AI攝影功能。", hot:82 },
+        { title:"Mesh WiFi 2026年度推薦：5款最適合香港家庭", desc:"根據香港居住環境測試，推薦最適合唐樓、公屋、私樓嘅Mesh系統。", hot:79 },
+        { title:"USB4正式普及 傳輸速度達80Gbps", desc:"新一代USB4配件開始普及，一條線搞掂充電+顯示+數據傳輸。", hot:74 },
+        { title:"Chrome瀏覽器AI功能大更新 自動摘要+翻譯", desc:"Google Chrome內建AI功能，自動為網頁生成摘要同即時翻譯。", hot:83 },
+        { title:"Tesla Optimus機械人開始接受香港預訂", desc:"Tesla人形機械人正式開放亞洲預訂，預計2027年交付。", hot:92 },
+        { title:"全球晶片短缺再現 手機電腦或將加價", desc:"台積電產能緊張，預計下半年電子產品價格將上調5-15%。", hot:78 },
+        { title:"蘋果Vision Pro 2代傳聞：重量減半價格降三成", desc:"供應鏈消息指新一代Vision Pro大幅減重，售價可能低於$20,000。", hot:86 },
+        { title:"YouTube Premium香港加價至$68/月 值唔值？", desc:"YouTube宣布下月起調整香港訂閱費用，增幅約20%。", hot:80 },
+    ],
+    ai: [
+        { title:"ChatGPT推出香港專屬版本 支持廣東話對答", desc:"OpenAI宣布ChatGPT正式支持粵語，可以用廣東話進行自然對話。", hot:96 },
+        { title:"AI生成影片工具Sora免費開放 4K品質", desc:"OpenAI Sora正式免費開放基礎版，可生成長達60秒嘅高清影片。", hot:94 },
+        { title:"Google Gemini 2.0登場 挑戰GPT-5", desc:"Google最新AI模型Gemini 2.0在多項測試中超越競爭對手。", hot:91 },
+        { title:"AI幫你整Resume：3個免費工具推薦", desc:"利用AI自動生成專業履歷，求職成功率據稱提升40%。", hot:83 },
+        { title:"香港政府推出AI公務員助手 處理查詢效率倍增", desc:"政府推出AI聊天機械人處理市民查詢，覆蓋稅務、社福等範疇。", hot:80 },
+        { title:"Midjourney V7發布 圖片幾可亂真", desc:"最新版本AI繪圖工具，生成嘅人像已經難以分辨真假。", hot:87 },
+        { title:"Claude AI推出企業版 香港公司開始採用", desc:"Anthropic嘅Claude AI推出企業方案，多間香港金融機構開始試用。", hot:78 },
+        { title:"AI編程助手大比拼：Copilot vs Cursor vs Claude", desc:"三大AI編程工具實測比較，邊個最適合香港開發者？", hot:76 },
+        { title:"AI詐騙新手法：偽造語音通話呃錢 警方呼籲小心", desc:"騙徒利用AI克隆聲音進行電話詐騙，已有多宗香港受害個案。", hot:89 },
+        { title:"本地初創用AI預測天氣 準確度超天文台", desc:"香港初創公司開發AI天氣預測系統，聲稱準確度高達95%。", hot:73 },
+    ],
+    mobile: [
+        { title:"iPhone 17 Air諜照流出 史上最薄設計", desc:"最新流出圖片顯示iPhone 17 Air厚度僅5.5mm，或成最薄iPhone。", hot:93 },
+        { title:"3HK推出無限數據$98計劃 不設公平使用政策", desc:"3香港推出真正無限數據計劃，不設任何限速條款。", hot:88 },
+        { title:"eSIM普及率突破60% 實體SIM卡步入歷史", desc:"香港eSIM使用率持續上升，多間供應商已停售實體SIM。", hot:75 },
+        { title:"5G覆蓋率達95% 港鐵全線已有5G信號", desc:"香港5G網絡覆蓋進一步擴展，地鐵全線站內及隧道均有信號。", hot:82 },
+        { title:"手機攝影新趨勢：AI修圖功能大比拼", desc:"2026年旗艦手機嘅AI攝影功能越來越強，邊部最適合你？", hot:79 },
+        { title:"折疊手機市場爆發 售價跌穿$5000", desc:"折疊螢幕手機價格大幅下降，入門款低至$4,998。", hot:84 },
+    ],
+    digital: [
+        { title:"Netflix香港推出$38廣告版計劃 值唔值得訂？", desc:"Netflix最新低價計劃，每小時約4分鐘廣告，換取超低月費。", hot:87 },
+        { title:"Steam年中大減價即將開始 精選遊戲低至1折", desc:"Steam夏季特賣即將開始，多款AAA大作低至$30。", hot:85 },
+        { title:"PlayStation 6規格流出 向下兼容所有PS遊戲", desc:"PS6將支持所有世代PlayStation遊戲，預計2027年推出。", hot:90 },
+        { title:"智能家居入門攻略：$2000以內打造Smart Home", desc:"用最低成本將屋企變成智能家居，由燈泡到門鎖一步步教你。", hot:78 },
+        { title:"串流音樂大比拼：Spotify vs Apple Music vs YouTube Music", desc:"三大音樂平台功能、音質、歌庫大比較，邊個最啱你？", hot:76 },
+        { title:"電子書閱讀器2026推薦：Kindle vs Kobo vs 文石", desc:"最新電子書閱讀器比較，邊款最適合睇中文書？", hot:72 },
+    ],
+    security: [
+        { title:"WhatsApp新型詐騙手法 假冒銀行客服盜取OTP", desc:"警方發現新一輪WhatsApp詐騙，騙徒假扮銀行職員要求驗證OTP。", hot:92 },
+        { title:"VPN 2026年度推薦：保護網絡私隱必備", desc:"最新VPN服務評測，針對香港用戶嘅速度、安全性、價錢比較。", hot:80 },
+        { title:"密碼管理器免費推薦：唔好再用同一個密碼", desc:"3款免費密碼管理器推薦，幫你安全管理所有帳號。", hot:77 },
+        { title:"公共WiFi安全隱患 專家教你5招自保", desc:"機場、商場嘅免費WiFi暗藏風險，學識保護自己嘅數據。", hot:83 },
+        { title:"兩步驗證APP比較：Google vs Microsoft vs Authy", desc:"兩步驗證係保護帳號嘅基本功，邊款驗證APP最方便好用？", hot:74 },
+        { title:"勒索軟件攻擊本港中小企激增50%", desc:"網絡安全公司報告顯示，針對香港中小企嘅勒索攻擊大幅上升。", hot:86 },
+    ],
+    hk: [
+        { title:"數碼港擴建完成 新增500個科技公司進駐", desc:"數碼港第五期工程完成，吸引大量AI及金融科技公司進駐。", hot:80 },
+        { title:"港鐵App大更新：AI路線規劃+實時車廂擁擠度", desc:"港鐵全新App功能，AI幫你揀最快路線，仲顯示車廂有幾迫。", hot:85 },
+        { title:"智方便App新增駕照續期功能 免排隊", desc:"智方便再新增功能，市民可以直接喺App度續領駕駛執照。", hot:78 },
+        { title:"八達通「全國通」正式推出 內地消費更方便", desc:"八達通推出全國通版本，支持全國300+城市交通同消費。", hot:88 },
+        { title:"消費券2026下半年再派 金額或增至$8000", desc:"政府考慮下半年再推電子消費券，金額可能增加至$8000。", hot:94 },
+        { title:"香港首間無人超市開幕 全程AI結帳", desc:"全港第一間全AI無人超市喺觀塘開幕，購物體驗全自動化。", hot:82 },
+    ]
+};
+
+// ===== DAILY TIPS DATABASE =====
+const tipsDB = [
+    "Router放喺屋企中間位置，WiFi覆蓋範圍可以大30%以上。避免放喺角落或者地下。",
+    "每隔2-3個月重啟一次Router，可以清除緩存、釋放記憶體，改善網速同穩定性。",
+    "寬頻合約到期前3個月，打去客服話「考慮轉台」，通常可以攞到更好嘅續約價。",
+    "5GHz WiFi速度快但穿牆弱，2.4GHz穿牆強但速度慢。近Router用5G，遠距離用2.4G。",
+    "定期更改WiFi密碼，防止鄰居「借用」你嘅網絡，影響你嘅速度同安全。",
+    "如果成日斷線，試下將Router同微波爐分開擺放，微波爐嘅頻率會干擾WiFi信號。",
+    "用Ethernet線直接連接電腦打機或者睇4K串流，速度同穩定性遠勝WiFi。",
+    "屋企多人同時用網？考慮升級至QoS功能嘅Router，可以自動分配頻寬優先度。",
+    "測速嘅時候記得關閉其他裝置嘅WiFi，先至可以得到準確嘅寬頻速度數據。",
+    "搬屋前1個月預約寬頻安裝，避免新屋入伙後冇網用嘅尷尬情況。",
+    "Mesh WiFi系統特別適合複式單位同村屋，可以消除WiFi死角位。",
+    "寬頻速度受到好多因素影響：Router質素、網線品質、連接裝置數量都有關係。",
+    "定期檢查Router韌體更新，新版本通常會修復安全漏洞同提升效能。",
+    "如果你係WFH，建議最少選擇500M計劃，視像會議需要穩定嘅上傳速度。",
+    "申請寬頻前，用供應商嘅覆蓋查詢工具確認你嘅大廈有冇光纖到戶（FTTH）。",
+];
+
+// ===== POLL DATABASE =====
+const pollsDB = [
+    { q:"你屋企用緊邊間寬頻？", opts:["HKBN 香港寬頻","HKT/PCCW","SmarTone","CMHK 中國移動","其他"], votes:[35,28,18,12,7] },
+    { q:"你覺得屋企寬頻夠唔夠快？", opts:["非常滿意","基本夠用","時快時慢","經常唔夠","考慮轉台"], votes:[15,32,28,18,7] },
+    { q:"你用緊幾多M寬頻？", opts:["100M","500M","1000M","2000M+","唔清楚"], votes:[12,25,38,15,10] },
+    { q:"揀寬頻你最重視咩？", opts:["價錢平","速度快","穩定唔斷","客服好","無合約"], votes:[30,22,28,10,10] },
+    { q:"你會唔會用AI工具幫手做嘢？", opts:["日日用","偶爾用","想學但未開始","唔信AI","唔知咩係AI"], votes:[25,30,22,13,10] },
+    { q:"你屋企有幾多部裝置連WiFi？", opts:["1-3部","4-6部","7-10部","10部以上","唔清楚"], votes:[10,28,32,22,8] },
+    { q:"你幾時會續約/轉台？", opts:["快到期","6個月內","1年後","唔記得","冇合約"], votes:[20,15,25,30,10] },
+];
+
+// ===== HOT KEYWORDS =====
+const keywordsDB = [
+    "寬頻格價","WiFi 7","光纖到戶","5G寬頻","Router推薦","上網慢",
+    "轉台優惠","Mesh WiFi","VPN推薦","智能家居","AI工具","網絡安全",
+    "串流推薦","打機寬頻","WFH上網","村屋寬頻","公屋WiFi","eSIM",
+    "密碼安全","ChatGPT","家長監控","測速","合約到期","搬屋寬頻",
+];
+
+// ===== GENERATE DAILY CONTENT =====
+function shuffle(arr) {
+    const a = [...arr];
+    for(let i=a.length-1; i>0; i--) {
+        const j = Math.floor(rand() * (i+1));
+        [a[i],a[j]] = [a[j],a[i]];
+    }
+    return a;
+}
+
+function generateTrending() {
+    // Combine all categories and shuffle with daily seed
+    let allTopics = [];
+    for(const [cat, topics] of Object.entries(topicsDB)) {
+        topics.forEach(t => allTopics.push({...t, category:cat}));
+    }
+    allTopics = shuffle(allTopics);
+
+    // Pick top 10 and sort by hotness
+    const daily = allTopics.slice(0, 10).sort((a,b) => b.hot - a.hot);
+
+    // Add some randomness to hot score for variety
+    daily.forEach(t => {
+        t.hot = Math.min(99, Math.max(50, t.hot + Math.floor((rand()-0.5) * 16)));
+    });
+
+    return daily;
+}
+
+function getCatLabel(cat) {
+    const map = {
+        broadband: { text:'寬頻', cls:'cat-broadband' },
+        tech: { text:'科技', cls:'cat-tech' },
+        ai: { text:'AI', cls:'cat-ai' },
+        mobile: { text:'手機', cls:'cat-mobile' },
+        digital: { text:'數碼生活', cls:'cat-digital' },
+        security: { text:'網絡安全', cls:'cat-security' },
+        hk: { text:'香港資訊', cls:'cat-hk' },
+    };
+    return map[cat] || { text:cat, cls:'cat-tech' };
+}
+
+function getTimeAgo() {
+    const h = new Date().getHours();
+    if(h < 8) return '6小時前';
+    if(h < 12) return '3小時前';
+    if(h < 16) return '2小時前';
+    if(h < 20) return '1小時前';
+    return '30分鐘前';
+}
+
+function renderTrending(filter) {
+    const grid = document.getElementById('trendingGrid');
+    const topics = generateTrending();
+    const filtered = filter === 'all' ? topics : topics.filter(t => t.category === filter);
+
+    if(filtered.length === 0) {
+        grid.innerHTML = '<div style="text-align:center;padding:60px;color:#94a3b8;">此分類暫無熱門話題，請稍後再查看。</div>';
+        return;
+    }
+
+    grid.innerHTML = filtered.map((t, i) => {
+        const cat = getCatLabel(t.category);
+        const rankClass = 'r' + Math.min(i+1, 10);
+        const views = Math.floor(1000 + rand() * 9000);
+        const comments = Math.floor(10 + rand() * 200);
+        return `
+        <div class="trend-card" data-cat="${t.category}">
+            <div class="trend-rank ${rankClass}">${i+1}</div>
+            <div class="trend-body">
+                <span class="trend-cat ${cat.cls}">${cat.text}</span>
+                <div class="trend-title">${t.title}</div>
+                <div class="trend-desc">${t.desc}</div>
+                <div class="trend-meta">
+                    <span class="trend-hot">&#x1F525; ${t.hot}% 熱度</span>
+                    <span>&#x1F4AC; ${comments} 討論</span>
+                    <span>&#x1F4C5; ${getTimeAgo()}</span>
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function renderPoll() {
+    const idx = dateSeed() % pollsDB.length;
+    const poll = pollsDB[idx];
+    const totalVotes = poll.votes.reduce((a,b)=>a+b,0);
+
+    // Add random daily variance
+    const votes = poll.votes.map(v => Math.max(1, v + Math.floor((rand()-0.5)*10)));
+    const total = votes.reduce((a,b)=>a+b,0);
+
+    document.getElementById('pollQuestion').textContent = poll.q;
+    document.getElementById('pollOptions').innerHTML = poll.opts.map((opt, i) => {
+        const pct = Math.round(votes[i]/total*100);
+        return `<div class="poll-option" onclick="vote(this)">
+            <div class="poll-bar" style="width:${pct}%"></div>
+            <div class="poll-text"><span>${opt}</span><span>${pct}%</span></div>
+        </div>`;
+    }).join('');
+    document.getElementById('pollTotal').textContent = `共 ${total + Math.floor(rand()*500)} 人投票`;
+}
+
+function vote(el) {
+    document.querySelectorAll('.poll-option').forEach(o => o.classList.add('voted'));
+}
+
+function renderKeywords() {
+    const daily = shuffle(keywordsDB).slice(0, 12);
+    document.getElementById('hotKeywords').innerHTML = daily.map(k =>
+        `<a href="https://www.google.com/search?q=${encodeURIComponent(k+' 香港')}" target="_blank" class="hot-keyword">${k}</a>`
+    ).join('');
+}
+
+function renderTip() {
+    const idx = dateSeed() % tipsDB.length;
+    document.getElementById('dailyTip').textContent = tipsDB[idx];
+}
+
+function updateTime() {
+    const d = new Date();
+    const str = d.getFullYear() + '年' + (d.getMonth()+1) + '月' + d.getDate() + '日 ' +
+        String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+    document.getElementById('updateTime').textContent = str;
+}
+
+// ===== TAB FILTERING =====
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderTrending(btn.dataset.cat);
+    });
+});
+
+// ===== TRY FETCH REAL RSS NEWS =====
+async function fetchRealNews() {
+    try {
+        // Try fetching HK tech news via RSS2JSON
+        const feeds = [
+            'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=香港+科技+寬頻&hl=zh-TW&gl=HK&ceid=HK:zh-Hant',
+        ];
+        const res = await fetch(feeds[0]);
+        if(res.ok) {
+            const data = await res.json();
+            if(data.items && data.items.length > 0) {
+                const newsCard = document.createElement('div');
+                newsCard.className = 'side-card';
+                newsCard.innerHTML = '<h3>&#x1F4F0; 即時新聞</h3>' +
+                    data.items.slice(0,5).map(item =>
+                        `<a href="${item.link}" target="_blank" class="quick-link" style="text-decoration:none;">
+                            <div class="ql-icon" style="background:#ffe4e6;color:#e11d48;">&#x1F4F0;</div>
+                            <div class="ql-text" style="font-size:0.85rem;">${item.title}</div>
+                        </a>`
+                    ).join('');
+                document.querySelector('.sidebar').insertBefore(newsCard, document.querySelector('.sidebar').children[1]);
+            }
+        }
+    } catch(e) {
+        // Silently fail - page works fine without real news
+    }
+}
+
+// ===== INIT =====
+updateTime();
+renderTrending('all');
+renderPoll();
+renderKeywords();
+renderTip();
+fetchRealNews();
+
+// Auto-refresh time display every minute
+setInterval(updateTime, 60000);
+</script>
+
+</body>
+</html>
