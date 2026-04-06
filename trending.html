@@ -264,328 +264,113 @@ body { font-family:'Noto Sans TC','Inter',sans-serif; background:#f8fafc; color:
 </footer>
 
 <script>
-// ========================================
-// REAL NEWS TRENDING PAGE
-// Fetches real news from Cloudflare Worker API
-// NO fake/generated content - 100% real news
-// ========================================
+const NEWS_API='https://broadband-news.broadbandhk.workers.dev';
+let allNewsData=[];
 
-// Worker API URL - change this after deploying
-const NEWS_API = 'https://broadband-news.broadbandhk.workers.dev';
-
-// RSS2JSON - only 3 sources for fast loading
-const RSS_SOURCES = [
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=寬頻+WiFi+科技+香港&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'tech' },
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=AI+人工智能+手機&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'ai' },
-    { url: 'https://api.rss2json.com/v1/api.json?rss_url=https://news.google.com/rss/search?q=香港+數碼+網絡安全&hl=zh-TW&gl=HK&ceid=HK:zh-Hant', category: 'hk' },
-];
-
-let allNewsData = []; // Store fetched news globally
-
-// Auto-categorize news by keywords in title
-function autoCategory(title) {
-    const t = title.toLowerCase();
-    if (/寬頻|broadband|光纖|fiber|wifi|router|mesh|上網|isp|月費|網速/.test(t)) return 'broadband';
-    if (/ai|人工智能|chatgpt|gemini|claude|gpt|機器學習|deep.?learning|openai|copilot/.test(t)) return 'ai';
-    if (/iphone|android|samsung|手機|5g|esim|xiaomi|pixel|折疊|galaxy/.test(t)) return 'mobile';
-    if (/hack|漏洞|私隱|勒索|詐騙|安全|密碼|vpn|病毒|木馬/.test(t)) return 'security';
-    if (/netflix|youtube|spotify|遊戲|ps5|ps6|switch|串流|gaming|steam|playstation/.test(t)) return 'digital';
-    if (/香港|政府|港鐵|八達通|消費券|智方便/.test(t)) return 'hk';
-    return 'tech';
+function getCatLabel(c){
+    return {broadband:{text:'寬頻',cls:'cat-broadband'},tech:{text:'科技',cls:'cat-tech'},
+        ai:{text:'AI',cls:'cat-ai'},mobile:{text:'手機',cls:'cat-mobile'},
+        digital:{text:'數碼生活',cls:'cat-digital'},security:{text:'網絡安全',cls:'cat-security'},
+        hk:{text:'香港資訊',cls:'cat-hk'}}[c]||{text:'科技',cls:'cat-tech'};
 }
 
-// Format time ago from date string
-function timeAgo(dateStr) {
-    const now = new Date();
-    const then = new Date(dateStr);
-    const diffMs = now - then;
-    const diffMin = Math.floor(diffMs / 60000);
-    const diffHr = Math.floor(diffMs / 3600000);
-    const diffDay = Math.floor(diffMs / 86400000);
-    if (diffMin < 60) return diffMin + ' 分鐘前';
-    if (diffHr < 24) return diffHr + ' 小時前';
-    if (diffDay < 7) return diffDay + ' 日前';
-    return then.toLocaleDateString('zh-HK');
+function timeAgo(d){
+    var ms=Date.now()-new Date(d).getTime(),m=Math.floor(ms/6e4),h=Math.floor(ms/36e5),dy=Math.floor(ms/864e5);
+    return m<60?m+' 分鐘前':h<24?h+' 小時前':dy<7?dy+' 日前':new Date(d).toLocaleDateString('zh-HK');
 }
 
-// ===== DAILY TIPS DATABASE =====
-const tipsDB = [
-    "Router放喺屋企中間位置，WiFi覆蓋範圍可以大30%以上。避免放喺角落或者地下。",
-    "每隔2-3個月重啟一次Router，可以清除緩存、釋放記憶體，改善網速同穩定性。",
-    "寬頻合約到期前3個月，打去客服話「考慮轉台」，通常可以攞到更好嘅續約價。",
-    "5GHz WiFi速度快但穿牆弱，2.4GHz穿牆強但速度慢。近Router用5G，遠距離用2.4G。",
-    "定期更改WiFi密碼，防止鄰居「借用」你嘅網絡，影響你嘅速度同安全。",
-    "如果成日斷線，試下將Router同微波爐分開擺放，微波爐嘅頻率會干擾WiFi信號。",
-    "用Ethernet線直接連接電腦打機或者睇4K串流，速度同穩定性遠勝WiFi。",
-    "屋企多人同時用網？考慮升級至QoS功能嘅Router，可以自動分配頻寬優先度。",
-    "測速嘅時候記得關閉其他裝置嘅WiFi，先至可以得到準確嘅寬頻速度數據。",
-    "搬屋前1個月預約寬頻安裝，避免新屋入伙後冇網用嘅尷尬情況。",
-    "Mesh WiFi系統特別適合複式單位同村屋，可以消除WiFi死角位。",
-    "寬頻速度受到好多因素影響：Router質素、網線品質、連接裝置數量都有關係。",
-    "定期檢查Router韌體更新，新版本通常會修復安全漏洞同提升效能。",
-    "如果你係WFH，建議最少選擇500M計劃，視像會議需要穩定嘅上傳速度。",
-    "申請寬頻前，用供應商嘅覆蓋查詢工具確認你嘅大廈有冇光纖到戶（FTTH）。",
-];
-
-// ===== POLL DATABASE =====
-const pollsDB = [
-    { q:"你屋企用緊邊間寬頻？", opts:["HKBN 香港寬頻","HKT/PCCW","SmarTone","CMHK 中國移動","其他"], votes:[35,28,18,12,7] },
-    { q:"你覺得屋企寬頻夠唔夠快？", opts:["非常滿意","基本夠用","時快時慢","經常唔夠","考慮轉台"], votes:[15,32,28,18,7] },
-    { q:"你用緊幾多M寬頻？", opts:["100M","500M","1000M","2000M+","唔清楚"], votes:[12,25,38,15,10] },
-    { q:"揀寬頻你最重視咩？", opts:["價錢平","速度快","穩定唔斷","客服好","無合約"], votes:[30,22,28,10,10] },
-    { q:"你會唔會用AI工具幫手做嘢？", opts:["日日用","偶爾用","想學但未開始","唔信AI","唔知咩係AI"], votes:[25,30,22,13,10] },
-    { q:"你屋企有幾多部裝置連WiFi？", opts:["1-3部","4-6部","7-10部","10部以上","唔清楚"], votes:[10,28,32,22,8] },
-    { q:"你幾時會續約/轉台？", opts:["快到期","6個月內","1年後","唔記得","冇合約"], votes:[20,15,25,30,10] },
-];
-
-// ===== HOT KEYWORDS =====
-const keywordsDB = [
-    "寬頻格價","WiFi 7","光纖到戶","5G寬頻","Router推薦","上網慢",
-    "轉台優惠","Mesh WiFi","VPN推薦","智能家居","AI工具","網絡安全",
-    "串流推薦","打機寬頻","WFH上網","村屋寬頻","公屋WiFi","eSIM",
-    "密碼安全","ChatGPT","家長監控","測速","合約到期","搬屋寬頻",
-];
-
-// Category label map
-function getCatLabel(cat) {
-    const map = {
-        broadband: { text:'寬頻', cls:'cat-broadband' },
-        tech: { text:'科技', cls:'cat-tech' },
-        ai: { text:'AI', cls:'cat-ai' },
-        mobile: { text:'手機', cls:'cat-mobile' },
-        digital: { text:'數碼生活', cls:'cat-digital' },
-        security: { text:'網絡安全', cls:'cat-security' },
-        hk: { text:'香港資訊', cls:'cat-hk' },
-    };
-    return map[cat] || { text:'科技', cls:'cat-tech' };
+function showLoading(){
+    document.getElementById('trendingGrid').innerHTML=Array(4).fill(
+        '<div class="trend-card"><div class="trend-rank r5" style="opacity:.5">...</div><div class="trend-body">' +
+        '<div class="loading-skeleton" style="width:80px;height:22px;margin-bottom:10px"></div>' +
+        '<div class="loading-skeleton" style="width:90%;height:24px;margin-bottom:8px"></div>' +
+        '<div class="loading-skeleton" style="width:70%;height:16px"></div></div></div>').join('');
 }
 
-// Show loading skeleton
-function showLoading() {
-    const grid = document.getElementById('trendingGrid');
-    grid.innerHTML = Array(6).fill('').map(() => `
-        <div class="trend-card">
-            <div class="trend-rank r5" style="opacity:0.5;">...</div>
-            <div class="trend-body">
-                <div class="loading-skeleton" style="width:80px;height:22px;margin-bottom:10px;"></div>
-                <div class="loading-skeleton" style="width:90%;height:24px;margin-bottom:8px;"></div>
-                <div class="loading-skeleton" style="width:70%;height:16px;"></div>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Render news cards from real data
-function renderNews(filter) {
-    const grid = document.getElementById('trendingGrid');
-    const filtered = filter === 'all' ? allNewsData : allNewsData.filter(n => n.category === filter);
-
-    if (filtered.length === 0) {
-        grid.innerHTML = '<div style="text-align:center;padding:60px;color:#94a3b8;">此分類暫無新聞，請稍後再查看。</div>';
-        return;
-    }
-
-    grid.innerHTML = filtered.map((item, i) => {
-        const cat = getCatLabel(item.category);
-        const rankClass = 'r' + Math.min(i + 1, 10);
-        const time = item.date ? timeAgo(item.date) : '';
-        const source = item.source || '';
-        return `
-        <a href="${item.link}" target="_blank" class="trend-card" style="text-decoration:none;color:inherit;" data-cat="${item.category}">
-            <div class="trend-rank ${rankClass}">${i + 1}</div>
-            <div class="trend-body">
-                <span class="trend-cat ${cat.cls}">${cat.text}</span>
-                <div class="trend-title">${item.title}</div>
-                ${item.desc ? `<div class="trend-desc">${item.desc}</div>` : ''}
-                <div class="trend-meta">
-                    ${source ? `<span>&#x1F4F0; ${source}</span>` : ''}
-                    ${time ? `<span>&#x1F4C5; ${time}</span>` : ''}
-                </div>
-            </div>
-        </a>`;
+function renderNews(filter){
+    var grid=document.getElementById('trendingGrid');
+    var items=filter==='all'?allNewsData:allNewsData.filter(function(n){return n.category===filter;});
+    if(!items.length){grid.innerHTML='<div style="text-align:center;padding:60px;color:#94a3b8">此分類暫無新聞。</div>';return;}
+    grid.innerHTML=items.map(function(item,i){
+        var cat=getCatLabel(item.category);
+        return '<a href="'+item.link+'" target="_blank" class="trend-card" style="text-decoration:none;color:inherit">' +
+            '<div class="trend-rank r'+Math.min(i+1,10)+'">'+(i+1)+'</div><div class="trend-body">' +
+            '<span class="trend-cat '+cat.cls+'">'+cat.text+'</span>' +
+            '<div class="trend-title">'+item.title+'</div>' +
+            (item.desc?'<div class="trend-desc">'+item.desc+'</div>':'') +
+            '<div class="trend-meta">'+(item.source?'<span>&#x1F4F0; '+item.source+'</span>':'') +
+            (item.date?'<span>&#x1F4C5; '+timeAgo(item.date)+'</span>':'')+'</div></div></a>';
     }).join('');
 }
 
-// Race: fetch from both Worker + RSS2JSON, show whichever arrives first
-async function fetchAllNews() {
+// 只從Worker KV讀取 - Cron已預先抓取，秒回應
+async function loadNews(){
     showLoading();
-
-    // Start both sources in parallel
-    const workerPromise = fetchFromWorker();
-    const rssPromise = fetchFromRSS2JSON();
-
-    // Use Promise.any - first success wins
-    try {
-        const firstResult = await Promise.any([workerPromise, rssPromise]);
-        if (firstResult && firstResult.length > 0) {
-            allNewsData = firstResult;
-            updateTime();
+    try{
+        var res=await fetch(NEWS_API);
+        var data=await res.json();
+        if(data.success&&data.news&&data.news.length){
+            allNewsData=data.news.slice(0,30);
+            document.getElementById('updateTime').textContent=new Date(data.updated).toLocaleString('zh-HK');
             renderNews('all');
             extractKeywords();
-            return;
-        }
-    } catch(e) { /* all failed */ }
-
-    // If both fail, show error
-    document.getElementById('trendingGrid').innerHTML =
-        '<div style="text-align:center;padding:60px;color:#94a3b8;">新聞載入失敗，請稍後重新整理頁面。</div>';
+        }else throw 0;
+    }catch(e){
+        document.getElementById('trendingGrid').innerHTML=
+            '<div style="text-align:center;padding:60px;color:#94a3b8">新聞載入中，請稍後重新整理。</div>';
+    }
 }
 
-async function fetchFromWorker() {
-    const controller = new AbortController();
-    setTimeout(() => controller.abort(), 6000); // 6s timeout
-    const res = await fetch(NEWS_API, { signal: controller.signal });
-    if (!res.ok) throw new Error('Worker failed');
-    const data = await res.json();
-    if (!data.success || !data.news || data.news.length === 0) throw new Error('No data');
-    return data.news.slice(0, 30);
-}
-
-async function fetchFromRSS2JSON() {
-    const results = await Promise.allSettled(
-        RSS_SOURCES.map(async (src) => {
-            const controller = new AbortController();
-            setTimeout(() => controller.abort(), 5000); // 5s timeout
-            const res = await fetch(src.url, { signal: controller.signal });
-            if (!res.ok) return [];
-            const data = await res.json();
-            if (data.status !== 'ok' || !data.items) return [];
-            return data.items.map(item => ({
-                title: item.title || '',
-                link: item.link || '',
-                desc: (item.description || '').replace(/<[^>]+>/g, '').slice(0, 200),
-                date: item.pubDate || '',
-                source: extractSource(item.title, item.link),
-                category: autoCategory(item.title || src.category),
-            }));
-        })
-    );
-    let items = [];
-    results.forEach(r => { if (r.status === 'fulfilled') items = items.concat(r.value); });
-    // Dedupe
-    const seen = new Set();
-    items = items.filter(item => {
-        if (!item.title || item.title.length < 5) return false;
-        const key = item.title.slice(0, 25);
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-    });
-    items.sort((a, b) => new Date(b.date) - new Date(a.date));
-    if (items.length === 0) throw new Error('No RSS items');
-    return items.slice(0, 30);
-}
-
-// Extract source name from Google News title format "Title - Source"
-function extractSource(title, link) {
-    const dash = title.lastIndexOf(' - ');
-    if (dash > 0) return title.slice(dash + 3);
-    try { return new URL(link).hostname.replace('www.', ''); } catch(e) { return ''; }
-}
-
-// Extract hot keywords from actual news titles
-function extractKeywords() {
-    const keywords = {};
-    const stopWords = new Set(['的','了','在','是','和','與','及','或','也','都','有','為','從','到','被','把','讓','對','將','而','但','卻','已','又','更','最','很','太','不','沒','無','可','會','能','要','就','才','只','還','去','來','上','下','中','大','小','新','多']);
-    allNewsData.forEach(item => {
-        // Extract 2-4 char meaningful segments
-        const text = item.title;
-        for (let len = 2; len <= 4; len++) {
-            for (let i = 0; i <= text.length - len; i++) {
-                const word = text.slice(i, i + len);
-                if (/^[\u4e00-\u9fff]+$/.test(word) && !stopWords.has(word)) {
-                    keywords[word] = (keywords[word] || 0) + 1;
-                }
-            }
+function extractKeywords(){
+    var kw={},stop='的了在是和與及或也都有為從到被把對將而但已又更最不沒無可會要就還去來上下中大小新多'.split('');
+    allNewsData.forEach(function(n){
+        for(var l=2;l<=4;l++)for(var i=0;i<=n.title.length-l;i++){
+            var w=n.title.slice(i,i+l);
+            if(/^[\u4e00-\u9fff]+$/.test(w)&&stop.indexOf(w)<0)kw[w]=(kw[w]||0)+1;
         }
     });
-    // Also add useful fixed keywords
-    const fixedKeywords = ['寬頻格價','WiFi','Router推薦','5G','AI工具','VPN','網絡安全','串流','智能家居','測速'];
-    const sorted = Object.entries(keywords).filter(([w,c]) => c >= 2 && w.length >= 2).sort((a,b) => b[1]-a[1]).slice(0, 8);
-    const hotWords = sorted.map(([w]) => w);
-    // Fill remaining with fixed keywords
-    fixedKeywords.forEach(k => { if (hotWords.length < 12 && !hotWords.includes(k)) hotWords.push(k); });
-
-    document.getElementById('hotKeywords').innerHTML = hotWords.slice(0, 12).map(k =>
-        `<a href="https://www.google.com/search?q=${encodeURIComponent(k + ' 香港')}" target="_blank" class="hot-keyword">${k}</a>`
-    ).join('');
-}
-
-// Daily tips (these are factual broadband tips, not news)
-const tipsDB = [
-    "Router放喺屋企中間位置，WiFi覆蓋範圍可以大30%以上。避免放喺角落或者地下。",
-    "每隔2-3個月重啟一次Router，可以清除緩存、釋放記憶體，改善網速同穩定性。",
-    "寬頻合約到期前3個月，打去客服話「考慮轉台」，通常可以攞到更好嘅續約價。",
-    "5GHz WiFi速度快但穿牆弱，2.4GHz穿牆強但速度慢。近Router用5G，遠距離用2.4G。",
-    "定期更改WiFi密碼，防止鄰居「借用」你嘅網絡，影響你嘅速度同安全。",
-    "如果成日斷線，試下將Router同微波爐分開擺放，微波爐嘅頻率會干擾WiFi信號。",
-    "用Ethernet線直接連接電腦打機或者睇4K串流，速度同穩定性遠勝WiFi。",
-    "屋企多人同時用網？考慮升級至QoS功能嘅Router，可以自動分配頻寬優先度。",
-    "測速嘅時候記得關閉其他裝置嘅WiFi，先至可以得到準確嘅寬頻速度數據。",
-    "搬屋前1個月預約寬頻安裝，避免新屋入伙後冇網用嘅尷尬情況。",
-    "Mesh WiFi系統特別適合複式單位同村屋，可以消除WiFi死角位。",
-    "定期檢查Router韌體更新，新版本通常會修復安全漏洞同提升效能。",
-    "如果你係WFH，建議最少選擇500M計劃，視像會議需要穩定嘅上傳速度。",
-    "申請寬頻前，用供應商嘅覆蓋查詢工具確認你嘅大廈有冇光纖到戶（FTTH）。",
-];
-
-// Poll (these are interactive, not news content)
-const pollsDB = [
-    { q:"你屋企用緊邊間寬頻？", opts:["HKBN 香港寬頻","HKT/PCCW","SmarTone","CMHK 中國移動","其他"], votes:[35,28,18,12,7] },
-    { q:"你覺得屋企寬頻夠唔夠快？", opts:["非常滿意","基本夠用","時快時慢","經常唔夠","考慮轉台"], votes:[15,32,28,18,7] },
-    { q:"你用緊幾多M寬頻？", opts:["100M","500M","1000M","2000M+","唔清楚"], votes:[12,25,38,15,10] },
-    { q:"揀寬頻你最重視咩？", opts:["價錢平","速度快","穩定唔斷","客服好","無合約"], votes:[30,22,28,10,10] },
-    { q:"你會唔會用AI工具幫手做嘢？", opts:["日日用","偶爾用","想學但未開始","唔信AI","唔知咩係AI"], votes:[25,30,22,13,10] },
-    { q:"你屋企有幾多部裝置連WiFi？", opts:["1-3部","4-6部","7-10部","10部以上","唔清楚"], votes:[10,28,32,22,8] },
-];
-
-function renderPoll() {
-    const idx = new Date().getDate() % pollsDB.length;
-    const poll = pollsDB[idx];
-    const total = poll.votes.reduce((a,b) => a+b, 0);
-    document.getElementById('pollQuestion').textContent = poll.q;
-    document.getElementById('pollOptions').innerHTML = poll.opts.map((opt, i) => {
-        const pct = Math.round(poll.votes[i] / total * 100);
-        return `<div class="poll-option" onclick="vote(this)">
-            <div class="poll-bar" style="width:${pct}%"></div>
-            <div class="poll-text"><span>${opt}</span><span>${pct}%</span></div>
-        </div>`;
+    var fixed=['寬頻格價','WiFi','Router推薦','5G','AI工具','VPN','網絡安全','���流','智能家居','測速'];
+    var words=Object.entries(kw).filter(function(e){return e[1]>=2;}).sort(function(a,b){return b[1]-a[1];}).slice(0,8).map(function(e){return e[0];});
+    fixed.forEach(function(k){if(words.length<12&&words.indexOf(k)<0)words.push(k);});
+    document.getElementById('hotKeywords').innerHTML=words.slice(0,12).map(function(k){
+        return '<a href="https://www.google.com/search?q='+encodeURIComponent(k+' 香港')+'" target="_blank" class="hot-keyword">'+k+'</a>';
     }).join('');
-    document.getElementById('pollTotal').textContent = `共 ${total * 8 + new Date().getDate() * 17} 人投票`;
 }
 
-function vote(el) {
-    document.querySelectorAll('.poll-option').forEach(o => o.classList.add('voted'));
-}
+var tipsDB=['Router放喺屋企中間位置，WiFi覆蓋大三成。','每隔2-3個月重啟Router改善網速。','合約到期前3個月傾續約價最著數。',
+    '5GHz快但穿牆弱，2.4GHz穿牆強但慢。','定期改WiFi密碼防鄰居借用。','Router同微波爐分開擺減少干擾。',
+    '用Ethernet線打機睇片穩定過WiFi。','Mesh WiFi適合複式單位消除死角。','搬屋前1個月預約寬頻安裝。',
+    '定期更新Router韌體修復安全漏洞。','WFH建議最少500M計劃。','申請前確認大廈有冇光纖到戶。'];
 
-function renderTip() {
-    const idx = new Date().getDate() % tipsDB.length;
-    document.getElementById('dailyTip').textContent = tipsDB[idx];
-}
+var pollsDB=[
+    {q:'你屋企用緊邊間寬頻？',opts:['HKBN香港寬頻','HKT/PCCW','SmarTone','CMHK中國移動','其他'],votes:[35,28,18,12,7]},
+    {q:'你覺得屋企寬頻夠唔夠快？',opts:['非常滿意','基本夠用','時快時慢','經常唔夠','考慮轉台'],votes:[15,32,28,18,7]},
+    {q:'你用緊幾多M寬頻？',opts:['100M','500M','1000M','2000M+','唔清楚'],votes:[12,25,38,15,10]},
+    {q:'揀寬頻你最重視咩？',opts:['價錢平','速度快','穩定唔斷','客服好','無合約'],votes:[30,22,28,10,10]},
+    {q:'你會唔會用AI工具？',opts:['日日用','偶爾用','想學未開始','唔信AI','唔知'],votes:[25,30,22,13,10]},
+    {q:'你屋企幾多部裝置連WiFi？',opts:['1-3部','4-6部','7-10部','10+部','唔清楚'],votes:[10,28,32,22,8]}];
 
-function updateTime() {
-    const d = new Date();
-    const str = d.getFullYear() + '年' + (d.getMonth()+1) + '月' + d.getDate() + '日 ' +
-        String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
-    document.getElementById('updateTime').textContent = str;
+function renderPoll(){
+    var p=pollsDB[new Date().getDate()%pollsDB.length],t=p.votes.reduce(function(a,b){return a+b;},0);
+    document.getElementById('pollQuestion').textContent=p.q;
+    document.getElementById('pollOptions').innerHTML=p.opts.map(function(o,i){
+        var pct=Math.round(p.votes[i]/t*100);
+        return '<div class="poll-option" onclick="vote(this)"><div class="poll-bar" style="width:'+pct+'%"></div>' +
+            '<div class="poll-text"><span>'+o+'</span><span>'+pct+'%</span></div></div>';
+    }).join('');
+    document.getElementById('pollTotal').textContent='共 '+(t*8+new Date().getDate()*17)+' 人投票';
 }
+function vote(el){document.querySelectorAll('.poll-option').forEach(function(o){o.classList.add('voted');});}
+function renderTip(){document.getElementById('dailyTip').textContent=tipsDB[new Date().getDate()%tipsDB.length];}
 
-// ===== TAB FILTERING =====
-document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderNews(btn.dataset.cat);
+document.querySelectorAll('.tab-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+        document.querySelectorAll('.tab-btn').forEach(function(x){x.classList.remove('active');});
+        b.classList.add('active');renderNews(b.dataset.cat);
     });
 });
 
-// ===== INIT =====
-renderPoll();
-renderTip();
-fetchAllNews();
-setInterval(updateTime, 60000);
-// Auto-refresh news every 30 minutes
-setInterval(fetchAllNews, 1800000);
+renderPoll();renderTip();loadNews();
 </script>
 
 </body>
