@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>免費社交媒體模板製作工具 | BroadbandHK</title>
+<meta name="description" content="50款免費社交媒體帖文模板，適用於Instagram、Facebook、LinkedIn。線上編輯文字、顏色，即時下載PNG圖片。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a}
+
+/* Header */
+.page-header{background:linear-gradient(135deg,#1e3a5f,#6366f1);color:#fff;padding:50px 20px;text-align:center}
+.page-header h1{font-size:36px;font-weight:900;margin-bottom:10px}
+.page-header p{font-size:18px;opacity:0.8;max-width:600px;margin:0 auto}
+.badge-row{display:flex;justify-content:center;gap:15px;margin-top:20px;flex-wrap:wrap}
+.badge{background:rgba(255,255,255,0.15);padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600}
+
+/* How to use */
+.how-to{max-width:1200px;margin:30px auto;padding:0 20px}
+.how-to-steps{display:flex;gap:15px;flex-wrap:wrap}
+.how-step{flex:1;min-width:200px;background:#fff;padding:20px;border-radius:12px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.how-step .num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;margin-bottom:10px}
+.how-step h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.how-step p{font-size:13px;color:#64748b}
+
+/* Filter */
+.filter-bar{max-width:1200px;margin:25px auto;padding:0 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter-bar span{font-size:14px;font-weight:700;color:#475569;margin-right:5px}
+.filter-btn{padding:8px 16px;border:2px solid #e2e8f0;background:#fff;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Inter'}
+.filter-btn:hover{border-color:#6366f1;color:#6366f1}
+.filter-btn.active{background:#6366f1;color:#fff;border-color:#6366f1}
+
+/* Search */
+.search-box{max-width:1200px;margin:0 auto 20px;padding:0 20px}
+.search-box input{width:100%;max-width:400px;padding:12px 18px;border:2px solid #e2e8f0;border-radius:12px;font-size:15px;font-family:'Inter';outline:none;transition:border 0.2s}
+.search-box input:focus{border-color:#6366f1}
+
+/* Grid */
+.templates-grid{max-width:1200px;margin:0 auto;padding:0 20px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.template-card{background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;transition:all 0.25s;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:relative}
+.template-card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.12)}
+.card-preview{width:100%;aspect-ratio:1;position:relative;overflow:hidden}
+.card-preview iframe{width:1080px;height:1080px;border:none;transform:scale(0.241);transform-origin:top left;pointer-events:none;position:absolute;top:0;left:0}
+.card-info{padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.card-info h3{font-size:15px;font-weight:700}
+.card-info .card-num{font-size:12px;color:#94a3b8;font-weight:600}
+.card-category{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.6);color:#fff;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;z-index:2}
+
+/* Modal */
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;justify-content:center;align-items:flex-start;padding:20px;overflow-y:auto}
+.modal-overlay.show{display:flex}
+.modal{background:#f0f0f0;border-radius:20px;width:100%;max-width:1200px;overflow:hidden;position:relative;margin:20px auto}
+.modal-header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:#fff;border-bottom:1px solid #e2e8f0}
+.modal-header h2{font-size:20px;font-weight:800}
+.modal-close{width:40px;height:40px;border-radius:10px;border:none;background:#f1f5f9;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Inter';transition:all 0.2s}
+.modal-close:hover{background:#fee2e2;color:#ef4444}
+.modal-body{padding:0}
+.modal-body iframe{width:100%;height:85vh;border:none}
+
+/* Footer */
+.page-footer{background:#1e293b;color:#94a3b8;text-align:center;padding:30px 20px;font-size:14px}
+.page-footer a{color:#818cf8;text-decoration:none}
+
+/* Empty state */
+.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:#94a3b8}
+.empty-state h3{font-size:20px;margin-bottom:8px;color:#64748b}
+
+/* Responsive */
+@media(max-width:768px){
+    .page-header h1{font-size:26px}
+    .page-header p{font-size:15px}
+    .templates-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+    .how-to-steps{flex-direction:column}
+    .modal{border-radius:12px}
+    .modal-body iframe{height:70vh}
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+    <h1>免費社交媒體模板工具</h1>
+    <p>50款專業設計模板，線上編輯文字和顏色，即時下載高清PNG圖片</p>
+    <div class="badge-row">
+        <div class="badge">50 款模板</div>
+        <div class="badge">免費使用</div>
+        <div class="badge">1080x1080px</div>
+        <div class="badge">即時下載</div>
+    </div>
+</div>
+
+<div class="how-to">
+    <div class="how-to-steps">
+        <div class="how-step">
+            <div class="num">1</div>
+            <h3>揀模板</h3>
+            <p>瀏覽50款模板，揀一款你鍾意嘅設計</p>
+        </div>
+        <div class="how-step">
+            <div class="num">2</div>
+            <h3>改文字</h3>
+            <p>點擊任何文字即可編輯內容</p>
+        </div>
+        <div class="how-step">
+            <div class="num">3</div>
+            <h3>換顏色</h3>
+            <p>用頂部工具列自訂品牌顏色</p>
+        </div>
+        <div class="how-step">
+            <div class="num">4</div>
+            <h3>下載圖片</h3>
+            <p>一鍵下載 1080x1080 高清 PNG</p>
+        </div>
+    </div>
+</div>
+
+<div class="filter-bar">
+    <span>分類：</span>
+    <button class="filter-btn active" data-cat="all" onclick="filterTemplates('all',this)">全部</button>
+    <button class="filter-btn" data-cat="content" onclick="filterTemplates('content',this)">內容行銷</button>
+    <button class="filter-btn" data-cat="promo" onclick="filterTemplates('promo',this)">推廣宣傳</button>
+    <button class="filter-btn" data-cat="info" onclick="filterTemplates('info',this)">資訊圖表</button>
+    <button class="filter-btn" data-cat="social" onclick="filterTemplates('social',this)">社交互動</button>
+    <button class="filter-btn" data-cat="business" onclick="filterTemplates('business',this)">商業品牌</button>
+    <button class="filter-btn" data-cat="media" onclick="filterTemplates('media',this)">多媒體</button>
+</div>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="搜尋模板名稱..." oninput="searchTemplates(this.value)">
+</div>
+
+<div class="templates-grid" id="grid"></div>
+
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <h2 id="modalTitle">模板編輯</h2>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <iframe id="modalFrame" src="about:blank"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="page-footer">
+    <p>由 <a href="https://broadbandhk.com" target="_blank">BroadbandHK</a> 提供 — 適用於 Instagram、Facebook、LinkedIn、WhatsApp</p>
+</div>
+
+<script>
+const templates = [
+    {id:"editable_demo", num:"01", name:"Tips 列表", cat:"content", file:"editable_demo.html"},
+    {id:"02", num:"02", name:"名言引述", cat:"content", file:"02_quote.html"},
+    {id:"03", num:"03", name:"數據統計", cat:"info", file:"03_stats.html"},
+    {id:"04", num:"04", name:"待辦清單", cat:"content", file:"04_checklist.html"},
+    {id:"05", num:"05", name:"客戶評價", cat:"social", file:"05_testimonial.html"},
+    {id:"06", num:"06", name:"使用前後", cat:"promo", file:"06_before_after.html"},
+    {id:"07", num:"07", name:"優惠促銷", cat:"promo", file:"07_promo_sale.html"},
+    {id:"08", num:"08", name:"步驟教學", cat:"content", file:"08_step_guide.html"},
+    {id:"09", num:"09", name:"常見問題", cat:"info", file:"09_faq.html"},
+    {id:"10", num:"10", name:"公告通知", cat:"business", file:"10_announcement.html"},
+    {id:"11", num:"11", name:"輪播封面", cat:"media", file:"11_carousel_cover.html"},
+    {id:"12", num:"12", name:"迷思破解", cat:"content", file:"12_myth_fact.html"},
+    {id:"13", num:"13", name:"Do's & Don'ts", cat:"content", file:"13_dos_donts.html"},
+    {id:"14", num:"14", name:"二選一", cat:"social", file:"14_this_or_that.html"},
+    {id:"15", num:"15", name:"產品特色", cat:"promo", file:"15_product_feature.html"},
+    {id:"16", num:"16", name:"團隊介紹", cat:"business", file:"16_team_about.html"},
+    {id:"17", num:"17", name:"活動邀請", cat:"promo", file:"17_event.html"},
+    {id:"18", num:"18", name:"倒數計時", cat:"promo", file:"18_countdown.html"},
+    {id:"19", num:"19", name:"重點數據", cat:"info", file:"19_single_stat.html"},
+    {id:"20", num:"20", name:"Top 10 排行", cat:"content", file:"20_top_list.html"},
+    {id:"21", num:"21", name:"比較表格", cat:"info", file:"21_comparison.html"},
+    {id:"22", num:"22", name:"運作流程", cat:"info", file:"22_how_it_works.html"},
+    {id:"23", num:"23", name:"成功案例", cat:"business", file:"23_case_study.html"},
+    {id:"24", num:"24", name:"價目表", cat:"business", file:"24_pricing.html"},
+    {id:"25", num:"25", name:"CTA 註冊", cat:"promo", file:"25_cta_signup.html"},
+    {id:"26", num:"26", name:"大膽宣言", cat:"social", file:"26_bold_statement.html"},
+    {id:"27", num:"27", name:"問題方案", cat:"content", file:"27_problem_solution.html"},
+    {id:"28", num:"28", name:"你知道嗎", cat:"content", file:"28_did_you_know.html"},
+    {id:"29", num:"29", name:"每週計劃", cat:"info", file:"29_weekly_planner.html"},
+    {id:"30", num:"30", name:"社交證明", cat:"social", file:"30_social_proof.html"},
+    {id:"31", num:"31", name:"品牌故事", cat:"business", file:"31_brand_story.html"},
+    {id:"32", num:"32", name:"迷你文章", cat:"content", file:"32_mini_blog.html"},
+    {id:"33", num:"33", name:"資源列表", cat:"content", file:"33_resource_list.html"},
+    {id:"34", num:"34", name:"招聘啟事", cat:"business", file:"34_hiring.html"},
+    {id:"35", num:"35", name:"里程碑", cat:"social", file:"35_milestone.html"},
+    {id:"36", num:"36", name:"30日挑戰", cat:"social", file:"36_challenge.html"},
+    {id:"37", num:"37", name:"Podcast 集數", cat:"media", file:"37_podcast.html"},
+    {id:"38", num:"38", name:"網絡研討會", cat:"media", file:"38_webinar.html"},
+    {id:"39", num:"39", name:"節日祝賀", cat:"social", file:"39_seasonal.html"},
+    {id:"40", num:"40", name:"教學指南", cat:"content", file:"40_tutorial.html"},
+    {id:"41", num:"41", name:"簡約引述", cat:"content", file:"41_minimal_quote.html"},
+    {id:"42", num:"42", name:"漸變文字", cat:"media", file:"42_gradient_text.html"},
+    {id:"43", num:"43", name:"個人簡介卡", cat:"business", file:"43_profile_card.html"},
+    {id:"44", num:"44", name:"輪播內頁", cat:"media", file:"44_carousel_slide.html"},
+    {id:"45", num:"45", name:"影片縮圖", cat:"media", file:"45_video_thumbnail.html"},
+    {id:"46", num:"46", name:"Podcast 封面", cat:"media", file:"46_podcast_cover.html"},
+    {id:"47", num:"47", name:"電子書推廣", cat:"promo", file:"47_ebook_promo.html"},
+    {id:"48", num:"48", name:"優惠券", cat:"promo", file:"48_coupon.html"},
+    {id:"49", num:"49", name:"即將推出", cat:"promo", file:"49_coming_soon.html"},
+    {id:"50", num:"50", name:"追蹤 CTA", cat:"social", file:"50_follow_cta.html"}
+];
+
+const catNames = {
+    content:"內容行銷", promo:"推廣宣傳", info:"資訊圖表",
+    social:"社交互動", business:"商業品牌", media:"多媒體"
+};
+
+const grid = document.getElementById('grid');
+
+function renderGrid(list) {
+    grid.innerHTML = '';
+    if (list.length === 0) {
+        grid.innerHTML = '<div class="empty-state"><h3>找不到模板</h3><p>試下其他關鍵字或分類</p></div>';
+        return;
+    }
+    list.forEach(t => {
+        const card = document.createElement('div');
+        card.className = 'template-card';
+        card.setAttribute('data-cat', t.cat);
+        card.onclick = () => openTemplate(t);
+        card.innerHTML = `
+            <div class="card-preview">
+                <span class="card-category">${catNames[t.cat]}</span>
+                <iframe src="${t.file}" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+            </div>
+            <div class="card-info">
+                <h3>${t.name}</h3>
+                <span class="card-num">#${t.num}</span>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+let currentFilter = 'all';
+let currentSearch = '';
+
+function filterTemplates(cat, btn) {
+    currentFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+}
+
+function searchTemplates(val) {
+    currentSearch = val.toLowerCase();
+    applyFilters();
+}
+
+function applyFilters() {
+    let filtered = templates;
+    if (currentFilter !== 'all') {
+        filtered = filtered.filter(t => t.cat === currentFilter);
+    }
+    if (currentSearch) {
+        filtered = filtered.filter(t =>
+            t.name.toLowerCase().includes(currentSearch) ||
+            t.num.includes(currentSearch) ||
+            catNames[t.cat].includes(currentSearch)
+        );
+    }
+    renderGrid(filtered);
+}
+
+function openTemplate(t) {
+    document.getElementById('modalTitle').textContent = `#${t.num} ${t.name}`;
+    document.getElementById('modalFrame').src = t.file;
+    document.getElementById('modal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+    if (e && e.target !== document.getElementById('modal')) return;
+    document.getElementById('modal').classList.remove('show');
+    document.getElementById('modalFrame').src = 'about:blank';
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+});
+
+// Initial render
+renderGrid(templates);
+</script>
+
+</body>
+</html>

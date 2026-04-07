@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 15 - Product Feature</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar select{padding:8px 12px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;padding:70px;display:flex;flex-direction:column}
+.header{margin-bottom:30px}
+.header .tag{display:inline-block;padding:8px 20px;border-radius:20px;font-size:14px;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:15px;outline:none}
+.header h1{font-size:48px;font-weight:900;margin:0;line-height:1.2;outline:none}
+.header h1:hover{opacity:0.9}
+.header p{font-size:20px;margin-top:10px;opacity:0.6;outline:none}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1}
+.feature{padding:30px;border-radius:20px;display:flex;flex-direction:column;gap:10px}
+.feature-icon{font-size:40px;outline:none}
+.feature-title{font-size:22px;font-weight:800;outline:none}
+.feature-title:hover{opacity:0.8}
+.feature-desc{font-size:16px;opacity:0.6;line-height:1.4;outline:none}
+.feature-desc:hover{opacity:0.8}
+.cta{text-align:center;margin-top:30px}
+.cta-btn{display:inline-block;padding:18px 50px;border-radius:14px;font-size:20px;font-weight:800;color:#fff;outline:none}
+.cta-btn:hover{opacity:0.9}
+.footer{text-align:center;margin-top:15px}
+.footer span{font-size:15px;opacity:0.4;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><select id="bgSelect" onchange="bg()"><option value="#ffffff">White</option><option value="#0f172a">Dark</option><option value="#f8fafc">Gray</option></select></div>
+<div><label>Accent</label><br><input type="color" id="c1" value="#2563eb" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#fff;--accent:#2563eb;--text:#0f172a;">
+<div class="header">
+<div class="tag" style="background:var(--accent);" contenteditable="true">NEW FEATURE</div>
+<h1 contenteditable="true" style="color:var(--text);">Everything You Need<br>in <span style="color:var(--accent);">One Platform</span></h1>
+<p contenteditable="true" style="color:var(--text);">Powerful tools to grow your business online</p>
+</div>
+<div class="features">
+<div class="feature" style="background:rgba(37,99,235,0.06);"><div class="feature-icon" contenteditable="true">📊</div><div class="feature-title" contenteditable="true" style="color:var(--text);">Analytics Dashboard</div><div class="feature-desc" contenteditable="true" style="color:var(--text);">Track all your metrics in real-time</div></div>
+<div class="feature" style="background:rgba(37,99,235,0.06);"><div class="feature-icon" contenteditable="true">🎯</div><div class="feature-title" contenteditable="true" style="color:var(--text);">Smart Targeting</div><div class="feature-desc" contenteditable="true" style="color:var(--text);">Reach the right audience automatically</div></div>
+<div class="feature" style="background:rgba(37,99,235,0.06);"><div class="feature-icon" contenteditable="true">⚡</div><div class="feature-title" contenteditable="true" style="color:var(--text);">Auto Scheduling</div><div class="feature-desc" contenteditable="true" style="color:var(--text);">Schedule posts across all platforms</div></div>
+<div class="feature" style="background:rgba(37,99,235,0.06);"><div class="feature-icon" contenteditable="true">🔒</div><div class="feature-title" contenteditable="true" style="color:var(--text);">Secure & Reliable</div><div class="feature-desc" contenteditable="true" style="color:var(--text);">Enterprise-grade security built in</div></div>
+</div>
+<div class="cta"><div class="cta-btn" style="background:var(--accent);" contenteditable="true">Get Started Free →</div></div>
+<div class="footer"><span contenteditable="true" style="color:var(--text);">YOUR BRAND</span></div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.setProperty('--accent',document.getElementById('c1').value);document.querySelectorAll('.feature').forEach(e=>e.style.background=document.getElementById('c1').value+'10');document.querySelector('.tag').style.background=document.getElementById('c1').value;document.querySelector('.cta-btn').style.background=document.getElementById('c1').value}
+function bg(){const card=document.getElementById('card'),b=document.getElementById('bgSelect').value;card.style.background=b;card.style.setProperty('--text',b==='#0f172a'?'#fff':'#0f172a')}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='product-feature.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

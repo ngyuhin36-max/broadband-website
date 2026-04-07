@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 17 - Event Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px}
+.pattern{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.05) 1px,transparent 1px);background-size:30px 30px}
+.event-type{font-size:16px;font-weight:800;letter-spacing:6px;color:rgba(255,255,255,0.5);margin-bottom:30px;outline:none}
+.event-type:hover{color:rgba(255,255,255,0.7)}
+.event-title{font-size:68px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:30px;outline:none}
+.event-title:hover{opacity:0.95}
+.divider{width:80px;height:4px;border-radius:2px;background:#fff;margin:0 auto 30px;opacity:0.3}
+.event-details{display:flex;gap:40px;margin-bottom:50px}
+.detail{display:flex;flex-direction:column;align-items:center;gap:8px}
+.detail-icon{font-size:28px}
+.detail-label{font-size:13px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.4)}
+.detail-value{font-size:22px;font-weight:800;color:#fff;outline:none}
+.detail-value:hover{opacity:0.9}
+.event-desc{font-size:20px;color:rgba(255,255,255,0.7);max-width:600px;line-height:1.5;margin-bottom:40px;outline:none}
+.event-desc:hover{background:rgba(255,255,255,0.05);border-radius:8px}
+.register-btn{display:inline-block;padding:18px 50px;background:#fff;border-radius:14px;font-size:20px;font-weight:800;outline:none}
+.register-btn:hover{opacity:0.9}
+.footer{position:absolute;bottom:40px;font-size:15px;color:rgba(255,255,255,0.3);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#0f766e" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#1e40af" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#0f766e,#1e40af);">
+<div class="pattern"></div>
+<div class="event-type" contenteditable="true">FREE ONLINE WORKSHOP</div>
+<div class="event-title" contenteditable="true">Digital Marketing<br>Masterclass</div>
+<div class="divider"></div>
+<div class="event-details">
+<div class="detail"><div class="detail-icon">📅</div><div class="detail-label">DATE</div><div class="detail-value" contenteditable="true">April 20, 2026</div></div>
+<div class="detail"><div class="detail-icon">🕐</div><div class="detail-label">TIME</div><div class="detail-value" contenteditable="true">7:00 PM HKT</div></div>
+<div class="detail"><div class="detail-icon">📍</div><div class="detail-label">LOCATION</div><div class="detail-value" contenteditable="true">Zoom (Online)</div></div>
+</div>
+<div class="event-desc" contenteditable="true">Learn proven strategies to grow your business online. Limited spots available — register now!</div>
+<div class="register-btn" contenteditable="true" style="color:#0f766e;">Register Free →</div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){const c1=document.getElementById('c1').value,c2=document.getElementById('c2').value;document.getElementById('card').style.background=`linear-gradient(135deg,${c1},${c2})`;document.querySelector('.register-btn').style.color=c1}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='event-invite.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 03 - Stats / Numbers</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body { margin:0; background:#f0f0f0; font-family:'Inter',sans-serif; display:flex; flex-direction:column; align-items:center; padding:30px; }
+.toolbar { background:#fff; padding:20px 40px; border-radius:16px; margin-bottom:30px;
+    box-shadow:0 2px 20px rgba(0,0,0,0.1); display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.toolbar label { font-size:14px; color:#666; font-weight:600; }
+.toolbar input[type="color"] { width:50px; height:36px; padding:2px; cursor:pointer; border:2px solid #e0e0e0; border-radius:8px; }
+.btn { padding:12px 28px; border:none; border-radius:10px; font-size:16px; font-weight:700;
+    cursor:pointer; transition:all 0.2s; }
+.btn-download { background:linear-gradient(135deg, #667eea, #764ba2); color:#fff; }
+.btn-download:hover { transform:scale(1.05); }
+.instructions { background:#fff3cd; padding:15px 25px; border-radius:12px; margin-bottom:20px;
+    font-size:15px; color:#856404; border-left:4px solid #ffc107; max-width:1080px; width:100%; }
+#template { position:relative; }
+[contenteditable]:focus { outline:2px dashed rgba(79,70,229,0.5); outline-offset:4px; }
+
+.card { width:1080px; height:1080px; position:relative; overflow:hidden; background:#0f172a;
+    display:flex; flex-direction:column; padding:80px; }
+.grid-bg { position:absolute; inset:0; background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px; }
+.header { position:relative; z-index:1; margin-bottom:60px; }
+.header h1 { font-size:46px; font-weight:900; color:#fff; margin:0; outline:none; }
+.header h1:hover { background:rgba(255,255,255,0.03); border-radius:8px; }
+.header p { font-size:20px; color:#94a3b8; margin-top:10px; outline:none; }
+.header p:hover { background:rgba(255,255,255,0.03); border-radius:8px; }
+.stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; position:relative; z-index:1; flex:1; }
+.stat-box { background:rgba(255,255,255,0.05); border-radius:20px; padding:40px;
+    border:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; justify-content:center; }
+.stat-number { font-size:72px; font-weight:900; line-height:1; outline:none; }
+.stat-number:hover { background:rgba(255,255,255,0.03); border-radius:8px; }
+.stat-label { font-size:18px; color:#94a3b8; margin-top:10px; font-weight:600; outline:none; }
+.stat-label:hover { background:rgba(255,255,255,0.03); border-radius:8px; }
+.footer { position:relative; z-index:1; display:flex; justify-content:space-between; margin-top:40px; }
+.footer span { font-size:16px; color:#475569; font-weight:600; letter-spacing:1px; outline:none; }
+.footer span:hover { color:#94a3b8; }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+    ✏️ <strong>How to use:</strong> Click any text/number to edit → Change colors → Download as PNG
+</div>
+
+<div class="toolbar">
+    <div><label>Color 1</label><br><input type="color" id="c1" value="#3b82f6" onchange="updateColors()"></div>
+    <div><label>Color 2</label><br><input type="color" id="c2" value="#8b5cf6" onchange="updateColors()"></div>
+    <div><label>Color 3</label><br><input type="color" id="c3" value="#06b6d4" onchange="updateColors()"></div>
+    <div><label>Color 4</label><br><input type="color" id="c4" value="#10b981" onchange="updateColors()"></div>
+    <button class="btn btn-download" onclick="downloadPNG()">⬇ Download as PNG</button>
+</div>
+
+<div id="template">
+<div class="card" id="card">
+    <div class="grid-bg"></div>
+    <div class="header">
+        <h1 contenteditable="true">Digital Marketing <span class="c1" style="color:#3b82f6;">in Numbers</span></h1>
+        <p contenteditable="true">Key statistics every business owner should know</p>
+    </div>
+    <div class="stats-grid">
+        <div class="stat-box">
+            <div class="stat-number c1" contenteditable="true" style="color:#3b82f6;">93%</div>
+            <div class="stat-label" contenteditable="true">of online experiences begin with a search engine</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number c2" contenteditable="true" style="color:#8b5cf6;">4.9B</div>
+            <div class="stat-label" contenteditable="true">people use social media worldwide in 2026</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number c3" contenteditable="true" style="color:#06b6d4;">72%</div>
+            <div class="stat-label" contenteditable="true">of consumers prefer video content from brands</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number c4" contenteditable="true" style="color:#10b981;">$42</div>
+            <div class="stat-label" contenteditable="true">average ROI for every $1 spent on email marketing</div>
+        </div>
+    </div>
+    <div class="footer">
+        <span contenteditable="true">YOUR BRAND</span>
+        <span contenteditable="true">Source: Industry Report 2026</span>
+    </div>
+</div>
+</div>
+
+<script>
+function updateColors() {
+    const colors = ['c1','c2','c3','c4'].map(id => document.getElementById(id).value);
+    document.querySelectorAll('.c1').forEach(el => el.style.color = colors[0]);
+    document.querySelectorAll('.c2').forEach(el => el.style.color = colors[1]);
+    document.querySelectorAll('.c3').forEach(el => el.style.color = colors[2]);
+    document.querySelectorAll('.c4').forEach(el => el.style.color = colors[3]);
+}
+function downloadPNG() {
+    document.activeElement.blur();
+    html2canvas(document.getElementById('template'), { scale:2, useCORS:true }).then(c => {
+        const a = document.createElement('a'); a.download='stats-post.png'; a.href=c.toDataURL('image/png'); a.click();
+    });
+}
+</script>
+</body>
+</html>

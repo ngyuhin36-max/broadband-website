@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 42 - Gradient Text</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.3);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0a0a0a;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px}
+.grad-text{font-size:90px;font-weight:900;line-height:1.15;background:linear-gradient(135deg,#667eea,#764ba2,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;outline:none}
+.grad-text:hover{opacity:0.95}
+.grad-sub{font-size:24px;color:#555;margin-top:30px;max-width:600px;line-height:1.5;outline:none}
+.grad-sub:hover{color:#777}
+.footer{position:absolute;bottom:50px;font-size:16px;color:#333;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change gradient colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#667eea" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#764ba2" onchange="u()"></div>
+<div><label>Color 3</label><br><input type="color" id="c3" value="#ec4899" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="grad-text" id="gt" contenteditable="true">Your brand<br>deserves to<br>be seen.</div>
+<div class="grad-sub" contenteditable="true">Let's make it happen with a strategy that actually works.</div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('gt').style.background=`linear-gradient(135deg,${document.getElementById('c1').value},${document.getElementById('c2').value},${document.getElementById('c3').value})`;document.getElementById('gt').style.webkitBackgroundClip='text';document.getElementById('gt').style.backgroundClip='text'}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='gradient-text.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

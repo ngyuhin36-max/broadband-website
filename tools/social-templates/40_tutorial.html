@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 40 - Tutorial / Screenshot</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0f172a;padding:60px;display:flex;flex-direction:column}
+.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:30px}
+.header h1{font-size:36px;font-weight:900;color:#fff;margin:0;flex:1;outline:none}
+.step-badge{padding:10px 24px;border-radius:20px;font-size:14px;font-weight:800;letter-spacing:2px;color:#fff;outline:none}
+.browser{flex:1;background:#1e293b;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.browser-bar{padding:12px 20px;background:#0f172a;display:flex;align-items:center;gap:8px}
+.browser-dot{width:12px;height:12px;border-radius:50%}
+.browser-url{flex:1;background:#1e293b;border-radius:6px;padding:6px 16px;margin-left:15px;font-size:13px;color:#64748b;font-family:'JetBrains Mono';outline:none}
+.browser-content{flex:1;padding:30px;display:flex;flex-direction:column;gap:15px}
+.mock-line{height:14px;border-radius:4px;background:rgba(255,255,255,0.06)}
+.mock-line.short{width:60%}
+.mock-line.medium{width:80%}
+.mock-highlight{padding:20px;border-radius:12px;border:2px dashed;margin:10px 0}
+.mock-highlight p{font-size:16px;color:#e2e8f0;font-family:'JetBrains Mono';line-height:1.6;outline:none}
+.callout{position:absolute;padding:12px 24px;border-radius:12px;font-size:16px;font-weight:700;color:#fff;outline:none}
+.callout:hover{opacity:0.9}
+.footer{display:flex;justify-content:space-between;margin-top:20px}
+.footer span{font-size:15px;color:#475569;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change accent → Download as PNG</div>
+<div class="toolbar">
+<div><label>Accent</label><br><input type="color" id="c1" value="#3b82f6" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="header">
+<h1 contenteditable="true">How to Add<br><span style="color:#3b82f6;">Google Analytics</span></h1>
+<div class="step-badge" style="background:#3b82f6;" contenteditable="true">STEP 1 of 5</div>
+</div>
+<div class="browser">
+<div class="browser-bar">
+<div class="browser-dot" style="background:#ef4444;"></div>
+<div class="browser-dot" style="background:#f59e0b;"></div>
+<div class="browser-dot" style="background:#10b981;"></div>
+<div class="browser-url" contenteditable="true">analytics.google.com/settings</div>
+</div>
+<div class="browser-content">
+<div class="mock-line"></div>
+<div class="mock-line medium"></div>
+<div class="mock-line short"></div>
+<div class="mock-highlight" style="border-color:#3b82f6;">
+<p contenteditable="true">1. Go to Admin → Property Settings<br>2. Click "Create Property"<br>3. Enter your website URL<br>4. Select "Web" as platform<br>5. Copy the tracking ID</p>
+</div>
+<div class="mock-line"></div>
+<div class="mock-line medium"></div>
+</div>
+</div>
+<div class="callout" style="background:#3b82f6;bottom:120px;right:100px;" contenteditable="true">Click here! →</div>
+<div class="footer">
+<span contenteditable="true">YOUR BRAND</span>
+<span contenteditable="true" style="color:#3b82f6;">Save all 5 steps →</span>
+</div>
+</div>
+</div>
+<script>
+function u(){const c=document.getElementById('c1').value;document.querySelector('.step-badge').style.background=c;document.querySelector('.mock-highlight').style.borderColor=c;document.querySelector('.callout').style.background=c}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='tutorial.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 50 - Follow / CTA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px}
+.pattern-bg{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 2px,transparent 2px,transparent 20px)}
+.follow-emoji{font-size:90px;margin-bottom:25px;outline:none}
+.follow-title{font-size:64px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:20px;outline:none;position:relative;z-index:1}
+.follow-title:hover{opacity:0.95}
+.follow-desc{font-size:24px;color:rgba(255,255,255,0.6);max-width:600px;line-height:1.5;margin-bottom:40px;outline:none;position:relative;z-index:1}
+.follow-benefits{display:flex;flex-direction:column;gap:16px;margin-bottom:40px;position:relative;z-index:1}
+.follow-benefit{font-size:22px;color:rgba(255,255,255,0.8);font-weight:600;outline:none}
+.follow-benefit:hover{color:#fff}
+.follow-btn{display:inline-block;padding:20px 60px;background:#fff;border-radius:16px;font-size:24px;font-weight:900;outline:none;position:relative;z-index:1}
+.follow-btn:hover{opacity:0.95}
+.follow-handle{font-size:20px;color:rgba(255,255,255,0.4);margin-top:20px;font-weight:700;outline:none}
+.footer{position:absolute;bottom:40px;font-size:15px;color:rgba(255,255,255,0.15);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change gradient → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#e11d48" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#7c3aed" onchange="u()"></div>
+<div><label>Color 3</label><br><input type="color" id="c3" value="#f59e0b" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#e11d48,#7c3aed,#f59e0b);">
+<div class="pattern-bg"></div>
+<div class="follow-emoji" contenteditable="true">👋</div>
+<div class="follow-title" contenteditable="true">Like What<br>You See?</div>
+<div class="follow-desc" contenteditable="true">Follow us for daily marketing tips, templates, and strategies</div>
+<div class="follow-benefits">
+<div class="follow-benefit" contenteditable="true">✓ Daily tips & tricks</div>
+<div class="follow-benefit" contenteditable="true">✓ Free templates every week</div>
+<div class="follow-benefit" contenteditable="true">✓ Behind-the-scenes content</div>
+</div>
+<div class="follow-btn" contenteditable="true" style="color:#e11d48;">Follow Now →</div>
+<div class="follow-handle" contenteditable="true">@yourbrand</div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.background=`linear-gradient(135deg,${document.getElementById('c1').value},${document.getElementById('c2').value},${document.getElementById('c3').value})`;document.querySelector('.follow-btn').style.color=document.getElementById('c1').value}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='follow-cta.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

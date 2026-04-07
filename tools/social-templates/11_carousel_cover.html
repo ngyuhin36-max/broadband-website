@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 11 - Carousel Cover</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px}
+.bg-shape{position:absolute;border-radius:30px;transform:rotate(45deg);opacity:0.1}
+.bg-shape1{width:500px;height:500px;top:-150px;right:-100px;background:#fff}
+.bg-shape2{width:300px;height:300px;bottom:-80px;left:-60px;background:#fff}
+.swipe-badge{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:30px;background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);font-size:16px;font-weight:700;color:#fff;letter-spacing:2px;margin-bottom:50px;outline:none}
+.swipe-badge:hover{background:rgba(255,255,255,0.25)}
+.carousel-title{font-size:72px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:30px;outline:none}
+.carousel-title:hover{opacity:0.95}
+.carousel-sub{font-size:28px;color:rgba(255,255,255,0.8);line-height:1.5;max-width:700px;margin-bottom:50px;outline:none}
+.carousel-sub:hover{background:rgba(255,255,255,0.05);border-radius:8px}
+.slide-dots{display:flex;gap:12px;margin-bottom:40px}
+.slide-dots span{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,0.3)}
+.slide-dots span:first-child{background:#fff;width:40px;border-radius:7px}
+.footer{position:absolute;bottom:50px;font-size:18px;color:rgba(255,255,255,0.4);font-weight:600;outline:none}
+.footer:hover{color:rgba(255,255,255,0.6)}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change gradient → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#1e3a5f" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#2563eb" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#1e3a5f,#2563eb);">
+<div class="bg-shape bg-shape1"></div>
+<div class="bg-shape bg-shape2"></div>
+<div class="swipe-badge" contenteditable="true">SWIPE →</div>
+<div class="carousel-title" contenteditable="true">10 Ways to<br>Grow Your<br>Business</div>
+<div class="carousel-sub" contenteditable="true">Simple strategies you can implement today</div>
+<div class="slide-dots"><span></span><span></span><span></span><span></span><span></span></div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.background=`linear-gradient(135deg,${document.getElementById('c1').value},${document.getElementById('c2').value})`}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='carousel-cover.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

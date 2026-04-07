@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 31 - Brand Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.toolbar select{padding:8px 12px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;padding:80px;display:flex;flex-direction:column;justify-content:center}
+.story-tag{font-size:14px;font-weight:800;letter-spacing:4px;margin-bottom:25px;outline:none}
+.story-title{font-family:'Playfair Display';font-size:56px;font-weight:900;line-height:1.2;margin-bottom:30px;outline:none}
+.story-title:hover{opacity:0.95}
+.story-divider{width:60px;height:4px;border-radius:2px;margin-bottom:30px}
+.story-text{font-size:22px;line-height:1.8;opacity:0.7;margin-bottom:30px;outline:none}
+.story-text:hover{opacity:0.9}
+.story-signature{font-family:'Playfair Display';font-size:32px;font-weight:700;outline:none}
+.story-signature:hover{opacity:0.9}
+.story-role{font-size:16px;opacity:0.5;margin-top:5px;outline:none}
+.footer{position:absolute;bottom:50px;left:80px;font-size:15px;opacity:0.3;font-weight:600;letter-spacing:2px;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change style → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><select id="bgSelect" onchange="bg()"><option value="#faf5ff">Lavender</option><option value="#0f172a">Dark</option><option value="#fffbeb">Cream</option><option value="#ffffff">White</option></select></div>
+<div><label>Accent</label><br><input type="color" id="c1" value="#7c3aed" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#faf5ff;--text:#0f172a;--accent:#7c3aed;">
+<div class="story-tag" style="color:var(--accent);" contenteditable="true">OUR STORY</div>
+<div class="story-title" contenteditable="true" style="color:var(--text);">We started in a small<br>Hong Kong apartment<br>with one <span style="color:var(--accent);">big dream</span></div>
+<div class="story-divider" style="background:var(--accent);"></div>
+<div class="story-text" contenteditable="true" style="color:var(--text);">In 2021, we saw local businesses struggling to compete online. Big brands had big budgets, but small businesses had bigger hearts. We built our agency to level the playing field — affordable, effective digital marketing for the businesses that power our communities.</div>
+<div class="story-signature" contenteditable="true" style="color:var(--accent);">— Your Name</div>
+<div class="story-role" contenteditable="true" style="color:var(--text);">Founder & CEO</div>
+<div class="footer" contenteditable="true" style="color:var(--text);">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.setProperty('--accent',document.getElementById('c1').value)}
+function bg(){const card=document.getElementById('card'),b=document.getElementById('bgSelect').value;card.style.background=b;card.style.setProperty('--text',b==='#0f172a'?'#fff':'#0f172a')}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='brand-story.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

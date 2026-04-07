@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 23 - Case Study / Client Results</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0f172a;padding:70px;display:flex;flex-direction:column}
+.tag{display:inline-block;padding:8px 20px;border-radius:20px;font-size:14px;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:20px;outline:none}
+.header h1{font-size:44px;font-weight:900;color:#fff;margin:0;line-height:1.2;outline:none}
+.header p{font-size:20px;color:#64748b;margin-top:10px;outline:none}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0}
+.result-box{background:rgba(255,255,255,0.05);border-radius:20px;padding:30px;text-align:center;border:1px solid rgba(255,255,255,0.08)}
+.result-num{font-size:48px;font-weight:900;outline:none}
+.result-num:hover{opacity:0.9}
+.result-label{font-size:15px;color:#64748b;margin-top:8px;font-weight:600;outline:none}
+.story{background:rgba(255,255,255,0.03);border-radius:16px;padding:30px;border-left:4px solid;flex:1}
+.story h3{font-size:20px;font-weight:800;color:#fff;margin:0 0 10px;outline:none}
+.story p{font-size:17px;color:#94a3b8;line-height:1.6;outline:none}
+.footer{display:flex;justify-content:space-between;margin-top:30px}
+.footer span{font-size:16px;color:#475569;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change accent color → Download as PNG</div>
+<div class="toolbar">
+<div><label>Accent</label><br><input type="color" id="c1" value="#10b981" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="header">
+<div class="tag" style="background:#10b981;" contenteditable="true">CASE STUDY</div>
+<h1 contenteditable="true">How We Helped a Local<br>Restaurant <span style="color:#10b981;">Triple Their Revenue</span></h1>
+<p contenteditable="true">Real results from a real Hong Kong business</p>
+</div>
+<div class="results">
+<div class="result-box"><div class="result-num" style="color:#10b981;" contenteditable="true">+285%</div><div class="result-label" contenteditable="true">Website Traffic</div></div>
+<div class="result-box"><div class="result-num" style="color:#10b981;" contenteditable="true">3x</div><div class="result-label" contenteditable="true">Monthly Revenue</div></div>
+<div class="result-box"><div class="result-num" style="color:#10b981;" contenteditable="true">4.8★</div><div class="result-label" contenteditable="true">Google Rating</div></div>
+</div>
+<div class="story" style="border-color:#10b981;">
+<h3 contenteditable="true">The Strategy</h3>
+<p contenteditable="true">We implemented a combined SEO + Google Ads + Instagram strategy. Within 90 days, the restaurant went from zero online presence to ranking #1 for "best dim sum Tsim Sha Tsui" and generating 50+ online reservations per week.</p>
+</div>
+<div class="footer">
+<span contenteditable="true">YOUR BRAND</span>
+<span contenteditable="true" style="color:#10b981;">Want similar results? DM us →</span>
+</div>
+</div>
+</div>
+<script>
+function u(){const c=document.getElementById('c1').value;document.querySelector('.tag').style.background=c;document.querySelectorAll('.result-num').forEach(e=>e.style.color=c);document.querySelector('.story').style.borderColor=c}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='case-study.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

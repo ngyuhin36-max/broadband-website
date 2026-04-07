@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 26 - Bold Statement</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.toolbar select{padding:8px 12px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px}
+.bold-text{font-size:80px;font-weight:900;line-height:1.15;outline:none}
+.bold-text:hover{opacity:0.95}
+.sub-text{font-size:24px;margin-top:30px;opacity:0.6;max-width:600px;line-height:1.5;outline:none}
+.sub-text:hover{opacity:0.8}
+.footer{position:absolute;bottom:50px;font-size:18px;font-weight:700;letter-spacing:2px;opacity:0.3;outline:none}
+.footer:hover{opacity:0.5}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change style → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><select id="bgSelect" onchange="bg()"><option value="#0f172a">Dark Navy</option><option value="#ffffff">White</option><option value="#fef2f2">Soft Red</option><option value="#f0fdf4">Soft Green</option><option value="#eff6ff">Soft Blue</option></select></div>
+<div><label>Highlight</label><br><input type="color" id="c1" value="#f59e0b" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#0f172a;--text:#ffffff;">
+<div class="bold-text" style="color:var(--text);" contenteditable="true">Stop posting.<br>Start <span style="color:#f59e0b;">strategizing.</span></div>
+<div class="sub-text" style="color:var(--text);" contenteditable="true">Random content gets random results. A strategy gets you customers.</div>
+<div class="footer" style="color:var(--text);" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){document.querySelector('.bold-text span').style.color=document.getElementById('c1').value}
+function bg(){const card=document.getElementById('card'),b=document.getElementById('bgSelect').value;card.style.background=b;card.style.setProperty('--text',['#0f172a'].includes(b)?'#fff':'#0f172a')}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='bold-statement.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

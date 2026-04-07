@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 25 - CTA / Signup</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px}
+.sparkles{position:absolute;inset:0;overflow:hidden}
+.sparkle{position:absolute;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2)}
+.cta-emoji{font-size:80px;margin-bottom:30px;outline:none}
+.cta-title{font-size:64px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:20px;outline:none}
+.cta-title:hover{opacity:0.95}
+.cta-desc{font-size:24px;color:rgba(255,255,255,0.7);line-height:1.5;max-width:650px;margin-bottom:40px;outline:none}
+.cta-desc:hover{background:rgba(255,255,255,0.05);border-radius:8px}
+.cta-benefits{display:flex;gap:30px;margin-bottom:40px}
+.benefit{font-size:18px;color:rgba(255,255,255,0.8);font-weight:600;outline:none}
+.benefit:hover{color:#fff}
+.cta-button{display:inline-block;padding:22px 60px;background:#fff;border-radius:16px;font-size:24px;font-weight:900;outline:none}
+.cta-button:hover{opacity:0.95}
+.cta-sub{font-size:16px;color:rgba(255,255,255,0.4);margin-top:20px;outline:none}
+.footer{position:absolute;bottom:40px;font-size:15px;color:rgba(255,255,255,0.2);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change gradient → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#7c3aed" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#db2777" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#7c3aed,#db2777);">
+<div class="sparkles">
+<div class="sparkle" style="top:10%;left:15%"></div><div class="sparkle" style="top:20%;right:20%"></div>
+<div class="sparkle" style="top:60%;left:10%"></div><div class="sparkle" style="bottom:20%;right:15%"></div>
+<div class="sparkle" style="top:40%;left:80%"></div><div class="sparkle" style="bottom:30%;left:30%"></div>
+</div>
+<div class="cta-emoji" contenteditable="true">📧</div>
+<div class="cta-title" contenteditable="true">Join 5,000+<br>Business Owners</div>
+<div class="cta-desc" contenteditable="true">Get weekly marketing tips, templates, and strategies delivered straight to your inbox</div>
+<div class="cta-benefits">
+<div class="benefit" contenteditable="true">✓ Free templates</div>
+<div class="benefit" contenteditable="true">✓ Expert tips</div>
+<div class="benefit" contenteditable="true">✓ No spam</div>
+</div>
+<div class="cta-button" contenteditable="true" style="color:#7c3aed;">Subscribe Free →</div>
+<div class="cta-sub" contenteditable="true">Unsubscribe anytime. We respect your privacy.</div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){const c1=document.getElementById('c1').value,c2=document.getElementById('c2').value;document.getElementById('card').style.background=`linear-gradient(135deg,${c1},${c2})`;document.querySelector('.cta-button').style.color=c1}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='cta-signup.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

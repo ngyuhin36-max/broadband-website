@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Editable Social Media Template</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body { margin:0; background:#f0f0f0; font-family:'Poppins',sans-serif; display:flex; flex-direction:column; align-items:center; padding:30px; }
+
+.toolbar { background:#fff; padding:20px 40px; border-radius:16px; margin-bottom:30px;
+    box-shadow:0 2px 20px rgba(0,0,0,0.1); display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.toolbar label { font-size:14px; color:#666; font-weight:600; }
+.toolbar select, .toolbar input { padding:8px 12px; border:2px solid #e0e0e0; border-radius:8px; font-size:14px; font-family:'Poppins'; }
+.toolbar input[type="color"] { width:50px; height:36px; padding:2px; cursor:pointer; }
+.btn { padding:12px 28px; border:none; border-radius:10px; font-size:16px; font-weight:700;
+    cursor:pointer; font-family:'Poppins'; transition:all 0.2s; }
+.btn-download { background:linear-gradient(135deg, #667eea, #764ba2); color:#fff; }
+.btn-download:hover { transform:scale(1.05); box-shadow:0 4px 15px rgba(102,126,234,0.4); }
+
+.instructions { background:#fff3cd; padding:15px 25px; border-radius:12px; margin-bottom:20px;
+    font-size:15px; color:#856404; border-left:4px solid #ffc107; max-width:1080px; width:100%; }
+
+#template { position:relative; }
+
+/* ===== Template Design ===== */
+.card {
+    width:1080px; height:1080px; padding:60px; position:relative; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:center;
+}
+.accent-bar { position:absolute; top:0; left:0; right:0; height:8px;
+    background: linear-gradient(90deg, var(--c1), var(--c2), var(--c3)); }
+.header { margin-bottom:40px; }
+.header h1 { font-size:48px; font-weight:800; color:var(--text); line-height:1.2; outline:none; }
+.header h1:hover { background:rgba(79,70,229,0.05); border-radius:8px; }
+.header p { font-size:20px; color:#999; margin-top:8px; outline:none; }
+.header p:hover { background:rgba(0,0,0,0.03); border-radius:8px; }
+.tips { display:flex; flex-direction:column; gap:18px; }
+.tip { display:flex; align-items:flex-start; gap:20px; padding:24px 28px;
+    border-radius:16px; box-shadow:0 2px 12px rgba(0,0,0,0.06); border-left:4px solid; }
+.tip:nth-child(1) { border-color:var(--c1); background:rgba(255,255,255,0.9); }
+.tip:nth-child(2) { border-color:var(--c2); background:rgba(255,255,255,0.9); }
+.tip:nth-child(3) { border-color:var(--c3); background:rgba(255,255,255,0.9); }
+.tip:nth-child(4) { border-color:var(--c4); background:rgba(255,255,255,0.9); }
+.tip:nth-child(5) { border-color:var(--c5); background:rgba(255,255,255,0.9); }
+.tip-num { width:42px; height:42px; border-radius:12px; display:flex;
+    align-items:center; justify-content:center; font-weight:800; font-size:20px; color:#fff; flex-shrink:0; }
+.tip:nth-child(1) .tip-num { background:var(--c1); }
+.tip:nth-child(2) .tip-num { background:var(--c2); }
+.tip:nth-child(3) .tip-num { background:var(--c3); }
+.tip:nth-child(4) .tip-num { background:var(--c4); }
+.tip:nth-child(5) .tip-num { background:var(--c5); }
+.tip-text h3 { font-size:20px; color:var(--text); font-weight:700; outline:none; }
+.tip-text h3:hover { background:rgba(79,70,229,0.05); border-radius:4px; }
+.tip-text p { font-size:15px; color:#999; margin-top:2px; outline:none; }
+.tip-text p:hover { background:rgba(0,0,0,0.03); border-radius:4px; }
+.footer { position:absolute; bottom:40px; left:60px; right:60px;
+    display:flex; justify-content:space-between; align-items:center; }
+.footer .brand { font-size:16px; color:#ccc; font-weight:600; letter-spacing:1px; outline:none; }
+.footer .brand:hover { background:rgba(0,0,0,0.03); border-radius:4px; }
+.footer .cta { font-size:15px; font-weight:600; outline:none; }
+.footer .cta:hover { background:rgba(0,0,0,0.03); border-radius:4px; }
+
+[contenteditable]:focus { outline:2px dashed rgba(79,70,229,0.5); outline-offset:4px; }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+    ✏️ <strong>How to use:</strong> Click any text to edit it → Change colors above → Click "Download as PNG" when done
+</div>
+
+<div class="toolbar">
+    <div>
+        <label>Background</label><br>
+        <select id="bgSelect" onchange="changeBg()">
+            <option value="#fafafa">White</option>
+            <option value="#1a1a2e">Dark</option>
+            <option value="#fff8f0">Warm</option>
+            <option value="#f0f4ff">Cool Blue</option>
+            <option value="#f0fdf4">Mint</option>
+        </select>
+    </div>
+    <div>
+        <label>Color 1</label><br>
+        <input type="color" id="c1" value="#4f46e5" onchange="updateColors()">
+    </div>
+    <div>
+        <label>Color 2</label><br>
+        <input type="color" id="c2" value="#06b6d4" onchange="updateColors()">
+    </div>
+    <div>
+        <label>Color 3</label><br>
+        <input type="color" id="c3" value="#10b981" onchange="updateColors()">
+    </div>
+    <div>
+        <label>Color 4</label><br>
+        <input type="color" id="c4" value="#f59e0b" onchange="updateColors()">
+    </div>
+    <div>
+        <label>Color 5</label><br>
+        <input type="color" id="c5" value="#ef4444" onchange="updateColors()">
+    </div>
+    <button class="btn btn-download" onclick="downloadPNG()">⬇ Download as PNG</button>
+</div>
+
+<div id="template">
+<div class="card" id="card" style="--c1:#4f46e5;--c2:#06b6d4;--c3:#10b981;--c4:#f59e0b;--c5:#ef4444;--text:#1a1a2e; background:#fafafa;">
+    <div class="accent-bar"></div>
+    <div class="header">
+        <h1 contenteditable="true">5 SEO Tips <span style="color:var(--c1)">That Actually Work</span></h1>
+        <p contenteditable="true">Boost your Google ranking today</p>
+    </div>
+    <div class="tips">
+        <div class="tip">
+            <div class="tip-num">1</div>
+            <div class="tip-text">
+                <h3 contenteditable="true">Target Long-Tail Keywords</h3>
+                <p contenteditable="true">Less competition, higher conversion rates</p>
+            </div>
+        </div>
+        <div class="tip">
+            <div class="tip-num">2</div>
+            <div class="tip-text">
+                <h3 contenteditable="true">Write 1,500+ Word Articles</h3>
+                <p contenteditable="true">In-depth content ranks higher on Google</p>
+            </div>
+        </div>
+        <div class="tip">
+            <div class="tip-num">3</div>
+            <div class="tip-text">
+                <h3 contenteditable="true">Optimize Your Page Speed</h3>
+                <p contenteditable="true">Every second of delay loses 7% conversions</p>
+            </div>
+        </div>
+        <div class="tip">
+            <div class="tip-num">4</div>
+            <div class="tip-text">
+                <h3 contenteditable="true">Collect Google Reviews</h3>
+                <p contenteditable="true">Reviews boost local SEO ranking significantly</p>
+            </div>
+        </div>
+        <div class="tip">
+            <div class="tip-num">5</div>
+            <div class="tip-text">
+                <h3 contenteditable="true">Update Content Regularly</h3>
+                <p contenteditable="true">Fresh content signals relevance to Google</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="brand" contenteditable="true">YOUR BRAND</div>
+        <div class="cta" contenteditable="true" style="color:var(--c1)">Save this for later →</div>
+    </div>
+</div>
+</div>
+
+<script>
+function updateColors() {
+    const card = document.getElementById('card');
+    card.style.setProperty('--c1', document.getElementById('c1').value);
+    card.style.setProperty('--c2', document.getElementById('c2').value);
+    card.style.setProperty('--c3', document.getElementById('c3').value);
+    card.style.setProperty('--c4', document.getElementById('c4').value);
+    card.style.setProperty('--c5', document.getElementById('c5').value);
+}
+
+function changeBg() {
+    const card = document.getElementById('card');
+    const bg = document.getElementById('bgSelect').value;
+    card.style.background = bg;
+    // Auto switch text color
+    if (bg === '#1a1a2e') {
+        card.style.setProperty('--text', '#ffffff');
+    } else {
+        card.style.setProperty('--text', '#1a1a2e');
+    }
+}
+
+function downloadPNG() {
+    const el = document.getElementById('template');
+    // Remove focus outlines
+    document.activeElement.blur();
+    html2canvas(el, { scale: 2, useCORS: true }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'social-media-post.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
+}
+</script>
+
+</body>
+</html>

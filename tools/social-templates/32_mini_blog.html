@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 32 - Mini Blog Post</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.toolbar select{padding:8px 12px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;padding:80px;display:flex;flex-direction:column}
+.blog-cat{font-size:14px;font-weight:800;letter-spacing:3px;padding:8px 20px;border-radius:20px;display:inline-block;color:#fff;margin-bottom:25px;outline:none;align-self:flex-start}
+.blog-title{font-family:'Merriweather';font-size:42px;font-weight:700;line-height:1.35;margin-bottom:25px;outline:none}
+.blog-title:hover{opacity:0.95}
+.blog-meta{font-size:16px;opacity:0.4;margin-bottom:25px;outline:none}
+.blog-divider{width:100%;height:1px;opacity:0.1;margin-bottom:25px}
+.blog-body{font-size:21px;line-height:1.8;opacity:0.7;flex:1;outline:none}
+.blog-body:hover{opacity:0.9}
+.blog-footer{display:flex;justify-content:space-between;align-items:center;margin-top:25px}
+.blog-footer span{font-size:16px;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change style → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><select id="bgSelect" onchange="bg()"><option value="#ffffff">White</option><option value="#0f172a">Dark</option><option value="#fefce8">Cream</option></select></div>
+<div><label>Accent</label><br><input type="color" id="c1" value="#059669" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#fff;--text:#0f172a;--accent:#059669;">
+<div class="blog-cat" style="background:var(--accent);" contenteditable="true">MARKETING</div>
+<div class="blog-title" contenteditable="true" style="color:var(--text);">Why Your Small Business Needs a Content Strategy in 2026</div>
+<div class="blog-meta" contenteditable="true" style="color:var(--text);">5 min read — April 2026</div>
+<div class="blog-divider" style="background:var(--text);"></div>
+<div class="blog-body" contenteditable="true" style="color:var(--text);">Content marketing costs 62% less than traditional marketing and generates 3x more leads. Yet most small businesses still post randomly without a strategy.
+
+The fix is simple: pick 3 content pillars, create a weekly schedule, and stay consistent for 90 days. You'll see compound growth that paid ads simply can't match.
+
+Start with what you know best — your expertise IS your content.</div>
+<div class="blog-footer">
+<span contenteditable="true" style="color:#94a3b8;">YOUR BRAND</span>
+<span contenteditable="true" style="color:var(--accent);">Read full article — link in bio →</span>
+</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.setProperty('--accent',document.getElementById('c1').value);document.querySelector('.blog-cat').style.background=document.getElementById('c1').value}
+function bg(){const card=document.getElementById('card'),b=document.getElementById('bgSelect').value;card.style.background=b;card.style.setProperty('--text',b==='#0f172a'?'#fff':'#0f172a')}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='mini-blog.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

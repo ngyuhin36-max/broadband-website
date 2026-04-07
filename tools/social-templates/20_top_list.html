@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 20 - Top 10 List</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar select{padding:8px 12px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;padding:60px;display:flex;flex-direction:column}
+.header{margin-bottom:30px}
+.header h1{font-size:44px;font-weight:900;margin:0;outline:none}
+.header h1:hover{opacity:0.9}
+.list{flex:1;display:flex;flex-direction:column;gap:6px}
+.list-item{display:flex;align-items:center;gap:20px;padding:12px 20px;border-radius:12px}
+.list-item:nth-child(odd){background:rgba(0,0,0,0.03)}
+.list-num{font-size:28px;font-weight:900;width:45px;text-align:center;flex-shrink:0}
+.list-text{font-size:20px;font-weight:600;outline:none;flex:1}
+.list-text:hover{opacity:0.8}
+.footer{display:flex;justify-content:space-between;margin-top:20px}
+.footer span{font-size:15px;font-weight:600;letter-spacing:1px;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><select id="bgSelect" onchange="bg()"><option value="#ffffff">White</option><option value="#0f172a">Dark</option><option value="#f8fafc">Gray</option></select></div>
+<div><label>Accent</label><br><input type="color" id="c1" value="#f59e0b" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#fff;--accent:#f59e0b;--text:#0f172a;">
+<div class="header"><h1 contenteditable="true" style="color:var(--text);">Top 10 <span style="color:var(--accent);">Free Marketing Tools</span></h1></div>
+<div class="list">
+<div class="list-item"><div class="list-num" style="color:var(--accent);">01</div><div class="list-text" contenteditable="true" style="color:var(--text);">Google Analytics — Website traffic tracking</div></div>
+<div class="list-item"><div class="list-num" style="color:var(--accent);">02</div><div class="list-text" contenteditable="true" style="color:var(--text);">Google Search Console — SEO performance</div></div>
+<div class="list-item"><div class="list-num" style="color:var(--accent);">03</div><div class="list-text" contenteditable="true" style="color:var(--text);">Canva — Graphic design for non-designers</div></div>
+<div class="list-item"><div class="list-num" style="color:var(--accent);">04</div><div class="list-text" contenteditable="true" style="color:var(--text);">Mailchimp — Email marketing (free tier)</div></div>
+<div class="list-item"><div class="list-num" style="color:var(--accent);">05</div><div class="list-text" contenteditable="true" style="color:var(--text);">Buffer — Social media scheduling</div></div>
+<div class="list-item"><div class="list-num" style="color:var(--accent);">06</div><div class="list-text" contenteditable="true" style="color:var(--text);">Ubersuggest — Keyword research</div></div>
+<div class="list-item"><div class="list-num" style="color:var(--accent);">07</div><div class="list-text" contenteditable="true" style="color:var(--text);">Google Business Profile — Local SEO</div></div>
+<div class="list-item"><div class="list-num" style="color:var(--accent);">08</div><div class="list-text" contenteditable="true" style="color:var(--text);">ChatGPT — Content writing assistant</div></div>
+<div class="list-item"><div class="list-num" style="color:var(--accent);">09</div><div class="list-text" contenteditable="true" style="color:var(--text);">Hotjar — Heatmaps & user behavior</div></div>
+<div class="list-item"><div class="list-num" style="color:var(--accent);">10</div><div class="list-text" contenteditable="true" style="color:var(--text);">WordPress — Free website & blog</div></div>
+</div>
+<div class="footer"><span contenteditable="true" style="color:#94a3b8;">YOUR BRAND</span><span contenteditable="true" style="color:var(--accent);">Save & share this list →</span></div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.setProperty('--accent',document.getElementById('c1').value)}
+function bg(){const card=document.getElementById('card'),b=document.getElementById('bgSelect').value;card.style.background=b;card.style.setProperty('--text',b==='#0f172a'?'#fff':'#0f172a');document.querySelectorAll('.list-item:nth-child(odd)').forEach(e=>e.style.background=b==='#0f172a'?'rgba(255,255,255,0.03)':'rgba(0,0,0,0.03)')}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='top-list.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

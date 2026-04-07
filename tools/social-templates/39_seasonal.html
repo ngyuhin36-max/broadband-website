@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 39 - Seasonal / Holiday</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.toolbar select{padding:8px 12px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px}
+.deco{position:absolute;font-size:60px;opacity:0.1}
+.season-emoji{font-size:120px;margin-bottom:20px;outline:none}
+.season-greeting{font-size:22px;font-weight:800;letter-spacing:5px;margin-bottom:20px;outline:none}
+.season-title{font-size:68px;font-weight:900;line-height:1.15;margin-bottom:25px;outline:none}
+.season-title:hover{opacity:0.95}
+.season-offer{font-size:28px;font-weight:700;padding:16px 40px;border-radius:16px;margin-bottom:20px;outline:none}
+.season-desc{font-size:22px;opacity:0.6;line-height:1.5;max-width:600px;outline:none}
+.season-desc:hover{opacity:0.8}
+.season-cta{display:inline-block;padding:18px 50px;border-radius:14px;font-size:22px;font-weight:800;margin-top:30px;outline:none}
+.footer{position:absolute;bottom:40px;font-size:16px;opacity:0.3;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change theme → Download as PNG</div>
+<div class="toolbar">
+<div><label>Theme</label><br><select id="theme" onchange="changeTheme()"><option value="cny">Chinese New Year</option><option value="xmas">Christmas</option><option value="summer">Summer Sale</option><option value="halloween">Halloween</option></select></div>
+<div><label>Accent</label><br><input type="color" id="c1" value="#dc2626" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#dc2626,#b91c1c);--text:#fff;">
+<div class="deco" style="top:5%;left:8%;">🧧</div><div class="deco" style="top:12%;right:10%;">🏮</div>
+<div class="deco" style="bottom:15%;left:12%;">🎆</div><div class="deco" style="bottom:8%;right:8%;">🧧</div>
+<div class="season-emoji" contenteditable="true">🧧</div>
+<div class="season-greeting" contenteditable="true" style="color:rgba(255,255,255,0.7);">HAPPY LUNAR NEW YEAR</div>
+<div class="season-title" contenteditable="true" style="color:#fff;">New Year<br>Special Offer</div>
+<div class="season-offer" contenteditable="true" style="background:rgba(255,255,255,0.15);color:#fff;">🎉 Up to 50% OFF all services</div>
+<div class="season-desc" contenteditable="true" style="color:#fff;">Celebrate the new year with special pricing. Limited time only — don't miss out!</div>
+<div class="season-cta" contenteditable="true" style="background:#fff;color:#dc2626;">Shop Now →</div>
+<div class="footer" contenteditable="true" style="color:#fff;">YOUR BRAND</div>
+</div>
+</div>
+<script>
+const themes={
+cny:{bg:'linear-gradient(135deg,#dc2626,#b91c1c)',emoji:'🧧',greeting:'HAPPY LUNAR NEW YEAR',deco:['🧧','🏮','🎆','🧧']},
+xmas:{bg:'linear-gradient(135deg,#166534,#15803d)',emoji:'🎄',greeting:'MERRY CHRISTMAS',deco:['🎄','⭐','🎅','🎁']},
+summer:{bg:'linear-gradient(135deg,#0ea5e9,#06b6d4)',emoji:'☀️',greeting:'SUMMER SALE',deco:['🌊','☀️','🏖️','🌴']},
+halloween:{bg:'linear-gradient(135deg,#f97316,#ea580c)',emoji:'🎃',greeting:'HAPPY HALLOWEEN',deco:['🎃','👻','🦇','🕷️']}
+};
+function changeTheme(){const t=themes[document.getElementById('theme').value];document.getElementById('card').style.background=t.bg;document.querySelector('.season-emoji').textContent=t.emoji;document.querySelector('.season-greeting').textContent=t.greeting;document.querySelectorAll('.deco').forEach((e,i)=>e.textContent=t.deco[i])}
+function u(){}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='seasonal.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

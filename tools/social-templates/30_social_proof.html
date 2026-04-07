@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 30 - Social Proof Numbers</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px}
+.header{margin-bottom:50px}
+.header h1{font-size:48px;font-weight:900;color:#fff;margin:0;outline:none}
+.header p{font-size:20px;color:rgba(255,255,255,0.5);margin-top:10px;outline:none}
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;width:100%;max-width:800px}
+.proof-item{background:rgba(255,255,255,0.06);border-radius:24px;padding:40px;border:1px solid rgba(255,255,255,0.08)}
+.proof-num{font-size:56px;font-weight:900;color:#fff;outline:none}
+.proof-num:hover{opacity:0.9}
+.proof-label{font-size:18px;color:rgba(255,255,255,0.5);margin-top:8px;font-weight:600;outline:none}
+.proof-label:hover{color:rgba(255,255,255,0.7)}
+.footer{position:absolute;bottom:50px;font-size:16px;color:rgba(255,255,255,0.3);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change gradient → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#1e3a5f" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#0f766e" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#1e3a5f,#0f766e);">
+<div class="header">
+<h1 contenteditable="true">Trusted by Businesses<br>Across Hong Kong</h1>
+<p contenteditable="true">Numbers that speak for themselves</p>
+</div>
+<div class="proof-grid">
+<div class="proof-item"><div class="proof-num" contenteditable="true">500+</div><div class="proof-label" contenteditable="true">Happy Clients</div></div>
+<div class="proof-item"><div class="proof-num" contenteditable="true">98%</div><div class="proof-label" contenteditable="true">Satisfaction Rate</div></div>
+<div class="proof-item"><div class="proof-num" contenteditable="true">10M+</div><div class="proof-label" contenteditable="true">Ad Impressions</div></div>
+<div class="proof-item"><div class="proof-num" contenteditable="true">5 Years</div><div class="proof-label" contenteditable="true">Industry Experience</div></div>
+</div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.background=`linear-gradient(135deg,${document.getElementById('c1').value},${document.getElementById('c2').value})`}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='social-proof.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

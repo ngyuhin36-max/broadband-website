@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 45 - Video Thumbnail</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:70px}
+.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 30px rgba(0,0,0,0.3)}
+.play-btn::after{content:'';width:0;height:0;border-style:solid;border-width:20px 0 20px 35px;border-color:transparent transparent transparent #0f172a;margin-left:5px}
+.duration{position:absolute;top:40px;right:40px;padding:8px 18px;border-radius:8px;background:rgba(0,0,0,0.7);color:#fff;font-size:16px;font-weight:700;outline:none}
+.thumb-title{font-size:56px;font-weight:900;color:#fff;line-height:1.15;text-shadow:0 4px 20px rgba(0,0,0,0.5);outline:none;position:relative;z-index:1}
+.thumb-title:hover{opacity:0.95}
+.thumb-sub{font-size:22px;color:rgba(255,255,255,0.8);margin-top:15px;text-shadow:0 2px 10px rgba(0,0,0,0.5);outline:none;position:relative;z-index:1}
+.thumb-brand{position:absolute;top:40px;left:40px;padding:10px 24px;border-radius:12px;font-size:16px;font-weight:800;color:#fff;outline:none}
+.overlay{position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,0.8))}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change background color → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#1e3a5f" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#0f172a" onchange="u()"></div>
+<div><label>Brand</label><br><input type="color" id="c3" value="#ef4444" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#1e3a5f,#0f172a);">
+<div class="overlay"></div>
+<div class="play-btn"></div>
+<div class="duration" contenteditable="true">12:45</div>
+<div class="thumb-brand" style="background:#ef4444;" contenteditable="true">YOUR BRAND</div>
+<div class="thumb-title" contenteditable="true">I Grew My<br>Business 10x<br>Using This Strategy</div>
+<div class="thumb-sub" contenteditable="true">The exact step-by-step process revealed</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.background=`linear-gradient(135deg,${document.getElementById('c1').value},${document.getElementById('c2').value})`;document.querySelector('.thumb-brand').style.background=document.getElementById('c3').value}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='video-thumbnail.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

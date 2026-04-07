@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 41 - Minimal Quote</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar select{padding:8px 12px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(0,0,0,0.2);outline-offset:4px}
+.card{width:1080px;height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px;position:relative}
+.line-top,.line-bot{position:absolute;left:100px;right:100px;height:1px;background:#ddd}
+.line-top{top:100px}.line-bot{bottom:100px}
+.q-text{font-family:'DM Serif Display';font-size:52px;line-height:1.5;outline:none}
+.q-text:hover{opacity:0.9}
+.q-author{font-size:18px;font-weight:600;letter-spacing:3px;margin-top:40px;opacity:0.4;outline:none}
+.footer{position:absolute;bottom:55px;font-size:14px;font-weight:600;letter-spacing:2px;opacity:0.2;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change background → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><select id="bgSelect" onchange="bg()"><option value="#ffffff">White</option><option value="#f5f5f0">Cream</option><option value="#0f172a">Dark</option><option value="#faf5ff">Lavender</option></select></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#fff;--text:#0f172a;">
+<div class="line-top"></div>
+<div class="q-text" contenteditable="true" style="color:var(--text);">Marketing is no longer<br>about the stuff you make,<br>but about the stories<br>you tell.</div>
+<div class="q-author" contenteditable="true" style="color:var(--text);">— SETH GODIN</div>
+<div class="line-bot"></div>
+<div class="footer" contenteditable="true" style="color:var(--text);">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function bg(){const card=document.getElementById('card'),b=document.getElementById('bgSelect').value;card.style.background=b;const d=b==='#0f172a';card.style.setProperty('--text',d?'#fff':'#0f172a');document.querySelectorAll('.line-top,.line-bot').forEach(e=>e.style.background=d?'#333':'#ddd')}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='minimal-quote.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

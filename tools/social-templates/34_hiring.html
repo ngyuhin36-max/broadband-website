@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 34 - We're Hiring</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:80px}
+.corner{position:absolute;width:300px;height:300px;border-radius:50%;opacity:0.08}
+.corner1{top:-80px;right:-80px}
+.corner2{bottom:-80px;left:-80px}
+.hire-badge{display:inline-block;padding:10px 24px;border-radius:25px;border:2px solid rgba(255,255,255,0.3);font-size:15px;font-weight:800;letter-spacing:3px;color:#fff;margin-bottom:30px;align-self:flex-start;outline:none}
+.hire-title{font-size:64px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:25px;outline:none}
+.hire-title:hover{opacity:0.95}
+.hire-role{font-size:28px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:40px;outline:none}
+.perks{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px}
+.perk{padding:12px 24px;border-radius:14px;background:rgba(255,255,255,0.1);font-size:17px;font-weight:600;color:#fff;outline:none}
+.perk:hover{background:rgba(255,255,255,0.15)}
+.hire-cta{display:inline-block;padding:20px 50px;background:#fff;border-radius:14px;font-size:22px;font-weight:800;align-self:flex-start;outline:none}
+.hire-cta:hover{opacity:0.95}
+.footer{position:absolute;bottom:40px;left:80px;font-size:16px;color:rgba(255,255,255,0.3);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#059669" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#0d9488" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#059669,#0d9488);">
+<div class="corner corner1" style="background:#fff;"></div>
+<div class="corner corner2" style="background:#fff;"></div>
+<div class="hire-badge" contenteditable="true">WE'RE HIRING</div>
+<div class="hire-title" contenteditable="true">Join Our<br>Growing Team</div>
+<div class="hire-role" contenteditable="true">Digital Marketing Manager — Hong Kong</div>
+<div class="perks">
+<div class="perk" contenteditable="true">🏠 Remote-Friendly</div>
+<div class="perk" contenteditable="true">💰 Competitive Pay</div>
+<div class="perk" contenteditable="true">📈 Career Growth</div>
+<div class="perk" contenteditable="true">🎯 Creative Freedom</div>
+<div class="perk" contenteditable="true">🏖️ Flexible Hours</div>
+</div>
+<div class="hire-cta" contenteditable="true" style="color:#059669;">Apply Now →</div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){const c1=document.getElementById('c1').value,c2=document.getElementById('c2').value;document.getElementById('card').style.background=`linear-gradient(135deg,${c1},${c2})`;document.querySelector('.hire-cta').style.color=c1}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='hiring.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

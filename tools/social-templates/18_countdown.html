@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 18 - Countdown</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0f0f1a;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px}
+.glow-ring{position:absolute;width:700px;height:700px;border-radius:50%;border:1px solid rgba(255,255,255,0.05);top:50%;left:50%;transform:translate(-50%,-50%)}
+.glow-ring2{position:absolute;width:500px;height:500px;border-radius:50%;border:1px solid rgba(255,255,255,0.03);top:50%;left:50%;transform:translate(-50%,-50%)}
+.countdown-label{font-size:18px;font-weight:800;letter-spacing:6px;margin-bottom:40px;outline:none}
+.countdown-label:hover{opacity:0.9}
+.countdown-boxes{display:flex;gap:24px;margin-bottom:50px}
+.count-box{width:160px;height:160px;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)}
+.count-num{font-size:64px;font-weight:900;color:#fff;outline:none}
+.count-num:hover{opacity:0.9}
+.count-unit{font-size:14px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,0.4);margin-top:5px}
+.countdown-title{font-size:48px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:20px;outline:none}
+.countdown-title:hover{opacity:0.95}
+.countdown-desc{font-size:22px;color:rgba(255,255,255,0.5);outline:none}
+.countdown-desc:hover{color:rgba(255,255,255,0.7)}
+.footer{position:absolute;bottom:50px;font-size:16px;color:rgba(255,255,255,0.2);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text/numbers to edit → Change accent → Download as PNG</div>
+<div class="toolbar">
+<div><label>Accent</label><br><input type="color" id="c1" value="#f59e0b" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="glow-ring"></div>
+<div class="glow-ring2"></div>
+<div class="countdown-label" contenteditable="true" style="color:#f59e0b;">LAUNCHING IN</div>
+<div class="countdown-boxes">
+<div class="count-box"><div class="count-num" contenteditable="true">07</div><div class="count-unit">DAYS</div></div>
+<div class="count-box"><div class="count-num" contenteditable="true">12</div><div class="count-unit">HOURS</div></div>
+<div class="count-box"><div class="count-num" contenteditable="true">45</div><div class="count-unit">MINS</div></div>
+<div class="count-box"><div class="count-num" contenteditable="true">30</div><div class="count-unit">SECS</div></div>
+</div>
+<div class="countdown-title" contenteditable="true">Something Big<br>Is Coming</div>
+<div class="countdown-desc" contenteditable="true">Stay tuned — you don't want to miss this</div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){document.querySelector('.countdown-label').style.color=document.getElementById('c1').value}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='countdown.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

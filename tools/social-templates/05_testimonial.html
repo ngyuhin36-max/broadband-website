@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 05 - Testimonial / Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body { margin:0; background:#f0f0f0; font-family:'Inter',sans-serif; display:flex; flex-direction:column; align-items:center; padding:30px; }
+.toolbar { background:#fff; padding:20px 40px; border-radius:16px; margin-bottom:30px;
+    box-shadow:0 2px 20px rgba(0,0,0,0.1); display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.toolbar label { font-size:14px; color:#666; font-weight:600; }
+.toolbar select, .toolbar input { padding:8px 12px; border:2px solid #e0e0e0; border-radius:8px; font-size:14px; }
+.toolbar input[type="color"] { width:50px; height:36px; padding:2px; cursor:pointer; }
+.btn { padding:12px 28px; border:none; border-radius:10px; font-size:16px; font-weight:700;
+    cursor:pointer; transition:all 0.2s; }
+.btn-download { background:linear-gradient(135deg, #667eea, #764ba2); color:#fff; }
+.btn-download:hover { transform:scale(1.05); }
+.instructions { background:#fff3cd; padding:15px 25px; border-radius:12px; margin-bottom:20px;
+    font-size:15px; color:#856404; border-left:4px solid #ffc107; max-width:1080px; width:100%; }
+#template { position:relative; }
+[contenteditable]:focus { outline:2px dashed rgba(79,70,229,0.5); outline-offset:4px; }
+
+.card { width:1080px; height:1080px; position:relative; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:center; align-items:center; padding:80px; }
+.corner-deco { position:absolute; width:200px; height:200px; border-radius:50%; opacity:0.08; }
+.corner-deco.tl { top:-60px; left:-60px; }
+.corner-deco.br { bottom:-60px; right:-60px; }
+.stars { font-size:48px; letter-spacing:8px; margin-bottom:30px; }
+.quote-big { font-family:'Playfair Display'; font-size:140px; line-height:0.8; opacity:0.12; position:absolute; top:120px; left:100px; }
+.review-text { font-size:36px; font-weight:600; line-height:1.6; text-align:center;
+    max-width:800px; position:relative; z-index:1; outline:none; }
+.review-text:hover { background:rgba(0,0,0,0.02); border-radius:8px; }
+.divider { width:60px; height:4px; border-radius:2px; margin:40px auto; }
+.reviewer { text-align:center; }
+.reviewer-name { font-size:24px; font-weight:800; outline:none; }
+.reviewer-name:hover { background:rgba(0,0,0,0.02); border-radius:4px; }
+.reviewer-role { font-size:18px; margin-top:8px; opacity:0.6; outline:none; }
+.reviewer-role:hover { background:rgba(0,0,0,0.02); border-radius:4px; }
+.footer { position:absolute; bottom:50px; left:80px; right:80px; display:flex; justify-content:space-between; }
+.footer span { font-size:16px; font-weight:600; letter-spacing:1px; opacity:0.4; outline:none; }
+.footer span:hover { opacity:0.7; }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+    ✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG
+</div>
+
+<div class="toolbar">
+    <div>
+        <label>Background</label><br>
+        <select id="bgSelect" onchange="changeBg()">
+            <option value="#ffffff">White</option>
+            <option value="#0f172a">Dark</option>
+            <option value="#fffbeb">Warm</option>
+            <option value="#f0f9ff">Cool</option>
+            <option value="#fdf4ff">Purple</option>
+        </select>
+    </div>
+    <div><label>Accent</label><br><input type="color" id="c1" value="#f59e0b" onchange="updateColors()"></div>
+    <button class="btn btn-download" onclick="downloadPNG()">⬇ Download as PNG</button>
+</div>
+
+<div id="template">
+<div class="card" id="card" style="background:#ffffff; --accent:#f59e0b; --text:#0f172a;">
+    <div class="corner-deco tl" style="background:var(--accent);"></div>
+    <div class="corner-deco br" style="background:var(--accent);"></div>
+    <div class="quote-big" style="color:var(--accent);">"</div>
+    <div class="stars" style="color:var(--accent);">★★★★★</div>
+    <div class="review-text" contenteditable="true" style="color:var(--text);">This completely transformed how I approach my online marketing. Within 30 days, our website traffic doubled.</div>
+    <div class="divider" style="background:var(--accent);"></div>
+    <div class="reviewer">
+        <div class="reviewer-name" contenteditable="true" style="color:var(--text);">Sarah Chen</div>
+        <div class="reviewer-role" contenteditable="true" style="color:var(--text);">Small Business Owner, Hong Kong</div>
+    </div>
+    <div class="footer">
+        <span contenteditable="true" style="color:var(--text);">YOUR BRAND</span>
+        <span contenteditable="true" style="color:var(--text);">Verified Review</span>
+    </div>
+</div>
+</div>
+
+<script>
+function updateColors() {
+    document.getElementById('card').style.setProperty('--accent', document.getElementById('c1').value);
+    document.querySelectorAll('.corner-deco').forEach(el => el.style.background = document.getElementById('c1').value);
+}
+function changeBg() {
+    const card = document.getElementById('card');
+    const bg = document.getElementById('bgSelect').value;
+    card.style.background = bg;
+    const dark = bg === '#0f172a';
+    card.style.setProperty('--text', dark ? '#ffffff' : '#0f172a');
+}
+function downloadPNG() {
+    document.activeElement.blur();
+    html2canvas(document.getElementById('template'), { scale:2, useCORS:true }).then(c => {
+        const a = document.createElement('a'); a.download='testimonial-post.png'; a.href=c.toDataURL('image/png'); a.click();
+    });
+}
+</script>
+</body>
+</html>

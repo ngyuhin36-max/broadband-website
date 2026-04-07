@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 07 - Promo / Sale</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body { margin:0; background:#f0f0f0; font-family:'Inter',sans-serif; display:flex; flex-direction:column; align-items:center; padding:30px; }
+.toolbar { background:#fff; padding:20px 40px; border-radius:16px; margin-bottom:30px;
+    box-shadow:0 2px 20px rgba(0,0,0,0.1); display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.toolbar label { font-size:14px; color:#666; font-weight:600; }
+.toolbar input[type="color"] { width:50px; height:36px; padding:2px; cursor:pointer; border:2px solid #e0e0e0; border-radius:8px; }
+.btn { padding:12px 28px; border:none; border-radius:10px; font-size:16px; font-weight:700;
+    cursor:pointer; transition:all 0.2s; }
+.btn-download { background:linear-gradient(135deg, #667eea, #764ba2); color:#fff; }
+.btn-download:hover { transform:scale(1.05); }
+.instructions { background:#fff3cd; padding:15px 25px; border-radius:12px; margin-bottom:20px;
+    font-size:15px; color:#856404; border-left:4px solid #ffc107; max-width:1080px; width:100%; }
+#template { position:relative; }
+[contenteditable]:focus { outline:2px dashed rgba(255,255,255,0.5); outline-offset:4px; }
+
+.card { width:1080px; height:1080px; position:relative; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:80px; }
+.burst { position:absolute; width:900px; height:900px; border-radius:50%; opacity:0.1; }
+.burst1 { top:-200px; right:-200px; }
+.burst2 { bottom:-300px; left:-200px; }
+.sale-badge { font-size:18px; font-weight:800; letter-spacing:4px; text-transform:uppercase;
+    padding:12px 40px; border:3px solid #fff; border-radius:40px; color:#fff; margin-bottom:30px; outline:none; }
+.sale-badge:hover { background:rgba(255,255,255,0.1); }
+.discount { font-size:160px; font-weight:900; color:#fff; line-height:1; margin:20px 0; outline:none; text-shadow:0 4px 30px rgba(0,0,0,0.3); }
+.discount:hover { opacity:0.9; }
+.sale-desc { font-size:32px; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:15px; outline:none; }
+.sale-desc:hover { background:rgba(255,255,255,0.05); border-radius:8px; }
+.sale-detail { font-size:20px; color:rgba(255,255,255,0.6); margin-bottom:50px; outline:none; }
+.sale-detail:hover { background:rgba(255,255,255,0.05); border-radius:8px; }
+.cta-btn { display:inline-block; padding:20px 60px; background:#fff; border-radius:16px;
+    font-size:22px; font-weight:800; outline:none; }
+.cta-btn:hover { opacity:0.9; }
+.footer { position:absolute; bottom:40px; font-size:16px; color:rgba(255,255,255,0.4); font-weight:600; outline:none; }
+.footer:hover { color:rgba(255,255,255,0.6); }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+    ✏️ <strong>How to use:</strong> Click text to edit → Change gradient colors → Download as PNG
+</div>
+
+<div class="toolbar">
+    <div><label>Color 1</label><br><input type="color" id="c1" value="#ef4444" onchange="updateColors()"></div>
+    <div><label>Color 2</label><br><input type="color" id="c2" value="#f97316" onchange="updateColors()"></div>
+    <button class="btn btn-download" onclick="downloadPNG()">⬇ Download as PNG</button>
+</div>
+
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg, #ef4444, #f97316);">
+    <div class="burst burst1" style="background:#fff;"></div>
+    <div class="burst burst2" style="background:#fff;"></div>
+    <div class="sale-badge" contenteditable="true">LIMITED TIME OFFER</div>
+    <div class="discount" contenteditable="true">50%<br>OFF</div>
+    <div class="sale-desc" contenteditable="true">All Digital Marketing Templates</div>
+    <div class="sale-detail" contenteditable="true">Use code: SAVE50 — Ends Sunday midnight</div>
+    <div class="cta-btn" contenteditable="true" style="color:#ef4444;">SHOP NOW →</div>
+    <div class="footer" contenteditable="true">YOUR BRAND — Terms & conditions apply</div>
+</div>
+</div>
+
+<script>
+function updateColors() {
+    const c1 = document.getElementById('c1').value;
+    const c2 = document.getElementById('c2').value;
+    document.getElementById('card').style.background = `linear-gradient(135deg, ${c1}, ${c2})`;
+    document.querySelector('.cta-btn').style.color = c1;
+}
+function downloadPNG() {
+    document.activeElement.blur();
+    html2canvas(document.getElementById('template'), { scale:2, useCORS:true }).then(c => {
+        const a = document.createElement('a'); a.download='promo-post.png'; a.href=c.toDataURL('image/png'); a.click();
+    });
+}
+</script>
+</body>
+</html>

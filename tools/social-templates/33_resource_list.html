@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 33 - Resource List</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.toolbar select{padding:8px 12px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;padding:60px;display:flex;flex-direction:column}
+.header{margin-bottom:30px}
+.header .badge{display:inline-block;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:15px;outline:none}
+.header h1{font-size:44px;font-weight:900;margin:0;outline:none}
+.resources{flex:1;display:flex;flex-direction:column;gap:12px}
+.res{display:flex;align-items:center;gap:20px;padding:20px 24px;border-radius:16px;border:1px solid rgba(0,0,0,0.06)}
+.res-icon{font-size:36px;width:50px;text-align:center;flex-shrink:0;outline:none}
+.res-info{flex:1}
+.res-name{font-size:20px;font-weight:800;outline:none}
+.res-name:hover{opacity:0.8}
+.res-desc{font-size:15px;opacity:0.5;margin-top:3px;outline:none}
+.res-tag{font-size:12px;font-weight:700;padding:5px 14px;border-radius:12px;color:#fff;outline:none}
+.footer{display:flex;justify-content:space-between;margin-top:20px}
+.footer span{font-size:15px;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change style → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><select id="bgSelect" onchange="bg()"><option value="#f8fafc">Light</option><option value="#0f172a">Dark</option><option value="#fff">White</option></select></div>
+<div><label>Accent</label><br><input type="color" id="c1" value="#2563eb" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#f8fafc;--text:#0f172a;--accent:#2563eb;">
+<div class="header">
+<div class="badge" style="background:var(--accent);" contenteditable="true">FREE RESOURCES</div>
+<h1 contenteditable="true" style="color:var(--text);">6 Tools I Use <span style="color:var(--accent);">Every Day</span></h1>
+</div>
+<div class="resources">
+<div class="res"><div class="res-icon" contenteditable="true">📊</div><div class="res-info"><div class="res-name" contenteditable="true" style="color:var(--text);">Google Analytics</div><div class="res-desc" contenteditable="true" style="color:var(--text);">Track website traffic & user behavior</div></div><div class="res-tag" style="background:#10b981;" contenteditable="true">FREE</div></div>
+<div class="res"><div class="res-icon" contenteditable="true">🎨</div><div class="res-info"><div class="res-name" contenteditable="true" style="color:var(--text);">Canva Pro</div><div class="res-desc" contenteditable="true" style="color:var(--text);">Design social media graphics easily</div></div><div class="res-tag" style="background:#f59e0b;" contenteditable="true">$13/mo</div></div>
+<div class="res"><div class="res-icon" contenteditable="true">📧</div><div class="res-info"><div class="res-name" contenteditable="true" style="color:var(--text);">Mailchimp</div><div class="res-desc" contenteditable="true" style="color:var(--text);">Email marketing & automation</div></div><div class="res-tag" style="background:#10b981;" contenteditable="true">FREE</div></div>
+<div class="res"><div class="res-icon" contenteditable="true">🔍</div><div class="res-info"><div class="res-name" contenteditable="true" style="color:var(--text);">Ubersuggest</div><div class="res-desc" contenteditable="true" style="color:var(--text);">Keyword research & SEO analysis</div></div><div class="res-tag" style="background:#10b981;" contenteditable="true">FREE</div></div>
+<div class="res"><div class="res-icon" contenteditable="true">📅</div><div class="res-info"><div class="res-name" contenteditable="true" style="color:var(--text);">Buffer</div><div class="res-desc" contenteditable="true" style="color:var(--text);">Schedule social media posts</div></div><div class="res-tag" style="background:#10b981;" contenteditable="true">FREE</div></div>
+<div class="res"><div class="res-icon" contenteditable="true">💬</div><div class="res-info"><div class="res-name" contenteditable="true" style="color:var(--text);">ChatGPT</div><div class="res-desc" contenteditable="true" style="color:var(--text);">AI writing & content ideas</div></div><div class="res-tag" style="background:#10b981;" contenteditable="true">FREE</div></div>
+</div>
+<div class="footer"><span contenteditable="true" style="color:#94a3b8;">YOUR BRAND</span><span contenteditable="true" style="color:var(--accent);">Save this list →</span></div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.setProperty('--accent',document.getElementById('c1').value);document.querySelector('.badge').style.background=document.getElementById('c1').value}
+function bg(){const card=document.getElementById('card'),b=document.getElementById('bgSelect').value;card.style.background=b;card.style.setProperty('--text',b==='#0f172a'?'#fff':'#0f172a');document.querySelectorAll('.res').forEach(e=>e.style.borderColor=b==='#0f172a'?'rgba(255,255,255,0.08)':'rgba(0,0,0,0.06)')}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='resource-list.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

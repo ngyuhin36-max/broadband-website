@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 06 - Before / After</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body { margin:0; background:#f0f0f0; font-family:'Inter',sans-serif; display:flex; flex-direction:column; align-items:center; padding:30px; }
+.toolbar { background:#fff; padding:20px 40px; border-radius:16px; margin-bottom:30px;
+    box-shadow:0 2px 20px rgba(0,0,0,0.1); display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.toolbar label { font-size:14px; color:#666; font-weight:600; }
+.toolbar input[type="color"] { width:50px; height:36px; padding:2px; cursor:pointer; border:2px solid #e0e0e0; border-radius:8px; }
+.btn { padding:12px 28px; border:none; border-radius:10px; font-size:16px; font-weight:700;
+    cursor:pointer; transition:all 0.2s; }
+.btn-download { background:linear-gradient(135deg, #667eea, #764ba2); color:#fff; }
+.btn-download:hover { transform:scale(1.05); }
+.instructions { background:#fff3cd; padding:15px 25px; border-radius:12px; margin-bottom:20px;
+    font-size:15px; color:#856404; border-left:4px solid #ffc107; max-width:1080px; width:100%; }
+#template { position:relative; }
+[contenteditable]:focus { outline:2px dashed rgba(79,70,229,0.5); outline-offset:4px; }
+
+.card { width:1080px; height:1080px; position:relative; overflow:hidden; background:#0f172a; padding:60px; display:flex; flex-direction:column; }
+.header { text-align:center; margin-bottom:40px; }
+.header h1 { font-size:44px; font-weight:900; color:#fff; margin:0; outline:none; }
+.header h1:hover { background:rgba(255,255,255,0.03); border-radius:8px; }
+.header p { font-size:20px; color:#64748b; margin-top:8px; outline:none; }
+.header p:hover { background:rgba(255,255,255,0.03); border-radius:8px; }
+.comparison { display:flex; gap:30px; flex:1; }
+.side { flex:1; border-radius:24px; padding:40px; display:flex; flex-direction:column; }
+.side-before { background:rgba(239,68,68,0.1); border:2px solid rgba(239,68,68,0.3); }
+.side-after { background:rgba(16,185,129,0.1); border:2px solid rgba(16,185,129,0.3); }
+.side-label { font-size:18px; font-weight:800; letter-spacing:3px; text-transform:uppercase; margin-bottom:30px; }
+.side-item { display:flex; align-items:center; gap:16px; padding:16px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06); }
+.side-icon { font-size:24px; flex-shrink:0; }
+.side-text { font-size:20px; font-weight:600; color:#e2e8f0; outline:none; }
+.side-text:hover { background:rgba(255,255,255,0.03); border-radius:4px; }
+.vs-circle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:70px; height:70px; border-radius:50%; display:flex; align-items:center;
+    justify-content:center; font-size:24px; font-weight:900; color:#fff; z-index:2; }
+.footer { text-align:center; margin-top:30px; }
+.footer span { font-size:16px; color:#475569; font-weight:600; letter-spacing:1px; outline:none; }
+.footer span:hover { color:#94a3b8; }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+    ✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG
+</div>
+
+<div class="toolbar">
+    <div><label>Before</label><br><input type="color" id="c1" value="#ef4444" onchange="updateColors()"></div>
+    <div><label>After</label><br><input type="color" id="c2" value="#10b981" onchange="updateColors()"></div>
+    <button class="btn btn-download" onclick="downloadPNG()">⬇ Download as PNG</button>
+</div>
+
+<div id="template">
+<div class="card" id="card">
+    <div class="header">
+        <h1 contenteditable="true">Website Redesign <span style="color:#3b82f6;">Results</span></h1>
+        <p contenteditable="true">What changed after implementing our strategy</p>
+    </div>
+    <div class="comparison">
+        <div class="side side-before">
+            <div class="side-label" style="color:#ef4444;">✗ Before</div>
+            <div class="side-item"><span class="side-icon">😟</span><span class="side-text" contenteditable="true">500 monthly visitors</span></div>
+            <div class="side-item"><span class="side-icon">😟</span><span class="side-text" contenteditable="true">0.5% conversion rate</span></div>
+            <div class="side-item"><span class="side-icon">😟</span><span class="side-text" contenteditable="true">8 second load time</span></div>
+            <div class="side-item"><span class="side-icon">😟</span><span class="side-text" contenteditable="true">No mobile optimization</span></div>
+            <div class="side-item"><span class="side-icon">😟</span><span class="side-text" contenteditable="true">Zero Google rankings</span></div>
+        </div>
+        <div class="vs-circle" style="background:linear-gradient(135deg, #ef4444, #10b981);">VS</div>
+        <div class="side side-after">
+            <div class="side-label" style="color:#10b981;">✓ After</div>
+            <div class="side-item"><span class="side-icon">🚀</span><span class="side-text" contenteditable="true">5,000+ monthly visitors</span></div>
+            <div class="side-item"><span class="side-icon">🚀</span><span class="side-text" contenteditable="true">3.2% conversion rate</span></div>
+            <div class="side-item"><span class="side-icon">🚀</span><span class="side-text" contenteditable="true">1.5 second load time</span></div>
+            <div class="side-item"><span class="side-icon">🚀</span><span class="side-text" contenteditable="true">Fully responsive design</span></div>
+            <div class="side-item"><span class="side-icon">🚀</span><span class="side-text" contenteditable="true">Page 1 for 12 keywords</span></div>
+        </div>
+    </div>
+    <div class="footer">
+        <span contenteditable="true">YOUR BRAND — Real client results</span>
+    </div>
+</div>
+</div>
+
+<script>
+function updateColors() {
+    const before = document.getElementById('c1').value;
+    const after = document.getElementById('c2').value;
+    document.querySelector('.side-before').style.background = before + '1a';
+    document.querySelector('.side-before').style.borderColor = before + '4d';
+    document.querySelector('.side-after').style.background = after + '1a';
+    document.querySelector('.side-after').style.borderColor = after + '4d';
+    document.querySelector('.side-before .side-label').style.color = before;
+    document.querySelector('.side-after .side-label').style.color = after;
+    document.querySelector('.vs-circle').style.background = `linear-gradient(135deg, ${before}, ${after})`;
+}
+function downloadPNG() {
+    document.activeElement.blur();
+    html2canvas(document.getElementById('template'), { scale:2, useCORS:true }).then(c => {
+        const a = document.createElement('a'); a.download='before-after-post.png'; a.href=c.toDataURL('image/png'); a.click();
+    });
+}
+</script>
+</body>
+</html>

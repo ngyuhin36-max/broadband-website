@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 24 - Pricing Table</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0f172a;padding:60px;display:flex;flex-direction:column}
+.header{text-align:center;margin-bottom:40px}
+.header h1{font-size:48px;font-weight:900;color:#fff;margin:0;outline:none}
+.header p{font-size:20px;color:#64748b;margin-top:8px;outline:none}
+.plans{display:flex;gap:20px;flex:1}
+.plan{flex:1;background:rgba(255,255,255,0.04);border-radius:24px;padding:35px;border:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column}
+.plan.featured{border-width:2px;position:relative}
+.plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:6px 20px;border-radius:20px;font-size:12px;font-weight:800;letter-spacing:2px;color:#fff}
+.plan-name{font-size:20px;font-weight:800;color:#94a3b8;text-align:center;outline:none}
+.plan-price{text-align:center;margin:20px 0}
+.plan-price .amount{font-size:52px;font-weight:900;color:#fff;outline:none}
+.plan-price .period{font-size:16px;color:#64748b;outline:none}
+.plan-features{flex:1;display:flex;flex-direction:column;gap:12px;margin:20px 0}
+.plan-feat{font-size:16px;color:#94a3b8;display:flex;align-items:center;gap:10px;outline:none}
+.plan-feat:hover{color:#e2e8f0}
+.plan-btn{display:block;padding:16px;border-radius:12px;text-align:center;font-size:16px;font-weight:800;color:#fff;outline:none;margin-top:auto}
+.plan-btn:hover{opacity:0.9}
+.footer{text-align:center;margin-top:20px}
+.footer span{font-size:15px;color:#475569;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change accent → Download as PNG</div>
+<div class="toolbar">
+<div><label>Accent</label><br><input type="color" id="c1" value="#6366f1" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="header">
+<h1 contenteditable="true">Simple <span style="color:#6366f1;">Pricing</span></h1>
+<p contenteditable="true">Choose the plan that fits your business</p>
+</div>
+<div class="plans">
+<div class="plan">
+<div class="plan-name" contenteditable="true">STARTER</div>
+<div class="plan-price"><div class="amount" contenteditable="true">$29</div><div class="period" contenteditable="true">/month</div></div>
+<div class="plan-features">
+<div class="plan-feat" contenteditable="true">✓ 5 Social media posts</div>
+<div class="plan-feat" contenteditable="true">✓ Basic SEO audit</div>
+<div class="plan-feat" contenteditable="true">✓ Monthly report</div>
+<div class="plan-feat" contenteditable="true">✓ Email support</div>
+</div>
+<div class="plan-btn" style="background:rgba(255,255,255,0.1);" contenteditable="true">Get Started</div>
+</div>
+<div class="plan featured" style="border-color:#6366f1;">
+<div class="plan-badge" style="background:#6366f1;">MOST POPULAR</div>
+<div class="plan-name" contenteditable="true" style="color:#6366f1;">GROWTH</div>
+<div class="plan-price"><div class="amount" contenteditable="true">$79</div><div class="period" contenteditable="true">/month</div></div>
+<div class="plan-features">
+<div class="plan-feat" contenteditable="true">✓ 15 Social media posts</div>
+<div class="plan-feat" contenteditable="true">✓ Full SEO optimization</div>
+<div class="plan-feat" contenteditable="true">✓ Google Ads management</div>
+<div class="plan-feat" contenteditable="true">✓ Weekly reports</div>
+<div class="plan-feat" contenteditable="true">✓ Priority support</div>
+</div>
+<div class="plan-btn" style="background:#6366f1;" contenteditable="true">Get Started</div>
+</div>
+<div class="plan">
+<div class="plan-name" contenteditable="true">PREMIUM</div>
+<div class="plan-price"><div class="amount" contenteditable="true">$149</div><div class="period" contenteditable="true">/month</div></div>
+<div class="plan-features">
+<div class="plan-feat" contenteditable="true">✓ Unlimited posts</div>
+<div class="plan-feat" contenteditable="true">✓ Full marketing suite</div>
+<div class="plan-feat" contenteditable="true">✓ Dedicated manager</div>
+<div class="plan-feat" contenteditable="true">✓ Daily reports</div>
+<div class="plan-feat" contenteditable="true">✓ 24/7 support</div>
+</div>
+<div class="plan-btn" style="background:rgba(255,255,255,0.1);" contenteditable="true">Get Started</div>
+</div>
+</div>
+<div class="footer"><span contenteditable="true">YOUR BRAND — All plans include 14-day free trial</span></div>
+</div>
+</div>
+<script>
+function u(){const c=document.getElementById('c1').value;document.querySelector('.featured').style.borderColor=c;document.querySelector('.plan-badge').style.background=c;document.querySelector('.featured .plan-btn').style.background=c;document.querySelector('.featured .plan-name').style.color=c}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='pricing.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 21 - Comparison Table</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0f172a;padding:60px;display:flex;flex-direction:column}
+.header{text-align:center;margin-bottom:40px}
+.header h1{font-size:48px;font-weight:900;color:#fff;margin:0;outline:none}
+.table{flex:1;display:flex;flex-direction:column}
+.table-header{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2px;margin-bottom:2px}
+.table-header div{padding:20px;text-align:center;font-size:20px;font-weight:800;color:#fff;border-radius:12px 12px 0 0}
+.table-row{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2px;margin-bottom:2px}
+.table-row div{padding:18px 20px;background:rgba(255,255,255,0.04);font-size:18px;color:#e2e8f0;font-weight:600;display:flex;align-items:center;justify-content:center;outline:none}
+.table-row div:first-child{justify-content:flex-start;font-weight:700}
+.table-row div:hover{background:rgba(255,255,255,0.08)}
+.footer{text-align:center;margin-top:20px}
+.footer span{font-size:15px;color:#475569;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click any cell to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color A</label><br><input type="color" id="c1" value="#2563eb" onchange="u()"></div>
+<div><label>Color B</label><br><input type="color" id="c2" value="#7c3aed" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="header"><h1 contenteditable="true">Facebook Ads <span style="color:#2563eb;">vs</span> Google Ads</h1></div>
+<div class="table">
+<div class="table-header">
+<div style="background:transparent;"></div>
+<div class="cha" style="background:#2563eb;">Facebook</div>
+<div class="chb" style="background:#7c3aed;">Google</div>
+</div>
+<div class="table-row"><div contenteditable="true">Best For</div><div contenteditable="true">Brand awareness</div><div contenteditable="true">High-intent leads</div></div>
+<div class="table-row"><div contenteditable="true">Targeting</div><div contenteditable="true">Interest-based</div><div contenteditable="true">Keyword-based</div></div>
+<div class="table-row"><div contenteditable="true">Avg. CPC</div><div contenteditable="true">$0.50 - $2.00</div><div contenteditable="true">$1.00 - $5.00</div></div>
+<div class="table-row"><div contenteditable="true">Ad Format</div><div contenteditable="true">Image, Video, Carousel</div><div contenteditable="true">Text, Shopping, Display</div></div>
+<div class="table-row"><div contenteditable="true">Learning Curve</div><div contenteditable="true">Moderate</div><div contenteditable="true">Steeper</div></div>
+<div class="table-row"><div contenteditable="true">Best Budget</div><div contenteditable="true">$5+/day</div><div contenteditable="true">$10+/day</div></div>
+<div class="table-row"><div contenteditable="true">ROI Timeline</div><div contenteditable="true">1-2 weeks</div><div contenteditable="true">Immediate</div></div>
+</div>
+<div class="footer"><span contenteditable="true">YOUR BRAND — Save this comparison</span></div>
+</div>
+</div>
+<script>
+function u(){document.querySelector('.cha').style.background=document.getElementById('c1').value;document.querySelector('.chb').style.background=document.getElementById('c2').value}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='comparison.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

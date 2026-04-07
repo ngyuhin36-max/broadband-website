@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 35 - Milestone / Thank You</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px}
+.confetti{position:absolute;font-size:40px;opacity:0.15}
+.ms-emoji{font-size:100px;margin-bottom:20px;outline:none}
+.ms-label{font-size:18px;font-weight:800;letter-spacing:5px;margin-bottom:20px;outline:none}
+.ms-number{font-size:140px;font-weight:900;color:#fff;line-height:1;margin-bottom:10px;outline:none}
+.ms-number:hover{opacity:0.95}
+.ms-text{font-size:36px;font-weight:800;color:#fff;margin-bottom:20px;outline:none}
+.ms-desc{font-size:22px;color:rgba(255,255,255,0.6);max-width:600px;line-height:1.5;outline:none}
+.ms-desc:hover{color:rgba(255,255,255,0.8)}
+.footer{position:absolute;bottom:50px;font-size:16px;color:rgba(255,255,255,0.3);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change gradient → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#7c3aed" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#2563eb" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#7c3aed,#2563eb);">
+<div class="confetti" style="top:8%;left:10%;">🎉</div><div class="confetti" style="top:15%;right:12%;">✨</div>
+<div class="confetti" style="bottom:20%;left:15%;">🎊</div><div class="confetti" style="bottom:10%;right:10%;">⭐</div>
+<div class="confetti" style="top:40%;left:5%;">🎉</div><div class="confetti" style="top:50%;right:5%;">✨</div>
+<div class="ms-emoji" contenteditable="true">🎉</div>
+<div class="ms-label" contenteditable="true" style="color:rgba(255,255,255,0.6);">WE JUST HIT</div>
+<div class="ms-number" contenteditable="true">10K</div>
+<div class="ms-text" contenteditable="true">Followers!</div>
+<div class="ms-desc" contenteditable="true">Thank you for being part of our journey. We couldn't have done it without each and every one of you.</div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.background=`linear-gradient(135deg,${document.getElementById('c1').value},${document.getElementById('c2').value})`}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='milestone.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 48 - Coupon / Voucher</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px}
+.coupon-box{background:#fff;border-radius:30px;padding:70px;max-width:800px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
+.coupon-dashes{position:absolute;left:30px;right:30px;border-top:3px dashed rgba(0,0,0,0.1)}
+.coupon-dashes.top{top:25px}.coupon-dashes.bot{bottom:25px}
+.coupon-emoji{font-size:60px;margin-bottom:15px}
+.coupon-label{font-size:18px;font-weight:800;letter-spacing:4px;opacity:0.4;margin-bottom:15px;outline:none}
+.coupon-amount{font-size:100px;font-weight:900;line-height:1;margin-bottom:10px;outline:none}
+.coupon-amount:hover{opacity:0.9}
+.coupon-desc{font-size:22px;opacity:0.6;margin-bottom:30px;outline:none}
+.coupon-code{font-family:'JetBrains Mono';font-size:36px;font-weight:700;padding:16px 50px;border:3px dashed;border-radius:16px;letter-spacing:6px;display:inline-block;margin-bottom:20px;outline:none}
+.coupon-code:hover{opacity:0.9}
+.coupon-expiry{font-size:16px;opacity:0.4;outline:none}
+.footer{position:absolute;bottom:50px;font-size:16px;opacity:0.3;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#fef3c7" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#f59e0b" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#fef3c7;">
+<div class="coupon-box">
+<div class="coupon-dashes top"></div>
+<div class="coupon-dashes bot"></div>
+<div class="coupon-emoji">🎁</div>
+<div class="coupon-label" contenteditable="true">EXCLUSIVE OFFER</div>
+<div class="coupon-amount" contenteditable="true" style="color:#f59e0b;">20% OFF</div>
+<div class="coupon-desc" contenteditable="true">Your first month of any marketing plan</div>
+<div class="coupon-code" contenteditable="true" style="color:#f59e0b;border-color:#f59e0b;">WELCOME20</div>
+<div class="coupon-expiry" contenteditable="true">Valid until April 30, 2026</div>
+</div>
+<div class="footer" contenteditable="true">YOUR BRAND — Terms & conditions apply</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.background=document.getElementById('c1').value;const c=document.getElementById('c2').value;document.querySelector('.coupon-amount').style.color=c;document.querySelector('.coupon-code').style.color=c;document.querySelector('.coupon-code').style.borderColor=c}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='coupon.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

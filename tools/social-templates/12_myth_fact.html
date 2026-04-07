@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 12 - Myth vs Fact</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.btn-download:hover{transform:scale(1.05)}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0f172a;padding:70px;display:flex;flex-direction:column}
+.header{text-align:center;margin-bottom:40px}
+.header h1{font-size:52px;font-weight:900;color:#fff;margin:0;outline:none}
+.header h1:hover{opacity:0.9}
+.rows{flex:1;display:flex;flex-direction:column;gap:16px}
+.row{display:flex;gap:16px;flex:1}
+.myth,.fact{flex:1;border-radius:20px;padding:28px;display:flex;flex-direction:column;justify-content:center}
+.myth{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.25)}
+.fact{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.25)}
+.label-tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.row-text{font-size:20px;font-weight:600;color:#e2e8f0;line-height:1.4;outline:none}
+.row-text:hover{background:rgba(255,255,255,0.03);border-radius:4px}
+.footer{text-align:center;margin-top:20px}
+.footer span{font-size:16px;color:#475569;font-weight:600;outline:none}
+.footer span:hover{color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Myth</label><br><input type="color" id="c1" value="#ef4444" onchange="u()"></div>
+<div><label>Fact</label><br><input type="color" id="c2" value="#10b981" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="header"><h1 contenteditable="true">Myth <span style="color:#ef4444;">vs</span> Fact</h1></div>
+<div class="rows">
+<div class="row">
+<div class="myth"><div class="label-tag" style="color:#ef4444;">✗ MYTH</div><div class="row-text" contenteditable="true">SEO is dead in 2026</div></div>
+<div class="fact"><div class="label-tag" style="color:#10b981;">✓ FACT</div><div class="row-text" contenteditable="true">93% of online experiences still start with search</div></div>
+</div>
+<div class="row">
+<div class="myth"><div class="label-tag" style="color:#ef4444;">✗ MYTH</div><div class="row-text" contenteditable="true">You need thousands to run ads</div></div>
+<div class="fact"><div class="label-tag" style="color:#10b981;">✓ FACT</div><div class="row-text" contenteditable="true">You can start Google Ads with $5/day</div></div>
+</div>
+<div class="row">
+<div class="myth"><div class="label-tag" style="color:#ef4444;">✗ MYTH</div><div class="row-text" contenteditable="true">Social media posts should be daily</div></div>
+<div class="fact"><div class="label-tag" style="color:#10b981;">✓ FACT</div><div class="row-text" contenteditable="true">Quality beats quantity — 3x/week is enough</div></div>
+</div>
+</div>
+<div class="footer"><span contenteditable="true">YOUR BRAND — Follow for more tips</span></div>
+</div>
+</div>
+<script>
+function u(){
+const m=document.getElementById('c1').value,f=document.getElementById('c2').value;
+document.querySelectorAll('.myth').forEach(e=>{e.style.background=m+'1e';e.style.borderColor=m+'40'});
+document.querySelectorAll('.fact').forEach(e=>{e.style.background=f+'1e';e.style.borderColor=f+'40'});
+document.querySelectorAll('.myth .label-tag').forEach(e=>e.style.color=m);
+document.querySelectorAll('.fact .label-tag').forEach(e=>e.style.color=f);
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='myth-fact.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

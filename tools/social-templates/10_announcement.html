@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 10 - Announcement</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body { margin:0; background:#f0f0f0; font-family:'Inter',sans-serif; display:flex; flex-direction:column; align-items:center; padding:30px; }
+.toolbar { background:#fff; padding:20px 40px; border-radius:16px; margin-bottom:30px;
+    box-shadow:0 2px 20px rgba(0,0,0,0.1); display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.toolbar label { font-size:14px; color:#666; font-weight:600; }
+.toolbar input[type="color"] { width:50px; height:36px; padding:2px; cursor:pointer; border:2px solid #e0e0e0; border-radius:8px; }
+.btn { padding:12px 28px; border:none; border-radius:10px; font-size:16px; font-weight:700;
+    cursor:pointer; transition:all 0.2s; }
+.btn-download { background:linear-gradient(135deg, #667eea, #764ba2); color:#fff; }
+.btn-download:hover { transform:scale(1.05); }
+.instructions { background:#fff3cd; padding:15px 25px; border-radius:12px; margin-bottom:20px;
+    font-size:15px; color:#856404; border-left:4px solid #ffc107; max-width:1080px; width:100%; }
+#template { position:relative; }
+[contenteditable]:focus { outline:2px dashed rgba(255,255,255,0.5); outline-offset:4px; }
+
+.card { width:1080px; height:1080px; position:relative; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:100px; }
+.ring { position:absolute; border-radius:50%; border:2px solid rgba(255,255,255,0.08); }
+.ring1 { width:800px; height:800px; top:50%; left:50%; transform:translate(-50%,-50%); }
+.ring2 { width:600px; height:600px; top:50%; left:50%; transform:translate(-50%,-50%); }
+.ring3 { width:400px; height:400px; top:50%; left:50%; transform:translate(-50%,-50%); }
+.new-badge { display:inline-block; padding:12px 36px; border-radius:30px; background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.2);
+    font-size:16px; font-weight:800; color:#fff; letter-spacing:4px; margin-bottom:40px; outline:none; }
+.new-badge:hover { background:rgba(255,255,255,0.2); }
+.announce-title { font-size:64px; font-weight:900; color:#fff; line-height:1.15; margin-bottom:25px; outline:none; }
+.announce-title:hover { opacity:0.95; }
+.announce-desc { font-size:24px; color:rgba(255,255,255,0.8); line-height:1.6; max-width:700px; margin-bottom:50px; outline:none; }
+.announce-desc:hover { background:rgba(255,255,255,0.05); border-radius:8px; }
+.announce-date { display:inline-block; padding:16px 48px; border:2px solid #fff; border-radius:14px;
+    font-size:22px; font-weight:800; color:#fff; outline:none; }
+.announce-date:hover { background:rgba(255,255,255,0.1); }
+.footer { position:absolute; bottom:40px; font-size:16px; color:rgba(255,255,255,0.3); font-weight:600; outline:none; }
+.footer:hover { color:rgba(255,255,255,0.5); }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+    ✏️ <strong>How to use:</strong> Click text to edit → Change gradient → Download as PNG
+</div>
+
+<div class="toolbar">
+    <div><label>Color 1</label><br><input type="color" id="c1" value="#4f46e5" onchange="updateColors()"></div>
+    <div><label>Color 2</label><br><input type="color" id="c2" value="#7c3aed" onchange="updateColors()"></div>
+    <div><label>Color 3</label><br><input type="color" id="c3" value="#a855f7" onchange="updateColors()"></div>
+    <button class="btn btn-download" onclick="downloadPNG()">⬇ Download as PNG</button>
+</div>
+
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg, #4f46e5, #7c3aed, #a855f7);">
+    <div class="ring ring1"></div>
+    <div class="ring ring2"></div>
+    <div class="ring ring3"></div>
+    <div class="new-badge" contenteditable="true">NEW LAUNCH</div>
+    <div class="announce-title" contenteditable="true">Something<br>Exciting is<br>Coming</div>
+    <div class="announce-desc" contenteditable="true">We've been working on something special that will transform your digital marketing game.</div>
+    <div class="announce-date" contenteditable="true">April 15, 2026</div>
+    <div class="footer" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+
+<script>
+function updateColors() {
+    const c1 = document.getElementById('c1').value;
+    const c2 = document.getElementById('c2').value;
+    const c3 = document.getElementById('c3').value;
+    document.getElementById('card').style.background = `linear-gradient(135deg, ${c1}, ${c2}, ${c3})`;
+}
+function downloadPNG() {
+    document.activeElement.blur();
+    html2canvas(document.getElementById('template'), { scale:2, useCORS:true }).then(c => {
+        const a = document.createElement('a'); a.download='announcement-post.png'; a.href=c.toDataURL('image/png'); a.click();
+    });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 44 - Carousel Slide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;padding:80px;display:flex;flex-direction:column;justify-content:center}
+.slide-num{position:absolute;top:50px;right:60px;font-size:18px;font-weight:800;color:rgba(255,255,255,0.3);outline:none}
+.slide-icon{font-size:70px;margin-bottom:25px;outline:none}
+.slide-title{font-size:52px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:25px;outline:none}
+.slide-title:hover{opacity:0.95}
+.slide-body{font-size:24px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:30px;outline:none}
+.slide-body:hover{color:rgba(255,255,255,0.85)}
+.slide-key{display:inline-block;padding:14px 30px;border-radius:14px;background:rgba(255,255,255,0.1);font-size:20px;font-weight:700;color:#fff;outline:none}
+.slide-key:hover{background:rgba(255,255,255,0.15)}
+.slide-dots{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);display:flex;gap:10px}
+.slide-dots span{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.2)}
+.slide-dots span.active{background:#fff;width:35px;border-radius:6px}
+.slide-swipe{position:absolute;bottom:50px;right:60px;font-size:16px;color:rgba(255,255,255,0.3);font-weight:700;outline:none}
+.footer{position:absolute;bottom:50px;left:80px;font-size:15px;color:rgba(255,255,255,0.2);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change gradient → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#6366f1" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#8b5cf6" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">
+<div class="slide-num" contenteditable="true">3 / 10</div>
+<div class="slide-icon" contenteditable="true">🎯</div>
+<div class="slide-title" contenteditable="true">Define Your<br>Target Audience</div>
+<div class="slide-body" contenteditable="true">Don't try to reach everyone. Focus on the people who are most likely to buy from you. Create a detailed customer persona with demographics, interests, and pain points.</div>
+<div class="slide-key" contenteditable="true">💡 Key: Specificity wins</div>
+<div class="slide-dots"><span></span><span></span><span class="active"></span><span></span><span></span></div>
+<div class="footer" contenteditable="true">YOUR BRAND</div>
+<div class="slide-swipe" contenteditable="true">SWIPE →</div>
+</div>
+</div>
+<script>
+function u(){document.getElementById('card').style.background=`linear-gradient(135deg,${document.getElementById('c1').value},${document.getElementById('c2').value})`}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='carousel-slide.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>
