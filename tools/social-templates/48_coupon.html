@@ -56,5 +56,6 @@ body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;fle
 function u(){document.getElementById('card').style.background=document.getElementById('c1').value;const c=document.getElementById('c2').value;document.querySelector('.coupon-amount').style.color=c;document.querySelector('.coupon-code').style.color=c;document.querySelector('.coupon-code').style.borderColor=c}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='coupon.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

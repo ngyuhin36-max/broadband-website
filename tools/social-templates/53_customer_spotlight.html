@@ -53,5 +53,6 @@ body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;fle
 function u(){var a=document.getElementById('c1').value,b=document.getElementById('c2').value;document.getElementById('card').style.background=b;document.getElementById('bg1').style.background=a;document.getElementById('bg2').style.background=a;document.getElementById('tag').style.background=a+'22';document.getElementById('tag').style.color=a;document.getElementById('avatar').style.background=`linear-gradient(135deg,${a},${b})`}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='customer-spotlight.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

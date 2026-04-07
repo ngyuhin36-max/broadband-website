@@ -74,5 +74,6 @@ body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;fle
 function u(){var a=document.getElementById('c1').value,b=document.getElementById('c2').value,c=document.getElementById('c3').value,d=document.getElementById('c4').value;document.getElementById('card').style.background=a;document.getElementById('num1').style.color=b;document.getElementById('fill1').style.background=b;document.getElementById('num2').style.color=c;document.getElementById('fill2').style.background=c;document.getElementById('num3').style.color=d;document.getElementById('fill3').style.background=d}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='infographic-mini.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

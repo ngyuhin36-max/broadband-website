@@ -62,5 +62,6 @@ function u(){document.getElementById('card').style.setProperty('--accent',docume
 function bg(){const card=document.getElementById('card'),b=document.getElementById('bgSelect').value;card.style.background=b;card.style.setProperty('--text',b==='#0f172a'?'#fff':'#0f172a');document.querySelectorAll('.res').forEach(e=>e.style.borderColor=b==='#0f172a'?'rgba(255,255,255,0.08)':'rgba(0,0,0,0.06)')}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='resource-list.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

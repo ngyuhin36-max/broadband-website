@@ -60,5 +60,6 @@ const wave=document.getElementById('wave');for(let i=0;i<80;i++){const b=documen
 function u(){const c=document.getElementById('c1').value;document.querySelector('.pod-ep').style.background=c+'33';document.querySelector('.pod-ep').style.color=c}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='podcast-ep.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

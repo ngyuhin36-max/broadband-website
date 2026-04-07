@@ -65,5 +65,6 @@ document.querySelectorAll('.ring-dot').forEach(function(el){el.style.background=
 }
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='story-cover.png';a.href=c.toDataURL('image/png');a.click();})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

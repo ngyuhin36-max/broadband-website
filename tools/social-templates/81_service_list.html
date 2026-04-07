@@ -93,5 +93,6 @@ document.querySelectorAll('.price-text').forEach(function(el){el.style.color=pri
 }
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='service-list.png';a.href=c.toDataURL('image/png');a.click();})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

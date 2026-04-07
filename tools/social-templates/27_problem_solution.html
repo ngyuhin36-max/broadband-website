@@ -61,5 +61,6 @@ document.querySelector('.half-top .half-label').style.color=p;document.querySele
 document.querySelector('.arrow-center').style.background=`linear-gradient(${p},${s})`}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='problem-solution.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

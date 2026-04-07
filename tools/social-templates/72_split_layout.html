@@ -86,5 +86,6 @@ checks.forEach(function(c){c.style.background=left;c.style.color=right;});
 u();
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='split-layout.png';a.href=c.toDataURL('image/png');a.click();})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

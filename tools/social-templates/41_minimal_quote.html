@@ -43,5 +43,6 @@ body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;fle
 function bg(){const card=document.getElementById('card'),b=document.getElementById('bgSelect').value;card.style.background=b;const d=b==='#0f172a';card.style.setProperty('--text',d?'#fff':'#0f172a');document.querySelectorAll('.line-top,.line-bot').forEach(e=>e.style.background=d?'#333':'#ddd')}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='minimal-quote.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

@@ -70,5 +70,6 @@ document.querySelectorAll('.fact .label-tag').forEach(e=>e.style.color=f);
 }
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='myth-fact.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

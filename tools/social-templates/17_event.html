@@ -63,5 +63,6 @@ body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;fle
 function u(){const c1=document.getElementById('c1').value,c2=document.getElementById('c2').value;document.getElementById('card').style.background=`linear-gradient(135deg,${c1},${c2})`;document.querySelector('.register-btn').style.color=c1}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='event-invite.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

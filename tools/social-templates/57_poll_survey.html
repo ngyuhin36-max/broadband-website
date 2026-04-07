@@ -79,5 +79,6 @@ body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;fle
 function u(){var a=document.getElementById('c1').value,b=document.getElementById('c2').value;document.getElementById('card').style.background=a;document.getElementById('deco1').style.background=b;document.getElementById('deco2').style.background=b;for(var i=1;i<=4;i++){document.getElementById('bar'+i).style.background=b;document.getElementById('let'+i).style.background=b}}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='poll-survey.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>

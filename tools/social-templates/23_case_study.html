@@ -64,5 +64,6 @@ body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;fle
 function u(){const c=document.getElementById('c1').value;document.querySelector('.tag').style.background=c;document.querySelectorAll('.result-num').forEach(e=>e.style.color=c);document.querySelector('.story').style.borderColor=c}
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='case-study.png';a.href=c.toDataURL('image/png');a.click()})}
 </script>
+<script src="template-enhancer.js"></script>
 </body>
 </html>
