@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷氣機BTU計算器 | 香港專用</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, "Microsoft JhengHei", "微軟正黑體", sans-serif;
+  background: #f0f4f8;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+  color: #0a2463;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e8f0fe;
+  color: #0a2463;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+label .hint {
+  font-weight: 400;
+  color: #888;
+  font-size: 0.8rem;
+}
+
+input[type="number"], select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background: #fafbfc;
+  font-family: inherit;
+}
+
+input[type="number"]:focus, select:focus {
+  outline: none;
+  border-color: #3a86ff;
+  background: #fff;
+}
+
+.option-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.option-group.three-col {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.option-btn {
+  padding: 10px 8px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fafbfc;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+.option-btn:hover {
+  border-color: #3a86ff;
+  background: #f0f6ff;
+}
+
+.option-btn.active {
+  border-color: #3a86ff;
+  background: #3a86ff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.option-btn .icon {
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.calc-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #3a86ff, #0a2463);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  font-family: inherit;
+  letter-spacing: 1px;
+}
+
+.calc-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(58,134,255,0.35);
+}
+
+.calc-btn:active {
+  transform: translateY(0);
+}
+
+/* Result */
+.result-card {
+  display: none;
+  background: linear-gradient(135deg, #0a2463, #1e3a6e);
+  color: #fff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-top: 16px;
+  box-shadow: 0 4px 20px rgba(10,36,99,0.25);
+}
+
+.result-card.show {
+  display: block;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-btu {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.result-btu .label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.result-btu .value {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #5ef0a8;
+}
+
+.result-btu .unit {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+.result-hp {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+}
+
+.result-hp .label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.result-hp .value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.result-details {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 16px;
+}
+
+.result-details h3 {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.85rem;
+}
+
+.detail-row .dl {
+  opacity: 0.7;
+}
+
+.detail-row .dv {
+  font-weight: 600;
+}
+
+.tips {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.tips h3 {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.tip-item {
+  font-size: 0.82rem;
+  padding: 4px 0;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.tip-item::before {
+  content: "💡 ";
+}
+
+.reference {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(94, 240, 168, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(94, 240, 168, 0.2);
+}
+
+.reference h3 {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #5ef0a8;
+}
+
+.ref-table {
+  width: 100%;
+  font-size: 0.8rem;
+  border-collapse: collapse;
+}
+
+.ref-table th, .ref-table td {
+  padding: 5px 8px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.ref-table th {
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.75rem;
+  color: #999;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>❄️ 冷氣機BTU計算器</h1>
+  <p class="subtitle">根據香港環境，幫你揀啱匹數</p>
+
+  <!-- 房間面積 -->
+  <div class="card">
+    <div class="card-title">📐 房間資料</div>
+
+    <div class="field">
+      <label>房間面積（平方呎）<span class="hint">— 長 × 闊</span></label>
+      <input type="number" id="area" placeholder="例如：120" min="10" max="2000">
+    </div>
+
+    <div class="field">
+      <label>樓底高度</label>
+      <div class="option-group three-col" data-field="ceiling">
+        <div class="option-btn active" data-value="standard">
+          <span class="icon">📏</span>
+          標準<br>(8-9呎)
+        </div>
+        <div class="option-btn" data-value="high">
+          <span class="icon">🏗️</span>
+          偏高<br>(9-11呎)
+        </div>
+        <div class="option-btn" data-value="very_high">
+          <span class="icon">🏛️</span>
+          特高<br>(11呎+)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 環境因素 -->
+  <div class="card">
+    <div class="card-title">☀️ 環境因素</div>
+
+    <div class="field">
+      <label>窗戶方向 <span class="hint">— 西曬最熱</span></label>
+      <div class="option-group" data-field="direction">
+        <div class="option-btn" data-value="west">
+          <span class="icon">🌅</span>
+          西／西南
+        </div>
+        <div class="option-btn" data-value="south">
+          <span class="icon">☀️</span>
+          南
+        </div>
+        <div class="option-btn active" data-value="east">
+          <span class="icon">🌤️</span>
+          東／東南
+        </div>
+        <div class="option-btn" data-value="north">
+          <span class="icon">🌥️</span>
+          北
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>樓層</label>
+      <div class="option-group three-col" data-field="floor">
+        <div class="option-btn" data-value="low">
+          <span class="icon">🏠</span>
+          低層<br>(1-10樓)
+        </div>
+        <div class="option-btn active" data-value="mid">
+          <span class="icon">🏢</span>
+          中層<br>(11-25樓)
+        </div>
+        <div class="option-btn" data-value="high">
+          <span class="icon">🏙️</span>
+          高層<br>(25樓+)
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>窗戶大小</label>
+      <div class="option-group three-col" data-field="window">
+        <div class="option-btn" data-value="small">
+          <span class="icon">🪟</span>
+          細窗
+        </div>
+        <div class="option-btn active" data-value="normal">
+          <span class="icon">🪟</span>
+          普通窗
+        </div>
+        <div class="option-btn" data-value="large">
+          <span class="icon">🪟</span>
+          落地玻璃
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>頂樓／天台下一層？</label>
+      <div class="option-group" data-field="topfloor">
+        <div class="option-btn active" data-value="no">
+          唔係
+        </div>
+        <div class="option-btn" data-value="yes">
+          係，頂樓
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 使用情況 -->
+  <div class="card">
+    <div class="card-title">👥 使用情況</div>
+
+    <div class="field">
+      <label>通常幾多人用呢間房？</label>
+      <div class="option-group" data-field="people">
+        <div class="option-btn active" data-value="1">1人</div>
+        <div class="option-btn" data-value="2">2人</div>
+        <div class="option-btn" data-value="3">3-4人</div>
+        <div class="option-btn" data-value="5">5人+</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>房間有冇好多電器／電腦？</label>
+      <div class="option-group three-col" data-field="appliance">
+        <div class="option-btn active" data-value="few">
+          <span class="icon">💡</span>
+          少<br>(燈+電視)
+        </div>
+        <div class="option-btn" data-value="some">
+          <span class="icon">🖥️</span>
+          中等<br>(有電腦)
+        </div>
+        <div class="option-btn" data-value="many">
+          <span class="icon">🖥️🖥️</span>
+          多<br>(多部電腦)
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>房間用途</label>
+      <div class="option-group" data-field="usage">
+        <div class="option-btn active" data-value="bedroom">
+          <span class="icon">🛏️</span>
+          睡房
+        </div>
+        <div class="option-btn" data-value="living">
+          <span class="icon">🛋️</span>
+          客廳
+        </div>
+        <div class="option-btn" data-value="office">
+          <span class="icon">💼</span>
+          辦公室
+        </div>
+        <div class="option-btn" data-value="kitchen">
+          <span class="icon">🍳</span>
+          廚房
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">計算所需BTU</button>
+
+  <!-- Result -->
+  <div class="result-card" id="result">
+    <div class="result-btu">
+      <div class="label">建議冷氣機制冷量</div>
+      <div><span class="value" id="btuValue">—</span><span class="unit">BTU/h</span></div>
+    </div>
+
+    <div class="result-hp">
+      <div class="label">建議匹數</div>
+      <div class="value" id="hpValue">—</div>
+    </div>
+
+    <div class="result-details">
+      <h3>計算明細</h3>
+      <div id="detailRows"></div>
+    </div>
+
+    <div class="tips" id="tipsSection"></div>
+
+    <div class="reference">
+      <h3>常見匹數對照表</h3>
+      <table class="ref-table">
+        <tr><th>匹數</th><th>BTU</th><th>適用面積</th></tr>
+        <tr><td>3/4 匹</td><td>7,000</td><td>40-70 呎</td></tr>
+        <tr><td>1 匹</td><td>9,000-10,000</td><td>70-100 呎</td></tr>
+        <tr><td>1.5 匹</td><td>12,000-13,000</td><td>100-150 呎</td></tr>
+        <tr><td>2 匹</td><td>18,000</td><td>150-250 呎</td></tr>
+        <tr><td>2.5 匹</td><td>24,000</td><td>250-350 呎</td></tr>
+        <tr><td>3 匹</td><td>27,000-28,000</td><td>350-450 呎</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  冷氣機BTU計算器 — 數據參考 ASHRAE Handbook 及香港機電工程署指引，僅供參考，實際需求可能因裝修、隔熱等因素有所不同
+</footer>
+
+<script>
+// Option button toggle
+document.querySelectorAll('.option-group').forEach(group => {
+  group.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+});
+
+function getSelected(field) {
+  const group = document.querySelector(`.option-group[data-field="${field}"]`);
+  const active = group.querySelector('.option-btn.active');
+  return active ? active.dataset.value : null;
+}
+
+function calculate() {
+  const area = parseFloat(document.getElementById('area').value);
+
+  if (!area || area < 10) {
+    alert('請輸入房間面積（至少10平方呎）');
+    document.getElementById('area').focus();
+    return;
+  }
+
+  // ===== 數據來源：ASHRAE Handbook + 香港機電署指引 =====
+  // 基礎制冷量：香港亞熱帶氣候，每平方呎約需 90 BTU
+  // （ASHRAE 基礎 25 BTU/sqft + 香港高溫高濕 + 太陽輻射 + 基本人員及設備負荷）
+  let baseBTU = area * 90;
+  const details = [];
+  details.push({ label: '基本制冷量（ASHRAE 亞熱帶標準）', value: `${area} 呎 × 90 = ${baseBTU.toLocaleString()} BTU` });
+
+  let totalMultiplier = 1;
+  let extraBTU = 0;
+
+  // 樓底高度 — 按體積比例調整（標準 8 呎為基準）
+  const ceiling = getSelected('ceiling');
+  if (ceiling === 'high') {
+    // 平均 10 呎：10/8 = 1.25
+    totalMultiplier *= 1.25;
+    details.push({ label: '樓底偏高 (9-11呎)', value: '+25%' });
+  } else if (ceiling === 'very_high') {
+    // 平均 12 呎：12/8 = 1.5
+    totalMultiplier *= 1.5;
+    details.push({ label: '樓底特高 (11呎+)', value: '+50%' });
+  }
+
+  // 窗戶方向 — 太陽輻射熱增益差異
+  const direction = getSelected('direction');
+  if (direction === 'west') {
+    // 西曬下午直射，熱增益最高
+    totalMultiplier *= 1.15;
+    details.push({ label: '西／西南向（西曬）', value: '+15%' });
+  } else if (direction === 'south') {
+    totalMultiplier *= 1.1;
+    details.push({ label: '南向（日照較多）', value: '+10%' });
+  } else if (direction === 'north') {
+    // 北向無直射陽光
+    totalMultiplier *= 0.9;
+    details.push({ label: '北向（無直射陽光）', value: '-10%' });
+  }
+
+  // 樓層
+  const floor = getSelected('floor');
+  if (floor === 'high') {
+    // 高層風大但日照更強
+    totalMultiplier *= 0.95;
+    details.push({ label: '高層（通風較好）', value: '-5%' });
+  } else if (floor === 'low') {
+    // 低層周邊建築遮擋少通風、輻射熱反射
+    totalMultiplier *= 1.05;
+    details.push({ label: '低層（通風較差）', value: '+5%' });
+  }
+
+  // 窗戶大小 — 玻璃面積影響太陽輻射熱增益
+  const windowSize = getSelected('window');
+  if (windowSize === 'large') {
+    // 落地玻璃大幅增加太陽輻射
+    totalMultiplier *= 1.15;
+    details.push({ label: '落地玻璃窗（輻射面積大）', value: '+15%' });
+  }
+  // 普通窗及細窗已包含在基礎值內，不作調整
+
+  // 頂樓 — 天台受太陽直射傳熱至室內
+  const topfloor = getSelected('topfloor');
+  if (topfloor === 'yes') {
+    totalMultiplier *= 1.15;
+    details.push({ label: '頂樓（屋頂傳熱）', value: '+15%' });
+  }
+
+  // 人數 — 每人散發約 600 BTU/hr（ASHRAE 標準：靜態活動 400 BTU 感熱 + 200 BTU 潛熱）
+  // 基礎值已包含 1 人
+  const people = getSelected('people');
+  const peopleNum = parseInt(people);
+  if (peopleNum > 1) {
+    const extraPeople = peopleNum - 1;
+    const peopleBTU = extraPeople * 600;
+    extraBTU += peopleBTU;
+    details.push({ label: `額外 ${extraPeople} 人（每人 600 BTU — ASHRAE 標準）`, value: `+${peopleBTU.toLocaleString()} BTU` });
+  }
+
+  // 電器發熱量 — 1 瓦特 ≈ 3.41 BTU/hr
+  // 桌面電腦約 150W = ~500 BTU，電視約 100W = ~340 BTU，手提電腦約 50W = ~170 BTU
+  const appliance = getSelected('appliance');
+  if (appliance === 'some') {
+    // 1 部桌面電腦 (~500) + 顯示器 (~170) + 雜項 (~130) ≈ 800 BTU
+    extraBTU += 800;
+    details.push({ label: '電腦 + 顯示器（約 230W）', value: '+800 BTU' });
+  } else if (appliance === 'many') {
+    // 多部電腦/電器 ≈ 2,000 BTU（約 580W 設備）
+    extraBTU += 2000;
+    details.push({ label: '多部電腦／電器（約 580W）', value: '+2,000 BTU' });
+  }
+
+  // 房間用途
+  const usage = getSelected('usage');
+  if (usage === 'kitchen') {
+    // 煮食爐具散熱約 1,000-2,000 BTU/hr，取中間值以百分比處理
+    totalMultiplier *= 1.2;
+    details.push({ label: '廚房（煮食散熱）', value: '+20%' });
+  } else if (usage === 'living') {
+    // 客廳通常較多人及電器
+    totalMultiplier *= 1.1;
+    details.push({ label: '客廳（人多電器多）', value: '+10%' });
+  } else if (usage === 'office') {
+    totalMultiplier *= 1.05;
+    details.push({ label: '辦公室（電器散熱）', value: '+5%' });
+  }
+
+  // 計算最終 BTU（四捨五入至百位）
+  let finalBTU = Math.round((baseBTU * totalMultiplier + extraBTU) / 100) * 100;
+
+  // 匹數對應 — 根據香港冷氣機市場常見規格（大金、松下、三菱等品牌）
+  const hpRanges = [
+    { min: 0, max: 8000, hp: '3/4 匹', model: '7,000 BTU' },
+    { min: 8000, max: 10500, hp: '1 匹', model: '9,000 - 10,000 BTU' },
+    { min: 10500, max: 15000, hp: '1.5 匹', model: '12,000 - 13,000 BTU' },
+    { min: 15000, max: 21000, hp: '2 匹', model: '18,000 BTU' },
+    { min: 21000, max: 26000, hp: '2.5 匹', model: '24,000 BTU' },
+    { min: 26000, max: 32000, hp: '3 匹', model: '27,000 - 28,000 BTU' },
+    { min: 32000, max: Infinity, hp: '3匹以上（建議分裝兩部）', model: '28,000+ BTU' },
+  ];
+
+  let recommended = hpRanges.find(r => finalBTU >= r.min && finalBTU < r.max);
+
+  // Display
+  document.getElementById('btuValue').textContent = finalBTU.toLocaleString();
+  document.getElementById('hpValue').textContent = `${recommended.hp}（${recommended.model} 機種）`;
+
+  // Details
+  const detailHTML = details.map(d =>
+    `<div class="detail-row"><span class="dl">${d.label}</span><span class="dv">${d.value}</span></div>`
+  ).join('');
+  document.getElementById('detailRows').innerHTML = detailHTML;
+
+  // Tips
+  const tips = [];
+  if (direction === 'west') {
+    tips.push('西曬房間建議加裝隔熱窗簾或窗貼，可以減少約 10-20% 冷氣負擔。');
+  }
+  if (topfloor === 'yes') {
+    tips.push('頂樓建議選擇變頻冷氣機，長時間運行更慳電。');
+  }
+  if (area > 250) {
+    tips.push('大面積空間建議考慮裝兩部細匹數冷氣，比一部大匹數更均勻涼快。');
+  }
+  if (usage === 'bedroom') {
+    tips.push('睡房建議選擇靜音型號，留意分貝值（dB），35dB 以下較理想。');
+  }
+  if (usage === 'kitchen') {
+    tips.push('廚房建議選擇窗口機或分體機，並確保排氣通風良好。');
+  }
+  tips.push('選購時留意能源標籤，1級最慳電。變頻機雖然貴啲但長遠慳電費。');
+
+  const tipsHTML = `<h3>實用貼士</h3>` + tips.map(t => `<div class="tip-item">${t}</div>`).join('');
+  document.getElementById('tipsSection').innerHTML = tipsHTML;
+
+  // Show result
+  const resultCard = document.getElementById('result');
+  resultCard.classList.add('show');
+  resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
+</body>
+</html>
