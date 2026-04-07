@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 68 - Q&A Session</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(59,130,246,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#eef2ff;padding:70px;box-sizing:border-box;display:flex;flex-direction:column}
+.bg-circles{position:absolute;inset:0}
+.bg-circle{position:absolute;border-radius:50%;opacity:0.04}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;position:relative;z-index:1}
+.qa-badge{display:flex;align-items:center;gap:10px;padding:14px 28px;border-radius:14px;font-size:20px;font-weight:800;color:#fff;outline:none}
+.qa-badge-icon{font-size:24px}
+.topic{font-size:15px;font-weight:700;color:rgba(0,0,0,0.3);text-transform:uppercase;letter-spacing:3px;outline:none}
+.title{font-size:46px;font-weight:900;color:#1e293b;line-height:1.2;margin-bottom:35px;position:relative;z-index:1;outline:none}
+.qa-list{display:flex;flex-direction:column;gap:24px;flex:1;position:relative;z-index:1}
+.qa-item{}
+.q-bubble{display:inline-block;padding:18px 28px;border-radius:20px 20px 20px 4px;font-size:19px;font-weight:700;color:#fff;max-width:700px;outline:none;line-height:1.4}
+.a-bubble{display:inline-block;margin-top:10px;margin-left:60px;padding:18px 28px;background:#fff;border-radius:20px 20px 4px 20px;font-size:18px;color:#475569;max-width:700px;box-shadow:0 2px 12px rgba(0,0,0,0.04);outline:none;line-height:1.5}
+.a-label{display:inline-block;margin-left:60px;margin-top:6px;font-size:13px;font-weight:700;color:#94a3b8;outline:none}
+.q-label{font-size:13px;font-weight:700;margin-bottom:6px;outline:none}
+.bottom{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;margin-top:auto;padding-top:20px}
+.brand{font-size:15px;font-weight:800;color:rgba(0,0,0,0.15);letter-spacing:2px;outline:none}
+.ask-btn{padding:14px 32px;border-radius:12px;font-size:16px;font-weight:800;color:#fff;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Primary</label><br><input type="color" id="c1" value="#3b82f6" onchange="u()"></div>
+<div><label>Background</label><br><input type="color" id="c2" value="#eef2ff" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="bg-circles">
+<div class="bg-circle" id="bgc1" style="width:400px;height:400px;top:-100px;right:-50px;background:#3b82f6"></div>
+<div class="bg-circle" id="bgc2" style="width:300px;height:300px;bottom:-80px;left:-60px;background:#3b82f6"></div>
+</div>
+<div class="header">
+<div class="qa-badge" id="qabadge" style="background:#3b82f6">
+<span class="qa-badge-icon">❓</span> Q&A Session
+</div>
+<div class="topic" contenteditable="true">Digital Marketing</div>
+</div>
+<div class="title" contenteditable="true">Your Questions,<br>Answered!</div>
+<div class="qa-list">
+<div class="qa-item">
+<div class="q-label" id="ql1" contenteditable="true" style="color:#3b82f6">Q: FROM @SARAH</div>
+<div class="q-bubble" id="qb1" contenteditable="true" style="background:#3b82f6">How often should I post on social media for best engagement?</div>
+<div class="a-label" contenteditable="true">A: OUR ANSWER</div>
+<div class="a-bubble" contenteditable="true">Consistency matters more than frequency! Start with 3-4 posts per week and focus on quality content that resonates with your audience.</div>
+</div>
+<div class="qa-item">
+<div class="q-label" id="ql2" contenteditable="true" style="color:#3b82f6">Q: FROM @MIKE</div>
+<div class="q-bubble" id="qb2" contenteditable="true" style="background:#3b82f6">What's the best time to send marketing emails?</div>
+<div class="a-label" contenteditable="true">A: OUR ANSWER</div>
+<div class="a-bubble" contenteditable="true">Tuesday and Thursday mornings (9-11 AM) tend to get the highest open rates, but always A/B test with your own audience!</div>
+</div>
+</div>
+<div class="bottom">
+<div class="brand" contenteditable="true">YOUR BRAND</div>
+<div class="ask-btn" id="askbtn" contenteditable="true" style="background:#3b82f6">Ask a Question →</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var c1=document.getElementById('c1').value,c2=document.getElementById('c2').value;
+document.getElementById('card').style.background=c2;
+document.getElementById('qabadge').style.background=c1;
+document.getElementById('askbtn').style.background=c1;
+document.querySelectorAll('.q-bubble').forEach(function(el){el.style.background=c1});
+document.querySelectorAll('.q-label').forEach(function(el){el.style.color=c1});
+document.getElementById('bgc1').style.background=c1;
+document.getElementById('bgc2').style.background=c1;
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='qa-session.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

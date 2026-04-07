@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 77 - Duotone</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.top-half{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:80px;position:relative}
+.bottom-half{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:80px;position:relative}
+.geo-shape{position:absolute;opacity:0.15}
+.geo1{width:300px;height:300px;top:-50px;right:-50px;transform:rotate(45deg)}
+.geo2{width:200px;height:200px;bottom:50px;left:-30px;border-radius:50%}
+.geo3{width:0;height:0;border-left:150px solid transparent;border-right:150px solid transparent;border-bottom:260px solid;position:absolute;top:60px;right:100px;opacity:0.1}
+.geo4{width:250px;height:250px;bottom:-40px;right:80px;transform:rotate(15deg);opacity:0.1}
+.duo-label{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:4px;margin-bottom:16px;outline:none}
+.duo-title-top{font-size:72px;font-weight:900;line-height:1;margin-bottom:16px;outline:none}
+.duo-desc-top{font-size:22px;font-weight:600;opacity:0.8;max-width:600px;line-height:1.5;outline:none}
+.duo-title-bot{font-size:64px;font-weight:900;line-height:1.05;margin-bottom:16px;outline:none}
+.duo-desc-bot{font-size:20px;font-weight:600;opacity:0.8;max-width:600px;line-height:1.5;margin-bottom:30px;outline:none}
+.duo-cta{display:inline-block;padding:16px 44px;border-radius:8px;font-size:20px;font-weight:800;outline:none;text-transform:uppercase;letter-spacing:2px}
+.duo-bar{position:absolute;left:80px;right:80px;height:6px;top:50%;transform:translateY(-50%);z-index:5}
+.duo-dots{position:absolute;right:80px;top:50%;transform:translateY(-50%);display:flex;gap:12px;z-index:6}
+.duo-dot{width:16px;height:16px;border-radius:50%}
+.stripe{position:absolute;height:100%;width:8px;opacity:0.08}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change duotone colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color A</label><br><input type="color" id="c1" value="#1a1a2e" onchange="u()"></div>
+<div><label>Color B</label><br><input type="color" id="c2" value="#e94560" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="top-half" id="topH">
+<div class="geo-shape geo1" id="g1"></div>
+<div class="stripe" id="s1" style="left:200px"></div>
+<div class="stripe" id="s2" style="left:240px"></div>
+<div class="stripe" id="s3" style="left:280px"></div>
+<div class="duo-label" id="labelTop" contenteditable="true">BOLD STATEMENT</div>
+<div class="duo-title-top" id="titleTop" contenteditable="true">THINK<br>DIFFERENT.</div>
+<div class="duo-desc-top" contenteditable="true" style="color:rgba(255,255,255,0.7)">Challenge the status quo with designs that demand attention.</div>
+</div>
+<div class="duo-bar" id="bar"></div>
+<div class="duo-dots"><div class="duo-dot" id="d1"></div><div class="duo-dot" id="d2"></div><div class="duo-dot" id="d3"></div></div>
+<div class="bottom-half" id="botH">
+<div class="geo-shape geo2" id="g2"></div>
+<div class="geo3" id="g3"></div>
+<div class="geo4 geo-shape" id="g4"></div>
+<div class="duo-title-bot" id="titleBot" contenteditable="true">Make Your Mark Today</div>
+<div class="duo-desc-bot" id="descBot" contenteditable="true">High contrast duotone designs that convert followers into customers.</div>
+<div class="duo-cta" id="cta" contenteditable="true">GET STARTED →</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var ca=document.getElementById('c1').value;
+var cb=document.getElementById('c2').value;
+document.getElementById('topH').style.background=ca;
+document.getElementById('botH').style.background=cb;
+document.getElementById('titleTop').style.color=cb;
+document.getElementById('labelTop').style.color=cb;
+document.getElementById('titleBot').style.color=ca;
+document.getElementById('descBot').style.color='rgba(0,0,0,0.5)';
+document.getElementById('bar').style.background='#fff';
+document.getElementById('d1').style.background=ca;
+document.getElementById('d2').style.background='#fff';
+document.getElementById('d3').style.background=cb;
+document.getElementById('g1').style.background=cb;
+document.getElementById('g2').style.background=ca;
+document.getElementById('g3').style.borderBottomColor=ca;
+document.getElementById('g4').style.background=ca;
+document.getElementById('cta').style.background=ca;
+document.getElementById('cta').style.color=cb;
+['s1','s2','s3'].forEach(function(id){document.getElementById(id).style.background=cb;});
+}
+u();
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='duotone.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

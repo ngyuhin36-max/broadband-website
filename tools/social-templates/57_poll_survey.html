@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 57 - Poll / Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(16,185,129,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:80px}
+.deco-circle{position:absolute;top:-80px;right:-80px;width:350px;height:350px;border-radius:50%;opacity:0.06}
+.deco-circle2{position:absolute;bottom:-60px;left:-60px;width:250px;height:250px;border-radius:50%;opacity:0.04}
+.poll-icon{font-size:60px;margin-bottom:20px;outline:none;position:relative;z-index:1}
+.poll-tag{font-size:16px;font-weight:800;letter-spacing:5px;color:rgba(255,255,255,0.4);margin-bottom:15px;outline:none;position:relative;z-index:1}
+.poll-question{font-size:46px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:50px;outline:none;position:relative;z-index:1;max-width:800px}
+.poll-options{display:flex;flex-direction:column;gap:20px;position:relative;z-index:1}
+.poll-option{background:rgba(255,255,255,0.08);border-radius:16px;padding:24px 30px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden}
+.poll-bar{position:absolute;left:0;top:0;bottom:0;border-radius:16px;opacity:0.15}
+.poll-letter{font-size:20px;font-weight:900;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;outline:none}
+.poll-text{font-size:22px;color:#fff;font-weight:600;flex:1;outline:none}
+.poll-pct{font-size:22px;font-weight:900;color:rgba(255,255,255,0.7);outline:none}
+.poll-total{font-size:16px;color:rgba(255,255,255,0.3);margin-top:30px;font-weight:600;outline:none;position:relative;z-index:1}
+.footer{position:absolute;bottom:40px;right:80px;font-size:14px;color:rgba(255,255,255,0.15);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#064e3b" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#10b981" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#064e3b;">
+<div class="deco-circle" id="deco1" style="background:#10b981;"></div>
+<div class="deco-circle2" id="deco2" style="background:#10b981;"></div>
+<div class="poll-icon" contenteditable="true">📊</div>
+<div class="poll-tag" contenteditable="true">COMMUNITY POLL</div>
+<div class="poll-question" contenteditable="true">What's your biggest challenge with social media marketing?</div>
+<div class="poll-options">
+<div class="poll-option">
+<div class="poll-bar" id="bar1" style="width:45%;background:#10b981;"></div>
+<div class="poll-letter" id="let1" style="background:#10b981;">A</div>
+<div class="poll-text" contenteditable="true">Creating consistent content</div>
+<div class="poll-pct" contenteditable="true">45%</div>
+</div>
+<div class="poll-option">
+<div class="poll-bar" id="bar2" style="width:28%;background:#10b981;"></div>
+<div class="poll-letter" id="let2" style="background:#10b981;">B</div>
+<div class="poll-text" contenteditable="true">Growing engagement</div>
+<div class="poll-pct" contenteditable="true">28%</div>
+</div>
+<div class="poll-option">
+<div class="poll-bar" id="bar3" style="width:17%;background:#10b981;"></div>
+<div class="poll-letter" id="let3" style="background:#10b981;">C</div>
+<div class="poll-text" contenteditable="true">Finding the right audience</div>
+<div class="poll-pct" contenteditable="true">17%</div>
+</div>
+<div class="poll-option">
+<div class="poll-bar" id="bar4" style="width:10%;background:#10b981;"></div>
+<div class="poll-letter" id="let4" style="background:#10b981;">D</div>
+<div class="poll-text" contenteditable="true">Measuring ROI</div>
+<div class="poll-pct" contenteditable="true">10%</div>
+</div>
+</div>
+<div class="poll-total" contenteditable="true">2,847 votes • Share your answer in the comments!</div>
+<div class="footer" contenteditable="true">@YOURBRAND</div>
+</div>
+</div>
+<script>
+function u(){var a=document.getElementById('c1').value,b=document.getElementById('c2').value;document.getElementById('card').style.background=a;document.getElementById('deco1').style.background=b;document.getElementById('deco2').style.background=b;for(var i=1;i<=4;i++){document.getElementById('bar'+i).style.background=b;document.getElementById('let'+i).style.background=b}}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='poll-survey.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

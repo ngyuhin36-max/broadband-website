@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 94 - Goal Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#0c0a1a" onchange="u()"></div>
+<div><label>Ring Color</label><br><input type="color" id="c2" value="#a855f7" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c3" value="#38bdf8" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#0c0a1a;display:flex;flex-direction:column;align-items:center;padding:60px 80px;box-sizing:border-box;">
+<!-- Header -->
+<div style="text-align:center;margin-bottom:10px;">
+<div contenteditable class="accent-text" style="font-size:16px;font-weight:700;color:#38bdf8;letter-spacing:5px;text-transform:uppercase;">GOAL PROGRESS</div>
+</div>
+<!-- Circular progress -->
+<div style="position:relative;width:320px;height:320px;margin:20px 0 30px;">
+<!-- Background ring -->
+<svg width="320" height="320" style="position:absolute;top:0;left:0;transform:rotate(-90deg);">
+<circle cx="160" cy="160" r="140" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="20"/>
+<circle class="progress-ring" cx="160" cy="160" r="140" fill="none" stroke="#a855f7" stroke-width="20" stroke-linecap="round" stroke-dasharray="879.6" stroke-dashoffset="263.9"/>
+</svg>
+<!-- Center text -->
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+<div contenteditable style="font-size:72px;font-weight:900;color:#ffffff;line-height:1;">70%</div>
+<div contenteditable style="font-size:16px;font-weight:600;color:#a855f7;margin-top:4px;" class="ring-text">COMPLETE</div>
+</div>
+</div>
+<!-- Goal title -->
+<div contenteditable style="font-size:38px;font-weight:900;color:#ffffff;text-align:center;line-height:1.2;margin-bottom:35px;">Read 50 Books<br>This Year</div>
+<!-- Milestones -->
+<div style="width:100%;display:flex;flex-direction:column;gap:16px;">
+<div style="display:flex;align-items:center;gap:16px;">
+<div class="accent-dot" style="width:14px;height:14px;min-width:14px;background:#38bdf8;border-radius:50%;"></div>
+<div style="flex:1;height:2px;background:rgba(255,255,255,0.1);position:relative;"><div class="milestone-fill" style="position:absolute;left:0;top:0;height:100%;width:100%;background:#38bdf8;border-radius:1px;"></div></div>
+<div contenteditable style="font-size:18px;font-weight:700;color:#ffffff;min-width:180px;">10 books — Jan</div>
+<div contenteditable style="font-size:16px;color:#22c55e;font-weight:700;">Done ✓</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px;">
+<div class="accent-dot" style="width:14px;height:14px;min-width:14px;background:#38bdf8;border-radius:50%;"></div>
+<div style="flex:1;height:2px;background:rgba(255,255,255,0.1);position:relative;"><div class="milestone-fill" style="position:absolute;left:0;top:0;height:100%;width:100%;background:#38bdf8;border-radius:1px;"></div></div>
+<div contenteditable style="font-size:18px;font-weight:700;color:#ffffff;min-width:180px;">25 books — May</div>
+<div contenteditable style="font-size:16px;color:#22c55e;font-weight:700;">Done ✓</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px;">
+<div class="accent-dot" style="width:14px;height:14px;min-width:14px;background:#38bdf8;border-radius:50%;"></div>
+<div style="flex:1;height:2px;background:rgba(255,255,255,0.1);position:relative;"><div class="milestone-fill" style="position:absolute;left:0;top:0;height:100%;width:70%;background:#38bdf8;border-radius:1px;"></div></div>
+<div contenteditable style="font-size:18px;font-weight:700;color:#ffffff;min-width:180px;">35 books — Aug</div>
+<div contenteditable style="font-size:16px;color:#a855f7;font-weight:700;" class="ring-text">In progress</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px;">
+<div style="width:14px;height:14px;min-width:14px;border:2px solid rgba(255,255,255,0.2);border-radius:50%;box-sizing:border-box;"></div>
+<div style="flex:1;height:2px;background:rgba(255,255,255,0.1);"></div>
+<div contenteditable style="font-size:18px;font-weight:700;color:rgba(255,255,255,0.4);min-width:180px;">50 books — Dec</div>
+<div contenteditable style="font-size:16px;color:rgba(255,255,255,0.3);font-weight:700;">Upcoming</div>
+</div>
+</div>
+<!-- Footer -->
+<div style="margin-top:auto;padding-top:25px;text-align:center;">
+<div contenteditable style="font-size:16px;color:#6b7280;font-weight:600;">Keep pushing! You're almost there 🔥</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var ring=document.getElementById('c2').value;
+var accent=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.querySelector('.progress-ring').setAttribute('stroke',ring);
+document.querySelectorAll('.ring-text').forEach(function(el){el.style.color=ring});
+document.querySelectorAll('.accent-text').forEach(function(el){el.style.color=accent});
+document.querySelectorAll('.accent-dot').forEach(function(el){el.style.background=accent});
+document.querySelectorAll('.milestone-fill').forEach(function(el){el.style.background=accent});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='goal-tracker.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

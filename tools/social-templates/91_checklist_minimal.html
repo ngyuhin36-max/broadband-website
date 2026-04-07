@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 91 - Minimal Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#fefefe" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#6366f1" onchange="u()"></div>
+<div><label>Check Color</label><br><input type="color" id="c3" value="#22c55e" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#fefefe;display:flex;flex-direction:column;padding:70px 80px;box-sizing:border-box;">
+<!-- Progress bar -->
+<div style="margin-bottom:16px;">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+<div contenteditable style="font-size:15px;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:3px;" class="accent-text">PROGRESS</div>
+<div contenteditable style="font-size:15px;font-weight:700;color:#6366f1;" class="accent-text">4 / 6 done</div>
+</div>
+<div style="width:100%;height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;">
+<div class="progress-fill" style="width:66%;height:100%;background:#6366f1;border-radius:4px;"></div>
+</div>
+</div>
+<!-- Title -->
+<div style="margin:30px 0 40px;">
+<div contenteditable style="font-size:54px;font-weight:900;color:#111827;line-height:1.15;">Your Morning<br>Checklist</div>
+<div style="width:60px;height:5px;background:#6366f1;border-radius:3px;margin-top:20px;" class="accent-bar"></div>
+</div>
+<!-- Checklist items -->
+<div style="flex:1;display:flex;flex-direction:column;gap:24px;justify-content:center;">
+<div style="display:flex;align-items:center;gap:22px;">
+<div class="check-box checked" style="width:38px;height:38px;min-width:38px;border-radius:10px;background:#22c55e;display:flex;align-items:center;justify-content:center;">
+<div style="color:#fff;font-size:22px;font-weight:900;line-height:1;">✓</div>
+</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#374151;text-decoration:line-through;opacity:0.6;">Drink a glass of water</div>
+</div>
+<div style="display:flex;align-items:center;gap:22px;">
+<div class="check-box checked" style="width:38px;height:38px;min-width:38px;border-radius:10px;background:#22c55e;display:flex;align-items:center;justify-content:center;">
+<div style="color:#fff;font-size:22px;font-weight:900;line-height:1;">✓</div>
+</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#374151;text-decoration:line-through;opacity:0.6;">10-minute stretch routine</div>
+</div>
+<div style="display:flex;align-items:center;gap:22px;">
+<div class="check-box checked" style="width:38px;height:38px;min-width:38px;border-radius:10px;background:#22c55e;display:flex;align-items:center;justify-content:center;">
+<div style="color:#fff;font-size:22px;font-weight:900;line-height:1;">✓</div>
+</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#374151;text-decoration:line-through;opacity:0.6;">Write 3 gratitude items</div>
+</div>
+<div style="display:flex;align-items:center;gap:22px;">
+<div class="check-box checked" style="width:38px;height:38px;min-width:38px;border-radius:10px;background:#22c55e;display:flex;align-items:center;justify-content:center;">
+<div style="color:#fff;font-size:22px;font-weight:900;line-height:1;">✓</div>
+</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#374151;text-decoration:line-through;opacity:0.6;">Healthy breakfast</div>
+</div>
+<div style="display:flex;align-items:center;gap:22px;">
+<div class="check-box unchecked" style="width:38px;height:38px;min-width:38px;border-radius:10px;border:3px solid #d1d5db;box-sizing:border-box;"></div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#374151;">Review today's goals</div>
+</div>
+<div style="display:flex;align-items:center;gap:22px;">
+<div class="check-box unchecked" style="width:38px;height:38px;min-width:38px;border-radius:10px;border:3px solid #d1d5db;box-sizing:border-box;"></div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#374151;">5 minutes of meditation</div>
+</div>
+</div>
+<!-- Footer -->
+<div style="text-align:center;margin-top:30px;">
+<div contenteditable style="font-size:16px;color:#9ca3af;font-weight:600;">@yourhandle</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var accent=document.getElementById('c2').value;
+var check=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.querySelectorAll('.accent-text').forEach(function(el){el.style.color=accent});
+document.querySelectorAll('.accent-bar').forEach(function(el){el.style.background=accent});
+document.querySelector('.progress-fill').style.background=accent;
+document.querySelectorAll('.check-box.checked').forEach(function(el){el.style.background=check});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='checklist-minimal.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

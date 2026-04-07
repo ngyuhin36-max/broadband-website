@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 85 - Color Palette</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Use swatch pickers to change palette colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Swatch 1</label><br><input type="color" id="s1" value="#264653" onchange="u()"></div>
+<div><label>Swatch 2</label><br><input type="color" id="s2" value="#2a9d8f" onchange="u()"></div>
+<div><label>Swatch 3</label><br><input type="color" id="s3" value="#e9c46a" onchange="u()"></div>
+<div><label>Swatch 4</label><br><input type="color" id="s4" value="#f4a261" onchange="u()"></div>
+<div><label>Swatch 5</label><br><input type="color" id="s5" value="#e76f51" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#ffffff;display:flex;flex-direction:column;padding:70px;box-sizing:border-box;">
+<!-- Header -->
+<div style="margin-bottom:50px;">
+<div contenteditable style="font-size:18px;font-weight:600;color:#999;letter-spacing:5px;text-transform:uppercase;margin-bottom:8px;">BRAND PALETTE</div>
+<div contenteditable style="font-size:52px;font-weight:900;color:#1a1a1a;line-height:1.1;">Sunset Coast</div>
+<div contenteditable style="font-size:20px;color:#777;margin-top:10px;">Warm, earthy tones inspired by Mediterranean sunsets</div>
+</div>
+<!-- Swatches -->
+<div style="flex:1;display:flex;gap:20px;">
+<div style="flex:1;display:flex;flex-direction:column;">
+<div id="sw1" style="flex:1;background:#264653;border-radius:20px 20px 0 0;"></div>
+<div style="background:#f5f5f5;padding:20px;border-radius:0 0 20px 20px;text-align:center;">
+<div id="hex1" style="font-size:22px;font-weight:800;color:#1a1a1a;font-family:monospace;">#264653</div>
+<div contenteditable style="font-size:14px;color:#999;margin-top:4px;font-weight:600;">Deep Ocean</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;">
+<div id="sw2" style="flex:1;background:#2a9d8f;border-radius:20px 20px 0 0;"></div>
+<div style="background:#f5f5f5;padding:20px;border-radius:0 0 20px 20px;text-align:center;">
+<div id="hex2" style="font-size:22px;font-weight:800;color:#1a1a1a;font-family:monospace;">#2A9D8F</div>
+<div contenteditable style="font-size:14px;color:#999;margin-top:4px;font-weight:600;">Teal Wave</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;">
+<div id="sw3" style="flex:1;background:#e9c46a;border-radius:20px 20px 0 0;"></div>
+<div style="background:#f5f5f5;padding:20px;border-radius:0 0 20px 20px;text-align:center;">
+<div id="hex3" style="font-size:22px;font-weight:800;color:#1a1a1a;font-family:monospace;">#E9C46A</div>
+<div contenteditable style="font-size:14px;color:#999;margin-top:4px;font-weight:600;">Sand Gold</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;">
+<div id="sw4" style="flex:1;background:#f4a261;border-radius:20px 20px 0 0;"></div>
+<div style="background:#f5f5f5;padding:20px;border-radius:0 0 20px 20px;text-align:center;">
+<div id="hex4" style="font-size:22px;font-weight:800;color:#1a1a1a;font-family:monospace;">#F4A261</div>
+<div contenteditable style="font-size:14px;color:#999;margin-top:4px;font-weight:600;">Warm Peach</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;">
+<div id="sw5" style="flex:1;background:#e76f51;border-radius:20px 20px 0 0;"></div>
+<div style="background:#f5f5f5;padding:20px;border-radius:0 0 20px 20px;text-align:center;">
+<div id="hex5" style="font-size:22px;font-weight:800;color:#1a1a1a;font-family:monospace;">#E76F51</div>
+<div contenteditable style="font-size:14px;color:#999;margin-top:4px;font-weight:600;">Sunset Red</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div style="margin-top:30px;display:flex;justify-content:space-between;align-items:center;">
+<div contenteditable style="font-size:16px;color:#bbb;font-weight:600;">🎨 Color Palette #042</div>
+<div contenteditable style="font-size:16px;color:#bbb;font-weight:600;">@yourbrand</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var colors=['s1','s2','s3','s4','s5'];
+colors.forEach(function(id,i){
+var val=document.getElementById(id).value;
+document.getElementById('sw'+(i+1)).style.background=val;
+document.getElementById('hex'+(i+1)).textContent=val.toUpperCase();
+});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='color-palette.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

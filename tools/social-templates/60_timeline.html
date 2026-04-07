@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 60 - Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(244,63,94,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;padding:70px 80px}
+.tl-header{text-align:center;margin-bottom:50px}
+.tl-tag{font-size:15px;font-weight:800;letter-spacing:5px;color:rgba(255,255,255,0.4);margin-bottom:10px;outline:none}
+.tl-title{font-size:46px;font-weight:900;color:#fff;line-height:1.2;outline:none}
+.tl-body{display:flex;flex:1;position:relative}
+.tl-line-container{width:60px;display:flex;flex-direction:column;align-items:center;position:relative}
+.tl-line{width:4px;flex:1;border-radius:2px;position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%)}
+.tl-items{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.tl-item{display:flex;align-items:flex-start;gap:25px;position:relative}
+.tl-dot-wrap{width:60px;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1}
+.tl-dot{width:22px;height:22px;border-radius:50%;border:4px solid rgba(255,255,255,0.15)}
+.tl-content{flex:1;background:rgba(255,255,255,0.06);border-radius:16px;padding:25px 30px;border:1px solid rgba(255,255,255,0.06)}
+.tl-year{font-size:16px;font-weight:900;letter-spacing:3px;margin-bottom:6px;outline:none}
+.tl-milestone{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;outline:none}
+.tl-desc{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.5;outline:none}
+.tl-emoji{font-size:28px;outline:none;margin-left:auto;align-self:center;flex-shrink:0}
+.footer{text-align:center;margin-top:40px;font-size:14px;color:rgba(255,255,255,0.15);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#18181b" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#f43f5e" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(180deg,#18181b,#1f1f23);">
+<div class="tl-header">
+<div class="tl-tag" contenteditable="true">OUR JOURNEY</div>
+<div class="tl-title" contenteditable="true">Company Timeline</div>
+</div>
+<div class="tl-body">
+<div class="tl-line-container"><div class="tl-line" id="line" style="background:linear-gradient(180deg,#f43f5e,#f43f5e44);"></div></div>
+<div class="tl-items">
+<div class="tl-item">
+<div class="tl-dot-wrap"><div class="tl-dot dot" style="background:#f43f5e;border-color:#f43f5e44;"></div></div>
+<div class="tl-content">
+<div class="tl-year yr" contenteditable="true" style="color:#f43f5e;">2020</div>
+<div class="tl-milestone" contenteditable="true">The Beginning</div>
+<div class="tl-desc" contenteditable="true">Founded in a small garage with just 2 people and a big dream to change the industry.</div>
+</div>
+<div class="tl-emoji" contenteditable="true">🚀</div>
+</div>
+<div class="tl-item">
+<div class="tl-dot-wrap"><div class="tl-dot dot" style="background:#f43f5e;border-color:#f43f5e44;"></div></div>
+<div class="tl-content">
+<div class="tl-year yr" contenteditable="true" style="color:#f43f5e;">2022</div>
+<div class="tl-milestone" contenteditable="true">First 1,000 Customers</div>
+<div class="tl-desc" contenteditable="true">Hit our first major milestone and expanded the team to 15 talented people.</div>
+</div>
+<div class="tl-emoji" contenteditable="true">🎯</div>
+</div>
+<div class="tl-item">
+<div class="tl-dot-wrap"><div class="tl-dot dot" style="background:#f43f5e;border-color:#f43f5e44;"></div></div>
+<div class="tl-content">
+<div class="tl-year yr" contenteditable="true" style="color:#f43f5e;">2024</div>
+<div class="tl-milestone" contenteditable="true">Series A Funding</div>
+<div class="tl-desc" contenteditable="true">Raised $10M to scale operations and launched in 5 new international markets.</div>
+</div>
+<div class="tl-emoji" contenteditable="true">💰</div>
+</div>
+<div class="tl-item">
+<div class="tl-dot-wrap"><div class="tl-dot dot" style="background:#f43f5e;border-color:#f43f5e44;"></div></div>
+<div class="tl-content">
+<div class="tl-year yr" contenteditable="true" style="color:#f43f5e;">2026</div>
+<div class="tl-milestone" contenteditable="true">50,000+ Customers</div>
+<div class="tl-desc" contenteditable="true">Now serving customers in 30+ countries with a team of 100+ amazing people.</div>
+</div>
+<div class="tl-emoji" contenteditable="true">🌍</div>
+</div>
+</div>
+</div>
+<div class="footer" contenteditable="true">@YOURBRAND</div>
+</div>
+</div>
+<script>
+function u(){var a=document.getElementById('c1').value,b=document.getElementById('c2').value;document.getElementById('card').style.background=`linear-gradient(180deg,${a},${a}ee)`;document.getElementById('line').style.background=`linear-gradient(180deg,${b},${b}44)`;document.querySelectorAll('.dot').forEach(d=>{d.style.background=b;d.style.borderColor=b+'44'});document.querySelectorAll('.yr').forEach(y=>{y.style.color=b})}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='timeline.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

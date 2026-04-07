@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 84 - Social Links / Link in Bio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#faf5ff" onchange="u()"></div>
+<div><label>Button Color</label><br><input type="color" id="c2" value="#7c3aed" onchange="u()"></div>
+<div><label>Profile Ring</label><br><input type="color" id="c3" value="#c084fc" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(180deg,#faf5ff 0%,#f3e8ff 50%,#ede9fe 100%);display:flex;flex-direction:column;align-items:center;padding:60px 120px;box-sizing:border-box;">
+<!-- Decorative dots -->
+<div style="position:absolute;top:30px;right:30px;display:grid;grid-template-columns:repeat(5,8px);gap:10px;">
+<div style="width:8px;height:8px;border-radius:50%;background:#c084fc55;"></div><div style="width:8px;height:8px;border-radius:50%;background:#c084fc44;"></div><div style="width:8px;height:8px;border-radius:50%;background:#c084fc33;"></div><div style="width:8px;height:8px;border-radius:50%;background:#c084fc22;"></div><div style="width:8px;height:8px;border-radius:50%;background:#c084fc11;"></div>
+<div style="width:8px;height:8px;border-radius:50%;background:#c084fc44;"></div><div style="width:8px;height:8px;border-radius:50%;background:#c084fc33;"></div><div style="width:8px;height:8px;border-radius:50%;background:#c084fc22;"></div><div style="width:8px;height:8px;border-radius:50%;background:#c084fc11;"></div><div style="width:8px;height:8px;border-radius:50%;background:#c084fc08;"></div>
+</div>
+<!-- Profile -->
+<div class="profile-ring" style="width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#c084fc);padding:5px;margin-bottom:20px;">
+<div style="width:100%;height:100%;border-radius:50%;background:#faf5ff;display:flex;align-items:center;justify-content:center;font-size:60px;">😊</div>
+</div>
+<div contenteditable style="font-size:34px;font-weight:900;color:#3b0764;">@yourhandle</div>
+<div contenteditable style="font-size:18px;color:#7c3aed;margin-top:6px;font-weight:600;">Designer • Creator • Dreamer</div>
+<!-- Links -->
+<div style="width:100%;margin-top:40px;display:flex;flex-direction:column;gap:18px;">
+<div class="link-btn" style="display:flex;align-items:center;justify-content:center;gap:14px;background:#7c3aed;border-radius:18px;padding:24px;cursor:pointer;">
+<span style="font-size:24px;">🌐</span>
+<span contenteditable style="font-size:22px;font-weight:700;color:#ffffff;">My Website</span>
+</div>
+<div class="link-btn" style="display:flex;align-items:center;justify-content:center;gap:14px;background:#7c3aed;border-radius:18px;padding:24px;cursor:pointer;">
+<span style="font-size:24px;">🛒</span>
+<span contenteditable style="font-size:22px;font-weight:700;color:#ffffff;">Shop My Products</span>
+</div>
+<div class="link-btn" style="display:flex;align-items:center;justify-content:center;gap:14px;background:#7c3aed;border-radius:18px;padding:24px;cursor:pointer;">
+<span style="font-size:24px;">📺</span>
+<span contenteditable style="font-size:22px;font-weight:700;color:#ffffff;">YouTube Channel</span>
+</div>
+<div class="link-btn" style="display:flex;align-items:center;justify-content:center;gap:14px;background:#7c3aed;border-radius:18px;padding:24px;cursor:pointer;">
+<span style="font-size:24px;">📰</span>
+<span contenteditable style="font-size:22px;font-weight:700;color:#ffffff;">Latest Blog Post</span>
+</div>
+<div class="link-btn" style="display:flex;align-items:center;justify-content:center;gap:14px;background:#7c3aed;border-radius:18px;padding:24px;cursor:pointer;">
+<span style="font-size:24px;">🎁</span>
+<span contenteditable style="font-size:22px;font-weight:700;color:#ffffff;">Free Resources</span>
+</div>
+<div class="link-btn" style="display:flex;align-items:center;justify-content:center;gap:14px;background:#7c3aed;border-radius:18px;padding:24px;cursor:pointer;">
+<span style="font-size:24px;">💌</span>
+<span contenteditable style="font-size:22px;font-weight:700;color:#ffffff;">Contact Me</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var btnC=document.getElementById('c2').value;
+var ring=document.getElementById('c3').value;
+document.getElementById('card').style.background='linear-gradient(180deg,'+bg+' 0%,'+bg+'ee 50%,'+bg+'dd 100%)';
+document.querySelectorAll('.link-btn').forEach(function(el){el.style.background=btnC});
+document.querySelectorAll('.profile-ring').forEach(function(el){el.style.background='linear-gradient(135deg,'+btnC+','+ring+')'});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='social-links.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

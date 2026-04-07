@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 82 - Opening Hours</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#fefce8" onchange="u()"></div>
+<div><label>Header</label><br><input type="color" id="c2" value="#b45309" onchange="u()"></div>
+<div><label>Highlight</label><br><input type="color" id="c3" value="#f59e0b" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#fefce8;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;box-sizing:border-box;">
+<!-- Decorative top -->
+<div style="position:absolute;top:0;left:0;right:0;height:12px;background:linear-gradient(90deg,#f59e0b,#d97706,#b45309,#d97706,#f59e0b);" class="top-bar"></div>
+<!-- Clock emoji -->
+<div style="font-size:64px;margin-bottom:10px;">🕐</div>
+<div contenteditable class="header-text" style="font-size:52px;font-weight:900;color:#b45309;text-align:center;line-height:1.1;">WE'RE OPEN</div>
+<div contenteditable style="font-size:20px;color:#92400e;margin-top:8px;margin-bottom:40px;font-weight:600;letter-spacing:2px;">BUSINESS HOURS</div>
+<!-- Hours table -->
+<div style="width:100%;max-width:750px;">
+<div class="hour-row" style="display:flex;justify-content:space-between;align-items:center;padding:22px 30px;border-bottom:2px dashed #e5d5a0;transition:all 0.2s;">
+<div contenteditable style="font-size:26px;font-weight:800;color:#78350f;">Monday</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#92400e;">9:00 AM — 6:00 PM</div>
+</div>
+<div class="hour-row" style="display:flex;justify-content:space-between;align-items:center;padding:22px 30px;border-bottom:2px dashed #e5d5a0;">
+<div contenteditable style="font-size:26px;font-weight:800;color:#78350f;">Tuesday</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#92400e;">9:00 AM — 6:00 PM</div>
+</div>
+<div class="hour-row" style="display:flex;justify-content:space-between;align-items:center;padding:22px 30px;border-bottom:2px dashed #e5d5a0;">
+<div contenteditable style="font-size:26px;font-weight:800;color:#78350f;">Wednesday</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#92400e;">9:00 AM — 6:00 PM</div>
+</div>
+<div class="hour-row" style="display:flex;justify-content:space-between;align-items:center;padding:22px 30px;border-bottom:2px dashed #e5d5a0;">
+<div contenteditable style="font-size:26px;font-weight:800;color:#78350f;">Thursday</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#92400e;">9:00 AM — 6:00 PM</div>
+</div>
+<div class="hour-row" style="display:flex;justify-content:space-between;align-items:center;padding:22px 30px;border-bottom:2px dashed #e5d5a0;">
+<div contenteditable style="font-size:26px;font-weight:800;color:#78350f;">Friday</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#92400e;">9:00 AM — 8:00 PM</div>
+</div>
+<div class="hour-row" style="display:flex;justify-content:space-between;align-items:center;padding:22px 30px;border-bottom:2px dashed #e5d5a0;">
+<div contenteditable style="font-size:26px;font-weight:800;color:#78350f;">Saturday</div>
+<div contenteditable style="font-size:26px;font-weight:600;color:#92400e;">10:00 AM — 4:00 PM</div>
+</div>
+<div class="hour-row closed-row" style="display:flex;justify-content:space-between;align-items:center;padding:22px 30px;background:rgba(245,158,11,0.15);border-radius:12px;">
+<div contenteditable style="font-size:26px;font-weight:800;color:#78350f;">Sunday</div>
+<div contenteditable class="highlight-text" style="font-size:26px;font-weight:800;color:#f59e0b;">CLOSED</div>
+</div>
+</div>
+<div contenteditable style="font-size:18px;color:#a16207;margin-top:35px;text-align:center;font-weight:600;">📍 123 Main Street, Your City | 📞 (555) 123-4567</div>
+<!-- Decorative bottom -->
+<div style="position:absolute;bottom:0;left:0;right:0;height:12px;background:linear-gradient(90deg,#f59e0b,#d97706,#b45309,#d97706,#f59e0b);" class="bottom-bar"></div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var header=document.getElementById('c2').value;
+var hl=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.querySelectorAll('.header-text').forEach(function(el){el.style.color=header});
+document.querySelectorAll('.highlight-text').forEach(function(el){el.style.color=hl});
+document.querySelectorAll('.top-bar,.bottom-bar').forEach(function(el){el.style.background='linear-gradient(90deg,'+hl+','+header+','+hl+')'});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='opening-hours.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

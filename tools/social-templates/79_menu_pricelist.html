@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 79 - Menu / Price List</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(180,130,70,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.menu-header{text-align:center;padding:50px 80px 30px;position:relative}
+.menu-logo{font-size:40px;margin-bottom:8px;outline:none}
+.menu-name{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;margin-bottom:6px;outline:none}
+.menu-tagline{font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:4px;opacity:0.5;outline:none}
+.menu-ornament{text-align:center;font-size:24px;letter-spacing:8px;opacity:0.3;margin:16px 0}
+.menu-body{display:flex;flex:1;padding:10px 60px 40px;gap:50px}
+.menu-col{flex:1;display:flex;flex-direction:column}
+.menu-category{margin-bottom:28px}
+.cat-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;padding-bottom:10px;margin-bottom:14px;border-bottom:2px solid;outline:none}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0}
+.item-name{font-size:17px;font-weight:600;outline:none;flex:1}
+.item-dots{flex:1;border-bottom:1px dotted;opacity:0.2;margin:0 10px;min-width:20px}
+.item-price{font-size:18px;font-weight:800;outline:none;white-space:nowrap}
+.item-desc{font-size:13px;opacity:0.5;font-weight:400;margin-top:2px;outline:none}
+.menu-footer{text-align:center;padding:20px 80px 40px}
+.footer-line{height:1px;opacity:0.15;margin-bottom:16px}
+.footer-text{font-size:13px;font-weight:600;opacity:0.4;outline:none}
+.corner-decor{position:absolute;width:60px;height:60px;opacity:0.15}
+.corner-decor.tl{top:20px;left:20px;border-top:3px solid;border-left:3px solid}
+.corner-decor.tr{top:20px;right:20px;border-top:3px solid;border-right:3px solid}
+.corner-decor.bl{bottom:20px;left:20px;border-bottom:3px solid;border-left:3px solid}
+.corner-decor.br{bottom:20px;right:20px;border-bottom:3px solid;border-right:3px solid}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click any item/price to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#1a1410" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#c8a96e" onchange="u()"></div>
+<div><label>Text</label><br><input type="color" id="c3" value="#f5efe6" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="corner-decor tl cd"></div>
+<div class="corner-decor tr cd"></div>
+<div class="corner-decor bl cd"></div>
+<div class="corner-decor br cd"></div>
+<div class="menu-header">
+<div class="menu-logo" contenteditable="true">🍽️</div>
+<div class="menu-name" id="mname" contenteditable="true">The Golden Table</div>
+<div class="menu-tagline" id="mtag" contenteditable="true">Est. 2020 • Fine Dining</div>
+<div class="menu-ornament">— ✦ —</div>
+</div>
+<div class="menu-body">
+<div class="menu-col">
+<div class="menu-category">
+<div class="cat-title ct" contenteditable="true">Starters</div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Truffle Soup</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$18</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Bruschetta Trio</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$14</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Caesar Salad</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$12</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Prawn Cocktail</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$16</span></div>
+</div>
+<div class="menu-category">
+<div class="cat-title ct" contenteditable="true">Mains</div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Wagyu Steak</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$58</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Lobster Risotto</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$45</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Duck Confit</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$38</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Sea Bass Fillet</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$42</span></div>
+</div>
+</div>
+<div class="menu-col">
+<div class="menu-category">
+<div class="cat-title ct" contenteditable="true">Desserts</div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Crème Brûlée</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$14</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Tiramisu</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$12</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Chocolate Fondant</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$15</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Sorbet Selection</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$10</span></div>
+</div>
+<div class="menu-category">
+<div class="cat-title ct" contenteditable="true">Beverages</div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">House Wine (glass)</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$12</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Craft Cocktail</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$18</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Espresso</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$5</span></div>
+<div class="menu-item"><span class="item-name in" contenteditable="true">Fresh Juice</span><span class="item-dots"></span><span class="item-price ip" contenteditable="true">$8</span></div>
+</div>
+</div>
+</div>
+<div class="menu-footer">
+<div class="footer-line" id="fline"></div>
+<div class="footer-text" contenteditable="true">Prices exclude service charge • Allergen info available on request • @thegoldentable</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var acc=document.getElementById('c2').value;
+var txt=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.getElementById('mname').style.color=acc;
+document.getElementById('mtag').style.color=txt;
+document.querySelectorAll('.ct').forEach(function(e){e.style.color=acc;e.style.borderBottomColor=acc;});
+document.querySelectorAll('.in').forEach(function(e){e.style.color=txt;});
+document.querySelectorAll('.ip').forEach(function(e){e.style.color=acc;});
+document.querySelectorAll('.cd').forEach(function(e){e.style.borderColor=acc;});
+document.getElementById('fline').style.background=acc;
+}
+u();
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='menu-pricelist.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

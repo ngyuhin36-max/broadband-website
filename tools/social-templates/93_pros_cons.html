@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 93 - Pros & Cons</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Pros Color</label><br><input type="color" id="c1" value="#059669" onchange="u()"></div>
+<div><label>Cons Color</label><br><input type="color" id="c2" value="#dc2626" onchange="u()"></div>
+<div><label>Background</label><br><input type="color" id="c3" value="#ffffff" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#ffffff;display:flex;flex-direction:column;box-sizing:border-box;">
+<!-- Header -->
+<div style="text-align:center;padding:55px 70px 35px;">
+<div contenteditable style="font-size:46px;font-weight:900;color:#1f2937;line-height:1.15;">Working From Home</div>
+<div contenteditable style="font-size:20px;font-weight:600;color:#9ca3af;margin-top:10px;">An honest comparison</div>
+</div>
+<!-- Split layout -->
+<div style="flex:1;display:flex;padding:0 50px 50px;gap:0;">
+<!-- Pros side -->
+<div class="pros-side" style="flex:1;background:#ecfdf5;border-radius:24px 0 0 24px;padding:40px 35px;display:flex;flex-direction:column;">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:30px;">
+<div class="pros-icon" style="width:44px;height:44px;background:#059669;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:900;">✓</div>
+<div contenteditable class="pros-title" style="font-size:30px;font-weight:900;color:#059669;">PROS</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:22px;flex:1;">
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="pros-check" style="color:#059669;font-size:20px;font-weight:900;margin-top:2px;">✓</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">Flexible schedule & hours</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="pros-check" style="color:#059669;font-size:20px;font-weight:900;margin-top:2px;">✓</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">No commute time</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="pros-check" style="color:#059669;font-size:20px;font-weight:900;margin-top:2px;">✓</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">Comfortable environment</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="pros-check" style="color:#059669;font-size:20px;font-weight:900;margin-top:2px;">✓</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">Better work-life balance</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="pros-check" style="color:#059669;font-size:20px;font-weight:900;margin-top:2px;">✓</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">Save money on transport</div>
+</div>
+</div>
+</div>
+<!-- Divider -->
+<div style="width:4px;background:linear-gradient(180deg,#059669,#9ca3af,#dc2626);border-radius:2px;"></div>
+<!-- Cons side -->
+<div class="cons-side" style="flex:1;background:#fef2f2;border-radius:0 24px 24px 0;padding:40px 35px;display:flex;flex-direction:column;">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:30px;">
+<div class="cons-icon" style="width:44px;height:44px;background:#dc2626;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:900;">✕</div>
+<div contenteditable class="cons-title" style="font-size:30px;font-weight:900;color:#dc2626;">CONS</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:22px;flex:1;">
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="cons-check" style="color:#dc2626;font-size:20px;font-weight:900;margin-top:2px;">✕</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">Social isolation</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="cons-check" style="color:#dc2626;font-size:20px;font-weight:900;margin-top:2px;">✕</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">Harder to disconnect</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="cons-check" style="color:#dc2626;font-size:20px;font-weight:900;margin-top:2px;">✕</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">More distractions at home</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="cons-check" style="color:#dc2626;font-size:20px;font-weight:900;margin-top:2px;">✕</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">Less team collaboration</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:14px;">
+<div class="cons-check" style="color:#dc2626;font-size:20px;font-weight:900;margin-top:2px;">✕</div>
+<div contenteditable style="font-size:21px;font-weight:600;color:#374151;line-height:1.35;">Need self-discipline</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div style="text-align:center;padding:0 0 40px;">
+<div contenteditable style="font-size:16px;color:#9ca3af;font-weight:600;">What's your take? Comment below! 👇</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var pros=document.getElementById('c1').value;
+var cons=document.getElementById('c2').value;
+var bg=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.querySelectorAll('.pros-title').forEach(function(el){el.style.color=pros});
+document.querySelectorAll('.pros-icon').forEach(function(el){el.style.background=pros});
+document.querySelectorAll('.pros-check').forEach(function(el){el.style.color=pros});
+document.querySelectorAll('.cons-title').forEach(function(el){el.style.color=cons});
+document.querySelectorAll('.cons-icon').forEach(function(el){el.style.background=cons});
+document.querySelectorAll('.cons-check').forEach(function(el){el.style.color=cons});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='pros-cons.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

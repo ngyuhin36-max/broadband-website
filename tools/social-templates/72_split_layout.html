@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 72 - Split Layout</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex}
+.panel{width:50%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:70px;box-sizing:border-box;position:relative}
+.panel-left{z-index:1}
+.panel-right{z-index:1}
+.divider{position:absolute;left:50%;top:0;width:6px;height:100%;z-index:5;transform:translateX(-50%)}
+.divider-diamond{position:absolute;top:50%;left:50%;width:40px;height:40px;transform:translate(-50%,-50%) rotate(45deg);z-index:6;border:3px solid #fff}
+.left-label{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;opacity:0.7;outline:none}
+.left-title{font-size:52px;font-weight:900;line-height:1.1;margin-bottom:24px;outline:none}
+.left-desc{font-size:20px;line-height:1.6;opacity:0.8;margin-bottom:30px;outline:none}
+.left-cta{display:inline-block;padding:16px 36px;border-radius:50px;font-size:18px;font-weight:800;outline:none;letter-spacing:1px}
+.right-icon{font-size:70px;margin-bottom:24px;outline:none}
+.right-title{font-size:44px;font-weight:900;line-height:1.15;margin-bottom:20px;outline:none}
+.right-list{list-style:none;padding:0;margin:0}
+.right-item{font-size:20px;font-weight:600;padding:12px 0;border-bottom:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;gap:12px;outline:none}
+.right-item:last-child{border-bottom:none}
+.check{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0}
+.corner-dots{position:absolute;font-size:120px;opacity:0.08;font-weight:900}
+.corner-dots.tl{top:-20px;left:20px}
+.corner-dots.br{bottom:-20px;right:20px}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Left Panel</label><br><input type="color" id="c1" value="#0f172a" onchange="u()"></div>
+<div><label>Right Panel</label><br><input type="color" id="c2" value="#f59e0b" onchange="u()"></div>
+<div><label>Divider</label><br><input type="color" id="c3" value="#ffffff" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="panel panel-left" id="panelL">
+<div class="corner-dots tl">•••</div>
+<div class="left-label" contenteditable="true" style="color:rgba(255,255,255,0.6)">THE PROBLEM</div>
+<div class="left-title" contenteditable="true" style="color:#fff">Still Doing Things The Old Way?</div>
+<div class="left-desc" contenteditable="true" style="color:rgba(255,255,255,0.7)">Manual processes waste time and cost money. There's a better approach.</div>
+<div class="left-cta" id="ctaBtn" contenteditable="true">LEARN MORE →</div>
+</div>
+<div class="divider" id="divider"></div>
+<div class="divider-diamond" id="diamond"></div>
+<div class="panel panel-right" id="panelR">
+<div class="corner-dots br">•••</div>
+<div class="right-icon" contenteditable="true">🚀</div>
+<div class="right-title" contenteditable="true" style="color:#0f172a">The Solution Is Here</div>
+<ul class="right-list">
+<li class="right-item" contenteditable="true"><span class="check" id="ck1">✓</span>Save 10+ hours per week</li>
+<li class="right-item" contenteditable="true"><span class="check" id="ck2">✓</span>Reduce errors by 90%</li>
+<li class="right-item" contenteditable="true"><span class="check" id="ck3">✓</span>Boost team productivity</li>
+<li class="right-item" contenteditable="true"><span class="check" id="ck4">✓</span>Free 14-day trial</li>
+</ul>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var left=document.getElementById('c1').value;
+var right=document.getElementById('c2').value;
+var div=document.getElementById('c3').value;
+document.getElementById('panelL').style.background=left;
+document.getElementById('panelR').style.background=right;
+document.getElementById('divider').style.background=div;
+document.getElementById('diamond').style.background=right;
+document.getElementById('diamond').style.borderColor=div;
+document.getElementById('ctaBtn').style.background=right;
+document.getElementById('ctaBtn').style.color=left;
+var checks=document.querySelectorAll('.check');
+checks.forEach(function(c){c.style.background=left;c.style.color=right;});
+}
+u();
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='split-layout.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

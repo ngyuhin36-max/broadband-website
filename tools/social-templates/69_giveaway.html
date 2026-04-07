@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 69 - Giveaway</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;padding:70px;box-sizing:border-box}
+.sparkles{position:absolute;inset:0}
+.sparkle{position:absolute;font-size:24px;opacity:0.4}
+.burst{position:absolute;width:600px;height:600px;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.08}
+.top-tag{padding:10px 28px;border-radius:50px;font-size:14px;font-weight:800;letter-spacing:4px;text-transform:uppercase;background:rgba(255,255,255,0.2);color:#fff;margin-bottom:25px;position:relative;z-index:1;outline:none}
+.emoji-big{font-size:80px;margin-bottom:15px;position:relative;z-index:1;outline:none}
+.title{font-size:72px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;position:relative;z-index:1;outline:none;text-transform:uppercase}
+.subtitle{font-size:24px;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:30px;position:relative;z-index:1;outline:none}
+.prize-box{background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.2);border-radius:20px;padding:25px 40px;margin-bottom:30px;position:relative;z-index:1;width:100%;max-width:700px}
+.prize-label{font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;outline:none}
+.prize-text{font-size:28px;font-weight:900;color:#fff;outline:none}
+.steps-title{font-size:16px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:18px;position:relative;z-index:1;outline:none}
+.steps{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;margin-bottom:30px;width:100%;max-width:600px}
+.step{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.08);border-radius:14px;padding:16px 24px;text-align:left}
+.step-num{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#fff;flex-shrink:0}
+.step-text{font-size:19px;font-weight:600;color:#fff;outline:none}
+.deadline{font-size:16px;font-weight:700;color:rgba(255,255,255,0.4);position:relative;z-index:1;outline:none;margin-top:auto}
+.brand{position:absolute;bottom:35px;font-size:14px;font-weight:800;color:rgba(255,255,255,0.15);letter-spacing:2px;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Color 1</label><br><input type="color" id="c1" value="#f43f5e" onchange="u()"></div>
+<div><label>Color 2</label><br><input type="color" id="c2" value="#8b5cf6" onchange="u()"></div>
+<div><label>Color 3</label><br><input type="color" id="c3" value="#f59e0b" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:linear-gradient(145deg,#f43f5e,#8b5cf6,#f59e0b)">
+<div class="sparkles">
+<div class="sparkle" style="top:6%;left:8%">✨</div>
+<div class="sparkle" style="top:10%;right:12%">🌟</div>
+<div class="sparkle" style="top:25%;left:5%">⭐</div>
+<div class="sparkle" style="top:50%;right:5%">✨</div>
+<div class="sparkle" style="bottom:20%;left:10%">🌟</div>
+<div class="sparkle" style="bottom:10%;right:8%">⭐</div>
+<div class="sparkle" style="top:4%;left:45%">✨</div>
+<div class="sparkle" style="bottom:5%;left:40%">🌟</div>
+</div>
+<div class="burst" style="background:radial-gradient(circle,rgba(255,255,255,0.3),transparent 70%)"></div>
+<div class="top-tag" contenteditable="true">Contest Alert</div>
+<div class="emoji-big" contenteditable="true">🎁</div>
+<div class="title" contenteditable="true">Giveaway!</div>
+<div class="subtitle" contenteditable="true">Win an exclusive prize package worth $500</div>
+<div class="prize-box">
+<div class="prize-label" contenteditable="true">Grand Prize</div>
+<div class="prize-text" contenteditable="true">🏆 Premium Annual Subscription + Merch Bundle</div>
+</div>
+<div class="steps-title" contenteditable="true">How to Enter</div>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-text" contenteditable="true">Follow our account @yourbrand</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-text" contenteditable="true">Like this post & tag 2 friends</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-text" contenteditable="true">Share to your story for bonus entry</div>
+</div>
+</div>
+<div class="deadline" contenteditable="true">Ends April 30, 2025 | Winner announced May 1</div>
+<div class="brand" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+<script>
+function u(){
+var c1=document.getElementById('c1').value,c2=document.getElementById('c2').value,c3=document.getElementById('c3').value;
+document.getElementById('card').style.background='linear-gradient(145deg,'+c1+','+c2+','+c3+')';
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='giveaway.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

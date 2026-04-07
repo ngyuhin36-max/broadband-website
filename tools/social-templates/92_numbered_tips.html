@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 92 - Numbered Tips</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#1e1b4b" onchange="u()"></div>
+<div><label>Number Color</label><br><input type="color" id="c2" value="#f59e0b" onchange="u()"></div>
+<div><label>Highlight Row</label><br><input type="color" id="c3" value="#312e81" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#1e1b4b;display:flex;flex-direction:column;padding:60px 70px;box-sizing:border-box;">
+<!-- Header -->
+<div style="text-align:center;margin-bottom:35px;">
+<div contenteditable style="font-size:18px;font-weight:700;color:#f59e0b;letter-spacing:5px;text-transform:uppercase;margin-bottom:10px;" class="num-color">HELPFUL TIPS</div>
+<div contenteditable style="font-size:48px;font-weight:900;color:#ffffff;line-height:1.1;">5 Ways to Boost<br>Your Productivity</div>
+</div>
+<!-- Tips rows -->
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;">
+<div class="tip-row alt-row" style="display:flex;align-items:center;gap:28px;background:#312e81;border-radius:18px;padding:24px 30px;">
+<div class="num-color" style="font-size:56px;font-weight:900;color:#f59e0b;min-width:60px;text-align:center;line-height:1;">1</div>
+<div>
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">Start with the hardest task</div>
+<div contenteditable style="font-size:15px;color:#a5b4fc;margin-top:4px;">Tackle your biggest challenge when energy is highest</div>
+</div>
+</div>
+<div class="tip-row" style="display:flex;align-items:center;gap:28px;background:rgba(255,255,255,0.04);border-radius:18px;padding:24px 30px;">
+<div class="num-color" style="font-size:56px;font-weight:900;color:#f59e0b;min-width:60px;text-align:center;line-height:1;">2</div>
+<div>
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">Use time-blocking</div>
+<div contenteditable style="font-size:15px;color:#a5b4fc;margin-top:4px;">Schedule specific blocks for deep-focus work</div>
+</div>
+</div>
+<div class="tip-row alt-row" style="display:flex;align-items:center;gap:28px;background:#312e81;border-radius:18px;padding:24px 30px;">
+<div class="num-color" style="font-size:56px;font-weight:900;color:#f59e0b;min-width:60px;text-align:center;line-height:1;">3</div>
+<div>
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">Eliminate distractions</div>
+<div contenteditable style="font-size:15px;color:#a5b4fc;margin-top:4px;">Put your phone on silent, close social media tabs</div>
+</div>
+</div>
+<div class="tip-row" style="display:flex;align-items:center;gap:28px;background:rgba(255,255,255,0.04);border-radius:18px;padding:24px 30px;">
+<div class="num-color" style="font-size:56px;font-weight:900;color:#f59e0b;min-width:60px;text-align:center;line-height:1;">4</div>
+<div>
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">Take regular breaks</div>
+<div contenteditable style="font-size:15px;color:#a5b4fc;margin-top:4px;">Use the Pomodoro method: 25 min work, 5 min rest</div>
+</div>
+</div>
+<div class="tip-row alt-row" style="display:flex;align-items:center;gap:28px;background:#312e81;border-radius:18px;padding:24px 30px;">
+<div class="num-color" style="font-size:56px;font-weight:900;color:#f59e0b;min-width:60px;text-align:center;line-height:1;">5</div>
+<div>
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">Review & reflect daily</div>
+<div contenteditable style="font-size:15px;color:#a5b4fc;margin-top:4px;">Spend 5 minutes reviewing what worked and what didn't</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div style="text-align:center;margin-top:25px;">
+<div contenteditable style="font-size:16px;color:#6366f1;font-weight:600;">Save this post for later! 🔖</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var num=document.getElementById('c2').value;
+var alt=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.querySelectorAll('.num-color').forEach(function(el){el.style.color=num});
+document.querySelectorAll('.alt-row').forEach(function(el){el.style.background=alt});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='numbered-tips.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

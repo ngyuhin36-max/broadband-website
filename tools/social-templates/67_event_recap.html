@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 67 - Event Recap</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(239,68,68,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#fff;display:flex;flex-direction:column;box-sizing:border-box}
+.hero{height:320px;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.hero-overlay{position:absolute;inset:0;opacity:0.9}
+.hero-pattern{position:absolute;inset:0;opacity:0.05;background:repeating-linear-gradient(45deg,#fff 0,#fff 2px,transparent 2px,transparent 16px)}
+.recap-badge{padding:10px 24px;border-radius:50px;font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase;background:rgba(255,255,255,0.2);color:#fff;margin-bottom:15px;position:relative;z-index:1;outline:none}
+.hero-title{font-size:52px;font-weight:900;color:#fff;position:relative;z-index:1;outline:none;text-align:center;line-height:1.2}
+.hero-date{font-size:18px;font-weight:600;color:rgba(255,255,255,0.7);position:relative;z-index:1;margin-top:10px;outline:none}
+.content{flex:1;padding:45px 70px;display:flex;flex-direction:column}
+.stats-row{display:flex;gap:0;margin-bottom:35px;margin-top:-50px;position:relative;z-index:2}
+.stat-card{flex:1;background:#fff;border-radius:16px;padding:28px 20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.stat-card+.stat-card{margin-left:16px}
+.stat-num{font-size:36px;font-weight:900;outline:none}
+.stat-label{font-size:13px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:1px;margin-top:4px;outline:none}
+.highlights-title{font-size:18px;font-weight:800;color:#ccc;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;outline:none}
+.highlights{display:flex;flex-direction:column;gap:16px;margin-bottom:30px;flex:1}
+.highlight{display:flex;align-items:center;gap:16px}
+.highlight-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.highlight-text{font-size:20px;font-weight:600;color:#444;outline:none}
+.quote-section{background:#f8f8f8;border-radius:16px;padding:28px 35px;margin-bottom:20px;border-left:4px solid}
+.quote-text{font-size:18px;color:#666;font-style:italic;line-height:1.6;outline:none}
+.quote-author{font-size:14px;font-weight:700;color:#aaa;margin-top:10px;outline:none}
+.footer-row{display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:14px;font-weight:800;color:#ddd;letter-spacing:2px;outline:none}
+.link{font-size:15px;font-weight:700;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Primary</label><br><input type="color" id="c1" value="#ef4444" onchange="u()"></div>
+<div><label>Secondary</label><br><input type="color" id="c2" value="#f97316" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="hero">
+<div class="hero-overlay" id="herooverlay" style="background:linear-gradient(135deg,#ef4444,#f97316)"></div>
+<div class="hero-pattern"></div>
+<div class="recap-badge" contenteditable="true">Event Recap</div>
+<div class="hero-title" contenteditable="true">Design Summit<br>2025</div>
+<div class="hero-date" contenteditable="true">March 15-16, 2025 | San Francisco, CA</div>
+</div>
+<div class="content">
+<div class="stats-row">
+<div class="stat-card">
+<div class="stat-num" id="sn1" contenteditable="true" style="color:#ef4444">500+</div>
+<div class="stat-label" contenteditable="true">Attendees</div>
+</div>
+<div class="stat-card">
+<div class="stat-num" id="sn2" contenteditable="true" style="color:#ef4444">24</div>
+<div class="stat-label" contenteditable="true">Speakers</div>
+</div>
+<div class="stat-card">
+<div class="stat-num" id="sn3" contenteditable="true" style="color:#ef4444">12</div>
+<div class="stat-label" contenteditable="true">Workshops</div>
+</div>
+<div class="stat-card">
+<div class="stat-num" id="sn4" contenteditable="true" style="color:#ef4444">98%</div>
+<div class="stat-label" contenteditable="true">Satisfaction</div>
+</div>
+</div>
+<div class="highlights-title" contenteditable="true">Key Highlights</div>
+<div class="highlights">
+<div class="highlight">
+<div class="highlight-dot" style="background:#ef4444"></div>
+<div class="highlight-text" contenteditable="true">Keynote on the future of AI in design by Jane Doe</div>
+</div>
+<div class="highlight">
+<div class="highlight-dot" style="background:#f97316"></div>
+<div class="highlight-text" contenteditable="true">Hands-on workshop: Building Design Systems at Scale</div>
+</div>
+<div class="highlight">
+<div class="highlight-dot" style="background:#ef4444"></div>
+<div class="highlight-text" contenteditable="true">Networking mixer with 200+ industry professionals</div>
+</div>
+</div>
+<div class="quote-section" id="quotesec" style="border-left-color:#ef4444">
+<div class="quote-text" contenteditable="true">"The best design conference I've attended this year. Can't wait for next edition!"</div>
+<div class="quote-author" contenteditable="true">— Alex Rivera, Creative Director</div>
+</div>
+<div class="footer-row">
+<div class="brand" contenteditable="true">YOUR BRAND</div>
+<div class="link" id="link" contenteditable="true" style="color:#ef4444">See full recap →</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var c1=document.getElementById('c1').value,c2=document.getElementById('c2').value;
+document.getElementById('herooverlay').style.background='linear-gradient(135deg,'+c1+','+c2+')';
+document.querySelectorAll('.stat-num').forEach(function(el){el.style.color=c1});
+document.querySelectorAll('.highlight-dot').forEach(function(el,i){el.style.background=i%2===0?c1:c2});
+document.getElementById('quotesec').style.borderLeftColor=c1;
+document.getElementById('link').style.color=c1;
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='event-recap.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

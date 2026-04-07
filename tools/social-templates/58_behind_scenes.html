@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 58 - Behind the Scenes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(251,191,36,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;background:#1a1a2e}
+.bts-header{padding:50px 60px 30px;display:flex;align-items:center;gap:15px}
+.bts-badge{padding:8px 20px;border-radius:8px;font-size:14px;font-weight:800;letter-spacing:3px;outline:none}
+.bts-date{font-size:15px;color:rgba(255,255,255,0.3);font-weight:600;outline:none}
+.bts-title{padding:0 60px;font-size:44px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:25px;outline:none}
+.photo-area{margin:0 60px;flex:1;border-radius:20px;background:rgba(255,255,255,0.04);border:2px dashed rgba(255,255,255,0.1);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.photo-emoji{font-size:80px;outline:none;margin-bottom:15px}
+.photo-placeholder{font-size:18px;color:rgba(255,255,255,0.25);font-weight:600;outline:none}
+.film-strip{position:absolute;bottom:0;left:0;right:0;height:40px;display:flex}
+.film-hole{width:30px;height:20px;background:rgba(0,0,0,0.3);border-radius:4px;margin:10px 12px}
+.bts-caption{padding:30px 60px;display:flex;flex-direction:column;gap:12px}
+.bts-caption-text{font-size:22px;color:rgba(255,255,255,0.7);line-height:1.5;outline:none}
+.bts-tags{font-size:16px;font-weight:700;outline:none}
+.bts-footer{padding:20px 60px 40px;display:flex;justify-content:space-between;align-items:center}
+.bts-author{display:flex;align-items:center;gap:12px}
+.bts-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;outline:none}
+.bts-name{font-size:15px;color:rgba(255,255,255,0.5);font-weight:700;outline:none}
+.bts-handle{font-size:14px;color:rgba(255,255,255,0.2);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#1a1a2e" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#fbbf24" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="bts-header">
+<div class="bts-badge" id="badge" contenteditable="true" style="background:#fbbf24;color:#1a1a2e;">📸 BTS</div>
+<div class="bts-date" contenteditable="true">Behind the Scenes • April 2026</div>
+</div>
+<div class="bts-title" contenteditable="true">A Sneak Peek Into Our Creative Process</div>
+<div class="photo-area">
+<div class="photo-emoji" contenteditable="true">🎬</div>
+<div class="photo-placeholder" contenteditable="true">Your photo goes here — replace with image</div>
+<div class="film-strip">
+<div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+</div>
+</div>
+<div class="bts-caption">
+<div class="bts-caption-text" contenteditable="true">Late nights, coffee cups, and pure creativity. Here's what it really looks like to build something amazing from scratch. No filters, just real work. ✨</div>
+<div class="bts-tags" id="tags" contenteditable="true" style="color:#fbbf24;">#BehindTheScenes #RealTalk #CreativeProcess #TeamWork</div>
+</div>
+<div class="bts-footer">
+<div class="bts-author">
+<div class="bts-avatar" id="avatar" contenteditable="true" style="background:#fbbf24;color:#1a1a2e;">T</div>
+<div class="bts-name" contenteditable="true">The Creative Team</div>
+</div>
+<div class="bts-handle" contenteditable="true">@YOURBRAND</div>
+</div>
+</div>
+</div>
+<script>
+function u(){var a=document.getElementById('c1').value,b=document.getElementById('c2').value;document.getElementById('card').style.background=a;document.getElementById('badge').style.background=b;document.getElementById('badge').style.color=a;document.getElementById('tags').style.color=b;document.getElementById('avatar').style.background=b;document.getElementById('avatar').style.color=a}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='behind-scenes.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

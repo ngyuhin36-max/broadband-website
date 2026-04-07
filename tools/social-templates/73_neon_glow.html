@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 73 - Neon Glow</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(0,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0a0a0f;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,255,0.05) 1px,transparent 1px);background-size:60px 60px;perspective:500px}
+.glow-line-top{position:absolute;top:80px;left:100px;right:100px;height:2px;opacity:0.6}
+.glow-line-bot{position:absolute;bottom:80px;left:100px;right:100px;height:2px;opacity:0.6}
+.neon-border{position:absolute;inset:60px;border:2px solid;border-radius:20px;opacity:0.3}
+.content{position:relative;z-index:2;text-align:center;padding:80px}
+.neon-badge{display:inline-block;padding:10px 30px;border:2px solid;border-radius:30px;font-size:16px;font-weight:800;letter-spacing:4px;text-transform:uppercase;margin-bottom:30px;outline:none}
+.neon-title{font-size:72px;font-weight:900;line-height:1.05;margin-bottom:20px;text-transform:uppercase;outline:none}
+.neon-subtitle{font-size:28px;font-weight:600;margin-bottom:40px;opacity:0.7;color:#fff;outline:none}
+.neon-divider{width:200px;height:3px;margin:0 auto 40px;border-radius:2px}
+.neon-features{display:flex;gap:40px;justify-content:center;margin-bottom:50px}
+.neon-feature{text-align:center}
+.neon-feature-icon{font-size:40px;margin-bottom:10px;outline:none}
+.neon-feature-text{font-size:18px;font-weight:700;color:rgba(255,255,255,0.8);outline:none}
+.neon-cta{display:inline-block;padding:18px 50px;border:2px solid;border-radius:8px;font-size:22px;font-weight:900;letter-spacing:2px;text-transform:uppercase;outline:none}
+.corner{position:absolute;width:30px;height:30px;opacity:0.5}
+.corner-tl{top:40px;left:40px;border-top:3px solid;border-left:3px solid}
+.corner-tr{top:40px;right:40px;border-top:3px solid;border-right:3px solid}
+.corner-bl{bottom:40px;left:40px;border-bottom:3px solid;border-left:3px solid}
+.corner-br{bottom:40px;right:40px;border-bottom:3px solid;border-right:3px solid}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change neon colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Neon 1</label><br><input type="color" id="c1" value="#00ffff" onchange="u()"></div>
+<div><label>Neon 2</label><br><input type="color" id="c2" value="#ff00ff" onchange="u()"></div>
+<div><label>Background</label><br><input type="color" id="c3" value="#0a0a0f" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="grid-bg"></div>
+<div class="corner corner-tl" id="ctl"></div>
+<div class="corner corner-tr" id="ctr"></div>
+<div class="corner corner-bl" id="cbl"></div>
+<div class="corner corner-br" id="cbr"></div>
+<div class="neon-border" id="nborder"></div>
+<div class="glow-line-top" id="glt"></div>
+<div class="glow-line-bot" id="glb"></div>
+<div class="content">
+<div class="neon-badge" id="badge" contenteditable="true">CYBER EVENT</div>
+<div class="neon-title" id="title" contenteditable="true">NEON<br>NIGHTS</div>
+<div class="neon-subtitle" contenteditable="true">The future is now. Are you ready?</div>
+<div class="neon-divider" id="ndiv"></div>
+<div class="neon-features">
+<div class="neon-feature"><div class="neon-feature-icon" contenteditable="true">🎮</div><div class="neon-feature-text" contenteditable="true">GAMING</div></div>
+<div class="neon-feature"><div class="neon-feature-icon" contenteditable="true">🎵</div><div class="neon-feature-text" contenteditable="true">MUSIC</div></div>
+<div class="neon-feature"><div class="neon-feature-icon" contenteditable="true">🤖</div><div class="neon-feature-text" contenteditable="true">AI TECH</div></div>
+<div class="neon-feature"><div class="neon-feature-icon" contenteditable="true">🌐</div><div class="neon-feature-text" contenteditable="true">VIRTUAL</div></div>
+</div>
+<div class="neon-cta" id="cta" contenteditable="true">JOIN THE GRID →</div>
+</div>
+</div>
+</div>
+<script>
+function hexToRgb(h){var r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return r+','+g+','+b;}
+function u(){
+var n1=document.getElementById('c1').value;
+var n2=document.getElementById('c2').value;
+var bg=document.getElementById('c3').value;
+var r1=hexToRgb(n1),r2=hexToRgb(n2);
+document.getElementById('card').style.background=bg;
+document.getElementById('title').style.color=n1;
+document.getElementById('title').style.textShadow='0 0 20px rgba('+r1+',0.8),0 0 60px rgba('+r1+',0.4),0 0 120px rgba('+r1+',0.2)';
+document.getElementById('badge').style.borderColor=n2;
+document.getElementById('badge').style.color=n2;
+document.getElementById('badge').style.boxShadow='0 0 15px rgba('+r2+',0.3),inset 0 0 15px rgba('+r2+',0.1)';
+document.getElementById('nborder').style.borderColor=n1;
+document.getElementById('nborder').style.boxShadow='0 0 30px rgba('+r1+',0.15),inset 0 0 30px rgba('+r1+',0.05)';
+document.getElementById('glt').style.background='linear-gradient(90deg,transparent,'+n1+',transparent)';
+document.getElementById('glt').style.boxShadow='0 0 20px rgba('+r1+',0.5)';
+document.getElementById('glb').style.background='linear-gradient(90deg,transparent,'+n2+',transparent)';
+document.getElementById('glb').style.boxShadow='0 0 20px rgba('+r2+',0.5)';
+document.getElementById('ndiv').style.background='linear-gradient(90deg,'+n1+','+n2+')';
+document.getElementById('ndiv').style.boxShadow='0 0 20px rgba('+r1+',0.5)';
+document.getElementById('cta').style.borderColor=n2;
+document.getElementById('cta').style.color=n2;
+document.getElementById('cta').style.boxShadow='0 0 20px rgba('+r2+',0.3),inset 0 0 20px rgba('+r2+',0.05)';
+['ctl','ctr','cbl','cbr'].forEach(function(id){
+document.getElementById(id).style.borderColor=n1;
+});
+}
+u();
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='neon-glow.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

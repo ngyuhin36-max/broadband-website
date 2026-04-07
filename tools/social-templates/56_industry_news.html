@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 56 - Industry News</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(30,64,175,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#fafaf9;display:flex;flex-direction:column}
+.news-topbar{padding:30px 60px;display:flex;justify-content:space-between;align-items:center}
+.news-logo{font-size:22px;font-weight:900;letter-spacing:1px;outline:none}
+.news-date{font-size:16px;font-weight:600;color:#78716c;outline:none}
+.news-divider{height:3px;margin:0 60px}
+.news-breaking{padding:20px 60px;display:flex;align-items:center;gap:15px}
+.breaking-badge{padding:8px 20px;border-radius:6px;font-size:14px;font-weight:900;color:#fff;letter-spacing:3px;outline:none;flex-shrink:0}
+.breaking-ticker{font-size:14px;font-weight:600;color:#78716c;outline:none}
+.news-main{padding:30px 60px;flex:1;display:flex;flex-direction:column}
+.news-category{font-size:15px;font-weight:800;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;outline:none}
+.news-headline{font-size:52px;font-weight:900;color:#1c1917;line-height:1.15;margin-bottom:25px;outline:none}
+.news-summary{font-size:22px;color:#57534e;line-height:1.6;margin-bottom:30px;outline:none;border-left:4px solid #d6d3d1;padding-left:20px}
+.news-details{display:flex;gap:30px;margin-bottom:30px}
+.news-detail{background:#f5f5f4;border-radius:12px;padding:20px;flex:1}
+.news-detail-label{font-size:13px;color:#a8a29e;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;outline:none}
+.news-detail-value{font-size:18px;color:#1c1917;font-weight:700;outline:none}
+.news-source{font-size:16px;color:#a8a29e;font-weight:600;margin-top:auto;outline:none}
+.news-footer{padding:25px 60px;background:#f5f5f4;display:flex;justify-content:space-between;align-items:center}
+.news-cta{font-size:16px;font-weight:700;outline:none}
+.news-handle{font-size:14px;color:#a8a29e;font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change accent color → Download as PNG</div>
+<div class="toolbar">
+<div><label>Accent</label><br><input type="color" id="c1" value="#1e40af" onchange="u()"></div>
+<div><label>Alert</label><br><input type="color" id="c2" value="#dc2626" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="news-topbar">
+<div class="news-logo" id="logo" contenteditable="true" style="color:#1e40af;">📰 DAILY DIGEST</div>
+<div class="news-date" contenteditable="true">April 7, 2026</div>
+</div>
+<div class="news-divider" id="divider" style="background:linear-gradient(90deg,#1e40af,#3b82f6,transparent);"></div>
+<div class="news-breaking">
+<div class="breaking-badge" id="badge" contenteditable="true" style="background:#dc2626;">BREAKING</div>
+<div class="breaking-ticker" contenteditable="true">Latest industry updates you need to know about</div>
+</div>
+<div class="news-main">
+<div class="news-category" id="cat" contenteditable="true" style="color:#1e40af;">TECHNOLOGY</div>
+<div class="news-headline" contenteditable="true">Major Industry Shift: AI Adoption Reaches Record High in 2026</div>
+<div class="news-summary" contenteditable="true">A new report reveals that 85% of businesses have now integrated AI into their core operations, marking a significant milestone in digital transformation.</div>
+<div class="news-details">
+<div class="news-detail"><div class="news-detail-label" contenteditable="true">IMPACT</div><div class="news-detail-value" contenteditable="true">85% adoption rate</div></div>
+<div class="news-detail"><div class="news-detail-label" contenteditable="true">SECTOR</div><div class="news-detail-value" contenteditable="true">Enterprise Tech</div></div>
+<div class="news-detail"><div class="news-detail-label" contenteditable="true">TREND</div><div class="news-detail-value" contenteditable="true">↑ 40% YoY growth</div></div>
+</div>
+<div class="news-source" contenteditable="true">Source: Industry Research Institute • Read full report at link in bio</div>
+</div>
+<div class="news-footer">
+<div class="news-cta" id="cta" contenteditable="true" style="color:#1e40af;">Follow for daily updates →</div>
+<div class="news-handle" contenteditable="true">@YOURBRAND</div>
+</div>
+</div>
+</div>
+<script>
+function u(){var a=document.getElementById('c1').value,b=document.getElementById('c2').value;document.getElementById('logo').style.color=a;document.getElementById('divider').style.background=`linear-gradient(90deg,${a},${a}88,transparent)`;document.getElementById('badge').style.background=b;document.getElementById('cat').style.color=a;document.getElementById('cta').style.color=a}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='industry-news.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

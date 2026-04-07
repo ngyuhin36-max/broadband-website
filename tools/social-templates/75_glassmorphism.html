@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 75 - Glassmorphism</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(255,255,255,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+.bg-blob{position:absolute;border-radius:50%;filter:blur(80px)}
+.blob1{width:500px;height:500px;top:-100px;left:-100px}
+.blob2{width:400px;height:400px;bottom:-50px;right:-50px}
+.blob3{width:350px;height:350px;top:300px;left:400px}
+.blob4{width:300px;height:300px;top:50px;right:200px}
+.glass-card{position:absolute;background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.25);border-radius:24px;padding:40px;box-sizing:border-box}
+.card-main{top:80px;left:80px;width:560px;height:440px;z-index:3}
+.card-side{top:140px;right:80px;width:340px;height:340px;z-index:2}
+.card-bottom{bottom:80px;left:80px;right:80px;height:340px;z-index:3;display:flex;gap:30px}
+.card-bottom-item{flex:1;background:rgba(255,255,255,0.1);border-radius:20px;padding:30px;border:1px solid rgba(255,255,255,0.15);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.glass-icon{font-size:60px;margin-bottom:16px;outline:none}
+.glass-title{font-size:52px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px;outline:none}
+.glass-subtitle{font-size:22px;color:rgba(255,255,255,0.8);line-height:1.5;margin-bottom:24px;outline:none}
+.glass-tag{display:inline-block;padding:8px 24px;background:rgba(255,255,255,0.2);border-radius:20px;font-size:14px;font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;outline:none;margin-bottom:20px}
+.glass-btn{display:inline-block;padding:14px 36px;background:rgba(255,255,255,0.25);border-radius:14px;font-size:18px;font-weight:700;color:#fff;outline:none;border:1px solid rgba(255,255,255,0.3)}
+.side-emoji{font-size:80px;text-align:center;margin-bottom:16px;outline:none}
+.side-title{font-size:28px;font-weight:800;color:#fff;text-align:center;margin-bottom:10px;outline:none}
+.side-desc{font-size:16px;color:rgba(255,255,255,0.7);text-align:center;line-height:1.5;outline:none}
+.bottom-icon{font-size:44px;margin-bottom:10px;outline:none}
+.bottom-title{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;outline:none}
+.bottom-desc{font-size:14px;color:rgba(255,255,255,0.65);outline:none}
+.floating-circle{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,0.15);z-index:1}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change background colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Blob 1</label><br><input type="color" id="c1" value="#7c3aed" onchange="u()"></div>
+<div><label>Blob 2</label><br><input type="color" id="c2" value="#2563eb" onchange="u()"></div>
+<div><label>Blob 3</label><br><input type="color" id="c3" value="#ec4899" onchange="u()"></div>
+<div><label>Background</label><br><input type="color" id="c4" value="#1e1b4b" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="bg-blob blob1" id="b1"></div>
+<div class="bg-blob blob2" id="b2"></div>
+<div class="bg-blob blob3" id="b3"></div>
+<div class="bg-blob blob4" id="b4"></div>
+<div class="floating-circle" style="width:120px;height:120px;top:20px;right:350px"></div>
+<div class="floating-circle" style="width:80px;height:80px;bottom:300px;left:30px"></div>
+<div class="glass-card card-main">
+<div class="glass-tag" contenteditable="true">INTRODUCING</div>
+<div class="glass-title" contenteditable="true">Design With Glass Effect</div>
+<div class="glass-subtitle" contenteditable="true">Create stunning modern visuals with frosted glass aesthetics</div>
+<div class="glass-btn" contenteditable="true">Explore Now →</div>
+</div>
+<div class="glass-card card-side">
+<div class="side-emoji" contenteditable="true">✨</div>
+<div class="side-title" contenteditable="true">Premium Quality</div>
+<div class="side-desc" contenteditable="true">Crafted with attention to every pixel and detail</div>
+</div>
+<div class="glass-card card-bottom">
+<div class="card-bottom-item">
+<div class="bottom-icon" contenteditable="true">🎨</div>
+<div class="bottom-title" contenteditable="true">Custom Colors</div>
+<div class="bottom-desc" contenteditable="true">Unlimited palette</div>
+</div>
+<div class="card-bottom-item">
+<div class="bottom-icon" contenteditable="true">⚡</div>
+<div class="bottom-title" contenteditable="true">Fast Export</div>
+<div class="bottom-desc" contenteditable="true">One-click download</div>
+</div>
+<div class="card-bottom-item">
+<div class="bottom-icon" contenteditable="true">📱</div>
+<div class="bottom-title" contenteditable="true">All Platforms</div>
+<div class="bottom-desc" contenteditable="true">Works everywhere</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bl1=document.getElementById('c1').value;
+var bl2=document.getElementById('c2').value;
+var bl3=document.getElementById('c3').value;
+var bg=document.getElementById('c4').value;
+document.getElementById('card').style.background=bg;
+document.getElementById('b1').style.background=bl1;
+document.getElementById('b2').style.background=bl2;
+document.getElementById('b3').style.background=bl3;
+document.getElementById('b4').style.background=bl1;
+}
+u();
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='glassmorphism.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

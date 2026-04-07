@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 74 - Retro Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(210,105,30,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.retro-border{position:absolute;inset:30px;border:6px solid;border-radius:0;opacity:0.5}
+.retro-border-inner{position:absolute;inset:45px;border:2px solid;opacity:0.3}
+.sunburst{position:absolute;top:50%;left:50%;width:1200px;height:1200px;transform:translate(-50%,-50%)}
+.ray{position:absolute;top:0;left:50%;width:0;height:0;transform-origin:bottom center;border-left:40px solid transparent;border-right:40px solid transparent;border-bottom:600px solid;opacity:0.08}
+.halftone-tl{position:absolute;top:20px;left:20px;font-size:200px;opacity:0.06;line-height:0.7;color:#000}
+.halftone-br{position:absolute;bottom:20px;right:20px;font-size:200px;opacity:0.06;line-height:0.7;color:#000;transform:rotate(180deg)}
+.content{position:relative;z-index:2;text-align:center;padding:80px}
+.retro-tag{display:inline-block;padding:10px 30px;font-family:'Inter',sans-serif;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:5px;margin-bottom:24px;border-radius:0;outline:none}
+.retro-title{font-family:'Playfair Display',serif;font-size:80px;font-weight:900;line-height:1;margin-bottom:10px;outline:none}
+.retro-year{font-family:'Playfair Display',serif;font-size:160px;font-weight:900;line-height:1;margin-bottom:10px;opacity:0.15;outline:none;position:absolute;top:60px;left:50%;transform:translateX(-50%)}
+.retro-subtitle{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;font-style:italic;margin-bottom:30px;outline:none}
+.retro-divider{display:flex;align-items:center;gap:20px;justify-content:center;margin-bottom:30px}
+.retro-divider-line{width:100px;height:3px}
+.retro-divider-icon{font-size:28px;outline:none}
+.retro-desc{font-size:20px;line-height:1.7;max-width:600px;margin:0 auto 40px;outline:none}
+.retro-details{display:flex;gap:50px;justify-content:center;margin-bottom:40px}
+.retro-detail{text-align:center}
+.retro-detail-value{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;outline:none}
+.retro-detail-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;opacity:0.6;outline:none;margin-top:4px}
+.retro-cta{display:inline-block;padding:16px 50px;font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:3px;border:3px solid;outline:none}
+.stamp{position:absolute;bottom:70px;right:70px;width:100px;height:100px;border:4px solid;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;text-transform:uppercase;transform:rotate(-15deg);opacity:0.4;text-align:center;line-height:1.2;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change retro colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#f4e4c1" onchange="u()"></div>
+<div><label>Primary</label><br><input type="color" id="c2" value="#c0392b" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c3" value="#d4780a" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="sunburst" id="sunburst"></div>
+<div class="halftone-tl">●●●<br>●●●<br>●●●</div>
+<div class="halftone-br">●●●<br>●●●<br>●●●</div>
+<div class="retro-border" id="rborder"></div>
+<div class="retro-border-inner" id="rborderin"></div>
+<div class="retro-year" id="year" contenteditable="true">1978</div>
+<div class="content">
+<div class="retro-tag" id="tag" contenteditable="true">ESTABLISHED</div>
+<div class="retro-title" id="title" contenteditable="true">Vintage<br>Collection</div>
+<div class="retro-subtitle" id="subtitle" contenteditable="true">— Timeless Classics —</div>
+<div class="retro-divider"><div class="retro-divider-line" id="rdl1"></div><div class="retro-divider-icon" contenteditable="true">✦</div><div class="retro-divider-line" id="rdl2"></div></div>
+<div class="retro-desc" id="desc" contenteditable="true">Handcrafted with passion and dedication to quality. Every piece tells a story of tradition and excellence.</div>
+<div class="retro-details">
+<div class="retro-detail"><div class="retro-detail-value" id="dv1" contenteditable="true">45+</div><div class="retro-detail-label" contenteditable="true">Years</div></div>
+<div class="retro-detail"><div class="retro-detail-value" id="dv2" contenteditable="true">500+</div><div class="retro-detail-label" contenteditable="true">Products</div></div>
+<div class="retro-detail"><div class="retro-detail-value" id="dv3" contenteditable="true">100%</div><div class="retro-detail-label" contenteditable="true">Handmade</div></div>
+</div>
+<div class="retro-cta" id="cta" contenteditable="true">SHOP NOW</div>
+</div>
+<div class="stamp" id="stamp" contenteditable="true">QUALITY GUARANTEED</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var pri=document.getElementById('c2').value;
+var acc=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.getElementById('title').style.color=pri;
+document.getElementById('subtitle').style.color=acc;
+document.getElementById('tag').style.background=pri;
+document.getElementById('tag').style.color=bg;
+document.getElementById('rborder').style.borderColor=pri;
+document.getElementById('rborderin').style.borderColor=pri;
+document.getElementById('desc').style.color='#4a3728';
+document.getElementById('year').style.color=pri;
+document.getElementById('cta').style.borderColor=pri;
+document.getElementById('cta').style.color=pri;
+document.getElementById('stamp').style.borderColor=acc;
+document.getElementById('stamp').style.color=acc;
+document.getElementById('rdl1').style.background=acc;
+document.getElementById('rdl2').style.background=acc;
+['dv1','dv2','dv3'].forEach(function(id){document.getElementById(id).style.color=pri;});
+var sb=document.getElementById('sunburst');
+sb.innerHTML='';
+for(var i=0;i<18;i++){
+var ray=document.createElement('div');
+ray.className='ray';
+ray.style.transform='rotate('+i*20+'deg)';
+ray.style.borderBottomColor=pri;
+sb.appendChild(ray);
+}
+}
+u();
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='retro-style.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

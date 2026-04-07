@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 95 - Habit Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#faf5ff" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#7c3aed" onchange="u()"></div>
+<div><label>Completed</label><br><input type="color" id="c3" value="#a78bfa" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#faf5ff;display:flex;flex-direction:column;padding:60px 70px;box-sizing:border-box;">
+<!-- Header -->
+<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:15px;">
+<div>
+<div contenteditable class="accent-text" style="font-size:16px;font-weight:700;color:#7c3aed;letter-spacing:4px;text-transform:uppercase;margin-bottom:8px;">30-DAY CHALLENGE</div>
+<div contenteditable style="font-size:48px;font-weight:900;color:#1f2937;line-height:1.1;">Habit Tracker</div>
+</div>
+<div class="accent-badge" style="background:#7c3aed;color:#fff;padding:14px 24px;border-radius:16px;text-align:center;">
+<div contenteditable style="font-size:28px;font-weight:900;line-height:1;">APR</div>
+<div contenteditable style="font-size:14px;font-weight:600;opacity:0.8;margin-top:2px;">2026</div>
+</div>
+</div>
+<!-- Habit name -->
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:30px;">
+<div class="accent-bar" style="width:6px;height:40px;background:#7c3aed;border-radius:3px;"></div>
+<div contenteditable style="font-size:30px;font-weight:800;color:#374151;">Exercise 30 Minutes Daily</div>
+</div>
+<!-- Grid 6x5 -->
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;">
+<div style="display:flex;gap:12px;">
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">1</div><div style="font-size:18px;color:#fff;">✓</div></div>
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">2</div><div style="font-size:18px;color:#fff;">✓</div></div>
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">3</div><div style="font-size:18px;color:#fff;">✓</div></div>
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">4</div><div style="font-size:18px;color:#fff;">✓</div></div>
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">5</div><div style="font-size:18px;color:#fff;">✓</div></div>
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">6</div><div style="font-size:18px;color:#fff;">✓</div></div>
+</div>
+<div style="display:flex;gap:12px;">
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">7</div><div style="font-size:18px;color:#fff;">✓</div></div>
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">8</div><div style="font-size:18px;color:#fff;">✓</div></div>
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">9</div><div style="font-size:18px;color:#fff;">✓</div></div>
+<div class="day-done" style="flex:1;aspect-ratio:1;background:#a78bfa;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:14px;font-weight:600;color:#fff;opacity:0.7;">Day</div><div style="font-size:28px;font-weight:900;color:#fff;">10</div><div style="font-size:18px;color:#fff;">✓</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">11</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">12</div></div>
+</div>
+<div style="display:flex;gap:12px;">
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">13</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">14</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">15</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">16</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">17</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">18</div></div>
+</div>
+<div style="display:flex;gap:12px;">
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">19</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">20</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">21</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">22</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">23</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">24</div></div>
+</div>
+<div style="display:flex;gap:12px;">
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">25</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">26</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">27</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">28</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">29</div></div>
+<div class="day-empty" style="flex:1;aspect-ratio:1;background:rgba(124,58,237,0.1);border:3px dashed rgba(124,58,237,0.25);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;"><div style="font-size:14px;font-weight:600;color:#7c3aed;opacity:0.5;">Day</div><div style="font-size:28px;font-weight:900;color:#7c3aed;opacity:0.5;">30</div></div>
+</div>
+</div>
+<!-- Footer -->
+<div style="text-align:center;margin-top:25px;">
+<div contenteditable style="font-size:20px;font-weight:800;color:#7c3aed;" class="accent-text">Consistency is the key to success!</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var accent=document.getElementById('c2').value;
+var done=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.querySelectorAll('.accent-text').forEach(function(el){el.style.color=accent});
+document.querySelectorAll('.accent-bar').forEach(function(el){el.style.background=accent});
+document.querySelectorAll('.accent-badge').forEach(function(el){el.style.background=accent});
+document.querySelectorAll('.day-done').forEach(function(el){el.style.background=done});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='habit-tracker.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

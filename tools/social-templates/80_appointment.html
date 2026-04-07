@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 80 - Appointment Booking</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.appt-top{padding:50px 70px 30px;position:relative}
+.appt-logo{font-size:44px;margin-bottom:10px;outline:none}
+.appt-biz{font-size:32px;font-weight:900;color:#fff;margin-bottom:4px;outline:none}
+.appt-type{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:3px;opacity:0.6;color:#fff;outline:none}
+.appt-main{flex:1;padding:10px 70px;display:flex;flex-direction:column}
+.appt-heading{font-size:48px;font-weight:900;color:#fff;margin-bottom:8px;outline:none}
+.appt-sub{font-size:20px;color:rgba(255,255,255,0.6);margin-bottom:30px;outline:none}
+.appt-date-row{display:flex;gap:16px;margin-bottom:24px}
+.date-card{padding:20px 24px;border-radius:16px;text-align:center;flex:1;border:2px solid rgba(255,255,255,0.1)}
+.date-day{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;outline:none}
+.date-num{font-size:36px;font-weight:900;color:#fff;outline:none}
+.date-month{font-size:13px;font-weight:600;opacity:0.5;color:#fff;outline:none}
+.date-card.active{border-color:transparent}
+.appt-times-label{font-size:16px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;outline:none}
+.appt-times{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.time-slot{padding:14px 28px;border-radius:12px;font-size:17px;font-weight:700;color:#fff;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.1);outline:none}
+.time-slot.popular{position:relative;border-color:transparent}
+.popular-badge{position:absolute;top:-8px;right:-8px;font-size:10px;font-weight:800;padding:3px 8px;border-radius:6px;color:#fff;text-transform:uppercase;letter-spacing:1px}
+.appt-info{display:flex;gap:30px;margin-bottom:20px}
+.info-item{display:flex;align-items:center;gap:10px;font-size:16px;color:rgba(255,255,255,0.6);font-weight:600}
+.info-icon{font-size:22px;outline:none}
+.info-text{outline:none}
+.appt-cta-area{padding:0 70px 50px}
+.appt-cta{display:block;text-align:center;padding:22px;border-radius:16px;font-size:22px;font-weight:800;color:#fff;outline:none;text-transform:uppercase;letter-spacing:2px}
+.appt-footer{text-align:center;padding:0 70px 40px}
+.appt-footer-text{font-size:14px;color:rgba(255,255,255,0.3);font-weight:600;outline:none}
+.bg-pattern{position:absolute;top:0;right:0;width:400px;height:400px;opacity:0.04}
+.bg-circle{position:absolute;border-radius:50%;border:60px solid #fff}
+.bg-c1{width:300px;height:300px;top:-80px;right:-80px}
+.bg-c2{width:200px;height:200px;top:40px;right:40px}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click dates/times/text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#0c1222" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#6366f1" onchange="u()"></div>
+<div><label>CTA</label><br><input type="color" id="c3" value="#22c55e" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="bg-pattern"><div class="bg-circle bg-c1"></div><div class="bg-circle bg-c2"></div></div>
+<div class="appt-top">
+<div class="appt-logo" contenteditable="true">🏥</div>
+<div class="appt-biz" contenteditable="true">HealthFirst Clinic</div>
+<div class="appt-type" contenteditable="true">General Consultation</div>
+</div>
+<div class="appt-main">
+<div class="appt-heading" contenteditable="true">Book Your Appointment</div>
+<div class="appt-sub" contenteditable="true">Select a date and time that works for you</div>
+<div class="appt-date-row">
+<div class="date-card" id="dc1"><div class="date-day" contenteditable="true">Mon</div><div class="date-num" contenteditable="true">7</div><div class="date-month" contenteditable="true">April</div></div>
+<div class="date-card active" id="dc2"><div class="date-day" contenteditable="true">Tue</div><div class="date-num" contenteditable="true">8</div><div class="date-month" contenteditable="true">April</div></div>
+<div class="date-card" id="dc3"><div class="date-day" contenteditable="true">Wed</div><div class="date-num" contenteditable="true">9</div><div class="date-month" contenteditable="true">April</div></div>
+<div class="date-card" id="dc4"><div class="date-day" contenteditable="true">Thu</div><div class="date-num" contenteditable="true">10</div><div class="date-month" contenteditable="true">April</div></div>
+<div class="date-card" id="dc5"><div class="date-day" contenteditable="true">Fri</div><div class="date-num" contenteditable="true">11</div><div class="date-month" contenteditable="true">April</div></div>
+</div>
+<div class="appt-times-label" contenteditable="true">Available Times</div>
+<div class="appt-times">
+<div class="time-slot" contenteditable="true">9:00 AM</div>
+<div class="time-slot" contenteditable="true">10:30 AM</div>
+<div class="time-slot popular" id="ts-pop" contenteditable="true">2:00 PM<span class="popular-badge" id="pbadge">Popular</span></div>
+<div class="time-slot" contenteditable="true">3:30 PM</div>
+<div class="time-slot" contenteditable="true">5:00 PM</div>
+</div>
+<div class="appt-info">
+<div class="info-item"><span class="info-icon" contenteditable="true">⏱️</span><span class="info-text" contenteditable="true">30 min session</span></div>
+<div class="info-item"><span class="info-icon" contenteditable="true">📍</span><span class="info-text" contenteditable="true">In-person or Virtual</span></div>
+<div class="info-item"><span class="info-icon" contenteditable="true">💰</span><span class="info-text" contenteditable="true">From $50</span></div>
+</div>
+</div>
+<div class="appt-cta-area">
+<div class="appt-cta" id="cta" contenteditable="true">Book Now →</div>
+</div>
+<div class="appt-footer">
+<div class="appt-footer-text" contenteditable="true">📞 +1 (555) 123-4567 • info@healthfirst.com • www.healthfirst.com</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var acc=document.getElementById('c2').value;
+var cta=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.getElementById('dc2').style.background=acc;
+document.getElementById('dc2').style.borderColor=acc;
+document.querySelectorAll('.date-card:not(.active) .date-day').forEach(function(e){e.style.color='rgba(255,255,255,0.5)';});
+document.querySelector('.date-card.active .date-day').style.color='rgba(255,255,255,0.9)';
+document.getElementById('ts-pop').style.background=acc+'33';
+document.getElementById('ts-pop').style.borderColor=acc;
+document.getElementById('pbadge').style.background=acc;
+document.getElementById('cta').style.background=cta;
+}
+u();
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='appointment.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

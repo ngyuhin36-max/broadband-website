@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 63 - Feature Update</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(99,102,241,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0f172a;padding:80px;box-sizing:border-box;display:flex;flex-direction:column}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,0.05) 1px,transparent 1px);background-size:40px 40px}
+.glow{position:absolute;width:400px;height:400px;border-radius:50%;filter:blur(120px);opacity:0.15}
+.glow-1{top:-100px;right:-50px;background:#6366f1}
+.glow-2{bottom:-100px;left:-50px;background:#06b6d4}
+.top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:50px;position:relative;z-index:1}
+.version-badge{padding:12px 24px;border-radius:50px;font-size:16px;font-weight:800;color:#fff;letter-spacing:1px;outline:none}
+.whats-new{font-size:15px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.3);outline:none}
+.title{font-size:56px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:15px;position:relative;z-index:1;outline:none}
+.subtitle{font-size:22px;color:rgba(255,255,255,0.5);margin-bottom:50px;position:relative;z-index:1;outline:none;line-height:1.5}
+.features{display:flex;flex-direction:column;gap:20px;position:relative;z-index:1;flex:1}
+.feature{display:flex;align-items:flex-start;gap:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:24px 28px}
+.feature-icon{font-size:28px;flex-shrink:0;outline:none}
+.feature-text{flex:1}
+.feature-title{font-size:20px;font-weight:800;color:#fff;margin-bottom:4px;outline:none}
+.feature-desc{font-size:16px;color:rgba(255,255,255,0.45);line-height:1.4;outline:none}
+.bottom-bar{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:40px;position:relative;z-index:1}
+.brand{font-size:16px;font-weight:800;color:rgba(255,255,255,0.2);letter-spacing:2px;outline:none}
+.update-btn{padding:14px 32px;border-radius:12px;font-size:16px;font-weight:800;color:#fff;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change accent color → Download as PNG</div>
+<div class="toolbar">
+<div><label>Accent</label><br><input type="color" id="c1" value="#6366f1" onchange="u()"></div>
+<div><label>Background</label><br><input type="color" id="c2" value="#0f172a" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="grid-bg"></div>
+<div class="glow glow-1" id="glow1"></div>
+<div class="glow glow-2"></div>
+<div class="top-row">
+<div class="whats-new" contenteditable="true">What's New</div>
+<div class="version-badge" id="vbadge" contenteditable="true" style="background:#6366f1">v2.5.0</div>
+</div>
+<div class="title" contenteditable="true">Feature Update<br>is Here 🚀</div>
+<div class="subtitle" contenteditable="true">We've been working hard to bring you the best experience yet.</div>
+<div class="features">
+<div class="feature">
+<div class="feature-icon" contenteditable="true">⚡</div>
+<div class="feature-text">
+<div class="feature-title" contenteditable="true">Lightning Fast Performance</div>
+<div class="feature-desc" contenteditable="true">Up to 3x faster load times across all pages</div>
+</div>
+</div>
+<div class="feature">
+<div class="feature-icon" contenteditable="true">🎨</div>
+<div class="feature-text">
+<div class="feature-title" contenteditable="true">Redesigned Dashboard</div>
+<div class="feature-desc" contenteditable="true">A cleaner, more intuitive interface for your workflow</div>
+</div>
+</div>
+<div class="feature">
+<div class="feature-icon" contenteditable="true">🔒</div>
+<div class="feature-text">
+<div class="feature-title" contenteditable="true">Enhanced Security</div>
+<div class="feature-desc" contenteditable="true">Two-factor authentication and encrypted data storage</div>
+</div>
+</div>
+<div class="feature">
+<div class="feature-icon" contenteditable="true">📊</div>
+<div class="feature-text">
+<div class="feature-title" contenteditable="true">Advanced Analytics</div>
+<div class="feature-desc" contenteditable="true">Real-time insights with customizable reports</div>
+</div>
+</div>
+</div>
+<div class="bottom-bar">
+<div class="brand" contenteditable="true">YOUR BRAND</div>
+<div class="update-btn" id="ubtn" contenteditable="true" style="background:#6366f1">Update Now →</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var c1=document.getElementById('c1').value,c2=document.getElementById('c2').value;
+document.getElementById('card').style.background=c2;
+document.getElementById('vbadge').style.background=c1;
+document.getElementById('ubtn').style.background=c1;
+document.getElementById('glow1').style.background=c1;
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='feature-update.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>

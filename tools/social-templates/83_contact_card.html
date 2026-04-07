@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 83 - Contact Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Top Bg</label><br><input type="color" id="c1" value="#1e293b" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#06b6d4" onchange="u()"></div>
+<div><label>Bottom Bg</label><br><input type="color" id="c3" value="#f8fafc" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#f8fafc;display:flex;flex-direction:column;overflow:hidden;">
+<!-- Top section -->
+<div id="topSection" style="background:#1e293b;height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;">
+<!-- Geometric accents -->
+<div class="accent-circle" style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;border:3px solid rgba(6,182,212,0.3);"></div>
+<div class="accent-circle" style="position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;border:3px solid rgba(6,182,212,0.2);"></div>
+<!-- Avatar placeholder -->
+<div class="avatar-ring" style="width:150px;height:150px;border-radius:50%;border:4px solid #06b6d4;display:flex;align-items:center;justify-content:center;background:rgba(6,182,212,0.1);margin-bottom:24px;">
+<div style="font-size:64px;">👤</div>
+</div>
+<div contenteditable style="font-size:44px;font-weight:900;color:#ffffff;text-align:center;">Alexandra Chen</div>
+<div contenteditable class="accent-text" style="font-size:22px;font-weight:600;color:#06b6d4;margin-top:8px;letter-spacing:3px;text-transform:uppercase;">Creative Director</div>
+<div contenteditable style="font-size:18px;color:#94a3b8;margin-top:8px;">@ Design Studio Inc.</div>
+</div>
+<!-- Bottom section -->
+<div id="bottomSection" style="background:#f8fafc;flex:1;padding:40px 80px;display:flex;flex-direction:column;justify-content:center;gap:18px;">
+<div style="display:flex;align-items:center;gap:20px;">
+<div class="icon-box" style="width:52px;height:52px;border-radius:12px;background:#06b6d4;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">📞</div>
+<div>
+<div style="font-size:13px;color:#94a3b8;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Phone</div>
+<div contenteditable style="font-size:22px;font-weight:700;color:#1e293b;">+1 (555) 987-6543</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:20px;">
+<div class="icon-box" style="width:52px;height:52px;border-radius:12px;background:#06b6d4;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">✉️</div>
+<div>
+<div style="font-size:13px;color:#94a3b8;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Email</div>
+<div contenteditable style="font-size:22px;font-weight:700;color:#1e293b;">alex@designstudio.com</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:20px;">
+<div class="icon-box" style="width:52px;height:52px;border-radius:12px;background:#06b6d4;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🌐</div>
+<div>
+<div style="font-size:13px;color:#94a3b8;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Website</div>
+<div contenteditable style="font-size:22px;font-weight:700;color:#1e293b;">www.designstudio.com</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:20px;">
+<div class="icon-box" style="width:52px;height:52px;border-radius:12px;background:#06b6d4;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">📍</div>
+<div>
+<div style="font-size:13px;color:#94a3b8;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Social</div>
+<div contenteditable style="font-size:22px;font-weight:700;color:#1e293b;">@alexchendesign</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var top=document.getElementById('c1').value;
+var accent=document.getElementById('c2').value;
+var bot=document.getElementById('c3').value;
+document.getElementById('topSection').style.background=top;
+document.getElementById('bottomSection').style.background=bot;
+document.querySelectorAll('.accent-text').forEach(function(el){el.style.color=accent});
+document.querySelectorAll('.avatar-ring').forEach(function(el){el.style.borderColor=accent;el.style.background=accent+'1a'});
+document.querySelectorAll('.icon-box').forEach(function(el){el.style.background=accent});
+document.querySelectorAll('.accent-circle').forEach(function(el){el.style.borderColor=accent+'55'});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='contact-card.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

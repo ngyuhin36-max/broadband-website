@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 78 - Stats Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;padding:60px;box-sizing:border-box}
+.dash-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px}
+.dash-title-area{}
+.dash-label{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:8px;outline:none}
+.dash-title{font-size:44px;font-weight:900;color:#fff;line-height:1.1;outline:none}
+.dash-period{padding:10px 24px;border-radius:12px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);font-size:15px;font-weight:600;outline:none;margin-top:10px;display:inline-block}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;flex:1}
+.metric-card{border-radius:20px;padding:36px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.metric-icon{font-size:36px;margin-bottom:16px;outline:none}
+.metric-label{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;outline:none}
+.metric-value{font-size:48px;font-weight:900;color:#fff;margin-bottom:6px;outline:none}
+.metric-change{font-size:16px;font-weight:700;margin-bottom:20px;outline:none}
+.metric-bar-track{height:8px;border-radius:4px;background:rgba(255,255,255,0.1);overflow:hidden}
+.metric-bar-fill{height:100%;border-radius:4px}
+.metric-bg-num{position:absolute;right:20px;top:10px;font-size:100px;font-weight:900;opacity:0.05;color:#fff}
+.dash-footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px}
+.dash-footer-text{font-size:14px;color:rgba(255,255,255,0.4);font-weight:600;outline:none}
+.dash-footer-logo{font-size:18px;font-weight:800;color:rgba(255,255,255,0.6);outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click any number/text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#0f172a" onchange="u()"></div>
+<div><label>Card Color</label><br><input type="color" id="c2" value="#1e293b" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c3" value="#6366f1" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card">
+<div class="dash-header">
+<div class="dash-title-area">
+<div class="dash-label" id="dlabel" contenteditable="true">PERFORMANCE</div>
+<div class="dash-title" contenteditable="true">Monthly Dashboard</div>
+</div>
+<div class="dash-period" contenteditable="true">📅 March 2026</div>
+</div>
+<div class="dash-grid" id="grid">
+<div class="metric-card" id="mc1">
+<div><div class="metric-icon" contenteditable="true">📈</div>
+<div class="metric-label" id="ml1" contenteditable="true">Revenue</div>
+<div class="metric-value" contenteditable="true">$48.5K</div>
+<div class="metric-change" id="mch1" contenteditable="true">↑ 24% vs last month</div></div>
+<div class="metric-bar-track"><div class="metric-bar-fill" id="mf1" style="width:78%"></div></div>
+<div class="metric-bg-num">01</div>
+</div>
+<div class="metric-card" id="mc2">
+<div><div class="metric-icon" contenteditable="true">👥</div>
+<div class="metric-label" id="ml2" contenteditable="true">Users</div>
+<div class="metric-value" contenteditable="true">12,847</div>
+<div class="metric-change" id="mch2" contenteditable="true">↑ 18% vs last month</div></div>
+<div class="metric-bar-track"><div class="metric-bar-fill" id="mf2" style="width:65%"></div></div>
+<div class="metric-bg-num">02</div>
+</div>
+<div class="metric-card" id="mc3">
+<div><div class="metric-icon" contenteditable="true">🎯</div>
+<div class="metric-label" id="ml3" contenteditable="true">Conversion</div>
+<div class="metric-value" contenteditable="true">3.2%</div>
+<div class="metric-change" id="mch3" contenteditable="true">↑ 0.5% vs last month</div></div>
+<div class="metric-bar-track"><div class="metric-bar-fill" id="mf3" style="width:45%"></div></div>
+<div class="metric-bg-num">03</div>
+</div>
+<div class="metric-card" id="mc4">
+<div><div class="metric-icon" contenteditable="true">⏱️</div>
+<div class="metric-label" id="ml4" contenteditable="true">Avg Session</div>
+<div class="metric-value" contenteditable="true">4m 32s</div>
+<div class="metric-change" id="mch4" contenteditable="true">↑ 12% vs last month</div></div>
+<div class="metric-bar-track"><div class="metric-bar-fill" id="mf4" style="width:58%"></div></div>
+<div class="metric-bg-num">04</div>
+</div>
+<div class="metric-card" id="mc5">
+<div><div class="metric-icon" contenteditable="true">⭐</div>
+<div class="metric-label" id="ml5" contenteditable="true">Satisfaction</div>
+<div class="metric-value" contenteditable="true">4.8/5</div>
+<div class="metric-change" id="mch5" contenteditable="true">↑ 0.3 vs last month</div></div>
+<div class="metric-bar-track"><div class="metric-bar-fill" id="mf5" style="width:92%"></div></div>
+<div class="metric-bg-num">05</div>
+</div>
+<div class="metric-card" id="mc6">
+<div><div class="metric-icon" contenteditable="true">🔄</div>
+<div class="metric-label" id="ml6" contenteditable="true">Retention</div>
+<div class="metric-value" contenteditable="true">87%</div>
+<div class="metric-change" id="mch6" contenteditable="true">↑ 5% vs last month</div></div>
+<div class="metric-bar-track"><div class="metric-bar-fill" id="mf6" style="width:87%"></div></div>
+<div class="metric-bg-num">06</div>
+</div>
+</div>
+<div class="dash-footer">
+<div class="dash-footer-text" contenteditable="true">Auto-generated report • Updated daily</div>
+<div class="dash-footer-logo" contenteditable="true">YOUR BRAND</div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var card=document.getElementById('c2').value;
+var acc=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.getElementById('dlabel').style.color=acc;
+for(var i=1;i<=6;i++){
+document.getElementById('mc'+i).style.background=card;
+document.getElementById('ml'+i).style.color='rgba(255,255,255,0.5)';
+document.getElementById('mch'+i).style.color=acc;
+document.getElementById('mf'+i).style.background='linear-gradient(90deg,'+acc+','+acc+'aa)';
+}
+}
+u();
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='stats-dashboard.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 81 - Service List</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(79,70,229,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#0f172a" onchange="u()"></div>
+<div><label>Accent</label><br><input type="color" id="c2" value="#38bdf8" onchange="u()"></div>
+<div><label>Price Color</label><br><input type="color" id="c3" value="#facc15" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#0f172a;display:flex;flex-direction:column;padding:60px 70px;box-sizing:border-box;">
+<div style="text-align:center;margin-bottom:40px;">
+<div contenteditable style="font-size:22px;font-weight:600;color:#38bdf8;letter-spacing:6px;text-transform:uppercase;margin-bottom:12px;" class="accent-text">WHAT WE OFFER</div>
+<div contenteditable style="font-size:52px;font-weight:900;color:#ffffff;line-height:1.1;">Our Services</div>
+<div style="width:80px;height:4px;background:#38bdf8;margin:20px auto 0;" class="accent-bar"></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px;">
+<div class="svc-row" style="display:flex;align-items:center;background:rgba(255,255,255,0.05);border-radius:16px;padding:22px 30px;border-left:4px solid #38bdf8;">
+<div style="font-size:40px;margin-right:24px;">🌐</div>
+<div style="flex:1;">
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">Web Design</div>
+<div contenteditable style="font-size:15px;color:#94a3b8;margin-top:4px;">Custom responsive websites for your brand</div>
+</div>
+<div contenteditable style="font-size:26px;font-weight:900;color:#facc15;" class="price-text">$499</div>
+</div>
+<div class="svc-row" style="display:flex;align-items:center;background:rgba(255,255,255,0.05);border-radius:16px;padding:22px 30px;border-left:4px solid #38bdf8;">
+<div style="font-size:40px;margin-right:24px;">📱</div>
+<div style="flex:1;">
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">Social Media</div>
+<div contenteditable style="font-size:15px;color:#94a3b8;margin-top:4px;">Content creation & account management</div>
+</div>
+<div contenteditable style="font-size:26px;font-weight:900;color:#facc15;" class="price-text">$299</div>
+</div>
+<div class="svc-row" style="display:flex;align-items:center;background:rgba(255,255,255,0.05);border-radius:16px;padding:22px 30px;border-left:4px solid #38bdf8;">
+<div style="font-size:40px;margin-right:24px;">🎨</div>
+<div style="flex:1;">
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">Brand Identity</div>
+<div contenteditable style="font-size:15px;color:#94a3b8;margin-top:4px;">Logo, colors & brand guidelines package</div>
+</div>
+<div contenteditable style="font-size:26px;font-weight:900;color:#facc15;" class="price-text">$799</div>
+</div>
+<div class="svc-row" style="display:flex;align-items:center;background:rgba(255,255,255,0.05);border-radius:16px;padding:22px 30px;border-left:4px solid #38bdf8;">
+<div style="font-size:40px;margin-right:24px;">📈</div>
+<div style="flex:1;">
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">SEO Strategy</div>
+<div contenteditable style="font-size:15px;color:#94a3b8;margin-top:4px;">Boost your search rankings & organic traffic</div>
+</div>
+<div contenteditable style="font-size:26px;font-weight:900;color:#facc15;" class="price-text">$399</div>
+</div>
+<div class="svc-row" style="display:flex;align-items:center;background:rgba(255,255,255,0.05);border-radius:16px;padding:22px 30px;border-left:4px solid #38bdf8;">
+<div style="font-size:40px;margin-right:24px;">📧</div>
+<div style="flex:1;">
+<div contenteditable style="font-size:24px;font-weight:800;color:#ffffff;">Email Marketing</div>
+<div contenteditable style="font-size:15px;color:#94a3b8;margin-top:4px;">Automated campaigns that convert leads</div>
+</div>
+<div contenteditable style="font-size:26px;font-weight:900;color:#facc15;" class="price-text">$199</div>
+</div>
+</div>
+<div style="text-align:center;margin-top:30px;">
+<div contenteditable style="font-size:16px;color:#64748b;">📞 Book a free consultation: <span style="color:#38bdf8;">hello@studio.com</span></div>
+</div>
+</div>
+</div>
+<script>
+function u(){
+var bg=document.getElementById('c1').value;
+var accent=document.getElementById('c2').value;
+var price=document.getElementById('c3').value;
+document.getElementById('card').style.background=bg;
+document.querySelectorAll('.accent-text').forEach(function(el){el.style.color=accent});
+document.querySelectorAll('.accent-bar').forEach(function(el){el.style.background=accent});
+document.querySelectorAll('.svc-row').forEach(function(el){el.style.borderLeftColor=accent});
+document.querySelectorAll('.price-text').forEach(function(el){el.style.color=price});
+}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='service-list.png';a.href=c.toDataURL('image/png');a.click();})}
+</script>
+</body>
+</html>

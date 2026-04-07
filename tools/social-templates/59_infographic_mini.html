@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template 59 - Mini Infographic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{margin:0;background:#f0f0f0;font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:30px}
+.toolbar{background:#fff;padding:20px 40px;border-radius:16px;margin-bottom:30px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toolbar label{font-size:14px;color:#666;font-weight:600}
+.toolbar input[type="color"]{width:50px;height:36px;padding:2px;cursor:pointer;border:2px solid #e0e0e0;border-radius:8px}
+.btn{padding:12px 28px;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-download{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.instructions{background:#fff3cd;padding:15px 25px;border-radius:12px;margin-bottom:20px;font-size:15px;color:#856404;border-left:4px solid #ffc107;max-width:1080px;width:100%}
+#template{position:relative}
+[contenteditable]:focus{outline:2px dashed rgba(99,102,241,0.5);outline-offset:4px}
+.card{width:1080px;height:1080px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px;text-align:center}
+.grid-bg{position:absolute;inset:0;opacity:0.03;background-image:linear-gradient(rgba(255,255,255,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:40px 40px}
+.info-tag{font-size:16px;font-weight:800;letter-spacing:5px;color:rgba(255,255,255,0.4);margin-bottom:15px;outline:none;position:relative;z-index:1}
+.info-title{font-size:44px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:15px;outline:none;position:relative;z-index:1;max-width:700px}
+.info-subtitle{font-size:20px;color:rgba(255,255,255,0.5);margin-bottom:60px;outline:none;position:relative;z-index:1}
+.data-points{display:flex;gap:30px;position:relative;z-index:1;width:100%}
+.data-card{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px 25px;display:flex;flex-direction:column;align-items:center}
+.data-icon{font-size:50px;margin-bottom:20px;outline:none}
+.data-number{font-size:56px;font-weight:900;line-height:1;margin-bottom:8px;outline:none}
+.data-label{font-size:16px;color:rgba(255,255,255,0.5);font-weight:600;outline:none}
+.data-bar{width:80%;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;margin-top:20px;overflow:hidden}
+.data-bar-fill{height:100%;border-radius:3px}
+.info-source{font-size:14px;color:rgba(255,255,255,0.2);margin-top:50px;font-weight:600;outline:none;position:relative;z-index:1}
+.footer{position:absolute;bottom:40px;font-size:14px;color:rgba(255,255,255,0.15);font-weight:600;outline:none}
+</style>
+</head>
+<body>
+<div class="instructions">✏️ <strong>How to use:</strong> Click text to edit → Change colors → Download as PNG</div>
+<div class="toolbar">
+<div><label>Background</label><br><input type="color" id="c1" value="#1e1b4b" onchange="u()"></div>
+<div><label>Accent 1</label><br><input type="color" id="c2" value="#818cf8" onchange="u()"></div>
+<div><label>Accent 2</label><br><input type="color" id="c3" value="#34d399" onchange="u()"></div>
+<div><label>Accent 3</label><br><input type="color" id="c4" value="#fb923c" onchange="u()"></div>
+<button class="btn btn-download" onclick="dl()">⬇ Download as PNG</button>
+</div>
+<div id="template">
+<div class="card" id="card" style="background:#1e1b4b;">
+<div class="grid-bg"></div>
+<div class="info-tag" contenteditable="true">INFOGRAPHIC</div>
+<div class="info-title" contenteditable="true">Social Media Marketing By The Numbers</div>
+<div class="info-subtitle" contenteditable="true">Key statistics every marketer should know in 2026</div>
+<div class="data-points">
+<div class="data-card">
+<div class="data-icon" contenteditable="true">📱</div>
+<div class="data-number" id="num1" contenteditable="true" style="color:#818cf8;">4.9B</div>
+<div class="data-label" contenteditable="true">Active social media users worldwide</div>
+<div class="data-bar"><div class="data-bar-fill" id="fill1" style="width:85%;background:#818cf8;"></div></div>
+</div>
+<div class="data-card">
+<div class="data-icon" contenteditable="true">📈</div>
+<div class="data-number" id="num2" contenteditable="true" style="color:#34d399;">73%</div>
+<div class="data-label" contenteditable="true">Marketers find social media effective</div>
+<div class="data-bar"><div class="data-bar-fill" id="fill2" style="width:73%;background:#34d399;"></div></div>
+</div>
+<div class="data-card">
+<div class="data-icon" contenteditable="true">💰</div>
+<div class="data-number" id="num3" contenteditable="true" style="color:#fb923c;">5.2x</div>
+<div class="data-label" contenteditable="true">Average ROI from social campaigns</div>
+<div class="data-bar"><div class="data-bar-fill" id="fill3" style="width:65%;background:#fb923c;"></div></div>
+</div>
+</div>
+<div class="info-source" contenteditable="true">Source: Social Media Marketing Report 2026 • Save this for later!</div>
+<div class="footer" contenteditable="true">@YOURBRAND</div>
+</div>
+</div>
+<script>
+function u(){var a=document.getElementById('c1').value,b=document.getElementById('c2').value,c=document.getElementById('c3').value,d=document.getElementById('c4').value;document.getElementById('card').style.background=a;document.getElementById('num1').style.color=b;document.getElementById('fill1').style.background=b;document.getElementById('num2').style.color=c;document.getElementById('fill2').style.background=c;document.getElementById('num3').style.color=d;document.getElementById('fill3').style.background=d}
+function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(c=>{const a=document.createElement('a');a.download='infographic-mini.png';a.href=c.toDataURL('image/png');a.click()})}
+</script>
+</body>
+</html>
