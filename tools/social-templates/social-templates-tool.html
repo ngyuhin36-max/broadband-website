@@ -75,12 +75,13 @@ body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a}
 .templates-grid{max-width:1200px;margin:0 auto;padding:0 20px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
 .template-card{background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;transition:all 0.25s;box-shadow:0 2px 8px rgba(0,0,0,0.06);position:relative}
 .template-card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.12)}
-.card-preview{width:100%;aspect-ratio:1;position:relative;overflow:hidden}
-.card-preview iframe{width:1080px;height:1080px;border:none;transform:scale(0.241);transform-origin:top left;pointer-events:none;position:absolute;top:0;left:0}
+.card-preview{width:100%;aspect-ratio:1;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:8px}
+.card-preview .preview-icon{font-size:52px}
+.card-preview .preview-label{font-size:14px;font-weight:700;color:rgba(255,255,255,0.9);padding:0 16px}
 .card-info{padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
 .card-info h3{font-size:15px;font-weight:700}
 .card-info .card-num{font-size:12px;color:#94a3b8;font-weight:600}
-.card-category{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.6);color:#fff;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;z-index:2}
+.card-category{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.4);color:#fff;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;z-index:2}
 
 /* Modal */
 .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;justify-content:center;align-items:flex-start;padding:20px;overflow-y:auto}
@@ -103,12 +104,24 @@ body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a}
 
 /* Responsive */
 @media(max-width:768px){
-    .page-header h1{font-size:26px}
-    .page-header p{font-size:15px}
-    .templates-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+    .page-header{padding:35px 16px}
+    .page-header h1{font-size:24px}
+    .page-header p{font-size:14px}
+    .badge-row{gap:8px}
+    .badge{font-size:11px;padding:6px 12px}
+    .templates-grid{grid-template-columns:repeat(2,1fr);gap:10px;padding:0 12px 40px}
+    .card-preview .preview-icon{font-size:40px}
+    .card-preview .preview-label{font-size:12px}
+    .card-info{padding:10px 12px}
+    .card-info h3{font-size:13px}
     .how-to-steps{flex-direction:column}
-    .modal{border-radius:12px}
-    .modal-body iframe{height:70vh}
+    .filter-bar{padding:0 12px;gap:6px}
+    .filter-btn{padding:6px 12px;font-size:12px}
+    .search-box{padding:0 12px}
+    .modal{border-radius:12px;margin:10px}
+    .modal-header{padding:12px 16px}
+    .modal-header h2{font-size:16px}
+    .modal-body iframe{height:75vh}
 }
 </style>
 </head>
@@ -187,106 +200,106 @@ body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a}
 
 <script>
 const templates = [
-    {id:"editable_demo", num:"01", name:"Tips 列表", cat:"content", file:"editable_demo.html"},
-    {id:"02", num:"02", name:"名言引述", cat:"content", file:"02_quote.html"},
-    {id:"03", num:"03", name:"數據統計", cat:"info", file:"03_stats.html"},
-    {id:"04", num:"04", name:"待辦清單", cat:"content", file:"04_checklist.html"},
-    {id:"05", num:"05", name:"客戶評價", cat:"social", file:"05_testimonial.html"},
-    {id:"06", num:"06", name:"使用前後", cat:"promo", file:"06_before_after.html"},
-    {id:"07", num:"07", name:"優惠促銷", cat:"promo", file:"07_promo_sale.html"},
-    {id:"08", num:"08", name:"步驟教學", cat:"content", file:"08_step_guide.html"},
-    {id:"09", num:"09", name:"常見問題", cat:"info", file:"09_faq.html"},
-    {id:"10", num:"10", name:"公告通知", cat:"business", file:"10_announcement.html"},
-    {id:"11", num:"11", name:"輪播封面", cat:"media", file:"11_carousel_cover.html"},
-    {id:"12", num:"12", name:"迷思破解", cat:"content", file:"12_myth_fact.html"},
-    {id:"13", num:"13", name:"Do's & Don'ts", cat:"content", file:"13_dos_donts.html"},
-    {id:"14", num:"14", name:"二選一", cat:"social", file:"14_this_or_that.html"},
-    {id:"15", num:"15", name:"產品特色", cat:"promo", file:"15_product_feature.html"},
-    {id:"16", num:"16", name:"團隊介紹", cat:"business", file:"16_team_about.html"},
-    {id:"17", num:"17", name:"活動邀請", cat:"promo", file:"17_event.html"},
-    {id:"18", num:"18", name:"倒數計時", cat:"promo", file:"18_countdown.html"},
-    {id:"19", num:"19", name:"重點數據", cat:"info", file:"19_single_stat.html"},
-    {id:"20", num:"20", name:"Top 10 排行", cat:"content", file:"20_top_list.html"},
-    {id:"21", num:"21", name:"比較表格", cat:"info", file:"21_comparison.html"},
-    {id:"22", num:"22", name:"運作流程", cat:"info", file:"22_how_it_works.html"},
-    {id:"23", num:"23", name:"成功案例", cat:"business", file:"23_case_study.html"},
-    {id:"24", num:"24", name:"價目表", cat:"business", file:"24_pricing.html"},
-    {id:"25", num:"25", name:"CTA 註冊", cat:"promo", file:"25_cta_signup.html"},
-    {id:"26", num:"26", name:"大膽宣言", cat:"social", file:"26_bold_statement.html"},
-    {id:"27", num:"27", name:"問題方案", cat:"content", file:"27_problem_solution.html"},
-    {id:"28", num:"28", name:"你知道嗎", cat:"content", file:"28_did_you_know.html"},
-    {id:"29", num:"29", name:"每週計劃", cat:"info", file:"29_weekly_planner.html"},
-    {id:"30", num:"30", name:"社交證明", cat:"social", file:"30_social_proof.html"},
-    {id:"31", num:"31", name:"品牌故事", cat:"business", file:"31_brand_story.html"},
-    {id:"32", num:"32", name:"迷你文章", cat:"content", file:"32_mini_blog.html"},
-    {id:"33", num:"33", name:"資源列表", cat:"content", file:"33_resource_list.html"},
-    {id:"34", num:"34", name:"招聘啟事", cat:"business", file:"34_hiring.html"},
-    {id:"35", num:"35", name:"里程碑", cat:"social", file:"35_milestone.html"},
-    {id:"36", num:"36", name:"30日挑戰", cat:"social", file:"36_challenge.html"},
-    {id:"37", num:"37", name:"Podcast 集數", cat:"media", file:"37_podcast.html"},
-    {id:"38", num:"38", name:"網絡研討會", cat:"media", file:"38_webinar.html"},
-    {id:"39", num:"39", name:"節日祝賀", cat:"social", file:"39_seasonal.html"},
-    {id:"40", num:"40", name:"教學指南", cat:"content", file:"40_tutorial.html"},
-    {id:"41", num:"41", name:"簡約引述", cat:"content", file:"41_minimal_quote.html"},
-    {id:"42", num:"42", name:"漸變文字", cat:"media", file:"42_gradient_text.html"},
-    {id:"43", num:"43", name:"個人簡介卡", cat:"business", file:"43_profile_card.html"},
-    {id:"44", num:"44", name:"輪播內頁", cat:"media", file:"44_carousel_slide.html"},
-    {id:"45", num:"45", name:"影片縮圖", cat:"media", file:"45_video_thumbnail.html"},
-    {id:"46", num:"46", name:"Podcast 封面", cat:"media", file:"46_podcast_cover.html"},
-    {id:"47", num:"47", name:"電子書推廣", cat:"promo", file:"47_ebook_promo.html"},
-    {id:"48", num:"48", name:"優惠券", cat:"promo", file:"48_coupon.html"},
-    {id:"49", num:"49", name:"即將推出", cat:"promo", file:"49_coming_soon.html"},
-    {id:"50", num:"50", name:"追蹤 CTA", cat:"social", file:"50_follow_cta.html"},
-    {id:"51", num:"51", name:"食譜卡片", cat:"lifestyle", file:"51_recipe_card.html"},
-    {id:"52", num:"52", name:"Monday 勵志", cat:"social", file:"52_motivation_monday.html"},
-    {id:"53", num:"53", name:"客戶焦點", cat:"social", file:"53_customer_spotlight.html"},
-    {id:"54", num:"54", name:"新品發佈", cat:"promo", file:"54_product_launch.html"},
-    {id:"55", num:"55", name:"限時搶購", cat:"promo", file:"55_flash_sale.html"},
-    {id:"56", num:"56", name:"行業新聞", cat:"content", file:"56_industry_news.html"},
-    {id:"57", num:"57", name:"投票調查", cat:"social", file:"57_poll_survey.html"},
-    {id:"58", num:"58", name:"幕後花絮", cat:"social", file:"58_behind_scenes.html"},
-    {id:"59", num:"59", name:"迷你資訊圖", cat:"info", file:"59_infographic_mini.html"},
-    {id:"60", num:"60", name:"時間線", cat:"info", file:"60_timeline.html"},
-    {id:"61", num:"61", name:"感謝卡", cat:"social", file:"61_thank_you.html"},
-    {id:"62", num:"62", name:"週年紀念", cat:"social", file:"62_anniversary.html"},
-    {id:"63", num:"63", name:"功能更新", cat:"business", file:"63_feature_update.html"},
-    {id:"64", num:"64", name:"收集回饋", cat:"social", file:"64_feedback_request.html"},
-    {id:"65", num:"65", name:"每日貼士", cat:"content", file:"65_daily_tip.html"},
-    {id:"66", num:"66", name:"作品集", cat:"business", file:"66_portfolio.html"},
-    {id:"67", num:"67", name:"活動回顧", cat:"business", file:"67_event_recap.html"},
-    {id:"68", num:"68", name:"問答環節", cat:"content", file:"68_qa_session.html"},
-    {id:"69", num:"69", name:"抽獎活動", cat:"promo", file:"69_giveaway.html"},
-    {id:"70", num:"70", name:"電郵訂閱", cat:"promo", file:"70_newsletter.html"},
-    {id:"71", num:"71", name:"App 下載", cat:"promo", file:"71_app_download.html"},
-    {id:"72", num:"72", name:"分割版面", cat:"design", file:"72_split_layout.html"},
-    {id:"73", num:"73", name:"霓虹風格", cat:"design", file:"73_neon_glow.html"},
-    {id:"74", num:"74", name:"復古風格", cat:"design", file:"74_retro_style.html"},
-    {id:"75", num:"75", name:"玻璃擬態", cat:"design", file:"75_glassmorphism.html"},
-    {id:"76", num:"76", name:"漸變網格", cat:"design", file:"76_gradient_mesh.html"},
-    {id:"77", num:"77", name:"雙色調", cat:"design", file:"77_duotone.html"},
-    {id:"78", num:"78", name:"數據面板", cat:"info", file:"78_stats_dashboard.html"},
-    {id:"79", num:"79", name:"餐牌價目", cat:"business", file:"79_menu_pricelist.html"},
-    {id:"80", num:"80", name:"預約 CTA", cat:"business", file:"80_appointment.html"},
-    {id:"81", num:"81", name:"服務列表", cat:"business", file:"81_service_list.html"},
-    {id:"82", num:"82", name:"營業時間", cat:"business", file:"82_opening_hours.html"},
-    {id:"83", num:"83", name:"聯絡卡片", cat:"business", file:"83_contact_card.html"},
-    {id:"84", num:"84", name:"社交連結", cat:"social", file:"84_social_links.html"},
-    {id:"85", num:"85", name:"品牌色板", cat:"design", file:"85_color_palette.html"},
-    {id:"86", num:"86", name:"情緒板", cat:"design", file:"86_mood_board.html"},
-    {id:"87", num:"87", name:"限動封面", cat:"media", file:"87_story_cover.html"},
-    {id:"88", num:"88", name:"YT 縮圖", cat:"media", file:"88_yt_thumbnail.html"},
-    {id:"89", num:"89", name:"LinkedIn 橫幅", cat:"media", file:"89_linkedin_banner.html"},
-    {id:"90", num:"90", name:"電郵頭部", cat:"media", file:"90_email_header.html"},
-    {id:"91", num:"91", name:"簡約清單", cat:"lifestyle", file:"91_checklist_minimal.html"},
-    {id:"92", num:"92", name:"編號貼士", cat:"content", file:"92_numbered_tips.html"},
-    {id:"93", num:"93", name:"優缺點比較", cat:"info", file:"93_pros_cons.html"},
-    {id:"94", num:"94", name:"目標追蹤", cat:"lifestyle", file:"94_goal_tracker.html"},
-    {id:"95", num:"95", name:"習慣追蹤", cat:"lifestyle", file:"95_habit_tracker.html"},
-    {id:"96", num:"96", name:"收藏此帖", cat:"content", file:"96_save_this.html"},
-    {id:"97", num:"97", name:"滑動教學", cat:"content", file:"97_swipe_tutorial.html"},
-    {id:"98", num:"98", name:"迷你日曆", cat:"lifestyle", file:"98_mini_calendar.html"},
-    {id:"99", num:"99", name:"工作桌面", cat:"lifestyle", file:"99_workspace.html"},
-    {id:"100", num:"100", name:"年度回顧", cat:"social", file:"100_year_review.html"}
+    {num:"01",name:"Tips 列表",cat:"content",file:"editable_demo.html",icon:"📝",bg:"linear-gradient(135deg,#4f46e5,#06b6d4)"},
+    {num:"02",name:"名言引述",cat:"content",file:"02_quote.html",icon:"💬",bg:"linear-gradient(135deg,#1e293b,#334155)"},
+    {num:"03",name:"數據統計",cat:"info",file:"03_stats.html",icon:"📊",bg:"linear-gradient(135deg,#6366f1,#8b5cf6)"},
+    {num:"04",name:"待辦清單",cat:"content",file:"04_checklist.html",icon:"✅",bg:"linear-gradient(135deg,#059669,#10b981)"},
+    {num:"05",name:"客戶評價",cat:"social",file:"05_testimonial.html",icon:"⭐",bg:"linear-gradient(135deg,#0ea5e9,#38bdf8)"},
+    {num:"06",name:"使用前後",cat:"promo",file:"06_before_after.html",icon:"🔄",bg:"linear-gradient(135deg,#f59e0b,#f97316)"},
+    {num:"07",name:"優惠促銷",cat:"promo",file:"07_promo_sale.html",icon:"🏷️",bg:"linear-gradient(135deg,#ef4444,#f97316)"},
+    {num:"08",name:"步驟教學",cat:"content",file:"08_step_guide.html",icon:"📋",bg:"linear-gradient(135deg,#8b5cf6,#a78bfa)"},
+    {num:"09",name:"常見問題",cat:"info",file:"09_faq.html",icon:"❓",bg:"linear-gradient(135deg,#0891b2,#06b6d4)"},
+    {num:"10",name:"公告通知",cat:"business",file:"10_announcement.html",icon:"📢",bg:"linear-gradient(135deg,#dc2626,#ef4444)"},
+    {num:"11",name:"輪播封面",cat:"media",file:"11_carousel_cover.html",icon:"🎠",bg:"linear-gradient(135deg,#7c3aed,#a78bfa)"},
+    {num:"12",name:"迷思破解",cat:"content",file:"12_myth_fact.html",icon:"🔍",bg:"linear-gradient(135deg,#0f172a,#334155)"},
+    {num:"13",name:"Do's & Don'ts",cat:"content",file:"13_dos_donts.html",icon:"👍",bg:"linear-gradient(135deg,#16a34a,#ef4444)"},
+    {num:"14",name:"二選一",cat:"social",file:"14_this_or_that.html",icon:"⚡",bg:"linear-gradient(135deg,#f43f5e,#8b5cf6)"},
+    {num:"15",name:"產品特色",cat:"promo",file:"15_product_feature.html",icon:"🎯",bg:"linear-gradient(135deg,#1e3a5f,#6366f1)"},
+    {num:"16",name:"團隊介紹",cat:"business",file:"16_team_about.html",icon:"👥",bg:"linear-gradient(135deg,#0f766e,#14b8a6)"},
+    {num:"17",name:"活動邀請",cat:"promo",file:"17_event.html",icon:"🎉",bg:"linear-gradient(135deg,#c026d3,#e879f9)"},
+    {num:"18",name:"倒數計時",cat:"promo",file:"18_countdown.html",icon:"⏰",bg:"linear-gradient(135deg,#b91c1c,#dc2626)"},
+    {num:"19",name:"重點數據",cat:"info",file:"19_single_stat.html",icon:"📈",bg:"linear-gradient(135deg,#4338ca,#6366f1)"},
+    {num:"20",name:"Top 10 排行",cat:"content",file:"20_top_list.html",icon:"🏆",bg:"linear-gradient(135deg,#b45309,#f59e0b)"},
+    {num:"21",name:"比較表格",cat:"info",file:"21_comparison.html",icon:"⚖️",bg:"linear-gradient(135deg,#1e40af,#3b82f6)"},
+    {num:"22",name:"運作流程",cat:"info",file:"22_how_it_works.html",icon:"⚙️",bg:"linear-gradient(135deg,#475569,#64748b)"},
+    {num:"23",name:"成功案例",cat:"business",file:"23_case_study.html",icon:"📁",bg:"linear-gradient(135deg,#15803d,#22c55e)"},
+    {num:"24",name:"價目表",cat:"business",file:"24_pricing.html",icon:"💰",bg:"linear-gradient(135deg,#7e22ce,#a855f7)"},
+    {num:"25",name:"CTA 註冊",cat:"promo",file:"25_cta_signup.html",icon:"🚀",bg:"linear-gradient(135deg,#ea580c,#f97316)"},
+    {num:"26",name:"大膽宣言",cat:"social",file:"26_bold_statement.html",icon:"💥",bg:"linear-gradient(135deg,#0f172a,#1e293b)"},
+    {num:"27",name:"問題方案",cat:"content",file:"27_problem_solution.html",icon:"💡",bg:"linear-gradient(135deg,#dc2626,#16a34a)"},
+    {num:"28",name:"你知道嗎",cat:"content",file:"28_did_you_know.html",icon:"🤔",bg:"linear-gradient(135deg,#0369a1,#0ea5e9)"},
+    {num:"29",name:"每週計劃",cat:"info",file:"29_weekly_planner.html",icon:"📅",bg:"linear-gradient(135deg,#4f46e5,#818cf8)"},
+    {num:"30",name:"社交證明",cat:"social",file:"30_social_proof.html",icon:"🌟",bg:"linear-gradient(135deg,#ca8a04,#facc15)"},
+    {num:"31",name:"品牌故事",cat:"business",file:"31_brand_story.html",icon:"📖",bg:"linear-gradient(135deg,#1e3a5f,#0ea5e9)"},
+    {num:"32",name:"迷你文章",cat:"content",file:"32_mini_blog.html",icon:"✍️",bg:"linear-gradient(135deg,#f8fafc,#e2e8f0)"},
+    {num:"33",name:"資源列表",cat:"content",file:"33_resource_list.html",icon:"📚",bg:"linear-gradient(135deg,#0d9488,#2dd4bf)"},
+    {num:"34",name:"招聘啟事",cat:"business",file:"34_hiring.html",icon:"💼",bg:"linear-gradient(135deg,#4338ca,#818cf8)"},
+    {num:"35",name:"里程碑",cat:"social",file:"35_milestone.html",icon:"🎯",bg:"linear-gradient(135deg,#b45309,#fbbf24)"},
+    {num:"36",name:"30日挑戰",cat:"social",file:"36_challenge.html",icon:"🔥",bg:"linear-gradient(135deg,#ea580c,#fb923c)"},
+    {num:"37",name:"Podcast 集數",cat:"media",file:"37_podcast.html",icon:"🎙️",bg:"linear-gradient(135deg,#7c3aed,#c084fc)"},
+    {num:"38",name:"網絡研討會",cat:"media",file:"38_webinar.html",icon:"💻",bg:"linear-gradient(135deg,#0891b2,#22d3ee)"},
+    {num:"39",name:"節日祝賀",cat:"social",file:"39_seasonal.html",icon:"🎄",bg:"linear-gradient(135deg,#dc2626,#15803d)"},
+    {num:"40",name:"教學指南",cat:"content",file:"40_tutorial.html",icon:"🎓",bg:"linear-gradient(135deg,#1d4ed8,#60a5fa)"},
+    {num:"41",name:"簡約引述",cat:"content",file:"41_minimal_quote.html",icon:"🤍",bg:"linear-gradient(135deg,#f8fafc,#cbd5e1)"},
+    {num:"42",name:"漸變文字",cat:"media",file:"42_gradient_text.html",icon:"🌈",bg:"linear-gradient(135deg,#ec4899,#8b5cf6)"},
+    {num:"43",name:"個人簡介卡",cat:"business",file:"43_profile_card.html",icon:"👤",bg:"linear-gradient(135deg,#0f172a,#334155)"},
+    {num:"44",name:"輪播內頁",cat:"media",file:"44_carousel_slide.html",icon:"📄",bg:"linear-gradient(135deg,#6366f1,#a78bfa)"},
+    {num:"45",name:"影片縮圖",cat:"media",file:"45_video_thumbnail.html",icon:"▶️",bg:"linear-gradient(135deg,#dc2626,#0f172a)"},
+    {num:"46",name:"Podcast 封面",cat:"media",file:"46_podcast_cover.html",icon:"🎧",bg:"linear-gradient(135deg,#1e1b4b,#7c3aed)"},
+    {num:"47",name:"電子書推廣",cat:"promo",file:"47_ebook_promo.html",icon:"📕",bg:"linear-gradient(135deg,#9333ea,#c084fc)"},
+    {num:"48",name:"優惠券",cat:"promo",file:"48_coupon.html",icon:"🎟️",bg:"linear-gradient(135deg,#f59e0b,#fbbf24)"},
+    {num:"49",name:"即將推出",cat:"promo",file:"49_coming_soon.html",icon:"🔜",bg:"linear-gradient(135deg,#0f172a,#6366f1)"},
+    {num:"50",name:"追蹤 CTA",cat:"social",file:"50_follow_cta.html",icon:"➕",bg:"linear-gradient(135deg,#e11d48,#f43f5e)"},
+    {num:"51",name:"食譜卡片",cat:"lifestyle",file:"51_recipe_card.html",icon:"🍳",bg:"linear-gradient(135deg,#dc2626,#f59e0b)"},
+    {num:"52",name:"Monday 勵志",cat:"social",file:"52_motivation_monday.html",icon:"🌅",bg:"linear-gradient(135deg,#1e1b4b,#f97316)"},
+    {num:"53",name:"客戶焦點",cat:"social",file:"53_customer_spotlight.html",icon:"🌟",bg:"linear-gradient(135deg,#0f172a,#3b82f6)"},
+    {num:"54",name:"新品發佈",cat:"promo",file:"54_product_launch.html",icon:"🚀",bg:"linear-gradient(135deg,#0a0a0a,#7c3aed)"},
+    {num:"55",name:"限時搶購",cat:"promo",file:"55_flash_sale.html",icon:"⚡",bg:"linear-gradient(135deg,#dc2626,#fbbf24)"},
+    {num:"56",name:"行業新聞",cat:"content",file:"56_industry_news.html",icon:"📰",bg:"linear-gradient(135deg,#f8fafc,#1e40af)"},
+    {num:"57",name:"投票調查",cat:"social",file:"57_poll_survey.html",icon:"📊",bg:"linear-gradient(135deg,#064e3b,#10b981)"},
+    {num:"58",name:"幕後花絮",cat:"social",file:"58_behind_scenes.html",icon:"🎬",bg:"linear-gradient(135deg,#1e1b4b,#eab308)"},
+    {num:"59",name:"迷你資訊圖",cat:"info",file:"59_infographic_mini.html",icon:"📋",bg:"linear-gradient(135deg,#1e1b4b,#6366f1)"},
+    {num:"60",name:"時間線",cat:"info",file:"60_timeline.html",icon:"⏳",bg:"linear-gradient(135deg,#27272a,#e11d48)"},
+    {num:"61",name:"感謝卡",cat:"social",file:"61_thank_you.html",icon:"❤️",bg:"linear-gradient(135deg,#e11d48,#fb7185)"},
+    {num:"62",name:"週年紀念",cat:"social",file:"62_anniversary.html",icon:"🎊",bg:"linear-gradient(135deg,#0f172a,#ca8a04)"},
+    {num:"63",name:"功能更新",cat:"business",file:"63_feature_update.html",icon:"🆕",bg:"linear-gradient(135deg,#0f172a,#4f46e5)"},
+    {num:"64",name:"收集回饋",cat:"social",file:"64_feedback_request.html",icon:"💛",bg:"linear-gradient(135deg,#fffbeb,#f59e0b)"},
+    {num:"65",name:"每日貼士",cat:"content",file:"65_daily_tip.html",icon:"💡",bg:"linear-gradient(135deg,#f0fdf4,#16a34a)"},
+    {num:"66",name:"作品集",cat:"business",file:"66_portfolio.html",icon:"🖼️",bg:"linear-gradient(135deg,#1e1b4b,#9333ea)"},
+    {num:"67",name:"活動回顧",cat:"business",file:"67_event_recap.html",icon:"📸",bg:"linear-gradient(135deg,#fff,#ef4444)"},
+    {num:"68",name:"問答環節",cat:"content",file:"68_qa_session.html",icon:"🗣️",bg:"linear-gradient(135deg,#eef2ff,#6366f1)"},
+    {num:"69",name:"抽獎活動",cat:"promo",file:"69_giveaway.html",icon:"🎁",bg:"linear-gradient(135deg,#ec4899,#f59e0b)"},
+    {num:"70",name:"電郵訂閱",cat:"promo",file:"70_newsletter.html",icon:"📧",bg:"linear-gradient(135deg,#fff,#4f46e5)"},
+    {num:"71",name:"App 下載",cat:"promo",file:"71_app_download.html",icon:"📱",bg:"linear-gradient(135deg,#0f172a,#6366f1)"},
+    {num:"72",name:"分割版面",cat:"design",file:"72_split_layout.html",icon:"◧",bg:"linear-gradient(135deg,#1e293b,#f59e0b)"},
+    {num:"73",name:"霓虹風格",cat:"design",file:"73_neon_glow.html",icon:"💜",bg:"linear-gradient(135deg,#0a0a0a,#06b6d4)"},
+    {num:"74",name:"復古風格",cat:"design",file:"74_retro_style.html",icon:"📻",bg:"linear-gradient(135deg,#fef3c7,#b45309)"},
+    {num:"75",name:"玻璃擬態",cat:"design",file:"75_glassmorphism.html",icon:"🧊",bg:"linear-gradient(135deg,#c084fc,#22d3ee)"},
+    {num:"76",name:"漸變網格",cat:"design",file:"76_gradient_mesh.html",icon:"🎨",bg:"linear-gradient(135deg,#ec4899,#8b5cf6,#06b6d4)"},
+    {num:"77",name:"雙色調",cat:"design",file:"77_duotone.html",icon:"◐",bg:"linear-gradient(135deg,#1e293b,#f87171)"},
+    {num:"78",name:"數據面板",cat:"info",file:"78_stats_dashboard.html",icon:"📉",bg:"linear-gradient(135deg,#0f172a,#1e293b)"},
+    {num:"79",name:"餐牌價目",cat:"business",file:"79_menu_pricelist.html",icon:"🍽️",bg:"linear-gradient(135deg,#1c1917,#ca8a04)"},
+    {num:"80",name:"預約 CTA",cat:"business",file:"80_appointment.html",icon:"📅",bg:"linear-gradient(135deg,#f8fafc,#16a34a)"},
+    {num:"81",name:"服務列表",cat:"business",file:"81_service_list.html",icon:"📃",bg:"linear-gradient(135deg,#0f172a,#f59e0b)"},
+    {num:"82",name:"營業時間",cat:"business",file:"82_opening_hours.html",icon:"🕐",bg:"linear-gradient(135deg,#fffbeb,#b45309)"},
+    {num:"83",name:"聯絡卡片",cat:"business",file:"83_contact_card.html",icon:"📇",bg:"linear-gradient(135deg,#0f172a,#e2e8f0)"},
+    {num:"84",name:"社交連結",cat:"social",file:"84_social_links.html",icon:"🔗",bg:"linear-gradient(135deg,#ede9fe,#7c3aed)"},
+    {num:"85",name:"品牌色板",cat:"design",file:"85_color_palette.html",icon:"🎨",bg:"linear-gradient(135deg,#fff,#e2e8f0)"},
+    {num:"86",name:"情緒板",cat:"design",file:"86_mood_board.html",icon:"🧩",bg:"linear-gradient(135deg,#fef3c7,#a16207)"},
+    {num:"87",name:"限動封面",cat:"media",file:"87_story_cover.html",icon:"⭕",bg:"linear-gradient(135deg,#fce7f3,#ec4899)"},
+    {num:"88",name:"YT 縮圖",cat:"media",file:"88_yt_thumbnail.html",icon:"▶️",bg:"linear-gradient(135deg,#dc2626,#1e293b)"},
+    {num:"89",name:"LinkedIn 橫幅",cat:"media",file:"89_linkedin_banner.html",icon:"💼",bg:"linear-gradient(135deg,#1e3a5f,#0ea5e9)"},
+    {num:"90",name:"電郵頭部",cat:"media",file:"90_email_header.html",icon:"📨",bg:"linear-gradient(135deg,#0d9488,#14b8a6)"},
+    {num:"91",name:"簡約清單",cat:"lifestyle",file:"91_checklist_minimal.html",icon:"☑️",bg:"linear-gradient(135deg,#faf5ff,#7c3aed)"},
+    {num:"92",name:"編號貼士",cat:"content",file:"92_numbered_tips.html",icon:"🔢",bg:"linear-gradient(135deg,#1e1b4b,#f59e0b)"},
+    {num:"93",name:"優缺點比較",cat:"info",file:"93_pros_cons.html",icon:"⚖️",bg:"linear-gradient(135deg,#16a34a,#dc2626)"},
+    {num:"94",name:"目標追蹤",cat:"lifestyle",file:"94_goal_tracker.html",icon:"🎯",bg:"linear-gradient(135deg,#0f172a,#8b5cf6)"},
+    {num:"95",name:"習慣追蹤",cat:"lifestyle",file:"95_habit_tracker.html",icon:"📆",bg:"linear-gradient(135deg,#faf5ff,#7c3aed)"},
+    {num:"96",name:"收藏此帖",cat:"content",file:"96_save_this.html",icon:"🔖",bg:"linear-gradient(135deg,#fef9c3,#f59e0b)"},
+    {num:"97",name:"滑動教學",cat:"content",file:"97_swipe_tutorial.html",icon:"👉",bg:"linear-gradient(135deg,#0f172a,#06b6d4)"},
+    {num:"98",name:"迷你日曆",cat:"lifestyle",file:"98_mini_calendar.html",icon:"📅",bg:"linear-gradient(135deg,#334155,#e11d48)"},
+    {num:"99",name:"工作桌面",cat:"lifestyle",file:"99_workspace.html",icon:"🖥️",bg:"linear-gradient(135deg,#f1f5f9,#3b82f6)"},
+    {num:"100",name:"年度回顧",cat:"social",file:"100_year_review.html",icon:"🎆",bg:"linear-gradient(135deg,#1e1b4b,#ca8a04)"}
 ];
 
 const catNames = {
@@ -296,6 +309,8 @@ const catNames = {
 };
 
 const grid = document.getElementById('grid');
+
+const isMobile = window.innerWidth <= 768;
 
 function renderGrid(list) {
     grid.innerHTML = '';
@@ -309,9 +324,10 @@ function renderGrid(list) {
         card.setAttribute('data-cat', t.cat);
         card.onclick = () => openTemplate(t);
         card.innerHTML = `
-            <div class="card-preview">
+            <div class="card-preview" style="background:${t.bg}">
                 <span class="card-category">${catNames[t.cat]}</span>
-                <iframe src="${t.file}" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+                <div class="preview-icon">${t.icon}</div>
+                <div class="preview-label">${t.name}</div>
             </div>
             <div class="card-info">
                 <h3>${t.name}</h3>
@@ -353,6 +369,11 @@ function applyFilters() {
 }
 
 function openTemplate(t) {
+    if (isMobile) {
+        // Mobile: open in new tab for full editing experience
+        window.open(t.file, '_blank');
+        return;
+    }
     document.getElementById('modalTitle').textContent = `#${t.num} ${t.name}`;
     document.getElementById('modalFrame').src = t.file;
     document.getElementById('modal').classList.add('show');
