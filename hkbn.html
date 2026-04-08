@@ -32,15 +32,60 @@ gtag('config', 'AW-959473638');
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📶</text></svg>">
 
-<!-- JSON-LD -->
+<!-- JSON-LD: WebPage + Service -->
 <script type="application/ld+json">
 {
     "@context":"https://schema.org",
     "@type":"WebPage",
-    "name":"香港寬頻 HKBN 住宅寬頻報價",
+    "name":"香港寬頻 HKBN 住宅寬頻報價及登記申請",
     "description":"HKBN 香港寬頻住宅光纖寬頻方案，1000M低至$78，2500M低至$149，覆蓋全港公屋私樓居屋村屋。",
     "url":"https://broadbandhk.com/hkbn.html",
-    "provider":{"@type":"Organization","name":"BroadbandHK","url":"https://broadbandhk.com"}
+    "inLanguage":"zh-HK",
+    "dateModified":"2026-04-08",
+    "provider":{"@type":"Organization","name":"BroadbandHK","url":"https://broadbandhk.com","telephone":"+852-3500-9039"},
+    "about":{
+        "@type":"Product",
+        "name":"香港寬頻 HKBN 光纖寬頻",
+        "brand":{"@type":"Brand","name":"HKBN 香港寬頻"},
+        "category":"光纖寬頻服務",
+        "offers":[
+            {"@type":"Offer","name":"1000M 公屋/居屋 36個月","price":"78","priceCurrency":"HKD","description":"1000M光纖寬頻，36個月合約，送WiFi 6 Router"},
+            {"@type":"Offer","name":"1000M 公屋/居屋 24個月","price":"98","priceCurrency":"HKD","description":"1000M光纖寬頻，24個月合約"},
+            {"@type":"Offer","name":"1000M 私樓 36個月","price":"98","priceCurrency":"HKD","description":"1000M光纖寬頻，36個月合約，送WiFi 6 Router"},
+            {"@type":"Offer","name":"1000M 私樓 24個月","price":"109","priceCurrency":"HKD","description":"1000M光纖寬頻，24個月合約"},
+            {"@type":"Offer","name":"2500M 24個月","price":"149","priceCurrency":"HKD","description":"2500M光纖寬頻，24個月合約，送WiFi 7 Router"},
+            {"@type":"Offer","name":"5G 村屋 30個月","price":"168","priceCurrency":"HKD","description":"5G無限數據，30個月合約，送5G CPE路由器"}
+        ]
+    }
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"BroadbandHK","item":"https://broadbandhk.com/"},
+        {"@type":"ListItem","position":2,"name":"寬頻方案","item":"https://broadbandhk.com/index.html#plans"},
+        {"@type":"ListItem","position":3,"name":"香港寬頻 HKBN","item":"https://broadbandhk.com/hkbn.html"}
+    ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+        {"@type":"Question","name":"香港寬頻 1000M 實際速度有幾快？","acceptedAnswer":{"@type":"Answer","text":"根據 Speedtest 數據，HKBN 1000M 光纖寬頻嘅平均下載速度約 800-950Mbps，上傳速度約 700-900Mbps。實際速度受路由器、設備同使用時段影響。"}},
+        {"@type":"Question","name":"HKBN 同網上行邊間好啲？","acceptedAnswer":{"@type":"Answer","text":"HKBN 一般月費較平，性價比高，適合一般家庭用戶。網上行覆蓋範圍更廣，穩定性高。建議根據你嘅地址查詢邊間有覆蓋再比較價錢。"}},
+        {"@type":"Question","name":"約滿續約會唔會加價？","acceptedAnswer":{"@type":"Answer","text":"約滿後如果自動續約，通常會按正價收費，可能比優惠期貴 30-50%。建議約滿前 1-2 個月聯絡查詢轉台或續約優惠。"}},
+        {"@type":"Question","name":"HKBN 安裝需要幾耐？","acceptedAnswer":{"@type":"Answer","text":"一般由申請到安裝需要 3-7 個工作天。如果大廈已有 HKBN 光纖設備，安裝過程約 1-2 小時。"}},
+        {"@type":"Question","name":"我屋企有冇 HKBN 覆蓋？","acceptedAnswer":{"@type":"Answer","text":"HKBN 覆蓋全港大部分住宅區域，但部分村屋同偏遠地區可能冇光纖覆蓋。WhatsApp 你嘅地址俾我哋即刻免費查詢。"}},
+        {"@type":"Question","name":"可以攜帶自己嘅 Router 嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。HKBN 支援使用自己嘅路由器，建議使用 WiFi 6 或以上。2500M 計劃建議用 WiFi 7 路由器。"}}
+    ]
 }
 </script>
 
@@ -240,6 +285,13 @@ a{text-decoration:none;color:inherit}
         <a href="https://wa.me/85252287541" class="btn-small nav-wa">WhatsApp 查詢</a>
     </div>
 </nav>
+
+<!-- Breadcrumb -->
+<div style="max-width:1100px;margin:12px auto 0;padding:0 20px;font-size:13px;color:#64748b">
+    <a href="index.html" style="color:#2563eb">首頁</a> &rsaquo;
+    <a href="index.html#plans" style="color:#2563eb">寬頻方案</a> &rsaquo;
+    <span>香港寬頻 HKBN</span>
+</div>
 
 <!-- Hero -->
 <div class="hero">
@@ -500,6 +552,34 @@ a{text-decoration:none;color:inherit}
                 <div class="faq-q" onclick="toggleFaq(this)">可以攜帶自己嘅 Router 嗎？</div>
                 <div class="faq-a"><div class="faq-a-inner">可以。HKBN 支援使用自己嘅路由器，但建議使用支援 WiFi 6 或以上嘅路由器先可以充分發揮 1000M 嘅速度。如果使用 2500M 計劃，建議用 WiFi 7 路由器。</div></div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- 18區 GEO 導航 -->
+<div class="section">
+    <div class="container">
+        <h2 class="section-title">按地區查詢 HKBN 報價</h2>
+        <p class="section-sub">揀你住嘅地區，即刻睇覆蓋同報價</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+            <a href="hkbn/central-western.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">中西區</a>
+            <a href="hkbn/wan-chai.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">灣仔區</a>
+            <a href="hkbn/eastern.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">東區</a>
+            <a href="hkbn/southern.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">南區</a>
+            <a href="hkbn/yau-tsim-mong.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">油尖旺區</a>
+            <a href="hkbn/sham-shui-po.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">深水埗區</a>
+            <a href="hkbn/kowloon-city.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">九龍城區</a>
+            <a href="hkbn/wong-tai-sin.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">黃大仙區</a>
+            <a href="hkbn/kwun-tong.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">觀塘區</a>
+            <a href="hkbn/kwai-tsing.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">葵青區</a>
+            <a href="hkbn/tsuen-wan.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">荃灣區</a>
+            <a href="hkbn/tuen-mun.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">屯門區</a>
+            <a href="hkbn/yuen-long.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">元朗區</a>
+            <a href="hkbn/north.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">北區</a>
+            <a href="hkbn/tai-po.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">大埔區</a>
+            <a href="hkbn/sha-tin.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">沙田區</a>
+            <a href="hkbn/sai-kung.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">西貢區</a>
+            <a href="hkbn/islands.html" style="padding:10px 20px;background:#fff;border:2px solid #e2e8f0;border-radius:12px;font-weight:700;color:#1e3a5f;transition:all 0.2s;font-size:14px">離島區</a>
         </div>
     </div>
 </div>
