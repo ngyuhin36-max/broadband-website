@@ -58,6 +58,22 @@ UNIVERSAL_KB_LINKS = [
     ("WiFi 死角解決方案", "wifi-dead-zones-fix"),
 ]
 
+# 供應商專頁連結（加入到 KB 文章同地區頁面）
+PROVIDER_LINKS = [
+    ("寬頻方案總覽", "broadband-plan.html"),
+    ("香港寬頻 HKBN 報價", "hkbn.html"),
+    ("HGC 環電寬頻報價", "hgc.html"),
+    ("AI WiFi 方案", "ai-wifi.html"),
+]
+
+# 新 GEO 目錄
+GEO_DIRS = {
+    "hkbn": "香港寬頻 HKBN",
+    "hgc": "HGC 環電",
+    "broadband-plan": "寬頻方案",
+    "ai-wifi": "AI WiFi",
+}
+
 INTERNAL_LINK_MARKER = "<!-- BHK-INTERNAL-LINKS -->"
 INTERNAL_LINK_END = "<!-- /BHK-INTERNAL-LINKS -->"
 
@@ -161,6 +177,11 @@ def build_kb_crosslinks(current_slug, all_articles):
     for a in related:
         links += f'                <a href="{a["slug"]}.html">{a["title"]}</a>\n'
 
+    # Provider page links
+    provider_links = ""
+    for title, filename in PROVIDER_LINKS:
+        provider_links += f'                <a href="../{filename}" style="color:#2563eb;font-weight:700">{title}</a>\n'
+
     # Also add district links
     district_links = ""
     for slug, name in list(DISTRICTS.items())[:6]:
@@ -170,7 +191,7 @@ def build_kb_crosslinks(current_slug, all_articles):
 {INTERNAL_LINK_MARKER}
             <div class="related-articles" style="margin-top:48px;padding:32px;background:#f8fafc;border-radius:12px;">
                 <h3 style="font-size:1.2rem;margin-bottom:16px;">相關攻略文章</h3>
-{links}            </div>
+{links}{provider_links}            </div>
             <div style="margin-top:24px;padding:24px;background:#ecfdf5;border-radius:12px;">
                 <h3 style="font-size:1.1rem;margin-bottom:12px;color:#065f46;">各區寬頻覆蓋</h3>
 {district_links}            </div>
@@ -239,13 +260,47 @@ def main():
         if update_kb_article(filepath, slug, all_articles):
             kb_count += 1
 
-    print(f"\n[LINKS] Updated {district_count} district pages + {kb_count} KB articles")
+    # 3. Update new GEO directory pages (hkbn/, hgc/, broadband-plan/, ai-wifi/)
+    geo_count = 0
+    for geo_dir, label in GEO_DIRS.items():
+        geo_path = os.path.join(BASE_DIR, geo_dir)
+        if not os.path.isdir(geo_path):
+            continue
+        for filepath in sorted(glob.glob(os.path.join(geo_path, "*.html"))):
+            try:
+                with open(filepath, "r", encoding="utf-8") as f:
+                    content = f.read()
 
-    # 3. Log
+                # Skip if already has provider links
+                if "broadband-plan.html" in content and "hkbn.html" in content and "hgc.html" in content:
+                    continue
+
+                # Add cross-links to footer area
+                footer_marker = '<footer class="footer">'
+                if footer_marker not in content:
+                    continue
+
+                cross_block = '\n<!-- Auto cross-links -->\n<div style="max-width:1100px;margin:0 auto 20px;padding:0 20px;text-align:center">\n'
+                for title, filename in PROVIDER_LINKS:
+                    cross_block += f'  <a href="../{filename}" style="display:inline-block;padding:6px 14px;margin:4px;background:#f1f5f9;border-radius:8px;font-size:13px;color:#2563eb;font-weight:600">{title}</a>\n'
+                cross_block += '</div>\n'
+
+                content = content.replace(footer_marker, cross_block + footer_marker)
+
+                with open(filepath, "w", encoding="utf-8") as f:
+                    f.write(content)
+                geo_count += 1
+            except Exception:
+                pass
+
+    print(f"\n[LINKS] Updated {district_count} district pages + {kb_count} KB articles + {geo_count} GEO pages")
+
+    # 4. Log
     log = {
         "date": TODAY,
         "district_pages_updated": district_count,
         "kb_articles_updated": kb_count,
+        "geo_pages_updated": geo_count,
         "total_kb_articles": len(all_articles)
     }
 
