@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Template 86 - Mood Board</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -89,5 +90,6 @@ document.getElementById('t6').style.background=document.getElementById('c6').val
 function dl(){document.activeElement.blur();html2canvas(document.getElementById('template'),{scale:2,useCORS:true}).then(function(c){var a=document.createElement('a');a.download='mood-board.png';a.href=c.toDataURL('image/png');a.click();})}
 </script>
 <script src="template-enhancer.js"></script>
+<script src="template-engine.js"></script>
 </body>
 </html>

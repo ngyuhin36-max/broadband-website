@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>免費社交媒體模板製作工具 | 100款專業設計 | BroadbandHK</title>
-<meta name="description" content="100款免費社交媒體帖文模板，適用於Instagram、Facebook、LinkedIn。線上編輯文字、顏色，即時下載1080x1080高清PNG圖片。無需設計軟件，免費使用。">
+<meta name="description" content="100款免費社交媒體模板，支援IG帖文、IG Story、FB帖文、FB封面、LinkedIn、Twitter/X、Pinterest、YT縮圖等8種尺寸。線上編輯文字顏色，即時下載高清PNG。無需設計軟件，完全免費。">
 <meta name="keywords" content="社交媒體模板, Instagram模板, Facebook帖文模板, 免費設計工具, social media templates, IG模板, 帖文設計, 圖片設計工具, 免費模板, LinkedIn模板, 社交媒體設計">
 <link rel="canonical" href="https://broadbandhk.com/tools/social-templates/social-templates-tool.html">
 <meta property="og:type" content="website">
@@ -35,7 +35,7 @@
         "name": "BroadbandHK",
         "url": "https://broadbandhk.com"
     },
-    "featureList": ["100款專業模板", "線上文字編輯", "自訂顏色", "1080x1080px PNG下載", "免費使用", "無需註冊"]
+    "featureList": ["100款專業模板", "8種社交媒體尺寸", "IG帖文/Story/FB/LinkedIn/Twitter/Pinterest/YT", "線上文字編輯", "自訂顏色", "高清PNG下載", "手機友好", "免費使用", "無需註冊"]
 }
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -102,6 +102,12 @@ body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a}
 .empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:#94a3b8}
 .empty-state h3{font-size:20px;margin-bottom:8px;color:#64748b}
 
+/* Size support section */
+.size-support{max-width:1200px;margin:0 auto 25px;padding:0 20px}
+.size-grid{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.size-tag{background:#fff;border:1px solid #e2e8f0;padding:8px 16px;border-radius:10px;font-size:13px;font-weight:600;color:#475569;display:flex;align-items:center;gap:6px}
+.size-tag .size-dim{color:#94a3b8;font-size:11px}
+
 /* Responsive */
 @media(max-width:768px){
     .page-header{padding:35px 16px}
@@ -118,10 +124,14 @@ body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a}
     .filter-bar{padding:0 12px;gap:6px}
     .filter-btn{padding:6px 12px;font-size:12px}
     .search-box{padding:0 12px}
-    .modal{border-radius:12px;margin:10px}
-    .modal-header{padding:12px 16px}
-    .modal-header h2{font-size:16px}
-    .modal-body iframe{height:75vh}
+    /* 手機 modal 全屏 */
+    .modal-overlay{padding:0}
+    .modal{border-radius:0;margin:0;height:100%;max-height:100vh}
+    .modal-header{padding:10px 16px;position:sticky;top:0;z-index:10;background:#fff}
+    .modal-header h2{font-size:15px}
+    .modal-body iframe{height:calc(100vh - 50px)}
+    .size-grid{gap:6px}
+    .size-tag{padding:5px 10px;font-size:11px}
 }
 </style>
 </head>
@@ -129,12 +139,13 @@ body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a}
 
 <div class="page-header">
     <h1>免費社交媒體模板工具</h1>
-    <p>100款專業設計模板，線上編輯文字和顏色，即時下載高清PNG圖片</p>
+    <p>100款專業設計模板，線上編輯文字和顏色，支援多種社交媒體尺寸，即時下載高清PNG</p>
     <div class="badge-row">
         <div class="badge">100 款模板</div>
         <div class="badge">免費使用</div>
-        <div class="badge">1080x1080px</div>
-        <div class="badge">即時下載</div>
+        <div class="badge">8種尺寸</div>
+        <div class="badge">IG / FB / LinkedIn / YT</div>
+        <div class="badge">即時下載 PNG</div>
     </div>
 </div>
 
@@ -157,9 +168,22 @@ body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a}
         </div>
         <div class="how-step">
             <div class="num">4</div>
-            <h3>下載圖片</h3>
-            <p>一鍵下載 1080x1080 高清 PNG</p>
+            <h3>選尺寸下載</h3>
+            <p>揀 IG帖文、Story、FB、LinkedIn、YT 等尺寸，一鍵下載高清 PNG</p>
         </div>
+    </div>
+</div>
+
+<div class="size-support">
+    <div class="size-grid">
+        <div class="size-tag">IG 帖文 <span class="size-dim">1080×1080</span></div>
+        <div class="size-tag">IG Story <span class="size-dim">1080×1920</span></div>
+        <div class="size-tag">FB 帖文 <span class="size-dim">1200×630</span></div>
+        <div class="size-tag">FB 封面 <span class="size-dim">820×312</span></div>
+        <div class="size-tag">LinkedIn <span class="size-dim">1200×627</span></div>
+        <div class="size-tag">Twitter/X <span class="size-dim">1200×675</span></div>
+        <div class="size-tag">Pinterest <span class="size-dim">1000×1500</span></div>
+        <div class="size-tag">YT 縮圖 <span class="size-dim">1280×720</span></div>
     </div>
 </div>
 
@@ -195,7 +219,7 @@ body{font-family:'Inter',sans-serif;background:#f1f5f9;color:#0f172a}
 </div>
 
 <div class="page-footer">
-    <p>由 <a href="https://broadbandhk.com" target="_blank">BroadbandHK</a> 提供 — 適用於 Instagram、Facebook、LinkedIn、WhatsApp</p>
+    <p>由 <a href="https://broadbandhk.com" target="_blank">BroadbandHK</a> 提供 — 支援 Instagram、Facebook、LinkedIn、Twitter/X、Pinterest、YouTube 等平台尺寸</p>
 </div>
 
 <script>
@@ -369,11 +393,6 @@ function applyFilters() {
 }
 
 function openTemplate(t) {
-    if (isMobile) {
-        // Mobile: open in new tab for full editing experience
-        window.open(t.file, '_blank');
-        return;
-    }
     document.getElementById('modalTitle').textContent = `#${t.num} ${t.name}`;
     document.getElementById('modalFrame').src = t.file;
     document.getElementById('modal').classList.add('show');
