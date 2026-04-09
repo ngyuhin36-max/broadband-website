@@ -58,7 +58,27 @@
         .stat { background: rgba(255,255,255,0.15); padding: 15px 25px; border-radius: 10px; text-align: center; }
         .stat-num { font-size: 1.5em; font-weight: bold; color: #ffd700; }
         .stat-label { font-size: 0.8em; opacity: 0.8; }
-        @media (max-width: 768px) { .hero h1 { font-size: 1.4em; } .stats { gap: 10px; } .stat { padding: 10px 15px; } }
+        .hotel-card { background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 16px; overflow: hidden; display: flex; transition: box-shadow 0.2s; }
+        .hotel-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+        .hotel-img { width: 240px; min-height: 180px; background-size: cover; background-position: center; position: relative; flex-shrink: 0; }
+        .hotel-rank { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #ffd700; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8em; }
+        .hotel-badge { position: absolute; top: 10px; left: 10px; background: #ff4757; color: white; padding: 3px 10px; border-radius: 4px; font-size: 0.72em; font-weight: bold; }
+        .hotel-body { flex: 1; padding: 16px; display: flex; flex-direction: column; }
+        .hotel-name { font-size: 1.05em; font-weight: bold; color: #1a1a2e; margin-bottom: 2px; }
+        .hotel-stars { color: #ffc107; font-size: 0.8em; margin-bottom: 4px; }
+        .hotel-loc { color: #888; font-size: 0.82em; margin-bottom: 6px; }
+        .hotel-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+        .hotel-tag { background: #f0f0ff; color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; }
+        .hotel-desc { color: #666; font-size: 0.82em; line-height: 1.5; flex: 1; }
+        .hotel-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 8px; padding-top: 10px; border-top: 1px solid #f0f0f0; }
+        .hotel-rating { display: flex; align-items: center; gap: 6px; }
+        .rating-score { background: #667eea; color: white; padding: 3px 7px; border-radius: 5px; font-weight: bold; font-size: 0.82em; }
+        .rating-text { font-size: 0.72em; color: #888; }
+        .hotel-price .amount { font-size: 1.2em; font-weight: bold; color: #ff4757; }
+        .hotel-price .per { font-size: 0.68em; color: #888; }
+        .book-link { display: inline-block; background: #287DFA; color: white; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.78em; font-weight: bold; margin-top: 6px; }
+        .book-link:hover { opacity: 0.9; }
+        @media (max-width: 768px) { .hero h1 { font-size: 1.4em; } .stats { gap: 10px; } .stat { padding: 10px 15px; } .hotel-card { flex-direction: column; } .hotel-img { width: 100%; height: 180px; } }
     </style>
 </head>
 <body>
@@ -85,10 +105,112 @@
     </div>
     <div class="container">
         <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="cta-main" target="_blank" rel="noopener noreferrer nofollow">Browse All Dubai Hotels →</a>
-        <div style="text-align:center;margin:20px 0;">
-            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="cta-secondary" target="_blank" rel="noopener noreferrer nofollow">Compare on Trip.com</a>
-            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="cta-secondary" style="background:#287DFA;" target="_blank" rel="noopener noreferrer nofollow">Book Now</a>
-        </div>
+
+        <div class="info-section"><h2>Featured Hotels</h2>
+
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=300&fit=crop');"><div class="hotel-badge">TOP PICK</div><div class="hotel-rank">#1</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">Burj Al Arab Jumeirah</div>
+                    <div class="hotel-stars">★★★★★ 5-Star Hotel</div>
+                    <div class="hotel-loc">📍 Jumeirah</div>
+                    <div class="hotel-tags"><span class="hotel-tag">World's Most Luxurious</span><span class="hotel-tag">Iconic Landmark</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">9.7</span><span class="rating-text">Excellent · 4,567 reviews</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Compare on Trip.com</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">From</div>
+                            <div class="amount">HK$8,800</div>
+                            <div class="per">/ night</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&h=300&fit=crop');"><div class="hotel-rank">#2</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">Atlantis The Palm</div>
+                    <div class="hotel-stars">★★★★★ 5-Star Hotel</div>
+                    <div class="hotel-loc">📍 Palm Jumeirah</div>
+                    <div class="hotel-tags"><span class="hotel-tag">Waterpark</span><span class="hotel-tag">Dolphin Bay</span><span class="hotel-tag">Family Pick</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">9.3</span><span class="rating-text">Excellent · 12,345 reviews</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Compare on Trip.com</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">From</div>
+                            <div class="amount">HK$3,200</div>
+                            <div class="per">/ night</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=500&h=300&fit=crop');"><div class="hotel-rank">#3</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">JW Marriott Marquis Dubai</div>
+                    <div class="hotel-stars">★★★★★ 5-Star Hotel</div>
+                    <div class="hotel-loc">📍 Business Bay</div>
+                    <div class="hotel-tags"><span class="hotel-tag">World's Tallest Hotel</span><span class="hotel-tag">Twin Towers</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">9.1</span><span class="rating-text">Excellent · 8,765 reviews</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Compare on Trip.com</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">From</div>
+                            <div class="amount">HK$1,880</div>
+                            <div class="per">/ night</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&h=300&fit=crop');"><div class="hotel-rank">#4</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">Hilton Dubai Jumeirah</div>
+                    <div class="hotel-stars">★★★★★ 5-Star Hotel</div>
+                    <div class="hotel-loc">📍 JBR Beach</div>
+                    <div class="hotel-tags"><span class="hotel-tag">Beach Access</span><span class="hotel-tag">JBR Walk Nearby</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">8.8</span><span class="rating-text">Very Good · 6,789 reviews</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Compare on Trip.com</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">From</div>
+                            <div class="amount">HK$1,580</div>
+                            <div class="per">/ night</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=300&fit=crop');"><div class="hotel-rank">#5</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">Ibis One Central Dubai</div>
+                    <div class="hotel-stars">★★★ 3-Star Hotel</div>
+                    <div class="hotel-loc">📍 Downtown</div>
+                    <div class="hotel-tags"><span class="hotel-tag">Near Burj Khalifa</span><span class="hotel-tag">Near Dubai Mall</span><span class="hotel-tag">Budget</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">8.2</span><span class="rating-text">Good · 11,234 reviews</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Compare on Trip.com</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">From</div>
+                            <div class="amount">HK$480</div>
+                            <div class="per">/ night</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+        <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="cta-main" style="margin-top:10px;" target="_blank" rel="noopener noreferrer nofollow">View More Hotel Deals →</a>
 
         <div class="info-section">
             <h2>Dubai Hotel FAQs</h2>

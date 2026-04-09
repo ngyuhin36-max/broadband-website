@@ -58,7 +58,27 @@
         .stat { background: rgba(255,255,255,0.15); padding: 15px 25px; border-radius: 10px; text-align: center; }
         .stat-num { font-size: 1.5em; font-weight: bold; color: #ffd700; }
         .stat-label { font-size: 0.8em; opacity: 0.8; }
-        @media (max-width: 768px) { .hero h1 { font-size: 1.4em; } .stats { gap: 10px; } .stat { padding: 10px 15px; } }
+        .hotel-card { background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 16px; overflow: hidden; display: flex; transition: box-shadow 0.2s; }
+        .hotel-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+        .hotel-img { width: 240px; min-height: 180px; background-size: cover; background-position: center; position: relative; flex-shrink: 0; }
+        .hotel-rank { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #ffd700; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8em; }
+        .hotel-badge { position: absolute; top: 10px; left: 10px; background: #ff4757; color: white; padding: 3px 10px; border-radius: 4px; font-size: 0.72em; font-weight: bold; }
+        .hotel-body { flex: 1; padding: 16px; display: flex; flex-direction: column; }
+        .hotel-name { font-size: 1.05em; font-weight: bold; color: #1a1a2e; margin-bottom: 2px; }
+        .hotel-stars { color: #ffc107; font-size: 0.8em; margin-bottom: 4px; }
+        .hotel-loc { color: #888; font-size: 0.82em; margin-bottom: 6px; }
+        .hotel-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+        .hotel-tag { background: #f0f0ff; color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; }
+        .hotel-desc { color: #666; font-size: 0.82em; line-height: 1.5; flex: 1; }
+        .hotel-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 8px; padding-top: 10px; border-top: 1px solid #f0f0f0; }
+        .hotel-rating { display: flex; align-items: center; gap: 6px; }
+        .rating-score { background: #667eea; color: white; padding: 3px 7px; border-radius: 5px; font-weight: bold; font-size: 0.82em; }
+        .rating-text { font-size: 0.72em; color: #888; }
+        .hotel-price .amount { font-size: 1.2em; font-weight: bold; color: #ff4757; }
+        .hotel-price .per { font-size: 0.68em; color: #888; }
+        .book-link { display: inline-block; background: #287DFA; color: white; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.78em; font-weight: bold; margin-top: 6px; }
+        .book-link:hover { opacity: 0.9; }
+        @media (max-width: 768px) { .hero h1 { font-size: 1.4em; } .stats { gap: 10px; } .stat { padding: 10px 15px; } .hotel-card { flex-direction: column; } .hotel-img { width: 100%; height: 180px; } }
     </style>
 </head>
 <body>
@@ -85,10 +105,212 @@
     </div>
     <div class="container">
         <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="cta-main" target="_blank" rel="noopener noreferrer nofollow">瀏覽全部東京酒店 →</a>
-        <div style="text-align:center;margin:20px 0;">
-            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="cta-secondary" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="cta-secondary" style="background:#287DFA;" target="_blank" rel="noopener noreferrer nofollow">立即預訂</a>
-        </div>
+
+        <div class="info-section"><h2>精選酒店推薦</h2>
+
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500&h=300&fit=crop');"><div class="hotel-badge">TOP推薦</div><div class="hotel-rank">#1</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">東京帝國酒店</div>
+                    <div class="hotel-stars">★★★★★ 5星級酒店</div>
+                    <div class="hotel-loc">📍 日比谷/銀座</div>
+                    <div class="hotel-tags"><span class="hotel-tag">歷史名酒店</span><span class="hotel-tag">銀座購物</span><span class="hotel-tag">皇居旁</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">9.3</span><span class="rating-text">卓越 · 4,521則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$2,180</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=300&fit=crop');"><div class="hotel-rank">#2</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">東京安達仕酒店</div>
+                    <div class="hotel-stars">★★★★★ 5星級酒店</div>
+                    <div class="hotel-loc">📍 虎之門</div>
+                    <div class="hotel-tags"><span class="hotel-tag">設計酒店</span><span class="hotel-tag">高層景觀</span><span class="hotel-tag">米芝蓮餐廳</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">9.4</span><span class="rating-text">卓越 · 3,102則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$2,680</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=500&h=300&fit=crop');"><div class="hotel-rank">#3</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">新宿格拉斯麗酒店</div>
+                    <div class="hotel-stars">★★★★ 4星級酒店</div>
+                    <div class="hotel-loc">📍 新宿</div>
+                    <div class="hotel-tags"><span class="hotel-tag">哥斯拉主題</span><span class="hotel-tag">歌舞伎町</span><span class="hotel-tag">交通便利</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">8.7</span><span class="rating-text">極好 · 12,450則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$780</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=500&h=300&fit=crop');"><div class="hotel-rank">#4</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">淺草豪景酒店</div>
+                    <div class="hotel-stars">★★★★ 4星級酒店</div>
+                    <div class="hotel-loc">📍 淺草</div>
+                    <div class="hotel-tags"><span class="hotel-tag">晴空塔景觀</span><span class="hotel-tag">淺草寺旁</span><span class="hotel-tag">日式體驗</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">8.5</span><span class="rating-text">極好 · 8,932則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$650</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500&h=300&fit=crop');"><div class="hotel-rank">#5</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">東京站大都會酒店</div>
+                    <div class="hotel-stars">★★★★ 4星級酒店</div>
+                    <div class="hotel-loc">📍 池袋</div>
+                    <div class="hotel-tags"><span class="hotel-tag">池袋站直達</span><span class="hotel-tag">購物方便</span><span class="hotel-tag">家庭友善</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">8.6</span><span class="rating-text">極好 · 7,654則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$720</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&h=300&fit=crop');"><div class="hotel-rank">#6</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">東京灣希爾頓酒店</div>
+                    <div class="hotel-stars">★★★★ 4星級酒店</div>
+                    <div class="hotel-loc">📍 舞濱</div>
+                    <div class="hotel-tags"><span class="hotel-tag">迪士尼官方酒店</span><span class="hotel-tag">海景房</span><span class="hotel-tag">親子首選</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">8.8</span><span class="rating-text">極好 · 9,876則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$950</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500&h=300&fit=crop');"><div class="hotel-rank">#7</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">上野三井花園酒店</div>
+                    <div class="hotel-stars">★★★ 3星級酒店</div>
+                    <div class="hotel-loc">📍 上野</div>
+                    <div class="hotel-tags"><span class="hotel-tag">上野公園旁</span><span class="hotel-tag">交通樞紐</span><span class="hotel-tag">性價比高</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">8.4</span><span class="rating-text">好 · 6,543則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$520</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=500&h=300&fit=crop');"><div class="hotel-rank">#8</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">品川王子酒店</div>
+                    <div class="hotel-stars">★★★★ 4星級酒店</div>
+                    <div class="hotel-loc">📍 品川</div>
+                    <div class="hotel-tags"><span class="hotel-tag">水族館</span><span class="hotel-tag">IMAX電影院</span><span class="hotel-tag">新幹線站旁</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">8.2</span><span class="rating-text">好 · 15,678則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$680</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=300&fit=crop');"><div class="hotel-rank">#9</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">APA酒店新宿歌舞伎町塔</div>
+                    <div class="hotel-stars">★★★ 3星級酒店</div>
+                    <div class="hotel-loc">📍 新宿</div>
+                    <div class="hotel-tags"><span class="hotel-tag">超值之選</span><span class="hotel-tag">新宿核心</span><span class="hotel-tag">大浴場</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">8.0</span><span class="rating-text">好 · 21,345則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$420</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&h=300&fit=crop');"><div class="hotel-badge">極佳評分</div><div class="hotel-rank">#10</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">東京椿山莊酒店</div>
+                    <div class="hotel-stars">★★★★★ 5星級酒店</div>
+                    <div class="hotel-loc">📍 目白</div>
+                    <div class="hotel-tags"><span class="hotel-tag">日式庭園</span><span class="hotel-tag">螢火蟲季節</span><span class="hotel-tag">奢華水療</span></div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">9.5</span><span class="rating-text">卓越 · 2,345則評價</span></div>
+                            <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="book-link" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">每晚低至</div>
+                            <div class="amount">HK$3,200</div>
+                            <div class="per">/ 每晚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+        <a href="https://tw.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15323828" class="cta-main" style="margin-top:10px;" target="_blank" rel="noopener noreferrer nofollow">查看更多酒店優惠 →</a>
 
         <div class="info-section">
             <h2>東京酒店常見問題</h2>

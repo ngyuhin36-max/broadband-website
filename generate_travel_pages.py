@@ -6,6 +6,7 @@ With Trip.com affiliate links
 
 import os
 import urllib.parse
+from hotel_data import HOTELS
 
 # Affiliate config
 ALLIANCE_ID = "8067382"
@@ -123,6 +124,72 @@ def get_desc(en_name, lang):
     if en_name in CITY_DESCRIPTIONS:
         return CITY_DESCRIPTIONS[en_name][lang]
     return DEFAULT_DESC[lang]
+
+def generate_hotel_cards(city_en_name, aff_url, is_zh):
+    """Generate hotel listing cards for a city"""
+    hotels = HOTELS.get(city_en_name, [])
+    if not hotels:
+        return ""
+
+    title = "精選酒店推薦" if is_zh else "Featured Hotels"
+    cards_html = f'<div class="info-section"><h2>{title}</h2>\n'
+
+    for i, h in enumerate(hotels):
+        name_zh, name_en, stars, dist_zh, dist_en, rating, reviews, price_hkd, tags_zh, tags_en, img = h
+        name = name_zh if is_zh else name_en
+        dist = dist_zh if is_zh else dist_en
+        tags = tags_zh.split(",") if is_zh else tags_en.split(",")
+        star_str = "★" * stars
+        star_label = f"{stars}星級酒店" if is_zh else f"{stars}-Star Hotel"
+
+        rating_label = ""
+        if rating >= 9.0:
+            rating_label = "卓越" if is_zh else "Excellent"
+        elif rating >= 8.5:
+            rating_label = "極好" if is_zh else "Very Good"
+        elif rating >= 8.0:
+            rating_label = "好" if is_zh else "Good"
+        else:
+            rating_label = "不錯" if is_zh else "Fair"
+
+        reviews_text = f"{rating_label} · {reviews:,}{'則評價' if is_zh else ' reviews'}"
+        price_label = "每晚低至" if is_zh else "From"
+        per_night = "/ 每晚" if is_zh else "/ night"
+        book_text = "Trip.com 格價" if is_zh else "Compare on Trip.com"
+
+        badge_html = ""
+        if i == 0:
+            badge_html = f'<div class="hotel-badge">{"TOP推薦" if is_zh else "TOP PICK"}</div>'
+        elif rating >= 9.5:
+            badge_html = f'<div class="hotel-badge">{"極佳評分" if is_zh else "TOP RATED"}</div>'
+
+        tags_html = "".join(f'<span class="hotel-tag">{t.strip()}</span>' for t in tags[:4])
+
+        cards_html += f"""
+            <div class="hotel-card">
+                <div class="hotel-img" style="background-image:url('{img}');">{badge_html}<div class="hotel-rank">#{i+1}</div></div>
+                <div class="hotel-body">
+                    <div class="hotel-name">{name}</div>
+                    <div class="hotel-stars">{star_str} {star_label}</div>
+                    <div class="hotel-loc">📍 {dist}</div>
+                    <div class="hotel-tags">{tags_html}</div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <div class="hotel-rating"><span class="rating-score">{rating}</span><span class="rating-text">{reviews_text}</span></div>
+                            <a href="{aff_url}" class="book-link" target="_blank" rel="noopener noreferrer nofollow">{book_text}</a>
+                        </div>
+                        <div class="hotel-price">
+                            <div class="per">{price_label}</div>
+                            <div class="amount">HK${price_hkd:,}</div>
+                            <div class="per">{per_night}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>"""
+
+    cards_html += "\n</div>"
+    return cards_html
+
 
 def generate_city_page(city, lang="zh"):
     city_id, url_name, zh_name, en_name, country_zh, country_en, flag, region = city
@@ -265,7 +332,27 @@ def generate_city_page(city, lang="zh"):
         .stat {{ background: rgba(255,255,255,0.15); padding: 15px 25px; border-radius: 10px; text-align: center; }}
         .stat-num {{ font-size: 1.5em; font-weight: bold; color: #ffd700; }}
         .stat-label {{ font-size: 0.8em; opacity: 0.8; }}
-        @media (max-width: 768px) {{ .hero h1 {{ font-size: 1.4em; }} .stats {{ gap: 10px; }} .stat {{ padding: 10px 15px; }} }}
+        .hotel-card {{ background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 16px; overflow: hidden; display: flex; transition: box-shadow 0.2s; }}
+        .hotel-card:hover {{ box-shadow: 0 4px 20px rgba(0,0,0,0.12); }}
+        .hotel-img {{ width: 240px; min-height: 180px; background-size: cover; background-position: center; position: relative; flex-shrink: 0; }}
+        .hotel-rank {{ position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #ffd700; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8em; }}
+        .hotel-badge {{ position: absolute; top: 10px; left: 10px; background: #ff4757; color: white; padding: 3px 10px; border-radius: 4px; font-size: 0.72em; font-weight: bold; }}
+        .hotel-body {{ flex: 1; padding: 16px; display: flex; flex-direction: column; }}
+        .hotel-name {{ font-size: 1.05em; font-weight: bold; color: #1a1a2e; margin-bottom: 2px; }}
+        .hotel-stars {{ color: #ffc107; font-size: 0.8em; margin-bottom: 4px; }}
+        .hotel-loc {{ color: #888; font-size: 0.82em; margin-bottom: 6px; }}
+        .hotel-tags {{ display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }}
+        .hotel-tag {{ background: #f0f0ff; color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; }}
+        .hotel-desc {{ color: #666; font-size: 0.82em; line-height: 1.5; flex: 1; }}
+        .hotel-bottom {{ display: flex; justify-content: space-between; align-items: flex-end; margin-top: 8px; padding-top: 10px; border-top: 1px solid #f0f0f0; }}
+        .hotel-rating {{ display: flex; align-items: center; gap: 6px; }}
+        .rating-score {{ background: #667eea; color: white; padding: 3px 7px; border-radius: 5px; font-weight: bold; font-size: 0.82em; }}
+        .rating-text {{ font-size: 0.72em; color: #888; }}
+        .hotel-price .amount {{ font-size: 1.2em; font-weight: bold; color: #ff4757; }}
+        .hotel-price .per {{ font-size: 0.68em; color: #888; }}
+        .book-link {{ display: inline-block; background: #287DFA; color: white; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.78em; font-weight: bold; margin-top: 6px; }}
+        .book-link:hover {{ opacity: 0.9; }}
+        @media (max-width: 768px) {{ .hero h1 {{ font-size: 1.4em; }} .stats {{ gap: 10px; }} .stat {{ padding: 10px 15px; }} .hotel-card {{ flex-direction: column; }} .hotel-img {{ width: 100%; height: 180px; }} }}
     </style>
 </head>
 <body>
@@ -292,10 +379,10 @@ def generate_city_page(city, lang="zh"):
     </div>
     <div class="container">
         <a href="{aff_url}" class="cta-main" target="_blank" rel="noopener noreferrer nofollow">{t['browse_all']}</a>
-        <div style="text-align:center;margin:20px 0;">
-            <a href="{aff_url}" class="cta-secondary" target="_blank" rel="noopener noreferrer nofollow">{t['book_btn']}</a>
-            <a href="{aff_url}" class="cta-secondary" style="background:#287DFA;" target="_blank" rel="noopener noreferrer nofollow">{t['book_btn2']}</a>
-        </div>
+
+        {generate_hotel_cards(en_name, aff_url, is_zh)}
+
+        <a href="{aff_url}" class="cta-main" style="margin-top:10px;" target="_blank" rel="noopener noreferrer nofollow">{"查看更多酒店優惠 →" if is_zh else "View More Hotel Deals →"}</a>
 
         <div class="info-section">
             <h2>{t['faq_title']}</h2>
