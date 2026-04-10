@@ -829,36 +829,11 @@ function submitForm(e){
     var address = document.getElementById('formAddress').value.trim();
     if(!name||!phone||!address) return false;
 
-    var btn = document.getElementById('formSubmitBtn');
-    btn.textContent='提交中...';
-    btn.disabled=true;
+    var msg = 'BROADBANDPLAN 查詢\n\n稱謂：' + name + '\n電話：' + phone + '\n查詢地址：' + address;
+    window.open('https://wa.me/85252287541?text=' + encodeURIComponent(msg), '_blank');
 
-    fetch('https://formspree.io/f/anthonykorcher@gmail.com',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({
-            _subject:'BROADBANDPLAN 查詢',
-            稱謂:name,
-            電話:phone,
-            查詢地址:address,
-            來源:'broadband-plan.html',
-            時間:new Date().toLocaleString('zh-HK')
-        })
-    }).then(function(r){
-        if(r.ok){
-            document.getElementById('enquiryForm').style.display='none';
-            document.getElementById('formSuccess').style.display='block';
-        } else {
-            // Fallback: mailto
-            window.location.href='mailto:anthonykorcher@gmail.com?subject=BROADBANDPLAN%20查詢&body='+encodeURIComponent('稱謂：'+name+'\n電話：'+phone+'\n查詢地址：'+address);
-            btn.textContent='提交查詢';
-            btn.disabled=false;
-        }
-    }).catch(function(){
-        window.location.href='mailto:anthonykorcher@gmail.com?subject=BROADBANDPLAN%20查詢&body='+encodeURIComponent('稱謂：'+name+'\n電話：'+phone+'\n查詢地址：'+address);
-        btn.textContent='提交查詢';
-        btn.disabled=false;
-    });
+    document.getElementById('enquiryForm').style.display='none';
+    document.getElementById('formSuccess').style.display='block';
     return false;
 }
 </script>
