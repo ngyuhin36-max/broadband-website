@@ -715,6 +715,35 @@ a{text-decoration:none;color:inherit}
     </div>
 </div>
 
+<!-- 查詢表格 -->
+<div class="section" style="background:#fff">
+    <div class="container">
+        <h2 class="section-title">免費查詢寬頻方案</h2>
+        <p class="section-sub">留低聯絡資料，專人盡快回覆你</p>
+        <form id="enquiryForm" style="max-width:600px;margin:0 auto;background:#f8fafc;padding:32px;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.06)" onsubmit="return submitForm(event)">
+            <div style="margin-bottom:20px">
+                <label style="display:block;font-size:14px;font-weight:700;margin-bottom:6px;color:#1e3a5f">稱謂 *</label>
+                <input type="text" id="formName" required placeholder="例如：陳先生 / 王小姐" style="width:100%;padding:14px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;transition:border-color 0.2s;outline:none" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#e2e8f0'">
+            </div>
+            <div style="margin-bottom:20px">
+                <label style="display:block;font-size:14px;font-weight:700;margin-bottom:6px;color:#1e3a5f">電話 *</label>
+                <input type="tel" id="formPhone" required placeholder="例如：9123 4567" style="width:100%;padding:14px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;transition:border-color 0.2s;outline:none" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#e2e8f0'">
+            </div>
+            <div style="margin-bottom:24px">
+                <label style="display:block;font-size:14px;font-weight:700;margin-bottom:6px;color:#1e3a5f">查詢地址 *</label>
+                <input type="text" id="formAddress" required placeholder="例如：沙田第一城 / 美孚新邨" style="width:100%;padding:14px 16px;border:2px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;transition:border-color 0.2s;outline:none" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#e2e8f0'">
+            </div>
+            <button type="submit" id="formSubmitBtn" style="width:100%;padding:16px;background:#2563eb;color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;transition:background 0.2s;min-height:52px">提交查詢</button>
+            <p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:12px">提交後專人會盡快 WhatsApp 或致電聯絡你</p>
+        </form>
+        <div id="formSuccess" style="display:none;max-width:600px;margin:0 auto;background:#f0fdf4;padding:32px;border-radius:16px;text-align:center">
+            <div style="font-size:48px;margin-bottom:16px">✅</div>
+            <h3 style="font-size:20px;font-weight:800;color:#166534;margin-bottom:8px">查詢已提交！</h3>
+            <p style="color:#64748b">我哋會盡快 WhatsApp 或致電聯絡你，感謝查詢。</p>
+        </div>
+    </div>
+</div>
+
 <!-- CTA -->
 <div class="cta-section">
     <h2>唔知揀邊個方案好？</h2>
@@ -792,6 +821,46 @@ document.querySelectorAll('.nav-dropdown > a').forEach(function(a){
         }
     });
 });
+
+function submitForm(e){
+    e.preventDefault();
+    var name = document.getElementById('formName').value.trim();
+    var phone = document.getElementById('formPhone').value.trim();
+    var address = document.getElementById('formAddress').value.trim();
+    if(!name||!phone||!address) return false;
+
+    var btn = document.getElementById('formSubmitBtn');
+    btn.textContent='提交中...';
+    btn.disabled=true;
+
+    fetch('https://formspree.io/f/anthonykorcher@gmail.com',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({
+            _subject:'BROADBANDPLAN 查詢',
+            稱謂:name,
+            電話:phone,
+            查詢地址:address,
+            來源:'broadband-plan.html',
+            時間:new Date().toLocaleString('zh-HK')
+        })
+    }).then(function(r){
+        if(r.ok){
+            document.getElementById('enquiryForm').style.display='none';
+            document.getElementById('formSuccess').style.display='block';
+        } else {
+            // Fallback: mailto
+            window.location.href='mailto:anthonykorcher@gmail.com?subject=BROADBANDPLAN%20查詢&body='+encodeURIComponent('稱謂：'+name+'\n電話：'+phone+'\n查詢地址：'+address);
+            btn.textContent='提交查詢';
+            btn.disabled=false;
+        }
+    }).catch(function(){
+        window.location.href='mailto:anthonykorcher@gmail.com?subject=BROADBANDPLAN%20查詢&body='+encodeURIComponent('稱謂：'+name+'\n電話：'+phone+'\n查詢地址：'+address);
+        btn.textContent='提交查詢';
+        btn.disabled=false;
+    });
+    return false;
+}
 </script>
 </body>
 </html>
