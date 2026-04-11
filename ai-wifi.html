@@ -60,21 +60,21 @@
     }
     </script>
 
-    <!-- 結構化數據 - Product: Managed WiFi+ -->
+    <!-- 結構化數據 - Service: Managed WiFi+ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "Service",
         "name": "Managed WiFi+（企業版）",
         "description": "與 RUCKUS Networks 合作的 AI 驅動 Managed WiFi 服務，企業級無線 AP，AI 平台持續優化覆蓋、容量及客戶端連接，平均故障修復時間減少 70%。",
-        "brand": {"@type": "Brand", "name": "BroadbandHK"},
-        "url": "https://broadbandhk.com/ai-wifi.html",
-        "category": "企業 WiFi 管理服務",
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "HKD",
-            "availability": "https://schema.org/InStock"
-        }
+        "provider": {
+            "@type": "Organization",
+            "name": "BroadbandHK",
+            "url": "https://broadbandhk.com"
+        },
+        "serviceType": "企業 WiFi 管理服務",
+        "areaServed": {"@type": "City", "name": "Hong Kong"},
+        "url": "https://broadbandhk.com/ai-wifi.html"
     }
     </script>
 
