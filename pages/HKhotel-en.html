@@ -234,6 +234,8 @@
             <option value="seoul">🇰🇷 首爾</option>
             <option value="bangkok">🛕 曼谷</option>
             <option value="taipei">🧋 台北</option>
+            <option value="beijing">🇨🇳 Beijing</option>
+            <option value="shanghai">🇨🇳 Shanghai</option>
         </select>
         <input type="date" value="2026-05-09">
         <input type="date" value="2026-05-10">
@@ -4795,7 +4797,9 @@
             'osaka': { city: '293', name: '%E5%A4%A7%E9%98%AA' },
             'seoul': { city: '234', name: '%E9%A6%96%E7%88%BE' },
             'bangkok': { city: '95', name: '%E6%9B%BC%E8%B0%B7' },
-            'taipei': { city: '360', name: '%E5%8F%B0%E5%8C%97' }
+            'taipei': { city: '360', name: '%E5%8F%B0%E5%8C%97' },
+            'beijing': { city: '1', name: '%E5%8C%97%E4%BA%AC' },
+            'shanghai': { city: '2', name: '%E4%B8%8A%E6%B5%B7' }
         };
         var selected = document.getElementById('city-select').value;
         var c = cityMap[selected];

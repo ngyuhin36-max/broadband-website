@@ -229,6 +229,8 @@
     <div class="search-bar">
         <select id="city-select">
             <option value="hk">🏙️ 香港</option>
+            <option value="beijing">🇨🇳 北京</option>
+            <option value="shanghai">🇨🇳 上海</option>
             <option value="tokyo">🗼 東京</option>
             <option value="osaka">⛩️ 大阪</option>
             <option value="seoul">🇰🇷 首爾</option>
@@ -4854,6 +4856,8 @@
     function searchHotels() {
         var cityMap = {
             'hk': { city: '58', name: '%E9%A6%99%E6%B8%AF' },
+            'beijing': { city: '1', name: '%E5%8C%97%E4%BA%AC' },
+            'shanghai': { city: '2', name: '%E4%B8%8A%E6%B5%B7' },
             'tokyo': { city: '317', name: '%E6%9D%B1%E4%BA%AC' },
             'osaka': { city: '293', name: '%E5%A4%A7%E9%98%AA' },
             'seoul': { city: '234', name: '%E9%A6%96%E7%88%BE' },
