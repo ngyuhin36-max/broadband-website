@@ -1,0 +1,2342 @@
+[
+  {
+    "slug": "dir-001",
+    "name": "香港港島海逸君綽飯店",
+    "price": "HK$722",
+    "orig": "HK$966"
+  },
+  {
+    "slug": "dir-002",
+    "name": "香港百利飯店",
+    "price": "HK$502",
+    "orig": "HK$558"
+  },
+  {
+    "slug": "dir-003",
+    "name": "雅高宜必思香港中上環飯店",
+    "price": "HK$537",
+    "orig": "HK$597"
+  },
+  {
+    "slug": "dir-004",
+    "name": "星寓",
+    "price": "HK$806",
+    "orig": "HK$886"
+  },
+  {
+    "slug": "dir-005",
+    "name": "香港銅鑼灣智選假日飯店",
+    "price": "HK$668",
+    "orig": "HK$742"
+  },
+  {
+    "slug": "dir-006",
+    "name": "香港逸東飯店（朗廷飯店集團旗下）",
+    "price": "HK$715",
+    "orig": "HK$723"
+  },
+  {
+    "slug": "dir-007",
+    "name": "香港恆豐飯店",
+    "price": "HK$809",
+    "orig": "HK$889"
+  },
+  {
+    "slug": "dir-008",
+    "name": "香港灣仔睿景飯店",
+    "price": "HK$478",
+    "orig": "HK$591"
+  },
+  {
+    "slug": "dir-009",
+    "name": "聚居",
+    "price": "HK$319",
+    "orig": "HK$394"
+  },
+  {
+    "slug": "dir-010",
+    "name": "香港金域假日飯店",
+    "price": "HK$1,044",
+    "orig": "HK$1,356"
+  },
+  {
+    "slug": "dir-011",
+    "name": "香港北角海逸飯店",
+    "price": "HK$552",
+    "orig": "HK$625"
+  },
+  {
+    "slug": "dir-012",
+    "name": "香港康得思飯店（朗廷飯店集團旗下）",
+    "price": "HK$1,125",
+    "orig": "HK$1,243"
+  },
+  {
+    "slug": "dir-013",
+    "name": "香港頤庭飯店（銅鑼灣店）",
+    "price": "HK$490",
+    "orig": "HK$544"
+  },
+  {
+    "slug": "dir-014",
+    "name": "富豪香港飯店",
+    "price": "HK$870",
+    "orig": "HK$1,000"
+  },
+  {
+    "slug": "dir-015",
+    "name": "香港百樂飯店",
+    "price": "HK$746",
+    "orig": "HK$826"
+  },
+  {
+    "slug": "dir-016",
+    "name": "銅鑼灣如心飯店",
+    "price": "HK$678",
+    "orig": "HK$753"
+  },
+  {
+    "slug": "dir-017",
+    "name": "馬哥孛羅香港飯店",
+    "price": "HK$1,100",
+    "orig": "HK$1,187"
+  },
+  {
+    "slug": "dir-018",
+    "name": "帝樂文娜公館",
+    "price": "HK$559",
+    "orig": "HK$848"
+  },
+  {
+    "slug": "dir-019",
+    "name": "香港客舍飯店",
+    "price": "HK$547",
+    "orig": "HK$608"
+  },
+  {
+    "slug": "dir-020",
+    "name": "啟航1331 - Campus 旅舍",
+    "price": "HK$174",
+    "orig": "HK$200"
+  },
+  {
+    "slug": "dir-021",
+    "name": "香港8度海逸飯店",
+    "price": "HK$483",
+    "orig": "HK$537"
+  },
+  {
+    "slug": "dir-022",
+    "name": "香港蘭桂坊（九如坊）（飯店）",
+    "price": "HK$833",
+    "orig": "HK$1,333"
+  },
+  {
+    "slug": "dir-023",
+    "name": "香港華爾概念飯店",
+    "price": "HK$537",
+    "orig": "HK$599"
+  },
+  {
+    "slug": "dir-024",
+    "name": "香港翡格飯店",
+    "price": "HK$718",
+    "orig": "HK$798"
+  },
+  {
+    "slug": "dir-025",
+    "name": "香港南洋飯店",
+    "price": "HK$552",
+    "orig": "HK$644"
+  },
+  {
+    "slug": "dir-026",
+    "name": "粵海華美灣際飯店",
+    "price": "HK$646",
+    "orig": "HK$1,100"
+  },
+  {
+    "slug": "dir-027",
+    "name": "香港一零八館",
+    "price": "HK$447",
+    "orig": "HK$622"
+  },
+  {
+    "slug": "dir-028",
+    "name": "維園118飯店",
+    "price": "HK$436",
+    "orig": "HK$1,387"
+  },
+  {
+    "slug": "dir-029",
+    "name": "雅高宜必思香港北角飯店",
+    "price": "HK$488",
+    "orig": "HK$542"
+  },
+  {
+    "slug": "dir-030",
+    "name": "香港麗悅飯店（帝盛飯店集團旗下）",
+    "price": "HK$391",
+    "orig": "HK$678"
+  },
+  {
+    "slug": "dir-031",
+    "name": "香港美麗華飯店",
+    "price": "HK$1,289",
+    "orig": "HK$1,610"
+  },
+  {
+    "slug": "dir-032",
+    "name": "香港銅鑼灣賓館（鳳鳴大廈）",
+    "price": "HK$379",
+    "orig": "HK$400"
+  },
+  {
+    "slug": "dir-033",
+    "name": "頤庭飯店上環",
+    "price": "HK$490",
+    "orig": "HK$544"
+  },
+  {
+    "slug": "dir-034",
+    "name": "歷山飯店",
+    "price": "HK$617",
+    "orig": "HK$952"
+  },
+  {
+    "slug": "dir-035",
+    "name": "香港富豪九龍飯店",
+    "price": "HK$718",
+    "orig": "HK$811"
+  },
+  {
+    "slug": "dir-036",
+    "name": "銅鑼灣愛麗舍飯店",
+    "price": "HK$357",
+    "orig": "HK$389"
+  },
+  {
+    "slug": "dir-037",
+    "name": "香港尖沙咀皇悅飯店",
+    "price": "HK$807",
+    "orig": "HK$1,221"
+  },
+  {
+    "slug": "dir-038",
+    "name": "晉逸精品飯店 中環",
+    "price": "HK$878",
+    "orig": "HK$958"
+  },
+  {
+    "slug": "dir-039",
+    "name": "香港蘇豪希爾頓摩庭飯店",
+    "price": "HK$1,140",
+    "orig": "HK$1,220"
+  },
+  {
+    "slug": "dir-040",
+    "name": "香港哲維斯飯店",
+    "price": "HK$756",
+    "orig": "HK$880"
+  },
+  {
+    "slug": "dir-041",
+    "name": "九龍香格里拉",
+    "price": "HK$1,668",
+    "orig": "HK$1,748"
+  },
+  {
+    "slug": "dir-042",
+    "name": "香港皇家太平洋飯店",
+    "price": "HK$895",
+    "orig": "HK$1,130"
+  },
+  {
+    "slug": "dir-043",
+    "name": "星淮飯店",
+    "price": "HK$429",
+    "orig": "HK$1,044"
+  },
+  {
+    "slug": "dir-044",
+    "name": "香港富豪機場飯店",
+    "price": "HK$1,449",
+    "orig": "HK$1,529"
+  },
+  {
+    "slug": "dir-045",
+    "name": "壹登服務式公寓",
+    "price": "HK$619",
+    "orig": "HK$969"
+  },
+  {
+    "slug": "dir-046",
+    "name": "香港富薈炮台山飯店",
+    "price": "HK$483",
+    "orig": "HK$537"
+  },
+  {
+    "slug": "dir-047",
+    "name": "香港海景嘉福洲際飯店",
+    "price": "HK$1,389",
+    "orig": "HK$1,469"
+  },
+  {
+    "slug": "dir-048",
+    "name": "九龍東帝苑飯店",
+    "price": "HK$924",
+    "orig": "HK$1,375"
+  },
+  {
+    "slug": "dir-049",
+    "name": "香港黃金海岸飯店",
+    "price": "HK$1,040",
+    "orig": "HK$1,120"
+  },
+  {
+    "slug": "dir-050",
+    "name": "香港夏利飯店",
+    "price": "HK$1,222",
+    "orig": "HK$1,808"
+  },
+  {
+    "slug": "dir-051",
+    "name": "香港港威飯店-馬哥孛羅",
+    "price": "HK$1,214",
+    "orig": "HK$1,300"
+  },
+  {
+    "slug": "dir-052",
+    "name": "香港紫珀飯店",
+    "price": "HK$696",
+    "orig": "HK$774"
+  },
+  {
+    "slug": "dir-053",
+    "name": "富薈尚乘上環飯店",
+    "price": "HK$705",
+    "orig": "HK$784"
+  },
+  {
+    "slug": "dir-054",
+    "name": "雅格飯店",
+    "price": "HK$790",
+    "orig": "HK$1,052"
+  },
+  {
+    "slug": "dir-055",
+    "name": "香港富薈灣仔飯店",
+    "price": "HK$508",
+    "orig": "HK$591"
+  },
+  {
+    "slug": "dir-056",
+    "name": "香港恆豐賓館（佐敦地鐵站B1出口）",
+    "price": "HK$315",
+    "orig": "HK$412"
+  },
+  {
+    "slug": "dir-057",
+    "name": "香港My Inn美意旅館",
+    "price": "HK$370",
+    "orig": "HK$392"
+  },
+  {
+    "slug": "dir-058",
+    "name": "舒適館 （佐敦港鐵站店）",
+    "price": "HK$176",
+    "orig": "HK$196"
+  },
+  {
+    "slug": "dir-059",
+    "name": "香港旺角帝盛飯店",
+    "price": "HK$551",
+    "orig": "HK$791"
+  },
+  {
+    "slug": "dir-060",
+    "name": "香港富麗敦海洋公園飯店",
+    "price": "HK$1,366",
+    "orig": "HK$1,808"
+  },
+  {
+    "slug": "dir-061",
+    "name": "香港登台飯店",
+    "price": "HK$1,022",
+    "orig": "HK$1,526"
+  },
+  {
+    "slug": "dir-062",
+    "name": "香港世紀雅高諾富特飯店",
+    "price": "HK$824",
+    "orig": "HK$904"
+  },
+  {
+    "slug": "dir-063",
+    "name": "香港觀塘帝盛飯店",
+    "price": "HK$729",
+    "orig": "HK$809"
+  },
+  {
+    "slug": "dir-064",
+    "name": "香港紫亭",
+    "price": "HK$513",
+    "orig": "HK$1,494"
+  },
+  {
+    "slug": "dir-065",
+    "name": "四季賓館",
+    "price": "HK$159",
+    "orig": "HK$215"
+  },
+  {
+    "slug": "dir-066",
+    "name": "木的地飯店-中環",
+    "price": "HK$1,302",
+    "orig": "HK$2,255"
+  },
+  {
+    "slug": "dir-067",
+    "name": "南寓",
+    "price": "HK$466",
+    "orig": "HK$696"
+  },
+  {
+    "slug": "dir-068",
+    "name": "王子公館",
+    "price": "HK$278",
+    "orig": "HK$380"
+  },
+  {
+    "slug": "dir-069",
+    "name": "南灣如心飯店",
+    "price": "HK$688",
+    "orig": "HK$848"
+  },
+  {
+    "slug": "dir-070",
+    "name": "香港夢卓恩飯店（雅高集團旗下）",
+    "price": "HK$1,461",
+    "orig": "HK$1,541"
+  },
+  {
+    "slug": "dir-071",
+    "name": "峰景軒",
+    "price": "HK$489",
+    "orig": "HK$550"
+  },
+  {
+    "slug": "dir-072",
+    "name": "香港悅思青年旅舍",
+    "price": "HK$183",
+    "orig": "HK$204"
+  },
+  {
+    "slug": "dir-073",
+    "name": "香港維港凱悅尚萃飯店",
+    "price": "HK$1,389",
+    "orig": "HK$1,469"
+  },
+  {
+    "slug": "dir-074",
+    "name": "富薈土瓜灣飯店",
+    "price": "HK$497",
+    "orig": "HK$565"
+  },
+  {
+    "slug": "dir-075",
+    "name": "YX 飯店-荔枝角",
+    "price": "HK$659",
+    "orig": "HK$935"
+  },
+  {
+    "slug": "dir-076",
+    "name": "香港園景軒",
+    "price": "HK$614",
+    "orig": "HK$682"
+  },
+  {
+    "slug": "dir-077",
+    "name": "香港朗廷飯店",
+    "price": "HK$1,897",
+    "orig": "HK$1,921"
+  },
+  {
+    "slug": "dir-078",
+    "name": "香港彌敦飯店",
+    "price": "HK$1,088",
+    "orig": "HK$1,695"
+  },
+  {
+    "slug": "dir-079",
+    "name": "香港天一飯店喜利店（尖沙咀地鐵站店近C2口）",
+    "price": "HK$293",
+    "orig": "HK$366"
+  },
+  {
+    "slug": "dir-080",
+    "name": "香港盛庭LIVING飯店公寓（近何文田站B1口）",
+    "price": "HK$293",
+    "orig": "HK$489"
+  },
+  {
+    "slug": "dir-081",
+    "name": "香港東隅",
+    "price": "HK$1,247",
+    "orig": "HK$1,526"
+  },
+  {
+    "slug": "dir-082",
+    "name": "東南樓藝術飯店",
+    "price": "HK$567",
+    "orig": "HK$630"
+  },
+  {
+    "slug": "dir-083",
+    "name": "香港基督教青年會（港青）",
+    "price": "HK$884",
+    "orig": "HK$964"
+  },
+  {
+    "slug": "dir-084",
+    "name": "粵海181飯店",
+    "price": "HK$1,218",
+    "orig": "HK$1,582"
+  },
+  {
+    "slug": "dir-085",
+    "name": "香港TUVE飯店",
+    "price": "HK$979",
+    "orig": "HK$1,059"
+  },
+  {
+    "slug": "dir-086",
+    "name": "香港富薈旺角飯店",
+    "price": "HK$595",
+    "orig": "HK$661"
+  },
+  {
+    "slug": "dir-087",
+    "name": "Page148, 晉致飯店",
+    "price": "HK$1,201",
+    "orig": "HK$1,281"
+  },
+  {
+    "slug": "dir-088",
+    "name": "香港君立飯店",
+    "price": "HK$431",
+    "orig": "HK$638"
+  },
+  {
+    "slug": "dir-089",
+    "name": "香港太子飯店-馬哥孛羅",
+    "price": "HK$1,502",
+    "orig": "HK$1,582"
+  },
+  {
+    "slug": "dir-090",
+    "name": "海星旅館",
+    "price": "HK$351",
+    "orig": "HK$380"
+  },
+  {
+    "slug": "dir-091",
+    "name": "香港六國飯店",
+    "price": "HK$905",
+    "orig": "HK$1,000"
+  },
+  {
+    "slug": "dir-092",
+    "name": "香港普特曼飯店",
+    "price": "HK$1,017",
+    "orig": "HK$1,155"
+  },
+  {
+    "slug": "dir-093",
+    "name": "香港喜悅飯店（家庭旅館）",
+    "price": "HK$369",
+    "orig": "HK$399"
+  },
+  {
+    "slug": "dir-094",
+    "name": "香港中環石板街飯店",
+    "price": "HK$1,614",
+    "orig": "HK$2,017"
+  },
+  {
+    "slug": "dir-095",
+    "name": "九龍伯惠飯店",
+    "price": "HK$578",
+    "orig": "HK$628"
+  },
+  {
+    "slug": "dir-096",
+    "name": "香港紐約賓館（近尖沙咀地鐵H出口）",
+    "price": "HK$114",
+    "orig": "HK$195"
+  },
+  {
+    "slug": "dir-097",
+    "name": "香港永盛行賓館",
+    "price": "HK$383",
+    "orig": "HK$471"
+  },
+  {
+    "slug": "dir-098",
+    "name": "香港愉景灣飯店",
+    "price": "HK$773",
+    "orig": "HK$1,067"
+  },
+  {
+    "slug": "dir-099",
+    "name": "香港太陽公寓",
+    "price": "HK$153",
+    "orig": "HK$200"
+  },
+  {
+    "slug": "dir-100",
+    "name": "香港旅館 - 戀戀時光",
+    "price": "HK$354",
+    "orig": "HK$393"
+  },
+  {
+    "slug": "dir-101",
+    "name": "香港星網商務精品飯店",
+    "price": "HK$717",
+    "orig": "HK$796"
+  },
+  {
+    "slug": "dir-102",
+    "name": "香港雅舍（尖沙咀）",
+    "price": "HK$552",
+    "orig": "HK$829"
+  },
+  {
+    "slug": "dir-103",
+    "name": "香港麗駿飯店",
+    "price": "HK$595",
+    "orig": "HK$661"
+  },
+  {
+    "slug": "dir-104",
+    "name": "香港天一飯店（尖沙咀地鐵站店近B1口20公尺）",
+    "price": "HK$365",
+    "orig": "HK$451"
+  },
+  {
+    "slug": "dir-105",
+    "name": "樂意賓館",
+    "price": "HK$174",
+    "orig": "HK$193"
+  },
+  {
+    "slug": "dir-106",
+    "name": "逸林飯店",
+    "price": "HK$321",
+    "orig": "HK$570"
+  },
+  {
+    "slug": "dir-107",
+    "name": "一尚飯店香港尖沙咀店",
+    "price": "HK$472",
+    "orig": "HK$840"
+  },
+  {
+    "slug": "dir-108",
+    "name": "香港銅鑼灣皇冠假日飯店",
+    "price": "HK$1,649",
+    "orig": "HK$1,729"
+  },
+  {
+    "slug": "dir-109",
+    "name": "香港九龍CBD2智選假日飯店",
+    "price": "HK$994",
+    "orig": "HK$1,074"
+  },
+  {
+    "slug": "dir-110",
+    "name": "香港麥當勞道貳號飯店",
+    "price": "HK$1,211",
+    "orig": "HK$1,356"
+  },
+  {
+    "slug": "dir-111",
+    "name": "香港奶茶旅舍",
+    "price": "HK$183",
+    "orig": "HK$250"
+  },
+  {
+    "slug": "dir-112",
+    "name": "香港柏寧飯店, 傲途格精選",
+    "price": "HK$1,770",
+    "orig": "HK$2,359"
+  },
+  {
+    "slug": "dir-113",
+    "name": "杏花小築",
+    "price": "HK$317",
+    "orig": "HK$469"
+  },
+  {
+    "slug": "dir-114",
+    "name": "香港逸豪飯店",
+    "price": "HK$384",
+    "orig": "HK$556"
+  },
+  {
+    "slug": "dir-115",
+    "name": "簡宅共享旅舍",
+    "price": "HK$342",
+    "orig": "HK$378"
+  },
+  {
+    "slug": "dir-116",
+    "name": "旺角E1精品賓館(旺角新興大樓)",
+    "price": "HK$326",
+    "orig": "HK$353"
+  },
+  {
+    "slug": "dir-117",
+    "name": "銅鑼灣迷你精品飯店",
+    "price": "HK$430",
+    "orig": "HK$578"
+  },
+  {
+    "slug": "dir-118",
+    "name": "香港麗豪飯店",
+    "price": "HK$881",
+    "orig": "HK$1,068"
+  },
+  {
+    "slug": "dir-119",
+    "name": "迷你中環",
+    "price": "HK$432",
+    "orig": "HK$600"
+  },
+  {
+    "slug": "dir-120",
+    "name": "香港寶御飯店",
+    "price": "HK$781",
+    "orig": "HK$1,120"
+  },
+  {
+    "slug": "dir-121",
+    "name": "香港A11賓館尖沙咀店（尖沙咀A1出口）",
+    "price": "HK$313",
+    "orig": "HK$390"
+  },
+  {
+    "slug": "dir-122",
+    "name": "香港龍堡國際",
+    "price": "HK$1,124",
+    "orig": "HK$1,204"
+  },
+  {
+    "slug": "dir-123",
+    "name": "一尚飯店香港中環皇后大道中店",
+    "price": "HK$790",
+    "orig": "HK$1,208"
+  },
+  {
+    "slug": "dir-124",
+    "name": "鴻德別墅",
+    "price": "HK$360",
+    "orig": "HK$390"
+  },
+  {
+    "slug": "dir-125",
+    "name": "香港新月賓館（尖沙咀地鐵C2）",
+    "price": "HK$303",
+    "orig": "HK$377"
+  },
+  {
+    "slug": "dir-126",
+    "name": "港島香格里拉",
+    "price": "HK$3,005",
+    "orig": "HK$3,085"
+  },
+  {
+    "slug": "dir-127",
+    "name": "香港栢怡賓館",
+    "price": "HK$325",
+    "orig": "HK$352"
+  },
+  {
+    "slug": "dir-128",
+    "name": "香港優遊居 （尖沙咀A1出口）",
+    "price": "HK$394",
+    "orig": "HK$525"
+  },
+  {
+    "slug": "dir-129",
+    "name": "香港儷凱飯店",
+    "price": "HK$679",
+    "orig": "HK$755"
+  },
+  {
+    "slug": "dir-130",
+    "name": "香港永樂旅館（尖沙咀地鐵站旁）",
+    "price": "HK$435",
+    "orig": "HK$455"
+  },
+  {
+    "slug": "dir-131",
+    "name": "香港帝山飯店（家庭旅館）",
+    "price": "HK$327",
+    "orig": "HK$364"
+  },
+  {
+    "slug": "dir-132",
+    "name": "米蘭旅館",
+    "price": "HK$174",
+    "orig": "HK$205"
+  },
+  {
+    "slug": "dir-133",
+    "name": "永安賓館",
+    "price": "HK$346",
+    "orig": "HK$374"
+  },
+  {
+    "slug": "dir-134",
+    "name": "香港樂從同鄉會賓館",
+    "price": "HK$348",
+    "orig": "HK$471"
+  },
+  {
+    "slug": "dir-135",
+    "name": "香港意樂館-薈",
+    "price": "HK$174",
+    "orig": "HK$241"
+  },
+  {
+    "slug": "dir-136",
+    "name": "香港文華東方飯店",
+    "price": "HK$5,344",
+    "orig": "HK$5,424"
+  },
+  {
+    "slug": "dir-137",
+    "name": "香港泰山賓館（喜利店）",
+    "price": "HK$387",
+    "orig": "HK$430"
+  },
+  {
+    "slug": "dir-138",
+    "name": "香港麗東賓館",
+    "price": "HK$350",
+    "orig": "HK$389"
+  },
+  {
+    "slug": "dir-139",
+    "name": "香港輝豪飯店",
+    "price": "HK$1,156",
+    "orig": "HK$1,236"
+  },
+  {
+    "slug": "dir-140",
+    "name": "香港司麗昔恩飯店",
+    "price": "HK$333",
+    "orig": "HK$370"
+  },
+  {
+    "slug": "dir-141",
+    "name": "樂棧 （西九龍高鐵站店）",
+    "price": "HK$179",
+    "orig": "HK$199"
+  },
+  {
+    "slug": "dir-142",
+    "name": "香港名樂居星空",
+    "price": "HK$355",
+    "orig": "HK$394"
+  },
+  {
+    "slug": "dir-143",
+    "name": "全季旅舍（尖沙咀）",
+    "price": "HK$303",
+    "orig": "HK$378"
+  },
+  {
+    "slug": "dir-144",
+    "name": "香港JEN飯店 香格里拉集團",
+    "price": "HK$1,771",
+    "orig": "HK$1,851"
+  },
+  {
+    "slug": "dir-145",
+    "name": "尚豪飯店（鏈居飯店集團）",
+    "price": "HK$895",
+    "orig": "HK$1,243"
+  },
+  {
+    "slug": "dir-146",
+    "name": "工業家飯店",
+    "price": "HK$410",
+    "orig": "HK$440"
+  },
+  {
+    "slug": "dir-147",
+    "name": "香港憙飯店",
+    "price": "HK$797",
+    "orig": "HK$1,785"
+  },
+  {
+    "slug": "dir-148",
+    "name": "香港Casa",
+    "price": "HK$351",
+    "orig": "HK$390"
+  },
+  {
+    "slug": "dir-149",
+    "name": "香港嘉應賓館（佐敦地鐵站店B1出口）",
+    "price": "HK$246",
+    "orig": "HK$341"
+  },
+  {
+    "slug": "dir-150",
+    "name": "香港越秀雅詩閣服務公寓",
+    "price": "HK$1,337",
+    "orig": "HK$1,485"
+  },
+  {
+    "slug": "dir-151",
+    "name": "香港旺角賓館",
+    "price": "HK$348",
+    "orig": "HK$368"
+  },
+  {
+    "slug": "dir-152",
+    "name": "香港銀樾雅高美憬閣精選飯店",
+    "price": "HK$1,355",
+    "orig": "HK$1,435"
+  },
+  {
+    "slug": "dir-153",
+    "name": "新一賓館",
+    "price": "HK$112",
+    "orig": "HK$188"
+  },
+  {
+    "slug": "dir-154",
+    "name": "香港虹橋賓館（家庭旅館）",
+    "price": "HK$324",
+    "orig": "HK$343"
+  },
+  {
+    "slug": "dir-155",
+    "name": "香港華逸飯店",
+    "price": "HK$334",
+    "orig": "HK$422"
+  },
+  {
+    "slug": "dir-156",
+    "name": "香港E飯店",
+    "price": "HK$566",
+    "orig": "HK$609"
+  },
+  {
+    "slug": "dir-157",
+    "name": "尖沙咀國際旅館（喜利大廈, 近尖沙咀地鐵站C2口）",
+    "price": "HK$298",
+    "orig": "HK$429"
+  },
+  {
+    "slug": "dir-158",
+    "name": "香港宏基賓館（旺角地鐵D2出口）",
+    "price": "HK$397",
+    "orig": "HK$524"
+  },
+  {
+    "slug": "dir-159",
+    "name": "香港旺角旅館（旺角新興大廈店）",
+    "price": "HK$254",
+    "orig": "HK$317"
+  },
+  {
+    "slug": "dir-160",
+    "name": "紫馨賓館 （尖沙咀地鐵站A1口）",
+    "price": "HK$351",
+    "orig": "HK$412"
+  },
+  {
+    "slug": "dir-161",
+    "name": "薈棧賓館",
+    "price": "HK$657",
+    "orig": "HK$700"
+  },
+  {
+    "slug": "dir-162",
+    "name": "香港薈麗飯店",
+    "price": "HK$468",
+    "orig": "HK$520"
+  },
+  {
+    "slug": "dir-163",
+    "name": "紅茶館飯店",
+    "price": "HK$383",
+    "orig": "HK$559"
+  },
+  {
+    "slug": "dir-164",
+    "name": "大東賓館",
+    "price": "HK$342",
+    "orig": "HK$370"
+  },
+  {
+    "slug": "dir-165",
+    "name": "香港忠誠賓館",
+    "price": "HK$341",
+    "orig": "HK$402"
+  },
+  {
+    "slug": "dir-166",
+    "name": "香港新東方賓館",
+    "price": "HK$372",
+    "orig": "HK$463"
+  },
+  {
+    "slug": "dir-167",
+    "name": "香港泰山賓館（海防店）",
+    "price": "HK$372",
+    "orig": "HK$422"
+  },
+  {
+    "slug": "dir-168",
+    "name": "星展膠囊飯店",
+    "price": "HK$250",
+    "orig": "HK$327"
+  },
+  {
+    "slug": "dir-169",
+    "name": "香港春天旅舍（尖沙咀地鐵站店近C2口）",
+    "price": "HK$303",
+    "orig": "HK$378"
+  },
+  {
+    "slug": "dir-170",
+    "name": "伯惠飯店",
+    "price": "HK$981",
+    "orig": "HK$1,061"
+  },
+  {
+    "slug": "dir-171",
+    "name": "一尚飯店香港中環荷李活道店",
+    "price": "HK$491",
+    "orig": "HK$545"
+  },
+  {
+    "slug": "dir-172",
+    "name": "尼依格羅香港美利飯店",
+    "price": "HK$2,831",
+    "orig": "HK$2,911"
+  },
+  {
+    "slug": "dir-173",
+    "name": "香港申花賓館",
+    "price": "HK$360",
+    "orig": "HK$433"
+  },
+  {
+    "slug": "dir-174",
+    "name": "香港君儷飯店",
+    "price": "HK$324",
+    "orig": "HK$341"
+  },
+  {
+    "slug": "dir-175",
+    "name": "香港榮泰賓館（家庭旅館）",
+    "price": "HK$407",
+    "orig": "HK$430"
+  },
+  {
+    "slug": "dir-176",
+    "name": "香港銀礦灣渡假飯店",
+    "price": "HK$495",
+    "orig": "HK$1,100"
+  },
+  {
+    "slug": "dir-177",
+    "name": "香港比比旺角賓館（家庭旅館）",
+    "price": "HK$350",
+    "orig": "HK$512"
+  },
+  {
+    "slug": "dir-178",
+    "name": "K11 ARTUS 寓館",
+    "price": "HK$5,200",
+    "orig": "HK$7,040"
+  },
+  {
+    "slug": "dir-179",
+    "name": "香港惠華賓館（近高鐵香港西九龍站）",
+    "price": "HK$412",
+    "orig": "HK$540"
+  },
+  {
+    "slug": "dir-180",
+    "name": "香港半島飯店",
+    "price": "HK$6,656",
+    "orig": "HK$6,736"
+  },
+  {
+    "slug": "dir-181",
+    "name": "香港中信賓館",
+    "price": "HK$363",
+    "orig": "HK$444"
+  },
+  {
+    "slug": "dir-182",
+    "name": "香港東方賓館",
+    "price": "HK$491",
+    "orig": "HK$529"
+  },
+  {
+    "slug": "dir-183",
+    "name": "香港長榮金莎旅舍",
+    "price": "HK$417",
+    "orig": "HK$490"
+  },
+  {
+    "slug": "dir-184",
+    "name": "香港九龍旺角1812賓館",
+    "price": "HK$272",
+    "orig": "HK$556"
+  },
+  {
+    "slug": "dir-185",
+    "name": "朗華飯店",
+    "price": "HK$446",
+    "orig": "HK$504"
+  },
+  {
+    "slug": "dir-186",
+    "name": "泰興翡翠賓館（佐敦店）",
+    "price": "HK$436",
+    "orig": "HK$489"
+  },
+  {
+    "slug": "dir-187",
+    "name": "香港泰山賓館（華敦店）",
+    "price": "HK$405",
+    "orig": "HK$450"
+  },
+  {
+    "slug": "dir-188",
+    "name": "木的地飯店",
+    "price": "HK$1,788",
+    "orig": "HK$1,868"
+  },
+  {
+    "slug": "dir-189",
+    "name": "新國際招待所",
+    "price": "HK$202",
+    "orig": "HK$281"
+  },
+  {
+    "slug": "dir-190",
+    "name": "香港帝逸飯店",
+    "price": "HK$1,095",
+    "orig": "HK$1,469"
+  },
+  {
+    "slug": "dir-191",
+    "name": "香港豪境飯店",
+    "price": "HK$681",
+    "orig": "HK$729"
+  },
+  {
+    "slug": "dir-192",
+    "name": "香港麗晶飯店",
+    "price": "HK$4,553",
+    "orig": "HK$4,633"
+  },
+  {
+    "slug": "dir-193",
+    "name": "華美達盛景飯店",
+    "price": "HK$381",
+    "orig": "HK$423"
+  },
+  {
+    "slug": "dir-194",
+    "name": "香港威尼斯賓館（美麗都大廈）",
+    "price": "HK$252",
+    "orig": "HK$280"
+  },
+  {
+    "slug": "dir-195",
+    "name": "香港瑰麗飯店",
+    "price": "HK$7,830",
+    "orig": "HK$7,910"
+  },
+  {
+    "slug": "dir-196",
+    "name": "上海灣紅",
+    "price": "HK$313",
+    "orig": "HK$348"
+  },
+  {
+    "slug": "dir-197",
+    "name": "佳旺賓館",
+    "price": "HK$354",
+    "orig": "HK$575"
+  },
+  {
+    "slug": "dir-198",
+    "name": "香港心逸飯店 （尖沙咀地鐵站近B1出口）",
+    "price": "HK$321",
+    "orig": "HK$496"
+  },
+  {
+    "slug": "dir-199",
+    "name": "香港港麗飯店（康萊德）",
+    "price": "HK$2,769",
+    "orig": "HK$2,938"
+  },
+  {
+    "slug": "dir-200",
+    "name": "香港紫馨家庭旅舍 （尖沙咀地鐵站A1口）",
+    "price": "HK$314",
+    "orig": "HK$395"
+  },
+  {
+    "slug": "dir-201",
+    "name": "香港卓軒旅舍",
+    "price": "HK$235",
+    "orig": "HK$261"
+  },
+  {
+    "slug": "dir-202",
+    "name": "香港南強旅館（尖沙咀）",
+    "price": "HK$283",
+    "orig": "HK$363"
+  },
+  {
+    "slug": "dir-203",
+    "name": "香港富豪東方飯店",
+    "price": "HK$658",
+    "orig": "HK$780"
+  },
+  {
+    "slug": "dir-204",
+    "name": "香港逸蘭銅鑼灣飯店",
+    "price": "HK$2,033",
+    "orig": "HK$2,486"
+  },
+  {
+    "slug": "dir-205",
+    "name": "香港摩登賓館",
+    "price": "HK$399",
+    "orig": "HK$408"
+  },
+  {
+    "slug": "dir-206",
+    "name": "香港藍山（柏豪）（賓館）",
+    "price": "HK$332",
+    "orig": "HK$434"
+  },
+  {
+    "slug": "dir-207",
+    "name": "珠峰大本營旅館",
+    "price": "HK$90",
+    "orig": "HK$111"
+  },
+  {
+    "slug": "dir-208",
+    "name": "新文華旅舍",
+    "price": "HK$310",
+    "orig": "HK$430"
+  },
+  {
+    "slug": "dir-209",
+    "name": "香港長洲華威飯店",
+    "price": "HK$989",
+    "orig": "HK$1,069"
+  },
+  {
+    "slug": "dir-210",
+    "name": "啟航1331 - 啟 青年旅館",
+    "price": "HK$216",
+    "orig": "HK$230"
+  },
+  {
+    "slug": "dir-211",
+    "name": "香港嘉湖海逸飯店",
+    "price": "HK$736",
+    "orig": "HK$816"
+  },
+  {
+    "slug": "dir-212",
+    "name": "迪士尼探索家度假飯店",
+    "price": "HK$2,397",
+    "orig": "HK$2,667"
+  },
+  {
+    "slug": "dir-213",
+    "name": "香港旺角新天地飯店",
+    "price": "HK$476",
+    "orig": "HK$588"
+  },
+  {
+    "slug": "dir-214",
+    "name": "香港龍華賓館（家庭賓館）",
+    "price": "HK$234",
+    "orig": "HK$251"
+  },
+  {
+    "slug": "dir-215",
+    "name": "香港銘城賓館（家庭旅館）",
+    "price": "HK$279",
+    "orig": "HK$310"
+  },
+  {
+    "slug": "dir-216",
+    "name": "香港愛得甫飯店",
+    "price": "HK$394",
+    "orig": "HK$438"
+  },
+  {
+    "slug": "dir-217",
+    "name": "香港嘉里飯店（香格里拉集團）",
+    "price": "HK$2,182",
+    "orig": "HK$2,262"
+  },
+  {
+    "slug": "dir-218",
+    "name": "旅客賓館",
+    "price": "HK$227",
+    "orig": "HK$420"
+  },
+  {
+    "slug": "dir-219",
+    "name": "奧華精選・南岸",
+    "price": "HK$605",
+    "orig": "HK$673"
+  },
+  {
+    "slug": "dir-220",
+    "name": "洲至奢選香港WM飯店",
+    "price": "HK$1,253",
+    "orig": "HK$1,539"
+  },
+  {
+    "slug": "dir-221",
+    "name": "香港千悅賓館",
+    "price": "HK$290",
+    "orig": "HK$342"
+  },
+  {
+    "slug": "dir-222",
+    "name": "香港迪士尼樂園飯店",
+    "price": "HK$3,748",
+    "orig": "HK$3,924"
+  },
+  {
+    "slug": "dir-223",
+    "name": "富衛1881公館",
+    "price": "HK$3,745",
+    "orig": "HK$4,500"
+  },
+  {
+    "slug": "dir-224",
+    "name": "富恆旅館",
+    "price": "HK$348",
+    "orig": "HK$376"
+  },
+  {
+    "slug": "dir-225",
+    "name": "香港祥泰旅館",
+    "price": "HK$281",
+    "orig": "HK$347"
+  },
+  {
+    "slug": "dir-226",
+    "name": "香港旺角海景賓館",
+    "price": "HK$326",
+    "orig": "HK$345"
+  },
+  {
+    "slug": "dir-227",
+    "name": "香港雪梨旅館",
+    "price": "HK$112",
+    "orig": "HK$166"
+  },
+  {
+    "slug": "dir-228",
+    "name": "香港尖沙咀廣州賓館 （家庭旅館）",
+    "price": "HK$222",
+    "orig": "HK$237"
+  },
+  {
+    "slug": "dir-229",
+    "name": "旺角駅賓館",
+    "price": "HK$261",
+    "orig": "HK$545"
+  },
+  {
+    "slug": "dir-230",
+    "name": "香港莎瑪滙港島南",
+    "price": "HK$960",
+    "orig": "HK$1,300"
+  },
+  {
+    "slug": "dir-231",
+    "name": "香港軒尼斯飯店",
+    "price": "HK$943",
+    "orig": "HK$1,136"
+  },
+  {
+    "slug": "dir-232",
+    "name": "香港三角洲旅館",
+    "price": "HK$211",
+    "orig": "HK$235"
+  },
+  {
+    "slug": "dir-233",
+    "name": "香港欣林賓館 （家庭旅館）",
+    "price": "HK$315",
+    "orig": "HK$341"
+  },
+  {
+    "slug": "dir-234",
+    "name": "香港大澳文物飯店",
+    "price": "HK$1,127",
+    "orig": "HK$1,277"
+  },
+  {
+    "slug": "dir-235",
+    "name": "香港桑德旅舍",
+    "price": "HK$306",
+    "orig": "HK$340"
+  },
+  {
+    "slug": "dir-236",
+    "name": "香港海景渡假樂園",
+    "price": "HK$492",
+    "orig": "HK$580"
+  },
+  {
+    "slug": "dir-237",
+    "name": "金翔飯店（香港九龍店）（家庭旅館）",
+    "price": "HK$280",
+    "orig": "HK$330"
+  },
+  {
+    "slug": "dir-238",
+    "name": "香港居舍",
+    "price": "HK$5,339",
+    "orig": "HK$7,119"
+  },
+  {
+    "slug": "dir-239",
+    "name": "超級賓館",
+    "price": "HK$119",
+    "orig": "HK$133"
+  },
+  {
+    "slug": "dir-240",
+    "name": "香港天天旅館（家庭旅館）",
+    "price": "HK$235",
+    "orig": "HK$282"
+  },
+  {
+    "slug": "dir-241",
+    "name": "荷李活賓館（尖沙咀）",
+    "price": "HK$152",
+    "orig": "HK$235"
+  },
+  {
+    "slug": "dir-242",
+    "name": "香港功夫旅舍（家庭旅館）",
+    "price": "HK$118",
+    "orig": "HK$129"
+  },
+  {
+    "slug": "dir-243",
+    "name": "香港新橋賓館",
+    "price": "HK$293",
+    "orig": "HK$439"
+  },
+  {
+    "slug": "dir-244",
+    "name": "摩登賓館",
+    "price": "HK$327",
+    "orig": "HK$363"
+  },
+  {
+    "slug": "dir-245",
+    "name": "香港荔城賓館 （尖沙咀地鐵站H出口）",
+    "price": "HK$222",
+    "orig": "HK$380"
+  },
+  {
+    "slug": "dir-246",
+    "name": "香港恆好賓館",
+    "price": "HK$291",
+    "orig": "HK$380"
+  },
+  {
+    "slug": "dir-247",
+    "name": "香港旺角住遊行渡假賓館",
+    "price": "HK$323",
+    "orig": "HK$359"
+  },
+  {
+    "slug": "dir-248",
+    "name": "香港帝都飯店",
+    "price": "HK$1,993",
+    "orig": "HK$2,656"
+  },
+  {
+    "slug": "dir-249",
+    "name": "香港城滙奧運",
+    "price": "HK$338",
+    "orig": "HK$375"
+  },
+  {
+    "slug": "dir-250",
+    "name": "香港夢巢賓館（尖沙咀）",
+    "price": "HK$87",
+    "orig": "HK$97"
+  },
+  {
+    "slug": "dir-251",
+    "name": "香港H8青年旅館 (尖沙咀地鐵站店近C2口)",
+    "price": "HK$319",
+    "orig": "HK$388"
+  },
+  {
+    "slug": "dir-252",
+    "name": "香港81青年旅館 (尖沙咀地鐵站店近C2口)",
+    "price": "HK$144",
+    "orig": "HK$176"
+  },
+  {
+    "slug": "dir-253",
+    "name": "霖悅居",
+    "price": "HK$205",
+    "orig": "HK$228"
+  },
+  {
+    "slug": "dir-254",
+    "name": "香港柏林商務賓館（家庭旅館）",
+    "price": "HK$375",
+    "orig": "HK$383"
+  },
+  {
+    "slug": "dir-255",
+    "name": "典雅賓館",
+    "price": "HK$304",
+    "orig": "HK$311"
+  },
+  {
+    "slug": "dir-256",
+    "name": "百樂賓館",
+    "price": "HK$117",
+    "orig": "HK$163"
+  },
+  {
+    "slug": "dir-257",
+    "name": "香港龍群賓館",
+    "price": "HK$269",
+    "orig": "HK$335"
+  },
+  {
+    "slug": "dir-258",
+    "name": "168青年旅舍",
+    "price": "HK$234",
+    "orig": "HK$260"
+  },
+  {
+    "slug": "dir-259",
+    "name": "香港好景賓館",
+    "price": "HK$326",
+    "orig": "HK$333"
+  },
+  {
+    "slug": "dir-260",
+    "name": "香港阿特拉斯旅館",
+    "price": "HK$1,650",
+    "orig": "HK$2,565"
+  },
+  {
+    "slug": "dir-261",
+    "name": "香港永利旅館（家庭旅館）",
+    "price": "HK$322",
+    "orig": "HK$358"
+  },
+  {
+    "slug": "dir-262",
+    "name": "香港旺角芙蓉賓館",
+    "price": "HK$380",
+    "orig": "HK$412"
+  },
+  {
+    "slug": "dir-263",
+    "name": "香港熊貓精品賓館",
+    "price": "HK$495",
+    "orig": "HK$529"
+  },
+  {
+    "slug": "dir-264",
+    "name": "香港鳴人賓館",
+    "price": "HK$213",
+    "orig": "HK$236"
+  },
+  {
+    "slug": "dir-265",
+    "name": "亮亮花園民華賓館（家庭旅館）",
+    "price": "HK$233",
+    "orig": "HK$261"
+  },
+  {
+    "slug": "dir-266",
+    "name": "香港維多利亞賓館",
+    "price": "HK$396",
+    "orig": "HK$440"
+  },
+  {
+    "slug": "dir-267",
+    "name": "景士迪賓館（近尖沙咀地鐵H出口）",
+    "price": "HK$111",
+    "orig": "HK$188"
+  },
+  {
+    "slug": "dir-268",
+    "name": "香港遨凱飯店",
+    "price": "HK$2,195",
+    "orig": "HK$2,712"
+  },
+  {
+    "slug": "dir-269",
+    "name": "香港中港旅店",
+    "price": "HK$501",
+    "orig": "HK$706"
+  },
+  {
+    "slug": "dir-270",
+    "name": "奧地利賓館",
+    "price": "HK$515",
+    "orig": "HK$575"
+  },
+  {
+    "slug": "dir-271",
+    "name": "享睡品居",
+    "price": "HK$98",
+    "orig": "HK$109"
+  },
+  {
+    "slug": "dir-272",
+    "name": "ZHL HOTEL【TST】尖沙咀美麗都店",
+    "price": "HK$323",
+    "orig": "HK$350"
+  },
+  {
+    "slug": "dir-273",
+    "name": "香港凱逸飯店",
+    "price": "HK$435",
+    "orig": "HK$471"
+  },
+  {
+    "slug": "dir-274",
+    "name": "香港假日賓館",
+    "price": "HK$248",
+    "orig": "HK$345"
+  },
+  {
+    "slug": "dir-275",
+    "name": "香港糖果旅舍",
+    "price": "HK$213",
+    "orig": "HK$250"
+  },
+  {
+    "slug": "dir-276",
+    "name": "碼頭飯店",
+    "price": "HK$1,676",
+    "orig": "HK$1,756"
+  },
+  {
+    "slug": "dir-277",
+    "name": "香港金龍旅遊飯店",
+    "price": "HK$264",
+    "orig": "HK$294"
+  },
+  {
+    "slug": "dir-278",
+    "name": "雲浦居",
+    "price": "HK$447",
+    "orig": "HK$980"
+  },
+  {
+    "slug": "dir-279",
+    "name": "香港城滙精品",
+    "price": "HK$503",
+    "orig": "HK$556"
+  },
+  {
+    "slug": "dir-280",
+    "name": "聖地",
+    "price": "HK$254",
+    "orig": "HK$353"
+  },
+  {
+    "slug": "dir-281",
+    "name": "香港金翔飯店（家庭旅館）",
+    "price": "HK$252",
+    "orig": "HK$292"
+  },
+  {
+    "slug": "dir-282",
+    "name": "香港加州飯店（家庭旅館）",
+    "price": "HK$551",
+    "orig": "HK$612"
+  },
+  {
+    "slug": "dir-283",
+    "name": "星途青年旅館",
+    "price": "HK$211",
+    "orig": "HK$319"
+  },
+  {
+    "slug": "dir-284",
+    "name": "尊貴閒庭飯店",
+    "price": "HK$208",
+    "orig": "HK$420"
+  },
+  {
+    "slug": "dir-285",
+    "name": "香港亞洲賓館",
+    "price": "HK$224",
+    "orig": "HK$260"
+  },
+  {
+    "slug": "dir-286",
+    "name": "萊斯國際賓館",
+    "price": "HK$120",
+    "orig": "HK$129"
+  },
+  {
+    "slug": "dir-287",
+    "name": "香港宿霧賓館（E座）",
+    "price": "HK$174",
+    "orig": "HK$188"
+  },
+  {
+    "slug": "dir-288",
+    "name": "香港萬興隆飯店 （家庭旅館）",
+    "price": "HK$283",
+    "orig": "HK$295"
+  },
+  {
+    "slug": "dir-289",
+    "name": "香港旺角花園飯店",
+    "price": "HK$277",
+    "orig": "HK$322"
+  },
+  {
+    "slug": "dir-290",
+    "name": "KK飯店青年旅舍迪隆飯店（香港有限公司）",
+    "price": "HK$191",
+    "orig": "HK$223"
+  },
+  {
+    "slug": "dir-291",
+    "name": "香港福建賓館",
+    "price": "HK$333",
+    "orig": "HK$401"
+  },
+  {
+    "slug": "dir-292",
+    "name": "香港百合賓館",
+    "price": "HK$237",
+    "orig": "HK$250"
+  },
+  {
+    "slug": "dir-293",
+    "name": "香港帝國飯店",
+    "price": "HK$526",
+    "orig": "HK$585"
+  },
+  {
+    "slug": "dir-294",
+    "name": "好好賓館",
+    "price": "HK$269",
+    "orig": "HK$299"
+  },
+  {
+    "slug": "dir-295",
+    "name": "香港萬利賓館（美麗都大廈）",
+    "price": "HK$225",
+    "orig": "HK$250"
+  },
+  {
+    "slug": "dir-296",
+    "name": "香港鴻運旅店（家庭旅館）",
+    "price": "HK$326",
+    "orig": "HK$345"
+  },
+  {
+    "slug": "dir-297",
+    "name": "香港百利濠賓館",
+    "price": "HK$206",
+    "orig": "HK$250"
+  },
+  {
+    "slug": "dir-298",
+    "name": "溫莎品居",
+    "price": "HK$123",
+    "orig": "HK$138"
+  },
+  {
+    "slug": "dir-299",
+    "name": "香港澳大利亞旅舍",
+    "price": "HK$212",
+    "orig": "HK$240"
+  },
+  {
+    "slug": "dir-300",
+    "name": "香港先創旅店（家庭旅館）",
+    "price": "HK$310",
+    "orig": "HK$590"
+  },
+  {
+    "slug": "dir-301",
+    "name": "香港新迎賓館",
+    "price": "HK$285",
+    "orig": "HK$452"
+  },
+  {
+    "slug": "dir-302",
+    "name": "香港雅蘭賓館",
+    "price": "HK$250",
+    "orig": "HK$261"
+  },
+  {
+    "slug": "dir-303",
+    "name": "香港阿肖克旅舍",
+    "price": "HK$198",
+    "orig": "HK$420"
+  },
+  {
+    "slug": "dir-304",
+    "name": "香港萬里香江客棧 （家庭旅館）",
+    "price": "HK$326",
+    "orig": "HK$341"
+  },
+  {
+    "slug": "dir-305",
+    "name": "香港怡家賓館",
+    "price": "HK$296",
+    "orig": "HK$327"
+  },
+  {
+    "slug": "dir-306",
+    "name": "香港廣州賓館",
+    "price": "HK$286",
+    "orig": "HK$302"
+  },
+  {
+    "slug": "dir-307",
+    "name": "尖沙咀月辰舍",
+    "price": "HK$481",
+    "orig": "HK$535"
+  },
+  {
+    "slug": "dir-308",
+    "name": "香港加巴欣賓館",
+    "price": "HK$195",
+    "orig": "HK$225"
+  },
+  {
+    "slug": "dir-309",
+    "name": "香港新國際賓館（家庭旅館）",
+    "price": "HK$257",
+    "orig": "HK$286"
+  },
+  {
+    "slug": "dir-310",
+    "name": "名迪旺角",
+    "price": "HK$184",
+    "orig": "HK$372"
+  },
+  {
+    "slug": "dir-311",
+    "name": "香港比華利賓館",
+    "price": "HK$241",
+    "orig": "HK$380"
+  },
+  {
+    "slug": "dir-312",
+    "name": "香港東方泛達飯店",
+    "price": "HK$278",
+    "orig": "HK$309"
+  },
+  {
+    "slug": "dir-313",
+    "name": "香港名閣飯店（家庭旅館）",
+    "price": "HK$474",
+    "orig": "HK$980"
+  },
+  {
+    "slug": "dir-314",
+    "name": "浪漫人人賓館",
+    "price": "HK$290",
+    "orig": "HK$304"
+  },
+  {
+    "slug": "dir-315",
+    "name": "香港佐敦道嘉賓賓館",
+    "price": "HK$421",
+    "orig": "HK$490"
+  },
+  {
+    "slug": "dir-316",
+    "name": "香港珍珠賓館",
+    "price": "HK$163",
+    "orig": "HK$181"
+  },
+  {
+    "slug": "dir-317",
+    "name": "新日夜賓館",
+    "price": "HK$314",
+    "orig": "HK$348"
+  },
+  {
+    "slug": "dir-318",
+    "name": "香港金山飯店",
+    "price": "HK$489",
+    "orig": "HK$529"
+  },
+  {
+    "slug": "dir-319",
+    "name": "香港美華賓館",
+    "price": "HK$342",
+    "orig": "HK$380"
+  },
+  {
+    "slug": "dir-320",
+    "name": "HI-INN",
+    "price": "HK$191",
+    "orig": "HK$212"
+  },
+  {
+    "slug": "dir-321",
+    "name": "香港樂家賓館",
+    "price": "HK$291",
+    "orig": "HK$380"
+  },
+  {
+    "slug": "dir-322",
+    "name": "第一賓館",
+    "price": "HK$155",
+    "orig": "HK$172"
+  },
+  {
+    "slug": "dir-323",
+    "name": "蘇迪亞旅館",
+    "price": "HK$328",
+    "orig": "HK$359"
+  },
+  {
+    "slug": "dir-324",
+    "name": "W's 賓館",
+    "price": "HK$151",
+    "orig": "HK$252"
+  },
+  {
+    "slug": "dir-325",
+    "name": "紅館客棧",
+    "price": "HK$225",
+    "orig": "HK$250"
+  },
+  {
+    "slug": "dir-326",
+    "name": "喜運來賓館",
+    "price": "HK$751",
+    "orig": "HK$793"
+  },
+  {
+    "slug": "dir-327",
+    "name": "香港傳奇賓館",
+    "price": "HK$314",
+    "orig": "HK$349"
+  },
+  {
+    "slug": "dir-328",
+    "name": "香港阿斯阿納飯店",
+    "price": "HK$364",
+    "orig": "HK$404"
+  },
+  {
+    "slug": "dir-329",
+    "name": "新豪華旅舍",
+    "price": "HK$172",
+    "orig": "HK$188"
+  },
+  {
+    "slug": "dir-330",
+    "name": "陽光賓館",
+    "price": "HK$373",
+    "orig": "HK$533"
+  },
+  {
+    "slug": "dir-331",
+    "name": "香港天晴賓館",
+    "price": "HK$326",
+    "orig": "HK$341"
+  },
+  {
+    "slug": "dir-332",
+    "name": "富麗宮賓館",
+    "price": "HK$495",
+    "orig": "HK$511"
+  },
+  {
+    "slug": "dir-333",
+    "name": "香港逍遙賓館",
+    "price": "HK$303",
+    "orig": "HK$341"
+  },
+  {
+    "slug": "dir-334",
+    "name": "裕家賓館（香港亞皆老街店）",
+    "price": "HK$500",
+    "orig": "HK$556"
+  },
+  {
+    "slug": "dir-335",
+    "name": "墨爾本賓館",
+    "price": "HK$162",
+    "orig": "HK$226"
+  },
+  {
+    "slug": "dir-336",
+    "name": "維港品居",
+    "price": "HK$264",
+    "orig": "HK$269"
+  },
+  {
+    "slug": "dir-337",
+    "name": "香港樂怡賓館",
+    "price": "HK$201",
+    "orig": "HK$223"
+  },
+  {
+    "slug": "dir-338",
+    "name": "哈皮旅館",
+    "price": "HK$151",
+    "orig": "HK$210"
+  },
+  {
+    "slug": "dir-339",
+    "name": "香港荷蘭賓館",
+    "price": "HK$165",
+    "orig": "HK$176"
+  },
+  {
+    "slug": "dir-340",
+    "name": "香港新廣州賓館",
+    "price": "HK$141",
+    "orig": "HK$156"
+  },
+  {
+    "slug": "dir-341",
+    "name": "香港馬尼拉賓館",
+    "price": "HK$137",
+    "orig": "HK$186"
+  },
+  {
+    "slug": "dir-342",
+    "name": "香港經濟型飯店  （家庭旅館）",
+    "price": "HK$131",
+    "orig": "HK$186"
+  },
+  {
+    "slug": "dir-343",
+    "name": "巴黎旅館",
+    "price": "HK$155",
+    "orig": "HK$210"
+  },
+  {
+    "slug": "dir-344",
+    "name": "香港安逸旅舍",
+    "price": "HK$274",
+    "orig": "HK$304"
+  },
+  {
+    "slug": "dir-345",
+    "name": "香港HostelVenus",
+    "price": "HK$184",
+    "orig": "HK$205"
+  },
+  {
+    "slug": "dir-346",
+    "name": "香港菲律賓旅館",
+    "price": "HK$165",
+    "orig": "HK$176"
+  },
+  {
+    "slug": "dir-347",
+    "name": "季節飯店-尖沙咀",
+    "price": "HK$433",
+    "orig": "HK$481"
+  },
+  {
+    "slug": "dir-348",
+    "name": "香港萬達青年旅舍",
+    "price": "HK$204",
+    "orig": "HK$227"
+  },
+  {
+    "slug": "dir-349",
+    "name": "香港中華鼎美精品賓館",
+    "price": "HK$269",
+    "orig": "HK$322"
+  },
+  {
+    "slug": "dir-350",
+    "name": "香港大都市賓館",
+    "price": "HK$155",
+    "orig": "HK$173"
+  },
+  {
+    "slug": "dir-351",
+    "name": "太平洋旅舍",
+    "price": "HK$300",
+    "orig": "HK$333"
+  },
+  {
+    "slug": "dir-352",
+    "name": "香港珀麗賓館（家庭旅館）",
+    "price": "HK$221",
+    "orig": "HK$246"
+  },
+  {
+    "slug": "dir-353",
+    "name": "香港彩城賓館（家庭旅館）",
+    "price": "HK$313",
+    "orig": "HK$410"
+  },
+  {
+    "slug": "dir-354",
+    "name": "香港百利賓館（美麗都大廈）",
+    "price": "HK$239",
+    "orig": "HK$250"
+  },
+  {
+    "slug": "dir-355",
+    "name": "香港太子賓館",
+    "price": "HK$270",
+    "orig": "HK$500"
+  },
+  {
+    "slug": "dir-356",
+    "name": "五洲賓館",
+    "price": "HK$297",
+    "orig": "HK$378"
+  },
+  {
+    "slug": "dir-357",
+    "name": "香港李氏連鎖賓館（家庭旅館）",
+    "price": "HK$151",
+    "orig": "HK$186"
+  },
+  {
+    "slug": "dir-358",
+    "name": "香港德國旅舍Germany Hostel",
+    "price": "HK$162",
+    "orig": "HK$207"
+  },
+  {
+    "slug": "dir-359",
+    "name": "香港鴻輝賓館",
+    "price": "HK$316",
+    "orig": "HK$330"
+  },
+  {
+    "slug": "dir-360",
+    "name": "珠峰賓館",
+    "price": "HK$150",
+    "orig": "HK$209"
+  },
+  {
+    "slug": "dir-361",
+    "name": "金鳳凰賓館",
+    "price": "HK$293",
+    "orig": "HK$318"
+  },
+  {
+    "slug": "dir-362",
+    "name": "香港宿霧賓館",
+    "price": "HK$279",
+    "orig": "HK$310"
+  },
+  {
+    "slug": "dir-363",
+    "name": "香港澳大利亞旅館",
+    "price": "HK$276",
+    "orig": "HK$512"
+  },
+  {
+    "slug": "dir-364",
+    "name": "香港富華旅舍（家庭旅館）",
+    "price": "HK$244",
+    "orig": "HK$271"
+  },
+  {
+    "slug": "dir-365",
+    "name": "香港戴斯賓館Days Hostel",
+    "price": "HK$145",
+    "orig": "HK$217"
+  },
+  {
+    "slug": "dir-366",
+    "name": "新鴻運賓館A1",
+    "price": "HK$190",
+    "orig": "HK$244"
+  },
+  {
+    "slug": "dir-367",
+    "name": "香港珠峰大賓館",
+    "price": "HK$228",
+    "orig": "HK$253"
+  },
+  {
+    "slug": "dir-368",
+    "name": "香港斯凱勒科賓館",
+    "price": "HK$167",
+    "orig": "HK$205"
+  },
+  {
+    "slug": "dir-369",
+    "name": "ZHL HOTEL【MK】富華店",
+    "price": "HK$252",
+    "orig": "HK$300"
+  },
+  {
+    "slug": "dir-370",
+    "name": "香港富裕賓館（重慶大廈店）",
+    "price": "HK$182",
+    "orig": "HK$203"
+  },
+  {
+    "slug": "dir-371",
+    "name": "悅品居",
+    "price": "HK$217",
+    "orig": "HK$230"
+  },
+  {
+    "slug": "dir-372",
+    "name": "香港富都賓館",
+    "price": "HK$329",
+    "orig": "HK$430"
+  },
+  {
+    "slug": "dir-373",
+    "name": "香港國際旅館",
+    "price": "HK$177",
+    "orig": "HK$275"
+  },
+  {
+    "slug": "dir-374",
+    "name": "季節飯店-銅鑼灣",
+    "price": "HK$405",
+    "orig": "HK$450"
+  },
+  {
+    "slug": "dir-375",
+    "name": "香港百樂門飯店 （家庭旅館）",
+    "price": "HK$354",
+    "orig": "HK$402"
+  },
+  {
+    "slug": "dir-376",
+    "name": "四季陽光國際飯店（尖沙咀地鐵站近H出口）",
+    "price": "HK$196",
+    "orig": "HK$462"
+  },
+  {
+    "slug": "dir-377",
+    "name": "香港惠康賓館",
+    "price": "HK$434",
+    "orig": "HK$521"
+  },
+  {
+    "slug": "dir-378",
+    "name": "香港尖沙咀宇宙賓館",
+    "price": "HK$184",
+    "orig": "HK$188"
+  },
+  {
+    "slug": "dir-379",
+    "name": "香港天天賓館",
+    "price": "HK$303",
+    "orig": "HK$345"
+  },
+  {
+    "slug": "dir-380",
+    "name": "香港荃旅店",
+    "price": "HK$532",
+    "orig": "HK$592"
+  },
+  {
+    "slug": "dir-381",
+    "name": "香港東方明珠賓館",
+    "price": "HK$189",
+    "orig": "HK$195"
+  },
+  {
+    "slug": "dir-382",
+    "name": "香港共居空間（家庭旅館）",
+    "price": "HK$133",
+    "orig": "HK$148"
+  },
+  {
+    "slug": "dir-383",
+    "name": "新歐亞賓館",
+    "price": "HK$166",
+    "orig": "HK$220"
+  },
+  {
+    "slug": "dir-384",
+    "name": "星港飯店-銅鑼灣店",
+    "price": "HK$568",
+    "orig": "HK$702"
+  },
+  {
+    "slug": "dir-385",
+    "name": "到此一棧 - 香港台灣青年背包旅館",
+    "price": "HK$1,233",
+    "orig": "HK$1,313"
+  },
+  {
+    "slug": "dir-386",
+    "name": "辛西婭飯店",
+    "price": "HK$214",
+    "orig": "HK$250"
+  },
+  {
+    "slug": "dir-387",
+    "name": "香港曉逸賓館",
+    "price": "HK$214",
+    "orig": "HK$250"
+  },
+  {
+    "slug": "dir-388",
+    "name": "再來旅社（尖沙咀）",
+    "price": "HK$159",
+    "orig": "HK$177"
+  },
+  {
+    "slug": "dir-389",
+    "name": "香港港島英迪格飯店",
+    "price": "HK$1,163",
+    "orig": "HK$1,243"
+  },
+  {
+    "slug": "dir-390",
+    "name": "深圳羅湖戴斯精選溫德姆飯店",
+    "price": "HK$488",
+    "orig": "HK$718"
+  }
+]
