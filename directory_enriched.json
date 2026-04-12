@@ -8,15 +8,6 @@
     "wiki_title": "港島海逸君綽酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E6%B8%AF%E5%B3%B6%E6%B5%B7%E9%80%B8%E5%90%9B%E7%B6%BD%E9%85%92%E5%BA%97"
   },
-  "dir-002": {
-    "name": "香港百利飯店",
-    "price": "HK$502",
-    "orig": "HK$558",
-    "extract": "圓山大飯店，是一座位於臺灣臺北市中山區劍潭山的旅館，成立於第二次世界大戰後，旅宿設施始建於1952年5月，主樓落成於1973年，曾為20世紀後期臺灣首屈一指的大型國際性飯店。並自啟用後曾接待過許多來臺北訪問的外國政要。\n當前台北圓山大飯店已晉升為交通部觀光署評鑑之五星級飯店。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/%E5%9C%93%E5%B1%B1%E9%A3%AF%E5%BA%971.jpg/960px-%E5%9C%93%E5%B1%B1%E9%A3%AF%E5%BA%971.jpg",
-    "wiki_title": "圓山大飯店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%9C%93%E5%B1%B1%E5%A4%A7%E9%A3%AF%E5%BA%97"
-  },
   "dir-003": {
     "name": "雅高宜必思香港中上環飯店",
     "price": "HK$537",
@@ -125,24 +116,6 @@
     "wiki_title": "馬哥孛羅香港酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%AC%E5%93%A5%E5%AD%9B%E7%BE%85%E9%A6%99%E6%B8%AF%E9%85%92%E5%BA%97"
   },
-  "dir-018": {
-    "name": "帝樂文娜公館",
-    "price": "HK$559",
-    "orig": "HK$848",
-    "extract": "本列表列出香港所有現存的酒店，或佔有全棟建築物的賓館。香港政府依旅館業條例管制旅館業，主要分為持牌酒店及持牌賓館，當中賓館可再以用途再細分為一般、度假屋、度假營三類。",
-    "image": null,
-    "wiki_title": "香港酒店列表",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E9%85%92%E5%BA%97%E5%88%97%E8%A1%A8"
-  },
-  "dir-019": {
-    "name": "香港客舍飯店",
-    "price": "HK$547",
-    "orig": "HK$608",
-    "extract": "圓山大飯店，是一座位於臺灣臺北市中山區劍潭山的旅館，成立於第二次世界大戰後，旅宿設施始建於1952年5月，主樓落成於1973年，曾為20世紀後期臺灣首屈一指的大型國際性飯店。並自啟用後曾接待過許多來臺北訪問的外國政要。\n當前台北圓山大飯店已晉升為交通部觀光署評鑑之五星級飯店。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/%E5%9C%93%E5%B1%B1%E9%A3%AF%E5%BA%971.jpg/960px-%E5%9C%93%E5%B1%B1%E9%A3%AF%E5%BA%971.jpg",
-    "wiki_title": "圓山大飯店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%9C%93%E5%B1%B1%E5%A4%A7%E9%A3%AF%E5%BA%97"
-  },
   "dir-021": {
     "name": "香港8度海逸飯店",
     "price": "HK$483",
@@ -160,15 +133,6 @@
     "image": null,
     "wiki_title": "香港上海大酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E4%B8%8A%E6%B5%B7%E5%A4%A7%E9%85%92%E5%BA%97"
-  },
-  "dir-023": {
-    "name": "香港華爾概念飯店",
-    "price": "HK$537",
-    "orig": "HK$599",
-    "extract": "W飯店（W Hotel）是萬豪國際旗下的跨國酒店品牌，以時尚、音樂、設計與流行文化等創新風格吸引高端客戶。第一間W飯店於1998年開幕於紐約。\nW飯店的經營理念在於成為各城市文化的中心，結合當地特色發展出令人印象深刻的設計概念，例如香港W飯店以中國五行為主要設計概念，台北W飯店以自然與科技共生（Natural Electrified）為主要設計理念。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/W_Hotels_logo.svg/960px-W_Hotels_logo.svg.png",
-    "wiki_title": "W飯店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/W%E9%A3%AF%E5%BA%97"
   },
   "dir-026": {
     "name": "粵海華美灣際飯店",
@@ -197,33 +161,6 @@
     "wiki_title": "帝盛酒店集團",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E5%B8%9D%E7%9B%9B%E9%85%92%E5%BA%97%E9%9B%86%E5%9C%98"
   },
-  "dir-031": {
-    "name": "香港美麗華飯店",
-    "price": "HK$1,289",
-    "orig": "HK$1,610",
-    "extract": "圓山大飯店，是一座位於臺灣臺北市中山區劍潭山的旅館，成立於第二次世界大戰後，旅宿設施始建於1952年5月，主樓落成於1973年，曾為20世紀後期臺灣首屈一指的大型國際性飯店。並自啟用後曾接待過許多來臺北訪問的外國政要。\n當前台北圓山大飯店已晉升為交通部觀光署評鑑之五星級飯店。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/%E5%9C%93%E5%B1%B1%E9%A3%AF%E5%BA%971.jpg/960px-%E5%9C%93%E5%B1%B1%E9%A3%AF%E5%BA%971.jpg",
-    "wiki_title": "圓山大飯店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%9C%93%E5%B1%B1%E5%A4%A7%E9%A3%AF%E5%BA%97"
-  },
-  "dir-033": {
-    "name": "頤庭飯店上環",
-    "price": "HK$490",
-    "orig": "HK$544",
-    "extract": "亞都麗緻大飯店（英語：The Landis Taipei）為台灣五星級飯店之一，於1979年開幕，舊名為亞都大飯店，1997年更名為亞都麗緻大飯店，座落於台北市民權東路二段41號，為共同創辦人周志榮、周賴秀端與董事林有承投資，總裁兼前董事長嚴長壽主持經營。2016年6月19日，董事長職務由周志榮兒子周永銘接任。\n亞都麗緻大飯店共計客房219間，並提供經典杭州菜及法式餐飲服務，在外設有麗緻坊、麗緻巴賽麗等經營據點。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/The_Landis_Taipei_20160723b.jpg/960px-The_Landis_Taipei_20160723b.jpg",
-    "wiki_title": "亞都麗緻大飯店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E4%BA%9E%E9%83%BD%E9%BA%97%E7%B7%BB%E5%A4%A7%E9%A3%AF%E5%BA%97"
-  },
-  "dir-034": {
-    "name": "歷山飯店",
-    "price": "HK$617",
-    "orig": "HK$952",
-    "extract": "福容大飯店（英語：Fullon Hotels & Resorts）為麗寶建設經營的飯店品牌，目前在中華民國（臺灣）的臺北市、新北市、桃園市、臺中市、南投縣、高雄市、嘉義市、屏東縣、花蓮縣等地設有旅館。前身為2002年11月成立的「麗寶商務客棧」，2007年更名為現名。\n目前旗下飯店在中華民國交通部觀光署的星級旅館評鑑裡被評為五星級飯店的有台北一館（111年12月31日起，已屬非星級旅館）、漁人碼頭、麗寶樂園等三間飯店；而高雄、台北二館、墾丁、林口、桃園、花蓮及中壢也被評為四星級飯店。",
-    "image": null,
-    "wiki_title": "福容大飯店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E7%A6%8F%E5%AE%B9%E5%A4%A7%E9%A3%AF%E5%BA%97"
-  },
   "dir-035": {
     "name": "香港富豪九龍飯店",
     "price": "HK$718",
@@ -232,33 +169,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Regal_Kowloon_Hotel_202009.jpg/960px-Regal_Kowloon_Hotel_202009.jpg",
     "wiki_title": "富豪九龍酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E5%AF%8C%E8%B1%AA%E4%B9%9D%E9%BE%8D%E9%85%92%E5%BA%97"
-  },
-  "dir-036": {
-    "name": "銅鑼灣愛麗舍飯店",
-    "price": "HK$357",
-    "orig": "HK$389",
-    "extract": "香港港麗酒店（英語：Conrad Hong Kong）為香港一間五星級酒店，是隸屬希爾頓酒店集團旗下康莱德品牌的酒店，由信和酒店，信和置業和太古地產分别持有50%、30%和20%股份，由希爾頓集團管理。港麗酒店位於香港金鐘金鐘道88號太古廣場二期，毗隣中環金融商業區，步行往港鐵金鐘站只需數分鐘。酒店於1990年開幕，樓高22層（設於40-61樓），共提供513間客房，包括467間普通客房以及46間套房。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Conrad_Hong_Kong_2012.jpg/960px-Conrad_Hong_Kong_2012.jpg",
-    "wiki_title": "香港港麗酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E6%B8%AF%E9%BA%97%E9%85%92%E5%BA%97"
-  },
-  "dir-037": {
-    "name": "香港尖沙咀皇悅飯店",
-    "price": "HK$807",
-    "orig": "HK$1,221",
-    "extract": "喜來登酒店與度假村集團（英語：Sheraton Hotels and Resorts）是萬豪國際旗下的連鎖旅館。喜來登的酒店型態有許多種，從一般的商業旅館到大型度假村都有；喜來登品牌一直企圖維持高品質形象，在世界上的喜來登酒店有超過一半被當地機關評選為五星級酒店。喜來登品牌還有一個副牌叫做福朋喜來登（Four Points by Sheraton）。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Sheraton_%281%29.svg/960px-Sheraton_%281%29.svg.png",
-    "wiki_title": "喜來登酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%96%9C%E4%BE%86%E7%99%BB%E9%85%92%E5%BA%97"
-  },
-  "dir-038": {
-    "name": "晉逸精品飯店 中環",
-    "price": "HK$878",
-    "orig": "HK$958",
-    "extract": "中环荷里活道彩鸿酒店（英語：Travelodge Central, Hollywood Road），為香港的一間四星級酒店，位處於香港上環荷里活道263號（近水坑口街），樓高19層，酒店於2005年4月開幕，共提供142間豪華客房。\n值得一提，雖酒店名為中環荷里活道彩鴻酒店，但其實不是位於中環，而是在上環，距離港鐵上環站0.5公里。\n2011年，中環麗柏酒店（英語：Central Park Hotel）擁有者麗悅酒店集團公司出售酒店。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/HK_Sheung_Wan_Hollywood_Road_Shops_Rainy_Day.JPG/960px-HK_Sheung_Wan_Hollywood_Road_Shops_Rainy_Day.JPG",
-    "wiki_title": "中环荷里活道彩鸿酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E7%8E%AF%E8%8D%B7%E9%87%8C%E6%B4%BB%E9%81%93%E5%BD%A9%E9%B8%BF%E9%85%92%E5%BA%97"
   },
   "dir-039": {
     "name": "香港蘇豪希爾頓摩庭飯店",
@@ -286,24 +196,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/China_Hong_Kong_City_200805.jpg/960px-China_Hong_Kong_City_200805.jpg",
     "wiki_title": "皇家太平洋酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E7%9A%87%E5%AE%B6%E5%A4%AA%E5%B9%B3%E6%B4%8B%E9%85%92%E5%BA%97"
-  },
-  "dir-044": {
-    "name": "香港富豪機場飯店",
-    "price": "HK$1,449",
-    "orig": "HK$1,529",
-    "extract": "香格里拉酒店是總部位於香港的酒店集团，目前在亞洲和中東地區的主要城市以及大部分度假勝地擁有103家酒店，客房數目多达41600間。\n香格里拉酒店集團由香港上市公司嘉里建設大股東郭鶴年家族所持有，首間酒店於1971年在新加坡開業，集團目前旗下酒店品牌包括香格里拉酒店及度假村、嘉里酒店、今旅酒店（JEN）及盛貿飯店。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Living_Shangri-la.jpg",
-    "wiki_title": "香格里拉酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E9%85%92%E5%BA%97"
-  },
-  "dir-045": {
-    "name": "壹登服務式公寓",
-    "price": "HK$619",
-    "orig": "HK$969",
-    "extract": "澳門酒店由澳門特別行政區政府旅遊局負責評級。酒店場所共分為五個級別：五星級豪華、五星級、四星級、三星級及二星級：而公寓則分為三星及二星。據旅遊局資料顯示，截至2016年，全澳共有74間二星至五星級豪華酒店及31間二星至三星級公寓。",
-    "image": null,
-    "wiki_title": "澳門酒店列表",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E6%BE%B3%E9%96%80%E9%85%92%E5%BA%97%E5%88%97%E8%A1%A8"
   },
   "dir-046": {
     "name": "香港富薈炮台山飯店",
@@ -341,15 +233,6 @@
     "wiki_title": "香港黃金海岸酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E9%BB%83%E9%87%91%E6%B5%B7%E5%B2%B8%E9%85%92%E5%BA%97"
   },
-  "dir-050": {
-    "name": "香港夏利飯店",
-    "price": "HK$1,222",
-    "orig": "HK$1,808",
-    "extract": "W飯店（W Hotel）是萬豪國際旗下的跨國酒店品牌，以時尚、音樂、設計與流行文化等創新風格吸引高端客戶。第一間W飯店於1998年開幕於紐約。\nW飯店的經營理念在於成為各城市文化的中心，結合當地特色發展出令人印象深刻的設計概念，例如香港W飯店以中國五行為主要設計概念，台北W飯店以自然與科技共生（Natural Electrified）為主要設計理念。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/W_Hotels_logo.svg/960px-W_Hotels_logo.svg.png",
-    "wiki_title": "W飯店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/W%E9%A3%AF%E5%BA%97"
-  },
   "dir-051": {
     "name": "香港港威飯店-馬哥孛羅",
     "price": "HK$1,214",
@@ -376,15 +259,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Novotel_Citygate_Hong_Kong.jpg/960px-Novotel_Citygate_Hong_Kong.jpg",
     "wiki_title": "諾富特東薈城酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E8%AB%BE%E5%AF%8C%E7%89%B9%E6%9D%B1%E8%96%88%E5%9F%8E%E9%85%92%E5%BA%97"
-  },
-  "dir-054": {
-    "name": "雅格飯店",
-    "price": "HK$790",
-    "orig": "HK$1,052",
-    "extract": "《白蓮花大飯店》（英語：The White Lotus）是美國HBO電視台的黑色喜劇劇集，由麥克·懷特開創 。本影集採用譏諷的手法展現酒店員工和客人的假期生活\n。《白蓮花大飯店》第一季於2021年7月11日首播，以夏威夷為背景；第二季於2022年10月30日首播，以西西里島為背景； 第三季於2025年2月16日首播，以泰國為背景。",
-    "image": null,
-    "wiki_title": "白蓮花大飯店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E7%99%BD%E8%93%AE%E8%8A%B1%E5%A4%A7%E9%A3%AF%E5%BA%97"
   },
   "dir-055": {
     "name": "香港富薈灣仔飯店",
@@ -413,15 +287,6 @@
     "wiki_title": "香港富麗敦海洋公園酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E5%AF%8C%E9%BA%97%E6%95%A6%E6%B5%B7%E6%B4%8B%E5%85%AC%E5%9C%92%E9%85%92%E5%BA%97"
   },
-  "dir-061": {
-    "name": "香港登台飯店",
-    "price": "HK$1,022",
-    "orig": "HK$1,526",
-    "extract": "台北君悅酒店（英語：Grand Hyatt Taipei）為坐落於台北市信義商圈的國際五星級飯店，毗鄰台北101、台北市市政大樓、台北世界貿易中心、眾多百貨商場、旅館、豪宅及企業總部，為台北市最為國際化的地段。由新加坡豐隆集團出資，委託凱悅國際酒店集團經營管理，自1990年9月21日正式開幕至今。\n台北君悅酒店設有全台灣最多的850間客房及套房，提供各種餐飲服務和休閒設施，包含健身房、戶外溫水游泳池、無柱宴會大禮堂、多樣的會議空間及多間餐廳與酒吧，提供中式、台式、歐陸、及日本料理等餐飲服務。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Taipei_101%2C_Grand_Hyatt_Taipei_and_TWTC_Exhibition_Hall_20180328_%28cropped%29.jpg/960px-Taipei_101%2C_Grand_Hyatt_Taipei_and_TWTC_Exhibition_Hall_20180328_%28cropped%29.jpg",
-    "wiki_title": "台北君悅酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%8F%B0%E5%8C%97%E5%90%9B%E6%82%85%E9%85%92%E5%BA%97"
-  },
   "dir-062": {
     "name": "香港世紀雅高諾富特飯店",
     "price": "HK$824",
@@ -439,15 +304,6 @@
     "image": null,
     "wiki_title": "帝盛酒店集團",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E5%B8%9D%E7%9B%9B%E9%85%92%E5%BA%97%E9%9B%86%E5%9C%98"
-  },
-  "dir-065": {
-    "name": "四季賓館",
-    "price": "HK$159",
-    "orig": "HK$215",
-    "extract": "纽约四季酒店（Four Seasons Hotel New York）是位于美国纽约市的一家高档宾馆。泰·华纳联体包房的报价为一夜41,836美元，在“全世界最昂贵的宾馆套房”排名中位列第三。\n高达682英尺（208米），共52层，纽约四季酒店是纽约市最高、全美第三高、世界第21高的宾馆。",
-    "image": null,
-    "wiki_title": "纽约四季酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E7%BA%BD%E7%BA%A6%E5%9B%9B%E5%AD%A3%E9%85%92%E5%BA%97"
   },
   "dir-069": {
     "name": "南灣如心飯店",
@@ -485,33 +341,6 @@
     "wiki_title": "香港朗廷酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E6%9C%97%E5%BB%B7%E9%85%92%E5%BA%97"
   },
-  "dir-081": {
-    "name": "香港東隅",
-    "price": "HK$1,247",
-    "orig": "HK$1,526",
-    "extract": "太古酒店（英語：Swire Hotels）于2008年成立，为太古地產进一步拓展酒店业务。目前，太古酒店在香港、中国内地以及美国，建立和管理了一系列都会时尚酒店。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/JW_Marriott_Hotel_Hong_Kong_2014.jpg/960px-JW_Marriott_Hotel_Hong_Kong_2014.jpg",
-    "wiki_title": "太古酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%A4%AA%E5%8F%A4%E9%85%92%E5%BA%97"
-  },
-  "dir-082": {
-    "name": "東南樓藝術飯店",
-    "price": "HK$567",
-    "orig": "HK$630",
-    "extract": "通豪大飯店是位於台灣臺中市北區中清路、漢口路口的觀光飯店，樓層共24樓，擁有二百餘間客房，並具有中西餐廳、宴會大廳、空中露天游泳池、三溫暖、健身房等設施。於1989年6月開幕，2018年海灣集團接手後更名為「海灣藝術酒店」，2023年5月再度改回舊名。",
-    "image": null,
-    "wiki_title": "通豪大酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%80%9A%E8%B1%AA%E5%A4%A7%E9%85%92%E5%BA%97"
-  },
-  "dir-088": {
-    "name": "香港君立飯店",
-    "price": "HK$431",
-    "orig": "HK$638",
-    "extract": "台北君悅酒店（英語：Grand Hyatt Taipei）為坐落於台北市信義商圈的國際五星級飯店，毗鄰台北101、台北市市政大樓、台北世界貿易中心、眾多百貨商場、旅館、豪宅及企業總部，為台北市最為國際化的地段。由新加坡豐隆集團出資，委託凱悅國際酒店集團經營管理，自1990年9月21日正式開幕至今。\n台北君悅酒店設有全台灣最多的850間客房及套房，提供各種餐飲服務和休閒設施，包含健身房、戶外溫水游泳池、無柱宴會大禮堂、多樣的會議空間及多間餐廳與酒吧，提供中式、台式、歐陸、及日本料理等餐飲服務。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Taipei_101%2C_Grand_Hyatt_Taipei_and_TWTC_Exhibition_Hall_20180328_%28cropped%29.jpg/960px-Taipei_101%2C_Grand_Hyatt_Taipei_and_TWTC_Exhibition_Hall_20180328_%28cropped%29.jpg",
-    "wiki_title": "台北君悅酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%8F%B0%E5%8C%97%E5%90%9B%E6%82%85%E9%85%92%E5%BA%97"
-  },
   "dir-089": {
     "name": "香港太子飯店-馬哥孛羅",
     "price": "HK$1,502",
@@ -530,15 +359,6 @@
     "wiki_title": "六國酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E5%85%AD%E5%9C%8B%E9%85%92%E5%BA%97"
   },
-  "dir-097": {
-    "name": "香港永盛行賓館",
-    "price": "HK$383",
-    "orig": "HK$471",
-    "extract": "酒店（香港稱為酒店，台湾稱為飯店，中國大陸舊稱也是「饭店」）是一種以收費方式向旅客提供短期住宿的商業設施，其主要功能在於提供臨時居所，並通常配合不同程度的配套服務。酒店房間的設施與舒適程度因定位而異，包括從僅具備基本睡眠空間與簡單設備的普通房間，到設有獨立客廳、完善衛浴及其他生活設施的套房。\n規模較小或價格較低的酒店，一般只提供基本住宿服務，而規模較大或定位較高的酒店，則往往設有餐廳、會議室、康樂設施及其他配套服務，以滿足商務旅游、休閒活動或社交活動的需要。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Peninsula_Paris%2C_23_June_2014.jpg/960px-The_Peninsula_Paris%2C_23_June_2014.jpg",
-    "wiki_title": "酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%85%92%E5%BA%97"
-  },
   "dir-098": {
     "name": "香港愉景灣飯店",
     "price": "HK$773",
@@ -547,42 +367,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Auberge_Discovery_Bay_Hong_Kong_%28second_revised%29.jpg/960px-Auberge_Discovery_Bay_Hong_Kong_%28second_revised%29.jpg",
     "wiki_title": "香港愉景灣酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E6%84%89%E6%99%AF%E7%81%A3%E9%85%92%E5%BA%97"
-  },
-  "dir-101": {
-    "name": "香港星網商務精品飯店",
-    "price": "HK$717",
-    "orig": "HK$796",
-    "extract": "酒店（香港稱為酒店，台湾稱為飯店，中國大陸舊稱也是「饭店」）是一種以收費方式向旅客提供短期住宿的商業設施，其主要功能在於提供臨時居所，並通常配合不同程度的配套服務。酒店房間的設施與舒適程度因定位而異，包括從僅具備基本睡眠空間與簡單設備的普通房間，到設有獨立客廳、完善衛浴及其他生活設施的套房。\n規模較小或價格較低的酒店，一般只提供基本住宿服務，而規模較大或定位較高的酒店，則往往設有餐廳、會議室、康樂設施及其他配套服務，以滿足商務旅游、休閒活動或社交活動的需要。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Peninsula_Paris%2C_23_June_2014.jpg/960px-The_Peninsula_Paris%2C_23_June_2014.jpg",
-    "wiki_title": "酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%85%92%E5%BA%97"
-  },
-  "dir-102": {
-    "name": "香港雅舍（尖沙咀）",
-    "price": "HK$552",
-    "orig": "HK$829",
-    "extract": "香港瑰麗酒店（英語：Rosewood Hong Kong），是瑰麗酒店集團旗下的甲級高價酒店，位於香港九龍尖沙咀梳士巴利道18號Victoria Dockside24樓至40樓、酒店樓下為香港星光大道，室內和室外總面積達33,880平方呎。由瑰麗酒店集團管理，2019年3月18日正式開幕。\n2025年10月30日舉辦的50 Best《2025年全球50最佳酒店》，香港瑰麗酒店排名第一位。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Victoria_Dockside_night_view_201908.jpg/960px-Victoria_Dockside_night_view_201908.jpg",
-    "wiki_title": "香港瑰麗酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E7%91%B0%E9%BA%97%E9%85%92%E5%BA%97"
-  },
-  "dir-103": {
-    "name": "香港麗駿飯店",
-    "price": "HK$595",
-    "orig": "HK$661",
-    "extract": "《酒店禮賓部》（日語：ホテルコンシェルジュ），2015年7月7日至9月22日於日本TBS電視台週二劇場時段（每週二晚間10:00 - 10:54）播出的連續劇，由西內瑪麗亞主演，共播出10集。這次是西內首次主演黃金檔的電視連續劇。",
-    "image": null,
-    "wiki_title": "酒店禮賓部",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%85%92%E5%BA%97%E7%A6%AE%E8%B3%93%E9%83%A8"
-  },
-  "dir-106": {
-    "name": "逸林飯店",
-    "price": "HK$321",
-    "orig": "HK$570",
-    "extract": "國泰飯店觀光事業（原國泰商旅），由霖園集團旗下台灣建築業龍頭國泰建設於2012年3月成立的新事業體，核心業務涵蓋：飯店品牌發展；籌建、管理和特許經營飯店及度假村；以及引進國際品牌飯店等項目。",
-    "image": null,
-    "wiki_title": "國泰飯店觀光事業",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%9C%8B%E6%B3%B0%E9%A3%AF%E5%BA%97%E8%A7%80%E5%85%89%E4%BA%8B%E6%A5%AD"
   },
   "dir-107": {
     "name": "一尚飯店香港尖沙咀店",
@@ -610,24 +394,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/The_Park_Lane_Hong_Kong.jpg/960px-The_Park_Lane_Hong_Kong.jpg",
     "wiki_title": "柏寧酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E6%9F%8F%E5%AF%A7%E9%85%92%E5%BA%97"
-  },
-  "dir-114": {
-    "name": "香港逸豪飯店",
-    "price": "HK$384",
-    "orig": "HK$556",
-    "extract": "W飯店（W Hotel）是萬豪國際旗下的跨國酒店品牌，以時尚、音樂、設計與流行文化等創新風格吸引高端客戶。第一間W飯店於1998年開幕於紐約。\nW飯店的經營理念在於成為各城市文化的中心，結合當地特色發展出令人印象深刻的設計概念，例如香港W飯店以中國五行為主要設計概念，台北W飯店以自然與科技共生（Natural Electrified）為主要設計理念。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/W_Hotels_logo.svg/960px-W_Hotels_logo.svg.png",
-    "wiki_title": "W飯店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/W%E9%A3%AF%E5%BA%97"
-  },
-  "dir-118": {
-    "name": "香港麗豪飯店",
-    "price": "HK$881",
-    "orig": "HK$1,068",
-    "extract": "萬麗酒店（英語：Renaissance Hotels）是萬豪國際旗下的高級酒店品牌，總部設於美國馬里蘭州，多數營運據點由萬豪國際直接管理，部分則以加盟授權方式經營。萬麗酒店的主要客層目標為高階旅客及商務旅客。\n截至2017年8月為止，全球共有173間萬麗酒店營運中。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/RenaissanceHotelsNew.svg/960px-RenaissanceHotelsNew.svg.png",
-    "wiki_title": "萬麗酒店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E8%90%AC%E9%BA%97%E9%85%92%E5%BA%97"
   },
   "dir-391": {
     "name": "羅曼酒店 41 Cumberland Road",

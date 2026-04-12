@@ -169,16 +169,6 @@
     "stars": null,
     "phone": null
   },
-  "dir-461": {
-    "name_zh": "",
-    "name_en": "United Co-operate Hotel (5/F)",
-    "lat": 22.2965259,
-    "lng": 114.1728048,
-    "address": "彌敦道 Nathan Road 36-44",
-    "website": null,
-    "stars": null,
-    "phone": null
-  },
   "dir-462": {
     "name_zh": "",
     "name_en": "Golden Ocean Hotel",
@@ -194,16 +184,6 @@
     "name_en": "Safari Hotel (5/F)",
     "lat": 22.2965566,
     "lng": 114.1730961,
-    "address": "彌敦道 Nathan Road 36-44",
-    "website": null,
-    "stars": null,
-    "phone": null
-  },
-  "dir-464": {
-    "name_zh": "",
-    "name_en": "Safari Hotel (7/F)",
-    "lat": 22.2964849,
-    "lng": 114.1730986,
     "address": "彌敦道 Nathan Road 36-44",
     "website": null,
     "stars": null,
@@ -1145,16 +1125,6 @@
     "lat": 22.2787516,
     "lng": 114.1750038,
     "address": "謝斐道 Jaffe Road 178-180",
-    "website": null,
-    "stars": null,
-    "phone": null
-  },
-  "dir-607": {
-    "name_zh": "",
-    "name_en": "V Wanchai2",
-    "lat": 22.2773999,
-    "lng": 114.1750342,
-    "address": "Thomson Road 139",
     "website": null,
     "stars": null,
     "phone": null
@@ -2726,16 +2696,6 @@
     "lng": 114.173178,
     "address": "豉油街 Soy Street 118",
     "website": null,
-    "stars": null,
-    "phone": null
-  },
-  "dir-805": {
-    "name_zh": "",
-    "name_en": "Hotel 1936",
-    "lat": 22.3240736,
-    "lng": 114.170363,
-    "address": "太子道西 Prince Edward Road West 179",
-    "website": "https://www.hotel1936.com/",
     "stars": null,
     "phone": null
   },

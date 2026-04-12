@@ -1,0 +1,9 @@
+=== BAD zh Wikipedia matches (<3 char overlap): 0 ===
+
+=== BAD en Wikipedia matches: 0 ===
+
+=== OSM outside HK bbox: 0 ===
+
+=== Duplicate names: 0 ===
+
+=== Mainland names: 0 ===
