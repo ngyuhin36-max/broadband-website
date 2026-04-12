@@ -1249,5 +1249,158 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Upper_House_Void_202010.jpg/960px-The_Upper_House_Void_202010.jpg",
     "wiki_title": "奕居",
     "wiki_url": "https://zh.wikipedia.org/wiki/奕居"
+  },
+  "dir-421": {
+    "name": "香港希爾頓酒店 Hong Kong Hilton",
+    "price": "HK$2,711",
+    "orig": "HK$3,551",
+    "extract": "香港希爾頓酒店（英語：Hilton Hotel Hong Kong），是香港一間已於1995年拆卸的酒店建築，由日裔建築師木下一設計，位於中環皇后大道中2號，於1990年代連同拱北行和隔鄰的花園道停車場大廈拆卸及重建為長江集團中心。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Hong_Kong_Hilton_Hotel.jpg",
+    "wiki_title": "香港希爾頓酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/香港希爾頓酒店"
+  },
+  "dir-422": {
+    "name": "富麗華酒店 Furama Hong Kong Hotel",
+    "price": "HK$826",
+    "orig": "HK$1,040",
+    "extract": "富麗華酒店（英語：Furama Hotel），是一間香港已拆卸的酒店，於2001年11月30日結業，2005年重建成甲級商業大廈（友邦金融中心）。酒店位處於香港中環干諾道中1號，於1973年8月18日正式開幕，曾經是一間顯赫一時的酒店。值得一提的是，酒店30樓設有旋轉餐廳。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Furama.jpg/960px-Furama.jpg",
+    "wiki_title": "富麗華酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/富麗華酒店"
+  },
+  "dir-423": {
+    "name": "港島香格里拉酒店 Island Shangri-La",
+    "price": "HK$2,641",
+    "orig": "HK$3,195",
+    "extract": "港島香格里拉（英語：Island Shangri-La, Hong Kong），曾用中文名港島香格里拉大酒店，是香格里拉酒店集團屬下的一家五星級豪華酒店。位於香港島金鐘法院道太古廣場。港島香格里拉的姊妹酒店是位於尖沙咀東麼地道上的九龍香格里拉。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Island_Shangri-La%2C_Hong_Kong.jpg",
+    "wiki_title": "港島香格里拉酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/港島香格里拉酒店"
+  },
+  "dir-424": {
+    "name": "山頂酒店 The Peak Hotel",
+    "price": "HK$3,274",
+    "orig": "HK$4,387",
+    "extract": "山頂酒店（英語：The Peak Hotel）是香港19世紀後期至20世紀前期一所主要酒店，位於太平山山頂，即現時山頂廣場的位置。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/32/Peak_Hotel_in_1926.jpg",
+    "wiki_title": "山頂酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/山頂酒店"
+  },
+  "dir-425": {
+    "name": "香港怡東酒店 The Excelsior",
+    "price": "HK$3,330",
+    "orig": "HK$3,996",
+    "extract": "香港怡東酒店（英語：The Excelsior, Hong Kong）曾是香港的一間四星級酒店，位於香港銅鑼灣告士打道281號，鄰近港鐵銅鑼灣站，於1973年開幕，是區內唯一臨海的老牌酒店。怡東酒店是文華東方酒店集團總部之外，也同時是文華東方的旗艦酒店之一，也是文華東方唯一沒有以「文華東方」作品牌的酒店。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Excelsior_Hotel_Hong_Kong.jpg/960px-Excelsior_Hotel_Hong_Kong.jpg",
+    "wiki_title": "香港怡東酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/香港怡東酒店"
+  },
+  "dir-426": {
+    "name": "香港大酒店 Hongkong Hotel",
+    "price": "HK$3,167",
+    "orig": "HK$4,022",
+    "extract": "香港大酒店（英語：Hongkong Hotel）是香港開埠以來的第一間五星級酒店建築物，位於中環皇后大道和畢打街交界，畢打街鐘樓附近，是現告羅士打大廈及中建大廈位置的前身。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Album_of_Hongkong_Canton_Macao_Amoy_Foochow_021.jpg/960px-Album_of_Hongkong_Canton_Macao_Amoy_Foochow_021.jpg",
+    "wiki_title": "香港大酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/香港大酒店"
+  },
+  "dir-427": {
+    "name": "香港麗東酒店",
+    "price": "HK$525",
+    "orig": "HK$603",
+    "extract": "香港麗東酒店（英語：Newton Hotel），是香港的一座酒店，位於香港島炮台山油街。香港麗東酒店樓高25層，樓面面積23萬平方呎，設有401間客房。地下至4樓為食肆及會所，5樓以上樓層為酒店宿舍。",
+    "image": null,
+    "wiki_title": "香港麗東酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/香港麗東酒店"
+  },
+  "dir-428": {
+    "name": "朗廷酒店集團 Langham Hospitality Group",
+    "price": "HK$1,008",
+    "orig": "HK$1,189",
+    "extract": "朗廷酒店集团（註冊名稱：Langham Hotels International；對外名稱：Langham Hospitality Group）是一家国际酒店管理公司，「朗廷酒店」（The Langham Hotel）原為伦敦朗廷酒店的名稱，經多次轉手後落入香港鷹君集團有限公司手上，成為其全資附屬公司，該集團將旗下多間酒店納入新成立的酒店集團之中，並以位於伦敦的酒店原名作為該酒店集團之名稱，朗廷酒店集团因而成立。現時的集團總部設於香港島灣仔鷹君中心27樓。",
+    "image": null,
+    "wiki_title": "朗廷酒店集團",
+    "wiki_url": "https://zh.wikipedia.org/wiki/朗廷酒店集團"
+  },
+  "dir-429": {
+    "name": "香港上海大酒店 Hongkong and Shanghai Hotels",
+    "price": "HK$3,457",
+    "orig": "HK$4,390",
+    "extract": "香港上海大酒店有限公司（英語：The Hongkong and Shanghai Hotels, Limited）是一家在香港交易所上市的酒店公司。主要業務是酒店投資管理服務、物業投資及發展、經營餐廳、會所管理等。",
+    "image": null,
+    "wiki_title": "香港上海大酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/香港上海大酒店"
+  },
+  "dir-430": {
+    "name": "美麗華酒店企業 Miramar Hotel and Investment",
+    "price": "HK$1,884",
+    "orig": "HK$2,336",
+    "extract": "美麗華酒店企業有限公司（簡稱「美麗華集團」，港交所：71）創立於1957年，總部設於香港。集團擁有多個特色服務業品牌，旗下業務發展多元化， 包括時尚酒店及服務式公寓、物業租賃、餐飲及旅遊，遍佈香港及中國。美麗華集團於1970年正式在香港上市，是恒基兆業地產集團成員。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_Mira.jpg/960px-The_Mira.jpg",
+    "wiki_title": "美麗華酒店企業",
+    "wiki_url": "https://zh.wikipedia.org/wiki/美麗華酒店企業"
+  },
+  "dir-431": {
+    "name": "瑰麗酒店 Rosewood Hotels & Resorts",
+    "price": "HK$1,717",
+    "orig": "HK$2,352",
+    "extract": "瑰麗酒店及度假村（Rosewood Hotels & Resorts）是一家國際奢華酒店及度假村管理公司，為香港周大福集團旗下子公司瑰麗酒店集團（Rosewood Hotel Group）所擁有。公司由美國企業家卡羅琳·羅斯·亨特（Caroline Rose Hunt）於1979年在美國德克薩斯州達拉斯創立。自2011年被香港新世界集團（後重組為瑰麗酒店集團）收購後，總部遷至香港鰂魚涌英皇道728號K11 Atelier。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/db/Rosewood_hotel_resorts_logo.jpg",
+    "wiki_title": "瑰麗酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/瑰麗酒店"
+  },
+  "dir-432": {
+    "name": "富豪酒店國際控股 Regal Hotels International",
+    "price": "HK$1,719",
+    "orig": "HK$2,217",
+    "extract": "富豪酒店國際控股有限公司（英語：Regal Hotels International，港交所：0078）是一家在香港交易所上市的酒店公司。主要業務是持有與管理酒店、物業發展及投資，及其他投資（包括金融票據及有價證券之投資及買賣）。\n公司於1979年由鷹君集團有限公司分拆成立，現在於百慕達註冊，屬世紀城市國際控股有限公司旗下公司，主席為羅旭瑞。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Regal_Hong_Kong_Hotel.jpg/960px-Regal_Hong_Kong_Hotel.jpg",
+    "wiki_title": "富豪酒店國際控股",
+    "wiki_url": "https://zh.wikipedia.org/wiki/富豪酒店國際控股"
+  },
+  "dir-433": {
+    "name": "文華東方酒店集團 Mandarin Oriental Hotel Group",
+    "price": "HK$3,400",
+    "orig": "HK$4,080",
+    "extract": "文華東方酒店集團（英語：Mandarin Oriental Hotel Group）是一間以香港為發展基地的國際豪華酒店連鎖集團，為怡和集團旗下成員。集團亦經營與酒店物業相連的文華東方酒店管理式住宅（Residences at Mandarin Oriental）。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Mandarin_Oriental_Hotel_Group_logo.svg/960px-Mandarin_Oriental_Hotel_Group_logo.svg.png",
+    "wiki_title": "文華東方酒店集團",
+    "wiki_url": "https://zh.wikipedia.org/wiki/文華東方酒店集團"
+  },
+  "dir-434": {
+    "name": "香格里拉酒店 Shangri-La Hotels and Resorts",
+    "price": "HK$781",
+    "orig": "HK$866",
+    "extract": "香格里拉酒店是總部位於香港的酒店集团，目前在亞洲和中東地區的主要城市以及大部分度假勝地擁有103家酒店，客房數目多达41600間。\n香格里拉酒店集團由香港上市公司嘉里建設大股東郭鶴年家族所持有，首間酒店於1971年在新加坡開業，集團目前旗下酒店品牌包括香格里拉酒店及度假村、嘉里酒店、今旅酒店（JEN）及盛貿飯店。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/Living_Shangri-la.jpg",
+    "wiki_title": "香格里拉酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/香格里拉酒店"
+  },
+  "dir-435": {
+    "name": "帝盛酒店集團 Dorsett Hospitality International",
+    "price": "HK$2,214",
+    "orig": "HK$2,523",
+    "extract": "帝盛酒店集團 Dorsett Hospitality International（前稱：麗悅酒店集團 Kosmopolito Hotels International，港交所除牌前交易代碼：2266.HK）是一間國際酒店集團，在多個國家開發、擁有和管理酒店。該公司成立於2007年1月，於2010年10月在香港聯合交易所有限公司主版上市，目前是遠東發展有限公司（港交所：0035）的全資附屬公司。集團的酒店遍布香港、上海、武漢、成都、九江、吉隆坡、柔佛新山、納閩、新加坡、倫敦、黃金海岸、墨爾本。",
+    "image": null,
+    "wiki_title": "帝盛酒店集團",
+    "wiki_url": "https://zh.wikipedia.org/wiki/帝盛酒店集團"
+  },
+  "dir-436": {
+    "name": "馬哥孛羅酒店 Marco Polo Hotels",
+    "price": "HK$2,149",
+    "orig": "HK$2,987",
+    "extract": "馬哥孛羅酒店有限公司（英語：Marco Polo Hotel Group）是香港一家酒店連鎖集團，從事香港、中國大陸及菲律賓的酒店業務，香港旗下三間酒店均位於九龍尖沙咀。母公司是九龍倉集團，公司主席是吳光正。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Marco_Polo_Hotels_logo.svg/960px-Marco_Polo_Hotels_logo.svg.png",
+    "wiki_title": "馬哥孛羅酒店",
+    "wiki_url": "https://zh.wikipedia.org/wiki/馬哥孛羅酒店"
+  },
+  "dir-437": {
+    "name": "海逸國際酒店集團 Harbour Plaza Hotel Management",
+    "price": "HK$2,976",
+    "orig": "HK$4,047",
+    "extract": "海逸國際酒店集團（Harbour Plaza Hotels and Resorts）是由和記黃埔地產（長江實業集團旗下）集團經營，為李嘉誠家族成員公司。",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Harbour_Plaza_Metropolis.jpg/960px-Harbour_Plaza_Metropolis.jpg",
+    "wiki_title": "海逸國際酒店集團",
+    "wiki_url": "https://zh.wikipedia.org/wiki/海逸國際酒店集團"
   }
 }

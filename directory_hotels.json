@@ -2518,5 +2518,107 @@
     "name": "奕居 Upper House Hong Kong",
     "price": "HK$3,453",
     "orig": "HK$3,901"
+  },
+  {
+    "slug": "dir-421",
+    "name": "香港希爾頓酒店 Hong Kong Hilton",
+    "price": "HK$2,711",
+    "orig": "HK$3,551"
+  },
+  {
+    "slug": "dir-422",
+    "name": "富麗華酒店 Furama Hong Kong Hotel",
+    "price": "HK$826",
+    "orig": "HK$1,040"
+  },
+  {
+    "slug": "dir-423",
+    "name": "港島香格里拉酒店 Island Shangri-La",
+    "price": "HK$2,641",
+    "orig": "HK$3,195"
+  },
+  {
+    "slug": "dir-424",
+    "name": "山頂酒店 The Peak Hotel",
+    "price": "HK$3,274",
+    "orig": "HK$4,387"
+  },
+  {
+    "slug": "dir-425",
+    "name": "香港怡東酒店 The Excelsior",
+    "price": "HK$3,330",
+    "orig": "HK$3,996"
+  },
+  {
+    "slug": "dir-426",
+    "name": "香港大酒店 Hongkong Hotel",
+    "price": "HK$3,167",
+    "orig": "HK$4,022"
+  },
+  {
+    "slug": "dir-427",
+    "name": "香港麗東酒店",
+    "price": "HK$525",
+    "orig": "HK$603"
+  },
+  {
+    "slug": "dir-428",
+    "name": "朗廷酒店集團 Langham Hospitality Group",
+    "price": "HK$1,008",
+    "orig": "HK$1,189"
+  },
+  {
+    "slug": "dir-429",
+    "name": "香港上海大酒店 Hongkong and Shanghai Hotels",
+    "price": "HK$3,457",
+    "orig": "HK$4,390"
+  },
+  {
+    "slug": "dir-430",
+    "name": "美麗華酒店企業 Miramar Hotel and Investment",
+    "price": "HK$1,884",
+    "orig": "HK$2,336"
+  },
+  {
+    "slug": "dir-431",
+    "name": "瑰麗酒店 Rosewood Hotels & Resorts",
+    "price": "HK$1,717",
+    "orig": "HK$2,352"
+  },
+  {
+    "slug": "dir-432",
+    "name": "富豪酒店國際控股 Regal Hotels International",
+    "price": "HK$1,719",
+    "orig": "HK$2,217"
+  },
+  {
+    "slug": "dir-433",
+    "name": "文華東方酒店集團 Mandarin Oriental Hotel Group",
+    "price": "HK$3,400",
+    "orig": "HK$4,080"
+  },
+  {
+    "slug": "dir-434",
+    "name": "香格里拉酒店 Shangri-La Hotels and Resorts",
+    "price": "HK$781",
+    "orig": "HK$866"
+  },
+  {
+    "slug": "dir-435",
+    "name": "帝盛酒店集團 Dorsett Hospitality International",
+    "price": "HK$2,214",
+    "orig": "HK$2,523"
+  },
+  {
+    "slug": "dir-436",
+    "name": "馬哥孛羅酒店 Marco Polo Hotels",
+    "price": "HK$2,149",
+    "orig": "HK$2,987"
+  },
+  {
+    "slug": "dir-437",
+    "name": "海逸國際酒店集團 Harbour Plaza Hotel Management",
+    "price": "HK$2,976",
+    "orig": "HK$4,047"
   }
 ]
