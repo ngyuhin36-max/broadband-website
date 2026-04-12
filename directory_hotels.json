@@ -2328,12 +2328,6 @@
     "orig": "—"
   },
   {
-    "slug": "dir-396",
-    "name": "航天城 (香港) Hong Kong SkyCity",
-    "price": "—",
-    "orig": "—"
-  },
-  {
     "slug": "dir-397",
     "name": "港島英迪格酒店 Hotel Indigo Hong Kong Island",
     "price": "—",
@@ -2358,12 +2352,6 @@
     "orig": "—"
   },
   {
-    "slug": "dir-401",
-    "name": "The Jervois",
-    "price": "—",
-    "orig": "—"
-  },
-  {
     "slug": "dir-402",
     "name": "香港JW萬豪酒店 JW Marriott Hotel Hong Kong",
     "price": "—",
@@ -2378,18 +2366,6 @@
   {
     "slug": "dir-404",
     "name": "置地廣塲 The Landmark Mandarin Oriental Hotel",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-405",
-    "name": "海員俱樂部 Mariner's Club",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-406",
-    "name": "名鑄 The Masterpiece (Hong Kong)",
     "price": "—",
     "orig": "—"
   },
@@ -2432,12 +2408,6 @@
   {
     "slug": "dir-414",
     "name": "香港九龍諾富特酒店 Novotel Nathan Road Kowloon Hong Kong",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-415",
-    "name": "Ovolo Hotels",
     "price": "—",
     "orig": "—"
   },
@@ -2510,66 +2480,6 @@
   {
     "slug": "dir-427",
     "name": "香港麗東酒店",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-428",
-    "name": "朗廷酒店集團 Langham Hospitality Group",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-429",
-    "name": "香港上海大酒店 Hongkong and Shanghai Hotels",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-430",
-    "name": "美麗華酒店企業 Miramar Hotel and Investment",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-431",
-    "name": "瑰麗酒店 Rosewood Hotels & Resorts",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-432",
-    "name": "富豪酒店國際控股 Regal Hotels International",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-433",
-    "name": "文華東方酒店集團 Mandarin Oriental Hotel Group",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-434",
-    "name": "香格里拉酒店 Shangri-La Hotels and Resorts",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-435",
-    "name": "帝盛酒店集團 Dorsett Hospitality International",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-436",
-    "name": "馬哥孛羅酒店 Marco Polo Hotels",
-    "price": "—",
-    "orig": "—"
-  },
-  {
-    "slug": "dir-437",
-    "name": "海逸國際酒店集團 Harbour Plaza Hotel Management",
     "price": "—",
     "orig": "—"
   },

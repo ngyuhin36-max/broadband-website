@@ -1,0 +1,7 @@
+Total: 711 hotels
+
+=== lat/lng suspects (0) ===
+
+=== simplified Chinese suspects (0) ===
+
+=== wiki non-hotel suspects (0) ===

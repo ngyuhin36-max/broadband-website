@@ -1,0 +1,46 @@
+dir-391	羅曼酒店 41 Cumberland Road	zh_wiki=羅曼酒店	en_wiki=41 Cumberland Road
+dir-392	龍堡國際賓館 Baden-Powell International House	zh_wiki=龍堡國際賓館	en_wiki=Baden-Powell International House
+dir-393	香港康得思酒店 Cordis Hong Kong	zh_wiki=香港康得思酒店	en_wiki=Cordis Hong Kong
+dir-394	香港逸東酒店 Eaton Hotel Hong Kong	zh_wiki=香港逸東酒店	en_wiki=Eaton Hotel Hong Kong
+dir-395	香港黃金海岸酒店 Hong Kong Gold Coast Hotel	zh_wiki=香港黃金海岸酒店	en_wiki=Hong Kong Gold Coast Hotel
+dir-396	航天城 (香港) Hong Kong SkyCity	zh_wiki=航天城 (香港)	en_wiki=Hong Kong SkyCity
+dir-397	港島英迪格酒店 Hotel Indigo Hong Kong Island	zh_wiki=港島英迪格酒店	en_wiki=Hotel Indigo Hong Kong Island
+dir-398	沙田凱悅酒店 Hyatt Regency Hong Kong, Sha Tin	zh_wiki=沙田凱悅酒店	en_wiki=Hyatt Regency Hong Kong, Sha Tin
+dir-399	海景嘉福酒店 InterContinental Grand Stanford Hong Kong	zh_wiki=海景嘉福酒店	en_wiki=InterContinental Grand Stanford Hong Kong
+dir-400	港島太平洋酒店 Island Pacific Hotel	zh_wiki=港島太平洋酒店	en_wiki=Island Pacific Hotel
+dir-401	The Jervois	zh_wiki=-	en_wiki=The Jervois
+dir-402	香港JW萬豪酒店 JW Marriott Hotel Hong Kong	zh_wiki=香港JW萬豪酒店	en_wiki=JW Marriott Hotel Hong Kong
+dir-403	九龍香格里拉酒店 Kowloon Shangri-La	zh_wiki=九龍香格里拉酒店	en_wiki=Kowloon Shangri-La
+dir-404	置地廣塲 The Landmark Mandarin Oriental Hotel	zh_wiki=置地廣塲	en_wiki=The Landmark Mandarin Oriental Hotel
+dir-405	海員俱樂部 Mariner's Club	zh_wiki=海員俱樂部	en_wiki=Mariner's Club
+dir-406	名鑄 The Masterpiece (Hong Kong)	zh_wiki=名鑄	en_wiki=The Masterpiece (Hong Kong)
+dir-407	美荷樓 Mei Ho House	zh_wiki=美荷樓	en_wiki=Mei Ho House
+dir-408	數碼港艾美酒店 Le Méridien Cyberport Hotel	zh_wiki=數碼港艾美酒店	en_wiki=Le Méridien Cyberport Hotel
+dir-410	The Mira Hong Kong The Mira Hong Kong	zh_wiki=The Mira Hong Kong	en_wiki=The Mira Hong Kong
+dir-411	香港夢卓恩酒店 Mondrian Hong Kong	zh_wiki=香港夢卓恩酒店	en_wiki=Mondrian Hong Kong
+dir-412	香港諾富特世紀酒店 Novotel Century Hong Kong	zh_wiki=香港諾富特世紀酒店	en_wiki=Novotel Century Hong Kong
+dir-413	諾富特東薈城酒店 Novotel Citygate	zh_wiki=諾富特東薈城酒店	en_wiki=Novotel Citygate
+dir-414	香港九龍諾富特酒店 Novotel Nathan Road Kowloon Hong Kong	zh_wiki=香港九龍諾富特酒店	en_wiki=Novotel Nathan Road Kowloon Hong Kong
+dir-415	Ovolo Hotels	zh_wiki=-	en_wiki=Ovolo Hotels
+dir-416	香港麗晶酒店 Regent Hong Kong	zh_wiki=香港麗晶酒店	en_wiki=Regent Hong Kong
+dir-417	帝都酒店 Royal Park Hotel	zh_wiki=帝都酒店	en_wiki=Royal Park Hotel
+dir-418	帝京酒店 Royal Plaza Hotel (Hong Kong)	zh_wiki=帝京酒店	en_wiki=Royal Plaza Hotel (Hong Kong)
+dir-419	香港瑞吉酒店 The St. Regis Hong Kong	zh_wiki=香港瑞吉酒店	en_wiki=The St. Regis Hong Kong
+dir-420	奕居 Upper House Hong Kong	zh_wiki=奕居	en_wiki=Upper House Hong Kong
+dir-421	香港希爾頓酒店 Hong Kong Hilton	zh_wiki=香港希爾頓酒店	en_wiki=Hong Kong Hilton
+dir-422	富麗華酒店 Furama Hong Kong Hotel	zh_wiki=富麗華酒店	en_wiki=Furama Hong Kong Hotel
+dir-423	港島香格里拉酒店 Island Shangri-La	zh_wiki=港島香格里拉酒店	en_wiki=Island Shangri-La
+dir-424	山頂酒店 The Peak Hotel	zh_wiki=山頂酒店	en_wiki=The Peak Hotel
+dir-425	香港怡東酒店 The Excelsior	zh_wiki=香港怡東酒店	en_wiki=The Excelsior
+dir-426	香港大酒店 Hongkong Hotel	zh_wiki=香港大酒店	en_wiki=Hongkong Hotel
+dir-427	香港麗東酒店	zh_wiki=香港麗東酒店	en_wiki=-
+dir-428	朗廷酒店集團 Langham Hospitality Group	zh_wiki=朗廷酒店集團	en_wiki=Langham Hospitality Group
+dir-429	香港上海大酒店 Hongkong and Shanghai Hotels	zh_wiki=香港上海大酒店	en_wiki=Hongkong and Shanghai Hotels
+dir-430	美麗華酒店企業 Miramar Hotel and Investment	zh_wiki=美麗華酒店企業	en_wiki=Miramar Hotel and Investment
+dir-431	瑰麗酒店 Rosewood Hotels & Resorts	zh_wiki=瑰麗酒店	en_wiki=Rosewood Hotels & Resorts
+dir-432	富豪酒店國際控股 Regal Hotels International	zh_wiki=富豪酒店國際控股	en_wiki=Regal Hotels International
+dir-433	文華東方酒店集團 Mandarin Oriental Hotel Group	zh_wiki=文華東方酒店集團	en_wiki=Mandarin Oriental Hotel Group
+dir-434	香格里拉酒店 Shangri-La Hotels and Resorts	zh_wiki=香格里拉酒店	en_wiki=Shangri-La Hotels and Resorts
+dir-435	帝盛酒店集團 Dorsett Hospitality International	zh_wiki=帝盛酒店集團	en_wiki=Dorsett Hospitality International
+dir-436	馬哥孛羅酒店 Marco Polo Hotels	zh_wiki=馬哥孛羅酒店	en_wiki=Marco Polo Hotels
+dir-437	海逸國際酒店集團 Harbour Plaza Hotel Management	zh_wiki=海逸國際酒店集團	en_wiki=Harbour Plaza Hotel Management

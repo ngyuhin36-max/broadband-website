@@ -1,0 +1,282 @@
+dir-442	zh=港島香格里拉大酒店	en=Island Shangri-La, Hong Kong	lat=22.2772027	lng=114.164467
+dir-443	zh=逸泰居	en=The Headland	lat=22.2972056	lng=113.9338322
+dir-444	zh=中遠酒店	en=Cosco Hotel	lat=22.2857331	lng=114.1320741
+dir-445	zh=-	en=Largos Hotel Hong Kong	lat=22.3060236	lng=114.1723148
+dir-446	zh=國恩賓館	en=Kwok Yan Hotel	lat=22.317991	lng=114.171851
+dir-447	zh=香港尖沙咀凱悅酒店	en=Hyatt Regency Hong Kong, Tsim Sha Tsui	lat=22.2975168	lng=114.1738437
+dir-449	zh=六國酒店	en=Luk Kwok Hotel	lat=22.2789029	lng=114.1722694
+dir-450	zh=香港置地文華東方酒店	en=The Landmark Mandarin Oriental Hong Kong	lat=22.2808167	lng=114.157722
+dir-451	zh=寶軒酒店	en=The Bauhinia Hotel	lat=22.28678	lng=114.1525
+dir-453	zh=Y旅舍	en=Y-Loft	lat=22.2628199	lng=114.2368302
+dir-454	zh=-	en=Crystal Hostel	lat=22.2962077	lng=114.1730585
+dir-455	zh=-	en=Everest Hostel	lat=22.296246	lng=114.1732501
+dir-456	zh=-	en=Hostel HK Group	lat=22.2962187	lng=114.1730572
+dir-457	zh=-	en=Hotel Skylark	lat=22.2962116	lng=114.1732532
+dir-458	zh=-	en=Unique Hotel	lat=22.2962624	lng=114.1730539
+dir-459	zh=-	en=Dragon Inn Hotel	lat=22.296587	lng=114.1728001
+dir-460	zh=-	en=United Co-operate Hotel (10/F)	lat=22.2965649	lng=114.1728819
+dir-461	zh=-	en=United Co-operate Hotel (5/F)	lat=22.2965259	lng=114.1728048
+dir-462	zh=-	en=Golden Ocean Hotel	lat=22.2964649	lng=114.1730993
+dir-463	zh=-	en=Safari Hotel (5/F)	lat=22.2965566	lng=114.1730961
+dir-464	zh=-	en=Safari Hotel (7/F)	lat=22.2964849	lng=114.1730986
+dir-470	zh=明愛張奧偉國際賓館	en=Caritas Oswald Cheung International House	lat=22.2495307	lng=114.1497162
+dir-471	zh=-	en=JJ Hotel	lat=22.2769861	lng=114.1770789
+dir-475	zh=-	en=Apple Hotel	lat=22.2781807	lng=114.184121
+dir-476	zh=-	en=Mailley 	lat=22.482183	lng=113.9092003
+dir-477	zh=-	en=Hotel LBP	lat=22.2864024	lng=114.1471442
+dir-479	zh=凱都酒店	en=Metro Winner Hotel	lat=22.3110083	lng=114.1713169
+dir-480	zh=-	en=Heaven Inn GH	lat=22.3061586	lng=114.1703169
+dir-482	zh=-	en=The T-hotel	lat=22.2599871	lng=114.1356996
+dir-483	zh=上水酒店	en=Sheung Shui Hotel	lat=22.50369	lng=114.12739
+dir-484	zh=柏寧酒店	en=The Park Lane Hotel	lat=22.2812255	lng=114.1863914
+dir-485	zh=漢口酒店	en=Hankow Hotel	lat=22.31928	lng=114.17251
+dir-486	zh=-	en=Cameron Roa 19-21	lat=22.2991336	lng=114.1740697
+dir-487	zh=-	en=Crystal Garden	lat=22.4826378	lng=113.9085384
+dir-488	zh=-	en=Butterfly on Morrison	lat=22.2767452	lng=114.1804982
+dir-489	zh=-	en=Black Swan Hotel	lat=22.3198678	lng=114.1712314
+dir-490	zh=-	en=Armenia Hotel	lat=22.3179316	lng=114.1713292
+dir-493	zh=浪濤軒酒店	en=Concerto Inn	lat=22.2192605	lng=114.1192557
+dir-496	zh=鴻隆明華輪酒店	en=Cruise Inn	lat=22.4864306	lng=113.9120028
+dir-497	zh=-	en=The Comfort Living  Inn	lat=22.3389025	lng=114.1563368
+dir-498	zh=-	en=8 Days Boutiques Hotel	lat=22.3219064	lng=114.1686652
+dir-503	zh=-	en=Residence G	lat=22.513241	lng=113.9150356
+dir-504	zh=-	en=大埔賓館 Tai Po Villa	lat=22.4494649	lng=114.1657349
+dir-507	zh=挪亞方舟度假酒店	en=Noah's Ark Hotel and Resort	lat=22.348115	lng=114.0614597
+dir-509	zh=-	en=青青世界酒店	lat=22.5025031	lng=113.8966033
+dir-510	zh=-	en=maylee hotel	lat=22.4897972	lng=113.9193823
+dir-516	zh=海灣軒海景酒店	en=Harbourfront Horizon All-Suite	lat=22.3002646	lng=114.1849665
+dir-523	zh=翡格酒店	en=The Figo	lat=22.2866276	lng=114.1471612
+dir-524	zh=-	en=Homy Inn North Point	lat=22.2908591	lng=114.1981571
+dir-525	zh=-	en=Asia Travel House	lat=22.3086825	lng=114.1711226
+dir-531	zh=瑞生嘉威酒店	en=Soravit on Granville	lat=22.3001361	lng=114.1740905
+dir-532	zh=瑞生尖沙咀酒店	en=attitude on granville	lat=22.299766	lng=114.173718
+dir-533	zh=客舍	en=Hotel Hart	lat=22.2979582	lng=114.1746854
+dir-534	zh=雅格酒店	en=The Arca	lat=22.2477986	lng=114.1627178
+dir-535	zh=香港灣仔睿景酒店	en=Kew Green Hotel Wanchai	lat=22.2778189	lng=114.1705733
+dir-538	zh=-	en=H Life Hotel	lat=22.4865539	lng=113.9243561
+dir-539	zh=-	en=Kyushu Jocheng Hotel	lat=22.4869436	lng=113.9087442
+dir-540	zh=-	en=Movietel	lat=22.4863563	lng=113.9083811
+dir-543	zh=-	en=BnB Mongkok	lat=22.3219326	lng=114.1685164
+dir-544	zh=鉑爾登酒店	en=Platinum Hotel	lat=22.5111728	lng=113.9194845
+dir-545	zh=-	en=K11 CitiGO欢阁酒店	lat=22.4717517	lng=113.9086518
+dir-547	zh=蘇艾酒店	en=Suai Hotel	lat=22.5069421	lng=113.9148894
+dir-549	zh=-	en=Woody House	lat=22.2736201	lng=114.1744397
+dir-550	zh=-	en=Shama Hub Metro South Hong Kong	lat=22.2489023	lng=114.1664985
+dir-551	zh=-	en=Tempo Inn	lat=22.306098	lng=114.1702526
+dir-552	zh=-	en=麗晶賓館	lat=22.3176062	lng=114.1707531
+dir-554	zh=銀鑛灣渡假酒店	en=Silvermine Beach Resort	lat=22.2680956	lng=113.9977685
+dir-555	zh=香港天際萬豪酒店	en=Hong Kong SkyCity Marriott Hotel	lat=22.3191313	lng=113.9436157
+dir-556	zh=千禧新世界香港酒店	en=New World Millennium Hong Kong Hotel	lat=22.2994628	lng=114.1796851
+dir-557	zh=富豪九龍酒店	en=Regal Kowloon Hotel	lat=22.2989293	lng=114.1779371
+dir-558	zh=美利尼依格羅酒店	en=The Murray, Hong Kong, A Niccolo Hotel	lat=22.278068	lng=114.1601218
+dir-559	zh=香港諾富特東薈城酒店	en=Novotel Citygate Hong Kong Hotel	lat=22.2911884	lng=113.9422141
+dir-560	zh=黃金海岸酒店	en=Gold Coast Hotel	lat=22.3718121	lng=113.9896609
+dir-561	zh=萬麗海景酒店	en=Renaissance Hong Kong Harbour View Hotel	lat=22.2813933	lng=114.1736146
+dir-562	zh=富豪東方酒店	en=Regal Oriental Hotel	lat=22.3299045	lng=114.1930116
+dir-563	zh=8度海逸酒店	en=Harbour Plaza 8 Degrees	lat=22.3229288	lng=114.1906937
+dir-564	zh=九龍東帝苑酒店	en=The Royal Garden Kowloon East	lat=22.308515	lng=114.2599209
+dir-565	zh=星峰薈	en=Vega Suites	lat=22.3082625	lng=114.2591816
+dir-566	zh=四季酒店	en=Four Seasons Hotel	lat=22.2866239	lng=114.1566313
+dir-567	zh=-	en=Oasis Aurum 181	lat=22.2873592	lng=114.1367647
+dir-568	zh=九龍海逸君綽酒店	en=Harbour Grand Kowloon	lat=22.3026509	lng=114.1923584
+dir-570	zh=香港港威酒店	en=Gateway, Hong Kong	lat=22.297757	lng=114.1685222
+dir-571	zh=香港太子酒店	en=Prince Hotel, Hong Kong	lat=22.2990923	lng=114.1682268
+dir-572	zh=港青酒店	en=The Salisbury	lat=22.2951102	lng=114.1710068
+dir-573	zh=華威酒店	en=Warwick Hotel	lat=22.207788	lng=114.0323277
+dir-574	zh=麗豪酒店	en=Regal Riverside Hotel	lat=22.3823222	lng=114.1964807
+dir-575	zh=香港朗廷酒店	en=The Langham Hong Kong	lat=22.2964968	lng=114.1697855
+dir-576	zh=大澳文物酒店	en=Tai O Heritage Hotel	lat=22.2533232	lng=113.8536199
+dir-577	zh=華麗海灣酒店	en=Grand Bay View Hotel & Resort	lat=22.3676838	lng=114.0921408
+dir-578	zh=君立酒店	en=Camlux Hotel	lat=22.3237719	lng=114.2057569
+dir-579	zh=都會海逸酒店	en=Harbour Plaza Metropolis	lat=22.3014728	lng=114.1834832
+dir-580	zh=香港沙田凱悅酒店	en=Hyatt Regency Hong Kong, Sha Tin	lat=22.4112132	lng=114.2112126
+dir-581	zh=富豪香港酒店	en=Regal Hong Kong Hotel	lat=22.2791504	lng=114.1868457
+dir-582	zh=香港銅鑼灣皇冠假日酒店	en=Crowne Plaza Hong Kong Causeway Bay	lat=22.2769348	lng=114.1826603
+dir-583	zh=嘉融酒店	en=Concord Hotel	lat=22.2819918	lng=114.1267795
+dir-584	zh=香港蘇豪希爾頓摩庭酒店	en=Motto by Hilton Hong Kong SoHo	lat=22.2853789	lng=114.1509072
+dir-585	zh=宏基國際賓館	en=Bishop Lei International House	lat=22.2786355	lng=114.1533913
+dir-586	zh=悦品海景酒店‧觀塘	en=Hotel COZi ∙ Harbour View	lat=22.3121532	lng=114.219686
+dir-587	zh=觀塘帝盛酒店	en=Dorsett Kwun Tong	lat=22.3079663	lng=114.2241936
+dir-588	zh=銅鑼閣	en=Causeway Corner	lat=22.2808386	lng=114.1824801
+dir-589	zh=香港維港凱悅尚萃酒店	en=Hyatt Centric Victoria Harbour	lat=22.2927587	lng=114.1992899
+dir-590	zh=宜必思香港北角酒店	en=Ibis Hong Kong North Point Hotel	lat=22.2922471	lng=114.2007478
+dir-591	zh=皇家太平洋酒店	en=The Royal Pacific Hotel & Towers	lat=22.2998962	lng=114.167647
+dir-592	zh=赤柱東方酒店	en=The Stanley Oriental Hotel	lat=22.2187856	lng=114.2110583
+dir-593	zh=帝苑酒店	en=The Royal Garden	lat=22.2984915	lng=114.177615
+dir-594	zh=九龍香格里拉大酒店	en=Kowloon Shangri-La Hotel	lat=22.2970294	lng=114.1770233
+dir-596	zh=香港金域假日酒店	en=Holiday Inn Golden Mile Hong Kong	lat=22.296817	lng=114.1728089
+dir-598	zh=灣仔皇悅酒店	en=Empire Hotel Wanchai	lat=22.2779742	lng=114.1700924
+dir-599	zh=-	en=Kew Green Hotel	lat=22.2778378	lng=114.170553
+dir-600	zh=-	en=Burlington Hotel	lat=22.2778083	lng=114.1707272
+dir-602	zh=芬名酒店	en=The Fleming	lat=22.278974	lng=114.1748142
+dir-603	zh=麗駿酒店	en=Brighton Hotel	lat=22.277968	lng=114.1726139
+dir-604	zh=香港明怡美憬閣精選酒店	en=AKI Hong Kong - MGallery	lat=22.2792389	lng=114.1769448
+dir-605	zh=富豪薈酒店	en=Regal iClub Hotel	lat=22.2774904	lng=114.1758687
+dir-606	zh=-	en=V Wanchai	lat=22.2787516	lng=114.1750038
+dir-607	zh=-	en=V Wanchai2	lat=22.2773999	lng=114.1750342
+dir-608	zh=顯裕中心	en=218 Apartment	lat=22.277594	lng=114.1750849
+dir-609	zh=香港九龍CBD2智選假日酒店	en=Holiday Inn Express Hong Kong Kowloon CBD2	lat=22.3127592	lng=114.2230575
+dir-610	zh=尖沙咀一尚酒店	en=Dash Living on Prat	lat=22.2985004	lng=114.1749909
+dir-611	zh=怡景酒店	en=Chelsea Hotel	lat=22.2974884	lng=114.1744781
+dir-612	zh=粵海酒店	en=Guangdong Hotel	lat=22.2987722	lng=114.1746763
+dir-613	zh=康境酒店	en=The OTTO Hotel	lat=22.2986369	lng=114.1729875
+dir-614	zh=帝國酒店	en=Imperial Hotel	lat=22.2961731	lng=114.1725125
+dir-615	zh=丹木町酒店	en=Tankityou Hotel	lat=22.2969243	lng=114.1739994
+dir-616	zh=香港尖沙咀金普頓酒店	en=Kimpton Tsim Sha Tsui Hong Kong	lat=22.2959612	lng=114.1739075
+dir-617	zh=維港灣酒店	en=Habour Bay Hotel	lat=22.2969077	lng=114.1738352
+dir-618	zh=憙酒店	en=Xi Hotel	lat=22.296942	lng=114.1741675
+dir-619	zh=香港沙田萬怡酒店	en=Courtyard Hong Kong Sha Tin	lat=22.3909229	lng=114.2065975
+dir-620	zh=海澄軒	en=Horizon Suite Hotel	lat=22.4265035	lng=114.22744
+dir-621	zh=太子賓館	en=Taizi Hotel	lat=22.4866976	lng=113.9092185
+dir-622	zh=青逸酒店	en=Rambler Oasis Hotel	lat=22.3421056	lng=114.1099944
+dir-623	zh=永倫800酒店	en=Winland 800 Hotel	lat=22.3428303	lng=114.1104701
+dir-624	zh=華逸酒店	en=Rambler Garden Hotel	lat=22.3437014	lng=114.1108185
+dir-625	zh=銅鑼灣皇悅酒店	en=Empire Hotel Causeway Bay	lat=22.2851312	lng=114.1920947
+dir-626	zh=衡軒	en=Equinox	lat=22.2856868	lng=114.1920126
+dir-627	zh=如心銅鑼灣海景酒店	en=L'hotel Causeway Bay Harbour View Hong Kong	lat=22.2832553	lng=114.1928607
+dir-628	zh=維園118酒店	en=Hotel One Eighteen	lat=22.2853675	lng=114.1917908
+dir-629	zh=-	en=Twenty One Whitfield	lat=22.2860353	lng=114.1907515
+dir-630	zh=頤庭酒店銅鑼灣	en=Eco Tree Hotel Causeway Bay	lat=22.2856951	lng=114.1922351
+dir-631	zh=-	en=TUVE Hotel	lat=22.2846054	lng=114.1923247
+dir-633	zh=-	en=Hotel Pennington	lat=22.2786755	lng=114.185937
+dir-634	zh=逸蘭精品酒店	en=Lanson Place Hotel	lat=22.2786867	lng=114.1867767
+dir-635	zh=香港銅鑼灣智選假日酒店	en=Holiday Inn Express Causeway Bay Hong Kong	lat=22.2777373	lng=114.1818895
+dir-636	zh=問月酒店	en=Mira Moon	lat=22.2797685	lng=114.1796032
+dir-637	zh=華登酒店	en=Walden Hotel	lat=22.278854	lng=114.1791659
+dir-638	zh=星網酒店	en=Wifi Hotel	lat=22.279094	lng=114.1792776
+dir-639	zh=東隅	en=EAST, Hong Kong	lat=22.2859844	lng=114.2160999
+dir-640	zh=北角海逸酒店	en=Harbour Plaza North Point	lat=22.2915724	lng=114.2087271
+dir-641	zh=帝逸酒店	en=Alva Hotel by Royal	lat=22.3835249	lng=114.208378
+dir-642	zh=工業家酒店	en=The ind Hotel	lat=22.3163757	lng=114.2157197
+dir-643	zh=九龍東如心酒店	en=Nina Hotel Kowloon East	lat=22.314217	lng=114.2189915
+dir-644	zh=帝景酒店	en=Royal View Hotel	lat=22.3684615	lng=114.0780704
+dir-645	zh=香港屯門貝爾特酒店	en=Pentahotel Hong Kong Tuen Mun	lat=22.3956418	lng=113.9719061
+dir-646	zh=悦品度假酒店 ∙ 屯門	en=Hotel COZi‧Resort	lat=22.3955756	lng=113.9722183
+dir-647	zh=珀麗酒店	en=Rosedale on the Park	lat=22.2791931	lng=114.1883258
+dir-648	zh=銅鑼灣愛麗舍酒店	en=Elysion Place Hotel Causeway Bay	lat=22.2790712	lng=114.1891457
+dir-649	zh=輝豪酒店	en=Mia Casa	lat=22.2828169	lng=114.1280154
+dir-650	zh=逸豪洒店	en=H1 Hotel	lat=22.3185891	lng=114.1676047
+dir-651	zh=豪畔酒店	en=Harbour Hotel	lat=22.3166846	lng=114.1677993
+dir-652	zh=香港旺角智選假日酒店	en=Holiday Inn Express Hong Kong Mongkok	lat=22.3149694	lng=114.167238
+dir-653	zh=新天地酒店	en=Sunny Day Hotel	lat=22.3184077	lng=114.1676413
+dir-654	zh=香港旺角希爾頓花園酒店	en=Hilton Garden Inn Hong Kong Mongkok	lat=22.3156899	lng=114.1670295
+dir-655	zh=盛世酒店	en=Epoch Hotel	lat=22.3205529	lng=114.1701329
+dir-656	zh=香港萬怡酒店	en=Courtyard by Marriott Hong Kong	lat=22.2878949	lng=114.1388647
+dir-657	zh=華大盛品酒店	en=Best Western Plus Hotel Hong Kong	lat=22.2872602	lng=114.1391062
+dir-658	zh=南洋酒店	en=South Pacific	lat=22.2774212	lng=114.1803866
+dir-659	zh=迪士尼探索家度假酒店	en=Disney Explorers Lodge	lat=22.3078129	lng=114.0381637
+dir-661	zh=奧公館酒店石排灣	en=Ovolo Hotel Shek Pai Wan	lat=22.2487075	lng=114.1491197
+dir-664	zh=荃灣絲麗酒店	en=Silka Tsuen Wan Hotel	lat=22.3690687	lng=114.138914
+dir-666	zh=荃灣帝盛酒店	en=Dorsett Regency Tsuen Wan	lat=22.370497	lng=114.1297038
+dir-667	zh=雍澄軒酒店	en=The Apex Horizon All-suite Hotel	lat=22.3667854	lng=114.1371084
+dir-668	zh=迷你酒店	en=Mini Hotel	lat=22.28047	lng=114.1563258
+dir-669	zh=北角M1酒店	en=M1 Hotel North Point	lat=22.2911864	lng=114.1981604
+dir-671	zh=粵華酒店	en=The South China Hotel	lat=22.2921143	lng=114.1982421
+dir-672	zh=德雲小築	en=Dak Wan Siu Chuk	lat=22.338077	lng=114.1779758
+dir-673	zh=翠雅山房	en=Heritage Lodge	lat=22.3388701	lng=114.1420392
+dir-674	zh=朗晴酒店	en=Sun Light Hotel	lat=22.3347054	lng=114.1622718
+dir-675	zh=香港旺角帝盛酒店	en=Dorsett Mongkok, Hong Kong	lat=22.3212544	lng=114.1622225
+dir-676	zh=奧華南岸精品設計酒店	en=Southside by Ovolo	lat=22.2496184	lng=114.1690743
+dir-677	zh=本舍	en=TOWNPLACE WEST KOWLOON	lat=22.3266837	lng=114.1493635
+dir-680	zh=簡悅酒店･銅鑼灣	en=Minimal Hotel･Urban	lat=22.2777729	lng=114.1800949
+dir-681	zh=東方泛達酒店	en=Oriental Lander Hotel	lat=22.3242364	lng=114.1652954
+dir-682	zh=-	en=Hotel 36	lat=22.3262713	lng=114.1671238
+dir-683	zh=歸田園居	en=Espace Elastique	lat=22.2548017	lng=113.8628618
+dir-684	zh=奕凨	en=Ying'nFlo	lat=22.2774571	lng=114.1688937
+dir-690	zh=蘭桂坊酒店	en=Lan Kwai Fong Hotel @ Kau U Fong	lat=22.2843198	lng=114.1531058
+dir-691	zh=-	en=Pottinger Hong Kong	lat=22.2827562	lng=114.1553822
+dir-692	zh=晉逸精品酒店中環	en=Butterfly on Wellington	lat=22.2835618	lng=114.1539524
+dir-693	zh=西城六十	en=60 West Hotel	lat=22.2875091	lng=114.146584
+dir-694	zh=-	en=99 Bonham	lat=22.2861142	lng=114.1510092
+dir-695	zh=上環一尚酒店	en=Dash Living on Hollywood	lat=22.2856659	lng=114.1478831
+dir-696	zh=頤庭酒店	en=Eco Tree Hotel	lat=22.2876533	lng=114.1441861
+dir-697	zh=-	en=The Garden House	lat=22.2799228	lng=114.1929311
+dir-700	zh=-	en=Little Tai Hang	lat=22.2797077	lng=114.192554
+dir-701	zh=-	en=The Lane House	lat=22.279798	lng=114.1928048
+dir-702	zh=富薈土瓜灣酒店	en=iclub To Kwa Wan Hotel	lat=22.3162146	lng=114.1888457
+dir-704	zh=香港遠東絲麗酒店	en=Silka Far East Hotel	lat=22.3709721	lng=114.1192846
+dir-706	zh=-	en=IW Hotel	lat=22.3159757	lng=114.2153036
+dir-707	zh=富薈旺角酒店	en=iclub Mong Kok Hotel	lat=22.3203044	lng=114.165255
+dir-711	zh=碧薈	en=The Beacon	lat=22.3193148	lng=114.1719499
+dir-715	zh=新樂酒店	en=Shamrock Hotel	lat=22.304142	lng=114.1714719
+dir-716	zh=聖地牙哥酒店	en=San Diego Hotel	lat=22.303864	lng=114.1700744
+dir-717	zh=山林舍	en=Hillwood House Hotel	lat=22.3028699	lng=114.1730285
+dir-719	zh=樂仕酒店	en=Knutsford Hotel	lat=22.3017002	lng=114.174851
+dir-720	zh=晉緻酒店	en=Page148 Hotel	lat=22.3032449	lng=114.1748328
+dir-721	zh=-	en=Habyt Austin Avenue	lat=22.3021855	lng=114.1763338
+dir-722	zh=紫珀酒店	en=The Perkin Hotel	lat=22.3012851	lng=114.1735835
+dir-723	zh=仕德福山景酒店	en=Stanford Hillview Hotel	lat=22.3014456	lng=114.1744661
+dir-724	zh=君怡酒店	en=The Kimberley Hotel	lat=22.3005061	lng=114.1738284
+dir-725	zh=百樂酒店	en=Park Hotel	lat=22.2996755	lng=114.1755336
+dir-726	zh=最佳盛品酒店	en=Best Western Plus	lat=22.3003071	lng=114.175883
+dir-727	zh=-	en=The Mira Hong Kong	lat=22.3001436	lng=114.1724459
+dir-728	zh=香港寶御酒店	en=Hotel Pravo	lat=22.2965416	lng=114.170733
+dir-729	zh=馨樂庭亞士厘服務式公寓	en=Modena by Fraser Hong Kong	lat=22.2971562	lng=114.1706751
+dir-730	zh=豪境酒店	en=Goodrich Hotel	lat=22.3061448	lng=114.1704985
+dir-731	zh=偉晴軒	en=West Hotel	lat=22.3068521	lng=114.1679299
+dir-732	zh=木的地酒店	en=Hotel Madera Hong Kong	lat=22.3064275	lng=114.1719868
+dir-733	zh=朗逸酒店	en=Largos Hotel	lat=22.3063051	lng=114.1724861
+dir-734	zh=彌敦酒店	en=Nathan Hotel	lat=22.3076257	lng=114.17169
+dir-735	zh=逸林酒店	en=Noble Park Hotel	lat=22.3075744	lng=114.171938
+dir-736	zh=登臺	en=Hotel Stage	lat=22.3076897	lng=114.1723363
+dir-737	zh=-	en=Homy Residence	lat=22.3105189	lng=114.1697092
+dir-738	zh=海景絲麗酒店	en=Silka Seaview Hotel	lat=22.3103453	lng=114.1700448
+dir-739	zh=王子酒店	en=Kings Hotel	lat=22.3104391	lng=114.1705154
+dir-740	zh=-	en=Casa Hotel	lat=22.3115173	lng=114.1707102
+dir-741	zh=明愛白英奇賓館	en=Caritas Bianchi Lodge	lat=22.3111691	lng=114.1718967
+dir-742	zh=城景國際	en=The Cityview	lat=22.3138144	lng=114.1717318
+dir-743	zh=香港壹零捌館	en=Hotel 108	lat=22.3169301	lng=114.1728014
+dir-744	zh=-	en=Shama Midlevels Hong Kong	lat=22.2755421	lng=114.1675477
+dir-745	zh=香港東涌世茂喜來登酒店	en=Sheraton Hong Kong Tung Chung Hotel	lat=22.2955489	lng=113.9460615
+dir-747	zh=-	en=The Pier Hotel	lat=22.3637213	lng=114.2595073
+dir-748	zh=盛庭Living	en=Shing Ting Living	lat=22.3083839	lng=114.1835358
+dir-749	zh=富麗敦海洋公園酒店	en=The Fullerton Ocean Park Hotel	lat=22.2368702	lng=114.1656767
+dir-751	zh=華麗精品酒店	en=Best Western Hotel	lat=22.2771797	lng=114.1807113
+dir-752	zh=英皇駿景酒店	en=The Emperor Hotel	lat=22.2746507	lng=114.1782178
+dir-753	zh=麗悅酒店	en=Cosmo Hotel	lat=22.2746819	lng=114.1783954
+dir-754	zh=創富酒店	en=China Rich Hotel	lat=22.2735636	lng=114.1744286
+dir-755	zh=壹棠酒店及服務式公寓 (北座)	en=CM+ Hotels and Serviced Apartments (North Tower)	lat=22.2876472	lng=114.149636
+dir-756	zh=旭逸酒店·荃灣	en=Hotel Ease · Tsuen Wan	lat=22.3683537	lng=114.13728
+dir-757	zh=旺角睿景酒店	en=Kew Green Mongkok	lat=22.3241647	lng=114.1669109
+dir-758	zh=儷凱酒店	en=Le Prabelle Hotel	lat=22.323472	lng=114.16803
+dir-759	zh=旺角薈賢居	en=Lodgewood By L’hotel Mongkok	lat=22.3212442	lng=114.1665212
+dir-760	zh=悦品酒店·荃灣	en=Hotel COZi · Oasis	lat=22.3658506	lng=114.1346976
+dir-761	zh=城木酒店	en=Urbanwood	lat=22.3081923	lng=114.1851
+dir-762	zh=銅鑼灣利景酒店	en=The Charterhouse Causeway Bay	lat=22.2776887	lng=114.1790991
+dir-763	zh=-	en=The Hari Hong Kong	lat=22.2788126	lng=114.1783402
+dir-766	zh=悦品天秀酒店‧元朗	en=Hotel COZi Wetland	lat=22.4648161	lng=114.0030083
+dir-767	zh=城滙奧運酒店	en=Metroplace Olympic Hotel	lat=22.3210251	lng=114.1609682
+dir-769	zh=城木酒店 (鴨脷洲)	en=Urbanwood Ap Lei Chau	lat=22.2440881	lng=114.1567725
+dir-770	zh=冠藍軒	en=Bluejay Residences	lat=22.2437094	lng=114.1552096
+dir-771	zh=香港東涌福朋喜來登酒店	en=Four Points by Sheraton Hong Kong, Tung Chung	lat=22.2950413	lng=113.9464296
+dir-774	zh=梅窩酒店	en=Mui Wo Inn	lat=22.2716926	lng=113.9999772
+dir-775	zh=海景渡假樂園	en=Seaview Holiday Resort	lat=22.2716631	lng=113.999364
+dir-776	zh=泛達太子酒店	en=Lander Hotel	lat=22.3266096	lng=114.1642556
+dir-777	zh=-	en=AKVO Hotel	lat=22.2850388	lng=114.1514093
+dir-778	zh=壹棠酒店及服務式公寓（南座）	en=CM+ Hotels And Serviced Apartments (South Tower)	lat=22.2872253	lng=114.1495342
+dir-779	zh=富薈上環酒店	en=iclub Sheung Wan Hotel	lat=22.2863191	lng=114.1493244
+dir-780	zh=尚豪酒店	en=Sohotel	lat=22.28644	lng=114.1489623
+dir-781	zh=港島海逸君綽酒店	en=Harbour Grand Hong Kong	lat=22.2890815	lng=114.1915267
+dir-783	zh=香港銀樾美憬閣精選酒店	en=The Silveri Hong Kong-MGallery	lat=22.2902428	lng=113.9400098
+dir-784	zh=九龍酒店	en=The Kowloon Hotel	lat=22.2957851	lng=114.1717271
+dir-786	zh=伯惠酒店	en=WE hotel	lat=22.2873596	lng=114.143619
+dir-787	zh=宜必思香港中上環酒店	en=Hotel ibis Hong Kong Central & Sheung Wan	lat=22.287486	lng=114.1475841
+dir-788	zh=香港麗富酒店	en=Y Hotel Hong Kong	lat=22.2880177	lng=114.145433
+dir-789	zh=皇后酒店	en=Queen's Hotel	lat=22.2871709	lng=114.1446025
+dir-790	zh=九龍皇悅酒店	en=The Empire Hotel Kowloon	lat=22.3008709	lng=114.175078
+dir-791	zh=-	en=Ovolo Hotel	lat=22.2846153	lng=114.1505975
+dir-792	zh=晉逸蘭桂坊精品酒店中環	en=Butterfly on LKF Central	lat=22.281124	lng=114.1553387
+dir-793	zh=-	en=Ovolo Central	lat=22.2802814	lng=114.1546117
+dir-794	zh=灝美中環酒店	en=Homy Hotel Central	lat=22.2861362	lng=114.1515043
+dir-796	zh=旭逸雅捷酒店·荔枝角	en=Hotel Ease Access·Lai Chi Kok	lat=22.33988	lng=114.1514248
+dir-803	zh=恆豐酒店	en=Prudential Hotel	lat=22.3043363	lng=114.1719819
+dir-804	zh=仕德福酒店	en=Stanford Hotel	lat=22.3169956	lng=114.173178
+dir-805	zh=-	en=Hotel 1936	lat=22.3240736	lng=114.170363
+dir-806	zh=富薈尚乘上環酒店	en=iclub AMTD Sheung Wan Hotel	lat=22.2867141	lng=114.1492379
+dir-807	zh=香港啟德帝盛酒店	en=Dorsett Kai Tak	lat=22.3227152	lng=114.1958044
+dir-808	zh=富薈炮台山酒店	en=iclub Fortress Hill Hotel	lat=22.2873662	lng=114.1922579
+dir-810	zh=奥城花园酒店	en=Ocean City Hotel	lat=22.4912196	lng=113.9323725
+dir-818	zh=時光電競酒店	en=Time E-Sports Hotel	lat=22.5184728	lng=113.9109984
+dir-820	zh=凱里亞德酒店	en=Kyriad Hotel	lat=22.4908013	lng=113.9304473
+dir-821	zh=麗楓酒店	en=Lavande Hotel	lat=22.4903822	lng=113.9307147
+dir-822	zh=南灣如心酒店	en=Nina Hotel Island South	lat=22.2497606	lng=114.1681538

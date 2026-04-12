@@ -419,12 +419,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Hong_Kong_Gold_Coast_Hotel_1.jpg/960px-Hong_Kong_Gold_Coast_Hotel_1.jpg",
     "wiki_url": "https://en.wikipedia.org/wiki/Hong_Kong_Gold_Coast_Hotel"
   },
-  "dir-396": {
-    "en_title": "Hong Kong SkyCity",
-    "extract": "Hong Kong SkyCity is a large business and entertainment complex adjacent to Hong Kong International Airport and is built on land owned by the Airport Authority Hong Kong. It currently includes the AsiaWorld–Expo, Terminal 2 (SkyPlaza) and SkyPier.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/SkyCity_Site_overview_201911.jpg/960px-SkyCity_Site_overview_201911.jpg",
-    "wiki_url": "https://en.wikipedia.org/wiki/Hong_Kong_SkyCity"
-  },
   "dir-397": {
     "en_title": "Hotel Indigo Hong Kong Island",
     "extract": "The Hotel Indigo Hong Kong Island is a hotel located on Hong Kong Island, Hong Kong. It is part of the Hotel Indigo chain of boutique hotels, part of the InterContinental Hotels Group, which is promoted as being \"the industry's first branded boutique hotel experience\".",
@@ -449,12 +443,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Island_Pacific_Hotel_%28clear_view%29.jpg/960px-Island_Pacific_Hotel_%28clear_view%29.jpg",
     "wiki_url": "https://en.wikipedia.org/wiki/Island_Pacific_Hotel"
   },
-  "dir-401": {
-    "en_title": "The Jervois",
-    "extract": "The Jervois is a 35-storey tower designed by Florent Nédélec and located on 89 Jervois Street in Sheung Wan, Victoria, Hong Kong.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/92/The_Jervois_-_View_of_the_facade_%28up%29.jpg",
-    "wiki_url": "https://en.wikipedia.org/wiki/The_Jervois"
-  },
   "dir-402": {
     "en_title": "JW Marriott Hotel Hong Kong",
     "extract": "JW Marriott Hotel Hong Kong is a 5-star hotel located in Admiralty, the heart of Hong Kong Island and next to Wan Chai and Central. The hotel is situated in the Pacific Place complex, directly connected to the Admiralty MTR station. It opened on 27 February 1989 and is the first Marriott International hotel in the Asia-Pacific region.",
@@ -472,18 +460,6 @@
     "extract": "Landmark is a commercial complex owned by Hongkong Land in Central, Hong Kong. It consists of three office towers: Gloucester Tower, Edinburgh Tower and York House. Its retail podium, Landmark Atrium, forms the core component of the LANDMARK shopping mall.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/The_Landmark_Atrium_201501.jpg/960px-The_Landmark_Atrium_201501.jpg",
     "wiki_url": "https://en.wikipedia.org/wiki/The_Landmark_Mandarin_Oriental_Hotel"
-  },
-  "dir-405": {
-    "en_title": "Mariner's Club",
-    "extract": "The Mariners (Chinese: 海員之家) was a building in 11 Middle Road, Tsim Sha Tsui, Kowloon, Hong Kong. \nThe Sailors Home & Mission to Seafarers operates two unique facilities , including The Mariners in Tsim Sha Tsui and The Mariners Seafarers Centre in Kwai Chung. Our aim is to provide spiritual and pastoral support while creating a welcoming, home-like environment for all guests.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/HK_TST_%E5%B0%96%E6%B2%99%E5%92%80_%E4%B8%AD%E9%96%93%E9%81%93_Middle_Road_Mariner%27s_Club_%E6%B5%B7%E5%93%A1%E4%BF%B1%E6%A8%82%E9%83%A8_July-2013.JPG/960px-HK_TST_%E5%B0%96%E6%B2%99%E5%92%80_%E4%B8%AD%E9%96%93%E9%81%93_Middle_Road_Mariner%27s_Club_%E6%B5%B7%E5%93%A1%E4%BF%B1%E6%A8%82%E9%83%A8_July-2013.JPG",
-    "wiki_url": "https://en.wikipedia.org/wiki/Mariner's_Club"
-  },
-  "dir-406": {
-    "en_title": "The Masterpiece (Hong Kong)",
-    "extract": "The Masterpiece is a 64-floor, 261 metre (856 ft) tall luxury apartment in Tsim Sha Tsui, Kowloon Peninsula, Hong Kong. It houses the six-storey K11 shopping centre in the lower levels and basement. The 381-room Hyatt Regency hotel, located from Level 3 to 24, opened in October 2009.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/13-08-08-hongkong-by-RalfR-092.jpg/960px-13-08-08-hongkong-by-RalfR-092.jpg",
-    "wiki_url": "https://en.wikipedia.org/wiki/The_Masterpiece_(Hong_Kong)"
   },
   "dir-407": {
     "en_title": "Mei Ho House",
@@ -526,12 +502,6 @@
     "extract": "Novotel Hong Kong Nathan Road Kowloon (Chinese: 香港九龍諾富特酒店) is a 4-star hotel in Kowloon, Hong Kong. Formerly known as the Majestic Hotel, the hotel reopened in April 2008, following a HK$188 million (approx US$24 million) refurbishment programme, upgraded to 4-star and rebranded as a Novotel. The hotel is managed by the hotel group Accor.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Novotel_Hong_Kong_Nathan_Road_Kowloon_%28revised%29.jpg/960px-Novotel_Hong_Kong_Nathan_Road_Kowloon_%28revised%29.jpg",
     "wiki_url": "https://en.wikipedia.org/wiki/Novotel_Nathan_Road_Kowloon_Hong_Kong"
-  },
-  "dir-415": {
-    "en_title": "Ovolo Hotels",
-    "extract": "Ovolo Hotels (Chinese: 奧華酒店) is an independent hotel brand and serviced apartment owner-operator headquartered in Hong Kong. Founded by Girish Jhunjhnuwala, Ovolo Hotels remains a privately family-owned business under the Hind Group.",
-    "image": null,
-    "wiki_url": "https://en.wikipedia.org/wiki/Ovolo_Hotels"
   },
   "dir-416": {
     "en_title": "Regent Hong Kong",
@@ -598,65 +568,5 @@
     "extract": "The Hongkong Hotel was Hong Kong's first luxury hotel modelled after sumptuous London hotels. It opened on Queen's Road and Pedder Street in 1868, later expanding into the Victoria Harbour waterfront of Victoria City in 1893.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Hongkong_hotel.jpg",
     "wiki_url": "https://en.wikipedia.org/wiki/Hongkong_Hotel"
-  },
-  "dir-428": {
-    "en_title": "Langham Hospitality Group",
-    "extract": "Langham Hotels International Limited, trading as Langham Hospitality Group, is a hotel operator with its headquarters in Hong Kong. Langham Hotels International Limited is wholly owned by Great Eagle Holdings, which was founded in 1963 and is listed on the Hong Kong Stock Exchange.",
-    "image": null,
-    "wiki_url": "https://en.wikipedia.org/wiki/Langham_Hospitality_Group"
-  },
-  "dir-429": {
-    "en_title": "Hongkong and Shanghai Hotels",
-    "extract": "The Hongkong and Shanghai Hotels, Limited (HSH) is a Hong Kong-based holding company of a hotel group. It is engaged in the ownership, development and management of The Peninsula Hotels; commercial and residential properties in Asia, the United States and Europe; and the provision of tourism and leisure, club management and other services.",
-    "image": null,
-    "wiki_url": "https://en.wikipedia.org/wiki/Hongkong_and_Shanghai_Hotels"
-  },
-  "dir-430": {
-    "en_title": "Miramar Hotel and Investment",
-    "extract": "Miramar Hotel and Investment Company Limited (Miramar Group) (Chinese: 美麗華酒店企業有限公司)  (SEHK: 71) is a group with a diversified service-oriented business portfolio comprising hotels and serviced apartments, property rental, food and beverage, and travel services in Hong Kong and mainland China. Miramar Group has been listed on the Hong Kong Stock Exchange since 1970 (HKEx Stock Code: 71) and is a member of Henderson Land Group.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_Mira.jpg/960px-The_Mira.jpg",
-    "wiki_url": "https://en.wikipedia.org/wiki/Miramar_Hotel_and_Investment"
-  },
-  "dir-431": {
-    "en_title": "Rosewood Hotels & Resorts",
-    "extract": "Rosewood Hotels & Resorts is an international luxury hotel and resort company founded in Dallas in 1979 by Caroline Rose Hunt, the daughter of oil tycoon H. L. Hunt.\nCurrently owned by Hong Kong–based Rosewood Hotel Group which also owns New World Hotels & Resorts, Carlyle & Co. and Asaya.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/db/Rosewood_hotel_resorts_logo.jpg",
-    "wiki_url": "https://en.wikipedia.org/wiki/Rosewood_Hotels_&_Resorts"
-  },
-  "dir-432": {
-    "en_title": "Regal Hotels International",
-    "extract": "Regal Hotels International (RHI) is one of the largest hotel groups in Hong Kong. Regal Hotels International Holdings Limited is a company incorporated in Bermuda and listed on the Hong Kong Stock Exchange.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/RegalSymbol.svg/960px-RegalSymbol.svg.png",
-    "wiki_url": "https://en.wikipedia.org/wiki/Regal_Hotels_International"
-  },
-  "dir-433": {
-    "en_title": "Mandarin Oriental Hotel Group",
-    "extract": "Mandarin Oriental Hotel Group International Limited is a multinational hospitality and management group focusing on luxury hotels, resorts, and residences, with a total of 46 properties worldwide, 20 of which it either wholly or partially owns.\nThe Mandarin Oriental brand was established in 1985 following the merger of Mandarin International Hotels Limited and the holding company of the hotel The Oriental, in which Mandarin had already acquired a 49% stake in 1974. Mandarin's history dates back to the 1963 opening of its namesake hotel The Mandarin (now Mandarin Oriental, Hong Kong).",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Mandarin_Oriental_Hotel_Group_logo.svg/960px-Mandarin_Oriental_Hotel_Group_logo.svg.png",
-    "wiki_url": "https://en.wikipedia.org/wiki/Mandarin_Oriental_Hotel_Group"
-  },
-  "dir-434": {
-    "en_title": "Shangri-La Hotels and Resorts",
-    "extract": "Shangri-La Hotels and Resorts (Chinese: 香格里拉酒店) is a multinational hospitality company, founded in 1971 by tycoon Robert Kuok and bearing the name of Shangri-La, a Far Eastern mythical land of contentment depicted in the 1933 novel Lost Horizon. It is a subsidiary of Kerry Properties, the company has over 100 luxury hotels and resorts with over 40,000 rooms in Africa, Asia, Europe, the Middle East, North America and Oceania. \nShangri-La has 4 brands across different market segments: Shangri-La, Traders Hotels, Kerry Hotels, and Hotel Jen.",
-    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bd/Shangri-La_Hotels_and_Resorts_logo.svg/960px-Shangri-La_Hotels_and_Resorts_logo.svg.png",
-    "wiki_url": "https://en.wikipedia.org/wiki/Shangri-La_Hotels_and_Resorts"
-  },
-  "dir-435": {
-    "en_title": "Dorsett Hospitality International",
-    "extract": "Dorsett Hospitality International, formerly known as Kosmopolito Hotels International (formerly traded as SEHK: 2266), is an international hotel and hospitality organization. Established in 2007, the company is a subsidiary of Far East Consortium International Limited. The company develops, owns and manages hotels across several countries with a specific focus in the Asia-Pacific region.",
-    "image": null,
-    "wiki_url": "https://en.wikipedia.org/wiki/Dorsett_Hospitality_International"
-  },
-  "dir-436": {
-    "en_title": "Marco Polo Hotels",
-    "extract": "Marco Polo Hotels (Chinese: 馬哥孛羅酒店集團) is a hotel management company based in Hong Kong that operates hotels in Hong Kong, Mainland China and the Philippines. It is a wholly owned subsidiary of Wharf (Holdings) Limited. The company's chairman is chairman and managing director of Wharf (Holdings) Limited.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Marco_Polo_Hotels_logo.svg/960px-Marco_Polo_Hotels_logo.svg.png",
-    "wiki_url": "https://en.wikipedia.org/wiki/Marco_Polo_Hotels"
-  },
-  "dir-437": {
-    "en_title": "Harbour Plaza Hotel Management",
-    "extract": "CK Asset Holdings Limited, formerly Cheung Kong Property Holdings Limited, is a property developer registered in the Cayman Islands, with its headquarters and principal place of business in Hong Kong.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/CK_Asset_Holdings.svg/960px-CK_Asset_Holdings.svg.png",
-    "wiki_url": "https://en.wikipedia.org/wiki/Harbour_Plaza_Hotel_Management"
   }
 }
