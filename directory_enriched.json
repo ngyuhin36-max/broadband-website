@@ -26,15 +26,6 @@
     "wiki_title": "香港諾富特世紀酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%AB%BE%E5%AF%8C%E7%89%B9%E4%B8%96%E7%B4%80%E9%85%92%E5%BA%97"
   },
-  "dir-004": {
-    "name": "星寓",
-    "price": "HK$806",
-    "orig": "HK$886",
-    "extract": "形品·星寓（英語：Lime Stardom），位於香港九龍西大角咀的單幢式精品住宅及商場。由新鴻基地產（以企達有限公司為名）及市區重建局發展，於2011年11月24日發出滿意紙，同年12月入伙。由於該屋苑尚未成立業主立案法團，因此屋苑管理公司為發展商旗下的啟勝管理服務。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Lime_Stardom_northeast_side.jpg/960px-Lime_Stardom_northeast_side.jpg",
-    "wiki_title": "形品·星寓",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%BD%A2%E5%93%81%C2%B7%E6%98%9F%E5%AF%93"
-  },
   "dir-005": {
     "name": "香港銅鑼灣智選假日飯店",
     "price": "HK$668",
@@ -53,15 +44,6 @@
     "wiki_title": "香港逸東酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E9%80%B8%E6%9D%B1%E9%85%92%E5%BA%97"
   },
-  "dir-007": {
-    "name": "香港恆豐飯店",
-    "price": "HK$809",
-    "orig": "HK$889",
-    "extract": "ac，前稱香港仔中心商場（英語：Aberdeen Centre Plaza），位於香港香港島香港仔南寧街，是長江實業旗下的商場，位於香港仔中心基座，不少連鎖店的南區分店都設於此處，當中包括同屬和記黃埔的百佳超級廣場、豐澤電器和屈臣氏。商場共分五期。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Aberdeen_Centre_Ac4_Outside_view_201508.jpg/960px-Aberdeen_Centre_Ac4_Outside_view_201508.jpg",
-    "wiki_title": "Ac (商場)",
-    "wiki_url": "https://zh.wikipedia.org/wiki/Ac%20%28%E5%95%86%E5%A0%B4%29"
-  },
   "dir-008": {
     "name": "香港灣仔睿景飯店",
     "price": "HK$478",
@@ -70,15 +52,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Kew_Green_Hotel_Wanchai_Hong_Kong.jpg/960px-Kew_Green_Hotel_Wanchai_Hong_Kong.jpg",
     "wiki_title": "香港灣仔睿景酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E7%81%A3%E4%BB%94%E7%9D%BF%E6%99%AF%E9%85%92%E5%BA%97"
-  },
-  "dir-009": {
-    "name": "聚居",
-    "price": "HK$319",
-    "orig": "HK$394",
-    "extract": "汉族，亦称汉人，是起源于中原的东亚人种族群，主要聚居於大中华区。汉族人口超过13亿，是世界上人口最多的單一族群，约占世界人口的18%，中国大陸人口的91%，台湾人口的97%。汉族也是东南亚各国的主要侨民群体，为新加坡第一大民族；马来西亚、文莱、泰国第二大民族。",
-    "image": null,
-    "wiki_title": "汉族",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E6%B1%89%E6%97%8F"
   },
   "dir-010": {
     "name": "香港金域假日飯店",
@@ -197,24 +170,6 @@
     "wiki_title": "W飯店",
     "wiki_url": "https://zh.wikipedia.org/wiki/W%E9%A3%AF%E5%BA%97"
   },
-  "dir-024": {
-    "name": "香港翡格飯店",
-    "price": "HK$718",
-    "orig": "HK$798",
-    "extract": "LDC雲朗觀光集團（LDC Hotels & Resorts，簡寫：LDC、雲朗），是台灣連鎖飯店集團。\nLDC雲朗觀光集團由辜懷如及張安平於2009年更名創立。在台灣擁有一系列飯店包括「君品酒店」、「雲品溫泉酒店」、「翰品酒店」、「兆品酒店」、「品文旅」，及婚宴會館、餐飲品牌「君品Collection」、「頤璽」、「頤品大飯店」與「品中信」。",
-    "image": null,
-    "wiki_title": "雲朗觀光集團",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%9B%B2%E6%9C%97%E8%A7%80%E5%85%89%E9%9B%86%E5%9C%98"
-  },
-  "dir-025": {
-    "name": "香港南洋飯店",
-    "price": "HK$552",
-    "orig": "HK$644",
-    "extract": "南洋廳（日語：南洋庁〔南洋廳〕／なんようちょう，羅馬化：Nanyō Chō）是根據《凡爾賽條約》，日本在其委任統治的南洋诸岛上設置的地方行政機關與行政區劃。所在地為帛琉群島的柯若島。在其下設有支廳。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Flag_of_the_Governor_of_the_South_Pacific_Mandate.svg/960px-Flag_of_the_Governor_of_the_South_Pacific_Mandate.svg.png",
-    "wiki_title": "南洋廳",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%8D%97%E6%B4%8B%E5%BB%B3"
-  },
   "dir-026": {
     "name": "粵海華美灣際飯店",
     "price": "HK$646",
@@ -223,24 +178,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Wharney_Guang_Dong_Hotel_Hong_Kong_2018.jpg/960px-Wharney_Guang_Dong_Hotel_Hong_Kong_2018.jpg",
     "wiki_title": "香港華美粵海酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%8F%AF%E7%BE%8E%E7%B2%B5%E6%B5%B7%E9%85%92%E5%BA%97"
-  },
-  "dir-027": {
-    "name": "香港一零八館",
-    "price": "HK$447",
-    "orig": "HK$622",
-    "extract": "北京市第一〇一中学，通称北京101中学、北京一零一中，位于中国北京市海淀区圆明园南侧，是北京市示范高中。\n北京一零一中现校址原为圆明园的一部分，经中央人民政府政务院总理周恩来特批，于1951年迁入。学校紧邻清华大学和北京大学，距中关村约1.5公里。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Gate_of_Beijing_101_Middle_School_at_College_Entrance_Exam_2021_%2820210607114205%29.jpg/960px-Gate_of_Beijing_101_Middle_School_at_College_Entrance_Exam_2021_%2820210607114205%29.jpg",
-    "wiki_title": "北京市第一〇一中學",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E5%B8%82%E7%AC%AC%E4%B8%80%E3%80%87%E4%B8%80%E4%B8%AD%E5%AD%B8"
-  },
-  "dir-028": {
-    "name": "維園118飯店",
-    "price": "HK$436",
-    "orig": "HK$1,387",
-    "extract": "中央饭店是一間位於江蘇省南京市的西式飯店，坐落於中山东路237号。中央饭店始建于1927年，坐北朝南，为3层西式混合结构建筑，占地面积5650平方米，建筑面积10057平方米。它是1930至1940年代南京最负盛名的饭店之一，当年以西餐著名。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Central_Hotel.jpg/960px-Central_Hotel.jpg",
-    "wiki_title": "南京中央饭店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%8D%97%E4%BA%AC%E4%B8%AD%E5%A4%AE%E9%A5%AD%E5%BA%97"
   },
   "dir-029": {
     "name": "雅高宜必思香港北角飯店",
@@ -268,15 +205,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/%E5%9C%93%E5%B1%B1%E9%A3%AF%E5%BA%971.jpg/960px-%E5%9C%93%E5%B1%B1%E9%A3%AF%E5%BA%971.jpg",
     "wiki_title": "圓山大飯店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E5%9C%93%E5%B1%B1%E5%A4%A7%E9%A3%AF%E5%BA%97"
-  },
-  "dir-032": {
-    "name": "香港銅鑼灣賓館（鳳鳴大廈）",
-    "price": "HK$379",
-    "orig": "HK$400",
-    "extract": "銅鑼灣書店事件是於2015年10月至12月期間，香港「銅鑼灣書店」（現於台灣復店）五人陸續失蹤之事件。失蹤5人是該店母公司巨流傳媒有限公司的股東桂民海與呂波、業務經理張志平、銅鑼灣書店經營者李波以及店長林榮基。失蹤半個月到3個月後，全部人員證實身處中國大陸並受有關當局控制。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Causeway_Bay_Bookstore.jpg/960px-Causeway_Bay_Bookstore.jpg",
-    "wiki_title": "銅鑼灣書店事件",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%8A%85%E9%91%BC%E7%81%A3%E6%9B%B8%E5%BA%97%E4%BA%8B%E4%BB%B6"
   },
   "dir-033": {
     "name": "頤庭飯店上環",
@@ -341,15 +269,6 @@
     "wiki_title": "香港蘇豪希爾頓摩庭酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%98%87%E8%B1%AA%E5%B8%8C%E7%88%BE%E9%A0%93%E6%91%A9%E5%BA%AD%E9%85%92%E5%BA%97"
   },
-  "dir-040": {
-    "name": "香港哲維斯飯店",
-    "price": "HK$756",
-    "orig": "HK$880",
-    "extract": "《鐵金剛勇破火箭嶺》（英語：You Only Live Twice）是一部1967年的諜報電影，同時也是第五部詹姆斯·邦德系列电影。本片是首齣有華裔邦女郎（周采芹）演出的詹姆士·龐德電影，是迄今唯一一部場景完全在亞洲的007電影，片中加入了大量亞洲元素，片頭以中國、日本式的紙傘作主題。",
-    "image": null,
-    "wiki_title": "鐵金剛勇破火箭嶺",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%90%B5%E9%87%91%E5%89%9B%E5%8B%87%E7%A0%B4%E7%81%AB%E7%AE%AD%E5%B6%BA"
-  },
   "dir-041": {
     "name": "九龍香格里拉",
     "price": "HK$1,668",
@@ -367,15 +286,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/China_Hong_Kong_City_200805.jpg/960px-China_Hong_Kong_City_200805.jpg",
     "wiki_title": "皇家太平洋酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E7%9A%87%E5%AE%B6%E5%A4%AA%E5%B9%B3%E6%B4%8B%E9%85%92%E5%BA%97"
-  },
-  "dir-043": {
-    "name": "星淮飯店",
-    "price": "HK$429",
-    "orig": "HK$1,044",
-    "extract": "《情满四合院》（原剧名为《傻柱》），2015年中国时代剧。由何冰、郝蕾领衔主演，2015年11月7日于济宁影视频道首播，2017年10月4日于北京卫视上星播出。",
-    "image": null,
-    "wiki_title": "情满四合院",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E6%83%85%E6%BB%A1%E5%9B%9B%E5%90%88%E9%99%A2"
   },
   "dir-044": {
     "name": "香港富豪機場飯店",
@@ -485,24 +395,6 @@
     "wiki_title": "香港諾富特世紀酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%AB%BE%E5%AF%8C%E7%89%B9%E4%B8%96%E7%B4%80%E9%85%92%E5%BA%97"
   },
-  "dir-056": {
-    "name": "香港恆豐賓館（佐敦地鐵站B1出口）",
-    "price": "HK$315",
-    "orig": "HK$412",
-    "extract": "油麻地站（英語：Yau Ma Tei Station）位於香港九龍油尖旺區油麻地彌敦道與窩打老道交界，是港鐵觀塘綫與荃灣綫的鐵路車站，也是轉車站，於1979年12月22日啟用。在觀塘綫延綫啟用前，油麻地站曾為觀塘綫的西行終點站。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Yau_Ma_Tei_Station_Tsuen_Wan_Line_platforms_2022_05_part2.jpg/960px-Yau_Ma_Tei_Station_Tsuen_Wan_Line_platforms_2022_05_part2.jpg",
-    "wiki_title": "油麻地站",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E6%B2%B9%E9%BA%BB%E5%9C%B0%E7%AB%99"
-  },
-  "dir-058": {
-    "name": "舒適館 （佐敦港鐵站店）",
-    "price": "HK$176",
-    "orig": "HK$196",
-    "extract": "香港西九龍站（英語：Hong Kong West Kowloon Station），規劃及建設期間稱為西九龍總站，通常簡稱為西九龍站或西九站，是位於香港西九龍油尖旺區的鐵路車站，本站為廣深港高速鐵路的南端起訖站，提供往返中國內地的高鐵動車服務。车站佔地11公頃，耗資122億3千萬港元興建，樓面總面積達43萬平方公尺。站內實施一地兩檢，設有內地口岸區，由中國內地派駐執法人員執行中國內地法律。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Hong_Kong_West_Kowloon_Station_view_201810.jpg/960px-Hong_Kong_West_Kowloon_Station_view_201810.jpg",
-    "wiki_title": "香港西九龍站",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%A5%BF%E4%B9%9D%E9%BE%8D%E7%AB%99"
-  },
   "dir-059": {
     "name": "香港旺角帝盛飯店",
     "price": "HK$551",
@@ -548,15 +440,6 @@
     "wiki_title": "帝盛酒店集團",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E5%B8%9D%E7%9B%9B%E9%85%92%E5%BA%97%E9%9B%86%E5%9C%98"
   },
-  "dir-064": {
-    "name": "香港紫亭",
-    "price": "HK$513",
-    "orig": "HK$1,494",
-    "extract": "王亭之（1935年5月19日—2024年10月26日），本名談錫永，筆名王亭之，來自「姑妄言之，姑妄聽之」的「妄聽之」，香港佛學家及專欄作家，亦是紫微斗數（中州派）、玄空風水及中國畫的專家。為藏傳佛教寧瑪派上師，致力於宣揚如來藏義理。\n1986年由香港移居夏威夷，1993年移居加拿大多倫多，多倫多時間2024年10月26日下午3時正圓寂，享壽89歲。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Tam_Shek-wing.jpg/960px-Tam_Shek-wing.jpg",
-    "wiki_title": "王亭之",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E7%8E%8B%E4%BA%AD%E4%B9%8B"
-  },
   "dir-065": {
     "name": "四季賓館",
     "price": "HK$159",
@@ -565,33 +448,6 @@
     "image": null,
     "wiki_title": "纽约四季酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E7%BA%BD%E7%BA%A6%E5%9B%9B%E5%AD%A3%E9%85%92%E5%BA%97"
-  },
-  "dir-066": {
-    "name": "木的地飯店-中環",
-    "price": "HK$1,302",
-    "orig": "HK$2,255",
-    "extract": "《胭脂扣》（英語：Rouge）是一部1987年香港劇情片，由成龍監製，關錦鵬執導，梅艷芳及張國榮等主演，改編自李碧華的同名小說。劇情講述十二少及名妓如花的愛情故事。\n本片囊括第24屆金馬獎及第8屆香港電影金像獎多項大獎，包括最佳電影、最佳導演、最佳編劇、最佳女主角、最佳攝影、最佳剪接及最佳電影歌曲等；亦奪下第10屆法國南特影展金熱氣球獎。",
-    "image": null,
-    "wiki_title": "胭脂扣",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E8%83%AD%E8%84%82%E6%89%A3"
-  },
-  "dir-067": {
-    "name": "南寓",
-    "price": "HK$466",
-    "orig": "HK$696",
-    "extract": "䨇寓（英語：2Gether），前身位於香港屯門湖安街8號政府官地，為香港興業和住友林業合作發展的住宅項目。承建商為祥記馮祥（已結業），建築師為梁黃顧建築師(香港)事務所，室內設計師為PTang Studio，2018年入伙。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/2Gether.jpg/960px-2Gether.jpg",
-    "wiki_title": "䨇寓",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E4%A8%87%E5%AF%93"
-  },
-  "dir-068": {
-    "name": "王子公館",
-    "price": "HK$278",
-    "orig": "HK$380",
-    "extract": "《小王子》（法語：Le Petit Prince，法語發音：[lə p(ə)ti pʁɛ̃s]）是法國作家兼軍事飛行員安托万·德·圣修伯里創作並親自繪製插圖的一部中篇小說。該書由雷納爾與希區考克在美國紐約同時以英語和法語於1943年4月6日出版。並在法國解放後以遺作形式出版；此前，聖修伯里的作品曾被維希法國禁止。",
-    "image": "https://upload.wikimedia.org/wikipedia/zh/0/05/Littleprince.JPG",
-    "wiki_title": "小王子",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%B0%8F%E7%8E%8B%E5%AD%90"
   },
   "dir-069": {
     "name": "南灣如心飯店",
@@ -611,24 +467,6 @@
     "wiki_title": "香港夢卓恩酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E5%A4%A2%E5%8D%93%E6%81%A9%E9%85%92%E5%BA%97"
   },
-  "dir-071": {
-    "name": "峰景軒",
-    "price": "HK$489",
-    "orig": "HK$550",
-    "extract": "峰景軒（英語：Summit View Kowloon），前稱女青年會柏顏露斯賓館（英語：The Anne Black - YWCA），位處於香港九龍何文田文福道5號，於1970年落成，是基督教女青年會在香港經營的四間酒店之一，屬三星級的酒店，設有169間客房。由於價錢大眾化，而且鄰近廣華醫院，酒店曾以簡體字編制分娩住宿套票的宣傳單張，事件被傳媒於2012年揭發，為免協助中國大陸雙非孕婦來港產子之嫌，該服務已無限期停止。賓館於2014年下半年停業。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/East_of_Summit_View_Kowloon.jpg/960px-East_of_Summit_View_Kowloon.jpg",
-    "wiki_title": "峰景軒",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%B3%B0%E6%99%AF%E8%BB%92"
-  },
-  "dir-072": {
-    "name": "香港悅思青年旅舍",
-    "price": "HK$183",
-    "orig": "HK$204",
-    "extract": "長洲（英語：Cheung Chau）是香港的島嶼，狀似啞鈴而別稱啞鈴島（Dumbbell Island），位於大嶼山東南，屬於連島沙洲，北望喜靈洲，西南方有石鼓洲，距離香港島西南約10公里。長洲屬香港十八區的離島區，現時估算人口約為2萬，是離島區人煙最稠密的島嶼。長洲沒有陸上公共交通，基本發展尚算完善，除警署、消防局及醫院等基本設備外，亦設有學校、公共屋邨和綜合大樓等基礎建設。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Blick_%C3%BCber_Cheung_Chau.JPG/960px-Blick_%C3%BCber_Cheung_Chau.JPG",
-    "wiki_title": "長洲 (香港)",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%95%B7%E6%B4%B2%20%28%E9%A6%99%E6%B8%AF%29"
-  },
   "dir-073": {
     "name": "香港維港凱悅尚萃飯店",
     "price": "HK$1,389",
@@ -638,24 +476,6 @@
     "wiki_title": "香港維港凱悅尚萃酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E7%B6%AD%E6%B8%AF%E5%87%B1%E6%82%85%E5%B0%9A%E8%90%83%E9%85%92%E5%BA%97"
   },
-  "dir-074": {
-    "name": "富薈土瓜灣飯店",
-    "price": "HK$497",
-    "orig": "HK$565",
-    "extract": "深水埗（Bù）（英語：Sham Shui Po）是香港十八區的深水埗區之主要部分，位於九龍半島西北部。深水埗區區內娛樂場所眾多，流動人口聚集，加上種種的歷史因素，貧窮、治安和衛生情況惡劣，一直惹人詬病，區內有不少棘手的社區問題。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Sham_Shui_Po_201810.jpg/960px-Sham_Shui_Po_201810.jpg",
-    "wiki_title": "深水埗",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E6%B7%B1%E6%B0%B4%E5%9F%97"
-  },
-  "dir-076": {
-    "name": "香港園景軒",
-    "price": "HK$614",
-    "orig": "HK$682",
-    "extract": "豐景園站（英語：Goodview Garden Stop），為香港輕鐵的一個車站，於1991年11月3日啟用，車站屬於輕鐵單程車票第1收費區，並共有三條輕鐵路綫途經此站。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Looking_towards_Goodview_Garden_Stop_from_NLSI_Peace_Evangelical_Secondary_School_part_5_in_December_2021.jpg/960px-Looking_towards_Goodview_Garden_Stop_from_NLSI_Peace_Evangelical_Secondary_School_part_5_in_December_2021.jpg",
-    "wiki_title": "豐景園站",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E8%B1%90%E6%99%AF%E5%9C%92%E7%AB%99"
-  },
   "dir-077": {
     "name": "香港朗廷飯店",
     "price": "HK$1,897",
@@ -664,33 +484,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Langham_hong_kong.jpg/960px-Langham_hong_kong.jpg",
     "wiki_title": "香港朗廷酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E6%9C%97%E5%BB%B7%E9%85%92%E5%BA%97"
-  },
-  "dir-078": {
-    "name": "香港彌敦飯店",
-    "price": "HK$1,088",
-    "orig": "HK$1,695",
-    "extract": "松屋食品（日語：松屋フーズ／まつやフーズ，羅馬化：matsuya fūzu，英語：Matsuya Foods）是源自日本的跨國日式快餐連鎖店，其主要業務為經營售賣牛肉飯、豬肉飯、咖喱和定食等的日式快餐連鎖店「松屋」。其與食其家、吉野家並稱為「牛丼御三家」，目前日本國內店鋪總數在同型餐廳中居於第3，僅次於食其家與吉野家。\n母公司松屋食品控股在東京證券交易所上市（編號：9887），其總部位於東京都武藏野市，現時由創辦人瓦葺利夫擔任會長。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Matsuyafoods_company.jpg/960px-Matsuyafoods_company.jpg",
-    "wiki_title": "松屋食品",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E6%9D%BE%E5%B1%8B%E9%A3%9F%E5%93%81"
-  },
-  "dir-079": {
-    "name": "香港天一飯店喜利店（尖沙咀地鐵站店近C2口）",
-    "price": "HK$293",
-    "orig": "HK$366",
-    "extract": "1980年代香港命案列表記錄於1980年至1989年在香港發生過涉及人命的案件，包括謀殺及誤殺等他殺命案，每宗案件必須列明資料來源；而一般的因自殺、疾病、天災、意外等導至死亡的案件則不在此列。此列表可能並不完全，尚有大量案件由於年代久遠，資料不完整而未被記錄。",
-    "image": null,
-    "wiki_title": "1980年代香港命案列表",
-    "wiki_url": "https://zh.wikipedia.org/wiki/1980%E5%B9%B4%E4%BB%A3%E9%A6%99%E6%B8%AF%E5%91%BD%E6%A1%88%E5%88%97%E8%A1%A8"
-  },
-  "dir-080": {
-    "name": "香港盛庭LIVING飯店公寓（近何文田站B1口）",
-    "price": "HK$293",
-    "orig": "HK$489",
-    "extract": "森川智之（日語：森川 智之／もりかわ としゆき，羅馬化：Morikawa Toshiyuki，1967年1月26日—），日本男性配音員、旁白、歌手、藝人。出身於東京都品川區。AXL ONE代表董事。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Toshiyuki_Morikawa.jpg/960px-Toshiyuki_Morikawa.jpg",
-    "wiki_title": "森川智之",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E6%A3%AE%E5%B7%9D%E6%99%BA%E4%B9%8B"
   },
   "dir-081": {
     "name": "香港東隅",
@@ -710,42 +503,6 @@
     "wiki_title": "通豪大酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%80%9A%E8%B1%AA%E5%A4%A7%E9%85%92%E5%BA%97"
   },
-  "dir-083": {
-    "name": "香港基督教青年會（港青）",
-    "price": "HK$884",
-    "orig": "HK$964",
-    "extract": "香港基督教青年會（英語：YMCA of Hong Kong）於1901年成立，為香港註冊慈善團體，總部設於九龍尖沙咀梳士巴利道。它致力於在香港和國際社會促進正義、和平、希望和真理。它為社會服務，關心需要幫助的人，並為香港的活動提供贊助。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/YMCA_of_HongKong_sign.jpg/960px-YMCA_of_HongKong_sign.jpg",
-    "wiki_title": "香港基督教青年會",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E5%9F%BA%E7%9D%A3%E6%95%99%E9%9D%92%E5%B9%B4%E6%9C%83"
-  },
-  "dir-084": {
-    "name": "粵海181飯店",
-    "price": "HK$1,218",
-    "orig": "HK$1,582",
-    "extract": "广州摩天大楼列表排列了在广州市市内超过150米的摩天大楼，其中广州周大福金融中心为市内最高大楼，亦是世界第八高楼，广州塔则是广东省最高塔，亦是世界第二高塔。广州市是广东省省会，也是中国的副省级城市之一，总人口1455万。广州市是广东省的政治、经济、科教、文化、交通和通信枢纽中心，它也是国家历史文化名城之一。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Views_of_Guangzhou_Central_Axis_from_CITIC_Plaza_20150609.jpg/960px-Views_of_Guangzhou_Central_Axis_from_CITIC_Plaza_20150609.jpg",
-    "wiki_title": "广州市摩天大楼列表",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%B8%82%E6%91%A9%E5%A4%A9%E5%A4%A7%E6%A5%BC%E5%88%97%E8%A1%A8"
-  },
-  "dir-086": {
-    "name": "香港富薈旺角飯店",
-    "price": "HK$595",
-    "orig": "HK$661",
-    "extract": "ac，前稱香港仔中心商場（英語：Aberdeen Centre Plaza），位於香港香港島香港仔南寧街，是長江實業旗下的商場，位於香港仔中心基座，不少連鎖店的南區分店都設於此處，當中包括同屬和記黃埔的百佳超級廣場、豐澤電器和屈臣氏。商場共分五期。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Aberdeen_Centre_Ac4_Outside_view_201508.jpg/960px-Aberdeen_Centre_Ac4_Outside_view_201508.jpg",
-    "wiki_title": "Ac (商場)",
-    "wiki_url": "https://zh.wikipedia.org/wiki/Ac%20%28%E5%95%86%E5%A0%B4%29"
-  },
-  "dir-087": {
-    "name": "Page148, 晉致飯店",
-    "price": "HK$1,201",
-    "orig": "HK$1,281",
-    "extract": "2025年11月7日，日本内阁总理大臣高市早苗在國會眾議院接受質詢時，表示中华人民共和国對台湾使用武力可能构成日本的「存亡危機事態」，暗示日本可能出動自卫队武力介入台海危机。次日，中华人民共和国外交部对此强烈抗议，谴责日方“粗暴干涉中国内政”；中华人民共和国驻大阪总领事馆领事薛剑在社交平台X转发高市相关言论并配以贴文称“斩断肮脏头颅”，被日本方面認為其意欲令高市遭到不测。由于双方发表的言论，两国各自对另一方的言论予以抗议，关系陷入紧张。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/China_Japan_Taiwan_Locator_3D.svg/960px-China_Japan_Taiwan_Locator_3D.svg.png",
-    "wiki_title": "2025—2026年中日外交风波",
-    "wiki_url": "https://zh.wikipedia.org/wiki/2025%E2%80%942026%E5%B9%B4%E4%B8%AD%E6%97%A5%E5%A4%96%E4%BA%A4%E9%A3%8E%E6%B3%A2"
-  },
   "dir-088": {
     "name": "香港君立飯店",
     "price": "HK$431",
@@ -764,15 +521,6 @@
     "wiki_title": "馬哥孛羅香港酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%AC%E5%93%A5%E5%AD%9B%E7%BE%85%E9%A6%99%E6%B8%AF%E9%85%92%E5%BA%97"
   },
-  "dir-090": {
-    "name": "海星旅館",
-    "price": "HK$351",
-    "orig": "HK$380",
-    "extract": "《藏海傳》（英語：The Legend of Zang Hai），2025年中國大陸古裝權謀電視劇，由優酷、量子泛娛、春羽影視出品，鄭曉龍總導演，曹譯文導演，趙柳逸編劇，並由肖戰、張婧儀、周奇、黃覺、余男、喬振宇、田小潔、沙寶亮、梁超、邢岷山、楊雨潼、邵汶、楊帆出演。\n該劇改編自南派三叔的《萬海戲麟》，講述了藏海一生的故事；於2025年5月18日在央视八套首播，於同年8月4日在香港翡翠台播出，亦於海外串流平台Viu及Disney+播放。",
-    "image": null,
-    "wiki_title": "藏海传",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E8%97%8F%E6%B5%B7%E4%BC%A0"
-  },
   "dir-091": {
     "name": "香港六國飯店",
     "price": "HK$905",
@@ -781,24 +529,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/HK_Wan_Chai_North_Gloucester_Road_view_%E5%85%AD%E5%9C%8B%E9%A3%AF%E5%BA%97_Luk_Kwok_Hotel_01.JPG/960px-HK_Wan_Chai_North_Gloucester_Road_view_%E5%85%AD%E5%9C%8B%E9%A3%AF%E5%BA%97_Luk_Kwok_Hotel_01.JPG",
     "wiki_title": "六國酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E5%85%AD%E5%9C%8B%E9%85%92%E5%BA%97"
-  },
-  "dir-094": {
-    "name": "香港中環石板街飯店",
-    "price": "HK$1,614",
-    "orig": "HK$2,017",
-    "extract": "北京樓為美心食品有限公司外省菜部最為香港熟知的品牌，旗下管理一系列京川滬湘酒樓，開業初時各菜系分別較清晰，1990年代開設其他品牌餐廳，揉合各個菜系。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Peking_Garden_in_Cityplaza_2016.jpg/960px-Peking_Garden_in_Cityplaza_2016.jpg",
-    "wiki_title": "北京樓",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E6%A8%93"
-  },
-  "dir-095": {
-    "name": "九龍伯惠飯店",
-    "price": "HK$578",
-    "orig": "HK$628",
-    "extract": "《廢財闖天關》（英語：Here Comes Fortune Star），2020年三立華人電視劇八點檔系列第22部作品。由李國毅、李亦捷、邱昊奇、梁舒涵、邵翔、梁以辰領銜主演。為三立都會台繼《我的青春沒在怕》後，再度製播的平日八點檔戲劇。",
-    "image": null,
-    "wiki_title": "廢財闖天關",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%BB%A2%E8%B2%A1%E9%97%96%E5%A4%A9%E9%97%9C"
   },
   "dir-097": {
     "name": "香港永盛行賓館",
@@ -817,24 +547,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Auberge_Discovery_Bay_Hong_Kong_%28second_revised%29.jpg/960px-Auberge_Discovery_Bay_Hong_Kong_%28second_revised%29.jpg",
     "wiki_title": "香港愉景灣酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E6%84%89%E6%99%AF%E7%81%A3%E9%85%92%E5%BA%97"
-  },
-  "dir-099": {
-    "name": "香港太陽公寓",
-    "price": "HK$153",
-    "orig": "HK$200",
-    "extract": "《宁安如梦》（英語：Story of Kunning Palace）是改编自晋江文学城作家时镜的言情小说《坤宁》，由导演朱锐斌执导，白鹿、张凌赫、王星越、周峻纬、刘些宁、叶晞月、湯夢佳主演的古装剧。2022年5月21日，剧组正式开机，同年9月8日杀青。该剧于2023年11月7日在爱奇艺播出，2023年11月30日大结局；海外则由IQIYI国际版播出。",
-    "image": null,
-    "wiki_title": "宁安如梦",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%AE%81%E5%AE%89%E5%A6%82%E6%A2%A6"
-  },
-  "dir-100": {
-    "name": "香港旅館 - 戀戀時光",
-    "price": "HK$354",
-    "orig": "HK$393",
-    "extract": "《高海拔之戀II》（英語：Romancing In Thin Air）是杜琪峯執導、韋家輝與遊乃海編劇、古天樂、鄭秀文领衔主演的香港愛情電影，香港、中國內地於2012年2月9日情人節檔期同步上映。\n片名中的「II」，杜、韋兩人表示是呼應回片中的戲中戲名字。",
-    "image": null,
-    "wiki_title": "高海拔之戀II",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%AB%98%E6%B5%B7%E6%8B%94%E4%B9%8B%E6%88%80II"
   },
   "dir-101": {
     "name": "香港星網商務精品飯店",
@@ -863,15 +575,6 @@
     "wiki_title": "酒店禮賓部",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%85%92%E5%BA%97%E7%A6%AE%E8%B3%93%E9%83%A8"
   },
-  "dir-105": {
-    "name": "樂意賓館",
-    "price": "HK$174",
-    "orig": "HK$193",
-    "extract": "邓小平（1904年8月22日—1997年2月19日），原名先圣，学名希贤，1927年正式改名为小平，曾用名邓斌，男，四川广安人，是中国共产党和中华人民共和国政治人物，原正国级领导人。在1978年召开的中共十一届三中全会上确立领导地位，成为中华人民共和国第二代最高领导人，以及中国共产党第二代中央领导集体的核心。邓于1977年至1982年间担任中国共产党中央委员会副主席、1981年至1989年间担任中共中央军委主席、1983年至1990年担任国家军委主席，也曾担任过中共中央顾问委员会主任、全国政协主席、国务院副总理等职务。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Deng_Xiaoping_at_the_arrival_ceremony_for_the_Vice_Premier_of_China_%28cropped%29.jpg",
-    "wiki_title": "邓小平",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E9%82%93%E5%B0%8F%E5%B9%B3"
-  },
   "dir-106": {
     "name": "逸林飯店",
     "price": "HK$321",
@@ -899,24 +602,6 @@
     "wiki_title": "香港銅鑼灣皇冠假日酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E9%8A%85%E9%91%BC%E7%81%A3%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97"
   },
-  "dir-110": {
-    "name": "香港麥當勞道貳號飯店",
-    "price": "HK$1,211",
-    "orig": "HK$1,356",
-    "extract": "胡楓，BBS（英語：Bowie Woo Fung，1932年1月18日—），原名胡繼修，故暱稱「修哥」，籍貫廣東廣州白雲區神山鎮大嶺下村，成長於香港，香港男演員、節目主持人，現為無綫電視部頭合約藝員。他1953年考入大成公司，並開始他的電影生涯，第一部作品是《男人心》，也是令他一夜成名的作品，及後與多位當紅女星合作，1960年代後期與蕭芳芳合作過不少歌舞片，舞藝精湛，有「舞王修」之稱。\n胡楓至今在影視圈地位崇高，人緣極佳，90歲時無綫電視為其舉行《人生90好楓Show》，獲得多名影視明星及名人撐場。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/93/Bowie_Woo_Fung%27s_portrait.jpg",
-    "wiki_title": "胡楓",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E8%83%A1%E6%A5%93"
-  },
-  "dir-111": {
-    "name": "香港奶茶旅舍",
-    "price": "HK$183",
-    "orig": "HK$250",
-    "extract": "《溏心風暴3》（英語：Heart and Greed），是香港電視廣播有限公司及中國大陸企鵝影視聯合製作的時裝商戰倫理電視劇，為溏心系列《溏心風暴》及《溏心風暴之家好月圓》另一姊妹作。由黃宗澤、王浩信、李司棋、夏雨、米雪、關菊英、岑麗香及黃翠如領銜主演，並由阮兆祥、李國麟、蔣志光、陳敏之、唐文龍及陳智燊聯合演出，總監製為劉家豪，出品人為孫忠懷及杜之克。\n此劇為2017無綫節目巡禮14部劇集之一、無綫海外業務及簡介2017所推介的17部劇集之一及2017香港國際影視展16部推介劇集之一，此劇為無綫電視50週年台慶跨年大劇，此劇由2017年11月27日首播，直至2018年1月19日播出大結局，席捲2017年12月份直至2018年1月份下半月結束，共有40集，也是2017年最後一部台慶大劇（上一部是《誇世代》）。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/HeartAndGreed.jpg/960px-HeartAndGreed.jpg",
-    "wiki_title": "溏心風暴3",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E6%BA%8F%E5%BF%83%E9%A2%A8%E6%9A%B43"
-  },
   "dir-112": {
     "name": "香港柏寧飯店, 傲途格精選",
     "price": "HK$1,770",
@@ -925,15 +610,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/The_Park_Lane_Hong_Kong.jpg/960px-The_Park_Lane_Hong_Kong.jpg",
     "wiki_title": "柏寧酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E6%9F%8F%E5%AF%A7%E9%85%92%E5%BA%97"
-  },
-  "dir-113": {
-    "name": "杏花小築",
-    "price": "HK$317",
-    "orig": "HK$469",
-    "extract": "柴灣起動（英語：Chai Wan Startup）是香港的一個地區組織及選舉聯盟，成立於2019年，旨在連結2019年區議會選舉位於柴灣、小西灣及杏花邨（簡稱「柴小杏」）的民主派候選人。他們的立場為民主派，支持爭取五大訴求的同時，亦需要做好地區工作，深耕細作。在2019年區選，他們合共派出12人參選，當中包括3人爭取連任，除了兩名本身有黨籍的候選人，其餘10人皆不是來自溫和民主派政黨。",
-    "image": null,
-    "wiki_title": "柴灣起動",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E6%9F%B4%E7%81%A3%E8%B5%B7%E5%8B%95"
   },
   "dir-114": {
     "name": "香港逸豪飯店",
@@ -944,33 +620,6 @@
     "wiki_title": "W飯店",
     "wiki_url": "https://zh.wikipedia.org/wiki/W%E9%A3%AF%E5%BA%97"
   },
-  "dir-115": {
-    "name": "簡宅共享旅舍",
-    "price": "HK$342",
-    "orig": "HK$378",
-    "extract": "孫立人（1900年12月8日—1990年11月19日），字撫民，號仲能，安徽省廬州府舒城縣三河鎮人，中华民国陸軍二級上將。孙立人在清華大學庚子賠款留美預科1923屆毕业后，先后获得美国普渡大學土木工程學士學位、美国維吉尼亞軍校博雅教育學士学位，是抗日戰爭時期少數留美、且不是中華民國陸軍軍官學校出身的軍官。拥有美国留学背景的中華民國財政部部長宋子文賞識留美軍人，因此孫立人的从军历史是從財政部稅警總團特科兵團團長起家。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sun_Li-jen.jpg",
-    "wiki_title": "孫立人",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E5%AD%AB%E7%AB%8B%E4%BA%BA"
-  },
-  "dir-116": {
-    "name": "旺角E1精品賓館(旺角新興大樓)",
-    "price": "HK$326",
-    "orig": "HK$353",
-    "extract": "上海市，简称沪，别称申，是中华人民共和国直轄市，因吴淞江下游原有支流上海浦得名。“沪”，源于晋朝时期当地捕鱼工具“扈”，江流入海处称“渎”，吴淞江下游一带遂称“扈渎”，后改为“沪”。又因属春秋战国时期楚国春申君黄歇的封邑，别名“申”。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Pudong_Shanghai_November_2017_panorama.jpg/960px-Pudong_Shanghai_November_2017_panorama.jpg",
-    "wiki_title": "上海市",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E4%B8%8A%E6%B5%B7%E5%B8%82"
-  },
-  "dir-117": {
-    "name": "銅鑼灣迷你精品飯店",
-    "price": "HK$430",
-    "orig": "HK$578",
-    "extract": "誠品書店是臺灣大型連鎖書店，在臺北市創立。誠品初期以販售藝術人文方面的書籍為主，之後逐步轉型為綜合型書店，同時結合商場經營，並以「人文、藝術、創意、生活」為核心價值，旗下事業體涵蓋百貨零售業、文化藝術創作、展覽活動、旅館與不動產經營等。其英文名稱「eslite」引用自法文古字，代表菁英之意。",
-    "image": null,
-    "wiki_title": "誠品書店",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E8%AA%A0%E5%93%81%E6%9B%B8%E5%BA%97"
-  },
   "dir-118": {
     "name": "香港麗豪飯店",
     "price": "HK$881",
@@ -979,24 +628,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/RenaissanceHotelsNew.svg/960px-RenaissanceHotelsNew.svg.png",
     "wiki_title": "萬麗酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/%E8%90%AC%E9%BA%97%E9%85%92%E5%BA%97"
-  },
-  "dir-119": {
-    "name": "迷你中環",
-    "price": "HK$432",
-    "orig": "HK$600",
-    "extract": "中環站（英語：Central Station）是一個位於香港香港島中西區中環遮打道、畢打街與德輔道中，屬於港鐵荃灣綫與港島綫的鐵路轉乘站，同時也是荃灣綫南行的終點站，車站於1980年2月12日啟用。中環站設有位於付費區內的行人隧道分別連接鄰近商業區及香港站，供乘客轉乘東涌綫或機場快綫，而該隧道位於環球大廈、干諾道中及交易廣場地底。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Central_Station_Island_Line_platforms_2022_06_part3.jpg/960px-Central_Station_Island_Line_platforms_2022_06_part3.jpg",
-    "wiki_title": "中環站",
-    "wiki_url": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E7%92%B0%E7%AB%99"
-  },
-  "dir-120": {
-    "name": "香港寶御飯店",
-    "price": "HK$781",
-    "orig": "HK$1,120",
-    "extract": "ac，前稱香港仔中心商場（英語：Aberdeen Centre Plaza），位於香港香港島香港仔南寧街，是長江實業旗下的商場，位於香港仔中心基座，不少連鎖店的南區分店都設於此處，當中包括同屬和記黃埔的百佳超級廣場、豐澤電器和屈臣氏。商場共分五期。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Aberdeen_Centre_Ac4_Outside_view_201508.jpg/960px-Aberdeen_Centre_Ac4_Outside_view_201508.jpg",
-    "wiki_title": "Ac (商場)",
-    "wiki_url": "https://zh.wikipedia.org/wiki/Ac%20%28%E5%95%86%E5%A0%B4%29"
   },
   "dir-391": {
     "name": "羅曼酒店 41 Cumberland Road",
@@ -1097,24 +728,6 @@
     "wiki_title": "九龍香格里拉酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/九龍香格里拉酒店"
   },
-  "dir-404": {
-    "name": "置地廣塲 The Landmark Mandarin Oriental Hotel",
-    "price": "HK$782",
-    "orig": "HK$954",
-    "extract": "置地廣塲（英語：The Landmark）位於香港中環皇后大道中15號，由香港加拿大籍日裔建築師木下一設計，連接皇后大道中、畢打街與德輔道中，屬於中環商業區心臟地帶。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_Landmark_Atrium_20180929.jpg/960px-The_Landmark_Atrium_20180929.jpg",
-    "wiki_title": "置地廣塲",
-    "wiki_url": "https://zh.wikipedia.org/wiki/置地廣塲"
-  },
-  "dir-407": {
-    "name": "美荷樓 Mei Ho House",
-    "price": "HK$542",
-    "orig": "HK$661",
-    "extract": "美荷樓（英語：Mei Ho House）位於清拆後分期重建的石硤尾邨，1954年建成，是香港最早期、現時碩果僅存的「H」形6層徙置大廈，獲評為二級歷史建築。石硤尾邨舊型大廈重建，第41座美荷樓則獲得保留，耗資2億2千萬港元改建為美荷樓青年旅舍及旗下之美荷樓生活館，於2013年12月開幕。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Shek_Kip_Mei_Estate_2013_part6.JPG/960px-Shek_Kip_Mei_Estate_2013_part6.JPG",
-    "wiki_title": "美荷樓",
-    "wiki_url": "https://zh.wikipedia.org/wiki/美荷樓"
-  },
   "dir-408": {
     "name": "數碼港艾美酒店 Le Méridien Cyberport Hotel",
     "price": "HK$2,280",
@@ -1123,15 +736,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Le_Meridien_Cyberport.jpg",
     "wiki_title": "數碼港艾美酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/數碼港艾美酒店"
-  },
-  "dir-410": {
-    "name": "The Mira Hong Kong The Mira Hong Kong",
-    "price": "HK$3,678",
-    "orig": "HK$5,075",
-    "extract": "The Mira Hong Kong，舊稱美麗華酒店（英語：Miramar Hotel 及 Hotel Miramar Hong Kong），位處於香港九龍尖沙咀彌敦道118至130號，為香港的一間酒店，1957年開幕，共提供492間客房，包括56間套房及8間特色套房。建築師為朱彬。酒店由美麗華酒店企業管理。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/The_Mira.jpg/960px-The_Mira.jpg",
-    "wiki_title": "The Mira Hong Kong",
-    "wiki_url": "https://zh.wikipedia.org/wiki/The Mira Hong Kong"
   },
   "dir-411": {
     "name": "香港夢卓恩酒店 Mondrian Hong Kong",
@@ -1204,15 +808,6 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/China_Resources_Building_201904.jpg/960px-China_Resources_Building_201904.jpg",
     "wiki_title": "香港瑞吉酒店",
     "wiki_url": "https://zh.wikipedia.org/wiki/香港瑞吉酒店"
-  },
-  "dir-420": {
-    "name": "奕居 Upper House Hong Kong",
-    "price": "HK$3,453",
-    "orig": "HK$3,901",
-    "extract": "香港居舍（英語：The Upper House Hong Kong）（原名：奕居（英語：The Upper House））位處香港金钟道88号，座落於太古廣場香港JW萬豪酒店大樓38樓至49樓，酒店一共有10層，設117間客房，2009年10月開幕，是太古集團經營的五星級酒店，2011年獲Preferred Hotels & Resorts頒授「年度最佳酒店」大奬，亦是2012年Trip Advisor「旅行者之選獎」得主。由著名香港設計師傅厚民（Andre Fu）設計。\n酒店經營風格以設計獨特見稱，積極與各類創意單位（特別是時裝界）合作，舉辦論壇等活動。",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Upper_House_Void_202010.jpg/960px-The_Upper_House_Void_202010.jpg",
-    "wiki_title": "奕居",
-    "wiki_url": "https://zh.wikipedia.org/wiki/奕居"
   },
   "dir-421": {
     "name": "香港希爾頓酒店 Hong Kong Hilton",
