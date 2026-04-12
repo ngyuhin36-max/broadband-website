@@ -1,0 +1,64 @@
+dir-505 22.5441 113.9251  Home Inn Plus
+dir-703 22.5441 114.1272  联城酒店
+dir-663 22.5439 114.0775  格兰云天大酒店
+dir-514 22.5438 114.0711 花园格兰云天大酒店 Grand Skylight Garden Hotel
+dir-688 22.5434 113.9890 玺程設計酒店 XW Hotel
+dir-750 22.5432 113.9809 燕晗山酒店 Yanhanshan Hotel
+dir-438 22.5427 114.0826 莫泰 7 Days Inn
+dir-686 22.5426 114.1124  海燕大酒店
+dir-481 22.5426 114.1177  Sunshine Hotel
+dir-678 22.5425 114.0825  Maker Hotel
+dir-511 22.5419 114.1006 京基晶都酒店 Kinkey Oriental Regent Hotel
+dir-699 22.5418 113.9615 格蘭雲天·閱酒店 Rich Hotel - Jinhui Jasper Hotel
+dir-537 22.5418 114.1214  兰欧酒店
+dir-506 22.5412 114.1235  Huizhou Hotel
+dir-474 22.5405 114.0787  GDH Inn
+dir-500 22.5392 113.9631  八号连锁酒店
+dir-512 22.5387 114.0898  Capsule hotel
+dir-632 22.5385 114.1128  Century Plaza Hotel/ Velaye Hotel
+dir-520 22.5380 114.0637  希岸酒店
+dir-665 22.5376 114.1142  京湖时尚酒店
+dir-708 22.5372 113.9817  城市客栈酒店
+dir-768 22.5370 113.9175 圣淘沙酒店 (翡翠店) Sentosa Hotel, Feicui
+dir-515 22.5363 113.9223 圣淘沙酒店 (桃园店) Sentosa Hotel, Taoyuan
+dir-595 22.5362 113.9206  新桃园酒店
+dir-597 22.5349 113.9252 南航富豪城大酒店 Southern Rich Town Hotel
+dir-473 22.5340 114.0589 皇庭V酒店 Wongtee V Hotel
+dir-764 22.5335 113.8934  玺悦文蘭酒店
+dir-536 22.5321 114.0166 亚朵X酒店 Atour X Hotel
+dir-467 22.5314 114.1109  深港休闲中心
+dir-518 22.5306 114.0725  U-Home
+dir-469 22.5305 114.1114  Yuewan Business Hotel
+dir-492 22.5294 113.9230 兰兹酒店 Ranz hotel
+dir-522 22.5279 113.9235 新年酒店 New Year Hotel
+dir-499 22.5277 113.9875 蓝汐精品酒店 Bay Breeze Boutique Hotel
+dir-527 22.5270 114.0599  Yuenanguo Hotel
+dir-528 22.5270 114.0599 秋果酒店 True Go Hotel
+dir-517 22.5264 114.0585 全季酒店 Ji Hotel
+dir-526 22.5256 114.0575  福深达公寓
+dir-816 22.5246 113.9230 亞朵酒店（南光路店） Atour Hotel (Nanguang Road)
+dir-698 22.5241 113.9807 蓝楹湾度假酒店 Bay Breeze Resort
+dir-452 22.5210 113.9325 新桃园酒店 Grand View Hotel
+dir-709 22.5207 114.0591 水都酒店 水都酒店
+dir-818 22.5185 113.9110 時光電競酒店 Time E-Sports Hotel
+dir-817 22.5182 113.9102 弘都酒店（前海店） Hongdu Hotel (Qianhai)
+dir-503 22.5132 113.9150  Residence G
+dir-544 22.5112 113.9195 鉑爾登酒店 Platinum Hotel
+dir-547 22.5069 113.9149 蘇艾酒店 Suai Hotel
+dir-811 22.5062 113.9154 蛇口亚朵酒店 Atour Hotel (Shekou)
+dir-483 22.5037 114.1274 上水酒店 Sheung Shui Hotel
+dir-509 22.5025 113.8966  青青世界酒店
+dir-810 22.4912 113.9324 奥城花园酒店 Ocean City Hotel
+dir-820 22.4908 113.9304 凱里亞德酒店 Kyriad Hotel
+dir-821 22.4904 113.9307 麗楓酒店 Lavande Hotel
+dir-510 22.4898 113.9194  maylee hotel
+dir-448 22.4893 113.9107 漢庭酒店 Hantings Ins & Hotel
+dir-539 22.4869 113.9087  Kyushu Jocheng Hotel
+dir-621 22.4867 113.9092 太子賓館 Taizi Hotel
+dir-538 22.4866 113.9244  H Life Hotel
+dir-496 22.4864 113.9120 鴻隆明華輪酒店 Cruise Inn
+dir-540 22.4864 113.9084  Movietel
+dir-487 22.4826 113.9085  Crystal Garden
+dir-476 22.4822 113.9092  Mailley 
+dir-545 22.4718 113.9087  K11 CitiGO欢阁酒店
+dir-766 22.4648 114.0030 悦品天秀酒店‧元朗 Hotel COZi Wetland
