@@ -1,0 +1,3982 @@
+[
+  {
+    "name_en": "7 Days Inn",
+    "name_zh": "莫泰",
+    "lat": 22.5426736,
+    "lng": 114.0826363,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Junyuan Hotel",
+    "name_zh": null,
+    "lat": 22.5538994,
+    "lng": 114.1255293,
+    "address": "",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Home Inn",
+    "name_zh": "如家酒店",
+    "lat": 22.5556866,
+    "lng": 114.1235113,
+    "address": "",
+    "website": null,
+    "stars": "3",
+    "phone": null
+  },
+  {
+    "name_en": "Mingdu Hotel",
+    "name_zh": "名都酒店",
+    "lat": 22.5550738,
+    "lng": 114.1240955,
+    "address": "",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Island Shangri-La, Hong Kong",
+    "name_zh": "港島香格里拉大酒店",
+    "lat": 22.2772027,
+    "lng": 114.164467,
+    "address": "",
+    "website": null,
+    "stars": "5",
+    "phone": null
+  },
+  {
+    "name_en": "The Headland",
+    "name_zh": "逸泰居",
+    "lat": 22.2972056,
+    "lng": 113.9338322,
+    "address": "觀景路 Scenic Road",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Cosco Hotel",
+    "name_zh": "中遠酒店",
+    "lat": 22.2857331,
+    "lng": 114.1320741,
+    "address": "堅彌地城海旁 Praya, Kennedy Town",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Largos Hotel Hong Kong",
+    "name_zh": null,
+    "lat": 22.3060236,
+    "lng": 114.1723148,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Kwok Yan Hotel",
+    "name_zh": "國恩賓館",
+    "lat": 22.317991,
+    "lng": 114.171851,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hyatt Regency Hong Kong, Tsim Sha Tsui",
+    "name_zh": "香港尖沙咀凱悅酒店",
+    "lat": 22.2975168,
+    "lng": 114.1738437,
+    "address": "",
+    "website": "https://hongkong.tsimshatsui.hyatt.com/hyatt/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hantings Ins & Hotel",
+    "name_zh": "漢庭酒店",
+    "lat": 22.4893424,
+    "lng": 113.9106914,
+    "address": "",
+    "website": "https://www.huazhu.com/hanting",
+    "stars": null,
+    "phone": "+86 755 2680 1166"
+  },
+  {
+    "name_en": "Luk Kwok Hotel",
+    "name_zh": "六國酒店",
+    "lat": 22.2789029,
+    "lng": 114.1722694,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Landmark Mandarin Oriental Hong Kong",
+    "name_zh": "香港置地文華東方酒店",
+    "lat": 22.2808167,
+    "lng": 114.157722,
+    "address": "皇后大道中 Queen's Road Central 15",
+    "website": "https://www.mandarinoriental.com/en/hong-kong/the-landmark",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Bauhinia Hotel",
+    "name_zh": "寶軒酒店",
+    "lat": 22.28678,
+    "lng": 114.1525,
+    "address": "干諾道中 Connaught Road Central 119-121",
+    "website": "https://www.thebauhinia.com.hk/eng/our-hotels/central/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Grand View Hotel",
+    "name_zh": "新桃园酒店",
+    "lat": 22.5209817,
+    "lng": 113.932526,
+    "address": "",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "7 Days Inn",
+    "name_zh": "七天連鎖酒店",
+    "lat": 22.5298693,
+    "lng": 113.9238403,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Y-Loft",
+    "name_zh": "Y旅舍",
+    "lat": 22.2628199,
+    "lng": 114.2368302,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Crystal Hostel",
+    "name_zh": null,
+    "lat": 22.2962077,
+    "lng": 114.1730585,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Everest Hostel",
+    "name_zh": null,
+    "lat": 22.296246,
+    "lng": 114.1732501,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hostel HK Group",
+    "name_zh": null,
+    "lat": 22.2962187,
+    "lng": 114.1730572,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel Skylark",
+    "name_zh": null,
+    "lat": 22.2962116,
+    "lng": 114.1732532,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Unique Hotel",
+    "name_zh": null,
+    "lat": 22.2962624,
+    "lng": 114.1730539,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Dragon Inn Hotel",
+    "name_zh": null,
+    "lat": 22.296587,
+    "lng": 114.1728001,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "United Co-operate Hotel (10/F)",
+    "name_zh": null,
+    "lat": 22.2965649,
+    "lng": 114.1728819,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "United Co-operate Hotel (5/F)",
+    "name_zh": null,
+    "lat": 22.2965259,
+    "lng": 114.1728048,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Golden Ocean Hotel",
+    "name_zh": null,
+    "lat": 22.2964649,
+    "lng": 114.1730993,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Safari Hotel (5/F)",
+    "name_zh": null,
+    "lat": 22.2965566,
+    "lng": 114.1730961,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Safari Hotel (7/F)",
+    "name_zh": null,
+    "lat": 22.2964849,
+    "lng": 114.1730986,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "仙之湖酒店",
+    "name_zh": null,
+    "lat": 22.5500654,
+    "lng": 114.1424925,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "L'Hermitage",
+    "name_zh": "兰赫美特酒店",
+    "lat": 22.5456268,
+    "lng": 113.9263734,
+    "address": "Nanhai Avenue 3031",
+    "website": "http://www.lhermitageshenzhen.com/",
+    "stars": null,
+    "phone": "+86 755 8637 8888"
+  },
+  {
+    "name_en": "7 Days Inn",
+    "name_zh": "7天酒店",
+    "lat": 22.5500579,
+    "lng": 114.0883692,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "深港休闲中心",
+    "name_zh": null,
+    "lat": 22.5314461,
+    "lng": 114.110877,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "华侨酒店",
+    "name_zh": null,
+    "lat": 22.5315002,
+    "lng": 114.1111389,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Yuewan Business Hotel",
+    "name_zh": null,
+    "lat": 22.530539,
+    "lng": 114.1113644,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Caritas Oswald Cheung International House",
+    "name_zh": "明愛張奧偉國際賓館",
+    "lat": 22.2495307,
+    "lng": 114.1497162,
+    "address": "Tin Wan Street 20",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "JJ Hotel",
+    "name_zh": null,
+    "lat": 22.2769861,
+    "lng": 114.1770789,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "香梅酒店",
+    "name_zh": null,
+    "lat": 22.558024,
+    "lng": 114.0310746,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Wongtee V Hotel",
+    "name_zh": "皇庭V酒店",
+    "lat": 22.5340367,
+    "lng": 114.0588939,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "GDH Inn",
+    "name_zh": null,
+    "lat": 22.540452,
+    "lng": 114.0786532,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Apple Hotel",
+    "name_zh": null,
+    "lat": 22.2781807,
+    "lng": 114.184121,
+    "address": "利園山道 Lee Garden Road",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Mailley ",
+    "name_zh": null,
+    "lat": 22.482183,
+    "lng": 113.9092003,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel LBP",
+    "name_zh": null,
+    "lat": 22.2864024,
+    "lng": 114.1471442,
+    "address": "皇后大道西 Queen's Road West 77-91",
+    "website": "hotellbp.com.hk",
+    "stars": null,
+    "phone": "+85226819388"
+  },
+  {
+    "name_en": "Hi Inn",
+    "name_zh": null,
+    "lat": 22.5530017,
+    "lng": 114.1044999,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Metro Winner Hotel",
+    "name_zh": "凱都酒店",
+    "lat": 22.3110083,
+    "lng": 114.1713169,
+    "address": "Nathan Road 476",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Heaven Inn GH",
+    "name_zh": null,
+    "lat": 22.3061586,
+    "lng": 114.1703169,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Sunshine Hotel",
+    "name_zh": null,
+    "lat": 22.542591,
+    "lng": 114.1177351,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The T-hotel",
+    "name_zh": null,
+    "lat": 22.2599871,
+    "lng": 114.1356996,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Sheung Shui Hotel",
+    "name_zh": "上水酒店",
+    "lat": 22.50369,
+    "lng": 114.12739,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Park Lane Hotel",
+    "name_zh": "柏寧酒店",
+    "lat": 22.2812255,
+    "lng": 114.1863914,
+    "address": "告士打道 Gloucester Road 310",
+    "website": "https://www.parklane.com.hk",
+    "stars": null,
+    "phone": "+852 2293 8888"
+  },
+  {
+    "name_en": "Hankow Hotel",
+    "name_zh": "漢口酒店",
+    "lat": 22.31928,
+    "lng": 114.17251,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Cameron Roa 19-21",
+    "name_zh": null,
+    "lat": 22.2991336,
+    "lng": 114.1740697,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Crystal Garden",
+    "name_zh": null,
+    "lat": 22.4826378,
+    "lng": 113.9085384,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Butterfly on Morrison",
+    "name_zh": null,
+    "lat": 22.2767452,
+    "lng": 114.1804982,
+    "address": "摩理臣山道 Morrison Hill Road",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Black Swan Hotel",
+    "name_zh": null,
+    "lat": 22.3198678,
+    "lng": 114.1712314,
+    "address": "亞皆老街 Argyle Street",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Armenia Hotel",
+    "name_zh": null,
+    "lat": 22.3179316,
+    "lng": 114.1713292,
+    "address": "花園街 Fa Yuen Street",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "IU Hotel",
+    "name_zh": "IU酒店",
+    "lat": 22.5470492,
+    "lng": 113.924344,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ranz hotel",
+    "name_zh": "兰兹酒店",
+    "lat": 22.5293717,
+    "lng": 113.9229836,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Concerto Inn",
+    "name_zh": "浪濤軒酒店",
+    "lat": 22.2192605,
+    "lng": 114.1192557,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "colors",
+    "name_zh": null,
+    "lat": 22.5515755,
+    "lng": 114.1152161,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "美豪酒店 (大剧场店)",
+    "name_zh": null,
+    "lat": 22.5461654,
+    "lng": 114.1064059,
+    "address": "宝安南路",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Cruise Inn",
+    "name_zh": "鴻隆明華輪酒店",
+    "lat": 22.4864306,
+    "lng": 113.9120028,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Comfort Living  Inn",
+    "name_zh": null,
+    "lat": 22.3389025,
+    "lng": 114.1563368,
+    "address": "順寧道 Shun Ning Road 483",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "8 Days Boutiques Hotel",
+    "name_zh": null,
+    "lat": 22.3219064,
+    "lng": 114.1686652,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Bay Breeze Boutique Hotel",
+    "name_zh": "蓝汐精品酒店",
+    "lat": 22.5277047,
+    "lng": 113.9875356,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "八号连锁酒店",
+    "name_zh": null,
+    "lat": 22.5391762,
+    "lng": 113.9631368,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "RANZ Hotel",
+    "name_zh": null,
+    "lat": 22.5398768,
+    "lng": 113.9622196,
+    "address": "深南大道 9039",
+    "website": "http://www.ranzhotel.com",
+    "stars": null,
+    "phone": "+86 188 2375 8615"
+  },
+  {
+    "name_en": "Fraser Suites",
+    "name_zh": null,
+    "lat": 22.5465594,
+    "lng": 114.0771003,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Langshan Hotel",
+    "name_zh": "朗山酒店",
+    "lat": 22.5594355,
+    "lng": 113.9459532,
+    "address": "朗山路",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Residence G",
+    "name_zh": null,
+    "lat": 22.513241,
+    "lng": 113.9150356,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "大埔賓館 Tai Po Villa",
+    "name_zh": null,
+    "lat": 22.4494649,
+    "lng": 114.1657349,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Home Inn Plus",
+    "name_zh": null,
+    "lat": 22.5441387,
+    "lng": 113.9250545,
+    "address": "深南大道 10118",
+    "website": null,
+    "stars": null,
+    "phone": "+86 755 3685 5866"
+  },
+  {
+    "name_en": "Huizhou Hotel",
+    "name_zh": null,
+    "lat": 22.5412026,
+    "lng": 114.1235246,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Noah's Ark Hotel and Resort",
+    "name_zh": "挪亞方舟度假酒店",
+    "lat": 22.348115,
+    "lng": 114.0614597,
+    "address": "",
+    "website": "https://www.noahsarkhotel.com.hk/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "四川宾馆",
+    "name_zh": null,
+    "lat": 22.5513825,
+    "lng": 114.0900587,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "青青世界酒店",
+    "name_zh": null,
+    "lat": 22.5025031,
+    "lng": 113.8966033,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "maylee hotel",
+    "name_zh": null,
+    "lat": 22.4897972,
+    "lng": 113.9193823,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Kinkey Oriental Regent Hotel",
+    "name_zh": "京基晶都酒店",
+    "lat": 22.5418704,
+    "lng": 114.1005542,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Capsule hotel",
+    "name_zh": null,
+    "lat": 22.5386825,
+    "lng": 114.0897854,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "雅枫国际酒店",
+    "name_zh": null,
+    "lat": 22.5540062,
+    "lng": 114.0400984,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Grand Skylight Garden Hotel",
+    "name_zh": "花园格兰云天大酒店",
+    "lat": 22.5438191,
+    "lng": 114.0711436,
+    "address": "",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Sentosa Hotel, Taoyuan",
+    "name_zh": "圣淘沙酒店 (桃园店)",
+    "lat": 22.5362836,
+    "lng": 113.922271,
+    "address": "",
+    "website": "http://taoyuan.sentosahotelshenzhen.com",
+    "stars": null,
+    "phone": "+86 075526039888"
+  },
+  {
+    "name_en": "Harbourfront Horizon All-Suite",
+    "name_zh": "海灣軒海景酒店",
+    "lat": 22.3002646,
+    "lng": 114.1849665,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ji Hotel",
+    "name_zh": "全季酒店",
+    "lat": 22.5263991,
+    "lng": 114.0585309,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "U-Home",
+    "name_zh": null,
+    "lat": 22.5306402,
+    "lng": 114.0724666,
+    "address": "福田南路 38号广银大厦7楼",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "尚美水晶酒店",
+    "name_zh": null,
+    "lat": 22.5464103,
+    "lng": 113.9537716,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "希岸酒店",
+    "name_zh": null,
+    "lat": 22.5379748,
+    "lng": 114.0637405,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Shanshui Trends Hotel",
+    "name_zh": "山水时尚酒店",
+    "lat": 22.5467367,
+    "lng": 114.0838454,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "New Year Hotel",
+    "name_zh": "新年酒店",
+    "lat": 22.5279322,
+    "lng": 113.9235226,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Figo",
+    "name_zh": "翡格酒店",
+    "lat": 22.2866276,
+    "lng": 114.1471612,
+    "address": "荷李活道 Hollywood Road 77-91",
+    "website": null,
+    "stars": "3.5",
+    "phone": null
+  },
+  {
+    "name_en": "Homy Inn North Point",
+    "name_zh": null,
+    "lat": 22.2908591,
+    "lng": 114.1981571,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Asia Travel House",
+    "name_zh": null,
+    "lat": 22.3086825,
+    "lng": 114.1711226,
+    "address": "385 Nathan Road Flat 12A, 5/F",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "福深达公寓",
+    "name_zh": null,
+    "lat": 22.525615,
+    "lng": 114.0575169,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Yuenanguo Hotel",
+    "name_zh": null,
+    "lat": 22.5269847,
+    "lng": 114.0598612,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "True Go Hotel",
+    "name_zh": "秋果酒店",
+    "lat": 22.5269706,
+    "lng": 114.0599354,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hampton",
+    "name_zh": null,
+    "lat": 22.5456242,
+    "lng": 114.1184796,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "柏槿酒店",
+    "name_zh": null,
+    "lat": 22.5463929,
+    "lng": 114.1200026,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Soravit on Granville",
+    "name_zh": "瑞生嘉威酒店",
+    "lat": 22.3001361,
+    "lng": 114.1740905,
+    "address": "加連威老道 Granville Road 29A",
+    "website": "https://www.soravitgranville.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "attitude on granville",
+    "name_zh": "瑞生尖沙咀酒店",
+    "lat": 22.299766,
+    "lng": 114.173718,
+    "address": "加連威老道 Granville Road 20",
+    "website": "https://www.attitudegranville.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel Hart",
+    "name_zh": "客舍",
+    "lat": 22.2979582,
+    "lng": 114.1746854,
+    "address": "赫德道 Hart Avenue 4",
+    "website": "https://hotelhart.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Arca",
+    "name_zh": "雅格酒店",
+    "lat": 22.2477986,
+    "lng": 114.1627178,
+    "address": "香葉道 Heung Yip Road 43",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Kew Green Hotel Wanchai",
+    "name_zh": "香港灣仔睿景酒店",
+    "lat": 22.2778189,
+    "lng": 114.1705733,
+    "address": "",
+    "website": "http://www.kewgreenwanchai.com/",
+    "stars": "4",
+    "phone": "+852 2861 1166"
+  },
+  {
+    "name_en": "Atour X Hotel",
+    "name_zh": "亚朵X酒店",
+    "lat": 22.5321468,
+    "lng": 114.0166407,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "兰欧酒店",
+    "name_zh": null,
+    "lat": 22.5417794,
+    "lng": 114.121408,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "H Life Hotel",
+    "name_zh": null,
+    "lat": 22.4865539,
+    "lng": 113.9243561,
+    "address": "望海路 1049",
+    "website": null,
+    "stars": null,
+    "phone": "+8675526622599"
+  },
+  {
+    "name_en": "Kyushu Jocheng Hotel",
+    "name_zh": null,
+    "lat": 22.4869436,
+    "lng": 113.9087442,
+    "address": "",
+    "website": "http://www.joychenghotel.cn",
+    "stars": null,
+    "phone": "+86 075526849999"
+  },
+  {
+    "name_en": "Movietel",
+    "name_zh": null,
+    "lat": 22.4863563,
+    "lng": 113.9083811,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Colour Inn",
+    "name_zh": null,
+    "lat": 22.5510786,
+    "lng": 114.1150028,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": "+864008868589"
+  },
+  {
+    "name_en": "Bakatun Boutique Hotel",
+    "name_zh": null,
+    "lat": 22.5510951,
+    "lng": 114.1149477,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "BnB Mongkok",
+    "name_zh": null,
+    "lat": 22.3219326,
+    "lng": 114.1685164,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Platinum Hotel",
+    "name_zh": "鉑爾登酒店",
+    "lat": 22.5111728,
+    "lng": 113.9194845,
+    "address": "南海大道 2061",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "K11 CitiGO欢阁酒店",
+    "name_zh": null,
+    "lat": 22.4717517,
+    "lng": 113.9086518,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "CitiGo RESERVE欢阁臻选酒店",
+    "name_zh": null,
+    "lat": 22.5529815,
+    "lng": 113.8828766,
+    "address": "兴华一路 19",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Suai Hotel",
+    "name_zh": "蘇艾酒店",
+    "lat": 22.5069421,
+    "lng": 113.9148894,
+    "address": "兴工路 65",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "迪雅酒店",
+    "name_zh": "迪雅酒店",
+    "lat": 22.5581915,
+    "lng": 113.8742858,
+    "address": "宝源南路",
+    "website": null,
+    "stars": null,
+    "phone": "+86 0755 8375 7888"
+  },
+  {
+    "name_en": "Woody House",
+    "name_zh": null,
+    "lat": 22.2736201,
+    "lng": 114.1744397,
+    "address": "慶雲街 Hing Wan Street 19",
+    "website": "http://woodyhouse.hk",
+    "stars": null,
+    "phone": "3709 2308"
+  },
+  {
+    "name_en": "Shama Hub Metro South Hong Kong",
+    "name_zh": null,
+    "lat": 22.2489023,
+    "lng": 114.1664985,
+    "address": "黃竹坑道 Wong Chuk Hang Road 41-43",
+    "website": "https://www.shama.com/hub-metrosouth",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Atour X Hotel",
+    "name_zh": null,
+    "lat": 22.5322537,
+    "lng": 114.0655094,
+    "address": "滨河大道",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Tempo Inn",
+    "name_zh": null,
+    "lat": 22.306098,
+    "lng": 114.1702526,
+    "address": "吳松街 Woosung Street 93-103",
+    "website": "http://tempoinn.com",
+    "stars": null,
+    "phone": "6212 4550"
+  },
+  {
+    "name_en": "麗晶賓館",
+    "name_zh": null,
+    "lat": 22.3176062,
+    "lng": 114.1707531,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Metropark Hotel Mongkok",
+    "name_zh": "旺角維景酒店",
+    "lat": 22.3233792,
+    "lng": 114.16749,
+    "address": "荔枝角道 Lai Chi Kok Road 22",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Silvermine Beach Resort",
+    "name_zh": "銀鑛灣渡假酒店",
+    "lat": 22.2680956,
+    "lng": 113.9977685,
+    "address": "",
+    "website": null,
+    "stars": "3",
+    "phone": null
+  },
+  {
+    "name_en": "Hong Kong SkyCity Marriott Hotel",
+    "name_zh": "香港天際萬豪酒店",
+    "lat": 22.3191313,
+    "lng": 113.9436157,
+    "address": "航天城東路 Sky City Road East 1",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "New World Millennium Hong Kong Hotel",
+    "name_zh": "千禧新世界香港酒店",
+    "lat": 22.2994628,
+    "lng": 114.1796851,
+    "address": "麼地道 Mody Road 72",
+    "website": "https://www.newworldmillenniumhotel.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Regal Kowloon Hotel",
+    "name_zh": "富豪九龍酒店",
+    "lat": 22.2989293,
+    "lng": 114.1779371,
+    "address": "Mody Road 71",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "The Murray, Hong Kong, A Niccolo Hotel",
+    "name_zh": "美利尼依格羅酒店",
+    "lat": 22.278068,
+    "lng": 114.1601218,
+    "address": "花園道 Garden Road 22",
+    "website": "https://www.marcopolohotels.com/ch/niccolo/hotels/hongkong/central/the_murray/index.html",
+    "stars": "5",
+    "phone": "+852 3141 8888"
+  },
+  {
+    "name_en": "Novotel Citygate Hong Kong Hotel",
+    "name_zh": "香港諾富特東薈城酒店",
+    "lat": 22.2911884,
+    "lng": 113.9422141,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Gold Coast Hotel",
+    "name_zh": "黃金海岸酒店",
+    "lat": 22.3718121,
+    "lng": 113.9896609,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Renaissance Hong Kong Harbour View Hotel",
+    "name_zh": "萬麗海景酒店",
+    "lat": 22.2813933,
+    "lng": 114.1736146,
+    "address": "",
+    "website": null,
+    "stars": "5",
+    "phone": null
+  },
+  {
+    "name_en": "Regal Oriental Hotel",
+    "name_zh": "富豪東方酒店",
+    "lat": 22.3299045,
+    "lng": 114.1930116,
+    "address": "沙浦道 Sa Po Road 30-38",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Harbour Plaza 8 Degrees",
+    "name_zh": "8度海逸酒店",
+    "lat": 22.3229288,
+    "lng": 114.1906937,
+    "address": "",
+    "website": "https://www.harbour-plaza.com/8degrees/en/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Royal Garden Kowloon East",
+    "name_zh": "九龍東帝苑酒店",
+    "lat": 22.308515,
+    "lng": 114.2599209,
+    "address": "",
+    "website": "https://rgke.com.hk/",
+    "stars": "5",
+    "phone": null
+  },
+  {
+    "name_en": "Vega Suites",
+    "name_zh": "星峰薈",
+    "lat": 22.3082625,
+    "lng": 114.2591816,
+    "address": "",
+    "website": null,
+    "stars": "3",
+    "phone": null
+  },
+  {
+    "name_en": "Four Seasons Hotel",
+    "name_zh": "四季酒店",
+    "lat": 22.2866239,
+    "lng": 114.1566313,
+    "address": "金融街 Finance Street 8",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Oasis Aurum 181",
+    "name_zh": null,
+    "lat": 22.2873592,
+    "lng": 114.1367647,
+    "address": "干諾道西 Connaught Road West 181",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Harbour Grand Kowloon",
+    "name_zh": "九龍海逸君綽酒店",
+    "lat": 22.3026509,
+    "lng": 114.1923584,
+    "address": "德豐街 Tak Fung Street 20",
+    "website": "www.harbourgrand.com/kowloon/tc/",
+    "stars": null,
+    "phone": "+852 2621 3188"
+  },
+  {
+    "name_en": "Metropark Hotel Hung Hom",
+    "name_zh": "紅磡維景酒店",
+    "lat": 22.3047694,
+    "lng": 114.1830259,
+    "address": "暢通道 Cheong Tung Road 1",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Gateway, Hong Kong",
+    "name_zh": "香港港威酒店",
+    "lat": 22.297757,
+    "lng": 114.1685222,
+    "address": "廣東道 Canton Road 13",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Prince Hotel, Hong Kong",
+    "name_zh": "香港太子酒店",
+    "lat": 22.2990923,
+    "lng": 114.1682268,
+    "address": "廣東道 Canton Road 23",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Salisbury",
+    "name_zh": "港青酒店",
+    "lat": 22.2951102,
+    "lng": 114.1710068,
+    "address": "梳士巴利道 Salisbury Road 41",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Warwick Hotel",
+    "name_zh": "華威酒店",
+    "lat": 22.207788,
+    "lng": 114.0323277,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Regal Riverside Hotel",
+    "name_zh": "麗豪酒店",
+    "lat": 22.3823222,
+    "lng": 114.1964807,
+    "address": "Tai Chung Kiu Road 34-36",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Langham Hong Kong",
+    "name_zh": "香港朗廷酒店",
+    "lat": 22.2964968,
+    "lng": 114.1697855,
+    "address": "北京道 Peking Road 8",
+    "website": null,
+    "stars": "5",
+    "phone": null
+  },
+  {
+    "name_en": "Tai O Heritage Hotel",
+    "name_zh": "大澳文物酒店",
+    "lat": 22.2533232,
+    "lng": 113.8536199,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Grand Bay View Hotel & Resort",
+    "name_zh": "華麗海灣酒店",
+    "lat": 22.3676838,
+    "lng": 114.0921408,
+    "address": "青山公路 – 汀九段 Castle Peak Road - Ting Kau 123",
+    "website": "https://www.grandbayview.com",
+    "stars": null,
+    "phone": "+852 29451111"
+  },
+  {
+    "name_en": "Camlux Hotel",
+    "name_zh": "君立酒店",
+    "lat": 22.3237719,
+    "lng": 114.2057569,
+    "address": "Wang Kee Street 3",
+    "website": "https://www.camluxhotel.com",
+    "stars": null,
+    "phone": "+852 25932828"
+  },
+  {
+    "name_en": "Harbour Plaza Metropolis",
+    "name_zh": "都會海逸酒店",
+    "lat": 22.3014728,
+    "lng": 114.1834832,
+    "address": "都會道 Metropolis Drive 7",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hyatt Regency Hong Kong, Sha Tin",
+    "name_zh": "香港沙田凱悅酒店",
+    "lat": 22.4112132,
+    "lng": 114.2112126,
+    "address": "澤祥街 Chak Cheung Street 18",
+    "website": "https://www.hyatt.com/en-US/hotel/china/hyatt-regency-hong-kong-sha-tin/shahr",
+    "stars": null,
+    "phone": "+852 3723 1234"
+  },
+  {
+    "name_en": "Regal Hong Kong Hotel",
+    "name_zh": "富豪香港酒店",
+    "lat": 22.2791504,
+    "lng": 114.1868457,
+    "address": "Yee Wo Street 88",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Crowne Plaza Hong Kong Causeway Bay",
+    "name_zh": "香港銅鑼灣皇冠假日酒店",
+    "lat": 22.2769348,
+    "lng": 114.1826603,
+    "address": "Leighton Road 8",
+    "website": "https://www.cphongkong.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Concord Hotel",
+    "name_zh": "嘉融酒店",
+    "lat": 22.2819918,
+    "lng": 114.1267795,
+    "address": "Davis Street 18",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Motto by Hilton Hong Kong SoHo",
+    "name_zh": "香港蘇豪希爾頓摩庭酒店",
+    "lat": 22.2853789,
+    "lng": 114.1509072,
+    "address": "蘇杭街 Jervois Street 83",
+    "website": "https://www.hilton.com/en/hotels/hkguaua-motto-hong-kong-soho/",
+    "stars": null,
+    "phone": "+852 3417 8888"
+  },
+  {
+    "name_en": "Bishop Lei International House",
+    "name_zh": "宏基國際賓館",
+    "lat": 22.2786355,
+    "lng": 114.1533913,
+    "address": "羅便臣道 Robinson Road 4",
+    "website": "https://www.bishopleihtl.com.hk/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel COZi ∙ Harbour View",
+    "name_zh": "悦品海景酒店‧觀塘",
+    "lat": 22.3121532,
+    "lng": 114.219686,
+    "address": "Wai Yip Street 163",
+    "website": "https://www.hotelcozi.com/harbourview",
+    "stars": null,
+    "phone": "+852 3766 8668"
+  },
+  {
+    "name_en": "Dorsett Kwun Tong",
+    "name_zh": "觀塘帝盛酒店",
+    "lat": 22.3079663,
+    "lng": 114.2241936,
+    "address": "Hung To Road 84",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Causeway Corner",
+    "name_zh": "銅鑼閣",
+    "lat": 22.2808386,
+    "lng": 114.1824801,
+    "address": "Percival Street 18",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hyatt Centric Victoria Harbour",
+    "name_zh": "香港維港凱悅尚萃酒店",
+    "lat": 22.2927587,
+    "lng": 114.1992899,
+    "address": "北角邨里 North Point Estate Lane 1",
+    "website": "https://www.hotelvic.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ibis Hong Kong North Point Hotel",
+    "name_zh": "宜必思香港北角酒店",
+    "lat": 22.2922471,
+    "lng": 114.2007478,
+    "address": "渣華道 Java Road 138",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Royal Pacific Hotel & Towers",
+    "name_zh": "皇家太平洋酒店",
+    "lat": 22.2998962,
+    "lng": 114.167647,
+    "address": "廣東道 Canton Road 33",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Stanley Oriental Hotel",
+    "name_zh": "赤柱東方酒店",
+    "lat": 22.2187856,
+    "lng": 114.2110583,
+    "address": "赤柱大街 Stanley Main Street 90B",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Royal Garden",
+    "name_zh": "帝苑酒店",
+    "lat": 22.2984915,
+    "lng": 114.177615,
+    "address": "麼地道 Mody Road 69",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Kowloon Shangri-La Hotel",
+    "name_zh": "九龍香格里拉大酒店",
+    "lat": 22.2970294,
+    "lng": 114.1770233,
+    "address": "麼地道 Mody Road 64",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "新桃园酒店",
+    "name_zh": null,
+    "lat": 22.5362403,
+    "lng": 113.9205808,
+    "address": "桃园路 10号",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Holiday Inn Golden Mile Hong Kong",
+    "name_zh": "香港金域假日酒店",
+    "lat": 22.296817,
+    "lng": 114.1728089,
+    "address": "彌敦道 Nathan Road 50",
+    "website": "https://www.ihg.com/holidayinn/hotels/us/en/hong-kong/hkgkl/hoteldetail",
+    "stars": null,
+    "phone": "+852 2369 3111"
+  },
+  {
+    "name_en": "Southern Rich Town Hotel",
+    "name_zh": "南航富豪城大酒店",
+    "lat": 22.5349005,
+    "lng": 113.9252082,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Empire Hotel Wanchai",
+    "name_zh": "灣仔皇悅酒店",
+    "lat": 22.2779742,
+    "lng": 114.1700924,
+    "address": "軒尼詩道 Hennessy Road 33",
+    "website": "https://www.empirehotel.com.hk/en/hotel/empire-hotel-hong-kong-wan-chai/about",
+    "stars": null,
+    "phone": "+852 3692 2111"
+  },
+  {
+    "name_en": "Kew Green Hotel",
+    "name_zh": null,
+    "lat": 22.2778378,
+    "lng": 114.170553,
+    "address": "軒尼詩道 Hennessy Road 41-49",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Burlington Hotel",
+    "name_zh": null,
+    "lat": 22.2778083,
+    "lng": 114.1707272,
+    "address": "軒尼詩道 Hennessy Road 55",
+    "website": "https://burlington-hk.com/",
+    "stars": null,
+    "phone": "+852 3700 1000"
+  },
+  {
+    "name_en": "Welcome Inn",
+    "name_zh": "悦来客栈",
+    "lat": 22.5278711,
+    "lng": 113.9179832,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Fleming",
+    "name_zh": "芬名酒店",
+    "lat": 22.278974,
+    "lng": 114.1748142,
+    "address": "菲林明道 Fleming Road 41",
+    "website": "https://thefleming.com/",
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Brighton Hotel",
+    "name_zh": "麗駿酒店",
+    "lat": 22.277968,
+    "lng": 114.1726139,
+    "address": "駱克道 Lockhart Road 128",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "AKI Hong Kong - MGallery",
+    "name_zh": "香港明怡美憬閣精選酒店",
+    "lat": 22.2792389,
+    "lng": 114.1769448,
+    "address": "謝斐道 Jaffe Road 239-243",
+    "website": "https://www.aki-hongkong-mgallery.com/",
+    "stars": "5",
+    "phone": null
+  },
+  {
+    "name_en": "Regal iClub Hotel",
+    "name_zh": "富豪薈酒店",
+    "lat": 22.2774904,
+    "lng": 114.1758687,
+    "address": "莊士敦道 Johnston Road 211",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "V Wanchai",
+    "name_zh": null,
+    "lat": 22.2787516,
+    "lng": 114.1750038,
+    "address": "謝斐道 Jaffe Road 178-180",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "V Wanchai2",
+    "name_zh": null,
+    "lat": 22.2773999,
+    "lng": 114.1750342,
+    "address": "Thomson Road 139",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "218 Apartment",
+    "name_zh": "顯裕中心",
+    "lat": 22.277594,
+    "lng": 114.1750849,
+    "address": "軒尼詩道 Hennessy Road 216-218",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Holiday Inn Express Hong Kong Kowloon CBD2",
+    "name_zh": "香港九龍CBD2智選假日酒店",
+    "lat": 22.3127592,
+    "lng": 114.2230575,
+    "address": "巧明街 How Ming Street 97",
+    "website": "https://www.ihg.com/holidayinnexpress/hotels/gb/en/hong-kong/hkgkk/hoteldetail",
+    "stars": null,
+    "phone": "+800 968 111"
+  },
+  {
+    "name_en": "Dash Living on Prat",
+    "name_zh": "尖沙咀一尚酒店",
+    "lat": 22.2985004,
+    "lng": 114.1749909,
+    "address": "寶勒巷 Prat Avenue 21",
+    "website": "https://www.dash.co/zh-tw/hong-kong/dash-living-on-prat",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Chelsea Hotel",
+    "name_zh": "怡景酒店",
+    "lat": 22.2974884,
+    "lng": 114.1744781,
+    "address": "河內道 Hanoi Road 8A",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Guangdong Hotel",
+    "name_zh": "粵海酒店",
+    "lat": 22.2987722,
+    "lng": 114.1746763,
+    "address": "寶勒巷 Prat Avenue 18",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The OTTO Hotel",
+    "name_zh": "康境酒店",
+    "lat": 22.2986369,
+    "lng": 114.1729875,
+    "address": "金馬倫道 Cameron Road 8",
+    "website": "https://theotto.hk/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Imperial Hotel",
+    "name_zh": "帝國酒店",
+    "lat": 22.2961731,
+    "lng": 114.1725125,
+    "address": "彌敦道 Nathan Road 36-44",
+    "website": null,
+    "stars": null,
+    "phone": "92305193"
+  },
+  {
+    "name_en": "Tankityou Hotel",
+    "name_zh": "丹木町酒店",
+    "lat": 22.2969243,
+    "lng": 114.1739994,
+    "address": "棉登徑 Minden Avenue 5",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Kimpton Tsim Sha Tsui Hong Kong",
+    "name_zh": "香港尖沙咀金普頓酒店",
+    "lat": 22.2959612,
+    "lng": 114.1739075,
+    "address": "中間道 Middle Road 11",
+    "website": "https://www.kimptonhongkong.com/",
+    "stars": null,
+    "phone": "+852 3919 6888"
+  },
+  {
+    "name_en": "Habour Bay Hotel",
+    "name_zh": "維港灣酒店",
+    "lat": 22.2969077,
+    "lng": 114.1738352,
+    "address": "棉登徑 Minden Avenue 1",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Xi Hotel",
+    "name_zh": "憙酒店",
+    "lat": 22.296942,
+    "lng": 114.1741675,
+    "address": "棉登徑 Minden Avenue 7-9",
+    "website": "https://www.xihotel.com.hk/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Courtyard Hong Kong Sha Tin",
+    "name_zh": "香港沙田萬怡酒店",
+    "lat": 22.3909229,
+    "lng": 114.2065975,
+    "address": "安平街 On Ping Street 1",
+    "website": "https://www.marriott.com/hotels/travel/hkgst-courtyard-hong-kong-sha-tin/",
+    "stars": null,
+    "phone": "+852 3940 8888"
+  },
+  {
+    "name_en": "Horizon Suite Hotel",
+    "name_zh": "海澄軒",
+    "lat": 22.4265035,
+    "lng": 114.22744,
+    "address": "鞍駿街 On Chun Street 29",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Taizi Hotel",
+    "name_zh": "太子賓館",
+    "lat": 22.4866976,
+    "lng": 113.9092185,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Rambler Oasis Hotel",
+    "name_zh": "青逸酒店",
+    "lat": 22.3421056,
+    "lng": 114.1099944,
+    "address": "青衣路 Tsing Yi Road 1",
+    "website": null,
+    "stars": null,
+    "phone": "21291888"
+  },
+  {
+    "name_en": "Winland 800 Hotel",
+    "name_zh": "永倫800酒店",
+    "lat": 22.3428303,
+    "lng": 114.1104701,
+    "address": "青衣路 Tsing Yi Road 1",
+    "website": null,
+    "stars": null,
+    "phone": "21297888"
+  },
+  {
+    "name_en": "Rambler Garden Hotel",
+    "name_zh": "華逸酒店",
+    "lat": 22.3437014,
+    "lng": 114.1108185,
+    "address": "青衣路 Tsing Yi Road 1",
+    "website": null,
+    "stars": null,
+    "phone": "21299988"
+  },
+  {
+    "name_en": "Empire Hotel Causeway Bay",
+    "name_zh": "銅鑼灣皇悅酒店",
+    "lat": 22.2851312,
+    "lng": 114.1920947,
+    "address": "Wing Hing Street 8",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Equinox",
+    "name_zh": "衡軒",
+    "lat": 22.2856868,
+    "lng": 114.1920126,
+    "address": "Mercury Street 23",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "L'hotel Causeway Bay Harbour View Hong Kong",
+    "name_zh": "如心銅鑼灣海景酒店",
+    "lat": 22.2832553,
+    "lng": 114.1928607,
+    "address": "King's Road 18",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel One Eighteen",
+    "name_zh": "維園118酒店",
+    "lat": 22.2853675,
+    "lng": 114.1917908,
+    "address": "電氣道 Electric Road 118",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Twenty One Whitfield",
+    "name_zh": null,
+    "lat": 22.2860353,
+    "lng": 114.1907515,
+    "address": "Whitfield Road 21",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Eco Tree Hotel Causeway Bay",
+    "name_zh": "頤庭酒店銅鑼灣",
+    "lat": 22.2856951,
+    "lng": 114.1922351,
+    "address": "水星街 Mercury Street 15",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "TUVE Hotel",
+    "name_zh": null,
+    "lat": 22.2846054,
+    "lng": 114.1923247,
+    "address": "清風街 Tsing Fung Street 16",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Century Plaza Hotel/ Velaye Hotel",
+    "name_zh": null,
+    "lat": 22.538496,
+    "lng": 114.1127772,
+    "address": "春风路 4001",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel Pennington",
+    "name_zh": null,
+    "lat": 22.2786755,
+    "lng": 114.185937,
+    "address": "Pennington Street 13-15",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Lanson Place Hotel",
+    "name_zh": "逸蘭精品酒店",
+    "lat": 22.2786867,
+    "lng": 114.1867767,
+    "address": "禮頓道 Leighton Road 133",
+    "website": "https://www.hongkong.lansonplace.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Holiday Inn Express Causeway Bay Hong Kong",
+    "name_zh": "香港銅鑼灣智選假日酒店",
+    "lat": 22.2777373,
+    "lng": 114.1818895,
+    "address": "Sharp Street East 33",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Mira Moon",
+    "name_zh": "問月酒店",
+    "lat": 22.2797685,
+    "lng": 114.1796032,
+    "address": "謝斐道 Jaffe Road 388",
+    "website": "https://www.miramoonhotel.com/",
+    "stars": null,
+    "phone": "+852 2643 8888"
+  },
+  {
+    "name_en": "Walden Hotel",
+    "name_zh": "華登酒店",
+    "lat": 22.278854,
+    "lng": 114.1791659,
+    "address": "軒尼詩道 Hennessy Road 353",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Wifi Hotel",
+    "name_zh": "星網酒店",
+    "lat": 22.279094,
+    "lng": 114.1792776,
+    "address": "Lockhart Road 364-366",
+    "website": "www.wifihotel.com.hk",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "EAST, Hong Kong",
+    "name_zh": "東隅",
+    "lat": 22.2859844,
+    "lng": 114.2160999,
+    "address": "Taikoo Shing Road 29",
+    "website": "https://www.east-hongkong.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Harbour Plaza North Point",
+    "name_zh": "北角海逸酒店",
+    "lat": 22.2915724,
+    "lng": 114.2087271,
+    "address": "King's Road 665",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Alva Hotel by Royal",
+    "name_zh": "帝逸酒店",
+    "lat": 22.3835249,
+    "lng": 114.208378,
+    "address": "源康街 Yuen Hong Street 1",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The ind Hotel",
+    "name_zh": "工業家酒店",
+    "lat": 22.3163757,
+    "lng": 114.2157197,
+    "address": "觀塘道 Kwun Tong Road 326",
+    "website": "https://www.indhotel.com/",
+    "stars": null,
+    "phone": "+852 27220002"
+  },
+  {
+    "name_en": "Nina Hotel Kowloon East",
+    "name_zh": "九龍東如心酒店",
+    "lat": 22.314217,
+    "lng": 114.2189915,
+    "address": "創業街 Chong Yip Street 38",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Royal View Hotel",
+    "name_zh": "帝景酒店",
+    "lat": 22.3684615,
+    "lng": 114.0780704,
+    "address": "青山公路 – 汀九段 Castle Peak Road - Ting Kau 353",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Pentahotel Hong Kong Tuen Mun",
+    "name_zh": "香港屯門貝爾特酒店",
+    "lat": 22.3956418,
+    "lng": 113.9719061,
+    "address": "震寰路 Tsun Wen Road 6",
+    "website": "https://www.pentahotels.com/hk/hotels/zhou/hong-kong-tuen-mun",
+    "stars": null,
+    "phone": "+852 31121138"
+  },
+  {
+    "name_en": "Hotel COZi‧Resort",
+    "name_zh": "悦品度假酒店 ∙ 屯門",
+    "lat": 22.3955756,
+    "lng": 113.9722183,
+    "address": "建豐街 Kin Fung Circuit 4",
+    "website": "https://www.hotelcozi.com/resort/",
+    "stars": null,
+    "phone": "+852 3899 9288"
+  },
+  {
+    "name_en": "Rosedale on the Park",
+    "name_zh": "珀麗酒店",
+    "lat": 22.2791931,
+    "lng": 114.1883258,
+    "address": "Shelter Street 8",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Elysion Place Hotel Causeway Bay",
+    "name_zh": "銅鑼灣愛麗舍酒店",
+    "lat": 22.2790712,
+    "lng": 114.1891457,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Mia Casa",
+    "name_zh": "輝豪酒店",
+    "lat": 22.2828169,
+    "lng": 114.1280154,
+    "address": "Smithfield 29",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "H1 Hotel",
+    "name_zh": "逸豪洒店",
+    "lat": 22.3185891,
+    "lng": 114.1676047,
+    "address": "新填地街 Reclamation Street 423",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Harbour Hotel",
+    "name_zh": "豪畔酒店",
+    "lat": 22.3166846,
+    "lng": 114.1677993,
+    "address": "廣東道 Canton Road 968-970",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Holiday Inn Express Hong Kong Mongkok",
+    "name_zh": "香港旺角智選假日酒店",
+    "lat": 22.3149694,
+    "lng": 114.167238,
+    "address": "登打士街 Dundas Street 1",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel MK",
+    "name_zh": "MK酒店",
+    "lat": 22.3157963,
+    "lng": 114.1696634,
+    "address": "長沙街 Changsha Street 11",
+    "website": null,
+    "stars": null,
+    "phone": "+852 3188 9680"
+  },
+  {
+    "name_en": "Sunny Day Hotel",
+    "name_zh": "新天地酒店",
+    "lat": 22.3184077,
+    "lng": 114.1676413,
+    "address": "新填地街 Reclamation Street 419",
+    "website": "http://www.sunnydayhotel.cn",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hilton Garden Inn Hong Kong Mongkok",
+    "name_zh": "香港旺角希爾頓花園酒店",
+    "lat": 22.3156899,
+    "lng": 114.1670295,
+    "address": "豉油街 Soy Street 2",
+    "website": "https://www.hilton.com/en/hotels/hkgmsgi-hilton-garden-inn-hong-kong-mongkok/?SEO_id=OTHR-APAC-GI-HKGMSGI",
+    "stars": "4",
+    "phone": "+852-22013688"
+  },
+  {
+    "name_en": "Epoch Hotel",
+    "name_zh": "盛世酒店",
+    "lat": 22.3205529,
+    "lng": 114.1701329,
+    "address": "通菜街 Tung Choi Street 123",
+    "website": null,
+    "stars": null,
+    "phone": "+852 36588000"
+  },
+  {
+    "name_en": "Courtyard by Marriott Hong Kong",
+    "name_zh": "香港萬怡酒店",
+    "lat": 22.2878949,
+    "lng": 114.1388647,
+    "address": "Connaught Road West 167",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Best Western Plus Hotel Hong Kong",
+    "name_zh": "華大盛品酒店",
+    "lat": 22.2872602,
+    "lng": 114.1391062,
+    "address": "德輔道西 Des Voeux Road West 308",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "South Pacific",
+    "name_zh": "南洋酒店",
+    "lat": 22.2774212,
+    "lng": 114.1803866,
+    "address": "摩理臣山道 Morrison Hill Road 23",
+    "website": "https://www.southpacifichotel.com.hk/",
+    "stars": null,
+    "phone": "+852 2572 3838"
+  },
+  {
+    "name_en": "Disney Explorers Lodge",
+    "name_zh": "迪士尼探索家度假酒店",
+    "lat": 22.3078129,
+    "lng": 114.0381637,
+    "address": "",
+    "website": "https://www.hongkongdisneyland.com/hotels/disney-explorers-lodge/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ramada Hong Kong Harbour View",
+    "name_zh": "華美達海景酒店",
+    "lat": 22.2870272,
+    "lng": 114.1435204,
+    "address": "皇后大道西 Queen's Road West 239",
+    "website": "https://www.ramadahongkongharbourview.com",
+    "stars": null,
+    "phone": "+852 2599 9888"
+  },
+  {
+    "name_en": "Ovolo Hotel Shek Pai Wan",
+    "name_zh": "奧公館酒店石排灣",
+    "lat": 22.2487075,
+    "lng": 114.1491197,
+    "address": "Shek Pai Wan Road 100",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Pleasant Hotel",
+    "name_zh": "旅馆",
+    "lat": 22.54687,
+    "lng": 114.0830231,
+    "address": "振华路 133",
+    "website": null,
+    "stars": null,
+    "phone": "+86 755 8398 4588"
+  },
+  {
+    "name_en": "格兰云天大酒店",
+    "name_zh": null,
+    "lat": 22.5438589,
+    "lng": 114.0774597,
+    "address": "深南中路 3024号",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Silka Tsuen Wan Hotel",
+    "name_zh": "荃灣絲麗酒店",
+    "lat": 22.3690687,
+    "lng": 114.138914,
+    "address": "和宜合道 Wo Yi Hop Road 119",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "京湖时尚酒店",
+    "name_zh": null,
+    "lat": 22.5376473,
+    "lng": 114.1142323,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Dorsett Regency Tsuen Wan",
+    "name_zh": "荃灣帝盛酒店",
+    "lat": 22.370497,
+    "lng": 114.1297038,
+    "address": "健全街 Kin Chuen Street 28",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Apex Horizon All-suite Hotel",
+    "name_zh": "雍澄軒酒店",
+    "lat": 22.3667854,
+    "lng": 114.1371084,
+    "address": "和宜合道 Wo Yi Hop Road 33",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Mini Hotel",
+    "name_zh": "迷你酒店",
+    "lat": 22.28047,
+    "lng": 114.1563258,
+    "address": "雪廠街 Ice House Street 38",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "M1 Hotel North Point",
+    "name_zh": "北角M1酒店",
+    "lat": 22.2911864,
+    "lng": 114.1981604,
+    "address": "春秧街 Chun Yeung Street 112",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ramada Hong Kong Grand View",
+    "name_zh": "華美達盛景酒店",
+    "lat": 22.2910534,
+    "lng": 114.1975436,
+    "address": "春秧街 Chun Yeung Street 88",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The South China Hotel",
+    "name_zh": "粵華酒店",
+    "lat": 22.2921143,
+    "lng": 114.1982421,
+    "address": "渣華道 Java Road 67-75",
+    "website": "https://www.southchinahotel.com.hk/",
+    "stars": null,
+    "phone": "+85225031168"
+  },
+  {
+    "name_en": "Dak Wan Siu Chuk",
+    "name_zh": "德雲小築",
+    "lat": 22.338077,
+    "lng": 114.1779758,
+    "address": "森麻實道 Somerset Road 5-7",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Heritage Lodge",
+    "name_zh": "翠雅山房",
+    "lat": 22.3388701,
+    "lng": 114.1420392,
+    "address": "",
+    "website": "https://www.heritagelodgehk.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Sun Light Hotel",
+    "name_zh": "朗晴酒店",
+    "lat": 22.3347054,
+    "lng": 114.1622718,
+    "address": "九江街 Kiu Kiang Street 170-172",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Dorsett Mongkok, Hong Kong",
+    "name_zh": "香港旺角帝盛酒店",
+    "lat": 22.3212544,
+    "lng": 114.1622225,
+    "address": "大角咀道 Tai Kok Tsui Road 88",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Southside by Ovolo",
+    "name_zh": "奧華南岸精品設計酒店",
+    "lat": 22.2496184,
+    "lng": 114.1690743,
+    "address": "黃竹坑道 Wong Chuk Hang Road 64",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "TOWNPLACE WEST KOWLOON",
+    "name_zh": "本舍",
+    "lat": 22.3266837,
+    "lng": 114.1493635,
+    "address": "荔盈街 Lai Ying Street 10",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Maker Hotel",
+    "name_zh": null,
+    "lat": 22.5424995,
+    "lng": 114.0825378,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Huaqiang Plaza Hotel",
+    "name_zh": "华强广场酒店",
+    "lat": 22.5465885,
+    "lng": 114.0808653,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Minimal Hotel･Urban",
+    "name_zh": "簡悅酒店･銅鑼灣",
+    "lat": 22.2777729,
+    "lng": 114.1800949,
+    "address": "摩理臣山道 Morrison Hill Road 11",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Oriental Lander Hotel",
+    "name_zh": "東方泛達酒店",
+    "lat": 22.3242364,
+    "lng": 114.1652954,
+    "address": "塘尾道 Tong Mi Road 206",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel 36",
+    "name_zh": null,
+    "lat": 22.3262713,
+    "lng": 114.1671238,
+    "address": "界限街 Boundary Street",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Espace Elastique",
+    "name_zh": "歸田園居",
+    "lat": 22.2548017,
+    "lng": 113.8628618,
+    "address": "吉慶街 Kat Hing Street 57",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ying'nFlo",
+    "name_zh": "奕凨",
+    "lat": 22.2774571,
+    "lng": 114.1688937,
+    "address": "軒尼詩道 Hennessy Road 22",
+    "website": "https://www.yingnflo.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "兴华宾馆",
+    "name_zh": null,
+    "lat": 22.5439731,
+    "lng": 114.0871333,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "海燕大酒店",
+    "name_zh": null,
+    "lat": 22.5426207,
+    "lng": 114.1124166,
+    "address": "迎春路 1",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "华旺商务宾馆",
+    "name_zh": null,
+    "lat": 22.5452264,
+    "lng": 114.1144733,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "XW Hotel",
+    "name_zh": "玺程設計酒店",
+    "lat": 22.543442,
+    "lng": 113.9889597,
+    "address": "文昌街",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "华里酒店",
+    "name_zh": null,
+    "lat": 22.5393231,
+    "lng": 113.9909966,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Lan Kwai Fong Hotel @ Kau U Fong",
+    "name_zh": "蘭桂坊酒店",
+    "lat": 22.2843198,
+    "lng": 114.1531058,
+    "address": "九如坊 Kau U Fong 3",
+    "website": "https://www.dcollection.com",
+    "stars": "4",
+    "phone": "+852 3650 0000"
+  },
+  {
+    "name_en": "Pottinger Hong Kong",
+    "name_zh": null,
+    "lat": 22.2827562,
+    "lng": 114.1553822,
+    "address": "",
+    "website": "https://www.sino-hotels.com/en/hk/the-pottinger-hong-kong/",
+    "stars": "5",
+    "phone": "+852 2308 3188"
+  },
+  {
+    "name_en": "Butterfly on Wellington",
+    "name_zh": "晉逸精品酒店中環",
+    "lat": 22.2835618,
+    "lng": 114.1539524,
+    "address": "威靈頓街 Wellington Street 122-126",
+    "website": "https://www.butterflyhk.com/en/butterfly-on-wellington",
+    "stars": null,
+    "phone": "+852 3962 1688"
+  },
+  {
+    "name_en": "60 West Hotel",
+    "name_zh": "西城六十",
+    "lat": 22.2875091,
+    "lng": 114.146584,
+    "address": "德輔道西 Des Voeux Road West 60",
+    "website": "http://www.60west.com.hk/",
+    "stars": "3",
+    "phone": null
+  },
+  {
+    "name_en": "99 Bonham",
+    "name_zh": null,
+    "lat": 22.2861142,
+    "lng": 114.1510092,
+    "address": "文咸東街 Bonham Strand 99",
+    "website": "https://99bonham.com/",
+    "stars": null,
+    "phone": "+852 3940 1111"
+  },
+  {
+    "name_en": "Dash Living on Hollywood",
+    "name_zh": "上環一尚酒店",
+    "lat": 22.2856659,
+    "lng": 114.1478831,
+    "address": "荷李活道 Hollywood Road 263",
+    "website": "https://www.dash.co/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Eco Tree Hotel",
+    "name_zh": "頤庭酒店",
+    "lat": 22.2876533,
+    "lng": 114.1441861,
+    "address": "德輔道西 Des Voeux Road West 160",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Garden House",
+    "name_zh": null,
+    "lat": 22.2799228,
+    "lng": 114.1929311,
+    "address": "蓮花宮東街 Lin Fa Kung Street East 11",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Bay Breeze Resort",
+    "name_zh": "蓝楹湾度假酒店",
+    "lat": 22.5240595,
+    "lng": 113.9806516,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Rich Hotel - Jinhui Jasper Hotel",
+    "name_zh": "格蘭雲天·閱酒店",
+    "lat": 22.5418055,
+    "lng": 113.9615274,
+    "address": "石洲中路 55",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Little Tai Hang",
+    "name_zh": null,
+    "lat": 22.2797077,
+    "lng": 114.192554,
+    "address": "銅鑼灣道 Tung Lo Wan Road 98",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Lane House",
+    "name_zh": null,
+    "lat": 22.279798,
+    "lng": 114.1928048,
+    "address": "蓮花宮西街 Lin Fa Kung Street West 11",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "iclub To Kwa Wan Hotel",
+    "name_zh": "富薈土瓜灣酒店",
+    "lat": 22.3162146,
+    "lng": 114.1888457,
+    "address": "下鄉道 Ha Heung Road 8",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "联城酒店",
+    "name_zh": null,
+    "lat": 22.5440728,
+    "lng": 114.1271998,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Silka Far East Hotel",
+    "name_zh": "香港遠東絲麗酒店",
+    "lat": 22.3709721,
+    "lng": 114.1192846,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "WM Hotel",
+    "name_zh": "WM 酒店",
+    "lat": 22.3859109,
+    "lng": 114.2759937,
+    "address": "惠民路 Wai Man Road 28",
+    "website": "https://www.wmhotel.hk/",
+    "stars": null,
+    "phone": "+852 2196 6888"
+  },
+  {
+    "name_en": "Shanghai Hotel",
+    "name_zh": "上海宾馆",
+    "lat": 22.5438697,
+    "lng": 114.0768347,
+    "address": "深南中路 3032号",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "IW Hotel",
+    "name_zh": null,
+    "lat": 22.3159757,
+    "lng": 114.2153036,
+    "address": "偉業街 Wai Yip Street 101",
+    "website": "https://iwhotels.hk/",
+    "stars": "3",
+    "phone": "+852 3188 6655"
+  },
+  {
+    "name_en": "iclub Mong Kok Hotel",
+    "name_zh": "富薈旺角酒店",
+    "lat": 22.3203044,
+    "lng": 114.165255,
+    "address": "晏架街 Anchor Street 2",
+    "website": null,
+    "stars": null,
+    "phone": "+852 3963 6800"
+  },
+  {
+    "name_en": "城市客栈酒店",
+    "name_zh": null,
+    "lat": 22.5371529,
+    "lng": 113.9816886,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "水都酒店",
+    "name_zh": "水都酒店",
+    "lat": 22.5206905,
+    "lng": 114.0591333,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "贝岭居宾馆",
+    "name_zh": null,
+    "lat": 22.5594817,
+    "lng": 114.1366019,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Beacon",
+    "name_zh": "碧薈",
+    "lat": 22.3193148,
+    "lng": 114.1719499,
+    "address": "洗衣街 Sai Yee Street 88",
+    "website": "https://www.thebeaconhotel.com.hk/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ambassador Hotel",
+    "name_zh": "国宾大酒店",
+    "lat": 22.5475551,
+    "lng": 114.1276712,
+    "address": "深南东路 1121",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Chang An Hotel",
+    "name_zh": "长安大酒店",
+    "lat": 22.54746,
+    "lng": 114.1269073,
+    "address": "深南东路 1133",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "IntercityHotel",
+    "name_zh": "城际酒店",
+    "lat": 22.5524778,
+    "lng": 114.0827659,
+    "address": "华强北路 4002号",
+    "website": null,
+    "stars": "5",
+    "phone": "+86 755 8207 8888"
+  },
+  {
+    "name_en": "Shamrock Hotel",
+    "name_zh": "新樂酒店",
+    "lat": 22.304142,
+    "lng": 114.1714719,
+    "address": "彌敦道 Nathan Road 223",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "San Diego Hotel",
+    "name_zh": "聖地牙哥酒店",
+    "lat": 22.303864,
+    "lng": 114.1700744,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Sunnyday Hotel",
+    "name_zh": "新天地酒店",
+    "lat": 22.3028964,
+    "lng": 114.1720543,
+    "address": "彌敦道 Nathan Road 182",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hillwood House Hotel",
+    "name_zh": "山林舍",
+    "lat": 22.3028699,
+    "lng": 114.1730285,
+    "address": "山林道 Hillwood Road 17-19",
+    "website": "https://hwh.com.hk/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ramada Hong Kong Grand",
+    "name_zh": "華美達華麗酒店",
+    "lat": 22.3029658,
+    "lng": 114.1746756,
+    "address": "柯士甸路 Austin Avenue 23",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Knutsford Hotel",
+    "name_zh": "樂仕酒店",
+    "lat": 22.3017002,
+    "lng": 114.174851,
+    "address": "天文臺圍 Observatory Court 10-12",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Bauhinia Hotel",
+    "name_zh": "寶軒酒店",
+    "lat": 22.3019007,
+    "lng": 114.1746983,
+    "address": "天文臺圍 Observatory Court 5-9",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Page148 Hotel",
+    "name_zh": "晉緻酒店",
+    "lat": 22.3032449,
+    "lng": 114.1748328,
+    "address": "柯士甸道 Austin Road 148",
+    "website": "https://pagehotels.com",
+    "stars": null,
+    "phone": "+852 21326108"
+  },
+  {
+    "name_en": "Habyt Austin Avenue",
+    "name_zh": null,
+    "lat": 22.3021855,
+    "lng": 114.1763338,
+    "address": "柯士甸路 Austin Avenue 2",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Perkin Hotel",
+    "name_zh": "紫珀酒店",
+    "lat": 22.3012851,
+    "lng": 114.1735835,
+    "address": "諾士佛臺 Knutsford Terrace 6",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Stanford Hillview Hotel",
+    "name_zh": "仕德福山景酒店",
+    "lat": 22.3014456,
+    "lng": 114.1744661,
+    "address": "天文臺道 Observatory Road 13-17",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Kimberley Hotel",
+    "name_zh": "君怡酒店",
+    "lat": 22.3005061,
+    "lng": 114.1738284,
+    "address": "金巴利道 Kimberley Road 28",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Park Hotel",
+    "name_zh": "百樂酒店",
+    "lat": 22.2996755,
+    "lng": 114.1755336,
+    "address": "漆咸道南 Chatham Road South 61-65",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Best Western Plus",
+    "name_zh": "最佳盛品酒店",
+    "lat": 22.3003071,
+    "lng": 114.175883,
+    "address": "漆咸道南 Chatham Road South 73-75",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Mira Hong Kong",
+    "name_zh": null,
+    "lat": 22.3001436,
+    "lng": 114.1724459,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel Pravo",
+    "name_zh": "香港寶御酒店",
+    "lat": 22.2965416,
+    "lng": 114.170733,
+    "address": "北京道 Peking Road 10",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Modena by Fraser Hong Kong",
+    "name_zh": "馨樂庭亞士厘服務式公寓",
+    "lat": 22.2971562,
+    "lng": 114.1706751,
+    "address": "亞士厘道 Ashley Road 18",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Goodrich Hotel",
+    "name_zh": "豪境酒店",
+    "lat": 22.3061448,
+    "lng": 114.1704985,
+    "address": "吳松街 Woosung Street 92-94",
+    "website": "https://goodrichhotel.com.hk/",
+    "stars": null,
+    "phone": "+852 2332 2020"
+  },
+  {
+    "name_en": "West Hotel",
+    "name_zh": "偉晴軒",
+    "lat": 22.3068521,
+    "lng": 114.1679299,
+    "address": "偉晴街 Wai Ching Street 39",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel Madera Hong Kong",
+    "name_zh": "木的地酒店",
+    "lat": 22.3064275,
+    "lng": 114.1719868,
+    "address": "長樂街 Cheong Lok Street 1",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Largos Hotel",
+    "name_zh": "朗逸酒店",
+    "lat": 22.3063051,
+    "lng": 114.1724861,
+    "address": "南京街 Nanking Street 30-36",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Nathan Hotel",
+    "name_zh": "彌敦酒店",
+    "lat": 22.3076257,
+    "lng": 114.17169,
+    "address": "彌敦道 Nathan Road 378",
+    "website": "https://nathanhotel.com/",
+    "stars": null,
+    "phone": "+852 2388 5141"
+  },
+  {
+    "name_en": "Noble Park Hotel",
+    "name_zh": "逸林酒店",
+    "lat": 22.3075744,
+    "lng": 114.171938,
+    "address": "茂林街 Mau Lam Street 2",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel Stage",
+    "name_zh": "登臺",
+    "lat": 22.3076897,
+    "lng": 114.1723363,
+    "address": "志和街 Chi Wo Street 1",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Homy Residence",
+    "name_zh": null,
+    "lat": 22.3105189,
+    "lng": 114.1697092,
+    "address": "上海街 Shanghai Street 279-283",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Silka Seaview Hotel",
+    "name_zh": "海景絲麗酒店",
+    "lat": 22.3103453,
+    "lng": 114.1700448,
+    "address": "上海街 Shanghai Street 268",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Kings Hotel",
+    "name_zh": "王子酒店",
+    "lat": 22.3104391,
+    "lng": 114.1705154,
+    "address": "廟街 Temple Street 46-54",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Casa Hotel",
+    "name_zh": null,
+    "lat": 22.3115173,
+    "lng": 114.1707102,
+    "address": "彌敦道 Nathan Road 487-489",
+    "website": "http://www.casahotel.com.hk",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "M1 Hotel",
+    "name_zh": "M1酒店",
+    "lat": 22.3124768,
+    "lng": 114.1703128,
+    "address": "砵蘭街 Portland Street 28",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Caritas Bianchi Lodge",
+    "name_zh": "明愛白英奇賓館",
+    "lat": 22.3111691,
+    "lng": 114.1718967,
+    "address": "石壁道 Cliff Road 4",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Inn Hotel．Hong Kong",
+    "name_zh": "盛世酒店",
+    "lat": 22.313458,
+    "lng": 114.1700796,
+    "address": "砵蘭街 Portland Street 60",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Cityview",
+    "name_zh": "城景國際",
+    "lat": 22.3138144,
+    "lng": 114.1717318,
+    "address": "",
+    "website": "https://thecityview.com.hk",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel 108",
+    "name_zh": "香港壹零捌館",
+    "lat": 22.3169301,
+    "lng": 114.1728014,
+    "address": "豉油街 Soy Street 108",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Shama Midlevels Hong Kong",
+    "name_zh": null,
+    "lat": 22.2755421,
+    "lng": 114.1675477,
+    "address": "堅尼地道 Kennedy Road 9K",
+    "website": "https://www.shama.com/midlevels-kennedy",
+    "stars": null,
+    "phone": "+852 2746 1888"
+  },
+  {
+    "name_en": "Sheraton Hong Kong Tung Chung Hotel",
+    "name_zh": "香港東涌世茂喜來登酒店",
+    "lat": 22.2955489,
+    "lng": 113.9460615,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "GaoXin FuYue Hotel",
+    "name_zh": "高新富悅酒店",
+    "lat": 22.5453935,
+    "lng": 113.9301644,
+    "address": "科技中一路 1",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Pier Hotel",
+    "name_zh": null,
+    "lat": 22.3637213,
+    "lng": 114.2595073,
+    "address": "白沙灣街 Pak Sha Wan Street 9",
+    "website": "https://www.thepierhotel.com.hk/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Shing Ting Living",
+    "name_zh": "盛庭Living",
+    "lat": 22.3083839,
+    "lng": 114.1835358,
+    "address": "寶其利街 Bulkeley Street 181",
+    "website": null,
+    "stars": "3",
+    "phone": null
+  },
+  {
+    "name_en": "The Fullerton Ocean Park Hotel",
+    "name_zh": "富麗敦海洋公園酒店",
+    "lat": 22.2368702,
+    "lng": 114.1656767,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Yanhanshan Hotel",
+    "name_zh": "燕晗山酒店",
+    "lat": 22.5431622,
+    "lng": 113.9808998,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Best Western Hotel",
+    "name_zh": "華麗精品酒店",
+    "lat": 22.2771797,
+    "lng": 114.1807113,
+    "address": "寶靈頓道 Bowrington Road 38",
+    "website": null,
+    "stars": "3",
+    "phone": null
+  },
+  {
+    "name_en": "The Emperor Hotel",
+    "name_zh": "英皇駿景酒店",
+    "lat": 22.2746507,
+    "lng": 114.1782178,
+    "address": "皇后大道東 Queen's Road East 373",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Cosmo Hotel",
+    "name_zh": "麗悅酒店",
+    "lat": 22.2746819,
+    "lng": 114.1783954,
+    "address": "皇后大道東 Queen's Road East 375",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "China Rich Hotel",
+    "name_zh": "創富酒店",
+    "lat": 22.2735636,
+    "lng": 114.1744286,
+    "address": "慶雲街 Hing Wan Street 19",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "CM+ Hotels and Serviced Apartments (North Tower)",
+    "name_zh": "壹棠酒店及服務式公寓 (北座)",
+    "lat": 22.2876472,
+    "lng": 114.149636,
+    "address": "干諾道西 Connaught Road West 16",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel Ease · Tsuen Wan",
+    "name_zh": "旭逸酒店·荃灣",
+    "lat": 22.3683537,
+    "lng": 114.13728,
+    "address": "圳邊街 Chun Pin Street 15-19",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Kew Green Mongkok",
+    "name_zh": "旺角睿景酒店",
+    "lat": 22.3241647,
+    "lng": 114.1669109,
+    "address": "大南街 Tai Nan Street",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Le Prabelle Hotel",
+    "name_zh": "儷凱酒店",
+    "lat": 22.323472,
+    "lng": 114.16803,
+    "address": "砵蘭街 Portland Street 372",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Lodgewood By L’hotel Mongkok",
+    "name_zh": "旺角薈賢居",
+    "lat": 22.3212442,
+    "lng": 114.1665212,
+    "address": "廣東道 Canton Road 1131",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Hotel COZi · Oasis",
+    "name_zh": "悦品酒店·荃灣",
+    "lat": 22.3658506,
+    "lng": 114.1346976,
+    "address": "青山公路－葵涌段 Castle Peak Road – Kwai Chung 443",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Urbanwood",
+    "name_zh": "城木酒店",
+    "lat": 22.3081923,
+    "lng": 114.1851,
+    "address": "機利士南路 Gillies Avenue South 69",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Charterhouse Causeway Bay",
+    "name_zh": "銅鑼灣利景酒店",
+    "lat": 22.2776887,
+    "lng": 114.1790991,
+    "address": "灣仔道 Wan Chai Road 209-219",
+    "website": "http://hongkonghotel.charterhouse.com/sch/",
+    "stars": null,
+    "phone": "(852) 2833 5566"
+  },
+  {
+    "name_en": "The Hari Hong Kong",
+    "name_zh": null,
+    "lat": 22.2788126,
+    "lng": 114.1783402,
+    "address": "駱克道 Lockhart Road 324-330A",
+    "website": "https://www.thehari.com/hong-kong/",
+    "stars": "5",
+    "phone": "+852 2129 0388"
+  },
+  {
+    "name_en": "玺悦文蘭酒店",
+    "name_zh": null,
+    "lat": 22.533466,
+    "lng": 113.8934298,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Wuzhou Guest House",
+    "name_zh": "五洲宾馆",
+    "lat": 22.5403741,
+    "lng": 114.0424117,
+    "address": "深南大道 6001号",
+    "website": "http://www.wuzhouguesthouse.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel COZi Wetland",
+    "name_zh": "悦品天秀酒店‧元朗",
+    "lat": 22.4648161,
+    "lng": 114.0030083,
+    "address": "天秀路 Tin Sau Road 8",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Metroplace Olympic Hotel",
+    "name_zh": "城滙奧運酒店",
+    "lat": 22.3210251,
+    "lng": 114.1609682,
+    "address": "利得街 Li Tak Street 36-38",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Sentosa Hotel, Feicui",
+    "name_zh": "圣淘沙酒店 (翡翠店)",
+    "lat": 22.5370313,
+    "lng": 113.9174583,
+    "address": "",
+    "website": "http://www.sentosahotelshenzhen.com",
+    "stars": null,
+    "phone": "+86 75526390888"
+  },
+  {
+    "name_en": "Urbanwood Ap Lei Chau",
+    "name_zh": "城木酒店 (鴨脷洲)",
+    "lat": 22.2440881,
+    "lng": 114.1567725,
+    "address": "新市街 San Shi Street 29",
+    "website": "https://urbanwoodhotels.com/hk/global_hotels/ap-lei-chau-hk/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Bluejay Residences",
+    "name_zh": "冠藍軒",
+    "lat": 22.2437094,
+    "lng": 114.1552096,
+    "address": "鴨脷洲大街 Main Street, Ap Lei Chau 95",
+    "website": "https://www.bluejay-residences.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Four Points by Sheraton Hong Kong, Tung Chung",
+    "name_zh": "香港東涌福朋喜來登酒店",
+    "lat": 22.2950413,
+    "lng": 113.9464296,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Zhongtailai Hotel",
+    "name_zh": "中泰来大酒店",
+    "lat": 22.5471796,
+    "lng": 114.1117404,
+    "address": "",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Metropark Hotel Kowloon",
+    "name_zh": "九龍維景酒店",
+    "lat": 22.319506,
+    "lng": 114.1757805,
+    "address": "窩打老道 Waterloo Road 75",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Qiuguo S Hotel",
+    "name_zh": "秋果S酒店",
+    "lat": 22.5410418,
+    "lng": 113.9146971,
+    "address": "南新路 3125",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Mui Wo Inn",
+    "name_zh": "梅窩酒店",
+    "lat": 22.2716926,
+    "lng": 113.9999772,
+    "address": "東灣頭路 Tung Wan Tau Road 14",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Seaview Holiday Resort",
+    "name_zh": "海景渡假樂園",
+    "lat": 22.2716631,
+    "lng": 113.999364,
+    "address": "東灣頭路 Tung Wan Tau Road 11",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Lander Hotel",
+    "name_zh": "泛達太子酒店",
+    "lat": 22.3266096,
+    "lng": 114.1642556,
+    "address": "大南街 Tai Nan Street 156-158",
+    "website": "http://www.landerhotel.com.hk",
+    "stars": "3",
+    "phone": null
+  },
+  {
+    "name_en": "AKVO Hotel",
+    "name_zh": null,
+    "lat": 22.2850388,
+    "lng": 114.1514093,
+    "address": "蘇杭街 Jervois Street 57",
+    "website": "https://www.akvo.com.hk/",
+    "stars": null,
+    "phone": "+852 3428 7000"
+  },
+  {
+    "name_en": "CM+ Hotels And Serviced Apartments (South Tower)",
+    "name_zh": "壹棠酒店及服務式公寓（南座）",
+    "lat": 22.2872253,
+    "lng": 114.1495342,
+    "address": "新街市街 New Market Street 30",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "iclub Sheung Wan Hotel",
+    "name_zh": "富薈上環酒店",
+    "lat": 22.2863191,
+    "lng": 114.1493244,
+    "address": "文咸東街 Bonham Strand 138",
+    "website": "www.iclub-hotels.com/en/iclub-sheung-wan-hotel",
+    "stars": null,
+    "phone": "+852 3963 6100"
+  },
+  {
+    "name_en": "Sohotel",
+    "name_zh": "尚豪酒店",
+    "lat": 22.28644,
+    "lng": 114.1489623,
+    "address": "文咸東街 Bonham Strand 139-141",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Harbour Grand Hong Kong",
+    "name_zh": "港島海逸君綽酒店",
+    "lat": 22.2890815,
+    "lng": 114.1915267,
+    "address": "油街 Oil Street 23",
+    "website": null,
+    "stars": "5",
+    "phone": null
+  },
+  {
+    "name_en": "Changyuan Light Hotel",
+    "name_zh": "長園輕居酒店",
+    "lat": 22.5541342,
+    "lng": 113.9392347,
+    "address": "高新中一道 2",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Silveri Hong Kong-MGallery",
+    "name_zh": "香港銀樾美憬閣精選酒店",
+    "lat": 22.2902428,
+    "lng": 113.9400098,
+    "address": "達東路 Tat Tung Road 20",
+    "website": "https://thesilveri-hongkong.com",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Kowloon Hotel",
+    "name_zh": "九龍酒店",
+    "lat": 22.2957851,
+    "lng": 114.1717271,
+    "address": "彌敦道 Nathan Road 19-21",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Vienna Hotel",
+    "name_zh": "维也纳国际酒店",
+    "lat": 22.5579003,
+    "lng": 114.1048837,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "WE hotel",
+    "name_zh": "伯惠酒店",
+    "lat": 22.2873596,
+    "lng": 114.143619,
+    "address": "東邊街 Eastern Street 11",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel ibis Hong Kong Central & Sheung Wan",
+    "name_zh": "宜必思香港中上環酒店",
+    "lat": 22.287486,
+    "lng": 114.1475841,
+    "address": "干諾道西 Connaught Road West 28",
+    "website": "https://www.accorhotels.com/7606",
+    "stars": null,
+    "phone": "22522929"
+  },
+  {
+    "name_en": "Y Hotel Hong Kong",
+    "name_zh": "香港麗富酒店",
+    "lat": 22.2880177,
+    "lng": 114.145433,
+    "address": "德輔道西 Des Voeux Road West 89",
+    "website": null,
+    "stars": "4",
+    "phone": null
+  },
+  {
+    "name_en": "Queen's Hotel",
+    "name_zh": "皇后酒店",
+    "lat": 22.2871709,
+    "lng": 114.1446025,
+    "address": "皇后大道西 Queen's Road West 199",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "The Empire Hotel Kowloon",
+    "name_zh": "九龍皇悅酒店",
+    "lat": 22.3008709,
+    "lng": 114.175078,
+    "address": "金巴利道 Kimberley Road 62",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ovolo Hotel",
+    "name_zh": null,
+    "lat": 22.2846153,
+    "lng": 114.1505975,
+    "address": "皇后大道中 Queen's Road Central 288-290",
+    "website": "https://ovolohotels.com/the-sheung-wan/",
+    "stars": null,
+    "phone": "+852 3423 3286"
+  },
+  {
+    "name_en": "Butterfly on LKF Central",
+    "name_zh": "晉逸蘭桂坊精品酒店中環",
+    "lat": 22.281124,
+    "lng": 114.1553387,
+    "address": "德己立街 D'Aguilar Street 23",
+    "website": "www.butterflyhk.com/en/butterfly-on-lkf",
+    "stars": null,
+    "phone": "+852 2132 6000"
+  },
+  {
+    "name_en": "Ovolo Central",
+    "name_zh": null,
+    "lat": 22.2802814,
+    "lng": 114.1546117,
+    "address": "亞畢諾道 Arbuthnot Road 2",
+    "website": "https://ovolohotels.com/ovolo/central/location/",
+    "stars": null,
+    "phone": "+852 3755 3000"
+  },
+  {
+    "name_en": "Homy Hotel Central",
+    "name_zh": "灝美中環酒店",
+    "lat": 22.2861362,
+    "lng": 114.1515043,
+    "address": "永樂街 Wing Lok Street 105-107",
+    "website": "https://www.homyinn.com.hk/en/cbd/index.html",
+    "stars": null,
+    "phone": "+852 8100 0189"
+  },
+  {
+    "name_en": "河东宾馆",
+    "name_zh": null,
+    "lat": 22.5435721,
+    "lng": 114.108478,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel Ease Access·Lai Chi Kok",
+    "name_zh": "旭逸雅捷酒店·荔枝角",
+    "lat": 22.33988,
+    "lng": 114.1514248,
+    "address": "永康街 Wing Hong Street 42A",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "粤海酒店",
+    "name_zh": null,
+    "lat": 22.5458504,
+    "lng": 114.1155294,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Huaan International Hotel",
+    "name_zh": "华安国际大酒店",
+    "lat": 22.5466106,
+    "lng": 114.1054108,
+    "address": "宝安南路 2001",
+    "website": "http://www.huaruihotel.cn/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Xicheng Hotel",
+    "name_zh": "禧程酒店",
+    "lat": 22.5467915,
+    "lng": 114.1007852,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Tiantian Hotel",
+    "name_zh": "天天酒店",
+    "lat": 22.5471156,
+    "lng": 114.1007845,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Universal Hotel",
+    "name_zh": "寰宇大酒店",
+    "lat": 22.5469171,
+    "lng": 114.1001778,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "世纪华源商务酒店",
+    "name_zh": null,
+    "lat": 22.5593442,
+    "lng": 114.0942413,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Prudential Hotel",
+    "name_zh": "恆豐酒店",
+    "lat": 22.3043363,
+    "lng": 114.1719819,
+    "address": "彌敦道 Nathan Road 222",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Stanford Hotel",
+    "name_zh": "仕德福酒店",
+    "lat": 22.3169956,
+    "lng": 114.173178,
+    "address": "豉油街 Soy Street 118",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hotel 1936",
+    "name_zh": null,
+    "lat": 22.3240736,
+    "lng": 114.170363,
+    "address": "太子道西 Prince Edward Road West 179",
+    "website": "https://www.hotel1936.com/",
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "iclub AMTD Sheung Wan Hotel",
+    "name_zh": "富薈尚乘上環酒店",
+    "lat": 22.2867141,
+    "lng": 114.1492379,
+    "address": "文咸西街 Bonham Strand West 5",
+    "website": "www.iclub-hotels.com/en/iclub-amtd-sheung-wan-hotel",
+    "stars": null,
+    "phone": "+852 3963 6200"
+  },
+  {
+    "name_en": "Dorsett Kai Tak",
+    "name_zh": "香港啟德帝盛酒店",
+    "lat": 22.3227152,
+    "lng": 114.1958044,
+    "address": "承啟道 Shing Kai Road 43",
+    "website": "https://www.dorsetthotels.com/dorsett-kai-tak/",
+    "stars": null,
+    "phone": "+852 35288288"
+  },
+  {
+    "name_en": "iclub Fortress Hill Hotel",
+    "name_zh": "富薈炮台山酒店",
+    "lat": 22.2873662,
+    "lng": 114.1922579,
+    "address": "麥連街 Merlin Street 18",
+    "website": "https://www.iclub-hotels.com/en/iclub-fortress-hill-hotel",
+    "stars": null,
+    "phone": "+852 39636300"
+  },
+  {
+    "name_en": "安伴环保酒店",
+    "name_zh": null,
+    "lat": 22.5592084,
+    "lng": 113.9692883,
+    "address": "高发西路",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Ocean City Hotel",
+    "name_zh": "奥城花园酒店",
+    "lat": 22.4912196,
+    "lng": 113.9323725,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Atour Hotel (Shekou)",
+    "name_zh": "蛇口亚朵酒店",
+    "lat": 22.5061509,
+    "lng": 113.9153653,
+    "address": "兴工路 8",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "蔡屋围大酒店",
+    "name_zh": null,
+    "lat": 22.5450567,
+    "lng": 114.1031651,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "长城大酒店",
+    "name_zh": null,
+    "lat": 22.5528115,
+    "lng": 114.1017491,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "calais",
+    "name_zh": "加来·酒店",
+    "lat": 22.5226896,
+    "lng": 114.0540742,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Fuqinglong HT Holiday Hotel",
+    "name_zh": "福青龙华天假日酒店",
+    "lat": 22.5350145,
+    "lng": 114.0636246,
+    "address": "",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hanting Hotel",
+    "name_zh": "漢庭酒店",
+    "lat": 22.5167919,
+    "lng": 113.9237248,
+    "address": "南商路 97",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Atour Hotel (Nanguang Road)",
+    "name_zh": "亞朵酒店（南光路店）",
+    "lat": 22.5246425,
+    "lng": 113.923007,
+    "address": "南光路 120",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Hongdu Hotel (Qianhai)",
+    "name_zh": "弘都酒店（前海店）",
+    "lat": 22.5181658,
+    "lng": 113.9102262,
+    "address": "南新路 1032",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Time E-Sports Hotel",
+    "name_zh": "時光電競酒店",
+    "lat": 22.5184728,
+    "lng": 113.9109984,
+    "address": "南新路 1032",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Earl Boutique Hotel",
+    "name_zh": "伯爵精品酒店",
+    "lat": 22.5499163,
+    "lng": 113.923317,
+    "address": "南艺路 78-101",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Qiuguo Hotel",
+    "name_zh": "秋果酒店",
+    "lat": 22.53348,
+    "lng": 113.9143128,
+    "address": "南新路 2062",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Kyriad Hotel",
+    "name_zh": "凱里亞德酒店",
+    "lat": 22.4908013,
+    "lng": 113.9304473,
+    "address": "后海大道 1019",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Lavande Hotel",
+    "name_zh": "麗楓酒店",
+    "lat": 22.4903822,
+    "lng": 113.9307147,
+    "address": "后海大道 1017",
+    "website": null,
+    "stars": null,
+    "phone": null
+  },
+  {
+    "name_en": "Nina Hotel Island South",
+    "name_zh": "南灣如心酒店",
+    "lat": 22.2497606,
+    "lng": 114.1681538,
+    "address": "黃竹坑道 Wong Chuk Hang Road 55",
+    "website": null,
+    "stars": null,
+    "phone": null
+  }
+]

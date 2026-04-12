@@ -2620,5 +2620,2315 @@
     "name": "海逸國際酒店集團 Harbour Plaza Hotel Management",
     "price": "HK$2,976",
     "orig": "HK$4,047"
+  },
+  {
+    "slug": "dir-438",
+    "name": "莫泰 7 Days Inn",
+    "price": "HK$2,890",
+    "orig": "HK$3,612"
+  },
+  {
+    "slug": "dir-439",
+    "name": "Junyuan Hotel",
+    "price": "HK$1,736",
+    "orig": "HK$2,100"
+  },
+  {
+    "slug": "dir-440",
+    "name": "如家酒店 Home Inn",
+    "price": "HK$1,009",
+    "orig": "HK$1,200"
+  },
+  {
+    "slug": "dir-441",
+    "name": "名都酒店 Mingdu Hotel",
+    "price": "HK$1,685",
+    "orig": "HK$2,022"
+  },
+  {
+    "slug": "dir-442",
+    "name": "港島香格里拉大酒店 Island Shangri-La, Hong Kong",
+    "price": "HK$817",
+    "orig": "HK$1,037"
+  },
+  {
+    "slug": "dir-443",
+    "name": "逸泰居 The Headland",
+    "price": "HK$3,017",
+    "orig": "HK$3,831"
+  },
+  {
+    "slug": "dir-444",
+    "name": "中遠酒店 Cosco Hotel",
+    "price": "HK$2,915",
+    "orig": "HK$3,643"
+  },
+  {
+    "slug": "dir-445",
+    "name": "Largos Hotel Hong Kong",
+    "price": "HK$2,465",
+    "orig": "HK$3,081"
+  },
+  {
+    "slug": "dir-446",
+    "name": "國恩賓館 Kwok Yan Hotel",
+    "price": "HK$985",
+    "orig": "HK$1,182"
+  },
+  {
+    "slug": "dir-447",
+    "name": "香港尖沙咀凱悅酒店 Hyatt Regency Hong Kong, Tsim Sha Tsui",
+    "price": "HK$2,508",
+    "orig": "HK$2,959"
+  },
+  {
+    "slug": "dir-448",
+    "name": "漢庭酒店 Hantings Ins & Hotel",
+    "price": "HK$2,354",
+    "orig": "HK$2,683"
+  },
+  {
+    "slug": "dir-449",
+    "name": "六國酒店 Luk Kwok Hotel",
+    "price": "HK$1,311",
+    "orig": "HK$1,586"
+  },
+  {
+    "slug": "dir-450",
+    "name": "香港置地文華東方酒店 The Landmark Mandarin Oriental Hong Kong",
+    "price": "HK$3,351",
+    "orig": "HK$3,719"
+  },
+  {
+    "slug": "dir-451",
+    "name": "寶軒酒店 The Bauhinia Hotel",
+    "price": "HK$665",
+    "orig": "HK$831"
+  },
+  {
+    "slug": "dir-452",
+    "name": "新桃园酒店 Grand View Hotel",
+    "price": "HK$3,350",
+    "orig": "HK$3,685"
+  },
+  {
+    "slug": "dir-453",
+    "name": "Y旅舍 Y-Loft",
+    "price": "HK$456",
+    "orig": "HK$528"
+  },
+  {
+    "slug": "dir-454",
+    "name": "Crystal Hostel",
+    "price": "HK$1,843",
+    "orig": "HK$2,359"
+  },
+  {
+    "slug": "dir-455",
+    "name": "Everest Hostel",
+    "price": "HK$1,839",
+    "orig": "HK$2,280"
+  },
+  {
+    "slug": "dir-456",
+    "name": "Hostel HK Group",
+    "price": "HK$1,809",
+    "orig": "HK$2,152"
+  },
+  {
+    "slug": "dir-457",
+    "name": "Hotel Skylark",
+    "price": "HK$1,727",
+    "orig": "HK$1,934"
+  },
+  {
+    "slug": "dir-458",
+    "name": "Unique Hotel",
+    "price": "HK$1,621",
+    "orig": "HK$2,123"
+  },
+  {
+    "slug": "dir-459",
+    "name": "Dragon Inn Hotel",
+    "price": "HK$1,918",
+    "orig": "HK$2,455"
+  },
+  {
+    "slug": "dir-460",
+    "name": "United Co-operate Hotel (10/F)",
+    "price": "HK$2,941",
+    "orig": "HK$3,705"
+  },
+  {
+    "slug": "dir-461",
+    "name": "United Co-operate Hotel (5/F)",
+    "price": "HK$2,897",
+    "orig": "HK$3,824"
+  },
+  {
+    "slug": "dir-462",
+    "name": "Golden Ocean Hotel",
+    "price": "HK$2,109",
+    "orig": "HK$2,509"
+  },
+  {
+    "slug": "dir-463",
+    "name": "Safari Hotel (5/F)",
+    "price": "HK$1,871",
+    "orig": "HK$2,451"
+  },
+  {
+    "slug": "dir-464",
+    "name": "Safari Hotel (7/F)",
+    "price": "HK$1,873",
+    "orig": "HK$2,491"
+  },
+  {
+    "slug": "dir-465",
+    "name": "仙之湖酒店",
+    "price": "HK$1,341",
+    "orig": "HK$1,689"
+  },
+  {
+    "slug": "dir-466",
+    "name": "兰赫美特酒店 L'Hermitage",
+    "price": "HK$1,942",
+    "orig": "HK$2,466"
+  },
+  {
+    "slug": "dir-467",
+    "name": "深港休闲中心",
+    "price": "HK$957",
+    "orig": "HK$1,119"
+  },
+  {
+    "slug": "dir-468",
+    "name": "华侨酒店",
+    "price": "HK$1,585",
+    "orig": "HK$1,902"
+  },
+  {
+    "slug": "dir-469",
+    "name": "Yuewan Business Hotel",
+    "price": "HK$2,499",
+    "orig": "HK$3,348"
+  },
+  {
+    "slug": "dir-470",
+    "name": "明愛張奧偉國際賓館 Caritas Oswald Cheung International House",
+    "price": "HK$1,320",
+    "orig": "HK$1,716"
+  },
+  {
+    "slug": "dir-471",
+    "name": "JJ Hotel",
+    "price": "HK$1,138",
+    "orig": "HK$1,399"
+  },
+  {
+    "slug": "dir-472",
+    "name": "香梅酒店",
+    "price": "HK$1,945",
+    "orig": "HK$2,528"
+  },
+  {
+    "slug": "dir-473",
+    "name": "皇庭V酒店 Wongtee V Hotel",
+    "price": "HK$952",
+    "orig": "HK$1,066"
+  },
+  {
+    "slug": "dir-474",
+    "name": "GDH Inn",
+    "price": "HK$986",
+    "orig": "HK$1,193"
+  },
+  {
+    "slug": "dir-475",
+    "name": "Apple Hotel",
+    "price": "HK$1,488",
+    "orig": "HK$1,830"
+  },
+  {
+    "slug": "dir-476",
+    "name": "Mailley ",
+    "price": "HK$1,199",
+    "orig": "HK$1,606"
+  },
+  {
+    "slug": "dir-477",
+    "name": "Hotel LBP",
+    "price": "HK$1,212",
+    "orig": "HK$1,478"
+  },
+  {
+    "slug": "dir-478",
+    "name": "Hi Inn",
+    "price": "HK$952",
+    "orig": "HK$1,066"
+  },
+  {
+    "slug": "dir-479",
+    "name": "凱都酒店 Metro Winner Hotel",
+    "price": "HK$1,711",
+    "orig": "HK$2,070"
+  },
+  {
+    "slug": "dir-480",
+    "name": "Heaven Inn GH",
+    "price": "HK$1,549",
+    "orig": "HK$2,075"
+  },
+  {
+    "slug": "dir-481",
+    "name": "Sunshine Hotel",
+    "price": "HK$1,835",
+    "orig": "HK$2,202"
+  },
+  {
+    "slug": "dir-482",
+    "name": "The T-hotel",
+    "price": "HK$1,440",
+    "orig": "HK$1,800"
+  },
+  {
+    "slug": "dir-483",
+    "name": "上水酒店 Sheung Shui Hotel",
+    "price": "HK$3,176",
+    "orig": "HK$3,525"
+  },
+  {
+    "slug": "dir-484",
+    "name": "柏寧酒店 The Park Lane Hotel",
+    "price": "HK$2,676",
+    "orig": "HK$2,970"
+  },
+  {
+    "slug": "dir-485",
+    "name": "漢口酒店 Hankow Hotel",
+    "price": "HK$1,980",
+    "orig": "HK$2,277"
+  },
+  {
+    "slug": "dir-486",
+    "name": "Cameron Roa 19-21",
+    "price": "HK$1,763",
+    "orig": "HK$2,168"
+  },
+  {
+    "slug": "dir-487",
+    "name": "Crystal Garden",
+    "price": "HK$1,813",
+    "orig": "HK$2,229"
+  },
+  {
+    "slug": "dir-488",
+    "name": "Butterfly on Morrison",
+    "price": "HK$2,553",
+    "orig": "HK$2,884"
+  },
+  {
+    "slug": "dir-489",
+    "name": "Black Swan Hotel",
+    "price": "HK$1,908",
+    "orig": "HK$2,251"
+  },
+  {
+    "slug": "dir-490",
+    "name": "Armenia Hotel",
+    "price": "HK$1,691",
+    "orig": "HK$2,130"
+  },
+  {
+    "slug": "dir-491",
+    "name": "IU酒店 IU Hotel",
+    "price": "HK$2,755",
+    "orig": "HK$3,168"
+  },
+  {
+    "slug": "dir-492",
+    "name": "兰兹酒店 Ranz hotel",
+    "price": "HK$2,587",
+    "orig": "HK$3,156"
+  },
+  {
+    "slug": "dir-493",
+    "name": "浪濤軒酒店 Concerto Inn",
+    "price": "HK$3,269",
+    "orig": "HK$4,217"
+  },
+  {
+    "slug": "dir-494",
+    "name": "colors",
+    "price": "HK$1,108",
+    "orig": "HK$1,307"
+  },
+  {
+    "slug": "dir-495",
+    "name": "美豪酒店 (大剧场店)",
+    "price": "HK$2,043",
+    "orig": "HK$2,615"
+  },
+  {
+    "slug": "dir-496",
+    "name": "鴻隆明華輪酒店 Cruise Inn",
+    "price": "HK$1,179",
+    "orig": "HK$1,344"
+  },
+  {
+    "slug": "dir-497",
+    "name": "The Comfort Living  Inn",
+    "price": "HK$2,507",
+    "orig": "HK$2,933"
+  },
+  {
+    "slug": "dir-498",
+    "name": "8 Days Boutiques Hotel",
+    "price": "HK$2,472",
+    "orig": "HK$3,263"
+  },
+  {
+    "slug": "dir-499",
+    "name": "蓝汐精品酒店 Bay Breeze Boutique Hotel",
+    "price": "HK$2,610",
+    "orig": "HK$3,132"
+  },
+  {
+    "slug": "dir-500",
+    "name": "八号连锁酒店",
+    "price": "HK$2,180",
+    "orig": "HK$2,507"
+  },
+  {
+    "slug": "dir-501",
+    "name": "Fraser Suites",
+    "price": "HK$1,730",
+    "orig": "HK$1,989"
+  },
+  {
+    "slug": "dir-502",
+    "name": "朗山酒店 Langshan Hotel",
+    "price": "HK$2,307",
+    "orig": "HK$2,699"
+  },
+  {
+    "slug": "dir-503",
+    "name": "Residence G",
+    "price": "HK$1,467",
+    "orig": "HK$1,863"
+  },
+  {
+    "slug": "dir-504",
+    "name": "大埔賓館 Tai Po Villa",
+    "price": "HK$2,093",
+    "orig": "HK$2,679"
+  },
+  {
+    "slug": "dir-505",
+    "name": "Home Inn Plus",
+    "price": "HK$1,620",
+    "orig": "HK$2,106"
+  },
+  {
+    "slug": "dir-506",
+    "name": "Huizhou Hotel",
+    "price": "HK$1,738",
+    "orig": "HK$2,137"
+  },
+  {
+    "slug": "dir-507",
+    "name": "挪亞方舟度假酒店 Noah's Ark Hotel and Resort",
+    "price": "HK$956",
+    "orig": "HK$1,108"
+  },
+  {
+    "slug": "dir-508",
+    "name": "四川宾馆",
+    "price": "HK$1,502",
+    "orig": "HK$1,682"
+  },
+  {
+    "slug": "dir-509",
+    "name": "青青世界酒店",
+    "price": "HK$3,361",
+    "orig": "HK$4,066"
+  },
+  {
+    "slug": "dir-510",
+    "name": "maylee hotel",
+    "price": "HK$1,659",
+    "orig": "HK$1,974"
+  },
+  {
+    "slug": "dir-511",
+    "name": "京基晶都酒店 Kinkey Oriental Regent Hotel",
+    "price": "HK$2,574",
+    "orig": "HK$3,449"
+  },
+  {
+    "slug": "dir-512",
+    "name": "Capsule hotel",
+    "price": "HK$1,739",
+    "orig": "HK$2,156"
+  },
+  {
+    "slug": "dir-513",
+    "name": "雅枫国际酒店",
+    "price": "HK$1,741",
+    "orig": "HK$2,193"
+  },
+  {
+    "slug": "dir-514",
+    "name": "花园格兰云天大酒店 Grand Skylight Garden Hotel",
+    "price": "HK$2,438",
+    "orig": "HK$2,998"
+  },
+  {
+    "slug": "dir-515",
+    "name": "圣淘沙酒店 (桃园店) Sentosa Hotel, Taoyuan",
+    "price": "HK$2,485",
+    "orig": "HK$2,982"
+  },
+  {
+    "slug": "dir-516",
+    "name": "海灣軒海景酒店 Harbourfront Horizon All-Suite",
+    "price": "HK$2,434",
+    "orig": "HK$2,896"
+  },
+  {
+    "slug": "dir-517",
+    "name": "全季酒店 Ji Hotel",
+    "price": "HK$1,853",
+    "orig": "HK$2,093"
+  },
+  {
+    "slug": "dir-518",
+    "name": "U-Home",
+    "price": "HK$973",
+    "orig": "HK$1,294"
+  },
+  {
+    "slug": "dir-519",
+    "name": "尚美水晶酒店",
+    "price": "HK$1,029",
+    "orig": "HK$1,173"
+  },
+  {
+    "slug": "dir-520",
+    "name": "希岸酒店",
+    "price": "HK$1,679",
+    "orig": "HK$1,914"
+  },
+  {
+    "slug": "dir-521",
+    "name": "山水时尚酒店 Shanshui Trends Hotel",
+    "price": "HK$2,975",
+    "orig": "HK$3,272"
+  },
+  {
+    "slug": "dir-522",
+    "name": "新年酒店 New Year Hotel",
+    "price": "HK$2,382",
+    "orig": "HK$2,786"
+  },
+  {
+    "slug": "dir-523",
+    "name": "翡格酒店 The Figo",
+    "price": "HK$2,030",
+    "orig": "HK$2,334"
+  },
+  {
+    "slug": "dir-524",
+    "name": "Homy Inn North Point",
+    "price": "HK$2,297",
+    "orig": "HK$3,032"
+  },
+  {
+    "slug": "dir-525",
+    "name": "Asia Travel House",
+    "price": "HK$2,034",
+    "orig": "HK$2,420"
+  },
+  {
+    "slug": "dir-526",
+    "name": "福深达公寓",
+    "price": "HK$2,863",
+    "orig": "HK$3,521"
+  },
+  {
+    "slug": "dir-527",
+    "name": "Yuenanguo Hotel",
+    "price": "HK$1,945",
+    "orig": "HK$2,528"
+  },
+  {
+    "slug": "dir-528",
+    "name": "秋果酒店 True Go Hotel",
+    "price": "HK$772",
+    "orig": "HK$1,019"
+  },
+  {
+    "slug": "dir-529",
+    "name": "Hampton",
+    "price": "HK$1,177",
+    "orig": "HK$1,318"
+  },
+  {
+    "slug": "dir-530",
+    "name": "柏槿酒店",
+    "price": "HK$1,577",
+    "orig": "HK$1,766"
+  },
+  {
+    "slug": "dir-531",
+    "name": "瑞生嘉威酒店 Soravit on Granville",
+    "price": "HK$699",
+    "orig": "HK$936"
+  },
+  {
+    "slug": "dir-532",
+    "name": "瑞生尖沙咀酒店 attitude on granville",
+    "price": "HK$1,796",
+    "orig": "HK$2,352"
+  },
+  {
+    "slug": "dir-533",
+    "name": "客舍 Hotel Hart",
+    "price": "HK$1,172",
+    "orig": "HK$1,547"
+  },
+  {
+    "slug": "dir-534",
+    "name": "雅格酒店 The Arca",
+    "price": "HK$1,876",
+    "orig": "HK$2,082"
+  },
+  {
+    "slug": "dir-535",
+    "name": "香港灣仔睿景酒店 Kew Green Hotel Wanchai",
+    "price": "HK$3,287",
+    "orig": "HK$4,010"
+  },
+  {
+    "slug": "dir-536",
+    "name": "亚朵X酒店 Atour X Hotel",
+    "price": "HK$1,713",
+    "orig": "HK$2,106"
+  },
+  {
+    "slug": "dir-537",
+    "name": "兰欧酒店",
+    "price": "HK$2,146",
+    "orig": "HK$2,811"
+  },
+  {
+    "slug": "dir-538",
+    "name": "H Life Hotel",
+    "price": "HK$1,478",
+    "orig": "HK$1,670"
+  },
+  {
+    "slug": "dir-539",
+    "name": "Kyushu Jocheng Hotel",
+    "price": "HK$2,373",
+    "orig": "HK$3,156"
+  },
+  {
+    "slug": "dir-540",
+    "name": "Movietel",
+    "price": "HK$1,287",
+    "orig": "HK$1,570"
+  },
+  {
+    "slug": "dir-541",
+    "name": "Colour Inn",
+    "price": "HK$1,403",
+    "orig": "HK$1,585"
+  },
+  {
+    "slug": "dir-542",
+    "name": "Bakatun Boutique Hotel",
+    "price": "HK$2,578",
+    "orig": "HK$2,913"
+  },
+  {
+    "slug": "dir-543",
+    "name": "BnB Mongkok",
+    "price": "HK$1,450",
+    "orig": "HK$1,595"
+  },
+  {
+    "slug": "dir-544",
+    "name": "鉑爾登酒店 Platinum Hotel",
+    "price": "HK$1,315",
+    "orig": "HK$1,643"
+  },
+  {
+    "slug": "dir-545",
+    "name": "K11 CitiGO欢阁酒店",
+    "price": "HK$2,442",
+    "orig": "HK$3,101"
+  },
+  {
+    "slug": "dir-546",
+    "name": "CitiGo RESERVE欢阁臻选酒店",
+    "price": "HK$989",
+    "orig": "HK$1,226"
+  },
+  {
+    "slug": "dir-547",
+    "name": "蘇艾酒店 Suai Hotel",
+    "price": "HK$1,558",
+    "orig": "HK$1,838"
+  },
+  {
+    "slug": "dir-548",
+    "name": "迪雅酒店 迪雅酒店",
+    "price": "HK$1,194",
+    "orig": "HK$1,540"
+  },
+  {
+    "slug": "dir-549",
+    "name": "Woody House",
+    "price": "HK$1,528",
+    "orig": "HK$1,726"
+  },
+  {
+    "slug": "dir-550",
+    "name": "Shama Hub Metro South Hong Kong",
+    "price": "HK$3,232",
+    "orig": "HK$3,781"
+  },
+  {
+    "slug": "dir-551",
+    "name": "Tempo Inn",
+    "price": "HK$1,292",
+    "orig": "HK$1,640"
+  },
+  {
+    "slug": "dir-552",
+    "name": "麗晶賓館",
+    "price": "HK$1,538",
+    "orig": "HK$1,891"
+  },
+  {
+    "slug": "dir-553",
+    "name": "旺角維景酒店 Metropark Hotel Mongkok",
+    "price": "HK$930",
+    "orig": "HK$1,069"
+  },
+  {
+    "slug": "dir-554",
+    "name": "銀鑛灣渡假酒店 Silvermine Beach Resort",
+    "price": "HK$1,121",
+    "orig": "HK$1,468"
+  },
+  {
+    "slug": "dir-555",
+    "name": "香港天際萬豪酒店 Hong Kong SkyCity Marriott Hotel",
+    "price": "HK$2,590",
+    "orig": "HK$3,237"
+  },
+  {
+    "slug": "dir-556",
+    "name": "千禧新世界香港酒店 New World Millennium Hong Kong Hotel",
+    "price": "HK$3,266",
+    "orig": "HK$4,115"
+  },
+  {
+    "slug": "dir-557",
+    "name": "富豪九龍酒店 Regal Kowloon Hotel",
+    "price": "HK$1,059",
+    "orig": "HK$1,260"
+  },
+  {
+    "slug": "dir-558",
+    "name": "美利尼依格羅酒店 The Murray, Hong Kong, A Niccolo Hotel",
+    "price": "HK$3,196",
+    "orig": "HK$4,186"
+  },
+  {
+    "slug": "dir-559",
+    "name": "香港諾富特東薈城酒店 Novotel Citygate Hong Kong Hotel",
+    "price": "HK$957",
+    "orig": "HK$1,119"
+  },
+  {
+    "slug": "dir-560",
+    "name": "黃金海岸酒店 Gold Coast Hotel",
+    "price": "HK$1,098",
+    "orig": "HK$1,460"
+  },
+  {
+    "slug": "dir-561",
+    "name": "萬麗海景酒店 Renaissance Hong Kong Harbour View Hotel",
+    "price": "HK$2,309",
+    "orig": "HK$2,747"
+  },
+  {
+    "slug": "dir-562",
+    "name": "富豪東方酒店 Regal Oriental Hotel",
+    "price": "HK$1,760",
+    "orig": "HK$2,112"
+  },
+  {
+    "slug": "dir-563",
+    "name": "8度海逸酒店 Harbour Plaza 8 Degrees",
+    "price": "HK$3,210",
+    "orig": "HK$3,852"
+  },
+  {
+    "slug": "dir-564",
+    "name": "九龍東帝苑酒店 The Royal Garden Kowloon East",
+    "price": "HK$2,539",
+    "orig": "HK$3,148"
+  },
+  {
+    "slug": "dir-565",
+    "name": "星峰薈 Vega Suites",
+    "price": "HK$1,657",
+    "orig": "HK$1,938"
+  },
+  {
+    "slug": "dir-566",
+    "name": "四季酒店 Four Seasons Hotel",
+    "price": "HK$1,245",
+    "orig": "HK$1,618"
+  },
+  {
+    "slug": "dir-567",
+    "name": "Oasis Aurum 181",
+    "price": "HK$1,701",
+    "orig": "HK$1,888"
+  },
+  {
+    "slug": "dir-568",
+    "name": "九龍海逸君綽酒店 Harbour Grand Kowloon",
+    "price": "HK$492",
+    "orig": "HK$624"
+  },
+  {
+    "slug": "dir-569",
+    "name": "紅磡維景酒店 Metropark Hotel Hung Hom",
+    "price": "HK$2,492",
+    "orig": "HK$3,164"
+  },
+  {
+    "slug": "dir-570",
+    "name": "香港港威酒店 Gateway, Hong Kong",
+    "price": "HK$2,300",
+    "orig": "HK$2,530"
+  },
+  {
+    "slug": "dir-571",
+    "name": "香港太子酒店 Prince Hotel, Hong Kong",
+    "price": "HK$681",
+    "orig": "HK$789"
+  },
+  {
+    "slug": "dir-572",
+    "name": "港青酒店 The Salisbury",
+    "price": "HK$1,123",
+    "orig": "HK$1,493"
+  },
+  {
+    "slug": "dir-573",
+    "name": "華威酒店 Warwick Hotel",
+    "price": "HK$2,983",
+    "orig": "HK$3,519"
+  },
+  {
+    "slug": "dir-574",
+    "name": "麗豪酒店 Regal Riverside Hotel",
+    "price": "HK$2,448",
+    "orig": "HK$3,255"
+  },
+  {
+    "slug": "dir-575",
+    "name": "香港朗廷酒店 The Langham Hong Kong",
+    "price": "HK$2,005",
+    "orig": "HK$2,305"
+  },
+  {
+    "slug": "dir-576",
+    "name": "大澳文物酒店 Tai O Heritage Hotel",
+    "price": "HK$2,375",
+    "orig": "HK$2,612"
+  },
+  {
+    "slug": "dir-577",
+    "name": "華麗海灣酒店 Grand Bay View Hotel & Resort",
+    "price": "HK$599",
+    "orig": "HK$802"
+  },
+  {
+    "slug": "dir-578",
+    "name": "君立酒店 Camlux Hotel",
+    "price": "HK$2,023",
+    "orig": "HK$2,690"
+  },
+  {
+    "slug": "dir-579",
+    "name": "都會海逸酒店 Harbour Plaza Metropolis",
+    "price": "HK$691",
+    "orig": "HK$870"
+  },
+  {
+    "slug": "dir-580",
+    "name": "香港沙田凱悅酒店 Hyatt Regency Hong Kong, Sha Tin",
+    "price": "HK$1,735",
+    "orig": "HK$2,082"
+  },
+  {
+    "slug": "dir-581",
+    "name": "富豪香港酒店 Regal Hong Kong Hotel",
+    "price": "HK$1,763",
+    "orig": "HK$2,168"
+  },
+  {
+    "slug": "dir-582",
+    "name": "香港銅鑼灣皇冠假日酒店 Crowne Plaza Hong Kong Causeway Bay",
+    "price": "HK$1,793",
+    "orig": "HK$2,295"
+  },
+  {
+    "slug": "dir-583",
+    "name": "嘉融酒店 Concord Hotel",
+    "price": "HK$2,877",
+    "orig": "HK$3,222"
+  },
+  {
+    "slug": "dir-584",
+    "name": "香港蘇豪希爾頓摩庭酒店 Motto by Hilton Hong Kong SoHo",
+    "price": "HK$2,583",
+    "orig": "HK$3,047"
+  },
+  {
+    "slug": "dir-585",
+    "name": "宏基國際賓館 Bishop Lei International House",
+    "price": "HK$2,415",
+    "orig": "HK$3,018"
+  },
+  {
+    "slug": "dir-586",
+    "name": "悦品海景酒店‧觀塘 Hotel COZi ∙ Harbour View",
+    "price": "HK$2,535",
+    "orig": "HK$3,042"
+  },
+  {
+    "slug": "dir-587",
+    "name": "觀塘帝盛酒店 Dorsett Kwun Tong",
+    "price": "HK$1,933",
+    "orig": "HK$2,280"
+  },
+  {
+    "slug": "dir-588",
+    "name": "銅鑼閣 Causeway Corner",
+    "price": "HK$1,793",
+    "orig": "HK$2,295"
+  },
+  {
+    "slug": "dir-589",
+    "name": "香港維港凱悅尚萃酒店 Hyatt Centric Victoria Harbour",
+    "price": "HK$1,752",
+    "orig": "HK$1,962"
+  },
+  {
+    "slug": "dir-590",
+    "name": "宜必思香港北角酒店 Ibis Hong Kong North Point Hotel",
+    "price": "HK$453",
+    "orig": "HK$511"
+  },
+  {
+    "slug": "dir-591",
+    "name": "皇家太平洋酒店 The Royal Pacific Hotel & Towers",
+    "price": "HK$1,485",
+    "orig": "HK$1,782"
+  },
+  {
+    "slug": "dir-592",
+    "name": "赤柱東方酒店 The Stanley Oriental Hotel",
+    "price": "HK$2,685",
+    "orig": "HK$3,222"
+  },
+  {
+    "slug": "dir-593",
+    "name": "帝苑酒店 The Royal Garden",
+    "price": "HK$946",
+    "orig": "HK$1,239"
+  },
+  {
+    "slug": "dir-594",
+    "name": "九龍香格里拉大酒店 Kowloon Shangri-La Hotel",
+    "price": "HK$497",
+    "orig": "HK$656"
+  },
+  {
+    "slug": "dir-595",
+    "name": "新桃园酒店",
+    "price": "HK$1,843",
+    "orig": "HK$2,359"
+  },
+  {
+    "slug": "dir-596",
+    "name": "香港金域假日酒店 Holiday Inn Golden Mile Hong Kong",
+    "price": "HK$1,841",
+    "orig": "HK$2,319"
+  },
+  {
+    "slug": "dir-597",
+    "name": "南航富豪城大酒店 Southern Rich Town Hotel",
+    "price": "HK$1,577",
+    "orig": "HK$1,766"
+  },
+  {
+    "slug": "dir-598",
+    "name": "灣仔皇悅酒店 Empire Hotel Wanchai",
+    "price": "HK$2,783",
+    "orig": "HK$3,283"
+  },
+  {
+    "slug": "dir-599",
+    "name": "Kew Green Hotel",
+    "price": "HK$1,814",
+    "orig": "HK$2,249"
+  },
+  {
+    "slug": "dir-600",
+    "name": "Burlington Hotel",
+    "price": "HK$2,050",
+    "orig": "HK$2,255"
+  },
+  {
+    "slug": "dir-601",
+    "name": "悦来客栈 Welcome Inn",
+    "price": "HK$824",
+    "orig": "HK$1,104"
+  },
+  {
+    "slug": "dir-602",
+    "name": "芬名酒店 The Fleming",
+    "price": "HK$895",
+    "orig": "HK$1,163"
+  },
+  {
+    "slug": "dir-603",
+    "name": "麗駿酒店 Brighton Hotel",
+    "price": "HK$2,290",
+    "orig": "HK$2,862"
+  },
+  {
+    "slug": "dir-604",
+    "name": "香港明怡美憬閣精選酒店 AKI Hong Kong - MGallery",
+    "price": "HK$2,023",
+    "orig": "HK$2,690"
+  },
+  {
+    "slug": "dir-605",
+    "name": "富豪薈酒店 Regal iClub Hotel",
+    "price": "HK$1,087",
+    "orig": "HK$1,326"
+  },
+  {
+    "slug": "dir-606",
+    "name": "V Wanchai",
+    "price": "HK$1,267",
+    "orig": "HK$1,609"
+  },
+  {
+    "slug": "dir-607",
+    "name": "V Wanchai2",
+    "price": "HK$1,317",
+    "orig": "HK$1,672"
+  },
+  {
+    "slug": "dir-608",
+    "name": "顯裕中心 218 Apartment",
+    "price": "HK$3,189",
+    "orig": "HK$3,954"
+  },
+  {
+    "slug": "dir-609",
+    "name": "香港九龍CBD2智選假日酒店 Holiday Inn Express Hong Kong Kowloon CBD2",
+    "price": "HK$1,174",
+    "orig": "HK$1,573"
+  },
+  {
+    "slug": "dir-610",
+    "name": "尖沙咀一尚酒店 Dash Living on Prat",
+    "price": "HK$3,177",
+    "orig": "HK$3,558"
+  },
+  {
+    "slug": "dir-611",
+    "name": "怡景酒店 Chelsea Hotel",
+    "price": "HK$2,964",
+    "orig": "HK$3,675"
+  },
+  {
+    "slug": "dir-612",
+    "name": "粵海酒店 Guangdong Hotel",
+    "price": "HK$3,309",
+    "orig": "HK$3,937"
+  },
+  {
+    "slug": "dir-613",
+    "name": "康境酒店 The OTTO Hotel",
+    "price": "HK$1,992",
+    "orig": "HK$2,529"
+  },
+  {
+    "slug": "dir-614",
+    "name": "帝國酒店 Imperial Hotel",
+    "price": "HK$1,634",
+    "orig": "HK$1,944"
+  },
+  {
+    "slug": "dir-615",
+    "name": "丹木町酒店 Tankityou Hotel",
+    "price": "HK$1,850",
+    "orig": "HK$2,035"
+  },
+  {
+    "slug": "dir-616",
+    "name": "香港尖沙咀金普頓酒店 Kimpton Tsim Sha Tsui Hong Kong",
+    "price": "HK$1,727",
+    "orig": "HK$1,934"
+  },
+  {
+    "slug": "dir-617",
+    "name": "維港灣酒店 Habour Bay Hotel",
+    "price": "HK$2,515",
+    "orig": "HK$3,143"
+  },
+  {
+    "slug": "dir-618",
+    "name": "憙酒店 Xi Hotel",
+    "price": "HK$617",
+    "orig": "HK$783"
+  },
+  {
+    "slug": "dir-619",
+    "name": "香港沙田萬怡酒店 Courtyard Hong Kong Sha Tin",
+    "price": "HK$2,136",
+    "orig": "HK$2,584"
+  },
+  {
+    "slug": "dir-620",
+    "name": "海澄軒 Horizon Suite Hotel",
+    "price": "HK$2,454",
+    "orig": "HK$2,797"
+  },
+  {
+    "slug": "dir-621",
+    "name": "太子賓館 Taizi Hotel",
+    "price": "HK$2,996",
+    "orig": "HK$3,924"
+  },
+  {
+    "slug": "dir-622",
+    "name": "青逸酒店 Rambler Oasis Hotel",
+    "price": "HK$1,349",
+    "orig": "HK$1,807"
+  },
+  {
+    "slug": "dir-623",
+    "name": "永倫800酒店 Winland 800 Hotel",
+    "price": "HK$719",
+    "orig": "HK$927"
+  },
+  {
+    "slug": "dir-624",
+    "name": "華逸酒店 Rambler Garden Hotel",
+    "price": "HK$2,468",
+    "orig": "HK$3,159"
+  },
+  {
+    "slug": "dir-625",
+    "name": "銅鑼灣皇悅酒店 Empire Hotel Causeway Bay",
+    "price": "HK$1,575",
+    "orig": "HK$1,732"
+  },
+  {
+    "slug": "dir-626",
+    "name": "衡軒 Equinox",
+    "price": "HK$702",
+    "orig": "HK$786"
+  },
+  {
+    "slug": "dir-627",
+    "name": "如心銅鑼灣海景酒店 L'hotel Causeway Bay Harbour View Hong Kong",
+    "price": "HK$1,760",
+    "orig": "HK$2,112"
+  },
+  {
+    "slug": "dir-628",
+    "name": "維園118酒店 Hotel One Eighteen",
+    "price": "HK$1,187",
+    "orig": "HK$1,448"
+  },
+  {
+    "slug": "dir-629",
+    "name": "Twenty One Whitfield",
+    "price": "HK$2,383",
+    "orig": "HK$2,811"
+  },
+  {
+    "slug": "dir-630",
+    "name": "頤庭酒店銅鑼灣 Eco Tree Hotel Causeway Bay",
+    "price": "HK$809",
+    "orig": "HK$962"
+  },
+  {
+    "slug": "dir-631",
+    "name": "TUVE Hotel",
+    "price": "HK$1,314",
+    "orig": "HK$1,629"
+  },
+  {
+    "slug": "dir-632",
+    "name": "Century Plaza Hotel/ Velaye Hotel",
+    "price": "HK$505",
+    "orig": "HK$580"
+  },
+  {
+    "slug": "dir-633",
+    "name": "Hotel Pennington",
+    "price": "HK$2,046",
+    "orig": "HK$2,680"
+  },
+  {
+    "slug": "dir-634",
+    "name": "逸蘭精品酒店 Lanson Place Hotel",
+    "price": "HK$2,475",
+    "orig": "HK$2,722"
+  },
+  {
+    "slug": "dir-635",
+    "name": "香港銅鑼灣智選假日酒店 Holiday Inn Express Causeway Bay Hong Kong",
+    "price": "HK$2,431",
+    "orig": "HK$2,819"
+  },
+  {
+    "slug": "dir-636",
+    "name": "問月酒店 Mira Moon",
+    "price": "HK$2,948",
+    "orig": "HK$3,920"
+  },
+  {
+    "slug": "dir-637",
+    "name": "華登酒店 Walden Hotel",
+    "price": "HK$1,148",
+    "orig": "HK$1,526"
+  },
+  {
+    "slug": "dir-638",
+    "name": "星網酒店 Wifi Hotel",
+    "price": "HK$1,159",
+    "orig": "HK$1,379"
+  },
+  {
+    "slug": "dir-639",
+    "name": "東隅 EAST, Hong Kong",
+    "price": "HK$700",
+    "orig": "HK$770"
+  },
+  {
+    "slug": "dir-640",
+    "name": "北角海逸酒店 Harbour Plaza North Point",
+    "price": "HK$2,763",
+    "orig": "HK$3,398"
+  },
+  {
+    "slug": "dir-641",
+    "name": "帝逸酒店 Alva Hotel by Royal",
+    "price": "HK$1,642",
+    "orig": "HK$2,085"
+  },
+  {
+    "slug": "dir-642",
+    "name": "工業家酒店 The ind Hotel",
+    "price": "HK$2,579",
+    "orig": "HK$2,940"
+  },
+  {
+    "slug": "dir-643",
+    "name": "九龍東如心酒店 Nina Hotel Kowloon East",
+    "price": "HK$851",
+    "orig": "HK$944"
+  },
+  {
+    "slug": "dir-644",
+    "name": "帝景酒店 Royal View Hotel",
+    "price": "HK$2,717",
+    "orig": "HK$3,450"
+  },
+  {
+    "slug": "dir-645",
+    "name": "香港屯門貝爾特酒店 Pentahotel Hong Kong Tuen Mun",
+    "price": "HK$593",
+    "orig": "HK$759"
+  },
+  {
+    "slug": "dir-646",
+    "name": "悦品度假酒店 ∙ 屯門 Hotel COZi‧Resort",
+    "price": "HK$2,598",
+    "orig": "HK$3,455"
+  },
+  {
+    "slug": "dir-647",
+    "name": "珀麗酒店 Rosedale on the Park",
+    "price": "HK$1,981",
+    "orig": "HK$2,297"
+  },
+  {
+    "slug": "dir-648",
+    "name": "銅鑼灣愛麗舍酒店 Elysion Place Hotel Causeway Bay",
+    "price": "HK$920",
+    "orig": "HK$1,196"
+  },
+  {
+    "slug": "dir-649",
+    "name": "輝豪酒店 Mia Casa",
+    "price": "HK$3,169",
+    "orig": "HK$4,088"
+  },
+  {
+    "slug": "dir-650",
+    "name": "逸豪洒店 H1 Hotel",
+    "price": "HK$3,146",
+    "orig": "HK$4,121"
+  },
+  {
+    "slug": "dir-651",
+    "name": "豪畔酒店 Harbour Hotel",
+    "price": "HK$3,144",
+    "orig": "HK$4,055"
+  },
+  {
+    "slug": "dir-652",
+    "name": "香港旺角智選假日酒店 Holiday Inn Express Hong Kong Mongkok",
+    "price": "HK$1,103",
+    "orig": "HK$1,246"
+  },
+  {
+    "slug": "dir-653",
+    "name": "新天地酒店 Sunny Day Hotel",
+    "price": "HK$2,475",
+    "orig": "HK$2,722"
+  },
+  {
+    "slug": "dir-654",
+    "name": "香港旺角希爾頓花園酒店 Hilton Garden Inn Hong Kong Mongkok",
+    "price": "HK$3,004",
+    "orig": "HK$3,424"
+  },
+  {
+    "slug": "dir-655",
+    "name": "盛世酒店 Epoch Hotel",
+    "price": "HK$2,351",
+    "orig": "HK$2,609"
+  },
+  {
+    "slug": "dir-656",
+    "name": "香港萬怡酒店 Courtyard by Marriott Hong Kong",
+    "price": "HK$1,821",
+    "orig": "HK$2,385"
+  },
+  {
+    "slug": "dir-657",
+    "name": "華大盛品酒店 Best Western Plus Hotel Hong Kong",
+    "price": "HK$2,646",
+    "orig": "HK$3,466"
+  },
+  {
+    "slug": "dir-658",
+    "name": "南洋酒店 South Pacific",
+    "price": "HK$1,399",
+    "orig": "HK$1,874"
+  },
+  {
+    "slug": "dir-659",
+    "name": "迪士尼探索家度假酒店 Disney Explorers Lodge",
+    "price": "HK$3,054",
+    "orig": "HK$3,481"
+  },
+  {
+    "slug": "dir-660",
+    "name": "華美達海景酒店 Ramada Hong Kong Harbour View",
+    "price": "HK$3,161",
+    "orig": "HK$3,824"
+  },
+  {
+    "slug": "dir-661",
+    "name": "奧公館酒店石排灣 Ovolo Hotel Shek Pai Wan",
+    "price": "HK$940",
+    "orig": "HK$1,175"
+  },
+  {
+    "slug": "dir-662",
+    "name": "旅馆 Pleasant Hotel",
+    "price": "HK$1,201",
+    "orig": "HK$1,333"
+  },
+  {
+    "slug": "dir-663",
+    "name": "格兰云天大酒店",
+    "price": "HK$1,160",
+    "orig": "HK$1,392"
+  },
+  {
+    "slug": "dir-664",
+    "name": "荃灣絲麗酒店 Silka Tsuen Wan Hotel",
+    "price": "HK$911",
+    "orig": "HK$1,102"
+  },
+  {
+    "slug": "dir-665",
+    "name": "京湖时尚酒店",
+    "price": "HK$933",
+    "orig": "HK$1,100"
+  },
+  {
+    "slug": "dir-666",
+    "name": "荃灣帝盛酒店 Dorsett Regency Tsuen Wan",
+    "price": "HK$1,168",
+    "orig": "HK$1,495"
+  },
+  {
+    "slug": "dir-667",
+    "name": "雍澄軒酒店 The Apex Horizon All-suite Hotel",
+    "price": "HK$562",
+    "orig": "HK$685"
+  },
+  {
+    "slug": "dir-668",
+    "name": "迷你酒店 Mini Hotel",
+    "price": "HK$3,011",
+    "orig": "HK$3,643"
+  },
+  {
+    "slug": "dir-669",
+    "name": "北角M1酒店 M1 Hotel North Point",
+    "price": "HK$3,353",
+    "orig": "HK$3,788"
+  },
+  {
+    "slug": "dir-670",
+    "name": "華美達盛景酒店 Ramada Hong Kong Grand View",
+    "price": "HK$2,334",
+    "orig": "HK$2,777"
+  },
+  {
+    "slug": "dir-671",
+    "name": "粵華酒店 The South China Hotel",
+    "price": "HK$506",
+    "orig": "HK$586"
+  },
+  {
+    "slug": "dir-672",
+    "name": "德雲小築 Dak Wan Siu Chuk",
+    "price": "HK$3,245",
+    "orig": "HK$4,218"
+  },
+  {
+    "slug": "dir-673",
+    "name": "翠雅山房 Heritage Lodge",
+    "price": "HK$1,963",
+    "orig": "HK$2,414"
+  },
+  {
+    "slug": "dir-674",
+    "name": "朗晴酒店 Sun Light Hotel",
+    "price": "HK$1,904",
+    "orig": "HK$2,170"
+  },
+  {
+    "slug": "dir-675",
+    "name": "香港旺角帝盛酒店 Dorsett Mongkok, Hong Kong",
+    "price": "HK$1,737",
+    "orig": "HK$2,119"
+  },
+  {
+    "slug": "dir-676",
+    "name": "奧華南岸精品設計酒店 Southside by Ovolo",
+    "price": "HK$1,734",
+    "orig": "HK$2,063"
+  },
+  {
+    "slug": "dir-677",
+    "name": "本舍 TOWNPLACE WEST KOWLOON",
+    "price": "HK$1,812",
+    "orig": "HK$2,210"
+  },
+  {
+    "slug": "dir-678",
+    "name": "Maker Hotel",
+    "price": "HK$1,486",
+    "orig": "HK$1,798"
+  },
+  {
+    "slug": "dir-679",
+    "name": "华强广场酒店 Huaqiang Plaza Hotel",
+    "price": "HK$3,014",
+    "orig": "HK$3,737"
+  },
+  {
+    "slug": "dir-680",
+    "name": "簡悅酒店･銅鑼灣 Minimal Hotel･Urban",
+    "price": "HK$1,194",
+    "orig": "HK$1,540"
+  },
+  {
+    "slug": "dir-681",
+    "name": "東方泛達酒店 Oriental Lander Hotel",
+    "price": "HK$1,236",
+    "orig": "HK$1,495"
+  },
+  {
+    "slug": "dir-682",
+    "name": "Hotel 36",
+    "price": "HK$1,095",
+    "orig": "HK$1,423"
+  },
+  {
+    "slug": "dir-683",
+    "name": "歸田園居 Espace Elastique",
+    "price": "HK$471",
+    "orig": "HK$617"
+  },
+  {
+    "slug": "dir-684",
+    "name": "奕凨 Ying'nFlo",
+    "price": "HK$3,164",
+    "orig": "HK$3,923"
+  },
+  {
+    "slug": "dir-685",
+    "name": "兴华宾馆",
+    "price": "HK$3,416",
+    "orig": "HK$4,304"
+  },
+  {
+    "slug": "dir-686",
+    "name": "海燕大酒店",
+    "price": "HK$854",
+    "orig": "HK$973"
+  },
+  {
+    "slug": "dir-687",
+    "name": "华旺商务宾馆",
+    "price": "HK$653",
+    "orig": "HK$737"
+  },
+  {
+    "slug": "dir-688",
+    "name": "玺程設計酒店 XW Hotel",
+    "price": "HK$2,192",
+    "orig": "HK$2,783"
+  },
+  {
+    "slug": "dir-689",
+    "name": "华里酒店",
+    "price": "HK$517",
+    "orig": "HK$656"
+  },
+  {
+    "slug": "dir-690",
+    "name": "蘭桂坊酒店 Lan Kwai Fong Hotel @ Kau U Fong",
+    "price": "HK$921",
+    "orig": "HK$1,206"
+  },
+  {
+    "slug": "dir-691",
+    "name": "Pottinger Hong Kong",
+    "price": "HK$2,265",
+    "orig": "HK$2,831"
+  },
+  {
+    "slug": "dir-692",
+    "name": "晉逸精品酒店中環 Butterfly on Wellington",
+    "price": "HK$2,825",
+    "orig": "HK$3,107"
+  },
+  {
+    "slug": "dir-693",
+    "name": "西城六十 60 West Hotel",
+    "price": "HK$2,410",
+    "orig": "HK$2,892"
+  },
+  {
+    "slug": "dir-694",
+    "name": "99 Bonham",
+    "price": "HK$1,193",
+    "orig": "HK$1,527"
+  },
+  {
+    "slug": "dir-695",
+    "name": "上環一尚酒店 Dash Living on Hollywood",
+    "price": "HK$1,574",
+    "orig": "HK$2,109"
+  },
+  {
+    "slug": "dir-696",
+    "name": "頤庭酒店 Eco Tree Hotel",
+    "price": "HK$3,335",
+    "orig": "HK$4,002"
+  },
+  {
+    "slug": "dir-697",
+    "name": "The Garden House",
+    "price": "HK$1,912",
+    "orig": "HK$2,332"
+  },
+  {
+    "slug": "dir-698",
+    "name": "蓝楹湾度假酒店 Bay Breeze Resort",
+    "price": "HK$2,572",
+    "orig": "HK$3,395"
+  },
+  {
+    "slug": "dir-699",
+    "name": "格蘭雲天·閱酒店 Rich Hotel - Jinhui Jasper Hotel",
+    "price": "HK$742",
+    "orig": "HK$942"
+  },
+  {
+    "slug": "dir-700",
+    "name": "Little Tai Hang",
+    "price": "HK$1,804",
+    "orig": "HK$2,056"
+  },
+  {
+    "slug": "dir-701",
+    "name": "The Lane House",
+    "price": "HK$1,703",
+    "orig": "HK$1,924"
+  },
+  {
+    "slug": "dir-702",
+    "name": "富薈土瓜灣酒店 iclub To Kwa Wan Hotel",
+    "price": "HK$1,516",
+    "orig": "HK$1,910"
+  },
+  {
+    "slug": "dir-703",
+    "name": "联城酒店",
+    "price": "HK$3,197",
+    "orig": "HK$4,220"
+  },
+  {
+    "slug": "dir-704",
+    "name": "香港遠東絲麗酒店 Silka Far East Hotel",
+    "price": "HK$3,363",
+    "orig": "HK$4,136"
+  },
+  {
+    "slug": "dir-705",
+    "name": "上海宾馆 Shanghai Hotel",
+    "price": "HK$1,614",
+    "orig": "HK$2,001"
+  },
+  {
+    "slug": "dir-706",
+    "name": "IW Hotel",
+    "price": "HK$1,150",
+    "orig": "HK$1,265"
+  },
+  {
+    "slug": "dir-707",
+    "name": "富薈旺角酒店 iclub Mong Kok Hotel",
+    "price": "HK$2,796",
+    "orig": "HK$3,662"
+  },
+  {
+    "slug": "dir-708",
+    "name": "城市客栈酒店",
+    "price": "HK$2,501",
+    "orig": "HK$2,776"
+  },
+  {
+    "slug": "dir-709",
+    "name": "水都酒店 水都酒店",
+    "price": "HK$950",
+    "orig": "HK$1,045"
+  },
+  {
+    "slug": "dir-710",
+    "name": "贝岭居宾馆",
+    "price": "HK$2,709",
+    "orig": "HK$3,223"
+  },
+  {
+    "slug": "dir-711",
+    "name": "碧薈 The Beacon",
+    "price": "HK$458",
+    "orig": "HK$540"
+  },
+  {
+    "slug": "dir-712",
+    "name": "国宾大酒店 Ambassador Hotel",
+    "price": "HK$3,038",
+    "orig": "HK$3,736"
+  },
+  {
+    "slug": "dir-713",
+    "name": "长安大酒店 Chang An Hotel",
+    "price": "HK$654",
+    "orig": "HK$745"
+  },
+  {
+    "slug": "dir-714",
+    "name": "城际酒店 IntercityHotel",
+    "price": "HK$1,309",
+    "orig": "HK$1,557"
+  },
+  {
+    "slug": "dir-715",
+    "name": "新樂酒店 Shamrock Hotel",
+    "price": "HK$2,433",
+    "orig": "HK$2,870"
+  },
+  {
+    "slug": "dir-716",
+    "name": "聖地牙哥酒店 San Diego Hotel",
+    "price": "HK$1,429",
+    "orig": "HK$1,629"
+  },
+  {
+    "slug": "dir-717",
+    "name": "山林舍 Hillwood House Hotel",
+    "price": "HK$1,881",
+    "orig": "HK$2,181"
+  },
+  {
+    "slug": "dir-718",
+    "name": "華美達華麗酒店 Ramada Hong Kong Grand",
+    "price": "HK$1,615",
+    "orig": "HK$2,018"
+  },
+  {
+    "slug": "dir-719",
+    "name": "樂仕酒店 Knutsford Hotel",
+    "price": "HK$2,718",
+    "orig": "HK$3,479"
+  },
+  {
+    "slug": "dir-720",
+    "name": "晉緻酒店 Page148 Hotel",
+    "price": "HK$1,413",
+    "orig": "HK$1,737"
+  },
+  {
+    "slug": "dir-721",
+    "name": "Habyt Austin Avenue",
+    "price": "HK$2,258",
+    "orig": "HK$2,664"
+  },
+  {
+    "slug": "dir-722",
+    "name": "紫珀酒店 The Perkin Hotel",
+    "price": "HK$2,052",
+    "orig": "HK$2,298"
+  },
+  {
+    "slug": "dir-723",
+    "name": "仕德福山景酒店 Stanford Hillview Hotel",
+    "price": "HK$831",
+    "orig": "HK$963"
+  },
+  {
+    "slug": "dir-724",
+    "name": "君怡酒店 The Kimberley Hotel",
+    "price": "HK$1,832",
+    "orig": "HK$2,143"
+  },
+  {
+    "slug": "dir-725",
+    "name": "百樂酒店 Park Hotel",
+    "price": "HK$3,309",
+    "orig": "HK$3,937"
+  },
+  {
+    "slug": "dir-726",
+    "name": "最佳盛品酒店 Best Western Plus",
+    "price": "HK$3,356",
+    "orig": "HK$3,892"
+  },
+  {
+    "slug": "dir-727",
+    "name": "The Mira Hong Kong",
+    "price": "HK$2,023",
+    "orig": "HK$2,690"
+  },
+  {
+    "slug": "dir-728",
+    "name": "香港寶御酒店 Hotel Pravo",
+    "price": "HK$1,510",
+    "orig": "HK$1,812"
+  },
+  {
+    "slug": "dir-729",
+    "name": "馨樂庭亞士厘服務式公寓 Modena by Fraser Hong Kong",
+    "price": "HK$1,107",
+    "orig": "HK$1,295"
+  },
+  {
+    "slug": "dir-730",
+    "name": "豪境酒店 Goodrich Hotel",
+    "price": "HK$1,859",
+    "orig": "HK$2,212"
+  },
+  {
+    "slug": "dir-731",
+    "name": "偉晴軒 West Hotel",
+    "price": "HK$784",
+    "orig": "HK$932"
+  },
+  {
+    "slug": "dir-732",
+    "name": "木的地酒店 Hotel Madera Hong Kong",
+    "price": "HK$1,952",
+    "orig": "HK$2,186"
+  },
+  {
+    "slug": "dir-733",
+    "name": "朗逸酒店 Largos Hotel",
+    "price": "HK$3,366",
+    "orig": "HK$4,241"
+  },
+  {
+    "slug": "dir-734",
+    "name": "彌敦酒店 Nathan Hotel",
+    "price": "HK$2,395",
+    "orig": "HK$3,113"
+  },
+  {
+    "slug": "dir-735",
+    "name": "逸林酒店 Noble Park Hotel",
+    "price": "HK$804",
+    "orig": "HK$916"
+  },
+  {
+    "slug": "dir-736",
+    "name": "登臺 Hotel Stage",
+    "price": "HK$2,127",
+    "orig": "HK$2,382"
+  },
+  {
+    "slug": "dir-737",
+    "name": "Homy Residence",
+    "price": "HK$1,809",
+    "orig": "HK$2,152"
+  },
+  {
+    "slug": "dir-738",
+    "name": "海景絲麗酒店 Silka Seaview Hotel",
+    "price": "HK$1,654",
+    "orig": "HK$1,885"
+  },
+  {
+    "slug": "dir-739",
+    "name": "王子酒店 Kings Hotel",
+    "price": "HK$1,902",
+    "orig": "HK$2,130"
+  },
+  {
+    "slug": "dir-740",
+    "name": "Casa Hotel",
+    "price": "HK$1,366",
+    "orig": "HK$1,721"
+  },
+  {
+    "slug": "dir-741",
+    "name": "明愛白英奇賓館 Caritas Bianchi Lodge",
+    "price": "HK$2,387",
+    "orig": "HK$2,912"
+  },
+  {
+    "slug": "dir-742",
+    "name": "城景國際 The Cityview",
+    "price": "HK$3,194",
+    "orig": "HK$4,120"
+  },
+  {
+    "slug": "dir-743",
+    "name": "香港壹零捌館 Hotel 108",
+    "price": "HK$2,754",
+    "orig": "HK$3,139"
+  },
+  {
+    "slug": "dir-744",
+    "name": "Shama Midlevels Hong Kong",
+    "price": "HK$2,764",
+    "orig": "HK$3,427"
+  },
+  {
+    "slug": "dir-745",
+    "name": "香港東涌世茂喜來登酒店 Sheraton Hong Kong Tung Chung Hotel",
+    "price": "HK$1,299",
+    "orig": "HK$1,740"
+  },
+  {
+    "slug": "dir-746",
+    "name": "高新富悅酒店 GaoXin FuYue Hotel",
+    "price": "HK$3,428",
+    "orig": "HK$3,873"
+  },
+  {
+    "slug": "dir-747",
+    "name": "The Pier Hotel",
+    "price": "HK$1,711",
+    "orig": "HK$2,070"
+  },
+  {
+    "slug": "dir-748",
+    "name": "盛庭Living Shing Ting Living",
+    "price": "HK$3,351",
+    "orig": "HK$3,719"
+  },
+  {
+    "slug": "dir-749",
+    "name": "富麗敦海洋公園酒店 The Fullerton Ocean Park Hotel",
+    "price": "HK$1,792",
+    "orig": "HK$2,275"
+  },
+  {
+    "slug": "dir-750",
+    "name": "燕晗山酒店 Yanhanshan Hotel",
+    "price": "HK$1,477",
+    "orig": "HK$1,654"
+  },
+  {
+    "slug": "dir-751",
+    "name": "華麗精品酒店 Best Western Hotel",
+    "price": "HK$2,618",
+    "orig": "HK$3,351"
+  },
+  {
+    "slug": "dir-752",
+    "name": "英皇駿景酒店 The Emperor Hotel",
+    "price": "HK$1,000",
+    "orig": "HK$1,100"
+  },
+  {
+    "slug": "dir-753",
+    "name": "麗悅酒店 Cosmo Hotel",
+    "price": "HK$2,260",
+    "orig": "HK$2,712"
+  },
+  {
+    "slug": "dir-754",
+    "name": "創富酒店 China Rich Hotel",
+    "price": "HK$2,953",
+    "orig": "HK$3,336"
+  },
+  {
+    "slug": "dir-755",
+    "name": "壹棠酒店及服務式公寓 (北座) CM+ Hotels and Serviced Apartments (North Tower)",
+    "price": "HK$2,183",
+    "orig": "HK$2,575"
+  },
+  {
+    "slug": "dir-756",
+    "name": "旭逸酒店·荃灣 Hotel Ease · Tsuen Wan",
+    "price": "HK$491",
+    "orig": "HK$618"
+  },
+  {
+    "slug": "dir-757",
+    "name": "旺角睿景酒店 Kew Green Mongkok",
+    "price": "HK$1,683",
+    "orig": "HK$1,985"
+  },
+  {
+    "slug": "dir-758",
+    "name": "儷凱酒店 Le Prabelle Hotel",
+    "price": "HK$3,223",
+    "orig": "HK$4,286"
+  },
+  {
+    "slug": "dir-759",
+    "name": "旺角薈賢居 Lodgewood By L’hotel Mongkok",
+    "price": "HK$1,515",
+    "orig": "HK$1,893"
+  },
+  {
+    "slug": "dir-760",
+    "name": "悦品酒店·荃灣 Hotel COZi · Oasis",
+    "price": "HK$1,534",
+    "orig": "HK$1,825"
+  },
+  {
+    "slug": "dir-761",
+    "name": "城木酒店 Urbanwood",
+    "price": "HK$730",
+    "orig": "HK$839"
+  },
+  {
+    "slug": "dir-762",
+    "name": "銅鑼灣利景酒店 The Charterhouse Causeway Bay",
+    "price": "HK$3,211",
+    "orig": "HK$3,885"
+  },
+  {
+    "slug": "dir-763",
+    "name": "The Hari Hong Kong",
+    "price": "HK$2,018",
+    "orig": "HK$2,583"
+  },
+  {
+    "slug": "dir-764",
+    "name": "玺悦文蘭酒店",
+    "price": "HK$2,575",
+    "orig": "HK$2,832"
+  },
+  {
+    "slug": "dir-765",
+    "name": "五洲宾馆 Wuzhou Guest House",
+    "price": "HK$2,098",
+    "orig": "HK$2,790"
+  },
+  {
+    "slug": "dir-766",
+    "name": "悦品天秀酒店‧元朗 Hotel COZi Wetland",
+    "price": "HK$3,388",
+    "orig": "HK$4,167"
+  },
+  {
+    "slug": "dir-767",
+    "name": "城滙奧運酒店 Metroplace Olympic Hotel",
+    "price": "HK$921",
+    "orig": "HK$1,206"
+  },
+  {
+    "slug": "dir-768",
+    "name": "圣淘沙酒店 (翡翠店) Sentosa Hotel, Feicui",
+    "price": "HK$874",
+    "orig": "HK$1,171"
+  },
+  {
+    "slug": "dir-769",
+    "name": "城木酒店 (鴨脷洲) Urbanwood Ap Lei Chau",
+    "price": "HK$1,048",
+    "orig": "HK$1,393"
+  },
+  {
+    "slug": "dir-770",
+    "name": "冠藍軒 Bluejay Residences",
+    "price": "HK$970",
+    "orig": "HK$1,261"
+  },
+  {
+    "slug": "dir-771",
+    "name": "香港東涌福朋喜來登酒店 Four Points by Sheraton Hong Kong, Tung Chung",
+    "price": "HK$3,137",
+    "orig": "HK$3,827"
+  },
+  {
+    "slug": "dir-772",
+    "name": "中泰来大酒店 Zhongtailai Hotel",
+    "price": "HK$1,778",
+    "orig": "HK$2,009"
+  },
+  {
+    "slug": "dir-773",
+    "name": "九龍維景酒店 Metropark Hotel Kowloon",
+    "price": "HK$467",
+    "orig": "HK$593"
+  },
+  {
+    "slug": "dir-774",
+    "name": "梅窩酒店 Mui Wo Inn",
+    "price": "HK$911",
+    "orig": "HK$1,102"
+  },
+  {
+    "slug": "dir-775",
+    "name": "海景渡假樂園 Seaview Holiday Resort",
+    "price": "HK$2,041",
+    "orig": "HK$2,571"
+  },
+  {
+    "slug": "dir-776",
+    "name": "泛達太子酒店 Lander Hotel",
+    "price": "HK$3,054",
+    "orig": "HK$3,481"
+  },
+  {
+    "slug": "dir-777",
+    "name": "AKVO Hotel",
+    "price": "HK$1,295",
+    "orig": "HK$1,683"
+  },
+  {
+    "slug": "dir-778",
+    "name": "壹棠酒店及服務式公寓（南座） CM+ Hotels And Serviced Apartments (South Tower)",
+    "price": "HK$687",
+    "orig": "HK$838"
+  },
+  {
+    "slug": "dir-779",
+    "name": "富薈上環酒店 iclub Sheung Wan Hotel",
+    "price": "HK$476",
+    "orig": "HK$528"
+  },
+  {
+    "slug": "dir-780",
+    "name": "尚豪酒店 Sohotel",
+    "price": "HK$2,157",
+    "orig": "HK$2,523"
+  },
+  {
+    "slug": "dir-781",
+    "name": "港島海逸君綽酒店 Harbour Grand Hong Kong",
+    "price": "HK$673",
+    "orig": "HK$895"
+  },
+  {
+    "slug": "dir-782",
+    "name": "長園輕居酒店 Changyuan Light Hotel",
+    "price": "HK$1,704",
+    "orig": "HK$1,942"
+  },
+  {
+    "slug": "dir-783",
+    "name": "香港銀樾美憬閣精選酒店 The Silveri Hong Kong-MGallery",
+    "price": "HK$1,768",
+    "orig": "HK$2,263"
+  },
+  {
+    "slug": "dir-784",
+    "name": "九龍酒店 The Kowloon Hotel",
+    "price": "HK$1,411",
+    "orig": "HK$1,707"
+  },
+  {
+    "slug": "dir-785",
+    "name": "维也纳国际酒店 Vienna Hotel",
+    "price": "HK$1,784",
+    "orig": "HK$2,122"
+  },
+  {
+    "slug": "dir-786",
+    "name": "伯惠酒店 WE hotel",
+    "price": "HK$2,698",
+    "orig": "HK$3,588"
+  },
+  {
+    "slug": "dir-787",
+    "name": "宜必思香港中上環酒店 Hotel ibis Hong Kong Central & Sheung Wan",
+    "price": "HK$2,477",
+    "orig": "HK$2,774"
+  },
+  {
+    "slug": "dir-788",
+    "name": "香港麗富酒店 Y Hotel Hong Kong",
+    "price": "HK$3,014",
+    "orig": "HK$3,737"
+  },
+  {
+    "slug": "dir-789",
+    "name": "皇后酒店 Queen's Hotel",
+    "price": "HK$964",
+    "orig": "HK$1,195"
+  },
+  {
+    "slug": "dir-790",
+    "name": "九龍皇悅酒店 The Empire Hotel Kowloon",
+    "price": "HK$3,105",
+    "orig": "HK$3,570"
+  },
+  {
+    "slug": "dir-791",
+    "name": "Ovolo Hotel",
+    "price": "HK$1,517",
+    "orig": "HK$1,926"
+  },
+  {
+    "slug": "dir-792",
+    "name": "晉逸蘭桂坊精品酒店中環 Butterfly on LKF Central",
+    "price": "HK$2,117",
+    "orig": "HK$2,688"
+  },
+  {
+    "slug": "dir-793",
+    "name": "Ovolo Central",
+    "price": "HK$1,722",
+    "orig": "HK$2,273"
+  },
+  {
+    "slug": "dir-794",
+    "name": "灝美中環酒店 Homy Hotel Central",
+    "price": "HK$901",
+    "orig": "HK$1,000"
+  },
+  {
+    "slug": "dir-795",
+    "name": "河东宾馆",
+    "price": "HK$3,061",
+    "orig": "HK$3,703"
+  },
+  {
+    "slug": "dir-796",
+    "name": "旭逸雅捷酒店·荔枝角 Hotel Ease Access·Lai Chi Kok",
+    "price": "HK$2,224",
+    "orig": "HK$2,980"
+  },
+  {
+    "slug": "dir-797",
+    "name": "粤海酒店",
+    "price": "HK$1,798",
+    "orig": "HK$2,391"
+  },
+  {
+    "slug": "dir-798",
+    "name": "华安国际大酒店 Huaan International Hotel",
+    "price": "HK$652",
+    "orig": "HK$730"
+  },
+  {
+    "slug": "dir-799",
+    "name": "禧程酒店 Xicheng Hotel",
+    "price": "HK$2,535",
+    "orig": "HK$3,042"
+  },
+  {
+    "slug": "dir-800",
+    "name": "天天酒店 Tiantian Hotel",
+    "price": "HK$913",
+    "orig": "HK$1,122"
+  },
+  {
+    "slug": "dir-801",
+    "name": "寰宇大酒店 Universal Hotel",
+    "price": "HK$1,182",
+    "orig": "HK$1,382"
+  },
+  {
+    "slug": "dir-802",
+    "name": "世纪华源商务酒店",
+    "price": "HK$2,896",
+    "orig": "HK$3,793"
+  },
+  {
+    "slug": "dir-803",
+    "name": "恆豐酒店 Prudential Hotel",
+    "price": "HK$1,053",
+    "orig": "HK$1,189"
+  },
+  {
+    "slug": "dir-804",
+    "name": "仕德福酒店 Stanford Hotel",
+    "price": "HK$1,075",
+    "orig": "HK$1,182"
+  },
+  {
+    "slug": "dir-805",
+    "name": "Hotel 1936",
+    "price": "HK$1,201",
+    "orig": "HK$1,333"
+  },
+  {
+    "slug": "dir-806",
+    "name": "富薈尚乘上環酒店 iclub AMTD Sheung Wan Hotel",
+    "price": "HK$2,436",
+    "orig": "HK$2,947"
+  },
+  {
+    "slug": "dir-807",
+    "name": "香港啟德帝盛酒店 Dorsett Kai Tak",
+    "price": "HK$675",
+    "orig": "HK$742"
+  },
+  {
+    "slug": "dir-808",
+    "name": "富薈炮台山酒店 iclub Fortress Hill Hotel",
+    "price": "HK$962",
+    "orig": "HK$1,173"
+  },
+  {
+    "slug": "dir-809",
+    "name": "安伴环保酒店",
+    "price": "HK$2,636",
+    "orig": "HK$3,189"
+  },
+  {
+    "slug": "dir-810",
+    "name": "奥城花园酒店 Ocean City Hotel",
+    "price": "HK$2,439",
+    "orig": "HK$3,024"
+  },
+  {
+    "slug": "dir-811",
+    "name": "蛇口亚朵酒店 Atour Hotel (Shekou)",
+    "price": "HK$1,219",
+    "orig": "HK$1,572"
+  },
+  {
+    "slug": "dir-812",
+    "name": "蔡屋围大酒店",
+    "price": "HK$2,658",
+    "orig": "HK$3,136"
+  },
+  {
+    "slug": "dir-813",
+    "name": "长城大酒店",
+    "price": "HK$1,439",
+    "orig": "HK$1,784"
+  },
+  {
+    "slug": "dir-814",
+    "name": "加来·酒店 calais",
+    "price": "HK$2,324",
+    "orig": "HK$3,114"
+  },
+  {
+    "slug": "dir-815",
+    "name": "福青龙华天假日酒店 Fuqinglong HT Holiday Hotel",
+    "price": "HK$1,924",
+    "orig": "HK$2,578"
+  },
+  {
+    "slug": "dir-816",
+    "name": "亞朵酒店（南光路店） Atour Hotel (Nanguang Road)",
+    "price": "HK$2,130",
+    "orig": "HK$2,449"
+  },
+  {
+    "slug": "dir-817",
+    "name": "弘都酒店（前海店） Hongdu Hotel (Qianhai)",
+    "price": "HK$2,209",
+    "orig": "HK$2,628"
+  },
+  {
+    "slug": "dir-818",
+    "name": "時光電競酒店 Time E-Sports Hotel",
+    "price": "HK$751",
+    "orig": "HK$833"
+  },
+  {
+    "slug": "dir-819",
+    "name": "伯爵精品酒店 Earl Boutique Hotel",
+    "price": "HK$1,844",
+    "orig": "HK$2,378"
+  },
+  {
+    "slug": "dir-820",
+    "name": "凱里亞德酒店 Kyriad Hotel",
+    "price": "HK$981",
+    "orig": "HK$1,137"
+  },
+  {
+    "slug": "dir-821",
+    "name": "麗楓酒店 Lavande Hotel",
+    "price": "HK$1,700",
+    "orig": "HK$1,870"
+  },
+  {
+    "slug": "dir-822",
+    "name": "南灣如心酒店 Nina Hotel Island South",
+    "price": "HK$2,562",
+    "orig": "HK$3,125"
   }
 ]
