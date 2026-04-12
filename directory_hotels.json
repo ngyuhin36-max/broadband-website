@@ -2338,5 +2338,185 @@
     "name": "深圳羅湖戴斯精選溫德姆飯店",
     "price": "HK$488",
     "orig": "HK$718"
+  },
+  {
+    "slug": "dir-391",
+    "name": "羅曼酒店 41 Cumberland Road",
+    "price": "HK$3,534",
+    "orig": "HK$4,735"
+  },
+  {
+    "slug": "dir-392",
+    "name": "龍堡國際賓館 Baden-Powell International House",
+    "price": "HK$3,629",
+    "orig": "HK$4,318"
+  },
+  {
+    "slug": "dir-393",
+    "name": "香港康得思酒店 Cordis Hong Kong",
+    "price": "HK$1,271",
+    "orig": "HK$1,537"
+  },
+  {
+    "slug": "dir-394",
+    "name": "香港逸東酒店 Eaton Hotel Hong Kong",
+    "price": "HK$2,280",
+    "orig": "HK$2,508"
+  },
+  {
+    "slug": "dir-395",
+    "name": "香港黃金海岸酒店 Hong Kong Gold Coast Hotel",
+    "price": "HK$2,535",
+    "orig": "HK$2,915"
+  },
+  {
+    "slug": "dir-396",
+    "name": "航天城 (香港) Hong Kong SkyCity",
+    "price": "HK$1,377",
+    "orig": "HK$1,611"
+  },
+  {
+    "slug": "dir-397",
+    "name": "港島英迪格酒店 Hotel Indigo Hong Kong Island",
+    "price": "HK$3,637",
+    "orig": "HK$4,618"
+  },
+  {
+    "slug": "dir-398",
+    "name": "沙田凱悅酒店 Hyatt Regency Hong Kong, Sha Tin",
+    "price": "HK$3,757",
+    "orig": "HK$5,147"
+  },
+  {
+    "slug": "dir-399",
+    "name": "海景嘉福酒店 InterContinental Grand Stanford Hong Kong",
+    "price": "HK$1,752",
+    "orig": "HK$2,137"
+  },
+  {
+    "slug": "dir-400",
+    "name": "港島太平洋酒店 Island Pacific Hotel",
+    "price": "HK$1,736",
+    "orig": "HK$2,013"
+  },
+  {
+    "slug": "dir-401",
+    "name": "The Jervois",
+    "price": "HK$1,559",
+    "orig": "HK$1,855"
+  },
+  {
+    "slug": "dir-402",
+    "name": "香港JW萬豪酒店 JW Marriott Hotel Hong Kong",
+    "price": "HK$2,362",
+    "orig": "HK$2,645"
+  },
+  {
+    "slug": "dir-403",
+    "name": "九龍香格里拉酒店 Kowloon Shangri-La",
+    "price": "HK$1,184",
+    "orig": "HK$1,586"
+  },
+  {
+    "slug": "dir-404",
+    "name": "置地廣塲 The Landmark Mandarin Oriental Hotel",
+    "price": "HK$782",
+    "orig": "HK$954"
+  },
+  {
+    "slug": "dir-405",
+    "name": "海員俱樂部 Mariner's Club",
+    "price": "HK$3,277",
+    "orig": "HK$4,489"
+  },
+  {
+    "slug": "dir-406",
+    "name": "名鑄 The Masterpiece (Hong Kong)",
+    "price": "HK$2,904",
+    "orig": "HK$3,600"
+  },
+  {
+    "slug": "dir-407",
+    "name": "美荷樓 Mei Ho House",
+    "price": "HK$542",
+    "orig": "HK$661"
+  },
+  {
+    "slug": "dir-408",
+    "name": "數碼港艾美酒店 Le Méridien Cyberport Hotel",
+    "price": "HK$2,280",
+    "orig": "HK$2,508"
+  },
+  {
+    "slug": "dir-409",
+    "name": "香港銅鑼灣維景酒店 Metropark Hotel Causeway Bay Hong Kong",
+    "price": "HK$1,695",
+    "orig": "HK$2,288"
+  },
+  {
+    "slug": "dir-410",
+    "name": "The Mira Hong Kong The Mira Hong Kong",
+    "price": "HK$3,678",
+    "orig": "HK$5,075"
+  },
+  {
+    "slug": "dir-411",
+    "name": "香港夢卓恩酒店 Mondrian Hong Kong",
+    "price": "HK$3,990",
+    "orig": "HK$5,187"
+  },
+  {
+    "slug": "dir-412",
+    "name": "香港諾富特世紀酒店 Novotel Century Hong Kong",
+    "price": "HK$2,734",
+    "orig": "HK$3,663"
+  },
+  {
+    "slug": "dir-413",
+    "name": "諾富特東薈城酒店 Novotel Citygate",
+    "price": "HK$580",
+    "orig": "HK$696"
+  },
+  {
+    "slug": "dir-414",
+    "name": "香港九龍諾富特酒店 Novotel Nathan Road Kowloon Hong Kong",
+    "price": "HK$2,205",
+    "orig": "HK$2,535"
+  },
+  {
+    "slug": "dir-415",
+    "name": "Ovolo Hotels",
+    "price": "HK$1,682",
+    "orig": "HK$2,052"
+  },
+  {
+    "slug": "dir-416",
+    "name": "香港麗晶酒店 Regent Hong Kong",
+    "price": "HK$1,778",
+    "orig": "HK$2,453"
+  },
+  {
+    "slug": "dir-417",
+    "name": "帝都酒店 Royal Park Hotel",
+    "price": "HK$2,148",
+    "orig": "HK$2,534"
+  },
+  {
+    "slug": "dir-418",
+    "name": "帝京酒店 Royal Plaza Hotel (Hong Kong)",
+    "price": "HK$3,717",
+    "orig": "HK$4,348"
+  },
+  {
+    "slug": "dir-419",
+    "name": "香港瑞吉酒店 The St. Regis Hong Kong",
+    "price": "HK$743",
+    "orig": "HK$988"
+  },
+  {
+    "slug": "dir-420",
+    "name": "奕居 Upper House Hong Kong",
+    "price": "HK$3,453",
+    "orig": "HK$3,901"
   }
 ]
