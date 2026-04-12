@@ -118,7 +118,7 @@
         .sort-bar .result-count { font-size: 0.9em; color: #666; }
         .sort-bar select { padding: 6px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.85em; }
 
-        .hotel-card { background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 16px; overflow: hidden; display: flex; transition: box-shadow 0.2s; }
+        .hotel-card-link:hover .hotel-card{box-shadow:0 6px 20px rgba(0,0,0,0.12);transform:translateY(-2px);} .hotel-card{transition:all 0.2s; background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 16px; overflow: hidden; display: flex; transition: box-shadow 0.2s; }
         .hotel-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
         .hotel-img { width: 280px; min-height: 220px; background-size: cover; background-position: center; position: relative; flex-shrink: 0; }
         .hotel-badge { position: absolute; top: 10px; left: 10px; background: #ff4757; color: white; padding: 3px 10px; border-radius: 4px; font-size: 0.75em; font-weight: bold; }
@@ -308,7 +308,7 @@
             </div>
 
             <!-- Hotel 1 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/the-peninsula-hong-kong.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop');"><div class="hotel-badge">TOP 推薦</div><div class="hotel-rank">#1</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -330,11 +330,6 @@
                         <span class="rating-text">卓越 · 2,845則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$3,280</div>
@@ -342,10 +337,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 2 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/mandarin-oriental.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&h=400&fit=crop');"><div class="hotel-rank">#2</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -367,11 +362,6 @@
                         <span class="rating-text">卓越 · 3,102則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$2,890</div>
@@ -379,10 +369,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 3 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/the-ritz-carlton.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&h=400&fit=crop');"><div class="hotel-rank">#3</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -404,11 +394,6 @@
                         <span class="rating-text">卓越 · 4,567則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$2,680</div>
@@ -416,10 +401,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 4 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/hyatt-regency-tst.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&h=400&fit=crop');"><div class="hotel-rank">#4</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -441,11 +426,6 @@
                         <span class="rating-text">極好 · 5,234則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,280</div>
@@ -453,10 +433,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 5 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/the-murray.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=400&fit=crop');"><div class="hotel-rank">#5</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -478,11 +458,6 @@
                         <span class="rating-text">卓越 · 1,890則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$2,180</div>
@@ -490,10 +465,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 6 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/w-hong-kong.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=400&fit=crop');"><div class="hotel-badge">潮人至愛</div><div class="hotel-rank">#6</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -515,11 +490,6 @@
                         <span class="rating-text">極好 · 3,456則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,880</div>
@@ -527,10 +497,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 7 - 4 Star -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/dorsett-mongkok.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=600&h=400&fit=crop');"><div class="hotel-badge">性價比高</div><div class="hotel-rank">#7</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -552,11 +522,6 @@
                         <span class="rating-text">極好 · 6,789則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$580</div>
@@ -564,10 +529,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 8 - 4 Star -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/crowne-plaza-cwb.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600&h=400&fit=crop');"><div class="hotel-rank">#8</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -589,11 +554,6 @@
                         <span class="rating-text">極好 · 4,321則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$780</div>
@@ -601,10 +561,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 9 - Budget -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/bridal-tea-house-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop');"><div class="hotel-badge">超值之選</div><div class="hotel-rank">#9</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -626,11 +586,6 @@
                         <span class="rating-text">好 · 8,901則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$298</div>
@@ -638,10 +593,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 10 - Staycation -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/auberge-discovery-bay.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&h=400&fit=crop');"><div class="hotel-badge">Staycation</div><div class="hotel-rank">#10</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -663,11 +618,6 @@
                         <span class="rating-text">極好 · 2,345則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$880</div>
@@ -675,10 +625,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 11 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/four-seasons-hong-kong.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&h=400&fit=crop');"><div class="hotel-rank">#11</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -700,11 +650,6 @@
                         <span class="rating-text">卓越 · 2,156則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$3,580</div>
@@ -712,10 +657,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 12 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/grand-hyatt-hong-kong.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600&h=400&fit=crop');"><div class="hotel-rank">#12</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -737,11 +682,6 @@
                         <span class="rating-text">卓越 · 3,789則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$2,180</div>
@@ -749,10 +689,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 13 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/rosewood-hong-kong.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&h=400&fit=crop');"><div class="hotel-rank">#13</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -774,11 +714,6 @@
                         <span class="rating-text">卓越 · 1,567則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$3,980</div>
@@ -786,10 +721,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 14 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/marriott-ocean-park.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&h=400&fit=crop');"><div class="hotel-badge">新酒店</div><div class="hotel-rank">#14</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -811,11 +746,6 @@
                         <span class="rating-text">極好 · 4,123則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,080</div>
@@ -823,10 +753,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 15 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/hotel-icon.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=600&h=400&fit=crop');"><div class="hotel-badge">人氣之選</div><div class="hotel-rank">#15</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -848,11 +778,6 @@
                         <span class="rating-text">卓越 · 5,678則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,380</div>
@@ -860,10 +785,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 16 - From Trip.com data -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/empire-prestige-cwb.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1606046604972-77cc76aee944?w=600&h=400&fit=crop');"><div class="hotel-badge">高評分</div><div class="hotel-rank">#16</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -885,11 +810,6 @@
                         <span class="rating-text">卓越 · 5,373則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$420</div>
@@ -897,10 +817,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 17 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/nina-hotel-tsuen-wan-west.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=600&h=400&fit=crop');"><div class="hotel-badge">海景推薦</div><div class="hotel-rank">#17</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -922,11 +842,6 @@
                         <span class="rating-text">極好 · 14,953則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,060</div>
@@ -934,10 +849,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 18 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/sheraton-hong-kong.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600&h=400&fit=crop');"><div class="hotel-rank">#18</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -959,11 +874,6 @@
                         <span class="rating-text">極好 · 3,969則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,650</div>
@@ -971,10 +881,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 19 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/regala-skycity-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?w=600&h=400&fit=crop');"><div class="hotel-badge">機場首選</div><div class="hotel-rank">#19</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -996,11 +906,6 @@
                         <span class="rating-text">極好 · 11,763則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,105</div>
@@ -1008,10 +913,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 20 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/panda-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?w=600&h=400&fit=crop');"><div class="hotel-rank">#20</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1033,11 +938,6 @@
                         <span class="rating-text">極好 · 10,126則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$442</div>
@@ -1045,10 +945,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 21 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/dorsett-wanchai.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=600&h=400&fit=crop');"><div class="hotel-rank">#21</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1070,11 +970,6 @@
                         <span class="rating-text">極好 · 4,449則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$495</div>
@@ -1082,10 +977,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 22 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/hopewell-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1535827841776-24afc1e3f2cc?w=600&h=400&fit=crop');"><div class="hotel-badge">極佳評分</div><div class="hotel-rank">#22</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1107,11 +1002,6 @@
                         <span class="rating-text">卓越 · 5,663則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,240</div>
@@ -1119,10 +1009,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 23 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/rosedale-hotel-hong-kong.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?w=600&h=400&fit=crop');"><div class="hotel-rank">#23</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1144,11 +1034,6 @@
                         <span class="rating-text">極好 · 3,939則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$498</div>
@@ -1156,10 +1041,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 24 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/empire-hotel-wan-chai.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1587213811864-46e59f6764b4?w=600&h=400&fit=crop');"><div class="hotel-rank">#24</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1181,11 +1066,6 @@
                         <span class="rating-text">極好 · 12,859則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$531</div>
@@ -1193,10 +1073,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 25 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/maple-leaf-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1455587734955-081b22074882?w=600&h=400&fit=crop');"><div class="hotel-rank">#25</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1218,11 +1098,6 @@
                         <span class="rating-text">極好 · 1,706則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$355</div>
@@ -1230,10 +1105,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 26 - Trip.com data -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/royal-garden-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600&h=400&fit=crop');"><div class="hotel-rank">#26</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1255,11 +1130,6 @@
                         <span class="rating-text">極好 · 4,720則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$975</div>
@@ -1267,10 +1137,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 27 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/empire-hotel-cwb.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600&h=400&fit=crop');"><div class="hotel-rank">#27</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1292,11 +1162,6 @@
                         <span class="rating-text">卓越 · 9,358則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$485</div>
@@ -1304,10 +1169,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 28 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/conrad-hong-kong.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&h=400&fit=crop');"><div class="hotel-badge">維港海景</div><div class="hotel-rank">#28</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1329,11 +1194,6 @@
                         <span class="rating-text">卓越 · 3,678則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,680</div>
@@ -1341,10 +1201,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 29 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/kerry-hotel-hong-kong.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&h=400&fit=crop');"><div class="hotel-rank">#29</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1366,11 +1226,6 @@
                         <span class="rating-text">卓越 · 5,432則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,880</div>
@@ -1378,10 +1233,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 30 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/hk-disneyland-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&h=400&fit=crop');"><div class="hotel-badge">迪士尼</div><div class="hotel-rank">#30</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1403,11 +1258,6 @@
                         <span class="rating-text">極好 · 6,789則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,580</div>
@@ -1415,10 +1265,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 31 - Trip.com verified -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/new-world-millennium-hk.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1606046604972-77cc76aee944?w=600&h=400&fit=crop');"><div class="hotel-badge">高評分</div><div class="hotel-rank">#31</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1440,11 +1290,6 @@
                         <span class="rating-text">卓越 · 5,462則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,340</div>
@@ -1452,10 +1297,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 32 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/royal-plaza-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=600&h=400&fit=crop');"><div class="hotel-badge">旺角地標</div><div class="hotel-rank">#32</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1477,11 +1322,6 @@
                         <span class="rating-text">卓越 · 8,133則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,147</div>
@@ -1489,10 +1329,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 33 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/four-points-tung-chung.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600&h=400&fit=crop');"><div class="hotel-rank">#33</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1514,11 +1354,6 @@
                         <span class="rating-text">卓越 · 6,442則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$885</div>
@@ -1526,10 +1361,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 34 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/regal-airport-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?w=600&h=400&fit=crop');"><div class="hotel-rank">#34</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1551,11 +1386,6 @@
                         <span class="rating-text">極好 · 10,158則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,156</div>
@@ -1563,10 +1393,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 35 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/the-harbourview.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1587213811864-46e59f6764b4?w=600&h=400&fit=crop');"><div class="hotel-rank">#35</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1588,11 +1418,6 @@
                         <span class="rating-text">極好 · 2,711則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$564</div>
@@ -1600,10 +1425,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 36 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/hotel-ease-access-tsuen-wan.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?w=600&h=400&fit=crop');"><div class="hotel-badge">超值</div><div class="hotel-rank">#36</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1625,11 +1450,6 @@
                         <span class="rating-text">極好 · 2,168則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$379</div>
@@ -1637,10 +1457,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 37 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/disneys-hollywood-hotel.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600&h=400&fit=crop');"><div class="hotel-badge">迪士尼</div><div class="hotel-rank">#37</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1662,11 +1482,6 @@
                         <span class="rating-text">卓越 · 4,409則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$1,547</div>
@@ -1674,10 +1489,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
             <!-- Hotel 38 - Trip.com ID: 778134 -->
-            <div class="hotel-card">
+            <a href="/pages/hotels/dorsett-tsuen-wan.html" class="hotel-card-link" style="text-decoration:none;color:inherit;display:block;"><div class="hotel-card">
                 <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=600&h=400&fit=crop');"><div class="hotel-rank">#38</div></div>
                 <div class="hotel-info">
                     <div class="hotel-header">
@@ -1699,11 +1514,6 @@
                         <span class="rating-text">極好 · 4,654則評價</span>
                     </div>
                     <div class="hotel-bottom">
-                        <div class="hotel-platforms">
-                            <a href="https://hk.trip.com/hotels/list?city=58&display=%E9%A6%99%E6%B8%AF&optionId=58&optionType=City&optionName=%E9%A6%99%E6%B8%AF&Allianceid=8067382&SID=305319575&trip_sub1=&trip_sub3=D15325011" class="platform-btn btn-trip" target="_blank" rel="noopener noreferrer nofollow">Trip.com 格價</a>
-                            <a href="https://affiliate.klook.com/redirect?aid=118358&aff_adid=1254708&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-HK%2Fsearch%2Fresult%2F%3Fquery%3D%25E9%25A6%2599%25E6%25B8%25AF%26sort%3Dmost_relevant%26tab_key%3D54%26start%3D1" class="platform-btn btn-klook" target="_blank" rel="noopener noreferrer nofollow">Klook 格價</a>
-                            <span class="platform-btn btn-agoda">Agoda 格價</span>
-                        </div>
                         <div class="hotel-price">
                             <div class="from">每晚低至</div>
                             <div class="amount">HK$520</div>
@@ -1711,7 +1521,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></a>
 
 
             <!-- === Trip.com Full Hotel Directory (auto-generated from CSV) === -->
