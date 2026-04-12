@@ -1,0 +1,464 @@
+{
+  "BJ": [
+    [
+      "china-world-summit-wing",
+      "北京國貿大酒店 China World Summit Wing",
+      "北京國貿大酒店 China World Summit Wing"
+    ],
+    [
+      "the-peninsula-beijing",
+      "北京王府半島酒店 The Peninsula Beijing",
+      "北京王府半島酒店 The Peninsula Beijing"
+    ],
+    [
+      "waldorf-astoria-beijing",
+      "北京華爾道夫酒店 Waldorf Astoria Beijing",
+      "北京華爾道夫酒店 Waldorf Astoria Beijing"
+    ],
+    [
+      "rosewood-beijing",
+      "北京瑰麗酒店 Rosewood Beijing",
+      "北京瑰麗酒店 Rosewood Beijing"
+    ],
+    [
+      "four-seasons-beijing",
+      "北京四季酒店 Four Seasons Beijing",
+      "北京四季酒店 Four Seasons Beijing"
+    ],
+    [
+      "the-ritz-carlton-beijing",
+      "北京麗思卡爾頓酒店 The Ritz-Carlton Beijing",
+      "北京麗思卡爾頓酒店 The Ritz-Carlton Beijing"
+    ],
+    [
+      "new-china-world-hotel",
+      "北京新國貿飯店 New China World Hotel",
+      "北京新國貿飯店 New China World Hotel"
+    ],
+    [
+      "intercontinental-sanlitun",
+      "北京三里屯通盈中心洲際酒店 InterContinental Sanlitun",
+      "北京三里屯通盈中心洲際酒店 InterContinental Sanlitun"
+    ],
+    [
+      "kempinski-hotel-beijing",
+      "北京亮馬河大酒店 Kempinski Hotel Beijing",
+      "北京亮馬河大酒店 Kempinski Hotel Beijing"
+    ],
+    [
+      "grand-hyatt-beijing",
+      "北京東方君悅大酒店 Grand Hyatt Beijing",
+      "北京東方君悅大酒店 Grand Hyatt Beijing"
+    ],
+    [
+      "w-beijing-changan",
+      "北京長安街W酒店 W Beijing Chang'an",
+      "北京長安街W酒店 W Beijing Chang'an"
+    ],
+    [
+      "the-westin-beijing",
+      "北京金茂威斯汀大飯店 The Westin Beijing",
+      "北京金茂威斯汀大飯店 The Westin Beijing"
+    ],
+    [
+      "hilton-beijing-wangfujing",
+      "北京王府井希爾頓酒店 Hilton Beijing Wangfujing",
+      "北京王府井希爾頓酒店 Hilton Beijing Wangfujing"
+    ],
+    [
+      "crystal-orange-hotel",
+      "桔子水晶酒店 Crystal Orange Hotel",
+      "桔子水晶酒店 Crystal Orange Hotel"
+    ],
+    [
+      "home-inn-plus",
+      "如家精選酒店 Home Inn Plus",
+      "如家精選酒店 Home Inn Plus"
+    ]
+  ],
+  "GZ": [
+    [
+      "white-swan-hotel",
+      "白天鵝賓館 White Swan Hotel",
+      "White Swan Hotel"
+    ],
+    [
+      "four-seasons-hotel-guangzhou",
+      "廣州四季酒店 Four Seasons Hotel Guangzhou",
+      "Four Seasons Hotel Guangzhou"
+    ],
+    [
+      "w-guangzhou",
+      "廣州W酒店 W Guangzhou",
+      "W Guangzhou"
+    ],
+    [
+      "rosewood-guangzhou",
+      "廣州瑰麗酒店 Rosewood Guangzhou",
+      "Rosewood Guangzhou"
+    ],
+    [
+      "park-hyatt-guangzhou",
+      "廣州柏悅酒店 Park Hyatt Guangzhou",
+      "Park Hyatt Guangzhou"
+    ],
+    [
+      "the-ritz-carlton-guangzhou",
+      "廣州富力麗思卡爾頓酒店 The Ritz-Carlton Guangzhou",
+      "The Ritz-Carlton Guangzhou"
+    ],
+    [
+      "shangri-la-guangzhou",
+      "廣州香格里拉大酒店 Shangri-La Guangzhou",
+      "Shangri-La Guangzhou"
+    ],
+    [
+      "chimelong-hotel",
+      "長隆酒店 Chimelong Hotel",
+      "Chimelong Hotel"
+    ],
+    [
+      "chimelong-panda-hotel",
+      "長隆熊貓酒店 Chimelong Panda Hotel",
+      "Chimelong Panda Hotel"
+    ],
+    [
+      "mandarin-oriental-guangzhou",
+      "廣州文華東方酒店 Mandarin Oriental Guangzhou",
+      "Mandarin Oriental Guangzhou"
+    ],
+    [
+      "garden-hotel-guangzhou",
+      "廣州花園酒店 Garden Hotel Guangzhou",
+      "Garden Hotel Guangzhou"
+    ],
+    [
+      "guangzhou-marriott-hotel-tianhe",
+      "廣州正佳萬豪酒店 Guangzhou Marriott Hotel Tianhe",
+      "Guangzhou Marriott Hotel Tianhe"
+    ],
+    [
+      "jianguo-hotel-guangzhou",
+      "廣州建國酒店 Jianguo Hotel Guangzhou",
+      "Jianguo Hotel Guangzhou"
+    ],
+    [
+      "days-premium-beijing-road",
+      "7天優品酒店廣州北京路店 7 Days Premium Beijing Road",
+      "7 Days Premium Beijing Road"
+    ],
+    [
+      "home-inn-plus-tianhe",
+      "如家精選廣州天河店 Home Inn Plus Tianhe",
+      "Home Inn Plus Tianhe"
+    ]
+  ],
+  "KH": [
+    [
+      "silks-club",
+      "高雄晶英國際行館 Silks Club",
+      "Silks Club"
+    ],
+    [
+      "e-da-royal-hotel",
+      "義大皇家酒店 E-Da Royal Hotel",
+      "E-Da Royal Hotel"
+    ],
+    [
+      "kaohsiung-marriott-hotel",
+      "高雄萬豪酒店 Kaohsiung Marriott Hotel",
+      "Kaohsiung Marriott"
+    ],
+    [
+      "intercontinental-kaohsiung",
+      "高雄洲際酒店 InterContinental Kaohsiung",
+      "InterContinental Kaohsiung"
+    ],
+    [
+      "chateau-de-chine-kaohsiung",
+      "高雄翰品酒店 Chateau de Chine Kaohsiung",
+      "Chateau de Chine Kaohsiung"
+    ],
+    [
+      "hotel-indigo-kaohsiung",
+      "高雄中央公園英迪格酒店 Hotel Indigo Kaohsiung",
+      "Hotel Indigo Kaohsiung Central Park"
+    ],
+    [
+      "wo-hotel",
+      "WO Hotel",
+      "WO Hotel"
+    ],
+    [
+      "howard-plaza-hotel-kaohsiung",
+      "高雄福華大飯店 Howard Plaza Hotel Kaohsiung",
+      "Howard Plaza Hotel Kaohsiung"
+    ],
+    [
+      "lees-boutique-resort",
+      "鈞怡大飯店 Lees Boutique Resort",
+      "Lees Boutique Resort"
+    ],
+    [
+      "sky-tower-hotel",
+      "85大樓君鴻國際酒店 85 Sky Tower Hotel",
+      "85 Sky Tower Hotel"
+    ],
+    [
+      "grand-hotel-kaohsiung",
+      "高雄圓山大飯店 Grand Hotel Kaohsiung",
+      "Grand Hotel Kaohsiung"
+    ],
+    [
+      "just-sleep-kaohsiung-station",
+      "捷絲旅高雄站前館 Just Sleep Kaohsiung Station",
+      "Just Sleep Kaohsiung Station"
+    ],
+    [
+      "grand-hi-lai-hotel",
+      "高雄漢來大飯店 Grand Hi-Lai Hotel",
+      "Grand Hi-Lai Hotel"
+    ],
+    [
+      "kindness-hotel-liuhe",
+      "康橋大飯店六合夜市館 Kindness Hotel Liuhe",
+      "Kindness Hotel Liuhe"
+    ],
+    [
+      "legend-hotel",
+      "秝芯旅店 Legend Hotel",
+      "Legend Hotel"
+    ]
+  ],
+  "MO": [
+    [
+      "the-venetian-macao",
+      "澳門威尼斯人 The Venetian Macao",
+      "The Venetian Macao"
+    ],
+    [
+      "wynn-palace",
+      "永利皇宮 Wynn Palace",
+      "Wynn Palace"
+    ],
+    [
+      "studio-city-macau",
+      "新濠影滙 Studio City Macau",
+      "Studio City Macau"
+    ],
+    [
+      "the-parisian-macao",
+      "澳門巴黎人 The Parisian Macao",
+      "The Parisian Macao"
+    ],
+    [
+      "galaxy-macau",
+      "澳門銀河 Galaxy Macau",
+      "Galaxy Macau"
+    ],
+    [
+      "the-londoner-macao",
+      "澳門倫敦人 The Londoner Macao",
+      "The Londoner Macao"
+    ],
+    [
+      "wynn-macau",
+      "澳門永利 Wynn Macau",
+      "Wynn Macau"
+    ],
+    [
+      "mgm-cotai",
+      "澳門美獅美高梅 MGM Cotai",
+      "MGM Cotai"
+    ],
+    [
+      "the-st-regis-macao",
+      "澳門瑞吉酒店 The St. Regis Macao",
+      "The St. Regis Macao"
+    ],
+    [
+      "mandarin-oriental-macau",
+      "澳門文華東方酒店 Mandarin Oriental Macau",
+      "Mandarin Oriental, Macau"
+    ],
+    [
+      "sheraton-grand-macao",
+      "澳門喜來登大酒店 Sheraton Grand Macao",
+      "Sheraton Grand Macao"
+    ],
+    [
+      "morpheus-macau",
+      "澳門新濠天地摩珀斯 Morpheus Macau",
+      "Morpheus Macau"
+    ],
+    [
+      "sofitel-macau-at-ponte-16",
+      "澳門十六浦索菲特大酒店 Sofitel Macau at Ponte 16",
+      "Sofitel Macau at Ponte 16"
+    ],
+    [
+      "royal-hotel-macau",
+      "澳門皇都酒店 Royal Hotel Macau",
+      "Royal Hotel Macau"
+    ],
+    [
+      "grand-emperor-hotel",
+      "澳門英皇娛樂酒店 Grand Emperor Hotel",
+      "Grand Emperor Hotel"
+    ]
+  ],
+  "SH": [
+    [
+      "fairmont-peace-hotel",
+      "上海和平飯店 Fairmont Peace Hotel",
+      "Fairmont Peace Hotel (上海和平飯店)"
+    ],
+    [
+      "waldorf-astoria-shanghai-on-the-bund",
+      "上海外灘華爾道夫酒店 Waldorf Astoria Shanghai on the Bund",
+      "Waldorf Astoria Shanghai on the Bund (上海外灘華爾道夫酒店)"
+    ],
+    [
+      "the-ritz-carlton-shanghai-pudong",
+      "上海浦東麗思卡爾頓酒店 The Ritz-Carlton Shanghai Pudong",
+      "The Ritz-Carlton Shanghai Pudong (上海浦東麗思卡爾頓酒店)"
+    ],
+    [
+      "the-peninsula-shanghai",
+      "上海半島酒店 The Peninsula Shanghai",
+      "The Peninsula Shanghai (上海半島酒店)"
+    ],
+    [
+      "four-seasons-hotel-shanghai-pudong",
+      "上海浦東四季酒店 Four Seasons Hotel Shanghai Pudong",
+      "Four Seasons Hotel Shanghai Pudong (上海浦東四季酒店)"
+    ],
+    [
+      "w-shanghai---the-bund",
+      "上海W酒店 W Shanghai - The Bund",
+      "W Shanghai - The Bund (上海W酒店)"
+    ],
+    [
+      "andaz-xintiandi-shanghai",
+      "上海新天地安達仕酒店 Andaz Xintiandi Shanghai",
+      "Andaz Xintiandi Shanghai (上海新天地安達仕酒店)"
+    ],
+    [
+      "jing-an-shangri-la-shanghai",
+      "上海靜安香格里拉大酒店 Jing An Shangri-La Shanghai",
+      "Jing An Shangri-La Shanghai (上海靜安香格里拉大酒店)"
+    ],
+    [
+      "mandarin-oriental-pudong",
+      "上海浦東文華東方酒店 Mandarin Oriental Pudong",
+      "Mandarin Oriental Pudong (上海浦東文華東方酒店)"
+    ],
+    [
+      "the-puli-hotel-and-spa",
+      "上海璞麗酒店 The PuLi Hotel and Spa",
+      "The PuLi Hotel and Spa (上海璞麗酒店)"
+    ],
+    [
+      "hyatt-on-the-bund",
+      "上海外灘茂悅大酒店 Hyatt on the Bund",
+      "Hyatt on the Bund (上海外灘茂悅大酒店)"
+    ],
+    [
+      "shanghai-disneyland-hotel",
+      "上海迪士尼樂園酒店 Shanghai Disneyland Hotel",
+      "Shanghai Disneyland Hotel (上海迪士尼樂園酒店)"
+    ],
+    [
+      "grand-mercure-shanghai-hongqiao",
+      "上海虹橋雅高美爵酒店 Grand Mercure Shanghai Hongqiao",
+      "Grand Mercure Shanghai Hongqiao (上海虹橋雅高美爵酒店)"
+    ],
+    [
+      "ji-hotel-nanjing-road",
+      "全季酒店上海南京路步行街店 Ji Hotel Nanjing Road",
+      "Ji Hotel Nanjing Road (全季酒店上海南京路步行街店)"
+    ],
+    [
+      "home-inn-plus-shanghai-bund",
+      "如家精選酒店上海外灘店 Home Inn Plus Shanghai Bund",
+      "Home Inn Plus Shanghai Bund (如家精選酒店上海外灘店)"
+    ]
+  ],
+  "TP": [
+    [
+      "mandarin-oriental-taipei",
+      "台北文華東方酒店 Mandarin Oriental Taipei",
+      "台北文華東方酒店 Mandarin Oriental Taipei"
+    ],
+    [
+      "w-taipei",
+      "台北W酒店 W Taipei",
+      "台北W酒店 W Taipei"
+    ],
+    [
+      "regent-taipei",
+      "台北晶華酒店 Regent Taipei",
+      "台北晶華酒店 Regent Taipei"
+    ],
+    [
+      "ridien-taipei",
+      "台北寒舍艾美酒店 Le Méridien Taipei",
+      "台北寒舍艾美酒店 Le Meridien Taipei"
+    ],
+    [
+      "grand-hyatt-taipei",
+      "台北君悅酒店 Grand Hyatt Taipei",
+      "台北君悅酒店 Grand Hyatt Taipei"
+    ],
+    [
+      "grand-mayfull-hotel",
+      "台北美福大飯店 Grand Mayfull Hotel",
+      "台北美福大飯店 Grand Mayfull Hotel"
+    ],
+    [
+      "shangri-la-far-eastern-taipei",
+      "台北遠東香格里拉 Shangri-La Far Eastern Taipei",
+      "台北遠東香格里拉 Shangri-La Far Eastern Taipei"
+    ],
+    [
+      "taipei-marriott-hotel",
+      "台北萬豪酒店 Taipei Marriott Hotel",
+      "台北萬豪酒店 Taipei Marriott Hotel"
+    ],
+    [
+      "eslite-hotel",
+      "誠品行旅 eslite hotel",
+      "誠品行旅 eslite hotel"
+    ],
+    [
+      "grand-view-resort-beitou",
+      "北投麗禧溫泉酒店 Grand View Resort Beitou",
+      "北投麗禧溫泉酒店 Grand View Resort Beitou"
+    ],
+    [
+      "just-sleep-ximending",
+      "捷絲旅台北西門館 Just Sleep Ximending",
+      "捷絲旅台北西門館 Just Sleep Ximending"
+    ],
+    [
+      "caesar-park-taipei",
+      "台北凱撒大飯店 Caesar Park Taipei",
+      "台北凱撒大飯店 Caesar Park Taipei"
+    ],
+    [
+      "aloft-taipei-zhongshan",
+      "台北中山雅樂軒酒店 Aloft Taipei Zhongshan",
+      "台北中山雅樂軒酒店 Aloft Taipei Zhongshan"
+    ],
+    [
+      "amba-taipei-ximending",
+      "西門町意舍酒店 amba Taipei Ximending",
+      "西門町意舍酒店 amba Taipei Ximending"
+    ],
+    [
+      "cosmos-hotel-taipei",
+      "星辰大飯店 Cosmos Hotel Taipei",
+      "星辰大飯店 Cosmos Hotel Taipei"
+    ]
+  ]
+}
