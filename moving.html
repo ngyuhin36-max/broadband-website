@@ -90,6 +90,42 @@
     }
     </script>
 
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"主頁","item":"https://broadbandhk.com/"},
+      {"@type":"ListItem","position":2,"name":"搬屋入伙小幫手","item":"https://broadbandhk.com/moving.html"}
+    ]}
+    </script>
+
+    <!-- HowTo Schema - 搬屋寬頻步驟 -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org","@type":"HowTo",
+      "name":"搬屋寬頻安裝 5 步曲",
+      "description":"香港搬屋前後如何安排寬頻轉移同新居安裝，避免斷網同違約金",
+      "totalTime":"PT14D",
+      "step":[
+        {"@type":"HowToStep","position":1,"name":"入伙前 30 日","text":"致電現有 ISP 通知搬屋，確認合約轉移條款。如未到期要申請「搬屋轉會」避免賠違約金。"},
+        {"@type":"HowToStep","position":2,"name":"入伙前 14 日","text":"為新地址格價比較寬頻方案。WhatsApp 5228 7541 免費獲取 HKBN、HGC、3HK 等報價。"},
+        {"@type":"HowToStep","position":3,"name":"入伙前 7 日","text":"確認選定供應商並約安裝時間。一般光纖安裝需 5-10 個工作天。"},
+        {"@type":"HowToStep","position":4,"name":"入伙當日","text":"確認舊居寬頻已終止 / 搬遷。新居等技術員上門安裝，通常 1-2 小時內完成。"},
+        {"@type":"HowToStep","position":5,"name":"入伙後","text":"測試網速、設定 Wi-Fi 密碼。如有問題 24/7 WhatsApp 支援。"}
+      ]
+    }
+    </script>
+
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org","@type":"Service",
+      "serviceType":"搬屋寬頻安裝服務",
+      "provider":{"@type":"Organization","name":"BroadbandHK 寬頻格價比較","telephone":"+852-5228-7541","url":"https://broadbandhk.com"},
+      "areaServed":{"@type":"Country","name":"Hong Kong"},
+      "offers":{"@type":"Offer","price":"98","priceCurrency":"HKD","description":"100M 光纖入屋，免安裝費"}
+    }
+    </script>
+
     <link rel="stylesheet" href="style.css">
     <style>
     /* --- Top Bar --- */
