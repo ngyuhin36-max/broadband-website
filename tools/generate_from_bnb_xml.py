@@ -117,7 +117,7 @@ def main():
         if not existing or (existing["built"] == "—" and er["built"] != "—"):
             by_slug[er["slug"]] = er
 
-    done = matched_no_page = 0
+    done = matched_no_page = phase_done = 0
     for slug, er in by_slug.items():
         path = os.path.join(PAGES_DIR, f"{slug}.html")
         if not os.path.exists(path):
@@ -129,9 +129,28 @@ def main():
             done += 1
         except Exception as ex:
             if done < 5: print(f"FAIL {slug}: {ex}")
-        if done % 2000 == 0 and done > 0:
-            print(f"  progress {done}")
-    print(f"Generated {done} pages from bnb XML (matched but no page: {matched_no_page})")
+
+    # Phase 2: match phase/tower variants by stripping trailing -1, -2, -phase-i, etc.
+    all_pages = [f[:-5] for f in os.listdir(PAGES_DIR) if f.endswith(".html")]
+    for page_slug in all_pages:
+        if page_slug in by_slug or page_slug in SKIP: continue
+        # Try stripping common suffixes
+        base = re.sub(r"-(\d+|phase-[iv]+|tower-\d+|block-[a-z0-9]+)$", "", page_slug)
+        if base != page_slug and base in by_slug:
+            er = dict(by_slug[base])
+            # Mark variant
+            suffix = page_slug[len(base):].lstrip("-")
+            er["slug"] = page_slug
+            er["name_zh"] = f"{er['name_zh']} ({suffix})" if suffix else er['name_zh']
+            er["note"] = er['note'] + f" （{page_slug} 座/期）"
+            path = os.path.join(PAGES_DIR, f"{page_slug}.html")
+            try:
+                with open(path, "w", encoding="utf-8") as f:
+                    f.write(render_page(er))
+                phase_done += 1
+            except Exception as ex: pass
+
+    print(f"Generated {done} pages from bnb XML, phase variants: {phase_done} (matched but no page: {matched_no_page})")
 
 if __name__ == "__main__":
     main()
