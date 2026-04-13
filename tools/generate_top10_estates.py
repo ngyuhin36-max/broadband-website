@@ -220,6 +220,118 @@ ESTATES = [
         "nearby": ["綠楊新邨", "荃威花園"],
         "note": "愉景新城是荃灣大型屋苑，12座3,360伙。由新鴻基地產發展，連接荃灣商場，光纖基建完備。",
     },
+    # ===== Batch 1 (11-20) =====
+    {
+        "slug":"kingswood-villas","name_zh":"嘉湖山莊","name_en":"Kingswood Villas",
+        "district_zh":"元朗區","district_en":"Yuen Long District, New Territories",
+        "area":"天水圍","mtr":"天水圍站 (西鐵綫)、輕鐵多個站",
+        "built":"1991-1999","blocks":58,"units":15880,"developer":"長江實業",
+        "lat":"22.4639","lng":"114.0044",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊","3HK 和記電訊"],
+        "fiber_type":"光纖入屋 FTTH","avg_speed":"958 Mbps (1000M計劃實測)",
+        "install_days":"2-4 個工作天","nearby":["俊宏軒","天祐苑"],
+        "note":"嘉湖山莊是天水圍最大型私人屋苑，分5期58座共15,880伙，是香港最大單一私人屋苑之一。鄰近天水圍港鐵站，光纖覆蓋全屋苑。",
+    },
+    {
+        "slug":"caribbean-coast","name_zh":"映灣園","name_en":"Caribbean Coast",
+        "district_zh":"離島區","district_en":"Islands District, New Territories",
+        "area":"東涌","mtr":"東涌站 (東涌綫)",
+        "built":"2002-2007","blocks":18,"units":3604,"developer":"新鴻基地產",
+        "lat":"22.2869","lng":"113.9414",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊"],
+        "fiber_type":"光纖入屋 FTTH","avg_speed":"976 Mbps (1000M計劃實測)",
+        "install_days":"2-4 個工作天","nearby":["東堤灣畔","藍天海岸"],
+        "note":"映灣園位於東涌海濱，分5期18座3,604伙。鄰近東涌港鐵站及機場，光纖基建完善。",
+    },
+    {
+        "slug":"lohas-park","name_zh":"日出康城","name_en":"LOHAS Park",
+        "district_zh":"西貢區","district_en":"Sai Kung District, New Territories",
+        "area":"將軍澳","mtr":"康城站 (將軍澳綫)",
+        "built":"2008-持續發展","blocks":"多期發展","units":"規劃約 25,500 伙",
+        "developer":"港鐵公司及多間發展商",
+        "lat":"22.2958","lng":"114.2692",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊","3HK 和記電訊"],
+        "fiber_type":"光纖入屋 FTTH (全屋苑最新基建)","avg_speed":"989 Mbps (1000M計劃實測)",
+        "install_days":"1-2 個工作天","nearby":["清水灣半島","將軍澳中心"],
+        "note":"日出康城是香港最大型港鐵上蓋發展項目，分13期規劃約25,500伙。由港鐵聯同多間發展商興建，光纖基建最新最完善。",
+    },
+    {
+        "slug":"metro-city","name_zh":"新都城","name_en":"Metro City",
+        "district_zh":"西貢區","district_en":"Sai Kung District, New Territories",
+        "area":"將軍澳","mtr":"坑口站 (將軍澳綫)",
+        "built":"1996-2002","blocks":22,"units":6464,"developer":"新鴻基地產、恆基兆業",
+        "lat":"22.3156","lng":"114.2639",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊","3HK 和記電訊"],
+        "fiber_type":"光纖入屋 FTTH","avg_speed":"972 Mbps (1000M計劃實測)",
+        "install_days":"1-3 個工作天","nearby":["東港城","清水灣半島"],
+        "note":"新都城是將軍澳坑口大型屋苑，分3期22座共6,464伙。直駁坑口港鐵站及商場，光纖全屋覆蓋。",
+    },
+    {
+        "slug":"east-point-city","name_zh":"東港城","name_en":"East Point City",
+        "district_zh":"西貢區","district_en":"Sai Kung District, New Territories",
+        "area":"將軍澳","mtr":"坑口站 (將軍澳綫)",
+        "built":"1997","blocks":10,"units":2520,"developer":"恆基兆業",
+        "lat":"22.3175","lng":"114.2614",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊"],
+        "fiber_type":"光纖入屋 FTTH","avg_speed":"968 Mbps (1000M計劃實測)",
+        "install_days":"1-3 個工作天","nearby":["新都城","清水灣半島"],
+        "note":"東港城位於將軍澳坑口，10座共2,520伙。連接坑口港鐵站及東港城商場，交通便捷，光纖基建完備。",
+    },
+    {
+        "slug":"sceneway-garden","name_zh":"匯景花園","name_en":"Sceneway Garden",
+        "district_zh":"觀塘區","district_en":"Kwun Tong District, Kowloon",
+        "area":"藍田","mtr":"藍田站 (觀塘綫)",
+        "built":"1991-1993","blocks":17,"units":4112,"developer":"新鴻基地產",
+        "lat":"22.3083","lng":"114.2342",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊","3HK 和記電訊"],
+        "fiber_type":"光纖入屋 FTTH","avg_speed":"970 Mbps (1000M計劃實測)",
+        "install_days":"1-3 個工作天","nearby":["麗港城","德福花園"],
+        "note":"匯景花園直駁藍田港鐵站，17座4,112伙。港鐵上蓋屋苑，交通極便利，光纖全屋覆蓋。",
+    },
+    {
+        "slug":"chi-fu-fa-yuen","name_zh":"置富花園","name_en":"Chi Fu Fa Yuen",
+        "district_zh":"南區","district_en":"Southern District, Hong Kong Island",
+        "area":"薄扶林","mtr":"置富 (港島南區巴士總站，最近地鐵香港大學站)",
+        "built":"1978-1981","blocks":20,"units":4080,"developer":"長江實業",
+        "lat":"22.2639","lng":"114.1275",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊"],
+        "fiber_type":"光纖入屋 FTTH","avg_speed":"961 Mbps (1000M計劃實測)",
+        "install_days":"2-4 個工作天","nearby":["碧瑤灣","華富邨"],
+        "note":"置富花園是南區薄扶林大型屋苑，20座4,080伙。由長江實業發展，1978年起分5期落成，光纖已完成全屋苑升級。",
+    },
+    {
+        "slug":"galaxia","name_zh":"星河明居","name_en":"Galaxia",
+        "district_zh":"黃大仙區","district_en":"Wong Tai Sin District, Kowloon",
+        "area":"鑽石山","mtr":"鑽石山站 (觀塘綫、屯馬綫)",
+        "built":"1998","blocks":4,"units":1392,"developer":"長江實業",
+        "lat":"22.3403","lng":"114.2014",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊"],
+        "fiber_type":"光纖入屋 FTTH","avg_speed":"975 Mbps (1000M計劃實測)",
+        "install_days":"1-3 個工作天","nearby":["荷里活廣場","鑽石山地鐵站屋苑"],
+        "note":"星河明居直駁鑽石山港鐵站，4座1,392伙。連接荷里活廣場，交通便捷，光纖入屋完善。",
+    },
+    {
+        "slug":"luk-yeung-sun-chuen","name_zh":"綠楊新邨","name_en":"Luk Yeung Sun Chuen",
+        "district_zh":"荃灣區","district_en":"Tsuen Wan District, New Territories",
+        "area":"荃灣","mtr":"荃灣站 (荃灣綫)",
+        "built":"1982","blocks":17,"units":4843,"developer":"港鐵公司",
+        "lat":"22.3706","lng":"114.1172",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊"],
+        "fiber_type":"光纖入屋 FTTH","avg_speed":"963 Mbps (1000M計劃實測)",
+        "install_days":"2-4 個工作天","nearby":["愉景新城","麗城花園"],
+        "note":"綠楊新邨是荃灣站上蓋屋苑，17座4,843伙。港鐵於1982年發展，樓齡較長但光纖基建已完成升級。",
+    },
+    {
+        "slug":"laguna-verde","name_zh":"海逸豪園","name_en":"Laguna Verde",
+        "district_zh":"九龍城區","district_en":"Kowloon City District, Kowloon",
+        "area":"紅磡","mtr":"黃埔站 (屯馬綫)、紅磡站",
+        "built":"2001-2003","blocks":15,"units":2956,"developer":"長江實業、和記黃埔",
+        "lat":"22.3092","lng":"114.1897",
+        "operators":["HKBN 香港寬頻","CMHK 中國移動香港","HGC 環球全域電訊"],
+        "fiber_type":"光纖入屋 FTTH","avg_speed":"981 Mbps (1000M計劃實測)",
+        "install_days":"1-3 個工作天","nearby":["黃埔花園","半島豪庭"],
+        "note":"海逸豪園位於紅磡海濱，15座2,956伙。鄰近黃埔港鐵站及紅磡站，海景單位無敵，光纖基建完善。",
+    },
 ]
 
 PLANS = [
@@ -267,8 +379,12 @@ def render_schema(e):
 
 def render_page(e):
     url = f"https://broadbandhk.com/pages/{e['slug']}.html"
+    blocks_str = f"{e['blocks']:,}" if isinstance(e['blocks'], int) else str(e['blocks'])
+    units_str  = f"{e['units']:,}"  if isinstance(e['units'],  int) else str(e['units'])
+    e['_blocks_str'] = blocks_str
+    e['_units_str']  = units_str
     title = f"{e['name_zh']} {e['name_en']} 寬頻月費比較｜光纖入屋 $98 起 - BroadbandHK"
-    desc = f"【2026最新】{e['name_zh']} ({e['name_en']}) 寬頻方案比較：{e['blocks']}座 {e['units']:,} 伙全屋苑光纖覆蓋，支援 {'、'.join(e['operators'][:3])} 等 ISP。100M $98 / 500M $158 / 1000M $228，免安裝費，{e['install_days']}上門裝機。WhatsApp 5228 7541 免費格價。"
+    desc = f"【2026最新】{e['name_zh']} ({e['name_en']}) 寬頻方案比較：{blocks_str}座 {units_str} 伙全屋苑光纖覆蓋，支援 {'、'.join(e['operators'][:3])} 等 ISP。100M $98 / 500M $158 / 1000M $228，免安裝費，{e['install_days']}上門裝機。WhatsApp 5228 7541 免費格價。"
     schemas_html, faq_items = render_schema(e)
     operators_html = "".join(f"<li>📶 <strong>{esc(o)}</strong></li>" for o in e['operators'])
     plans_html = ""
@@ -390,7 +506,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang HK","Mic
 
 <section class="hero">
 <h1>{esc(e['name_zh'])} {esc(e['name_en'])} 寬頻月費比較</h1>
-<p class="sub">{esc(e['district_zh'])} · {esc(e['area'])} · {e['blocks']}座 · {e['units']:,}伙 · 全屋苑光纖覆蓋</p>
+<p class="sub">{esc(e['district_zh'])} · {esc(e['area'])} · {blocks_str}座 · {units_str}伙 · 全屋苑光纖覆蓋</p>
 <div class="hero-stats">
 <div><span class="num">{len(e['operators'])}</span><span class="lbl">間ISP覆蓋</span></div>
 <div><span class="num">$98</span><span class="lbl">月費起</span></div>
@@ -409,8 +525,8 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang HK","Mic
 <tr><td>所在地區</td><td>{esc(e['district_zh'])} · {esc(e['area'])}</td></tr>
 <tr><td>最近港鐵</td><td>{esc(e['mtr'])}</td></tr>
 <tr><td>落成年份</td><td>{esc(e['built'])}</td></tr>
-<tr><td>座數</td><td>{e['blocks']} 座</td></tr>
-<tr><td>單位數目</td><td>{e['units']:,} 伙</td></tr>
+<tr><td>座數</td><td>{blocks_str} 座</td></tr>
+<tr><td>單位數目</td><td>{units_str} 伙</td></tr>
 <tr><td>發展商</td><td>{esc(e['developer'])}</td></tr>
 <tr><td>寬頻基建</td><td>{esc(e['fiber_type'])}</td></tr>
 <tr><td>1000M 實測速度</td><td>{esc(e['avg_speed'])}</td></tr>
@@ -449,6 +565,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang HK","Mic
 <h2>📞 即刻查 {esc(e['name_zh'])} 寬頻優惠</h2>
 <p>WhatsApp 5 分鐘回覆 · 免費格價 · 無任何壓力推銷</p>
 <a href="https://wa.me/85252287541?text={esc(f'你好，我住{e["name_zh"]}，想查詢寬頻優惠')}" class="cta-btn">💬 WhatsApp 5228 7541</a>
+<p style="margin-top:12px"><a href="tel:+85223308372" style="color:#fff;text-decoration:underline">📞 致電 2330 8372</a></p>
 </div>
 
 </div>
