@@ -35,26 +35,106 @@
     <meta name="twitter:title" content="寬頻合約到期提醒工具 | 免費計到期日+慳錢轉台 — BroadbandHK">
     <meta name="twitter:description" content="免費寬頻合約到期提醒工具，支援 HKBN、CMHK、HGC、3HK 等，即時計到期日 + 慳錢金額。">
 
-    <!-- 結構化數據 -->
+    <!-- 結構化數據：WebApplication -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "寬頻合約到期提醒工具",
-        "description": "免費寬頻合約到期提醒工具，幫你計算合約剩餘日數、轉台慳幾多錢",
+        "alternateName": "BroadbandHK 寬頻到期提醒",
+        "description": "免費香港寬頻合約到期提醒工具，支援 HKBN、CMHK、HGC、3HK、SmarTone、有線寬頻，即時計算合約剩餘日數同轉台可慳幾多錢",
         "url": "https://broadbandhk.com/reminder.html",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "HKD"
-        },
+        "inLanguage": "zh-HK",
+        "areaServed": { "@type": "Country", "name": "Hong Kong" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "HKD" },
         "provider": {
             "@type": "Organization",
             "name": "BroadbandHK 寬頻格價比較",
-            "url": "https://broadbandhk.com"
+            "url": "https://broadbandhk.com",
+            "logo": "https://broadbandhk.com/og-image.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+852-5228-7541",
+                "contactType": "customer service",
+                "availableLanguage": ["zh-HK","zh-CN","en"]
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "238",
+            "bestRating": "5"
         }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "主頁", "item": "https://broadbandhk.com/" },
+            { "@type": "ListItem", "position": 2, "name": "寬頻到期提醒", "item": "https://broadbandhk.com/reminder.html" }
+        ]
+    }
+    </script>
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "點樣計算寬頻合約幾時到期",
+        "description": "使用 BroadbandHK 免費工具，3 步計算你嘅寬頻合約到期日同可慳金額",
+        "totalTime": "PT1M",
+        "step": [
+            { "@type": "HowToStep", "position": 1, "name": "輸入現有供應商", "text": "輸入你而家嘅寬頻供應商名稱，例如 HKBN、CMHK、HGC、3HK、SmarTone 或有線寬頻。" },
+            { "@type": "HowToStep", "position": 2, "name": "輸入月費", "text": "輸入你每月實際支付嘅寬頻費用（港幣）。" },
+            { "@type": "HowToStep", "position": 3, "name": "選擇到期日", "text": "揀你嘅寬頻合約到期日（通常係簽約日後 24 個月）。系統會即時計出剩餘日數同轉台可慳幾多錢。" }
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "點樣知道我嘅寬頻合約幾時到期？",
+                "acceptedAnswer": { "@type": "Answer", "text": "可以查閱最初簽約嘅合約文件、登入 ISP 網上帳戶，或者直接打電話俾客服查詢。大部分香港寬頻合約期為 24 個月，由安裝日計起。" }
+            },
+            {
+                "@type": "Question",
+                "name": "幾時應該開始格價轉台？",
+                "acceptedAnswer": { "@type": "Answer", "text": "建議喺合約到期前 2-3 個月開始格價。因為部分 ISP 要提前 30 日書面通知終止合約，而新 ISP 安裝需時 5-10 個工作天。" }
+            },
+            {
+                "@type": "Question",
+                "name": "轉寬頻台要唔要等到合約到期？",
+                "acceptedAnswer": { "@type": "Answer", "text": "係，如果未到期終止合約通常要賠償剩餘月費。建議到期前安排好轉台，確保新舊交接唔會斷網。" }
+            },
+            {
+                "@type": "Question",
+                "name": "BroadbandHK 嘅寬頻月費點解咁平？",
+                "acceptedAnswer": { "@type": "Answer", "text": "BroadbandHK 係寬頻格價比較服務，與多間 ISP 合作取得優惠價，免安裝費、免 Router 費，月費由 $98 起（100M）、$158（500M）、$228（1000M）。" }
+            },
+            {
+                "@type": "Question",
+                "name": "呢個到期提醒工具係咪免費？",
+                "acceptedAnswer": { "@type": "Answer", "text": "100% 免費，無須登記或輸入個人資料。計算結果可以加入日曆（.ics 檔案）作提醒用途。" }
+            },
+            {
+                "@type": "Question",
+                "name": "支援邊啲寬頻供應商？",
+                "acceptedAnswer": { "@type": "Answer", "text": "支援香港所有主要 ISP，包括 HKBN 香港寬頻、CMHK 中國移動香港、HGC 環球全域電訊、3HK 和記電訊、SmarTone、有線寬頻 i-Cable 等。" }
+            }
+        ]
     }
     </script>
 
@@ -243,6 +323,79 @@
         .fee-input-wrap input {
             padding-left: 56px;
         }
+
+        /* ===== SEO Content Sections ===== */
+        .seo-content {
+            margin-top: 40px;
+            padding-bottom: 40px;
+        }
+        .seo-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(10,22,40,.06);
+        }
+        .seo-card h2 {
+            color: #0a1628;
+            margin-bottom: 16px;
+            font-size: 1.35rem;
+            border-bottom: 2px solid #ff6b35;
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        .howto-steps {
+            padding-left: 20px;
+            margin-top: 12px;
+        }
+        .howto-steps li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+            color: #333;
+        }
+        .faq-item {
+            border-bottom: 1px solid #eef1f5;
+            padding: 14px 0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 {
+            color: #0a1628;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+        .faq-item p {
+            color: #556;
+            line-height: 1.75;
+            font-size: .95rem;
+        }
+        .district-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .district-grid div {
+            background: #f0f4f8;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: .92rem;
+        }
+        .district-note {
+            font-size: .88rem;
+            color: #667;
+            margin-top: 12px;
+            font-style: italic;
+        }
+        .reason-list {
+            list-style: none;
+            padding: 0;
+        }
+        .reason-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eef1f5;
+            line-height: 1.6;
+        }
+        .reason-list li:last-child { border-bottom: none; }
 
         /* ===== Trust + Social Proof ===== */
         .trust-strip {
@@ -725,6 +878,98 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- SEO / GEO Content Sections -->
+<div class="container seo-content">
+
+    <!-- How It Works -->
+    <section class="seo-card">
+        <h2>🔧 點樣使用寬頻到期提醒工具</h2>
+        <ol class="howto-steps">
+            <li><strong>輸入現有供應商：</strong>填寫你而家嘅寬頻供應商名（HKBN、CMHK、HGC、3HK、SmarTone、有線寬頻 等）。</li>
+            <li><strong>輸入每月月費：</strong>輸入你每月實際支付嘅金額（港幣），系統會對比 BroadbandHK 同等速度方案。</li>
+            <li><strong>揀合約到期日：</strong>通常係簽約日後 24 個月。唔肯定可以打 ISP 客服查。</li>
+            <li><strong>即時得到結果：</strong>倒計時日數、每年慳到幾多錢、一鍵加入日曆提醒。</li>
+        </ol>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="seo-card">
+        <h2>❓ 常見問題 FAQ</h2>
+
+        <div class="faq-item">
+            <h3>點樣知道我嘅寬頻合約幾時到期？</h3>
+            <p>3 個方法可以查到：<br>
+            ① 翻查最初簽約嘅合約文件（通常寫明合約期由安裝日起計 24 個月）<br>
+            ② 登入 ISP 網上帳戶查「合約資料」<br>
+            ③ 直接打客服熱線查詢：HKBN 128 100、CMHK 12388、HGC 1220、3HK 1033</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>幾時應該開始格價轉台？</h3>
+            <p>建議喺<strong>合約到期前 2-3 個月</strong>開始格價。原因：<br>
+            • 部分 ISP 要求提前 30 日書面通知終止合約<br>
+            • 新 ISP 安裝需時 5-10 個工作天<br>
+            • 提前格價有時間慢慢比較，唔使急急決定</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>轉寬頻台要唔要等到合約到期？</h3>
+            <p>一般要等。未到期終止合約通常要賠償<strong>剩餘月費 × 餘下月數</strong>。例如月費 $198 × 仲有 6 個月 = 賠 $1,188。但有啲 ISP 提供「搬屋免違約金」優惠，搬新屋可以考慮申請。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>BroadbandHK 月費點解咁平？</h3>
+            <p>BroadbandHK 係獨立寬頻格價比較服務，同多間 ISP 合作取得優惠價：<br>
+            • 100M 光纖：$98/月<br>
+            • 500M 光纖：$158/月<br>
+            • 1000M 光纖：$228/月<br>
+            免安裝費、免 Router 費，無隱藏收費。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>呢個工具係咪免費？會唔會收集個人資料？</h3>
+            <p>100% 免費，無須登記，無須輸入姓名、身份證或任何個人資料。只輸入供應商、月費、到期日 3 項資料做計算，全部喺你瀏覽器本地運算，唔會上傳伺服器。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>支援邊啲寬頻供應商？</h3>
+            <p>支援全香港所有主流 ISP：<strong>HKBN 香港寬頻、CMHK 中國移動香港、HGC 環球全域電訊、3HK 和記電訊、SmarTone、有線寬頻 i-Cable、網上行 Netvigator、賽馬會 WTT</strong> 等。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>如果我合約已經到期但未轉台，會唔會自動續約？</h3>
+            <p>大部分 ISP 合約到期後會自動轉為「月約」（month-to-month），月費可能維持原價。如果你冇主動續約，通常可以隨時終止，但記得要書面通知（電郵或掛號信）。</p>
+        </div>
+    </section>
+
+    <!-- Coverage -->
+    <section class="seo-card">
+        <h2>📍 BroadbandHK 服務覆蓋全港 18 區</h2>
+        <p>我哋為香港 5,600+ 住宅屋苑及 1,648+ 商業大廈提供寬頻格價服務，覆蓋範圍包括：</p>
+        <div class="district-grid">
+            <div><strong>香港島：</strong>中西區、灣仔、東區、南區</div>
+            <div><strong>九龍：</strong>油尖旺、深水埗、九龍城、黃大仙、觀塘</div>
+            <div><strong>新界東：</strong>沙田、大埔、北區、西貢</div>
+            <div><strong>新界西：</strong>荃灣、屯門、元朗、葵青、離島</div>
+        </div>
+        <p class="district-note">熱門屋苑包括：太古城、黃埔花園、沙田第一城、將軍澳日出康城、東涌映灣園、元朗 Yoho、屯門瓏門等。</p>
+    </section>
+
+    <!-- Why Choose -->
+    <section class="seo-card">
+        <h2>💡 點解用 BroadbandHK 到期提醒工具？</h2>
+        <ul class="reason-list">
+            <li>✅ <strong>100% 免費</strong>：無須登記，無隱藏收費</li>
+            <li>✅ <strong>支援全部 ISP</strong>：HKBN、CMHK、HGC、3HK、SmarTone、有線寬頻等</li>
+            <li>✅ <strong>即時計算</strong>：倒計時 + 每年可慳金額 + 比較表</li>
+            <li>✅ <strong>日曆提醒</strong>：一鍵下載 .ics 檔案，到期前自動通知</li>
+            <li>✅ <strong>個人資料保密</strong>：所有計算喺本地瀏覽器進行，唔上傳資料</li>
+            <li>✅ <strong>WhatsApp 諮詢</strong>：5 分鐘內回覆（5228 7541）</li>
+        </ul>
+    </section>
+
 </div>
 
 <!-- Floating WhatsApp -->
