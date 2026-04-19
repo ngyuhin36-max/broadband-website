@@ -44,6 +44,28 @@ REPLACEMENT_GA_ONLY = (
     + '</script>'
 )
 
+SHIELD_CORE_ADS_ONLY = (
+    "(function(){var n=navigator,w=window;function b(){"
+    "if(n.webdriver===true)return 1;"
+    "if(/HeadlessChrome|PhantomJS|Electron|puppeteer|playwright|slimerjs/i.test(n.userAgent))return 1;"
+    "if(w.callPhantom||w._phantom||w.__selenium_unwrapped||w.__webdriver_evaluate||w.__driver_evaluate||w.__fxdriver_evaluate||w.domAutomation||w.domAutomationController)return 1;"
+    "if(!n.languages||n.languages.length===0)return 1;"
+    "if(n.plugins&&n.plugins.length===0&&!/Mobi|Android|iPhone|iPad/i.test(n.userAgent))return 1;"
+    "return 0}"
+    "w.dataLayer=w.dataLayer||[];function gtag(){dataLayer.push(arguments)}w.gtag=gtag;"
+    "if(!b()){"
+    "var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-959473638';document.head.appendChild(s);"
+    "gtag('js',new Date());gtag('config','AW-959473638');"
+    "}})();"
+)
+
+REPLACEMENT_ADS_ONLY = (
+    '<!-- Google Ads (with bot shield) -->\n'
+    '<script>\n'
+    + SHIELD_CORE_ADS_ONLY
+    + "\n</script>"
+)
+
 PATTERN_FULL = re.compile(
     r'<script async src="https://www\.googletagmanager\.com/gtag/js\?id=G-23EZE5P385"></script>'
     r'\s*<script>[\s\S]*?AW-959473638[\s\S]*?</script>',
@@ -56,12 +78,14 @@ PATTERN_GA_ONLY = re.compile(
     re.MULTILINE,
 )
 
+PATTERN_ADS_ONLY = re.compile(
+    r'<script async src="https://www\.googletagmanager\.com/gtag/js\?id=AW-959473638"></script>'
+    r'\s*<script>(?:(?!G-23EZE5P385)[\s\S])*?</script>',
+    re.MULTILINE,
+)
+
 
 def is_target(path: Path) -> bool:
-    # Skip pages/ (20k+ property pages, low risk, deal with later)
-    parts = path.parts
-    if 'pages' in parts:
-        return False
     return path.suffix == '.html'
 
 
@@ -87,6 +111,8 @@ def main():
         new_text, n = PATTERN_FULL.subn(REPLACEMENT_FULL, text, count=1)
         if n == 0:
             new_text, n = PATTERN_GA_ONLY.subn(REPLACEMENT_GA_ONLY, text, count=1)
+        if n == 0:
+            new_text, n = PATTERN_ADS_ONLY.subn(REPLACEMENT_ADS_ONLY, text, count=1)
         if n == 0:
             skipped_nomatch += 1
             continue
