@@ -813,7 +813,7 @@
 
         <!-- CTA -->
         <div class="cta-section">
-            <a href="https://wa.me/85252287541" target="_blank" rel="noopener" class="btn-whatsapp" id="whatsappBtn">
+            <a href="https://api.whatsapp.com/send?phone=85252287541" target="_blank" rel="noopener" class="btn-whatsapp" id="whatsappBtn">
                 💬 WhatsApp 即時查詢
             </a>
             <br>
@@ -835,7 +835,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="footer-links">
-        <a href="https://wa.me/85252287541" target="_blank" rel="noopener">💬 WhatsApp 查詢</a>
+        <a href="https://api.whatsapp.com/send?phone=85252287541" target="_blank" rel="noopener">💬 WhatsApp 查詢</a>
         <a href="https://broadbandhk.com">broadbandhk.com</a>
     </div>
     <div>&copy; 2026 BroadbandHK. All rights reserved.</div>
@@ -1038,7 +1038,7 @@
 
             // Update WhatsApp link with pre-filled message
             const waMsg = encodeURIComponent(`你好！我用咗格價計算器，想查詢 ${rec.speed}M 寬頻Plan（$${rec.price}/月）。\n住宅類型：${getHousingLabel(answers.housing)}\n使用人數：${answers.users}人`);
-            document.getElementById('whatsappBtn').href = `https://wa.me/85252287541?text=%24%7BwaMsg%7D%60%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20updateProgress%285%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28'progressFill').style.width = '100%';
+            document.getElementById('whatsappBtn').href = `https://api.whatsapp.com/send?phone=85252287541&text=%24%7BwaMsg%7D%60%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20updateProgress%285%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28'progressFill').style.width = '100%';
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 1500);

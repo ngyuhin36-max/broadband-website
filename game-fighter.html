@@ -237,7 +237,7 @@ function shareGame(platform, scoreText) {
   let url = GAME_URL;
   switch(platform) {
     case 'wa':
-      window.open('https://wa.me/?text=' + encodeURIComponent(text + '\n' + url), '_blank'); break;
+      window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text + '\n' + url), '_blank'); break;
     case 'fb':
       window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(text), '_blank'); break;
     case 'copy':

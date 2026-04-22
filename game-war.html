@@ -2029,7 +2029,7 @@ function endGame() {
     const shareUrl = 'https://broadbandhk.com/game-war.html';
 
     html += '<div class="share-btns">';
-    html += '<button class="share-btn wa" onclick="window.open(\'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl) + '\')">📱 WhatsApp</button>';
+    html += '<button class="share-btn wa" onclick="window.open(\'https://api.whatsapp.com/send?text=' + encodeURIComponent(shareText + ' ' + shareUrl) + '\')">📱 WhatsApp</button>';
     html += '<button class="share-btn fb" onclick="window.open(\'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&quote=' + encodeURIComponent(shareText) + '\')">📘 Facebook</button>';
     html += '<button class="share-btn copy" onclick="navigator.clipboard.writeText(\'' + shareText + ' ' + shareUrl + '\');this.textContent=\'已複製！\'">📋 複製</button>';
     html += '<button class="share-btn replay" onclick="location.reload()">🔄 再玩一次</button>';

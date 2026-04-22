@@ -28,7 +28,7 @@ Mesh WiFi 全屋覆蓋，無死角
 設定密碼、查看裝置、訪客 WiFi 一 App 搞掂
 
 想升級你嘅 WiFi 體驗？
-WhatsApp 免費諮詢：wa.me/85252287541
+WhatsApp 免費諮詢：api.whatsapp.com/send?phone=85252287541
 
 了解更多：broadbandhk.com/ai-wifi.html
 
@@ -52,7 +52,7 @@ AI 實時翻譯，唔同語言都溝通到
 
 適合：中小企、初創、多人團隊
 
-WhatsApp 了解詳情：wa.me/85252287541
+WhatsApp 了解詳情：api.whatsapp.com/send?phone=85252287541
 了解更多：broadbandhk.com/ai-automation.html
 
 #LarkAI #AI自動化 #中小企 #團隊協作 #工作效率 #BroadbandHK #數碼轉型 #AI助手
@@ -78,7 +78,7 @@ BroadbandHK 推出「真．安全連線」：
 即時異常警報 + 事件回應
 
 保護你嘅業務數據，由今日開始
-WhatsApp 查詢：wa.me/85252287541
+WhatsApp 查詢：api.whatsapp.com/send?phone=85252287541
 
 了解更多：broadbandhk.com/ai-monitoring.html
 
@@ -108,7 +108,7 @@ AI 應用場景：
 
 支援概念驗證（PoC），先租後買！
 
-WhatsApp 了解：wa.me/85252287541
+WhatsApp 了解：api.whatsapp.com/send?phone=85252287541
 了解更多：broadbandhk.com/ai-appliance.html
 
 #AIINABOX #AI一體機 #生成式AI #企業AI #數據私隱 #BroadbandHK #數碼轉型 #AI部署
@@ -131,7 +131,7 @@ AI 虛擬助手 24/7 全天候服務
 
 適合：客服中心、零售、服務業
 
-WhatsApp 諮詢：wa.me/85252287541
+WhatsApp 諮詢：api.whatsapp.com/send?phone=85252287541
 了解更多：broadbandhk.com/ai-chatbot.html
 
 #AIChatbot #智能客服 #AI客服 #客戶服務 #自動化 #BroadbandHK #IVR #虛擬助手
@@ -156,7 +156,7 @@ CCTV + 網絡安全
 
 唔使自己請 IT 人，月費搞掂一切
 
-WhatsApp 查詢：wa.me/85252287541
+WhatsApp 查詢：api.whatsapp.com/send?phone=85252287541
 了解更多：broadbandhk.com/ai-automation.html
 
 #SHOPINABOX #零售 #開舖 #POS #零售管理 #BroadbandHK #中小企 #店舖管理
@@ -183,7 +183,7 @@ myWiFi App 隨時管理
 
 升級唔使換寬頻，加個 WiFi 6 Gateway 就得
 
-WhatsApp 了解：wa.me/85252287541
+WhatsApp 了解：api.whatsapp.com/send?phone=85252287541
 broadbandhk.com/ai-wifi.html
 
 #WiFi比較 #AIWiFi #WiFi6 #傳統WiFi #網絡升級 #BroadbandHK #智能家居
@@ -206,7 +206,7 @@ FB 帖 #8：5 個理由用 AI 提升你嘅生意
 BroadbandHK 提供全方位 AI 方案
 由家居到企業，由網絡到客服
 
-WhatsApp 免費諮詢：wa.me/85252287541
+WhatsApp 免費諮詢：api.whatsapp.com/send?phone=85252287541
 broadbandhk.com
 
 #AI2026 #數碼轉型 #中小企 #AI方案 #BroadbandHK #智能商業 #AI升級
@@ -230,7 +230,7 @@ IT 時間減少 60%
 
 適合：辦公室、商舖、倉庫、共享空間
 
-WhatsApp 查詢：wa.me/85252287541
+WhatsApp 查詢：api.whatsapp.com/send?phone=85252287541
 broadbandhk.com/ai-wifi.html
 
 #ManagedWiFi #企業WiFi #RUCKUS #辦公室WiFi #BroadbandHK #WiFi方案
@@ -256,7 +256,7 @@ Security Operation Centre (SOC)：
 
 你專心做生意，我哋幫你守住網絡
 
-WhatsApp 查詢：wa.me/85252287541
+WhatsApp 查詢：api.whatsapp.com/send?phone=85252287541
 broadbandhk.com/ai-monitoring.html
 
 #網絡安全 #PROTECT #SOC #中小企安全 #BroadbandHK #網絡防護 #AI安全

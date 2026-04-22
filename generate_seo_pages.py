@@ -337,7 +337,7 @@ def generate_html(title, description, display_name, name_en, name_zh,
                         <li>免費標準安裝</li>
                         <li>24個月合約</li>
                     </ul>
-                    <a href="https://wa.me/85252287541?text=你好，我想查詢{display_name}嘅100M寬頻Plan" class="cta-btn whatsapp">WhatsApp 查詢</a>
+                    <a href="https://api.whatsapp.com/send?phone=85252287541&text=你好，我想查詢{display_name}嘅100M寬頻Plan" class="cta-btn whatsapp">WhatsApp 查詢</a>
                 </div>
 
                 <div class="plan-card popular">
@@ -350,7 +350,7 @@ def generate_html(title, description, display_name, name_en, name_zh,
                         <li>免費 Wi-Fi Router</li>
                         <li>免安裝費</li>
                     </ul>
-                    <a href="https://wa.me/85252287541?text=你好，我想查詢{display_name}嘅500M寬頻Plan" class="cta-btn whatsapp">WhatsApp 查詢</a>
+                    <a href="https://api.whatsapp.com/send?phone=85252287541&text=你好，我想查詢{display_name}嘅500M寬頻Plan" class="cta-btn whatsapp">WhatsApp 查詢</a>
                 </div>
 
                 <div class="plan-card">
@@ -363,7 +363,7 @@ def generate_html(title, description, display_name, name_en, name_zh,
                         <li>免費 Mesh Wi-Fi</li>
                         <li>7x24 技術支援</li>
                     </ul>
-                    <a href="https://wa.me/85252287541?text=你好，我想查詢{display_name}嘅1000M寬頻Plan" class="cta-btn whatsapp">WhatsApp 查詢</a>
+                    <a href="https://api.whatsapp.com/send?phone=85252287541&text=你好，我想查詢{display_name}嘅1000M寬頻Plan" class="cta-btn whatsapp">WhatsApp 查詢</a>
                 </div>
             </div>
         </div>
@@ -372,7 +372,7 @@ def generate_html(title, description, display_name, name_en, name_zh,
             <h2>想知 {display_name} 邊間寬頻最抵？</h2>
             <p>我哋免費幫你比較所有覆蓋 {display_name} 嘅寬頻供應商，搵出最平最快嘅Plan！</p>
             <div class="cta-buttons">
-                <a href="https://wa.me/85252287541?text=你好，我住{display_name}，想查詢寬頻Plan" class="cta-btn whatsapp">WhatsApp 免費查詢</a>
+                <a href="https://api.whatsapp.com/send?phone=85252287541&text=你好，我住{display_name}，想查詢寬頻Plan" class="cta-btn whatsapp">WhatsApp 免費查詢</a>
                 <a href="tel:+85252287541" class="cta-btn">致電查詢</a>
             </div>
         </div>
@@ -404,7 +404,7 @@ def generate_html(title, description, display_name, name_en, name_zh,
 
     <div class="footer">
         <p>&copy; {datetime.now().year} SpeedNet 寬頻比較 | <a href="{SITE_URL}/">broadbandhk.com</a></p>
-        <p style="margin-top:8px;">免費寬頻格價比較服務 | WhatsApp: <a href="https://wa.me/85252287541">6038 1533</a></p>
+        <p style="margin-top:8px;">免費寬頻格價比較服務 | WhatsApp: <a href="https://api.whatsapp.com/send?phone=85252287541">6038 1533</a></p>
     </div>
 </body>
 </html>"""
@@ -489,7 +489,7 @@ def generate_district_page(district_en, district_zh, buildings):
         <div class="cta-section">
             <h2>搵唔到你嘅大廈？</h2>
             <p style="margin:15px 0;color:#666;">WhatsApp 我哋，免費幫你查詢任何地址嘅寬頻覆蓋情況！</p>
-            <a href="https://wa.me/85252287541?text=你好，我住{district_zh}，想查詢寬頻Plan" class="cta-btn">WhatsApp 免費查詢</a>
+            <a href="https://api.whatsapp.com/send?phone=85252287541&text=你好，我住{district_zh}，想查詢寬頻Plan" class="cta-btn">WhatsApp 免費查詢</a>
         </div>
     </div>
     <div class="footer">

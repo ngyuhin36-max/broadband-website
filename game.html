@@ -2471,7 +2471,7 @@ function getShareText() {
 
 function shareWhatsApp() {
     const text = encodeURIComponent(getShareText());
-    window.open('https://wa.me/?text=' + text, '_blank');
+    window.open('https://api.whatsapp.com/send?text=' + text, '_blank');
 }
 
 function shareFacebook() {

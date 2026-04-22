@@ -238,7 +238,7 @@ window.addEventListener('scroll', () => {
         let content = html.replace(/\n/g, '<br>');
 
         if (wa) {
-            content += `<br><a href="https://wa.me/85252287541?text=${encodeURIComponent(wa.text)}" target="_blank" class="chat-wa-btn">📱 ${wa.label}</a>`;
+            content += `<br><a href="https://api.whatsapp.com/send?phone=85252287541&text=${encodeURIComponent(wa.text)}" target="_blank" class="chat-wa-btn">📱 ${wa.label}</a>`;
         }
 
         if (options && options.length > 0) {
@@ -285,7 +285,7 @@ function updateSearchLink() {
     var btn = document.getElementById('estateSearchBtn');
     var estate = input ? input.value.trim() : '';
     if (btn) {
-        btn.href = 'https://wa.me/85252287541?text=' + encodeURIComponent('你好，我想查詢「' + (estate || '我的屋苑') + '」嘅寬頻覆蓋同方案');
+        btn.href = 'https://api.whatsapp.com/send?phone=85252287541&text=' + encodeURIComponent('你好，我想查詢「' + (estate || '我的屋苑') + '」嘅寬頻覆蓋同方案');
     }
 }
 (function() {

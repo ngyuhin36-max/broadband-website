@@ -64,7 +64,7 @@ ARTICLES = [
 
             <h2>搬屋後 1 星期</h2>
             <ul>
-                <li><strong>寬頻安裝</strong> — 如果提早安排，搬入即有網用。<a href="https://wa.me/85252287541?text=你好，我剛搬屋想查詢寬頻安裝" style="color:#2563eb;font-weight:600;">WhatsApp BroadbandHK 即日安排 →</a></li>
+                <li><strong>寬頻安裝</strong> — 如果提早安排，搬入即有網用。<a href="https://api.whatsapp.com/send?phone=85252287541&text=你好，我剛搬屋想查詢寬頻安裝" style="color:#2563eb;font-weight:600;">WhatsApp BroadbandHK 即日安排 →</a></li>
                 <li><strong>傢俬歸位</strong> — 大型傢俬先定位，再處理細件</li>
                 <li><strong>鄰居打招呼</strong> — 尤其住唐樓或舊區，同鄰居建立好關係好重要</li>
                 <li><strong>更新地址</strong> — 檢查有冇漏咗邊間公司/機構未更新地址</li>
@@ -236,7 +236,7 @@ ARTICLES = [
             </ul>
 
             <div class="tip-box">
-                <strong>BroadbandHK 建議：</strong>WFH 用家最少需要 100M 寬頻。如果你成日要開視像會議 + 用 VPN，建議升級到 500M。<a href="https://wa.me/85252287541?text=你好，我在家工作想查詢適合嘅寬頻方案" style="color:#2563eb;font-weight:600;">WhatsApp 查詢最適合你嘅方案 →</a>
+                <strong>BroadbandHK 建議：</strong>WFH 用家最少需要 100M 寬頻。如果你成日要開視像會議 + 用 VPN，建議升級到 500M。<a href="https://api.whatsapp.com/send?phone=85252287541&text=你好，我在家工作想查詢適合嘅寬頻方案" style="color:#2563eb;font-weight:600;">WhatsApp 查詢最適合你嘅方案 →</a>
             </div>
 """
     },
@@ -356,7 +356,7 @@ ARTICLES = [
             <p>客服畀你嘅第一個 offer 通常唔係最好。你可以講：「我考慮下先，聽日覆你。」掛線之後，通常幾日內佢哋會再打畀你，畀一個更好嘅 offer。</p>
 
             <div class="tip-box">
-                <strong>秘技：</strong>如果你真係唔想自己傾，可以直接 <a href="https://wa.me/85252287541?text=你好，我想查詢寬頻續約有冇更好嘅方案" style="color:#2563eb;font-weight:600;">WhatsApp BroadbandHK</a>，我哋免費幫你比較同配對最啱嘅方案，唔使自己逐間打電話傾。
+                <strong>秘技：</strong>如果你真係唔想自己傾，可以直接 <a href="https://api.whatsapp.com/send?phone=85252287541&text=你好，我想查詢寬頻續約有冇更好嘅方案" style="color:#2563eb;font-weight:600;">WhatsApp BroadbandHK</a>，我哋免費幫你比較同配對最啱嘅方案，唔使自己逐間打電話傾。
             </div>
 
             <h2>第三步：知道幾時走</h2>
@@ -495,7 +495,7 @@ def generate_article(article):
             <li><a href="../partner.html">合作夥伴</a></li>
             <li><a href="../index.html#contact">聯絡我們</a></li>
         </ul>
-        <a href="https://wa.me/85252287541" class="btn btn-small">WhatsApp 查詢</a>
+        <a href="https://api.whatsapp.com/send?phone=85252287541" class="btn btn-small">WhatsApp 查詢</a>
     </div>
 </nav>
 
@@ -530,7 +530,7 @@ def generate_article(article):
     <div class="container">
         <h2 style="color:#fff;font-size:1.8rem;margin-bottom:12px;">寬頻嘅嘢，問 BroadbandHK 就得</h2>
         <p style="color:rgba(255,255,255,0.7);margin-bottom:24px;">免費寬頻顧問，幫你搵最適合嘅方案</p>
-        <a href="https://wa.me/85252287541?text=你好，我想查詢寬頻方案" class="btn btn-primary btn-large" style="background:#22c55e;">WhatsApp 免費查詢</a>
+        <a href="https://api.whatsapp.com/send?phone=85252287541&text=你好，我想查詢寬頻方案" class="btn btn-primary btn-large" style="background:#22c55e;">WhatsApp 免費查詢</a>
     </div>
 </section>
 
