@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAS家用儲存入門：點解要買NAS？點揀？點設定？新手完全指南 — BroadbandHK 知識庫</title>
+    <meta name="description" content="NAS係咩？屋企需要NAS嗎？Synology定QNAP好？NAS選購、設定、應用全攻略。">
+    <meta name="keywords" content="NAS, NAS推薦, 家用NAS, Synology, QNAP, NAS入門, 網絡儲存, NAS設定">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://broadbandhk.com/kb/nas-home-storage-guide.html">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23EZE5P385"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-23EZE5P385');
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://broadbandhk.com/kb/nas-home-storage-guide.html">
+    <meta property="og:title" content="NAS家用儲存入門：點解要買NAS？點揀？點設定？新手完全指南">
+    <meta property="og:description" content="NAS係咩？屋企需要NAS嗎？Synology定QNAP好？NAS選購、設定、應用全攻略。">
+    <meta property="og:image" content="https://broadbandhk.com/og-image.png">
+    <meta property="og:locale" content="zh_HK">
+    <meta property="og:site_name" content="BroadbandHK 寬頻格價比較">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NAS家用儲存入門：點解要買NAS？點揀？點設定？新手完全指南">
+    <meta name="twitter:description" content="NAS係咩？屋企需要NAS嗎？Synology定QNAP好？NAS選購、設定、應用全攻略。">
+    <meta name="twitter:image" content="https://broadbandhk.com/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "NAS家用儲存入門：點解要買NAS？點揀？點設定？新手完全指南",
+        "datePublished": "2026-05-14",
+        "dateModified": "2026-05-14",
+        "author": {"@type": "Organization", "name": "BroadbandHK 寬頻格價比較"},
+        "publisher": {"@type": "Organization", "name": "BroadbandHK 寬頻格價比較"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://broadbandhk.com/kb/nas-home-storage-guide.html"}
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "NAS同外置硬碟有咩分別？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "外置硬碟要接電腦先用得到，NAS係獨立運作、接駁屋企網絡嘅儲存裝置，全屋所有裝置（手機、電腦、Smart TV）都可以隨時存取。仲可以喺外面透過互聯網遠端存取。簡單嚟講，NAS就係你嘅私人雲端硬碟。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "NAS需要幾快嘅寬頻？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "屋企內部用NAS，速度取決於LAN線（1Gbps=125MB/s）同WiFi。寬頻速度主要影響遠端存取。如果你要喺公司存取屋企NAS嘅檔案，上傳速度就好重要——100M寬頻上傳大約12MB/s，500M大約62MB/s。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "NAS硬碟壞咗資料會唔會冇？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "如果只用一隻硬碟（RAID 0或JBOD），硬碟壞咗資料就冇。所以強烈建議用兩隻硬碟做RAID 1（鏡像），一隻壞咗另一隻仲有完整備份。呢個係NAS最重要嘅保護功能。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .kb-hero { padding: 140px 0 60px; text-align: center; background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 60%); }
+        .kb-hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 12px; }
+        .kb-hero p { font-size: 1.1rem; color: var(--gray); }
+        .kb-breadcrumb { padding: 20px 0 0; font-size: 0.9rem; color: var(--gray); }
+        .kb-breadcrumb a { color: var(--primary); text-decoration: none; }
+        .kb-content { padding: 60px 0; }
+        .kb-article { background: var(--white); border-radius: var(--radius); padding: 48px; margin-bottom: 40px; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; }
+        .kb-article h2 { font-size: 1.6rem; font-weight: 900; margin: 32px 0 16px; color: var(--dark); }
+        .kb-article h3 { font-size: 1.3rem; font-weight: 700; margin: 28px 0 12px; color: var(--dark); }
+        .kb-article p { color: var(--gray); font-size: 1rem; line-height: 1.9; margin-bottom: 16px; }
+        .kb-article ul { margin: 16px 0; padding-left: 24px; }
+        .kb-article li { color: var(--gray); margin-bottom: 8px; line-height: 1.8; }
+        .kb-date { color: var(--gray); font-size: 0.85rem; margin-bottom: 20px; }
+        .tip-box { background: #fef3c7; border-left: 4px solid var(--accent); padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+        .tip-box strong { color: var(--dark); }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .comparison-table th, .comparison-table td { padding: 14px 16px; text-align: center; border-bottom: 1px solid #e2e8f0; font-size: 0.95rem; }
+        .comparison-table th { background: var(--primary); color: var(--white); font-weight: 700; }
+        .comparison-table tr:hover { background: #f8fafc; }
+        .related-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+        .related-links a { background: var(--primary-light); color: var(--primary); padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, var(--primary), #2563eb); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 40px 0; }
+        .cta-box a { color: white; background: #25D366; padding: 12px 30px; border-radius: 24px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 12px; }
+        @media (max-width: 768px) {
+            .kb-hero h1 { font-size: 1.6rem; }
+            .kb-article { padding: 24px 16px; }
+            .comparison-table { font-size: 0.8rem; }
+            .comparison-table th, .comparison-table td { padding: 8px 6px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="kb-hero">
+        <div class="container">
+            <div class="kb-breadcrumb"><a href="../index.html">主頁</a> &gt; <a href="../blog.html">知識庫</a> &gt; NAS家用儲存入門</div>
+            <h1>NAS家用儲存入門：點解要買NAS？點揀？點設定？新手完全指南</h1>
+            <p>NAS係咩？屋企需要NAS嗎？Synology定QNAP好？NAS選購、設定、應用全攻略。</p>
+        </div>
+    </section>
+
+    <section class="kb-content">
+        <div class="container">
+            <article class="kb-article">
+                <p class="kb-date">2026 年 5 月 14 日 · BroadbandHK 編輯部</p>
+                
+        <h2>NAS可以做咩？6大用途</h2>
+        
+            <ul>
+                <li><strong>1. 私人雲端：</strong>代替Google Drive/iCloud，唔使月月俾錢、容量自己決定</li>
+                <li><strong>2. 相片備份：</strong>手機相片自動備份到NAS，類似Google相簿但完全私人</li>
+                <li><strong>3. 影片串流：</strong>將電影、劇集放入NAS，全屋電視都可以播放（用Plex/Emby）</li>
+                <li><strong>4. 自動備份：</strong>電腦、手機嘅資料定時自動備份到NAS</li>
+                <li><strong>5. 遠端存取：</strong>喺公司或旅行都可以存取屋企NAS嘅檔案</li>
+                <li><strong>6. 監控錄影：</strong>接駁IP Camera，NAS做錄影同儲存</li>
+            </ul>
+            <div class="tip-box"><strong>💡 慳錢計算：</strong>iCloud 2TB月費$78，一年$936。一部NAS + 2隻4TB硬碟大約$2500，可以用3-5年，長遠慳好多！</div>
+            
+        
+        <h2>新手揀NAS指南</h2>
+        
+            <table class="comparison-table">
+                <tr><th>品牌/型號</th><th>價錢</th><th>硬碟數</th><th>適合</th><th>特色</th></tr>
+                <tr><td>Synology DS224+</td><td>~$2,800</td><td>2</td><td>一般家庭</td><td>系統最好用、App最齊</td></tr>
+                <tr><td>Synology DS124</td><td>~$1,500</td><td>1</td><td>個人入門</td><td>最平Synology</td></tr>
+                <tr><td>QNAP TS-233</td><td>~$1,800</td><td>2</td><td>預算有限</td><td>性價比高</td></tr>
+                <tr><td>QNAP TS-464</td><td>~$4,500</td><td>4</td><td>進階玩家</td><td>擴展性強</td></tr>
+                <tr style="background:#eff6ff;font-weight:600"><td colspan="5">新手推薦：Synology DS224+ — 系統最易用、社區支援最多</td></tr>
+            </table>
+            <p><strong>硬碟推薦：</strong>NAS專用硬碟（如WD Red Plus、Seagate IronWolf），4TB大約$700-900/隻</p>
+            
+        
+        <h2>NAS基本設定教學</h2>
+        
+            <p>以Synology為例，初次設定步驟：</p>
+            <ul>
+                <li><strong>Step 1：</strong>裝入硬碟、接LAN線到Router、接電源開機</li>
+                <li><strong>Step 2：</strong>電腦瀏覽器輸入 find.synology.com 搵到你嘅NAS</li>
+                <li><strong>Step 3：</strong>安裝DSM系統（Synology嘅作業系統）</li>
+                <li><strong>Step 4：</strong>設定RAID模式 — 2隻硬碟建議用SHR（等同RAID 1，資料有備份保護）</li>
+                <li><strong>Step 5：</strong>建立共用資料夾同用戶帳戶</li>
+                <li><strong>Step 6：</strong>安裝Synology Photos（相片備份）、Synology Drive（檔案同步）</li>
+                <li><strong>Step 7：</strong>設定QuickConnect或DDNS，方便遠端存取</li>
+            </ul>
+            
+        
+        <h2>NAS同寬頻嘅配合建議</h2>
+        
+            <p>NAS嘅體驗同你嘅寬頻速度密切相關：</p>
+            <ul>
+                <li><strong>屋內傳輸：</strong>NAS用LAN線（1Gbps）連接Router，屋內傳輸速度約110MB/s，同寬頻速度無關</li>
+                <li><strong>遠端存取：</strong>上傳速度決定你喺外面存取NAS嘅速度。100M寬頻上傳~12MB/s，500M上傳~62MB/s</li>
+                <li><strong>Plex串流：</strong>如果用NAS做Plex Media Server俾屋外嘅人睇，需要上傳速度至少20Mbps（1080p）</li>
+            </ul>
+            <div class="tip-box"><strong>💡 建議：</strong>如果你會經常喺外面存取NAS，建議至少用500M對等寬頻（上下載速度一樣）。用 <a href="https://broadbandhk.com/speed-test.html" style="color:var(--primary)">BroadbandHK 測速工具</a> 確認你嘅上傳速度。</div>
+            
+        
+
+                <h2>常見問題 FAQ</h2>
+                
+        <div style="margin-bottom:20px;">
+            <h3 style="margin-bottom:8px;">NAS同外置硬碟有咩分別？</h3>
+            <p>外置硬碟要接電腦先用得到，NAS係獨立運作、接駁屋企網絡嘅儲存裝置，全屋所有裝置（手機、電腦、Smart TV）都可以隨時存取。仲可以喺外面透過互聯網遠端存取。簡單嚟講，NAS就係你嘅私人雲端硬碟。</p>
+        </div>
+        <div style="margin-bottom:20px;">
+            <h3 style="margin-bottom:8px;">NAS需要幾快嘅寬頻？</h3>
+            <p>屋企內部用NAS，速度取決於LAN線（1Gbps=125MB/s）同WiFi。寬頻速度主要影響遠端存取。如果你要喺公司存取屋企NAS嘅檔案，上傳速度就好重要——100M寬頻上傳大約12MB/s，500M大約62MB/s。</p>
+        </div>
+        <div style="margin-bottom:20px;">
+            <h3 style="margin-bottom:8px;">NAS硬碟壞咗資料會唔會冇？</h3>
+            <p>如果只用一隻硬碟（RAID 0或JBOD），硬碟壞咗資料就冇。所以強烈建議用兩隻硬碟做RAID 1（鏡像），一隻壞咗另一隻仲有完整備份。呢個係NAS最重要嘅保護功能。</p>
+        </div>
+
+                <div class="cta-box">
+                    <h3>想搵最適合你嘅寬頻Plan？</h3>
+                    <p>用我哋嘅免費格價計算器，即刻比較各大供應商最新優惠！</p>
+                    <a href="../calculator.html">免費格價比較 →</a>
+                </div>
+
+                <div class="related-links">
+                    <a href="../blog.html">← 返回知識庫</a>
+                    <a href="../calculator.html">格價計算器</a>
+                    <a href="../speed-test.html">速度測試</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>
