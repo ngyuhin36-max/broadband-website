@@ -46,6 +46,25 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-959473638');
+
+      // Google Ads conversion tracking — fires on WhatsApp / phone clicks
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) !== 'undefined') { window.location = url; }
+        };
+        gtag('event', 'conversion', {
+          'send_to': 'AW-959473638/FjZMCOqYza0cEObPwckD',
+          'event_callback': callback
+        });
+        return false;
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('a[href*="api.whatsapp.com"], a[href*="wa.me"], a[href^="tel:"]').forEach(function (el) {
+          el.addEventListener('click', function () {
+            gtag('event', 'conversion', { 'send_to': 'AW-959473638/FjZMCOqYza0cEObPwckD' });
+          });
+        });
+      });
     </script>
 
     <!-- Google Analytics 4 (with bot shield v2) -->
