@@ -2,7 +2,7 @@
 
 > BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
 
-> 最後更新：2026-05-20
+> 最後更新：2026-05-23
 
 ---
 
@@ -69,7 +69,7 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 
 ---
 
-## 攻略文章（46 篇）
+## 攻略文章（47 篇）
 
 知識庫首頁：https://broadbandhk.com/blog.html
 
@@ -200,6 +200,10 @@ NAS係咩？屋企需要NAS嗎？Synology定QNAP好？NAS選購、設定、應�
 ### 公屋寬頻邊間最平？2026年公屋居屋寬頻格價全攻略
 2026年公屋寬頻邊間最平最穩？比較供應商 A、HKT、供應商 C、供應商 B等供應商喺公屋居屋嘅覆蓋、月費同限制，幫你揀到最適合嘅寬頻計劃。
 - URL: https://broadbandhk.com/kb/public-housing-broadband.html
+
+### 裝修預算全攻略：香港裝修要幾錢？慳錢秘技同避伏指南
+香港裝修每呎幾錢？全屋裝修預算點計？裝修公司點揀？避免超支同中伏嘅實用指南。
+- URL: https://broadbandhk.com/kb/renovation-budget-guide.html
 
 ### Router 選購指南：點揀最適合你屋企的 Router？
 WiFi Router 點揀？Wi-Fi 6 定 Wi-Fi 6E？Mesh Router 又係咩？全面 Router 選購教學，幫你揀到最適合屋企的 Router。
