@@ -2,7 +2,7 @@
 
 > BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
 
-> 最後更新：2026-05-27
+> 最後更新：2026-05-30
 
 ---
 
@@ -69,7 +69,7 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 
 ---
 
-## 攻略文章（48 篇）
+## 攻略文章（49 篇）
 
 知識庫首頁：https://broadbandhk.com/blog.html
 
@@ -172,6 +172,10 @@ WiFi 慢唔一定係寬頻問題！教你正確擺放 Router 位置、設定最�
 ### 香港搬屋全攻略：搬屋公司點揀？Checklist、時間表、慳錢Tips
 香港搬屋要幾錢？搬屋公司邊間好？由搬屋前準備到搬入新屋，一文睇晒搬屋全流程。
 - URL: https://broadbandhk.com/kb/hong-kong-moving-guide.html
+
+### 香港強積金MPF攻略：點揀基金？點整合？點慳管理費？
+MPF揀邊隻基金好？管理費點慳？轉工MPF點處理？強積金實用攻略全面睇。
+- URL: https://broadbandhk.com/kb/hong-kong-mpf-guide.html
 
 ### 小朋友上網安全：家長必知嘅Router設定同parental control教學
 保護小朋友上網安全！Router 家長監控設定教學、限制上網時間、封鎖不良網站、YouTube Kids 設定全攻略。
