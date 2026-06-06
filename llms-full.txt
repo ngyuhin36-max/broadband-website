@@ -2,7 +2,7 @@
 
 > BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
 
-> 最後更新：2026-06-03
+> 最後更新：2026-06-06
 
 ---
 
@@ -69,7 +69,7 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 
 ---
 
-## 攻略文章（50 篇）
+## 攻略文章（51 篇）
 
 知識庫首頁：https://broadbandhk.com/blog.html
 
@@ -236,6 +236,10 @@ Smart TV 上網點設定？串流平台需要幾多網速？4K HDR要幾快？�
 ### 寬頻速度測試：點樣測你嘅真實網速？
 詳細教你點樣正確測試寬頻速度，常用測速工具介紹，點解測出嚟同合約唔同，影響網速嘅因素同解決方法。
 - URL: https://broadbandhk.com/kb/speed-test-guide.html
+
+### 開網店全攻略：香港開網店要幾錢？平台比較、流程、慳成本秘技
+想開網店但唔知從何入手？Shopify定Shopline好？成本幾多？由零開始嘅網店全攻略。
+- URL: https://broadbandhk.com/kb/start-online-shop-guide.html
 
 ### Netflix/Disney+ 需要幾多 M 寬頻？串流睇片全攻略
 Netflix 4K 要幾多 M？Disney+ 睇片成日 buffer？一文睇清各串流平台嘅寬頻速度需求，幫你揀啱最適合嘅寬頻速度。
