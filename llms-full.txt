@@ -2,7 +2,7 @@
 
 > BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
 
-> 最後更新：2026-06-06
+> 最後更新：2026-06-10
 
 ---
 
@@ -69,7 +69,7 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 
 ---
 
-## 攻略文章（51 篇）
+## 攻略文章（52 篇）
 
 知識庫首頁：https://broadbandhk.com/blog.html
 
@@ -176,6 +176,10 @@ WiFi 慢唔一定係寬頻問題！教你正確擺放 Router 位置、設定最�
 ### 香港強積金MPF攻略：點揀基金？點整合？點慳管理費？
 MPF揀邊隻基金好？管理費點慳？轉工MPF點處理？強積金實用攻略全面睇。
 - URL: https://broadbandhk.com/kb/hong-kong-mpf-guide.html
+
+### 香港創業成本計算：開公司要幾錢？註冊、租Office、營運成本全拆解
+想喺香港創業？公司註冊幾錢？租Office定Co-working好？每月營運成本計算全攻略。
+- URL: https://broadbandhk.com/kb/hong-kong-startup-cost-guide.html
 
 ### 香港稅務慳稅攻略：薪俸稅點計？扣稅項目有邊啲？報稅實用指南
 香港打工仔點樣合法慳稅？薪俸稅計算方法、扣稅項目一覽、報稅Tips全攻略。
