@@ -2,7 +2,7 @@
 
 > BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
 
-> 最後更新：2026-06-10
+> 最後更新：2026-06-13
 
 ---
 
@@ -69,7 +69,7 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 
 ---
 
-## 攻略文章（52 篇）
+## 攻略文章（53 篇）
 
 知識庫首頁：https://broadbandhk.com/blog.html
 
@@ -280,6 +280,10 @@ WFH 上網慢、Zoom 斷線、VPN 連唔到？教你用最少錢解決在家工�
 ### WiFi 慢到想掟 Router？10 招即學即用提升上網速度
 WiFi慢點算？10個實用方法即刻提升屋企上網速度。教你Router擺位、揀5GHz頻段、更新韌體、用Mesh WiFi等技巧，簡單易學。
 - URL: https://broadbandhk.com/kb/wifi-speed-tips.html
+
+### 在家工作WFH設定指南：寬頻、設備、空間規劃全攻略
+WFH點樣設定最舒服高效？寬頻要幾快？視像會議器材點揀？在家工作全面設定指南。
+- URL: https://broadbandhk.com/kb/work-from-home-setup-guide.html
 
 
 ---
