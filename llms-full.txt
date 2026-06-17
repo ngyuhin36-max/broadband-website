@@ -2,7 +2,7 @@
 
 > BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
 
-> 最後更新：2026-06-13
+> 最後更新：2026-06-17
 
 ---
 
@@ -69,7 +69,7 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 
 ---
 
-## 攻略文章（53 篇）
+## 攻略文章（54 篇）
 
 知識庫首頁：https://broadbandhk.com/blog.html
 
@@ -188,6 +188,10 @@ MPF揀邊隻基金好？管理費點慳？轉工MPF點處理？強積金實用�
 ### 小朋友上網安全：家長必知嘅Router設定同parental control教學
 保護小朋友上網安全！Router 家長監控設定教學、限制上網時間、封鎖不良網站、YouTube Kids 設定全攻略。
 - URL: https://broadbandhk.com/kb/kids-internet-safety.html
+
+### 觀塘區生活指南：寬頻覆蓋、交通、美食、租樓全攻略
+觀塘區住得好唔好？寬頻邊間覆蓋最好？租金幾錢？交通方便嗎？觀塘區生活全面睇。
+- URL: https://broadbandhk.com/kb/kwun-tong-district-guide.html
 
 ### Mesh WiFi 全屋覆蓋教學：大單位救星
 Mesh WiFi 係咩？同普通 Router 有咩分別？幾時需要 Mesh？設定教學、推薦品牌、節點擺位全攻略，解決 WiFi 死角問題。
