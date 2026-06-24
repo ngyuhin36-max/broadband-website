@@ -2,7 +2,7 @@
 
 > BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
 
-> 最後更新：2026-06-20
+> 最後更新：2026-06-24
 
 ---
 
@@ -69,7 +69,7 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 
 ---
 
-## 攻略文章（55 篇）
+## 攻略文章（56 篇）
 
 知識庫首頁：https://broadbandhk.com/blog.html
 
@@ -232,6 +232,10 @@ WiFi Router 點揀？Wi-Fi 6 定 Wi-Fi 6E？Mesh Router 又係咩？全面 Route
 ### Router擺位同設定全攻略：點放先收得最好？15個必改設定
 Router放錯位置速度減半！教你最佳擺位、必改嘅15個設定、頻道優化，全屋WiFi速度即時提升。
 - URL: https://broadbandhk.com/kb/router-placement-settings-guide.html
+
+### 沙田區生活指南：寬頻覆蓋、交通、屋苑、教育全攻略
+沙田區住得好唔好？寬頻覆蓋情況、交通配套、名校選擇、租樓指南全面睇。
+- URL: https://broadbandhk.com/kb/sha-tin-district-guide.html
 
 ### Smart Home 智能家居寬頻需求：幾多裝置需要幾多M？
 智能家居裝置越嚟越多，你嘅寬頻夠用嗎？IP Cam、智能燈泡、Robot 吸塵機、智能門鎖嘅網速需求全攻略。
