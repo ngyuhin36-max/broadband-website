@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>頁面搵唔到｜返回主頁 - BroadbandHK</title>
+<meta name="robots" content="noindex, follow">
+<!-- 3 秒後自動轉去主頁（保留返主頁按鈕，對 SEO 較友善） -->
+<meta http-equiv="refresh" content="3; url=/">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang HK","Microsoft JhengHei",sans-serif;background:linear-gradient(135deg,#0a1628 0%,#1a3a6e 100%);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.box{max-width:520px}
+.logo{font-size:1.4em;font-weight:700;margin-bottom:24px}
+.logo span{color:#ff6b35}
+.code{font-size:5em;font-weight:800;color:#ff6b35;line-height:1}
+h1{font-size:1.5em;margin:14px 0 10px}
+p{opacity:.9;margin-bottom:8px;line-height:1.7}
+.count{color:#ff6b35;font-weight:700}
+.btn{display:inline-block;margin-top:22px;background:#ff6b35;color:#fff;text-decoration:none;padding:12px 30px;border-radius:26px;font-weight:700;transition:transform .15s}
+.btn:hover{transform:scale(1.05)}
+.wa{display:block;margin-top:16px;color:#25D366;text-decoration:none;font-size:.95em}
+</style>
+</head>
+<body>
+<div class="box">
+<div class="logo"><span>⚡</span> BroadbandHK</div>
+<div class="code">404</div>
+<h1>揾唔到呢個頁面</h1>
+<p>你要搵嘅頁面可能已經搬咗或者唔存在。</p>
+<p><span class="count" id="c">3</span> 秒後自動返去主頁…</p>
+<a class="btn" href="/">🏠 即刻返主頁</a>
+<a class="wa" href="https://api.whatsapp.com/send?phone=85252287541">💬 WhatsApp 查詢 5228 7541</a>
+</div>
+<script>
+// 倒數顯示 + 保險轉頁（如瀏覽器唔支援 meta refresh）
+(function(){var n=3,el=document.getElementById('c');var t=setInterval(function(){n--;if(el)el.textContent=n;if(n<=0){clearInterval(t);window.location.replace('/');}},1000);})();
+</script>
+</body>
+</html>
