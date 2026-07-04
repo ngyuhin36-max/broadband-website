@@ -2,7 +2,7 @@
 
 > BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
 
-> 最後更新：2026-07-01
+> 最後更新：2026-07-04
 
 ---
 
@@ -69,7 +69,7 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 
 ---
 
-## 攻略文章（58 篇）
+## 攻略文章（59 篇）
 
 知識庫首頁：https://broadbandhk.com/blog.html
 
@@ -84,6 +84,10 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 ### AI 人工智能需要幾多網速？ChatGPT、Gemini、Copilot 上網需求全攻略
 2026年AI工具大爆發！ChatGPT、Google Gemini、Microsoft Copilot 需要幾多M寬頻？AI 生成圖片、影片需要幾快網速？一文睇清。
 - URL: https://broadbandhk.com/kb/ai-broadband-guide.html
+
+### AI工具推薦2026：10個免費/平價AI工具幫你提升工作效率
+2026年最實用嘅AI工具推薦：寫文、整圖、做PPT、分析數據，10個AI工具幫你慳時間。
+- URL: https://broadbandhk.com/kb/ai-tools-recommendations-2026.html
 
 ### 【2026年】寬頻邊間好？全港6大供應商月費比較
 2026年寬頻邊間好？比較供應商 A、HKT/Netvigator、供應商 C、供應商 B、供應商 F、供應商 D六大供應商月費、速度及優缺點，幫你揀到最抵最啱用嘅寬頻計劃。
