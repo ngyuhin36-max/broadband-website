@@ -2,7 +2,7 @@
 
 > BroadbandHK 係寬頻專家，提供免費寬頻顧問服務，覆蓋全港 18 區超過 5,600 個屋苑及 1,648 個商業物業。寬頻嘅嘢，問我哋就得。
 
-> 最後更新：2026-07-04
+> 最後更新：2026-07-08
 
 ---
 
@@ -69,7 +69,7 @@ BroadbandHK 寬頻專家，免費寬頻顧問服務。所有計劃免安裝費�
 
 ---
 
-## 攻略文章（59 篇）
+## 攻略文章（60 篇）
 
 知識庫首頁：https://broadbandhk.com/blog.html
 
@@ -172,6 +172,10 @@ WiFi 慢唔一定係寬頻問題！教你正確擺放 Router 位置、設定最�
 ### 香港車位投資指南：車位值唔值得買？回報率、風險、揀位攻略
 香港車位投資值唔值得？回報率幾多？邊區車位最值得買？車位投資入門全攻略。
 - URL: https://broadbandhk.com/kb/hong-kong-car-park-investment.html
+
+### 香港免費WiFi熱點地圖：邊度有免費WiFi？速度快唔快？安全嗎？
+香港免費WiFi邊度有？Wi-Fi.HK速度點？用公共WiFi安唔安全？免費WiFi熱點全攻略。
+- URL: https://broadbandhk.com/kb/hong-kong-free-wifi-hotspot-map.html
 
 ### 香港搬屋全攻略：搬屋公司點揀？Checklist、時間表、慳錢Tips
 香港搬屋要幾錢？搬屋公司邊間好？由搬屋前準備到搬入新屋，一文睇晒搬屋全流程。
