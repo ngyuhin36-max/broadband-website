@@ -1,11 +1,5 @@
 [
   {
-    "date": "2026-05-27",
-    "articles_count": 48,
-    "districts_count": 20,
-    "llms_full_updated": true
-  },
-  {
     "date": "2026-05-30",
     "articles_count": 49,
     "districts_count": 20,
@@ -175,6 +169,12 @@
   },
   {
     "date": "2026-09-05",
+    "articles_count": 62,
+    "districts_count": 20,
+    "llms_full_updated": true
+  },
+  {
+    "date": "2026-09-09",
     "articles_count": 62,
     "districts_count": 20,
     "llms_full_updated": true
