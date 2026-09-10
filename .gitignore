@@ -2,3 +2,12 @@ client_secret*
 *.pickle
 token.json
 google-ads.yaml
+
+# batch patch helpers / backups (2026-09)
+_patch_*.py
+_scan_*.py
+_backup_*/
+_commercial_pages.json
+_remaining_buckets.json
+_patch_*_report.json
+__pycache__/
